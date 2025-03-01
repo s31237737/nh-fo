@@ -1,18 +1,25 @@
 <template>
   <v-footer
-    class="bg-grey-darken-3 text-white d-flex flex-column"
-    height="100"
+    class="d-flex"
   >
-    <div class="d-flex justify-space-between align-center w-100 px-6 py-3">
-      <div class="text-h6 font-weight-bold">
-        NH Nonghyup
-      </div>
-      <div class="text-caption">
-        개인정보 처리 방침
-      </div>
-    </div>
-    <div class="w-100 text-center py-2 text-caption bg-grey-darken-4">
-      © 2014 LG Electronics. All rights reserved.
+    <router-link to="/">
+      <v-img
+        :width="130"
+        alt="NH Nonghyup"
+        src="@/assets/images/footer_logo.png"
+      />
+    </router-link>
+    <v-spacer />
+    <div>
+      <router-link to="/">
+        <p>
+          개인정보 처리 방침
+        </p>
+      </router-link>
+
+      <p class="w-100 text-center py-2 text-caption bg-grey-darken-4">
+        © 2014 LG Electronics. All rights reserved.
+      </p>
     </div>
   </v-footer>
 </template>
