@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     v-if="!isMobile"
-    height="52"
+    height="80"
   >
     <router-link to="/">
       <v-img
@@ -19,12 +19,19 @@
     </template>
   </v-app-bar>
   <template v-else>
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      floating
+    >
+      <!--  -->
+    </v-navigation-drawer>
     <v-app-bar
-      height="80"
+      height="52"
     >
       <router-link to="/">
         <v-img
-          :width="130"
+          :width="120"
           alt="NH Nonghyup"
           src="@/assets/images/logo.png"
         />
@@ -34,13 +41,6 @@
         <v-app-bar-nav-icon @click="drawer = !drawer" />
       </template>
     </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      temporary
-      floating
-    >
-      <!--  -->
-    </v-navigation-drawer>
   </template>
 </template>
 

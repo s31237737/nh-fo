@@ -6,7 +6,7 @@
 
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
-import '@/styles/reset.scss'
+import '@/styles/overrides.scss'
 import '@/styles/main.scss'
 
 // Composables
