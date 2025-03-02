@@ -20,10 +20,20 @@
           <p>© 2014 LG Electronics. All rights reserved.</p>
         </v-col>
       </v-row>
+      <v-row>
+        <p v-if="!isMobile">
+          💻 PC 화면입니다!
+        </p>
+        <p v-else>
+          📱 모바일 화면입니다!
+        </p>
+      </v-row>
     </v-container>
   </v-footer>
 </template>
 
-<script setup></script>
+<script setup>
+import { inject } from 'vue';
 
-<style scoped lang="sass"></style>
+const isMobile = inject('isMobile');
+</script>
