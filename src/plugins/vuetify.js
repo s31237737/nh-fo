@@ -17,9 +17,16 @@ export default createVuetify({
   theme: {
     defaultTheme: 'light',
   },
+  display: {
+    mobileBreakpoint: 'sm'
+  },
   defaults: {
-    Vfooter: {
-      height: "100"
+    VContainer: {
+      fluid: true,
+      maxWidth: '1240',
+    },
+    VFooter: {
+      height: '100',
     }
   }
 })
