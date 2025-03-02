@@ -1,14 +1,12 @@
 <template>
-  <v-row>
-    <div>
-      <p v-if="!isMobile">
-        💻 PC 화면입니다!
-      </p>
-      <p v-else>
-        📱 모바일 화면입니다!
-      </p>
-    </div>
-  </v-row>
+  <div>
+    <p v-if="!isMobile">
+      💻 PC 화면입니다!
+    </p>
+    <p v-else>
+      📱 모바일 화면입니다!
+    </p>
+  </div>
   <v-row>
     <v-col
       v-for="n in 4"

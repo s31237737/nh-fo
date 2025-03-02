@@ -7,7 +7,7 @@
 // https://vuetifyjs.com/features/sass-variables/`
 
 @forward 'vuetify/settings' with (
-  $layers: true,
+  // $layers: true,
   $color-pack: false,
   $footer-background: #212121,
 );

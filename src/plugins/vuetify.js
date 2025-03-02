@@ -31,10 +31,11 @@ export default createVuetify({
     VContainer: {
       fluid: true,
       maxWidth: '1280',
-      style: {
-        'margin' : '0 auto',
-        'padding': '0 20px',
-      }
-    },
+      style: [{
+        display: 'flex',
+        margin: '0 auto',
+        padding: '0 20px',
+      }]
+    }
   }
 })
