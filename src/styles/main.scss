@@ -1,0 +1,29 @@
+@forward "fonts";
+@forward "typography";
+@forward "layout";
+@forward "style";
+
+ul,
+li {
+  list-style: none;
+}
+b,
+strong {
+  font-weight: 600;
+}
+em {
+  font-style: normal;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

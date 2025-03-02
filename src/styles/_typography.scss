@@ -1,0 +1,69 @@
+@use "variables" as *;
+$font-family: "Pretendard";
+
+@mixin typography($size, $weight, $line-height) {
+  font-size: $size !important;
+  font-weight: $weight !important;
+  line-height: $line-height !important;
+  letter-spacing: 0 !important;
+}
+
+.title-1 {
+  @include typography(1.5rem, 700, 125%);
+}
+
+.title-2 {
+  @include typography(1.125rem, 600, 125%);
+}
+
+.text-1 {
+  @include typography(1rem, 400, 150%);
+}
+
+.text-1-md {
+  @include typography(1rem, 600, 150%);
+}
+
+.text-1-bd {
+  @include typography(1rem, 700, 150%);
+}
+
+.text-2 {
+  @include typography(0.875rem, 400, 150%);
+}
+
+.text-2-md {
+  @include typography(0.875rem, 600, 150%);
+}
+
+.text-3 {
+  @include typography(0.75rem, 400, 150%);
+}
+
+.text-3-md {
+  @include typography(0.75rem, 600, 150%);
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+table {
+  a {
+    text-decoration: none;
+    color: $text-primary;
+    &:hover {
+      color: $text-point;
+      text-decoration: underline;
+    }
+    &:focus {
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+}

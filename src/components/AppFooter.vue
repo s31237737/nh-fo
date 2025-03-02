@@ -1,7 +1,5 @@
 <template>
-  <v-footer
-    class="d-flex"
-  >
+  <v-footer>
     <router-link to="/">
       <v-img
         :width="130"
@@ -12,14 +10,9 @@
     <v-spacer />
     <div>
       <router-link to="/">
-        <p>
-          개인정보 처리 방침
-        </p>
+        <p>개인정보 처리 방침</p>
       </router-link>
-
-      <p class="w-100 text-center py-2 text-caption bg-grey-darken-4">
-        © 2014 LG Electronics. All rights reserved.
-      </p>
+      <p>© 2014 LG Electronics. All rights reserved.</p>
     </div>
   </v-footer>
 </template>
