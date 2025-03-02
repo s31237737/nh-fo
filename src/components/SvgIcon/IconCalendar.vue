@@ -1,0 +1,66 @@
+<template>
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22 10H23C23.5523 10 24 10.4477 24 11V22C24 22.5523 23.5523 23 23 23H9C8.44772 23 8 22.5523 8 22V11C8 10.4477 8.44772 10 9 10H10M18.5 10H13.5"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M12.55 8C12.55 7.55817 12.1918 7.2 11.75 7.2C11.3082 7.2 10.95 7.55817 10.95 8L12.55 8ZM10.95 11L10.95 11.8L12.55 11.8L12.55 11L10.95 11ZM10.95 8L10.95 11L12.55 11L12.55 8L10.95 8Z"
+      fill="currentColor"
+    />
+    <path
+      d="M21.05 8C21.05 7.55817 20.6918 7.2 20.25 7.2C19.8082 7.2 19.45 7.55817 19.45 8L21.05 8ZM19.45 11L19.45 11.8L21.05 11.8L21.05 11L19.45 11ZM19.45 8L19.45 11L21.05 11L21.05 8L19.45 8Z"
+      fill="currentColor"
+    />
+    <rect
+      x="11"
+      y="13.7002"
+      width="2"
+      height="2"
+      fill="currentColor"
+    />
+    <rect
+      x="11"
+      y="18"
+      width="2"
+      height="2"
+      fill="currentColor"
+    />
+    <rect
+      x="15"
+      y="13.7002"
+      width="2"
+      height="2"
+      fill="currentColor"
+    />
+    <rect
+      x="15"
+      y="18"
+      width="2"
+      height="2"
+      fill="currentColor"
+    />
+    <rect
+      x="19"
+      y="13.7002"
+      width="2"
+      height="2"
+      fill="currentColor"
+    />
+    <rect
+      x="19"
+      y="18"
+      width="2"
+      height="2"
+      fill="currentColor"
+    />
+  </svg>
+</template>

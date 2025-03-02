@@ -11,6 +11,8 @@ import '@/styles/main.scss'
 
 // Composables
 import { createVuetify } from 'vuetify'
+import { aliases } from "vuetify/lib/iconsets/mdi-svg";
+import { custom } from "@/utils/vuetifyIcons";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -21,13 +23,20 @@ export default createVuetify({
       },
     },
   },
+  icons: {
+    defaultSet: "mdi",
+    aliases: {
+      ...aliases,
+    },
+    sets: {
+      //  mdi,
+      custom,
+    },
+  },
   display: {
     mobileBreakpoint: 'sm'
   },
   defaults: {
-    VFooter: {
-      height: '100',
-    },
     VAppBar: {
       elevation: 0,
       flat: true,
@@ -40,6 +49,27 @@ export default createVuetify({
         margin: '0 auto',
         padding: '0 20px',
       }]
-    }
+    },
+    VBtn: {
+      variant: "flat",
+      textTransform: "none",
+    },
+    VDialog: {
+      scrollable: true,
+      width: "auto",
+      VCard: {
+        maxHeight: "872",
+      },
+      VCardTitle: {
+        VBtn: {
+          width: "32",
+          height: "32",
+          style: "font-size: 1.25rem",
+        },
+      },
+      VCardActions: {
+        VBtn: { variant: "flat" },
+      },
+    },
   }
 })

@@ -1,0 +1,42 @@
+<template>
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M24 13.5V11C24 9.34315 22.6569 8 21 8H9C7.34315 8 6 9.34315 6 11V18C6 19.6569 7.34315 21 9 21H11.5"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+    />
+    <line
+      x1="9.8"
+      y1="12.2"
+      x2="14.2"
+      y2="12.2"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <rect
+      x="15.8"
+      y="16.8"
+      width="8.4"
+      height="9.4"
+      rx="1.2"
+      stroke="currentColor"
+      stroke-width="1.6"
+    />
+    <path
+      d="M18.5 23H21.5"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</template>

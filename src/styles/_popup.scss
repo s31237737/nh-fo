@@ -1,0 +1,109 @@
+@use "variables" as *;
+@use "typography" as *;
+
+.v-dialog {
+  &[class*="popup-"] {
+    .v-card-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+      @extend .title-2;
+      border-bottom: 1px solid $border-subtle;
+      .v-btn {
+        margin-left: auto;
+        padding: 0;
+        border-radius: 50%;
+      }
+      &:has(:not(span)) {
+        border-bottom-color: transparent;
+      }
+    }
+    .v-card-text {
+      position: relative;
+      padding: 24px !important;
+      .pagination {
+        margin-bottom: 0;
+      }
+    }
+    .v-card-actions {
+      justify-content: center !important;
+      padding: 1rem 1.5rem 1.5rem;
+      &:not(:has(.v-spacer)) .v-btn {
+        width: 180px;
+      }
+    }
+    .v-data-table {
+      border-radius: 4px;
+      .v-table__wrapper {
+        th {
+          border-top: thin solid $border-subtle;
+          &:first-child {
+            border-radius: 4px 0 0 0;
+          }
+          &:last-child {
+            border-radius: 0 4px 0 0;
+          }
+        }
+        th:first-child,
+        td:first-child {
+          border-left: thin solid $border-subtle;
+        }
+        th:last-child,
+        td:last-child {
+          border-right: thin solid $border-subtle;
+        }
+        tr:last-child {
+          td:first-child {
+            border-radius: 0 0 0 4px;
+          }
+          td:last-child {
+            border-radius: 0 0 4px 0;
+          }
+        }
+      }
+    }
+    &:not(.popup-sm) {
+      .v-card-actions {
+        .v-btn {
+          min-width: 82px;
+          &:has(.v-btn__prepend) {
+            min-width: 106px;
+          }
+        }
+      }
+    }
+  }
+  &.popup-sm {
+    .v-card {
+      width: 19.5rem;
+    }
+    .v-card-text {
+      min-height: 80px;
+      padding: 16px 24px !important;
+      text-align: center;
+      .alert-txt {
+        display: flex;
+        height: 80px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .v-card-actions {
+      padding: 1rem;
+      .v-btn {
+        flex: 1;
+      }
+    }
+  }
+  &.popup-md {
+    .v-card {
+      width: 40rem;
+    }
+  }
+  &.popup-lg {
+    .v-card {
+      width: 75rem;
+    }
+  }
+}
