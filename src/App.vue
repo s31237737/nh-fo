@@ -1,5 +1,6 @@
 <template>
   <v-app :class="displaySize">
+    <Header />
     <div>
       <p v-if="!isMobile">
         💻 PC 화면입니다!
@@ -9,7 +10,7 @@
       </p>
     </div>
     <router-view />
-    <AppFooter />
+    <Footer />
   </v-app>
 </template>
 
@@ -20,7 +21,7 @@ import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();
 provide('isMobile', mobile);
-
+const isMobile = computed(() => mobile.value);
 const displaySize = computed(() => {
   return mobile.value ? 'mobile' : 'desktop';
 });
