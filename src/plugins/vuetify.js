@@ -21,6 +21,13 @@ export default createVuetify({
     mobileBreakpoint: 'sm'
   },
   defaults: {
+    VFooter: {
+      height: '100',
+    },
+    VAppBar: {
+      elevation: 0,
+      flat: true,
+    },
     VContainer: {
       fluid: true,
       maxWidth: '1280',
@@ -29,8 +36,5 @@ export default createVuetify({
         'padding': '0 20px',
       }
     },
-    VFooter: {
-      height: '100',
-    }
   }
 })

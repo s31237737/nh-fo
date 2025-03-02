@@ -1,10 +1,7 @@
 <template>
   <Header />
   <v-main>
-    <v-container>
-      
-      <router-view />
-    </v-container>
+    <router-view />
   </v-main>
   <Footer />
 </template>

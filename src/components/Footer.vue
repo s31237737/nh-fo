@@ -14,7 +14,7 @@
           <p>개인정보 처리 방침</p>
         </router-link>
         <p class="copy">
-          © 2014 LG Electronics. All rights reserved.
+          © 2025 NH. All right reserved.
         </p>
       </div>
     </v-container>
