@@ -17,9 +17,7 @@ export default defineConfig({
   plugins: [
     VueRouter(),
     Layouts(),
-    Pages({
-      // dirs: 'src/views'
-    }),
+    Pages(),
     Vue({
       template: { transformAssetUrls }
     }),
