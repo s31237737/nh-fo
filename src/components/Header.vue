@@ -1,5 +1,7 @@
 <template>
-  <v-app-bar v-if="!isMobile">
+  <v-app-bar
+    v-if="!isMobile"
+  >
     <v-container>
       <router-link to="/">
         <v-img
@@ -11,7 +13,10 @@
     </v-container>
   </v-app-bar>
   <template v-else>
-    <v-app-bar>
+    <v-app-bar
+      height="72"
+      flat
+    >
       <router-link to="/">
         <v-img
           :width="130"
