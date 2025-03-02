@@ -24,6 +24,11 @@ export default createVuetify({
     VContainer: {
       fluid: true,
       maxWidth: '1280',
+      style: {
+        'display': 'flex',
+        'alignItems': 'center',
+        'padding': '0 20px',
+      }
     },
     VFooter: {
       height: '100',
