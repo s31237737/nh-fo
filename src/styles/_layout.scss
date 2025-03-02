@@ -1,3 +1,11 @@
+.v-app-bar {
+  .v-toolbar__content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
 .v-footer {
   display: flex;
   justify-content: center;
@@ -19,7 +27,13 @@
     }
   }
 }
+
 .mobile {
+  .v-app-bar {
+    .v-toolbar__content {
+      padding: 0 12px 0 24px;
+    }
+  }
   .v-footer {
     .v-container {
       align-items: unset;
@@ -35,17 +49,4 @@
   }
 }
 
-.v-app-bar {
-  .v-toolbar__content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-}
-.mobile {
-.v-app-bar {
-  .v-toolbar__content {
-    padding: 0 12px 0 24px;
-  }
-}
-}
+
