@@ -26,7 +26,7 @@ export default createVuetify({
       maxWidth: '1280',
       style: {
         'display': 'flex',
-        'alignItems': 'center',
+        
         'padding': '0 20px',
       }
     },
