@@ -16,6 +16,10 @@ import { createVuetify } from 'vuetify'
 export default createVuetify({
   theme: {
     defaultTheme: 'light',
+    light: {
+      colors: {
+      },
+    },
   },
   display: {
     mobileBreakpoint: 'sm'

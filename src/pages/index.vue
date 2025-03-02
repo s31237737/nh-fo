@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    class="fill-height"
+    style="background:#fff"
+  >
     <p v-if="!isMobile">
       💻 PC 화면입니다!
     </p>
