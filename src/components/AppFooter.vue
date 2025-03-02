@@ -19,14 +19,6 @@
       </div>
     </v-container>
   </v-footer>
-  <div>
-    <p v-if="!isMobile">
-      💻 PC 화면입니다!
-    </p>
-    <p v-else>
-      📱 모바일 화면입니다!
-    </p>
-  </div>
 </template>
 
 <script setup>
