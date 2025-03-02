@@ -3,7 +3,7 @@
     <v-container>
       <router-link to="/">
         <v-img
-          :width="130"
+          :width="!isMobile ? 130 : 100"
           alt="NH Nonghyup"
           src="@/assets/images/footer_logo.png"
         />
