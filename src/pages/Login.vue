@@ -5,7 +5,9 @@
 </template>
 
 <script setup>
-defineProps({
-  layout: AuthLayout
-})
+
 </script>
+<route lang="yaml">
+meta:
+  layout: AuthLayout
+</route>
