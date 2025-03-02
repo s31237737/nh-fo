@@ -1,39 +1,35 @@
 <template>
-  <v-footer class="d-flex justify-center">
+  <v-footer :height="!isMobile ? 100 : 130">
     <v-container>
-      <v-row
-        class="d-flex justify-space-between flex-sm-row flex-column"
-      >
-        <v-col>
-          <router-link to="/">
-            <v-img
-              :width="130"
-              alt="NH Nonghyup"
-              src="@/assets/images/footer_logo.png"
-            />
-          </router-link>
-        </v-col>
-        <v-col class="text-right">
-          <router-link to="/">
-            <p>개인정보 처리 방침</p>
-          </router-link>
-          <p>© 2014 LG Electronics. All rights reserved.</p>
-        </v-col>
-      </v-row>
-      <v-row>
-        <p v-if="!isMobile">
-          💻 PC 화면입니다!
+      <router-link to="/">
+        <v-img
+          :width="130"
+          alt="NH Nonghyup"
+          src="@/assets/images/footer_logo.png"
+        />
+      </router-link>
+
+      <div class="info">
+        <router-link to="/">
+          <p>개인정보 처리 방침</p>
+        </router-link>
+        <p class="copy">
+          © 2014 LG Electronics. All rights reserved.
         </p>
-        <p v-else>
-          📱 모바일 화면입니다!
-        </p>
-      </v-row>
+      </div>
     </v-container>
   </v-footer>
+  <div>
+    <p v-if="!isMobile">
+      💻 PC 화면입니다!
+    </p>
+    <p v-else>
+      📱 모바일 화면입니다!
+    </p>
+  </div>
 </template>
 
 <script setup>
 import { inject } from 'vue';
-
 const isMobile = inject('isMobile');
 </script>

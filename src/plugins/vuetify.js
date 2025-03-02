@@ -23,7 +23,7 @@ export default createVuetify({
   defaults: {
     VContainer: {
       fluid: true,
-      maxWidth: '1240',
+      maxWidth: '1280',
     },
     VFooter: {
       height: '100',

@@ -1,3 +1,36 @@
 .v-footer {
-  display: flex;   
+  display: flex;
+  justify-content: center;
+  .v-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: right;
+      color: #fff;
+    }
+    .copy {
+      font-size: 14px;
+      color: #949494;
+    }
+  }
+}
+.mobile {
+  .v-footer {
+    .v-container {
+      align-items: unset;
+      flex-direction: column;
+      gap: 25px;
+      .info {
+        gap: 4px;
+      }
+      .copy {
+        font-size: 11px;
+      }
+    }
+  }
 }

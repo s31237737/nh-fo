@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="displaySize">
     <router-view />
     <AppFooter />
   </v-app>
@@ -7,10 +7,14 @@
 
 
 <script setup>
-import { provide } from 'vue';
+import { provide, computed } from 'vue';
 import { useDisplay } from 'vuetify';
 
 const { mobile } = useDisplay();
-
 provide('isMobile', mobile);
+
+const displaySize = computed(() => {
+  return mobile.value ? 'mobile' : 'desktop';
+});
+
 </script>
