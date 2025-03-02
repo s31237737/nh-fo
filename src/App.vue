@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <router-view :class="displaySize" />
+  <v-app :class="displaySize">
+    <router-view />
     <AppFooter />
   </v-app>
 </template>
@@ -31,9 +31,9 @@ const displaySize = computed(() => {
 
 import { onMounted } from 'vue'
 
-  const { mobile } = useDisplay()
+const { mobile } = useDisplay();
 
-  onMounted(() => {
-    console.log(mobile.value) // false
-  })
+onMounted(() => {
+  console.log(mobile.value)
+});
 </script>
