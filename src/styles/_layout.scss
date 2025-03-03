@@ -31,8 +31,13 @@
 }
 
 .v-app-bar {
-  .v-toolbar__content {
-    @extend .inner;
+  .v-toolbar {
+    &__content {
+      @extend .inner;
+    }
+    &__append {
+      gap: 16px;
+    }
   }
 }
 
