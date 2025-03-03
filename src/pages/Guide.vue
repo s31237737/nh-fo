@@ -1,48 +1,178 @@
 <template>
   <div class="w-75 ma-auto mt-5 mb-5">
-    <div class="d-flex flex-wrap ga-3 bg-primary pa-2">
-      <v-icon icon="custom:alarm" />
-      <v-icon icon="custom:apply" />
-      <v-icon icon="custom:arrow-first" />
-      <v-icon icon="custom:arrow-left" />
-      <v-icon icon="custom:arrow-up" />
-      <v-icon icon="custom:board" />
-      <v-icon icon="custom:channel" />
-      <v-icon icon="custom:clock" />
-      <v-icon icon="custom:display" />
-      <v-icon icon="custom:info" />
-      <v-icon icon="custom:monitoring" />
-      <v-icon icon="custom:new-window" />
-      <v-icon icon="custom:remove" />
-      <v-icon icon="custom:setting" />
-      <v-icon icon="custom:view" />
-      <v-icon icon="custom:alert-success" />
-      <v-icon icon="custom:alert" />
-      <v-icon icon="custom:alert-error" />
-      <v-icon icon="custom:arrow-down" />
-      <v-icon icon="custom:arrow-last" />
-      <v-icon icon="custom:arrow-right" />
-      <v-icon icon="custom:authority" />
-      <v-icon icon="custom:calendar" />
-      <v-icon icon="custom:clear" />
-      <v-icon icon="custom:close" />
-      <v-icon icon="custom:edit" />
-      <v-icon icon="custom:mobile" />
-      <v-icon icon="custom:move" />
-      <v-icon icon="custom:refresh" />
-      <v-icon icon="custom:search" />
-      <v-icon icon="custom:zoom" />
-      <v-icon icon="custom:sort-desc" />
-      <v-icon icon="custom:sort-asc" />
-      <v-icon icon="custom:terms" />
-      <v-icon icon="custom:warning" />
-      <v-icon icon="custom:plus" />
-      <v-icon icon="custom:minus" />
-      <v-icon icon="custom:file" />
-      <v-icon icon="custom:download" />
-      <v-icon icon="custom:play" />
-      <v-icon icon="custom:comment" />
+    <div class="d-flex flex-wrap ga-2 bg-info">
+      <div class="icon-item">
+        <v-icon icon="custom:alarm" />
+        <span>alarm</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:clock" />
+        <span>clock</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:close" />
+        <span>close</span>
+      </div>
     </div>
+
+
+    <div class="d-flex flex-wrap ga-2">
+      <div class="icon-item">
+        <v-icon icon="custom:apply" />
+        <span>apply</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-first" />
+        <span>arrow-first</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-left" />
+        <span>arrow-left</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-up" />
+        <span>arrow-up</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:board" />
+        <span>board</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:channel" />
+        <span>channel</span>
+      </div>
+
+      <div class="icon-item">
+        <v-icon icon="custom:display" />
+        <span>display</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:info" />
+        <span>info</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:monitoring" />
+        <span>monitoring</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:new-window" />
+        <span>new-window</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:remove" />
+        <span>remove</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:setting" />
+        <span>setting</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:view" />
+        <span>view</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:alert-success" />
+        <span>alert-success</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:alert" />
+        <span>alert</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:alert-error" />
+        <span>alert-error</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-down" />
+        <span>arrow-down</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-last" />
+        <span>arrow-last</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-right" />
+        <span>arrow-right</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:authority" />
+        <span>authority</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:calendar" />
+        <span>calendar</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:clear" />
+        <span>clear</span>
+      </div>
+
+      <div class="icon-item">
+        <v-icon icon="custom:edit" />
+        <span>edit</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:mobile" />
+        <span>mobile</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:move" />
+        <span>move</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:refresh" />
+        <span>refresh</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:search" />
+        <span>search</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:zoom" />
+        <span>zoom</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:sort-desc" />
+        <span>sort-desc</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:sort-asc" />
+        <span>sort-asc</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:terms" />
+        <span>terms</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:warning" />
+        <span>warning</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:plus" />
+        <span>plus</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:minus" />
+        <span>minus</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:file" />
+        <span>file</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:download" />
+        <span>download</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:play" />
+        <span>play</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:comment" />
+        <span>comment</span>
+      </div>
+    </div>
+
 
     <v-divider class="mt-4 pt-4" />
     <Popup />
@@ -616,3 +746,16 @@ const desserts = ref([
 ]);
 
 </script>
+<style scoped>
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.icon-item span {
+  margin-top: 5px;
+  font-size: 12px;
+}
+</style>
