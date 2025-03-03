@@ -1,35 +1,40 @@
 @use "variables" as *;
 @use "typography" as *;
 
-  .v-switch {
-    &.switch-flip {
-      .v-selection-control {
-        justify-content: space-between;
-        flex-direction: row-reverse;
-        .v-switch__track {
-          height: 20px;
-          min-width: 32px;
-        }
-        .v-label {
-          padding-inline-start: 0;
-          @extend .text-2;
-        }
+.v-switch {
+  &.switch-flip {
+    .v-selection-control {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      .v-switch__track {
+        height: 20px;
+        min-width: 32px;
       }
-      .v-selection-control--dirty {
-        .v-selection-control__input {
-          transform: translateX(6px) !important;
-        }
-      }
-      .v-selection-control__input {
-        transform: translateX(-6px) !important;
+      .v-label {
+        padding-inline-start: 0;
+        @extend .text-2;
       }
     }
     .v-selection-control--dirty {
       .v-selection-control__input {
-        transform: translateX(10px) !important;
+        transform: translateX(6px) !important;
       }
     }
     .v-selection-control__input {
-      transform: translateX(-10px) !important;
+      transform: translateX(-6px) !important;
     }
   }
+  .v-selection-control--dirty {
+    .v-selection-control__input {
+      transform: translateX(10px) !important;
+    }
+  }
+  .v-selection-control__input {
+    transform: translateX(-10px) !important;
+  }
+}
+.v-field {
+  &__outline {
+    --v-field-border-width: 1px !important;
+  }
+}
