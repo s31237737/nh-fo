@@ -13,13 +13,9 @@
         <v-icon icon="custom:close" />
         <span>close</span>
       </div>
-    </div>
-
-
-    <div class="d-flex flex-wrap ga-2">
       <div class="icon-item">
-        <v-icon icon="custom:apply" />
-        <span>apply</span>
+        <v-icon icon="custom:setting" />
+        <span>setting</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:arrow-first" />
@@ -33,6 +29,27 @@
         <v-icon icon="custom:arrow-up" />
         <span>arrow-up</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-down" />
+        <span>arrow-down</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-last" />
+        <span>arrow-last</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-right" />
+        <span>arrow-right</span>
+      </div>
+    </div>
+
+
+    <div class="d-flex flex-wrap ga-2 mt-5">
+      <div class="icon-item">
+        <v-icon icon="custom:apply" />
+        <span>apply</span>
+      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:board" />
         <span>board</span>
@@ -62,10 +79,7 @@
         <v-icon icon="custom:remove" />
         <span>remove</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:setting" />
-        <span>setting</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:view" />
         <span>view</span>
@@ -82,18 +96,7 @@
         <v-icon icon="custom:alert-error" />
         <span>alert-error</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:arrow-down" />
-        <span>arrow-down</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:arrow-last" />
-        <span>arrow-last</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:arrow-right" />
-        <span>arrow-right</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:authority" />
         <span>authority</span>
