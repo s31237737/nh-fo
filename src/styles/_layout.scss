@@ -1,7 +1,6 @@
 @use "variables" as *;
 @use "typography" as *;
 
-
 .inner {
   // display: flex;
   margin: 0 auto;
@@ -39,6 +38,11 @@
       gap: 16px;
     }
   }
+  @at-root .mobile {
+    .v-toolbar__content {
+      padding: 0 12px 0 24px;
+    }
+  }
 }
 
 .v-footer {
@@ -59,6 +63,19 @@
     .copy {
       font-size: 14px;
       color: #949494;
+    }
+  }
+  @at-root .mobile & {
+    .inner {
+      align-items: unset;
+      flex-direction: column;
+      gap: 25px;
+      .info {
+        gap: 4px;
+      }
+      .copy {
+        font-size: 11px;
+      }
     }
   }
 }
@@ -187,23 +204,3 @@
   }
 }
 
-.mobile {
-  .v-app-bar {
-    .v-toolbar__content {
-      padding: 0 12px 0 24px;
-    }
-  }
-  .v-footer {
-    .inner {
-      align-items: unset;
-      flex-direction: column;
-      gap: 25px;
-      .info {
-        gap: 4px;
-      }
-      .copy {
-        font-size: 11px;
-      }
-    }
-  }
-}
