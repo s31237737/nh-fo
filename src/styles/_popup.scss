@@ -7,7 +7,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+      padding: 12px 12px 12px 24px;
       @extend .title-2;
       border-bottom: 1px solid $border-subtle;
       .v-btn {
@@ -28,7 +28,7 @@
     }
     .v-card-actions {
       justify-content: center !important;
-      padding: 1rem 1.5rem 1.5rem;
+      padding: 16px 24px 24px;
       &:not(:has(.v-spacer)) .v-btn {
         width: 180px;
       }
@@ -76,7 +76,7 @@
   }
   &.popup-sm {
     .v-card {
-      width: 19.5rem;
+      width: 312px;
     }
     .v-card-text {
       min-height: 80px;
@@ -90,7 +90,7 @@
       }
     }
     .v-card-actions {
-      padding: 1rem;
+      padding: 16px;
       .v-btn {
         flex: 1;
       }
@@ -98,12 +98,16 @@
   }
   &.popup-md {
     .v-card {
-      width: 40rem;
+      width: 640px;
     }
   }
   &.popup-lg {
     .v-card {
-      width: 75rem;
+      width: 1200px;
     }
+  }
+
+  .v-table {
+    margin-top: 0 !important;
   }
 }
