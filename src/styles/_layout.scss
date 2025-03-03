@@ -1,18 +1,25 @@
 @use "variables" as *;
 @use "typography" as *;
 
+
+.inner {
+  // display: flex;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1280px;
+  width: 100%;
+}
+
 .v-app-bar {
   .v-toolbar__content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
+    @extend .inner;
   }
 }
 
 .v-footer {
   display: flex;
   justify-content: center;
-  .v-container {
+  .inner {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -162,7 +169,7 @@
     }
   }
   .v-footer {
-    .v-container {
+    .inner {
       align-items: unset;
       flex-direction: column;
       gap: 25px;

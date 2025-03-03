@@ -1,6 +1,6 @@
 <template>
   <v-footer :height="!isMobile ? 100 : 130">
-    <v-container>
+    <div class="inner">
       <router-link to="/">
         <v-img
           :width="!isMobile ? 130 : 100"
@@ -17,7 +17,7 @@
           © 2025 NH. All right reserved.
         </p>
       </div>
-    </v-container>
+    </div>
   </v-footer>
 </template>
 
