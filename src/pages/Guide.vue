@@ -41,6 +41,10 @@
         <v-icon icon="custom:arrow-right" />
         <span>arrow-right</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:search" />
+        <span>search</span>
+      </div>
     </div>
 
 
@@ -126,10 +130,7 @@
         <v-icon icon="custom:refresh" />
         <span>refresh</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:search" />
-        <span>search</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:zoom" />
         <span>zoom</span>

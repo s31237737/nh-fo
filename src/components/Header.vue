@@ -20,6 +20,15 @@
       </router-link>
     </template>
     <template #append>
+      <!-- 검색 -->
+      <v-text-field
+        v-model="search"
+        width="300"
+        class="search-inp"
+        placeholder="앱과 앱가이드를 검색해보세요"
+        append-inner-icon="custom:search"
+        @click:append-inner="onAppendClick"
+      />
       <!-- 로그인 연장 팝업 -->
       <v-btn
         v-if="!isMobile"
@@ -114,6 +123,7 @@
         </v-menu>
       </v-btn>
 
+      <!-- 모바일 메뉴 버튼-->
       <v-app-bar-nav-icon
         v-if="isMobile"
         @click="drawer = !drawer"
@@ -127,6 +137,12 @@ import { inject, ref, onMounted, computed } from 'vue';
 
 const isMobile = inject('isMobile');
 const drawer = ref(false);
+
+// 검색
+const search = ref('');
+const onAppendClick = () => {
+  alert('Append icon clicked!');
+}
 
 // 남은 시간을 초 단위로 관리
 const remainingTime = ref(5 * 60);
@@ -153,7 +169,7 @@ const onExtendClick = () => {
 const loginPop = ref(false);
 
 // 프로필
- const items = ref([
+const items = ref([
   {
     title: '마이페이지',
     value: 1,

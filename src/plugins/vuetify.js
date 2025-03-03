@@ -65,5 +65,15 @@ export default createVuetify({
         VBtn: { variant: "flat" },
       },
     },
+    VTextarea: {
+      persistentPlaceholder: true,
+      variant: "outlined",
+    },
+    VTextField: {
+      clearable: true,
+      clearIcon: "custom:clear",
+      variant: "outlined",
+      hideDetails: true,
+    },
   }
 })
