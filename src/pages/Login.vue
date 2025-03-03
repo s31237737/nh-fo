@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>로그인 페이지</h1>
-    <p>dd</p>
+    <p>test</p>
   </v-container>
 </template>
 
