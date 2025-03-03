@@ -21,6 +21,7 @@
     />
     <v-menu
       activator="parent"
+      location="bottom right"
       content-class="popover"
       :close-on-content-click="false"
     >

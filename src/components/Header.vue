@@ -106,6 +106,7 @@
         v-if="!isMobile"
         icon
         size="40"
+        class="profile"
       >
         <v-avatar>
           <img
@@ -116,6 +117,7 @@
         <v-menu
           activator="parent"
           content-class="popover"
+          location="bottom right"
         >
           <v-card>
             <v-list :items="items" />
