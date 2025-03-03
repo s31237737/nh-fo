@@ -22,6 +22,7 @@
     <template #append>
       <!-- 검색 -->
       <v-text-field
+        v-if="!isMobile"
         v-model="search"
         width="300"
         class="search-inp"
