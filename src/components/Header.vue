@@ -20,12 +20,9 @@
       </router-link>
     </template>
     <template #append>
-      <v-btn
-        v-if="!isMobile"
-        icon="mdi-heart"
-      />
       <!-- 로그인 연장 팝업 -->
       <v-btn
+        v-if="!isMobile"
         size="small"
         text="로그인 연장 팝업"
         @click="loginPop = true"
@@ -72,7 +69,10 @@
       </v-dialog>
       <!-- // 로그인 연장 팝업 -->
       <!-- 로그인연장 -->
-      <div class="login-session">
+      <div
+        v-if="!isMobile"
+        class="login-session"
+      >
         <span class="timer">
           <v-icon
             size="32"
@@ -94,6 +94,7 @@
 
       <!-- 프로필 -->
       <v-btn
+        v-if="!isMobile"
         icon
         size="40"
       >
@@ -154,12 +155,16 @@ const loginPop = ref(false);
 // 프로필
  const items = ref([
   {
-    title: '업스토어로 이동',
+    title: '마이페이지',
     value: 1,
   },
   {
-    title: '로그아웃',
+    title: '관리자 페이지',
     value: 2,
+  },
+  {
+    title: '로그아웃',
+    value: 3,
   },
 ]);
 </script>
