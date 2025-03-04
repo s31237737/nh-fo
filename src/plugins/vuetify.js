@@ -13,6 +13,7 @@ import '@/styles/main.scss'
 import { createVuetify } from 'vuetify'
 import { aliases } from "vuetify/lib/iconsets/mdi-svg";
 import { custom } from "@/utils/vuetifyIcons";
+import { VTable } from "vuetify/components";
 
 const nhFo = {
   dark: false,
@@ -70,8 +71,11 @@ export default createVuetify({
       custom,
     },
   },
+   aliases: {
+    VTableRow: VTable,
+  },
   display: {
-    mobileBreakpoint: 'sm'
+    mobileBreakpoint: 'lg'
   },
   defaults: {
     VAppBar: {
@@ -111,6 +115,9 @@ export default createVuetify({
       clearIcon: "custom:clear",
       variant: "outlined",
       hideDetails: true,
+    },
+    VTableRow: {
+      class: ["tbl-row"],
     },
   }
 })
