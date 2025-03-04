@@ -9,6 +9,13 @@
 @forward 'vuetify/settings' with (
   // $layers: true,
   // $color-pack: false,
+  $size-scales: (
+    'x-small': -2,
+    'small': -1,
+    'default': 0,
+    'large': 1.5,
+    'x-large': 2.5
+  ),
   $footer-background: #212121,
   $footer-flex: 0 0 auto,
   $footer-padding: 8px 0,

@@ -559,7 +559,7 @@
             size="large"
             color="primary"
           >
-            44px/large/Primary
+            48px/large/Primary
           </v-btn>
         </v-col>
 
@@ -614,7 +614,7 @@
             size="x-large"
             color="primary"
           >
-            52px/x-large/Primary
+            56px/x-large/Primary
           </v-btn>
         </v-col>
 
