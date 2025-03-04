@@ -557,7 +557,7 @@
 
         <!-- default/Secondary -->
         <v-col cols="auto">
-          <v-btn color="tertiary">
+          <v-btn color="secondary">
             default/Secondary
           </v-btn>
         </v-col>
