@@ -1,4 +1,4 @@
-@use "variables" as *;
+ @use "variables" as *;
 
 @mixin typography($size, $weight, $line-height) {
   font-size: $size !important;
@@ -8,39 +8,69 @@
 }
 
 .title-1 {
-  @include typography(1.5rem, 700, 125%);
+  @include typography(2.625rem, 400, 3.625rem);
 }
-
 .title-2 {
-  @include typography(1.125rem, 600, 125%);
+  @include typography(2.215rem, 400, 3.125rem);
+}
+.title-2-md {
+  @include typography(2.215rem, 600, 3.125rem);
+}
+.title-3 {
+  @include typography(2rem, 600, 2.5rem);
+}
+.title-3-bd {
+  @include typography(2rem, 700, 2.5rem);
+}
+.title-4 {
+  @include typography(1.625rem, 600, 2.125rem);
+}
+.title-5 {
+  @include typography(1.5rem, 600, 2rem);
+}
+.title-6 {
+  @include typography(1.125rem, 600, 1.625rem);
+}
+.title-6-bd {
+  @include typography(1.125rem, 700, 1.625rem);
 }
 
 .text-1 {
-  @include typography(1rem, 400, 150%);
+  @include typography(1.25rem, 600, 1.75rem);
 }
-
-.text-1-md {
-  @include typography(1rem, 600, 150%);
-}
-
-.text-1-bd {
-  @include typography(1rem, 700, 150%);
-}
-
 .text-2 {
-  @include typography(0.875rem, 400, 150%);
+  @include typography(1.125rem, 400, 1.625rem);
 }
-
-.text-2-md {
-  @include typography(0.875rem, 600, 150%);
-}
-
 .text-3 {
-  @include typography(0.75rem, 400, 150%);
+  @include typography(1rem, 400, 1.5rem);
+}
+.text-3-md {
+  @include typography(1rem, 600, 1.5rem);
+}
+.text-3-bd {
+  @include typography(1rem, 700, 1.5rem);
+}
+.text-4 {
+  @include typography(0.875rem, 400, 1.25rem);
+}
+.text-4-md {
+  @include typography(0.875rem, 600, 1.25rem);
 }
 
-.text-3-md {
-  @include typography(0.75rem, 600, 150%);
+.caption-1 {
+  @include typography(1.125rem, 600, 1.625rem);
+}
+.caption-2 {
+  @include typography(0.875rem, 400, 1.25rem);
+}
+.caption-2-md {
+  @include typography(0.875rem, 600, 1.25rem);
+}
+.caption-3 {
+  @include typography(0.75rem, 400, 1.25rem);
+}
+.caption-3-md {
+  @include typography(0.75rem, 600, 1.25rem);
 }
 
 @mixin line-clamp($lines) {
