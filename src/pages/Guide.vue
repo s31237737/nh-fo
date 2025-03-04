@@ -408,6 +408,57 @@
         </v-col>
       </v-row>
       <v-row>
+        <!-- x-small/Primary -->
+        <v-col cols="auto">
+          <v-btn
+            color="primary"
+            size="x-small"
+          >
+            20px/x-small/Primary
+          </v-btn>
+        </v-col>
+
+        <!-- x-small/Secondary -->
+        <v-col cols="auto">
+          <v-btn
+            color="secondary"
+            size="x-small"
+          >
+            x-small/Secondary
+          </v-btn>
+        </v-col>
+
+        <!-- x-small/Tertiary -->
+        <v-col cols="auto">
+          <v-btn
+            color="tertiary"
+            size="x-small"
+            variant="outlined"
+          >
+            x-small/Tertiary
+          </v-btn>
+        </v-col>
+
+        <!-- x-small/Warning -->
+        <v-col cols="auto">
+          <v-btn
+            color="warning"
+            size="x-small"
+          >
+            x-small/Warning
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn
+            color="warning"
+            size="x-small"
+            variant="outlined"
+          >
+            x-small/Warning
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
         <!-- small/Primary -->
         <v-col cols="auto">
           <v-btn
