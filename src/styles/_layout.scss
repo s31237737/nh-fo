@@ -38,9 +38,43 @@
       gap: 16px;
     }
   }
+  .v-badge {
+    &__badge {
+      bottom: calc(100% - 15px) !important;
+      left: calc(100% - 15px) !important;
+      align-items: inherit;
+      line-height: 12px;
+    }
+  }
+  .v-btn--icon {
+    --v-btn-height: 32px;
+    border-radius: 50%;
+  }
+  .login-session {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    .timer {
+      display: flex;
+      align-items: center;
+      width: 75px;
+      @extend .text-1;
+    }
+    .v-btn {
+      width: 44px;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 4px;
+    }
+  }
   @at-root .mobile {
-    .v-toolbar__content {
-      padding: 0 12px 0 24px;
+    .v-app-bar {
+      .v-toolbar {
+        &__content {
+          padding: 0 12px 0 24px;
+        }
+      }
     }
   }
 }
@@ -205,4 +239,3 @@
     border-bottom: 8px solid #ffffff;
   }
 }
-
