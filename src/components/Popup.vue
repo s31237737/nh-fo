@@ -3,7 +3,7 @@
     <v-col cols="auto">
       <v-btn
         size="small"
-        color="blue"
+        color="purple"
         @click="dialog1 = true"
       >
         popup-sm(alert)
@@ -12,7 +12,7 @@
     <v-col cols="auto">
       <v-btn
         size="small"
-        color="blue"
+        color="purple"
         @click="dialog2 = true"
       >
         popup-md
@@ -21,7 +21,7 @@
     <v-col cols="auto">
       <v-btn
         size="small"
-        color="blue"
+        color="purple"
         @click="dialog3 = true"
       >
         popup-lg
@@ -51,7 +51,8 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="secondary"
+          color="tertiary"
+          variant="outlined"
           size="large"
           @click="dialog1 = false"
         >
@@ -140,7 +141,8 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="secondary"
+          color="tertiary"
+          variant="outlined"
           size="large"
           @click="dialog2 = false"
         >
@@ -176,7 +178,8 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="secondary"
+          color="tertiary"
+          variant="outlined"
           size="large"
           @click="dialog3 = false"
         >
