@@ -88,7 +88,6 @@ export default createVuetify({
     },
     VBtn: {
       variant: "flat",
-      textTransform: "none",
     },
     VDialog: {
       scrollable: true,
