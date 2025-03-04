@@ -25,14 +25,15 @@ const nhFo = {
     'surface-variant': '#424242',
     'on-surface-variant': '#EEEEEE',
     primary: '#1E1E1E',
-    'primary-darken-1': '#1F5592',
     secondary: '#0279FE',
-    'secondary-darken-1': '#018786',
     error: '#B00020',
     info: '#2196F3',
     success: '#4CAF50',
     warning: '#D32226',
-    tertiary: '#1E1E1E'
+    tertiary: '#1E1E1E',
+    'on-primary':'#FEFEFE',
+    'on-secondary':'#FEFEFE',
+    'on-warning':'#FEFEFE',
   },
   variables: {
     'border-color': '#000000',
