@@ -28,10 +28,11 @@ const nhFo = {
     'primary-darken-1': '#1F5592',
     secondary: '#0279FE',
     'secondary-darken-1': '#018786',
-    error: '#D32226',
+    error: '#B00020',
     info: '#2196F3',
     success: '#4CAF50',
-    warning: '#FB8C00',
+    warning: '#D32226',
+    tertiary: '#1E1E1E'
   },
   variables: {
     'border-color': '#000000',
