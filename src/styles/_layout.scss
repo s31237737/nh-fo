@@ -65,16 +65,18 @@
       color: #949494;
     }
   }
-  @at-root .mobile & {
-    .inner {
-      align-items: unset;
-      flex-direction: column;
-      gap: 25px;
-      .info {
-        gap: 4px;
-      }
-      .copy {
-        font-size: 11px;
+  @at-root .mobile {
+    .v-footer {
+      .inner {
+        align-items: unset;
+        flex-direction: column;
+        gap: 25px;
+        .info {
+          gap: 4px;
+        }
+        .copy {
+          font-size: 11px;
+        }
       }
     }
   }
