@@ -1,0 +1,11 @@
+.v-btn {
+  &.v-btn--variant {
+    &-outlined,
+    &-tonal {
+      background-color: #fff;
+    }
+  }
+  &.text-tertiary {
+    border-color: #d5d7de !important;
+  }
+}
