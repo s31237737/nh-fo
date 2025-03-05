@@ -691,6 +691,13 @@
         <!-- icon/ 40px -->
         <v-col cols="auto">
           <v-btn
+            variant="text"
+            icon="custom:refresh"
+          />
+        </v-col>
+        <!-- icon/ 40px -->
+        <v-col cols="auto">
+          <v-btn
             color="primary"
             icon="custom:refresh"
           />
@@ -708,7 +715,6 @@
         <!-- icon/24px -->
         <v-col cols="auto">
           <v-btn
-            variant="plain"
             density="compact"
             icon="custom:refresh"
           />

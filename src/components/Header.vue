@@ -71,16 +71,6 @@
       </v-btn-toggle>
     </template>
     <template #append>
-      <!-- 검색 -->
-      <v-text-field
-        v-if="!isMobile"
-        v-model="search"
-        width="300"
-        class="search-inp"
-        placeholder="앱과 앱가이드를 검색해보세요"
-        append-inner-icon="custom:search"
-        @click:append-inner="onAppendClick"
-      />
       <!-- 로그인연장 -->
       <div
         v-if="!isMobile"
@@ -104,6 +94,20 @@
           연장
         </v-btn>
       </div>
+      <!-- 검색 -->
+      <v-btn
+        icon="custom:search"
+        density="comfortable"
+      />
+      <v-text-field
+        v-if="false"
+        v-model="search"
+        width="300"
+        class="search-inp"
+        placeholder="앱과 앱가이드를 검색해보세요"
+        append-inner-icon="custom:search"
+        @click:append-inner="onAppendClick"
+      />
       <!-- 알림 -->
       <Alarm />
 
