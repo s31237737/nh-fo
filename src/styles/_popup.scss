@@ -123,14 +123,13 @@
         @extend .text-4;
       }
       &:hover {
-        
         .v-list-item-title {
           font-weight: 600 !important;
         }
       }
       &__append {
         margin-right: -6px;
-        width: 24px; 
+        width: 24px;
       }
     }
   }
@@ -241,5 +240,7 @@
 
 .dropdown {
   @extend .popover;
-  &::before{display: none;}
+  &::before {
+    display: none;
+  }
 }
