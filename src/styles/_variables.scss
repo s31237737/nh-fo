@@ -1,42 +1,72 @@
-// background colors
-$bg-default: #fefefe;
-$bg-gray: #fafafa;
-$bg_overlay: rgba(0, 0, 0, 0.5);
-$bg_layer: #fefefe;
-$bg-box-deepgray: #c2c2c2;
-$bg-box-gray: #f5f5f5;
-$bg-box-black: #1c1c1c;
+// gray colors
+$white: #fefefe;
+$gray-100: #fbfbfb;
+$gray-200: #f3f4f9;
+$gray-300: #e8eaf0;
+$gray-400: #d5d7de;
+$gray-500: #cccdd1;
+$gray-600: #a0a2a5;
+$gray-700: #7f8186;
+$gray-800: #4e4f52;
+$gray-900: #373839;
+$black: #1e1e1e;
 
-// text colors
-$text-primary: #1c1c1c;
-$text-secondary: #545454;
-$text-tertiary: #767676;
-$text-hovered: #252525;
-$text-helper: #767676;
-$text-unselected: #767676;
-$text-placeholder: #767676;
-$text-on: #fefefe;
-$text-error: #d32226;
-$text-success: #12852a;
-$text-gray: #c2c2c2;
-$text-point: #0279fe;
+// blue colors
+$blue-100: #e6f2ff;
+$blue-200: #b0d5ff;
+$blue-300: #53a5fe;
+$blue-400: #3394fe;
+$blue-500: #0279fe;
+$blue-600: #006ee7;
+$blue-700: #0156b4;
+$blue-800: #00438c;
+$blue-900: #01336b;
+$blue-1000: #002b5b;
 
-// border colors
-$border-white: #fefefe;
-$border-selected: #252525;
-$border-subtle: #e5e5e5;
-$border-strong: #c2c2c2;
-$border-error: #d32226;
+// purple colors
+$purple-100: #f5eeff;
+$purple-200: #e0c8ff;
+$purple-300: #cba2ff;
+$purple-400: #b57cfe;
+$purple-500: #9651ef;
+$purple-600: #7b3bcd;
+$purple-700: #6228ab;
+$purple-800: #4a1989;
+$purple-900: #350d67;
+$purple-1000: #210545;
 
-// icon colors
-$icon-black: #1c1c1c;
-$icon-white: #fefefe;
-$icon-gray: #c2c2c2;
-$icon-deepgray: #666666;
-$icon-red: #d32226;
+// pink colors
+$pink-100: #ffecf4;
+$pink-200: #ffc3da;
+$pink-300: #ff9ac1;
+$pink-400: #ff70a8;
+$pink-500: #fd478e;
+$pink-600: #db3174;
+$pink-700: #b91f5b;
+$pink-800: #971146;
+$pink-900: #750732;
+$pink-1000: #530021;
 
-// state colors
-$state-positive: #12852a;
-$state-negative: #d32226;
-$state-warn: #ffb800;
-$state-in-progress: #ffb800;
+// red colors
+$red-100: #ffebeb;
+$red-200: #ffbec0;
+$red-300: #ff9294;
+$red-400: #ff6569;
+$red-500: #f5363b;
+$red-600: #d32226;
+$red-700: #b11215;
+$red-800: #8f0609;
+$red-900: #6d0003;
+$red-1000: #4b0002;
+
+// green colors
+$green-100: #e9ffef;
+$green-200: #c3ffd4;
+$green-300: #9cffb8;
+$green-400: #75ff9c;
+$green-500: #4efe81;
+$green-600: #25ea5d;
+$green-700: #0ec141;
+$green-800: #00982b;
+$green-900: #006f20;
+$green-1000: #004714;

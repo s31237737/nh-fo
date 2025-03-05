@@ -2,10 +2,10 @@
   &.v-btn--variant {
     &-outlined,
     &-tonal {
-      background-color: #fff;
+      background-color: $white;
     }
   }
   &.text-tertiary {
-    border-color: #d5d7de !important;
+    border-color: $gray-400 !important;
   }
 }
