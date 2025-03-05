@@ -11,7 +11,7 @@
 
       <div class="info">
         <router-link to="/">
-          <p>개인정보 처리 방침</p>
+          개인정보 처리 방침
         </router-link>
         <p class="copy">
           © 2025 NH. All right reserved.
