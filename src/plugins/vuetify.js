@@ -85,7 +85,14 @@ export default createVuetify({
       flat: true,
       VBtnToggle: {
         VBtn: {ripple: false}
-      }
+      },
+      VMenu: {
+        offset: "18",
+      },
+    },
+     VMenu: {
+      location: "bottom",
+      offset: "4",
     },
     VContainer: {
       fluid: true,
