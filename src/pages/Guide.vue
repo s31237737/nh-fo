@@ -145,7 +145,25 @@
         <span>comment</span>
       </div>
     </div>
-
+    <div class="d-flex ga-2 mt-4">
+      <v-icon
+        icon="$vuetify"
+        size="x-large"
+      />
+      <v-icon
+        icon="$vuetify"
+        size="large"
+      />
+      <v-icon icon="$vuetify" />
+      <v-icon
+        icon="$vuetify"
+        size="small"
+      />
+      <v-icon
+        icon="$vuetify"
+        size="x-small"
+      />
+    </div>
 
     <v-divider class="mt-4 pt-4" />
     <Popup />

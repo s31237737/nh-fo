@@ -24,19 +24,19 @@
         color="secondary"
       >
         <v-btn
-          variant="plain"
+          variant="text"
           to=""
         >
           About
         </v-btn>
         <v-btn
-          variant="plain"
+          variant="text"
           to=""
         >
           APPS
         </v-btn>
         <v-btn
-          variant="plain"
+          variant="text"
         >
           지원 및 도움말
 
@@ -63,7 +63,7 @@
           </v-menu>
         </v-btn>
         <v-btn
-          variant="plain"
+          variant="text"
           to=""
         >
           커뮤니티
@@ -88,15 +88,17 @@
       >
         <span class="timer">
           <v-icon
-            size="32"
+            size="small"
           >
             custom:clock
           </v-icon>
           {{ timeLeftFormatted }}
         </span>
+
         <v-btn
+          color="primary"
           size="small"
-          variant="outlined"
+          variant="flat"
           @click="onExtendClick"
         >
           연장
@@ -109,9 +111,9 @@
       <v-btn
         v-if="!isMobile"
         icon
-        class="profile"
+        density="comfortable"
       >
-        <v-avatar>
+        <v-avatar size="32">
           <v-img
             src="@/assets/images/profile.png"
           />
@@ -130,6 +132,7 @@
       <!-- 모바일 메뉴 버튼-->
       <v-app-bar-nav-icon
         v-if="isMobile"
+        density="comfortable"
         @click="drawer = !drawer"
       />
     </template>

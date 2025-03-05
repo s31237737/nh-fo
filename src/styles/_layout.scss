@@ -45,7 +45,7 @@
       @extend .inner;
     }
     &__append {
-      gap: 16px;
+      gap: 20px;
     }
   }
   .v-badge {
@@ -59,19 +59,20 @@
   .login-session {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     .timer {
       display: flex;
       align-items: center;
-      width: 75px;
-      @extend .text-1;
+      width: 68px;
+      gap: 4px;
+      @extend .text-3;
+      color: $gray-700;
     }
     .v-btn {
-      width: 44px;
+      min-width: 48px;
       padding: 0;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 400;
     }
   }
   @at-root .mobile {
