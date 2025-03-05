@@ -1,5 +1,6 @@
 <template>
   <div class="w-75 ma-auto mt-5 mb-5">
+    <!-- icons -->
     <div class="d-flex flex-wrap ga-2 bg-info">
       <div class="icon-item">
         <v-icon icon="custom:alarm" />
@@ -50,8 +51,6 @@
         <span>calendar</span>
       </div>
     </div>
-
-
     <div class="d-flex flex-wrap ga-2 mt-5">
       <div class="icon-item">
         <v-icon icon="custom:info" />
@@ -168,160 +167,75 @@
     <v-divider class="mt-4 pt-4" />
     <Popup />
 
-    <div class="d-flex ga-2 mt-4">
-      <v-chip>
-        Default
-      </v-chip>
-
-      <v-chip color="primary">
-        Primary
-      </v-chip>
-
-      <v-chip color="warning">
-        warning
-      </v-chip>
-
-      <v-chip color="gray">
-        gray
-      </v-chip>
-
-      <v-chip color="state_warn">
-        state_warn
-      </v-chip>
-    </div>
-    <div class="d-flex ga-2 mt-2">
-      <v-chip variant="flat">
-        Default flat
-      </v-chip>
-
-      <v-chip
-        color="primary"
-        variant="flat"
+    <!-- flag -->
+    <v-divider class="mt-4 pt-4" />
+    <div>
+      <v-row
+        align="center"
       >
-        Primary flat
-      </v-chip>
+        <v-col cols="auto">
+          <v-label>색상, 모양</v-label>
+        </v-col>
+        <v-col cols="auto">
+          <v-chip class="flag">
+            default
+          </v-chip>
 
-      <v-chip
-        color="secondary"
-        variant="flat"
-      >
-        Secondary flat
-      </v-chip>
+          <v-chip class="flag blue">
+            blue
+          </v-chip>
 
-      <v-chip
-        color="red"
-        variant="flat"
-      >
-        Red flat
-      </v-chip>
+          <v-chip class="flag purple">
+            purple
+          </v-chip>
 
-      <v-chip
-        color="green"
-        variant="flat"
-      >
-        Green flat
-      </v-chip>
-    </div>
-    <div class="d-flex ga-2">
-      <v-label style="width: 100px">
-        default
-      </v-label>
-
-      <v-chip size="x-small">
-        x-small
-      </v-chip>
-
-      <v-chip size="small">
-        small
-      </v-chip>
-
-      <v-chip>
-        default
-      </v-chip>
-
-      <v-chip size="large">
-        large
-      </v-chip>
-
-      <v-chip size="x-large">
-        x-large
-      </v-chip>
-    </div>
-    <div class="d-flex  align-center ga-2 mt-2">
-      <v-label style="width: 100px">
-        comfortable
-      </v-label>
-
-      <v-chip
-        density="comfortable"
-        size="x-small"
-      >
-        x-small
-      </v-chip>
-
-      <v-chip
-        density="comfortable"
-        size="small"
-      >
-        small
-      </v-chip>
-
-      <v-chip density="comfortable">
-        default
-      </v-chip>
-
-      <v-chip
-        density="comfortable"
-        size="large"
-      >
-        large
-      </v-chip>
-
-      <v-chip
-        density="comfortable"
-        size="x-large"
-      >
-        x-large
-      </v-chip>
-    </div>
-    <div class="d-flex align-center ga-2 mt-2">
-      <v-label style="width: 100px">
-        compact
-      </v-label>
-
-      <v-chip
-        density="compact"
-        size="x-small"
-      >
-        x-small
-      </v-chip>
-
-      <v-chip
-        density="compact"
-        size="small"
-      >
-        small
-      </v-chip>
-
-      <v-chip density="compact">
-        default
-      </v-chip>
-
-      <v-chip
-        density="compact"
-        size="large"
-      >
-        large
-      </v-chip>
-
-      <v-chip
-        density="compact"
-        size="x-large"
-      >
-        x-large
-      </v-chip>
+          <v-chip class="flag pink">
+            pink
+          </v-chip>
+            
+          <v-chip class="flag black">
+            black/#1e1e1e
+          </v-chip>
+            
+          <v-chip
+            class="flag"
+            variant="outlined"
+          >
+            outlined
+          </v-chip>
+          <v-chip
+            class="flag black"
+            label
+          >
+            앱 열기
+          </v-chip>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col cols="auto">
+          <v-label>크기</v-label>
+        </v-col>
+        <v-col cols="auto">
+          <v-chip
+            class="flag"
+            size="small"
+          >
+            small/20px
+          </v-chip>
+          <v-chip class="flag">
+            default/28px
+          </v-chip>
+          <v-chip
+            class="flag" 
+            size="large"
+          >
+            large/40px
+          </v-chip>
+        </v-col>
+      </v-row>
     </div>
 
+    <!-- radio -->
     <v-radio-group>
       <v-radio
         label="Radio One"
@@ -417,6 +331,7 @@
       </v-col>
     </v-row>
     <!-- // 텍스트 -->
+
     <!-- 버튼 -->
     <div>
       <v-row
@@ -728,7 +643,6 @@
       </v-row>
     </div>
     <!-- //버튼 -->
-
 
     <!-- table -->
     <v-row>
