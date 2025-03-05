@@ -83,6 +83,9 @@ export default createVuetify({
     VAppBar: {
       elevation: 0,
       flat: true,
+      VBtnToggle: {
+        VBtn: {ripple: false}
+      }
     },
     VContainer: {
       fluid: true,
