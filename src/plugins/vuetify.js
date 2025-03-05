@@ -90,6 +90,10 @@ export default createVuetify({
       },
       VMenu: {
         offset: "18",
+        VToolbar: {
+          height: "56",
+          color: "transparent",
+        },
       },
     },
      VMenu: {
@@ -131,6 +135,11 @@ export default createVuetify({
     },
     VTableRow: {
       class: ["tbl-row"],
+    },
+    VSwitch: {
+      color: "#555D69",
+      inset: true,
+      hideDetails: true,
     },
   }
 })
