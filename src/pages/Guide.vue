@@ -53,7 +53,6 @@
 
 
     <div class="d-flex flex-wrap ga-2 mt-5">
-
       <div class="icon-item">
         <v-icon icon="custom:info" />
         <span>info</span>
@@ -329,30 +328,33 @@
         <p class="title-2">
           title-2 중간 크기 제목입니다 (34px, 400, 50)
         </p>
-        <p class="title-2-md">
-          title-2-md 중간 크기 제목입니다 (34px, 600, 50)
+        <p class="title-2-bd">
+          title-2-bd 중간 크기 제목입니다 (34px, 600, 50)
         </p>
         <p class="title-3">
-          title-3 중간 크기 제목입니다 (32px, 600, 40)
+          title-3 중간 크기 제목입니다 (32px, 500, 40)
         </p>
         <p class="title-3-bd">
           title-3-bd 중간 크기 제목입니다 (32px, 700, 40)
         </p>
         <p class="title-4">
-          title-4 중간 크기 제목입니다 (26px, 600, 34)
+          title-4 중간 크기 제목입니다 (26px, 500, 34)
         </p>
         <p class="title-5">
-          title-5 작은 크기 제목입니다 (24px, 600, 32)
+          title-5 작은 크기 제목입니다 (24px, 500, 32)
+        </p>
+        <p class="title-5-bd">
+          title-5 작은 크기 제목입니다 (24px, 500, 32)
         </p>
         <p class="title-6">
-          title-6 작은 크기 제목입니다 (18px, 600, 26)
+          title-6 작은 크기 제목입니다 (18px, 500, 26)
         </p>
         <p class="title-6-bd">
           title-6-bd 작은 크기 제목입니다 (18px, 700, 26)
         </p>
         <v-divider class="mt-4 pt-4" />
         <p class="text-1">
-          text-1 큰 본문 텍스트입니다. (20px, 600, 28)
+          text-1 큰 본문 텍스트입니다. (20px, 500, 28)
         </p>
         <p class="text-2">
           text-2 큰 본문 텍스트입니다. (18px, 400, 26)
@@ -361,7 +363,7 @@
           text-3 일반 본문 텍스트입니다. (16px, 400, 24)
         </p>
         <p class="text-3-md">
-          text-3-md 일반 본문 텍스트입니다. (16px, 600, 24)
+          text-3-md 일반 본문 텍스트입니다. (16px, 500, 24)
         </p>
         <p class="text-3-bd">
           text-3-md 일반 본문 텍스트입니다. (16px, 700, 24)
@@ -370,7 +372,7 @@
           text-4 작은 본문 텍스트입니다. (14px, 400, 20)
         </p>
         <p class="text-4-md">
-          text-4-md 작은 본문 텍스트입니다. (14px, 600, 20)
+          text-4-md 작은 본문 텍스트입니다. (14px, 500, 20)
         </p>
         <v-divider class="mt-4 pt-4" />
         <p class="caption-1">
@@ -380,7 +382,7 @@
           caption-2 캡션 스타일입니다. (14px, 400, 20)
         </p>
         <p class="caption-2-md">
-          caption-2-md 캡션 스타일입니다. (14px, 600, 20)
+          caption-2-md 캡션 스타일입니다. (14px, 500, 20)
         </p>
         <p class="caption-3">
           caption-3 캡션 스타일입니다. (12px, 400, 20)
