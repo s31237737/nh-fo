@@ -9,11 +9,11 @@
     <!-- 내용 추가 -->
   </v-navigation-drawer>
 
-  <v-app-bar :height="isMobile ? 52 : 80">
+  <v-app-bar :height="!isMobile ? 80 : 52">
     <template #prepend>
       <router-link to="/">
         <v-img
-          :width="isMobile ? 120 : 130"
+          :width="!isMobile ? 180 : 144"
           alt="NH Nonghyup"
           src="@/assets/images/logo.png"
         />

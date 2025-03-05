@@ -45,36 +45,20 @@
         <v-icon icon="custom:search" />
         <span>search</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:calendar" />
+        <span>calendar</span>
+      </div>
     </div>
 
 
     <div class="d-flex flex-wrap ga-2 mt-5">
-      <div class="icon-item">
-        <v-icon icon="custom:apply" />
-        <span>apply</span>
-      </div>
 
-      <div class="icon-item">
-        <v-icon icon="custom:board" />
-        <span>board</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:channel" />
-        <span>channel</span>
-      </div>
-
-      <div class="icon-item">
-        <v-icon icon="custom:display" />
-        <span>display</span>
-      </div>
       <div class="icon-item">
         <v-icon icon="custom:info" />
         <span>info</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:monitoring" />
-        <span>monitoring</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:new-window" />
         <span>new-window</span>
@@ -102,14 +86,6 @@
       </div>
 
       <div class="icon-item">
-        <v-icon icon="custom:authority" />
-        <span>authority</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:calendar" />
-        <span>calendar</span>
-      </div>
-      <div class="icon-item">
         <v-icon icon="custom:clear" />
         <span>clear</span>
       </div>
@@ -118,10 +94,7 @@
         <v-icon icon="custom:edit" />
         <span>edit</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:mobile" />
-        <span>mobile</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:move" />
         <span>move</span>
@@ -143,10 +116,7 @@
         <v-icon icon="custom:sort-asc" />
         <span>sort-asc</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:terms" />
-        <span>terms</span>
-      </div>
+      
       <div class="icon-item">
         <v-icon icon="custom:warning" />
         <span>warning</span>

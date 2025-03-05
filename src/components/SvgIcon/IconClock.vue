@@ -6,9 +6,9 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#FO-Icon-Filled-fo-icon-filled-general-clock-gr_clip0-2085-766)">
+    <g clip-path="url(#FO-Icon-Filled-fo-icon-filled-general-clock-gr_clip0-2100-800)">
       <mask
-        id="FO-Icon-Filled-fo-icon-filled-general-clock-gr_mask0-2085-766"
+        id="FO-Icon-Filled-fo-icon-filled-general-clock-gr_mask0-2100-800"
         style="mask-type:luminance"
         maskUnits="userSpaceOnUse"
         x="3"
@@ -31,7 +31,7 @@
           stroke-linejoin="round"
         />
       </mask>
-      <g mask="url(#FO-Icon-Filled-fo-icon-filled-general-clock-gr_mask0-2085-766)">
+      <g mask="url(#FO-Icon-Filled-fo-icon-filled-general-clock-gr_mask0-2100-800)">
         <path
           d="M2.50488 2.50049H17.5049V17.5005H2.50488V2.50049Z"
           fill="#7F8186"
@@ -39,7 +39,7 @@
       </g>
     </g>
     <defs>
-      <clipPath id="FO-Icon-Filled-fo-icon-filled-general-clock-gr_clip0-2085-766">
+      <clipPath id="FO-Icon-Filled-fo-icon-filled-general-clock-gr_clip0-2100-800">
         <rect
           width="13.75"
           height="13.75"
