@@ -182,6 +182,9 @@ const items = ref([
   {
     title: '마이페이지',
     value: 1,
+     props: {
+      to: "mypage",
+    },
   },
   {
     title: '관리자 페이지',
