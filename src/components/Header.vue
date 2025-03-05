@@ -71,16 +71,6 @@
       </v-btn-toggle>
     </template>
     <template #append>
-      <!-- 검색 -->
-      <v-text-field
-        v-if="!isMobile"
-        v-model="search"
-        width="300"
-        class="search-inp"
-        placeholder="앱과 앱가이드를 검색해보세요"
-        append-inner-icon="custom:search"
-        @click:append-inner="onAppendClick"
-      />
       <!-- 로그인연장 -->
       <div
         v-if="!isMobile"
@@ -88,20 +78,36 @@
       >
         <span class="timer">
           <v-icon
-            size="32"
+            size="small"
           >
             custom:clock
           </v-icon>
           {{ timeLeftFormatted }}
         </span>
+
         <v-btn
+          color="primary"
           size="small"
-          variant="outlined"
+          variant="flat"
           @click="onExtendClick"
         >
           연장
         </v-btn>
       </div>
+      <!-- 검색 -->
+      <v-btn
+        icon="custom:search"
+        density="comfortable"
+      />
+      <v-text-field
+        v-if="false"
+        v-model="search"
+        width="300"
+        class="search-inp"
+        placeholder="앱과 앱가이드를 검색해보세요"
+        append-inner-icon="custom:search"
+        @click:append-inner="onAppendClick"
+      />
       <!-- 알림 -->
       <Alarm />
 
@@ -109,14 +115,12 @@
       <v-btn
         v-if="!isMobile"
         icon
-        size="40"
-        class="profile"
+        density="comfortable"
       >
-        <v-avatar>
-          <img
-            width="40"
+        <v-avatar size="32">
+          <v-img
             src="@/assets/images/profile.png"
-          >
+          />
         </v-avatar>
         <v-menu
           activator="parent"
@@ -132,6 +136,7 @@
       <!-- 모바일 메뉴 버튼-->
       <v-app-bar-nav-icon
         v-if="isMobile"
+        density="comfortable"
         @click="drawer = !drawer"
       />
     </template>

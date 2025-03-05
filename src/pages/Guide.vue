@@ -114,7 +114,7 @@
         <v-icon icon="custom:sort-asc" />
         <span>sort-asc</span>
       </div>
-      
+
       <div class="icon-item">
         <v-icon icon="custom:warning" />
         <span>warning</span>
@@ -144,8 +144,26 @@
         <span>comment</span>
       </div>
     </div>
+    <div class="d-flex ga-2 mt-4">
+      <v-icon
+        icon="$vuetify"
+        size="x-large"
+      />
+      <v-icon
+        icon="$vuetify"
+        size="large"
+      />
+      <v-icon icon="$vuetify" />
+      <v-icon
+        icon="$vuetify"
+        size="small"
+      />
+      <v-icon
+        icon="$vuetify"
+        size="x-small"
+      />
+    </div>
 
-    <!-- popup -->
     <v-divider class="mt-4 pt-4" />
     <Popup />
 
@@ -585,65 +603,14 @@
       </v-row>
 
       <v-row>
-        <!-- icon/Primary -->
+        <!-- icon/ 40px -->
         <v-col cols="auto">
           <v-btn
-            size="small"
-            color="primary"
-            prepend-icon="custom:plus"
-          >
-            icon/Primary
-          </v-btn>
+            variant="text"
+            icon="custom:refresh"
+          />
         </v-col>
-
-        <!-- icon/Secondary -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="secondary"
-            prepend-icon="custom:plus"
-          >
-            icon/Secondary
-          </v-btn>
-        </v-col>
-
-        <!-- icon/Tertiary -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="tertiary"
-            variant="outlined"
-            append-icon="custom:plus"
-          >
-            icon/Tertiary
-          </v-btn>
-        </v-col>
-
-        <!-- icon/Warning -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="warning"
-            append-icon="custom:plus"
-          >
-            icon/Warning
-          </v-btn>
-        </v-col>
-        <!-- icon/Warning -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="warning"
-            variant="outlined"
-            append-icon="custom:plus"
-          >
-            icon/Warning
-          </v-btn>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <!-- icon/Primary -->
+        <!-- icon/ 40px -->
         <v-col cols="auto">
           <v-btn
             color="primary"
@@ -651,7 +618,7 @@
           />
         </v-col>
 
-        <!-- icon/Secondary -->
+        <!-- icon/ 32px -->
         <v-col cols="auto">
           <v-btn
             color="secondary"
@@ -660,35 +627,10 @@
           />
         </v-col>
 
-        <!-- icon/Tertiary -->
+        <!-- icon/24px -->
         <v-col cols="auto">
           <v-btn
-            color="tertiary"
             density="compact"
-            variant="outlined"
-            icon="custom:refresh"
-          />
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            color="tertiary"
-            class="icon-lg"
-            variant="outlined"
-            icon="custom:refresh"
-          />
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            color="tertiary"
-            class="icon-md"
-            variant="outlined"
-            icon="custom:refresh"
-          />
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            color="tertiary"
-            class="icon-sm"
             icon="custom:refresh"
           />
         </v-col>

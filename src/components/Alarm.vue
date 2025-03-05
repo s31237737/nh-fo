@@ -1,7 +1,7 @@
 <template>
   <v-btn
     icon
-    size="40"
+    density="comfortable"
   >
     <v-badge
       v-if="hasNotification"
@@ -9,15 +9,13 @@
     >
       <v-icon
         icon="custom:alarm"
-        color="gray"
-        size="32"
+        density="comfortable"
       />
     </v-badge>
     <v-icon
       v-else
       icon="custom:alarm"
-      color="gray"
-      size="32"
+      density="comfortable"
     />
     <v-menu
       activator="parent"

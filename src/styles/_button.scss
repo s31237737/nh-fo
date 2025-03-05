@@ -21,4 +21,17 @@
       font-size: 1rem,
     }
   }
+  &.v-btn--icon {
+    &.v-btn--density {
+      &-default {
+        --v-btn-size: 1.25rem;
+      }
+      &-comfortable {
+        --v-btn-size: 1.125rem;
+      }
+      &-compact {
+        --v-btn-size: 1rem;
+      }
+    }
+  }
 }
