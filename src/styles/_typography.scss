@@ -81,18 +81,3 @@
   text-overflow: ellipsis;
   white-space: normal;
 }
-
-table {
-  a {
-    text-decoration: none;
-    color: $text-primary;
-    &:hover {
-      color: $text-point;
-      text-decoration: underline;
-    }
-    &:focus {
-      outline: none;
-      text-decoration: underline;
-    }
-  }
-}

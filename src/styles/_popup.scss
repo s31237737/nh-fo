@@ -9,7 +9,7 @@
       align-items: center;
       padding: 12px 12px 12px 24px;
       @extend .title-2;
-      border-bottom: 1px solid $border-subtle;
+      border-bottom: 1px solid black;
       .v-btn {
         margin-left: auto;
         padding: 0;
@@ -37,7 +37,7 @@
       border-radius: 4px;
       .v-table__wrapper {
         th {
-          border-top: thin solid $border-subtle;
+          border-top: thin solid black;
           &:first-child {
             border-radius: 4px 0 0 0;
           }
@@ -47,11 +47,11 @@
         }
         th:first-child,
         td:first-child {
-          border-left: thin solid $border-subtle;
+          border-left: thin solid black;
         }
         th:last-child,
         td:last-child {
-          border-right: thin solid $border-subtle;
+          border-right: thin solid black;
         }
         tr:last-child {
           td:first-child {
