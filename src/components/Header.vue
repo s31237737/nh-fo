@@ -24,19 +24,19 @@
         color="secondary"
       >
         <v-btn
-          variant="text"
+          variant="plain"
           to=""
         >
           About
         </v-btn>
         <v-btn
-          variant="text"
+          variant="plain"
           to=""
         >
           APPS
         </v-btn>
         <v-btn
-          variant="text"
+          variant="plain"
         >
           지원 및 도움말
 
@@ -63,7 +63,7 @@
           </v-menu>
         </v-btn>
         <v-btn
-          variant="text"
+          variant="plain"
           to=""
         >
           커뮤니티
