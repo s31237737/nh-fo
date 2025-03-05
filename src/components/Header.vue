@@ -20,6 +20,7 @@
       </router-link>
       <v-btn-toggle
         v-if="!isMobile"
+        class="gnb"
         color="secondary"
       >
         <v-btn

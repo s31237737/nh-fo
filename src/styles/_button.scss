@@ -6,8 +6,19 @@
     &-tonal {
       background-color: $white;
     }
+    &-plain {
+      // opacity: 1;
+    }
   }
   &.text-tertiary {
     border-color: $gray-400 !important;
+  }
+  &.v-btn--size {
+    &-large {
+      font-size: 0.875rem,
+    }
+    &-x-large {
+      font-size: 1rem,
+    }
   }
 }
