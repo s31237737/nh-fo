@@ -99,9 +99,12 @@
       gap: 10px;
       text-align: right;
       color: $white;
+      a {
+       @extend .text-3-md;
+      }
     }
     .copy {
-      font-size: 14px;
+      @extend .text-4;
       color: $gray-700;
     }
   }
@@ -113,9 +116,12 @@
         gap: 25px;
         .info {
           gap: 4px;
+          a {
+            font-size: 0.8125rem !important;
+          }
         }
-        .copy {
-          font-size: 11px;
+        .copy { 
+          font-size: 0.6875rem !important;
         }
       }
     }
