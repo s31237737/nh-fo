@@ -115,7 +115,7 @@
         <v-icon icon="custom:sort-asc" />
         <span>sort-asc</span>
       </div>
-      
+
       <div class="icon-item">
         <v-icon icon="custom:warning" />
         <span>warning</span>
@@ -670,65 +670,7 @@
       </v-row>
 
       <v-row>
-        <!-- icon/Primary -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="primary"
-            prepend-icon="custom:plus"
-          >
-            icon/Primary
-          </v-btn>
-        </v-col>
-
-        <!-- icon/Secondary -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="secondary"
-            prepend-icon="custom:plus"
-          >
-            icon/Secondary
-          </v-btn>
-        </v-col>
-
-        <!-- icon/Tertiary -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="tertiary"
-            variant="outlined"
-            append-icon="custom:plus"
-          >
-            icon/Tertiary
-          </v-btn>
-        </v-col>
-
-        <!-- icon/Warning -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="warning"
-            append-icon="custom:plus"
-          >
-            icon/Warning
-          </v-btn>
-        </v-col>
-        <!-- icon/Warning -->
-        <v-col cols="auto">
-          <v-btn
-            size="small"
-            color="warning"
-            variant="outlined"
-            append-icon="custom:plus"
-          >
-            icon/Warning
-          </v-btn>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <!-- icon/Primary -->
+        <!-- icon/ 40px -->
         <v-col cols="auto">
           <v-btn
             color="primary"
@@ -736,7 +678,7 @@
           />
         </v-col>
 
-        <!-- icon/Secondary -->
+        <!-- icon/ 32px -->
         <v-col cols="auto">
           <v-btn
             color="secondary"
@@ -745,35 +687,11 @@
           />
         </v-col>
 
-        <!-- icon/Tertiary -->
+        <!-- icon/24px -->
         <v-col cols="auto">
           <v-btn
-            color="tertiary"
+            variant="plain"
             density="compact"
-            variant="outlined"
-            icon="custom:refresh"
-          />
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            color="tertiary"
-            class="icon-lg"
-            variant="outlined"
-            icon="custom:refresh"
-          />
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            color="tertiary"
-            class="icon-md"
-            variant="outlined"
-            icon="custom:refresh"
-          />
-        </v-col>
-        <v-col cols="auto">
-          <v-btn
-            color="tertiary"
-            class="icon-sm"
             icon="custom:refresh"
           />
         </v-col>

@@ -109,14 +109,12 @@
       <v-btn
         v-if="!isMobile"
         icon
-        size="40"
         class="profile"
       >
         <v-avatar>
-          <img
-            width="40"
+          <v-img
             src="@/assets/images/profile.png"
-          >
+          />
         </v-avatar>
         <v-menu
           activator="parent"
