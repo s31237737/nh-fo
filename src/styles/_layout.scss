@@ -75,6 +75,8 @@
       font-weight: 400;
     }
   }
+
+
   @at-root .mobile {
     .v-app-bar {
       .v-toolbar {
@@ -101,7 +103,7 @@
       text-align: right;
       color: $white;
       a {
-       @extend .text-3-md;
+        @extend .text-3-md;
       }
     }
     .copy {
@@ -121,134 +123,10 @@
             font-size: 0.8125rem !important;
           }
         }
-        .copy { 
+        .copy {
           font-size: 0.6875rem !important;
         }
       }
     }
-  }
-}
-
-.popover {
-  border-radius: 8px !important;
-  .v-card {
-    position: relative;
-    min-width: 160px;
-    padding: 0 8px;
-    border: thin solid $gray-300;
-    .v-list-item {
-      .v-list-item-title {
-        @extend .text-2;
-      }
-      &:hover {
-        border-radius: 8px;
-        .v-list-item-title {
-          font-weight: 600;
-        }
-      }
-    }
-  }
-  .alarm {
-    padding: 0 0 12px;
-    width: 300px;
-    .v-toolbar {
-      .v-toolbar-title {
-        @extend .text-1; /* [as-is] @extend .text-1-bd; */
-      }
-      .v-btn:first-child {
-        margin-inline-start: 12px;
-        & + .v-toolbar-title {
-          margin-left: 4px;
-        }
-      }
-      .v-btn--icon {
-        border-radius: 50%;
-      }
-      .v-btn:last-child {
-        margin-inline-end: 12px;
-      }
-    }
-    .v-card-text {
-      height: 317px;
-      overflow-y: scroll;
-      padding: 8px 0 0 8px;
-      .v-empty-state {
-        height: 309px;
-      }
-
-      .v-list {
-        padding: 0;
-        margin-top: -8px;
-        &-item {
-          padding: 12px 16px;
-          cursor: pointer;
-          &-title {
-            @include line-clamp(2);
-            &.dot {
-              position: relative;
-              padding-left: 12px;
-
-              &::before {
-                content: "";
-                position: absolute;
-                top: 6px;
-                left: 0;
-                width: 6px;
-                height: 6px;
-                border-radius: 100%;
-                background-color: $red-600;
-              }
-            }
-          }
-
-          &-subtitle {
-            margin-top: 6px;
-            @extend .text-3;
-            color: $gray-600;
-          }
-        }
-      }
-    }
-    .alarm-setting {
-      p {
-        padding: 8px 10px;
-        @extend .text-3-md;
-        color: $blue-500;
-      }
-      .switch-flip {
-        padding: 0 10px;
-        .v-selection-control--dirty .v-switch__track {
-          background-color: $blue-500 !important;
-        }
-      }
-    }
-  }
-  .popover-tab {
-    padding: 16px 20px 8px;
-    .v-chip {
-      margin: 0;
-      margin-right: 4px;
-      border-color: black;
-      color: black;
-      &.selected {
-        background: black;
-        border-color: black;
-        color: $white;
-        font-weight: 700;
-      }
-    }
-  }
-
-  &::before {
-    z-index: 1;
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    top: -6px;
-    right: 12px;
-    border-bottom: 8px solid $white;
   }
 }
