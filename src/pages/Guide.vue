@@ -192,11 +192,11 @@
           <v-chip class="flag pink">
             pink
           </v-chip>
-            
+
           <v-chip class="flag black">
             black/#1e1e1e
           </v-chip>
-            
+
           <v-chip
             class="flag"
             variant="outlined"
@@ -226,7 +226,7 @@
             default/28px
           </v-chip>
           <v-chip
-            class="flag" 
+            class="flag"
             size="large"
           >
             large/40px
@@ -234,7 +234,65 @@
         </v-col>
       </v-row>
     </div>
+    <v-divider class="mt-4 pt-4" />
+    <div class="d-flex justify-center ga-2">
+      <v-chip>
+        Default
+      </v-chip>
 
+      <v-chip color="primary">
+        Primary
+      </v-chip>
+
+      <v-chip color="secondary">
+        Secondary
+      </v-chip>
+
+
+      <v-chip color="purple">
+        purple
+      </v-chip>
+      <v-chip color="pink">
+        pink
+      </v-chip>
+
+      <v-chip color="green">
+        Green
+      </v-chip>
+    </div>
+    <div class="d-flex justify-center ga-2 mt-2">
+      <v-chip variant="flat">
+        Default flat
+      </v-chip>
+
+      <v-chip
+        color="primary"
+        variant="flat"
+      >
+        Primary flat
+      </v-chip>
+
+      <v-chip
+        color="secondary"
+        variant="flat"
+      >
+        Secondary flat
+      </v-chip>
+
+      <v-chip
+        color="red"
+        variant="flat"
+      >
+        Red flat
+      </v-chip>
+
+      <v-chip
+        color="green"
+        variant="flat"
+      >
+        Green flat
+      </v-chip>
+    </div>
     <!-- radio -->
     <v-radio-group>
       <v-radio
