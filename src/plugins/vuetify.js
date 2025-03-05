@@ -96,7 +96,7 @@ export default createVuetify({
         },
         VListItem: {
           ripple: false,
-          rounded: "8",
+          rounded: "lg",
         },
       },
     },
@@ -107,7 +107,7 @@ export default createVuetify({
     VContainer: {
       fluid: true,
     },
-    VBtn: { 
+    VBtn: {
       variant: "flat",
     },
     VDialog: {
@@ -126,7 +126,7 @@ export default createVuetify({
       VCardActions: {
         VBtn: { variant: "flat" },
       },
-    },          
+    },
     VTextarea: {
       persistentPlaceholder: true,
       variant: "outlined",
