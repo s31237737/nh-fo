@@ -33,4 +33,9 @@
   $button-text-letter-spacing: 0,
   $button-font-weight: 600,
   $button-icon-density: ('default': 1, 'comfortable': -1, 'compact': -3),
+  $list-density: (
+    "default": 0,
+    "comfortable": -1,
+    "compact": -2,
+  ),
 );

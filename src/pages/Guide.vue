@@ -336,6 +336,12 @@
         value="three"
       />
     </v-radio-group>
+    <div class="mt-4 d-flex">
+      <v-list
+        density="comfortable"
+        :items="items"
+      />
+    </div>
 
     <!-- 텍스트 -->
     <v-row>
@@ -773,7 +779,21 @@ const desserts = ref([
     calories: 305,
   },
 ]);
-
+ const items = [
+  { type: 'subheader', title: 'Group #1' },
+  {
+    title: 'Item #1',
+    value: 1,
+  },
+  {
+    title: 'Item #2',
+    value: 2,
+  },
+  {
+    title: 'Item #3',
+    value: 3,
+  },
+]
 </script>
 <style scoped>
 .icon-item {
