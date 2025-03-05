@@ -186,6 +186,9 @@ const items = ref([
   {
     title: '관리자 페이지',
     value: 2,
+    props: {
+      appendIcon: 'custom:new-window',
+    },
   },
   {
     title: '로그아웃',

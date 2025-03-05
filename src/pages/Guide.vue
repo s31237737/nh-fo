@@ -50,17 +50,18 @@
         <v-icon icon="custom:calendar" />
         <span>calendar</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:new-window" />
+        <span>new-window</span>
+      </div>
     </div>
+
     <div class="d-flex flex-wrap ga-2 mt-5">
       <div class="icon-item">
         <v-icon icon="custom:info" />
         <span>info</span>
       </div>
 
-      <div class="icon-item">
-        <v-icon icon="custom:new-window" />
-        <span>new-window</span>
-      </div>
       <div class="icon-item">
         <v-icon icon="custom:remove" />
         <span>remove</span>
