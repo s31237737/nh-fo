@@ -107,7 +107,7 @@ export default createVuetify({
     VContainer: {
       fluid: true,
     },
-    VBtn: {
+    VBtn: { 
       variant: "flat",
     },
     VDialog: {
@@ -126,7 +126,7 @@ export default createVuetify({
       VCardActions: {
         VBtn: { variant: "flat" },
       },
-    },
+    },          
     VTextarea: {
       persistentPlaceholder: true,
       variant: "outlined",
@@ -144,6 +144,9 @@ export default createVuetify({
       color: "#555D69",
       inset: true,
       hideDetails: true,
+    },
+    VChip: {
+      variant: "flat",
     },
   }
 })

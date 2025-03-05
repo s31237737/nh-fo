@@ -43,4 +43,9 @@
   ),
   $menu-content-border-radius: 4px,
   $menu-elevation: 0,
+  $chip-density: (
+    "default": 0, 
+    "comfortable": -1, 
+    "compact": -2
+  ),
 );
