@@ -236,3 +236,28 @@
     opacity: var(--v-field-border-opacity);
   }
 }
+
+
+//앱 리스트
+.apps {
+  @at-root .v-row.appsLst {
+    margin:10px -10px !important; //임시
+    & > [class*="v-col"] {
+      padding: 10px !important;
+    }
+  }
+  &.v-card {
+    padding: 30px;
+    border-radius: 20px;
+    .v-card-title {
+      padding:31px 0 0;
+    }
+    .v-card-text {
+      padding:12px 0 0;
+    }
+  }
+  &-top {
+    display:flex;
+    justify-content: space-between;
+  }
+}
