@@ -19,7 +19,6 @@
     />
     <v-menu
       activator="parent"
-      location="bottom"
       content-class="popover"
       :close-on-content-click="false"
     >
