@@ -58,6 +58,34 @@
         <v-icon icon="custom:warning" />
         <span>warning</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:remove" />
+        <span>remove</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:download" />
+        <span>download</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:radio-off" />
+        <span>radio-off</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:radio-on" />
+        <span>radio-off</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:checkbox-off" />
+        <span>radio-off</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:checkbox-on" />
+        <span>radio-off</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:clear" />
+        <span>clear</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
@@ -65,12 +93,6 @@
         <v-icon icon="custom:info" />
         <span>info</span>
       </div>
-
-      <div class="icon-item">
-        <v-icon icon="custom:remove" />
-        <span>remove</span>
-      </div>
-
       <div class="icon-item">
         <v-icon icon="custom:view" />
         <span>view</span>
@@ -86,11 +108,6 @@
       <div class="icon-item">
         <v-icon icon="custom:alert-error" />
         <span>alert-error</span>
-      </div>
-
-      <div class="icon-item">
-        <v-icon icon="custom:clear" />
-        <span>clear</span>
       </div>
 
       <div class="icon-item">
@@ -133,10 +150,7 @@
         <v-icon icon="custom:file" />
         <span>file</span>
       </div>
-      <div class="icon-item">
-        <v-icon icon="custom:download" />
-        <span>download</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:play" />
         <span>play</span>
@@ -196,6 +210,61 @@
         />
       </v-form>
     </div>
+    <v-divider class="mt-4 pt-4" />
+    <div>
+      <v-file-input
+        v-model="files"
+        label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
+        multiple
+      >
+        <template #append-inner>
+          <v-btn
+            color="secondary"
+          >
+            파일첨부
+          </v-btn>
+        </template>
+      </v-file-input>
+      <!-- 첨부된 파일 목록 표시 -->
+      <div class="upload-guide">
+        <p>*첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.</p>
+      </div>
+      <ul
+        v-if="files.length"
+        class="file-list"
+      >
+        <li
+          v-for="(file, index) in files"
+          :key="index"
+        >
+          <v-icon icon="custom:file" />
+          <span>{{ file.name }}</span>
+          <v-btn
+            class="icon-md"
+            icon="custom:close"
+            @click="removeFile(index)"
+          />
+        </li>
+      </ul>
+    </div>
+
+    <ul
+      class="file-list"
+    >
+      <li
+        v-for="(file, index) in files2"
+        :key="index"
+      >
+        <v-icon icon="custom:file" />
+        <span>{{ file.name }}</span>
+        <em>{{ file.size }}</em>
+        <v-btn
+          class="icon-md"
+          icon="custom:download"
+          @click="downloadFile(file)"
+        />
+      </li>
+    </ul>
     <!-- popup -->
     <v-divider class="mt-4 pt-4" />
     <Popup />
@@ -730,6 +799,21 @@ const select = ref("전체");
 const onAppendClick = () => {
   alert("Append icon clicked!");
 };
+
+const files = ref([]);
+const removeFile = (index) => {
+  files.value.splice(index, 1);
+};
+
+const files2 = ref([
+  { name: "C:/Download/Filename.png", size: "10.3MB", url: "#" },
+]);
+
+const downloadFile = (files2) => {
+  console.log(files2.name)
+};
+
+
 const desserts = ref([
   {
     name: 'Frozen Yogurt',

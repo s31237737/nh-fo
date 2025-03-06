@@ -178,3 +178,61 @@
     }
   }
 }
+
+.upload-guide {
+  margin-top: 12px;
+  p {
+    @extend .text-4;
+    color: $gray-400;
+    &.text-1 {
+      color: $black;
+      .v-icon {
+        vertical-align: text-bottom;
+      }
+    }
+  }
+  & + .file-list {
+    margin-top: 12px;
+  }
+}
+
+.upload-info {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  p {
+    width: 100px;
+    @extend .caption-3;
+    color: $gray-700;
+  }
+}
+
+.file-list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    > .v-icon {
+      margin-right: -6px;
+    }
+    em {
+      color: $gray-700;
+    }
+  }
+}
+
+.v-file-input {
+  .v-field--active .v-label.v-field-label {
+    visibility: unset;
+  }
+  .v-field--variant-outlined .v-label.v-field-label--floating,
+  .v-field__input {
+    font-size: 0;
+  }
+  .v-field--active.v-field--variant-outlined .v-field__outline__notch::before {
+    opacity: var(--v-field-border-opacity);
+  }
+}
