@@ -22,7 +22,7 @@
   </v-carousel>
   <v-container
     class="inner"
-  > 
+  >
     <v-row
       class="pt-4 pb-4"
     >
