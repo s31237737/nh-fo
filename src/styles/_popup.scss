@@ -229,13 +229,12 @@
     z-index: 1;
     content: "";
     position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    top: -6px;
+    width: 16px;
+    height: 9px;
+    background: url('@/assets/images/pop_tail.png') no-repeat 0 0 / 100%;
+    top: -8px;
     right: 8px;
-    border-bottom: 8px solid $white;
+    
   }
 }
 
