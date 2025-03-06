@@ -271,9 +271,16 @@
     .v-card-text {
       padding:12px 0 0;
     }
+    .v-card-subtitle {
+      padding:0;
+    }
+    .v-card-subtitle + .v-card-title {padding-top:6px;}
   }
-  &-top {
+  &-flex {
     display:flex;
     justify-content: space-between;
+  }
+  &-bottom {
+    
   }
 }
