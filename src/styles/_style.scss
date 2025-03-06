@@ -50,9 +50,25 @@
     &.v-chip--variant-tonal {
       .v-chip__underlay {display:none;}
     }
+    &.v-chip--size {
+      &-default {
+        padding: 0 10px;
+      }
+      &-xsmall {
+        padding: 0 8px;
+      }
+      &-x-large {
+        padding: 0 16px;
+      }
+    }
     &.text-secondary {background: $blue-100;}
     &.text-purple {background: $purple-100;}
     &.text-pink {background: $pink-100;}
+    @at-root .flags & {//in .apps
+      & + .flag {
+        margin: 0 0 0 5px;
+      }
+    }
   }
 }
 
@@ -240,7 +256,7 @@
 
 //앱 리스트
 .apps {
-  @at-root .v-row.appsLst {
+  @at-root .v-row.appsLst {//parent
     margin:10px -10px !important; //임시
     & > [class*="v-col"] {
       padding: 10px !important;

@@ -64,20 +64,21 @@
               <!-- 상태 배지 (필요할 때만 표시) -->
               <v-chip
                 class="flag"
+                density="comfortable"
                 color="primary"
               >
-                black
+                사용중
               </v-chip>
             </div>
           </div>
 
           <!-- 제목 -->
-          <v-card-title>
+          <v-card-title class="title-5">
             {{ card.title }}
           </v-card-title>
 
           <!-- 내용 -->
-          <v-card-text>
+          <v-card-text class="text-3">     
             {{ card.description }}
           </v-card-text>
         </v-card>
@@ -108,7 +109,6 @@
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
-      statusBadge: { text: "사용중", color: "black" }
     },
     {
       imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
@@ -119,7 +119,6 @@
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
-      statusBadge: null
     },
     {
       imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
@@ -129,7 +128,6 @@
         { text: "NEW", color: "secondary" },
         { text: "추천", color: "purple" },
       ],
-      statusBadge: null
     },
     {
       imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
@@ -139,7 +137,6 @@
         { text: "NEW", color: "secondary" },
         { text: "추천", color: "purple" },
       ],
-      statusBadge: null
     }
   ];
 </script>

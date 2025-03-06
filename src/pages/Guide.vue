@@ -395,7 +395,7 @@
           title-5 작은 크기 제목입니다 (24px, 500, 32)
         </p>
         <p class="title-5-bd">
-          title-5 작은 크기 제목입니다 (24px, 500, 32)
+          title-5 작은 크기 제목입니다 (24px, 600, 32)
         </p>
         <p class="title-6">
           title-6 작은 크기 제목입니다 (18px, 500, 26)
@@ -787,8 +787,6 @@
         </v-table>
       </v-col>
     </v-row>
-
-    <!-- 앱 전체 리스트 - 앱 -->
   </div>
 </template>
 
