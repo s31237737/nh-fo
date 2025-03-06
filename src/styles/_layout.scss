@@ -49,7 +49,7 @@
       .v-btn[aria-expanded="true"]{
         position: relative;
         &::before {
-          z-index: 2001;
+          z-index: 99999;
           content: "";
           position: absolute;
           width: 16px;
