@@ -83,8 +83,7 @@ export default createVuetify({
   },
   defaults: {
     VAppBar: {
-      elevation: 0,
-      flat: true,
+      scrollBehavior: "elevate",
       VBtnGroup: {
         VBtn: {
           ripple: false,
