@@ -24,7 +24,7 @@
       <v-btn-toggle
         v-if="!isMobile"
         class="gnb"
-        color="secondary"
+        color="success"
         density="comfortable"
       >
         <v-btn
