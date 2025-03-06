@@ -40,3 +40,10 @@ a:active {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.v-card-text {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}

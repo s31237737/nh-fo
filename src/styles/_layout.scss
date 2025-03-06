@@ -89,6 +89,102 @@
     }
   }
 
+  .popover {
+    .alarm {
+      padding: 0 0 12px;
+      width: 300px;
+      .v-toolbar {
+        .v-toolbar-title {
+          @extend .text-3-bd;
+        }
+        .v-btn:first-child {
+          margin-inline-start: 12px;
+          & + .v-toolbar-title {
+            margin-left: 4px;
+          }
+        }
+        .v-btn--icon {
+          border-radius: 50%;
+        }
+        .v-btn:last-child {
+          margin-inline-end: 12px;
+        }
+      }
+      .v-card-text {
+        height: 325px;
+        overflow-y: scroll;
+        padding: 8px 0 0 8px;
+        .v-empty-state {
+          height: 309px;
+          &__media {
+            margin-bottom: 10px;
+          }
+        }
+
+        .v-list {
+          padding: 0;
+          margin-top: -8px;
+          &-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            &-title {
+              @include line-clamp(2);
+              &.dot {
+                position: relative;
+                padding-left: 12px;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 6px;
+                  left: 0;
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 100%;
+                  background-color: $red-600;
+                }
+              }
+            }
+
+            &-subtitle {
+              margin-top: 6px;
+              @extend .caption-3;
+              color: $gray-600;
+            }
+          }
+        }
+      }
+      .alarm-setting {
+        p {
+          padding: 8px 10px;
+          @extend .caption-3-md;
+          color: $blue-500;
+        }
+        .switch-flip {
+          padding: 0 10px;
+          .v-selection-control--dirty .v-switch__track {
+            background-color: $blue-500 !important;
+          }
+        }
+      }
+    }
+    .popover-tab {
+      padding: 16px 20px 8px;
+      .v-chip {
+        margin: 0;
+        margin-right: 4px;
+        border-color: black;
+        color: black;
+        &.selected {
+          background: black;
+          border-color: black;
+          color: $white;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
   @at-root .mobile {
     .header {
       > .v-toolbar__content {
