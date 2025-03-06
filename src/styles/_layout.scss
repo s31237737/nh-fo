@@ -23,26 +23,6 @@
   }
 }
 
-.search-inp {
-  position: relative;
-  .v-btn {
-    position: absolute;
-    bottom: 6px;
-    right: 10px;
-  }
-  .v-icon {
-    pointer-events: none;
-    width: 32px;
-    height: 32px;
-  }
-  &.v-input--dirty {
-    .v-icon {
-      pointer-events: all;
-      opacity: 1;
-    }
-  }
-}
-
 .header {
   > .v-toolbar__content {
     @extend .inner;
