@@ -218,15 +218,16 @@
           <v-chip
             size="x-small"
           >
-            small/20px
+            x-small/20px
           </v-chip>
-          <v-chip>
+          <v-chip density="comfortable">
             default/28px
           </v-chip>
           <v-chip
-            size="large"
+            density="compact"
+            size="x-large"
           >
-            large/40px
+            x-large/40px
           </v-chip>
         </v-col>
       </v-row>
