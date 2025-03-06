@@ -34,7 +34,7 @@
         </v-btn>
         <v-btn
           variant="plain"
-          to=""
+          to="Apps"
         >
           APPS
         </v-btn>

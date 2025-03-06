@@ -151,6 +151,11 @@
               @extend .caption-3;
               color: $gray-600;
             }
+            &:hover {
+              .v-list-item-title {
+                font-weight: 400 !important;
+              }
+            }
           }
         }
       }
