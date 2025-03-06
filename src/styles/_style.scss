@@ -33,3 +33,14 @@
     transform: translateX(-10px) !important;
   }
 }
+
+
+.v-empty-state {
+  height: 100%;
+  &__media {
+    margin-bottom: 20px;
+  }
+  &__text {
+    color: $gray-800;
+  }
+}
