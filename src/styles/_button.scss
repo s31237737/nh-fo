@@ -12,17 +12,18 @@
   }
   &.bg-info {
     border: thin solid $gray-400;
-    color :$black;
+    color: $black;
   }
   &.v-btn--size {
     &-large {
-      font-size: 0.875rem,
+      font-size: 0.875rem;
     }
     &-x-large {
-      font-size: 1rem,
+      font-size: 1rem;
     }
   }
   &.v-btn--icon {
+    background: transparent;
     &.v-btn--density {
       &-default {
         --v-btn-size: 1.25rem;
@@ -32,6 +33,35 @@
       }
       &-compact {
         --v-btn-size: 1rem;
+      }
+    }
+
+    &.icon-lg {
+      width: 32px;
+      height: 32px;
+
+      .v-icon--size-default {
+        font-size: 1.75rem;
+      }
+    }
+    &.icon-md {
+      width: 24px;
+      height: 24px;
+      &.v-btn--variant-outlined {
+        .v-icon--size-default {
+          font-size: 1.25rem;
+        }
+      }
+      .v-icon--size-default {
+        font-size: 1.5rem;
+      }
+    }
+    &.icon-sm {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      .v-icon--size-default {
+        font-size: 1rem;
       }
     }
   }

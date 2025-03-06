@@ -239,7 +239,7 @@
           <v-icon icon="custom:file" />
           <span>{{ file.name }}</span>
           <v-btn
-            class="icon-md"
+            density="compact"
             icon="custom:close"
             @click="removeFile(index)"
           />
@@ -258,7 +258,7 @@
         <span>{{ file.name }}</span>
         <em>{{ file.size }}</em>
         <v-btn
-          class="icon-md"
+          density="compact"
           icon="custom:download"
           @click="downloadFile(file)"
         />
@@ -771,7 +771,6 @@
         <!-- icon/ 40px -->
         <v-col cols="auto">
           <v-btn
-            variant="text"
             icon="custom:refresh"
           />
         </v-col>
