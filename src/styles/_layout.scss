@@ -30,6 +30,8 @@
 }
 
 .gnb {
+  margin-left: 122px;
+  gap: 24px;
   .v-btn {
     @extend .title-6-bd;
     color: $gray-700;

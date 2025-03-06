@@ -86,7 +86,7 @@ export default createVuetify({
       elevation: 0,
       flat: true,
       VBtnToggle: {
-        VBtn: {ripple: false}
+        VBtn: {ripple: false, slim: true}
       },
       VMenu: {
         offset: "18",

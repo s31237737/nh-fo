@@ -38,11 +38,9 @@
         >
           APPS
         </v-btn>
-        <v-btn
-          variant="plain"
-        >
-          지원 및 도움말
 
+        <v-btn variant="plain">
+          지원 및 도움말
           <v-menu
             activator="parent"
             content-class="popover"
@@ -65,6 +63,7 @@
             </v-card>
           </v-menu>
         </v-btn>
+
         <v-btn
           variant="plain"
           to=""
@@ -74,6 +73,11 @@
       </v-btn-toggle>
     </template>
     <template #append>
+      <!-- 캘린더 -->
+      <v-btn
+        icon="custom:calendar"
+        density="comfortable"
+      />
       <!-- 로그인연장 -->
       <div
         v-if="!isMobile"
@@ -148,7 +152,7 @@
 </template>
 
 <script setup>
-import { inject, ref, onMounted, computed } from 'vue';
+import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 
 const isMobile = inject('isMobile');
 const drawer = ref(false);
@@ -169,11 +173,15 @@ const timeLeftFormatted = computed(() => {
 });
 
 onMounted(() => {
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     if (remainingTime.value > 0) {
       remainingTime.value -= 1;
     }
-  }, 1000); // 1초마다 갱신
+  }, 1000);
+
+  onUnmounted(() => {
+    clearInterval(intervalId);
+  });
 });
 
 // 시간 연장
