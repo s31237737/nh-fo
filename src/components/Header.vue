@@ -25,48 +25,31 @@
         v-if="!isMobile"
         class="gnb"
         color="secondary"
+        density="comfortable"
       >
         <v-btn
-          variant="plain"
           to=""
         >
           About
         </v-btn>
         <v-btn
-          variant="plain"
           to="Apps"
         >
           APPS
         </v-btn>
-        <v-btn
-          variant="plain"
-        >
-          지원 및 도움말
 
+        <v-btn>
+          지원 및 도움말
           <v-menu
             activator="parent"
-            content-class="popover"
           >
             <v-card>
-              <v-list>
-                <v-list-item to="">
-                  자주 묻는 질문
-                </v-list-item>
-                <v-list-item to="">
-                  공지사항
-                </v-list-item>
-                <v-list-item to="">
-                  Q&amp;A
-                </v-list-item>
-                <v-list-item to="">
-                  앱가이드
-                </v-list-item>
-              </v-list>
+              <v-list :items="gnbItems" />
             </v-card>
           </v-menu>
         </v-btn>
+
         <v-btn
-          variant="plain"
           to=""
         >
           커뮤니티
@@ -74,6 +57,11 @@
       </v-btn-toggle>
     </template>
     <template #append>
+      <!-- 캘린더 -->
+      <v-btn
+        icon="custom:calendar"
+        density="comfortable"
+      />
       <!-- 로그인연장 -->
       <div
         v-if="!isMobile"
@@ -127,12 +115,9 @@
         </v-avatar>
         <v-menu
           activator="parent"
-          content-class="popover"
-          attach=".v-app-bar"
-          transition="false"
         >
           <v-card>
-            <v-list :items="items" />
+            <v-list :items="profileItems" />
           </v-card>
         </v-menu>
       </v-btn>
@@ -148,7 +133,7 @@
 </template>
 
 <script setup>
-import { inject, ref, onMounted, computed } from 'vue';
+import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 
 const isMobile = inject('isMobile');
 const drawer = ref(false);
@@ -169,11 +154,15 @@ const timeLeftFormatted = computed(() => {
 });
 
 onMounted(() => {
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     if (remainingTime.value > 0) {
       remainingTime.value -= 1;
     }
-  }, 1000); // 1초마다 갱신
+  }, 1000);
+
+  onUnmounted(() => {
+    clearInterval(intervalId);
+  });
 });
 
 // 시간 연장
@@ -181,8 +170,39 @@ const onExtendClick = () => {
   remainingTime.value += 60 * 60;
 };
 
+// gnb
+const gnbItems = ref([
+  {
+    title: '자주 묻는 질문',
+    value: 1,
+    props: {
+      to: "",
+    },
+  },
+  {
+    title: '공지사항',
+    value: 2,
+    props: {
+      to: "",
+    },
+  },
+  {
+    title: 'Q&A',
+    value: 3,
+    props: {
+      to: "",
+    },
+  },
+  {
+    title: '앱가이드',
+    value: 4,
+    props: {
+      to: "",
+    },
+  },
+]);
 // 프로필
-const items = ref([
+const profileItems = ref([
   {
     title: '마이페이지',
     value: 1,

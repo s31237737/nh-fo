@@ -85,11 +85,18 @@ export default createVuetify({
     VAppBar: {
       elevation: 0,
       flat: true,
-      VBtnToggle: {
-        VBtn: {ripple: false}
+      VBtnGroup: {
+        VBtn: {
+          ripple: false,
+          slim: true,
+          variant: "plain",
+        }
       },
       VMenu: {
         offset: "18",
+        contentClass: "popover",
+        attach: ".v-app-bar",
+        transition: "false",
         VToolbar: {
           height: "56",
           color: "transparent",
