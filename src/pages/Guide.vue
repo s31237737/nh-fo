@@ -363,13 +363,13 @@
 
         <v-col cols="auto">
           <v-btn density="comfortable">
-            28px / Comfortable Button
+            32px / Comfortable Button
           </v-btn>
         </v-col>
 
         <v-col cols="auto">
           <v-btn density="default">
-            36px / Default Button
+            40px / Default Button
           </v-btn>
         </v-col>
       </v-row>

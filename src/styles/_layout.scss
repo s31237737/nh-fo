@@ -1,12 +1,26 @@
 @use "variables" as *;
 @use "typography" as *;
 
-#app .inner {
-  // display: flex;
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 1280px;
-  width: 100%;
+#app {
+  .inner {
+    // display: flex;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1280px;
+    width: 100%;
+  }
+  .gnb {
+    gap: 24px;
+    margin-left: 122px;
+    overflow: unset;
+    .v-btn {
+      @extend .title-6-bd;
+      color: $gray-700;
+      &:hover {
+        color: $blue-500;
+      }
+    }
+  }
 }
 
 .search-inp {
@@ -29,38 +43,26 @@
   }
 }
 
-.gnb {
-  margin-left: 122px;
-  gap: 24px;
-  .v-btn {
-    @extend .title-6-bd;
-    color: $gray-700;
-    &:hover {
-      color: $blue-500;
-    }
-  }
-}
-
 .header {
   > .v-toolbar__content {
     @extend .inner;
-
+    .v-btn[aria-expanded="true"] {
+      position: relative;
+      &::before {
+        z-index: 99999;
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 9px;
+        background: url("@/assets/images/pop_tail.png") no-repeat 0 0 / 100%;
+        bottom: -19px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
     .v-toolbar__append {
       gap: 20px;
-      .v-btn[aria-expanded="true"] {
-        position: relative;
-        &::before {
-          z-index: 99999;
-          content: "";
-          position: absolute;
-          width: 16px;
-          height: 9px;
-          background: url("@/assets/images/pop_tail.png") no-repeat 0 0 / 100%;
-          bottom: -19px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
+
       .v-badge {
         &__badge {
           bottom: calc(100% - 15px) !important;

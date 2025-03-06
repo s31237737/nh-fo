@@ -32,6 +32,7 @@
   $button-text-transform: none,
   $button-text-letter-spacing: 0,
   $button-font-weight: 600,
+  $button-density: ('default': 1, 'comfortable': -1, 'compact': -3),
   $button-icon-density: ('default': 1, 'comfortable': -1, 'compact': -3),
   $list-item-one-line-min-height: 45px,
   $list-item-padding: 4px 12px,
@@ -54,10 +55,11 @@
   $switch-inset-thumb-height: 16px,
   $switch-track-opacity: 1,
   $switch-track-background: rgb(194, 194, 194),
-   $input-control-height: 44px,
+  $input-control-height: 44px,
   $input-density: (
     "default": -2,
     "comfortable": -3,
     "compact": -5
   ),
+  $btn-group-height: 36px,
 );
