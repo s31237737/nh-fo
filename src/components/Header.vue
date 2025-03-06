@@ -9,7 +9,10 @@
     <!-- 내용 추가 -->
   </v-navigation-drawer>
 
-  <v-app-bar :height="!isMobile ? 80 : 52">
+  <v-app-bar
+    class="header"
+    :height="!isMobile ? 80 : 52"
+  >
     <template #prepend>
       <router-link to="/">
         <v-img

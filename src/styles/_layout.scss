@@ -39,14 +39,13 @@
   }
 }
 
-.v-app-bar {
-  .v-toolbar {
-    &__content {
-      @extend .inner;
-    }
-    &__append {
+.header {
+  > .v-toolbar__content {
+    @extend .inner;
+
+    .v-toolbar__append {
       gap: 20px;
-      .v-btn[aria-expanded="true"]{
+      .v-btn[aria-expanded="true"] {
         position: relative;
         &::before {
           z-index: 99999;
@@ -54,49 +53,46 @@
           position: absolute;
           width: 16px;
           height: 9px;
-          background: url('@/assets/images/pop_tail.png') no-repeat 0 0 / 100%;
+          background: url("@/assets/images/pop_tail.png") no-repeat 0 0 / 100%;
           bottom: -19px;
           left: 50%;
           transform: translateX(-50%);
         }
       }
+      .v-badge {
+        &__badge {
+          bottom: calc(100% - 15px) !important;
+          left: calc(100% - 15px) !important;
+          align-items: inherit;
+          line-height: 14px;
+        }
+      }
+      .login-session {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        .timer {
+          display: flex;
+          align-items: center;
+          width: 68px;
+          gap: 4px;
+          @extend .text-3;
+          color: $gray-700;
+        }
+        .v-btn {
+          min-width: 48px;
+          padding: 0;
+          font-size: 0.875rem;
+          font-weight: 400;
+        }
+      }
     }
   }
-  .v-badge {
-    &__badge {
-      bottom: calc(100% - 15px) !important;
-      left: calc(100% - 15px) !important;
-      align-items: inherit;
-      line-height: 14px;
-    }
-  }
-  .login-session {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    .timer {
-      display: flex;
-      align-items: center;
-      width: 68px;
-      gap: 4px;
-      @extend .text-3;
-      color: $gray-700;
-    }
-    .v-btn {
-      min-width: 48px;
-      padding: 0;
-      font-size: 0.875rem;
-      font-weight: 400;
-    }
-  }
-
 
   @at-root .mobile {
-    .v-app-bar {
-      .v-toolbar {
-        &__content {
-          padding: 0 12px 0 24px;
-        }
+    .header {
+      > .v-toolbar__content {
+        padding: 0 12px 0 24px;
       }
     }
   }
