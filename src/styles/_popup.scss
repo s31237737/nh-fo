@@ -138,7 +138,7 @@
     width: 300px;
     .v-toolbar {
       .v-toolbar-title {
-        @extend .text-1; /* [as-is] @extend .text-1-bd; */
+        @extend .text-1;
       }
       .v-btn:first-child {
         margin-inline-start: 12px;
