@@ -34,7 +34,6 @@
   }
 }
 
-
 .v-empty-state {
   height: 100%;
   &__media {
@@ -42,5 +41,17 @@
   }
   &__text {
     color: $gray-800;
+  }
+}
+
+//v-chip
+.v-chip {
+  &.flag {//flag
+    &.v-chip--variant-tonal {
+      .v-chip__underlay {display:none;}
+    }
+    &.text-secondary {background: $blue-100;}
+    &.text-purple {background: $purple-100;}
+    &.text-pink {background: $pink-100;}
   }
 }
