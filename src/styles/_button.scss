@@ -10,8 +10,9 @@
       opacity: 1;
     }
   }
-  &.text-tertiary {
-    border-color: $gray-400 !important;
+  &.bg-info {
+    border: thin solid $gray-400;
+    color :$black;
   }
   &.v-btn--size {
     &-large {

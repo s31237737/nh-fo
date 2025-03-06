@@ -78,7 +78,7 @@
           </v-card-title>
 
           <!-- 내용 -->
-          <v-card-text class="text-3">     
+          <v-card-text class="text-3">
             {{ card.description }}
           </v-card-text>
         </v-card>
@@ -105,7 +105,7 @@
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
-        { text: "NEW", color: "secondary" },
+        { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
@@ -115,7 +115,7 @@
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
-        { text: "NEW", color: "secondary" },
+        { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
@@ -125,7 +125,7 @@
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
-        { text: "NEW", color: "secondary" },
+        { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
       ],
     },
@@ -134,7 +134,7 @@
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
-        { text: "NEW", color: "secondary" },
+        { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
       ],
     }

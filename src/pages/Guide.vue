@@ -204,8 +204,7 @@
         />
 
         <v-btn
-          color="tertiary"
-          variant="outlined"
+          color="line"
           icon="custom:refresh"
         />
       </v-form>
@@ -285,7 +284,7 @@
 
           <v-chip
             class="flag"
-            color="secondary"
+            color="success"
             variant="tonal"
           >
             blue
@@ -468,7 +467,7 @@
 
         <v-col cols="auto">
           <v-btn density="default">
-            40px / Default Button
+            36px / Default Button
           </v-btn>
         </v-col>
       </v-row>
@@ -483,24 +482,33 @@
           </v-btn>
         </v-col>
 
-        <!-- x-small/Secondary -->
+        <!-- x-small/success -->
+        <v-col cols="auto">
+          <v-btn
+            color="success"
+            size="x-small"
+          >
+            x-small/success
+          </v-btn>
+        </v-col>
+
+        <!-- x-small/secondary -->
         <v-col cols="auto">
           <v-btn
             color="secondary"
             size="x-small"
           >
-            x-small/Secondary
+            x-small/secondary
           </v-btn>
         </v-col>
 
-        <!-- x-small/Tertiary -->
+        <!-- x-small/info -->
         <v-col cols="auto">
           <v-btn
-            color="tertiary"
+            color="info"
             size="x-small"
-            variant="outlined"
           >
-            x-small/Tertiary
+            x-small/info
           </v-btn>
         </v-col>
 
@@ -534,24 +542,33 @@
           </v-btn>
         </v-col>
 
-        <!-- small/Secondary -->
+        <!-- small/success -->
+        <v-col cols="auto">
+          <v-btn
+            color="success"
+            size="small"
+          >
+            small/success
+          </v-btn>
+        </v-col>
+
+        <!-- small/secondary -->
         <v-col cols="auto">
           <v-btn
             color="secondary"
             size="small"
           >
-            small/Secondary
+            small/secondary
           </v-btn>
         </v-col>
 
-        <!-- small/Tertiary -->
+        <!-- small/info -->
         <v-col cols="auto">
           <v-btn
-            color="tertiary"
+            color="info"
             size="small"
-            variant="outlined"
           >
-            small/Tertiary
+            small/info
           </v-btn>
         </v-col>
 
@@ -582,20 +599,28 @@
           </v-btn>
         </v-col>
 
-        <!-- default/Secondary -->
+        <!-- default/success -->
         <v-col cols="auto">
-          <v-btn color="secondary">
-            default/Secondary
+          <v-btn color="success">
+            default/success
           </v-btn>
         </v-col>
 
-        <!-- default/Tertiary -->
+        <!-- default/secondary -->
         <v-col cols="auto">
           <v-btn
-            color="tertiary"
-            variant="outlined"
+            color="secondary"
           >
-            default/Tertiary
+            default/secondary
+          </v-btn>
+        </v-col>
+
+        <!-- default/info -->
+        <v-col cols="auto">
+          <v-btn
+            color="info"
+          >
+            default/info
           </v-btn>
         </v-col>
 
@@ -628,24 +653,33 @@
           </v-btn>
         </v-col>
 
-        <!-- large/Secondary -->
+        <!-- large/success -->
+        <v-col cols="auto">
+          <v-btn
+            size="large"
+            color="success"
+          >
+            large/success
+          </v-btn>
+        </v-col>
+
+        <!-- large/secondary -->
         <v-col cols="auto">
           <v-btn
             size="large"
             color="secondary"
           >
-            large/Secondary
+            large/secondary
           </v-btn>
         </v-col>
 
-        <!-- large/Tertiary -->
+        <!-- large/info -->
         <v-col cols="auto">
           <v-btn
             size="large"
-            color="tertiary"
-            variant="outlined"
+            color="info"
           >
-            large/Tertiary
+            large/info
           </v-btn>
         </v-col>
 
@@ -683,24 +717,33 @@
           </v-btn>
         </v-col>
 
-        <!-- x-large/Secondary -->
+        <!-- x-large/success -->
+        <v-col cols="auto">
+          <v-btn
+            size="x-large"
+            color="success"
+          >
+            x-large/success
+          </v-btn>
+        </v-col>
+
+        <!-- x-large/secondary -->
         <v-col cols="auto">
           <v-btn
             size="x-large"
             color="secondary"
           >
-            x-large/Secondary
+            x-large/secondary
           </v-btn>
         </v-col>
 
-        <!-- x-large/Tertiary -->
+        <!-- x-large/info -->
         <v-col cols="auto">
           <v-btn
             size="x-large"
-            color="tertiary"
-            variant="outlined"
+            color="info"
           >
-            x-large/Tertiary
+            x-large/info
           </v-btn>
         </v-col>
 
@@ -743,7 +786,7 @@
         <!-- icon/ 32px -->
         <v-col cols="auto">
           <v-btn
-            color="secondary"
+            color="success"
             icon="custom:plus"
             density="comfortable"
           />
