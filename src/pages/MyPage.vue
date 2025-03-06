@@ -1,4 +1,10 @@
 <template>
+  <v-container
+    class="inner"
+    style="background:#eee;height:300px"
+  >
+    test
+  </v-container>
   <div
     class="fill-height"
     style="background:#fff"
