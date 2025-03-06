@@ -125,6 +125,8 @@
         <v-menu
           activator="parent"
           content-class="popover"
+          attach=".v-app-bar"
+          transition="false"
         >
           <v-card>
             <v-list :items="items" />
