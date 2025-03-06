@@ -8,7 +8,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px 12px 12px 24px;
-      @extend .title-2;
+      @extend .title-6-bd;
+
       border-bottom: 1px solid black;
       .v-btn {
         margin-left: auto;
@@ -138,7 +139,7 @@
     width: 300px;
     .v-toolbar {
       .v-toolbar-title {
-        @extend .text-1;
+        @extend .text-3-bd;
       }
       .v-btn:first-child {
         margin-inline-start: 12px;
@@ -188,7 +189,7 @@
 
           &-subtitle {
             margin-top: 6px;
-            @extend .text-3;
+            @extend .caption-3;
             color: $gray-600;
           }
         }
@@ -197,7 +198,7 @@
     .alarm-setting {
       p {
         padding: 8px 10px;
-        @extend .text-3-md;
+        @extend .caption-3-md;
         color: $blue-500;
       }
       .switch-flip {
