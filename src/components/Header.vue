@@ -39,7 +39,7 @@
         </v-btn>
 
         <v-btn>
-          지원 및 도움말
+          새소식 및 도움말
           <v-menu
             activator="parent"
           >
@@ -172,15 +172,16 @@ const onExtendClick = () => {
 
 // gnb
 const gnbItems = ref([
+
   {
-    title: '자주 묻는 질문',
+    title: '새소식',
     value: 1,
     props: {
       to: "",
     },
   },
-  {
-    title: '공지사항',
+   {
+    title: '자주 묻는 질문',
     value: 2,
     props: {
       to: "",
@@ -194,7 +195,7 @@ const gnbItems = ref([
     },
   },
   {
-    title: '앱가이드',
+    title: '앱 가이드',
     value: 4,
     props: {
       to: "",
