@@ -46,6 +46,20 @@
     }
     &__append {
       gap: 20px;
+      .v-btn[aria-expanded="true"]{
+        position: relative;
+        &::before {
+          z-index: 99999;
+          content: "";
+          position: absolute;
+          width: 16px;
+          height: 9px;
+          background: url('@/assets/images/pop_tail.png') no-repeat 0 0 / 100%;
+          bottom: -19px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
     }
   }
   .v-badge {

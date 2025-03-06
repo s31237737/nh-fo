@@ -101,7 +101,7 @@ export default createVuetify({
       },
     },
      VMenu: {
-      location: "bottom",
+      location: "bottom center",
       offset: "4",
     },
     VContainer: {
