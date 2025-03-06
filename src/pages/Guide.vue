@@ -54,6 +54,10 @@
         <v-icon icon="custom:new-window" />
         <span>new-window</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:warning" />
+        <span>warning</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
@@ -116,10 +120,7 @@
         <span>sort-asc</span>
       </div>
 
-      <div class="icon-item">
-        <v-icon icon="custom:warning" />
-        <span>warning</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:plus" />
         <span>plus</span>
