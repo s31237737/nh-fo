@@ -178,11 +178,12 @@
           <v-label>색상, 모양</v-label>
         </v-col>
         <v-col cols="auto">
-          <v-chip>
+          <v-chip class="flag">
             default
           </v-chip>
 
           <v-chip
+            class="flag"
             color="secondary"
             variant="tonal"
           >
@@ -190,6 +191,7 @@
           </v-chip>
 
           <v-chip
+            class="flag"
             color="purple"
             variant="tonal"
           >
@@ -197,6 +199,7 @@
           </v-chip>
 
           <v-chip
+            class="flag"
             color="pink"
             variant="tonal"
           >
@@ -204,6 +207,7 @@
           </v-chip>
 
           <v-chip
+            class="flag"
             color="primary"
           >
             black
@@ -216,14 +220,19 @@
         </v-col>
         <v-col cols="auto">
           <v-chip
+            class="flag"
             size="x-small"
           >
             x-small/20px
           </v-chip>
-          <v-chip density="comfortable">
+          <v-chip
+            class="flag"
+            density="comfortable"
+          >
             default/28px
           </v-chip>
           <v-chip
+            class="flag"
             density="compact"
             size="x-large"
           >
