@@ -165,7 +165,37 @@
         size="x-small"
       />
     </div>
+    <!-- form -->
+    <v-divider class="mt-4 pt-4" />
+    <div class="search-wrap">
+      <v-form>
+        <v-select
+          v-model="select"
+          label="앱 타입"
+          :items="['전체', '타입1', '타입2']"
+        />
 
+        <v-select
+          v-model="select"
+          label="자동사용여부"
+          :items="['전체', '상태1', '상태2']"
+        />
+
+        <v-text-field
+          v-model="form"
+          class="search-inp"
+          placeholder="앱코드, 앱 이름을 검색해주세요."
+          append-inner-icon="custom:search"
+          @click:append-inner="onAppendClick"
+        />
+
+        <v-btn
+          color="tertiary"
+          variant="outlined"
+          icon="custom:refresh"
+        />
+      </v-form>
+    </div>
     <!-- popup -->
     <v-divider class="mt-4 pt-4" />
     <Popup />
@@ -695,6 +725,11 @@
 
 <script setup>
 import { ref } from 'vue';
+const form = ref("");
+const select = ref("전체");
+const onAppendClick = () => {
+  alert("Append icon clicked!");
+};
 const desserts = ref([
   {
     name: 'Frozen Yogurt',

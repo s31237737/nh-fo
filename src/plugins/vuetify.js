@@ -133,6 +133,12 @@ export default createVuetify({
         VBtn: { variant: "flat" },
       },
     },
+     VSelect: {
+      persistentPlaceholder: true,
+      variant: "outlined",
+      hideDetails: true,
+      menuIcon: "custom:select",
+    },
     VTextarea: {
       persistentPlaceholder: true,
       variant: "outlined",
@@ -142,6 +148,31 @@ export default createVuetify({
       clearIcon: "custom:clear",
       variant: "outlined",
       hideDetails: true,
+    },
+    VCheckbox: {
+      baseColor: "#c2c2c2",
+      hideDetails: true,
+      falseIcon: "custom:checkbox-off",
+      trueIcon: "custom:checkbox-on",
+    },
+    VRadio: {
+      baseColor: "#c2c2c2",
+      falseIcon: "custom:radio-off",
+      trueIcon: "custom:radio-on",
+    },
+    VRadioGroup: {
+      baseColor: "#c2c2c2",
+      hideDetails: true,
+    },
+    VFileInput: {
+      variant: "outlined",
+      hideDetails: true,
+      prependIcon: "",
+      clearable: false,
+      dirty: true,
+      VField: {
+        dirty: true
+      },
     },
     VTableRow: {
       class: ["tbl-row"],

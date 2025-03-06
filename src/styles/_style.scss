@@ -55,3 +55,127 @@
     &.text-pink {background: $pink-100;}
   }
 }
+
+.search-wrap {
+  margin-bottom: 50px;
+  &:has(.v-form) {
+    > .v-form {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: flex-end;
+    }
+  }
+  &:not(:has(.v-form)) {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  .v-input {
+    padding-top: 20px;
+    position: relative;
+    flex-basis: 338px;
+    flex-grow: 0;
+    .v-label {
+      display: none;
+    }
+    &.required {
+      .v-label:after {
+        display: inline-block;
+        content: "*";
+        margin-left: 2px;
+        color: #e6171b;
+      }
+    }
+    .v-input__details {
+      padding-inline: 0;
+      position: absolute;
+      top: 4px;
+      padding: 0;
+      min-height: 14px;
+    }
+  }
+  .v-field {
+    &__prepend-inner {
+      color: $black;
+      .v-icon {
+        opacity: 1;
+      }
+    }
+    &.v-field--variant-outlined {
+      .v-field__outline {
+        .v-label {
+          contain: unset;
+          margin: 0;
+          transform: unset;
+          visibility: unset !important;
+          opacity: 1;
+          display: block;
+          position: fixed;
+          top: -20px;
+          left: 0;
+          pointer-events: stroke;
+          @extend .caption-3-md;
+          color: $gray-800;
+        }
+        .v-field__outline__notch::before {
+          opacity: var(--v-field-border-opacity);
+        }
+      }
+    }
+  }
+  .search-inp {
+    flex-grow: 1;
+  }
+  &-end {
+    display: flex;
+    justify-content: flex-end;
+    margin: 68px 0 24px;
+    .search-inp {
+      max-width: 500px;
+    }
+    + .v-data-table {
+      margin-top: 0;
+    }
+  }
+}
+
+
+.search-inp {
+  position: relative;
+  .v-btn {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+  }
+  .v-icon {
+    pointer-events: none;
+    width: 32px;
+    height: 32px;
+  }
+  &.v-input--dirty {
+    .v-icon {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}
+
+.v-select {
+  min-width: 120px;
+  &__content {
+    .v-list {
+      padding: 0 8px 8px;
+      border: thin solid $gray-400;
+      .v-list-item {
+        margin-top: 8px;
+        border-radius: 4px;
+        min-height: 32px;
+        .v-list-item-title {
+          @extend .text-4-md;
+        }
+      }
+    }
+  }
+}
