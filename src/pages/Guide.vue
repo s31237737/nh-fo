@@ -272,7 +272,7 @@
     <!-- 텍스트 -->
     <v-divider class="mt-4 pt-4" />
     <div>
-      <v-row>
+      <div>
         <p class="title-1">
           title-1 큰 제목입니다 (42px, 400, 58)
         </p>
@@ -303,8 +303,8 @@
         <p class="title-6-bd">
           title-6-bd 작은 크기 제목입니다 (18px, 700, 26)
         </p>
-      </v-row>
-      <v-row class="mt-4 pt-4">
+      </div>
+      <div class="mt-4 pt-4">
         <p class="text-1">
           text-1 큰 본문 텍스트입니다. (20px, 500, 28)
         </p>
@@ -326,8 +326,8 @@
         <p class="text-4-md">
           text-4-md 작은 본문 텍스트입니다. (14px, 500, 20)
         </p>
-      </v-row>
-      <v-row class="mt-4 pt-4">
+      </div>
+      <div class="mt-4 pt-4">
         <p class="caption-1">
           caption-1 캡션 스타일입니다. (18px, 700, 26)
         </p>
@@ -343,7 +343,7 @@
         <p class="caption-3-md">
           caption-3-md 캡션 스타일입니다. (12px, 600, 20)
         </p>
-      </v-row>
+      </div>
     </div>
     <!-- // 텍스트 -->
 
