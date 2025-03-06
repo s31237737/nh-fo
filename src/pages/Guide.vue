@@ -165,6 +165,7 @@
       />
     </div>
 
+    <!-- popup -->
     <v-divider class="mt-4 pt-4" />
     <Popup />
 
@@ -258,6 +259,9 @@
         value="three"
       />
     </v-radio-group>
+
+    <!-- list -->
+    <v-divider class="mt-4 pt-4" />
     <div class="mt-4 d-flex">
       <v-list
         density="comfortable"
@@ -266,8 +270,9 @@
     </div>
 
     <!-- 텍스트 -->
-    <v-row>
-      <v-col>
+    <v-divider class="mt-4 pt-4" />
+    <div>
+      <v-row>
         <p class="title-1">
           title-1 큰 제목입니다 (42px, 400, 58)
         </p>
@@ -298,7 +303,8 @@
         <p class="title-6-bd">
           title-6-bd 작은 크기 제목입니다 (18px, 700, 26)
         </p>
-        <v-divider class="mt-4 pt-4" />
+      </v-row>
+      <v-row class="mt-4 pt-4">
         <p class="text-1">
           text-1 큰 본문 텍스트입니다. (20px, 500, 28)
         </p>
@@ -320,7 +326,8 @@
         <p class="text-4-md">
           text-4-md 작은 본문 텍스트입니다. (14px, 500, 20)
         </p>
-        <v-divider class="mt-4 pt-4" />
+      </v-row>
+      <v-row class="mt-4 pt-4">
         <p class="caption-1">
           caption-1 캡션 스타일입니다. (18px, 700, 26)
         </p>
@@ -336,11 +343,12 @@
         <p class="caption-3-md">
           caption-3-md 캡션 스타일입니다. (12px, 600, 20)
         </p>
-      </v-col>
-    </v-row>
+      </v-row>
+    </div>
     <!-- // 텍스트 -->
 
     <!-- 버튼 -->
+    <v-divider class="mt-4 pt-4" />
     <div>
       <v-row
         align="center"
@@ -653,6 +661,7 @@
     <!-- //버튼 -->
 
     <!-- table -->
+    <v-divider class="mt-4 pt-4" />
     <v-row>
       <v-col cols="auto">
         <v-table>
@@ -678,6 +687,8 @@
         </v-table>
       </v-col>
     </v-row>
+
+    <!-- 앱 전체 리스트 - 앱 -->
   </div>
 </template>
 
