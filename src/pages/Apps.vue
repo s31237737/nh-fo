@@ -24,138 +24,61 @@
     class="inner"
   >
     <v-row
-      class="pt-4 pb-4"
+      class="appsLst"
+      no-gutters
     >
-      <!-- type 1 -->
       <v-col
+        v-for="(card, index) in cardData"
+        :key="index"
         cols="12"
-        xs="4"
-        sm="6"
-        md="4"
+        md="6"
+        lg="4"
       >
         <v-card
-          class="mx-auto"
+          class="apps"
           variant="flat"
         >
-          <div class="d-flex justify-space-between">
+          <div class="apps-top">
             <div class="thumnail">
               <v-img
                 :width="60"
                 :height="60"
-                aspect-ratio="16/9"
+                :src="card.imageSrc"
+                alt="앱 아이콘"
                 cover
-                src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
               />
             </div>
-            <!-- flag: 최대 3개 노출 -->
+            <!-- 배지 (최대 3개) -->
             <div class="flags">
               <v-chip
-                class="flag"
-                color="secondary"
+                v-for="(badge, idx) in card.badges.slice(0, 3)"
+                :key="idx"
+                :color="badge.color"
                 variant="tonal"
                 density="comfortable"
+                class="flag ma-1"
               >
-                blue
-              </v-chip>
-              <v-chip
-                class="flag"
-                color="purple"
-                variant="tonal"
-                density="comfortable"
-              >
-                purple
-              </v-chip>
-              <v-chip
-                class="flag"
-                color="pink"
-                variant="tonal"
-                density="comfortable"
-              >
-                pink
+                {{ badge.text }}
               </v-chip>
 
-              <!-- status: 사용신청 완료일 경우 -->
+              <!-- 상태 배지 (필요할 때만 표시) -->
               <v-chip
                 class="flag"
                 color="primary"
-                density="comfortable"
               >
                 black
               </v-chip>
             </div>
           </div>
 
-          <v-card-title class="pt-8">
-            공통총무알리미
+          <!-- 제목 -->
+          <v-card-title>
+            {{ card.title }}
           </v-card-title>
-          <v-card-text class="pt-3">
-            농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱
-          </v-card-text>
-        </v-card>
-      </v-col>
 
-      <!-- type 2 -->
-      <v-col
-        cols="12"
-        xs="4"
-        sm="6"
-        md="4"
-      >
-        <v-card
-          class="mx-auto"
-          variant="flat"
-        >
-          <div class="d-flex justify-space-between">
-            <v-avatar
-              rounded="0"
-              size="60"
-            >
-              <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png" />
-            </v-avatar>
-            <!-- flag: 최대 3개 노출 -->
-            <div class="flags">
-              <v-chip
-                class="flag"
-                color="secondary"
-                variant="tonal"
-                density="comfortable"
-              >
-                blue
-              </v-chip>
-              <v-chip
-                class="flag"
-                color="purple"
-                variant="tonal"
-                density="comfortable"
-              >
-                purple
-              </v-chip>
-              <v-chip
-                class="flag"
-                color="pink"
-                variant="tonal"
-                density="comfortable"
-              >
-                pink
-              </v-chip>
-
-              <!-- status: 사용신청 완료일 경우 -->
-              <v-chip
-                class="flag"
-                color="primary"
-                density="comfortable"
-              >
-                black
-              </v-chip>
-            </div>
-          </div>
-
-
-          <v-card-title class="pt-8">
-            공통총무알리미
-          </v-card-title>
-          <v-card-text class="pt-3">
-            농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱
+          <!-- 내용 -->
+          <v-card-text>
+            {{ card.description }}
           </v-card-text>
         </v-card>
       </v-col>
@@ -166,6 +89,7 @@
 <script setup>
 //import { inject } from 'vue';
 //const isMobile = inject('isMobile');
+
   const slides = [
     'First',
     'Second',
@@ -173,4 +97,49 @@
     'Fourth',
     'Fifth',
   ]
+
+  const cardData = [
+    {
+      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "secondary" },
+        { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
+      ],
+      statusBadge: { text: "사용중", color: "black" }
+    },
+    {
+      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "secondary" },
+        { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
+      ],
+      statusBadge: null
+    },
+    {
+      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "secondary" },
+        { text: "추천", color: "purple" },
+      ],
+      statusBadge: null
+    },
+    {
+      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "secondary" },
+        { text: "추천", color: "purple" },
+      ],
+      statusBadge: null
+    }
+  ];
 </script>
