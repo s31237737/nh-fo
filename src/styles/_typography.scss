@@ -1,6 +1,6 @@
  @use "variables" as *;
 
-@mixin typography($size, $weight, $line-height) {
+@mixin typography($weight, $line-height, $size) {
   font-size: $size !important;
   font-weight: $weight !important;
   line-height: $line-height !important;
@@ -12,72 +12,129 @@
 //semibold 600
 //bold 700
 .title-1 {
-  @include typography(2.625rem, 400, 3.625rem);
+  @include typography(400, 3.625rem, 2.625rem);
+}
+.title-1-bd {
+  @include typography(700, 3.625rem, 2.625rem);
 }
 .title-2 {
-  @include typography(2.215rem, 400, 3.125rem);
+  @include typography(400, 3.125rem, 2.215rem);
 }
 .title-2-bd {
-  @include typography(2.215rem, 600, 3.125rem);
+  @include typography(600, 3.125rem, 2.215rem);
 }
 .title-3 {
-  @include typography(2rem, 500, 2.5rem);
+  @include typography(500, 2.5rem, 2rem);
 }
 .title-3-bd {
-  @include typography(2rem, 700, 2.5rem);
+  @include typography(700, 2.5rem, 2rem);
 }
 .title-4 {
-  @include typography(1.625rem, 500, 2.125rem);
+  @include typography(500, 2rem, 1.5rem);
+}
+.title-4-bd {
+  @include typography(600, 2rem, 1.5rem);
 }
 .title-5 {
-  @include typography(1.5rem, 500, 2rem);
+  @include typography(500, 1.625rem, 1.125rem);
 }
 .title-5-bd {
-  @include typography(1.5rem, 600, 2rem);
+  @include typography(700, 1.625rem, 1.125rem);
 }
-.title-6 {
-  @include typography(1.125rem, 500, 1.625rem);
-}
-.title-6-bd {
-  @include typography(1.125rem, 700, 1.625rem);
-}
-
 .text-1 {
-  @include typography(1.25rem, 500, 1.75rem);
+  @include typography(500, 1.75rem, 1.25rem);
 }
 .text-2 {
-  @include typography(1.125rem, 400, 1.625rem);
+  @include typography(400, 1.625rem, 1.125rem);
+}
+.text-2-md {
+  @include typography(500, 1.625rem, 1.125rem);
 }
 .text-3 {
-  @include typography(1rem, 400, 1.5rem);
+  @include typography(400, 1.5rem, 1rem);
 }
 .text-3-md {
-  @include typography(1rem, 500, 1.5rem);
+  @include typography(500, 1.5rem, 1rem);
 }
 .text-3-bd {
-  @include typography(1rem, 700, 1.5rem);
+  @include typography(700, 1.5rem, 1rem);
 }
 .text-4 {
-  @include typography(0.875rem, 400, 1.25rem);
+  @include typography(400, 1.25rem, 0.875rem);
 }
 .text-4-md {
-  @include typography(0.875rem, 500, 1.25rem);
+  @include typography(500, 1.25rem, 0.875rem);
 }
-
+.text-4-bd {
+  @include typography(700, 1.25rem, 0.875rem);
+}
 .caption-1 {
-  @include typography(1.125rem, 700, 1.625rem);
+  @include typography(700, 1.625rem, 1.125rem);
 }
 .caption-2 {
-  @include typography(0.875rem, 400, 1.25rem);
+  @include typography(400, 1.25rem, 0.875rem);
 }
 .caption-2-md {
-  @include typography(0.875rem, 500, 1.25rem);
+  @include typography(500, 1.25rem, 0.875rem);
 }
 .caption-3 {
-  @include typography(0.75rem, 400, 1.25rem);
+  @include typography(400, 1.125rem, 0.75rem);
 }
 .caption-3-md {
-  @include typography(0.75rem, 500, 1.25rem);
+  @include typography(500, 1.125rem, 0.75rem);
+}
+@at-root .mobile {
+  .title-1 {
+    @include typography(400, 2.125rem, 1.625rem);
+  }
+  .title-1-bd {
+    @include typography(700, 2.125rem, 1.625rem);
+  }
+  .title-2 {
+    @include typography(400, 1.875rem, 1.5rem);
+  }
+  .title-2-bd {
+    @include typography(600, 1.875rem, 1.5rem);
+  }
+  .title-3 {
+    @include typography(500, 1.625rem, 1.25rem);
+  }
+  .title-3-bd {
+    @include typography(700, 1.625rem, 1.25rem);
+  }
+  .title-4 {
+    @include typography(500, 1.625rem, 1.25rem);
+  }
+  .title-4-bd {
+    @include typography(600, 2rem, 1.5rem);
+  }
+  .title-5 {
+    @include typography(500, 1.375rem, 1rem);
+  }
+  .title-5-bd {
+    @include typography(700, 1.375rem, 1rem);
+  }
+  .text-1 {
+    @include typography(500, 1.375rem, 1rem);
+  }
+  .text-2 {
+    @include typography(400, 1.25rem, 1rem);
+  }
+  .text-2-md {
+    @include typography(500, 1.25rem, 1rem);
+  }
+  .text-3 {
+    @include typography(400, 1.25rem, 0.875rem);
+  }
+  .text-3-md {
+    @include typography(500, 1.25rem, 0.875rem);
+  }
+  .text-3-bd {
+    @include typography(700, 1.25rem, 0.875rem);
+  }
+  .caption-1 {
+    @include typography(700, 1.375rem, 1rem);
+  }
 }
 
 @mixin line-clamp($lines) {

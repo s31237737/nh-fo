@@ -373,74 +373,80 @@
     <div>
       <div>
         <p class="title-1">
-          title-1 큰 제목입니다 (42px, 400, 58)
+          title-1 큰 제목입니다 (400, 58, 42px)
+        </p>
+        <p class="title-1-bd">
+          title-1-bd 큰 제목입니다 (700, 58, 42px)
         </p>
         <p class="title-2">
-          title-2 중간 크기 제목입니다 (34px, 400, 50)
+          title-2 중간 크기 제목입니다 (400, 50, 34px)
         </p>
         <p class="title-2-bd">
-          title-2-bd 중간 크기 제목입니다 (34px, 600, 50)
+          title-2-bd 중간 크기 제목입니다 (600, 50, 34px)
         </p>
         <p class="title-3">
-          title-3 중간 크기 제목입니다 (32px, 500, 40)
+          title-3 중간 크기 제목입니다 (500, 40, 32px)
         </p>
         <p class="title-3-bd">
-          title-3-bd 중간 크기 제목입니다 (32px, 700, 40)
+          title-3-bd 중간 크기 제목입니다 (700, 40, 32px)
         </p>
         <p class="title-4">
-          title-4 중간 크기 제목입니다 (26px, 500, 34)
+          title-4 중간 크기 제목입니다 (500, 32, 24px)
+        </p>
+        <p class="title-4-bd">
+          title-4-bd 중간 크기 제목입니다 (600, 32, 24px)
         </p>
         <p class="title-5">
-          title-5 작은 크기 제목입니다 (24px, 500, 32)
+          title-5 작은 크기 제목입니다 (500, 26, 18px)
         </p>
         <p class="title-5-bd">
-          title-5 작은 크기 제목입니다 (24px, 600, 32)
-        </p>
-        <p class="title-6">
-          title-6 작은 크기 제목입니다 (18px, 500, 26)
-        </p>
-        <p class="title-6-bd">
-          title-6-bd 작은 크기 제목입니다 (18px, 700, 26)
+          title-5-bd 작은 크기 제목입니다 (600, 26, 18px)
         </p>
       </div>
       <div class="mt-4 pt-4">
         <p class="text-1">
-          text-1 큰 본문 텍스트입니다. (20px, 500, 28)
+          text-1 큰 본문 텍스트입니다. (500, 28, 20px)
         </p>
         <p class="text-2">
-          text-2 큰 본문 텍스트입니다. (18px, 400, 26)
+          text-2 큰 본문 텍스트입니다. (400, 26, 18px)
+        </p>
+        <p class="text-2-md">
+          text-2-md 큰 본문 텍스트입니다. (500, 26, 18px)
         </p>
         <p class="text-3">
-          text-3 일반 본문 텍스트입니다. (16px, 400, 24)
+          text-3 일반 본문 텍스트입니다. (400, 24, 16px)
         </p>
         <p class="text-3-md">
-          text-3-md 일반 본문 텍스트입니다. (16px, 500, 24)
+          text-3-md 일반 본문 텍스트입니다. (500, 24, 16px)
         </p>
         <p class="text-3-bd">
-          text-3-bd 일반 본문 텍스트입니다. (16px, 700, 24)
+          text-3-bd 일반 본문 텍스트입니다. (700, 24, 16px)
         </p>
         <p class="text-4">
-          text-4 작은 본문 텍스트입니다. (14px, 400, 20)
+          text-4 작은 본문 텍스트입니다. (400, 20, 14px)
         </p>
         <p class="text-4-md">
-          text-4-md 작은 본문 텍스트입니다. (14px, 500, 20)
+          text-4-md 작은 본문 텍스트입니다. (500, 20, 14px)
+        </p>
+        <p class="text-4-bd">
+          text-4-bd 작은 본문 텍스트입니다. (700, 20, 14px)
         </p>
       </div>
       <div class="mt-4 pt-4">
         <p class="caption-1">
-          caption-1 캡션 스타일입니다. (18px, 700, 26)
+          caption-1 캡션 스타일입니다. (700, 26, 18px)
         </p>
         <p class="caption-2">
-          caption-2 캡션 스타일입니다. (14px, 400, 20)
+          caption-2 캡션 스타일입니다. (400, 20, 14px)
         </p>
         <p class="caption-2-md">
-          caption-2-md 캡션 스타일입니다. (14px, 500, 20)
+          caption-2-md 캡션 스타일입니다. (500, 20, 14px)
         </p>
         <p class="caption-3">
-          caption-3 캡션 스타일입니다. (12px, 400, 20)
+          caption-3 캡션 스타일입니다. (400, 18, 12px)
         </p>
         <p class="caption-3-md">
-          caption-3-md 캡션 스타일입니다. (12px, 600, 20)
+          caption-3-md 캡션 스타일입니다. (500, 18, 12px)
         </p>
       </div>
     </div>
