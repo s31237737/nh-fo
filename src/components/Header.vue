@@ -1,14 +1,4 @@
 <template>
-  <!-- 모바일 메뉴 -->
-  <v-navigation-drawer
-    v-if="!isDesktop"
-    v-model="drawer"
-    temporary
-    floating
-  >
-    <!-- 내용 추가 -->
-  </v-navigation-drawer>
-
   <v-app-bar
     class="header"
     :height="isDesktop ? 80 : 52"
@@ -89,16 +79,9 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
+        @click.stop="drawer = !drawer"
       />
-      <v-text-field
-        v-if="false"
-        v-model="search"
-        width="300"
-        class="search-inp"
-        placeholder="앱과 앱가이드를 검색해보세요"
-        append-inner-icon="custom:search"
-        @click:append-inner="onAppendClick"
-      />
+
       <!-- 알림 -->
       <Alarm />
 
@@ -126,10 +109,29 @@
       <v-app-bar-nav-icon
         v-if="!isDesktop"
         density="comfortable"
-        @click="drawer = !drawer"
       />
     </template>
   </v-app-bar>
+  <!-- 모바일 메뉴 -->
+  <v-navigation-drawer
+    v-model="drawer"
+    location="top"
+    temporary
+    floating
+  >
+    <v-container
+      class="inner d-flex align-items-center justify-content-center fill-height"
+    >
+      <v-text-field
+        v-model="search"
+        width="300"
+        class="search-inp"
+        placeholder="앱과 앱가이드를 검색해보세요"
+        append-inner-icon="custom:search"
+        @click:append-inner="onAppendClick"
+      />
+    </v-container>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
@@ -138,7 +140,7 @@ import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
-const drawer = ref(false);
+const drawer = ref(null);
 
 // 검색
 const search = ref('');
