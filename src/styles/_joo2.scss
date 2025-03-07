@@ -21,7 +21,7 @@
     &.text-success {background: $blue-100;}
     &.text-purple {background: $purple-100;}
     &.text-pink {background: $pink-100;}
-    @at-root .flags & {//in .apps
+    @at-root .flags .v-chip.flag {//in .apps
       & + .flag {
         margin-left: 5px;
       }
@@ -54,17 +54,17 @@
     .btns {
       margin-bottom:-16px;
     }
-    @at-root .tablet {
-      & {padding: 24px; }
-    }
     .d-flex {
       justify-content: space-between;
       & + .d-flex {margin-top: 31px;}
     }
+    @at-root .tablet .apps.v-card{
+      & {padding: 24px; }
+    }
   }
 }
 .appsLst{
-  @at-root .tablet & {
+  @at-root .tablet .appsLst {
     .v-col-12.v-col-lg-4 {
       flex: 0 0 50%;
       max-width: 50%;

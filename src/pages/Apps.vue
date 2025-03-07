@@ -163,7 +163,6 @@
               <v-btn 
                 v-else-if="card.showApply"
                 color="secondary"
-                @click.stop="applyNow(card.applyLink)"
               >
                 신청 대기중
               </v-btn>
@@ -178,9 +177,9 @@
 
 <script setup>
 import { ref } from 'vue';
-//import { inject } from 'vue';
-//const isMobile = inject('isMobile');
+import { useRouter } from 'vue-router';
 
+  const router = useRouter();
   const slides = [
     'First',
     'Second',
@@ -188,10 +187,9 @@ import { ref } from 'vue';
     'Fourth',
     'Fifth',
   ]
-
   const cardData = ref([
     {
-      href: "#",
+      href: "#here",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -202,7 +200,7 @@ import { ref } from 'vue';
       ],
     },
     {
-      href: "#",
+      href: "#here",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -213,7 +211,7 @@ import { ref } from 'vue';
       ],
     },
     {
-      href: "#",
+      href: "#here",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -223,7 +221,7 @@ import { ref } from 'vue';
       ],
     },
     {
-      href: "#",
+      href: "#here",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -233,10 +231,9 @@ import { ref } from 'vue';
       ],
     }
   ]);
-
   const cardData2 = ref([
     {
-      href: "#",
+      href: "#here",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -247,10 +244,9 @@ import { ref } from 'vue';
       showOpenApp: true,
       showApply: false,
       appLink: "#appopen",
-      applyLink: "#wait",
     },
     {
-      href: "#",
+      href: "#here",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -261,10 +257,9 @@ import { ref } from 'vue';
       showOpenApp: false,
       showApply: true,
       appLink: "#appopen",
-      applyLink: "#wait",
     },
     {
-      href: "#",
+      href: "#here",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -274,10 +269,9 @@ import { ref } from 'vue';
       showOpenApp: false,
       showApply: true,
       appLink: "#appopen",
-      applyLink: "#wait",
     },
     {
-      href: "#",
+      href: "#here",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -287,25 +281,18 @@ import { ref } from 'vue';
       showOpenApp: false,
       showApply: true,
       appLink: "#appopen",
-      applyLink: "#wait",
     }
   ]);
 
   const goToDetail = (url) => {
     if (url) {
-      window.open(url, '_blank');
+      router.push(url, '_blank');
     }
   };
 
   const openApp = (appLink) => {
     if (appLink) {
       window.open(appLink, '_blank');
-    }
-  };
-
-  const applyNow = (applyLink) => {
-    if (applyLink) {
-      window.open(applyLink, '_blank');
     }
   };
 </script>
