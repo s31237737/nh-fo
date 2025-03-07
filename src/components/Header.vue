@@ -118,16 +118,18 @@
     location="top"
     temporary
     floating
+    width="120"
   >
     <v-container
-      class="inner d-flex align-items-center justify-content-center fill-height"
+      class="inner h-100"
     >
       <v-text-field
         v-model="search"
-        width="300"
-        class="search-inp"
+        width="544"
+        class="search-inp ma-auto"
         placeholder="앱과 앱가이드를 검색해보세요"
         append-inner-icon="custom:search"
+        rounded="xl"
         @click:append-inner="onAppendClick"
       />
     </v-container>
