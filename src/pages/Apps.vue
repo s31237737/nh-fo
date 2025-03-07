@@ -161,6 +161,7 @@
                 v-else-if="card.showApply"
                 color="info"
                 disabled
+                @click.stop.prevent="preventNavigation"
               >
                 신청 대기중
               </v-btn>
@@ -317,5 +318,8 @@ import { ref } from 'vue';
       showApply: true,
     }
   ]);
-
+  const preventNavigation = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
 </script>
