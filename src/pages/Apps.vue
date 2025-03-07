@@ -40,7 +40,6 @@
           :href="card.href"
           class="apps"
           variant="flat"
-          target="_blank"
         >
           <div class="d-flex">
             <div class="thumnail">
@@ -106,8 +105,7 @@
         <v-card
           class="apps"
           variant="flat"
-          target="_blank"
-          @click="goToDetail(card.href)"
+          :to="card.href"
         >
           <!-- :href="card.href" -->
           <div class="d-flex">
@@ -283,12 +281,6 @@ import { useRouter } from 'vue-router';
       appLink: "#appopen",
     }
   ]);
-
-  const goToDetail = (url) => {
-    if (url) {
-      router.push(url, '_blank');
-    }
-  };
 
   const openApp = (appLink) => {
     if (appLink) {
