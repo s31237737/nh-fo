@@ -37,7 +37,7 @@
         lg="4"
       >
         <v-card
-          :href="card.href"
+          :to="card.link"
           class="apps"
           variant="flat"
         >
@@ -103,11 +103,10 @@
         lg="4"
       >
         <v-card
+          :to="card.link"
           class="apps"
           variant="flat"
-          :to="card.href"
         >
-          <!-- :href="card.href" -->
           <div class="d-flex">
             <div class="like">
               <v-btn
@@ -154,13 +153,14 @@
               <v-btn
                 v-if="card.showOpenApp"
                 color="info"
-                @click.stop="openApp(card.appLink)"
+                @click.stop.prevent="alert = true"
               >
                 앱 열기
               </v-btn>
               <v-btn 
                 v-else-if="card.showApply"
-                color="secondary"
+                color="info"
+                disabled
               >
                 신청 대기중
               </v-btn>
@@ -171,13 +171,53 @@
     </v-row>
     <!--// 앱 목록 -->
   </v-container>
+
+  <!-- alert -->
+  <v-dialog
+    v-model="alert"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <span>사용중단</span>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <p class="alert-txt">
+          입력하신 정보가 저장되지 않습니다.<br>정말 나가시겠습니까?
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="secondary"
+          size="large"
+          @click="alert = false"
+        >
+          취소
+        </v-btn>
+        <v-btn
+          color="primary"
+          size="large"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+  <!-- alert -->
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 
-  const router = useRouter();
+  const alert = ref(false);
   const slides = [
     'First',
     'Second',
@@ -187,7 +227,7 @@ import { useRouter } from 'vue-router';
   ]
   const cardData = ref([
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -198,7 +238,7 @@ import { useRouter } from 'vue-router';
       ],
     },
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -209,7 +249,7 @@ import { useRouter } from 'vue-router';
       ],
     },
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -219,7 +259,7 @@ import { useRouter } from 'vue-router';
       ],
     },
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -231,7 +271,7 @@ import { useRouter } from 'vue-router';
   ]);
   const cardData2 = ref([
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -241,10 +281,9 @@ import { useRouter } from 'vue-router';
       ],
       showOpenApp: true,
       showApply: false,
-      appLink: "#appopen",
     },
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -254,10 +293,9 @@ import { useRouter } from 'vue-router';
       ],
       showOpenApp: false,
       showApply: true,
-      appLink: "#appopen",
     },
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -266,10 +304,9 @@ import { useRouter } from 'vue-router';
       ],
       showOpenApp: false,
       showApply: true,
-      appLink: "#appopen",
     },
     {
-      href: "#here",
+      link: "src/pages/AppsDetail",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -278,13 +315,7 @@ import { useRouter } from 'vue-router';
       ],
       showOpenApp: false,
       showApply: true,
-      appLink: "#appopen",
     }
   ]);
 
-  const openApp = (appLink) => {
-    if (appLink) {
-      window.open(appLink, '_blank');
-    }
-  };
 </script>
