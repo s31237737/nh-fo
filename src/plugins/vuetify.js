@@ -79,7 +79,12 @@ export default createVuetify({
     VTableRow: VTable,
   },
   display: {
-    mobileBreakpoint: 'lg'
+    mobileBreakpoint: 'md',
+    thresholds: {
+      sm: 0,
+      md: 768,
+      xl: 1280,
+    },
   },
   defaults: {
     VAppBar: {
