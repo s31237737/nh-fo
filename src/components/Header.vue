@@ -1,7 +1,7 @@
 <template>
   <!-- 모바일 메뉴 -->
   <v-navigation-drawer
-    v-if="isMobile"
+    v-if="!isDesktop"
     v-model="drawer"
     temporary
     floating
@@ -11,18 +11,18 @@
 
   <v-app-bar
     class="header"
-    :height="!isMobile ? 80 : 52"
+    :height="isDesktop ? 80 : 52"
   >
     <template #prepend>
       <router-link to="/">
         <v-img
-          :width="!isMobile ? 180 : 144"
+          :width="isDesktop ? 180 : 144"
           alt="NH Nonghyup"
           src="@/assets/images/logo.png"
         />
       </router-link>
       <v-btn-toggle
-        v-if="!isMobile"
+        v-if="isDesktop"
         class="gnb"
         color="success"
         density="comfortable"
@@ -64,7 +64,7 @@
       />
       <!-- 로그인연장 -->
       <div
-        v-if="!isMobile"
+        v-if="isDesktop"
         class="login-session"
       >
         <span class="timer">
@@ -104,7 +104,7 @@
 
       <!-- 프로필 -->
       <v-btn
-        v-if="!isMobile"
+        v-if="isDesktop"
         icon
         density="comfortable"
       >
@@ -124,7 +124,7 @@
 
       <!-- 모바일 메뉴 버튼-->
       <v-app-bar-nav-icon
-        v-if="isMobile"
+        v-if="!isDesktop"
         density="comfortable"
         @click="drawer = !drawer"
       />
@@ -136,6 +136,8 @@
 import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 
 const isMobile = inject('isMobile');
+const isTablet = inject('isTablet');
+const isDesktop = inject('isDesktop');
 const drawer = ref(false);
 
 // 검색
