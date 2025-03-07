@@ -51,8 +51,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="tertiary"
-          variant="outlined"
+          color="info"
           size="large"
           @click="dialog1 = false"
         >
@@ -141,8 +140,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="tertiary"
-          variant="outlined"
+          color="info"
           size="large"
           @click="dialog2 = false"
         >
@@ -178,8 +176,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="tertiary"
-          variant="outlined"
+          color="info"
           size="large"
           @click="dialog3 = false"
         >

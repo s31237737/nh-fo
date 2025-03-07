@@ -256,12 +256,6 @@
 
 //앱 리스트
 .apps {
-  @at-root .v-row.appsLst {//parent
-    margin:10px -10px !important; //임시
-    & > [class*="v-col"] {
-      padding: 10px !important;
-    }
-  }
   &.v-card {
     padding: 30px;
     border-radius: 20px;

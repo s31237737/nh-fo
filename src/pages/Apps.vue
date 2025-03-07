@@ -29,7 +29,6 @@
     <!-- 앱 목록  -->
     <v-row
       class="appsLst"
-      no-gutters
     >
       <v-col
         v-for="(card, index) in cardData"
@@ -76,7 +75,7 @@
               </v-chip>
             </div>
           </div>
-          
+
           <!-- 제목 -->
           <v-card-title class="title-5 pt-8">
             {{ card.title }}
@@ -90,14 +89,13 @@
       </v-col>
     </v-row>
     <!--// 앱 목록  -->
-    
+
     <p class="title-2 pb-10">
-      가장 많은 좋아요를 받았어요!        
+      가장 많은 좋아요를 받았어요!
     </p>
     <!-- 앱 목록 -->
     <v-row
       class="appsLst"
-      no-gutters
     >
       <v-col
         v-for="(card, index) in cardData"
@@ -155,8 +153,7 @@
             </div>
             <div class="btns">
               <v-btn
-                color="tertiary"
-                variant="outlined"
+                color="info"
               >
                 앱 열기
               </v-btn>
