@@ -115,18 +115,7 @@
   }
   .search-inp {
     flex-grow: 1;
-  }
-  &-end {
-    display: flex;
-    justify-content: flex-end;
-    margin: 68px 0 24px;
-    .search-inp {
-      max-width: 500px;
-    }
-    + .v-data-table {
-      margin-top: 0;
-    }
-  }
+  }  
 }
 
 
@@ -146,6 +135,9 @@
       pointer-events: all;
       opacity: 1;
     }
+  }
+  .v-field__outline__start {
+    flex-basis: 50% !important;
   }
 }
 

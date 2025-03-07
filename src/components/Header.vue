@@ -129,7 +129,7 @@
         class="search-inp ma-auto"
         placeholder="앱과 앱가이드를 검색해보세요"
         append-inner-icon="custom:search"
-        rounded="xl"
+        rounded="pill"
         @click:append-inner="onAppendClick"
       />
     </v-container>
