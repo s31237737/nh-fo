@@ -1,5 +1,10 @@
 <template>
   <v-app :class="displaySize">
+    <p
+      style="background:red; text-align:center;position: relative;z-index: 99999999999999999;"
+    >
+      클래스 확인 /{{ displaySize }}
+    </p>
     <router-view />
   </v-app>
 </template>
