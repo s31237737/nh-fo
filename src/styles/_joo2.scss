@@ -23,7 +23,7 @@
     &.text-pink {background: $pink-100;}
     @at-root .flags & {//in .apps
       & + .flag {
-        margin: 0 0 0 5px;
+        margin-left: 5px;
       }
     }
   }
@@ -33,24 +33,41 @@
 //앱 리스트
 .apps {
   &.v-card {
+    height: 100%;
     padding: 30px;
     border-radius: 20px;
-    .v-card-title {
-      padding:31px 0 0;
+    .v-card-title, .v-card-subtitle {
+      padding:0;
+    }
+    .v-card-title, .v-card-text {
+      @include line-clamp(2);
     }
     .v-card-text {
       padding:12px 0 0;
     }
-    .v-card-subtitle {
-      padding:0;
-    }
     .v-card-subtitle + .v-card-title {padding-top:6px;}
+    & .v-card__overlay {display:none;}
+    .thumnail {
+      width: 60px; height: 60px;
+      .v-img {object-fit: contain;}
+    }
+    .btns {
+      margin-bottom:-16px;
+    }
+    @at-root .tablet {
+      & {padding: 24px; }
+    }
+    .d-flex {
+      justify-content: space-between;
+      & + .d-flex {margin-top: 31px;}
+    }
   }
-  &-flex {
-    display:flex;
-    justify-content: space-between;
-  }
-  &-bottom {
-    
+}
+.appsLst{
+  @at-root .tablet & {
+    .v-col-12.v-col-lg-4 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
   }
 }

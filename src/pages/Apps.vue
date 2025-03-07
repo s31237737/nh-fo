@@ -37,16 +37,14 @@
         lg="4"
       >
         <v-card
+          :href="card.href"
           class="apps"
           variant="flat"
-          :href="card.href"
           target="_blank"
         >
-          <div class="apps-flex">
+          <div class="d-flex">
             <div class="thumnail">
               <v-img
-                :width="60"
-                :height="60"
                 :src="card.imageSrc"
                 alt="앱 아이콘"
                 cover
@@ -60,7 +58,7 @@
                 :color="badge.color"
                 variant="tonal"
                 density="comfortable"
-                class="flag ma-1"
+                class="flag"
               >
                 {{ badge.text }}
               </v-chip>
@@ -77,14 +75,16 @@
           </div>
 
           <!-- 제목 -->
-          <v-card-title class="title-5 pt-8">
-            {{ card.title }}
-          </v-card-title>
+          <div class="d-flex flex-column">
+            <v-card-title class="title-5">
+              {{ card.title }}
+            </v-card-title>
 
-          <!-- 내용 -->
-          <v-card-text class="text-3">
-            {{ card.description }}
-          </v-card-text>
+            <!-- 내용 -->
+            <v-card-text class="text-3">
+              {{ card.description }}
+            </v-card-text>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -98,7 +98,7 @@
       class="appsLst"
     >
       <v-col
-        v-for="(card, index) in cardData"
+        v-for="(card, index) in cardData2"
         :key="index"
         cols="12"
         lg="4"
@@ -107,9 +107,10 @@
           class="apps"
           variant="flat"
           target="_blank"
+          @click="goToDetail(card.href)"
         >
           <!-- :href="card.href" -->
-          <div class="apps-flex align-center">
+          <div class="d-flex">
             <div class="like">
               <v-btn
                 color="medium-emphasis"
@@ -127,7 +128,7 @@
                 :color="badge.color"
                 variant="tonal"
                 density="comfortable"
-                class="flag ma-1"
+                class="flag"
               >
                 {{ badge.text }}
               </v-chip>
@@ -144,22 +145,28 @@
           </div>
 
           <!-- 제목 -->
-          <div class="apps-flex align-end pt-8">
+          <div class="d-flex align-center">
             <div class="context">
-              <v-card-subtitle>총무형</v-card-subtitle>
+              <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
               <v-card-title class="title-5">
                 {{ card.title }}
               </v-card-title>
             </div>
             <div class="btns">
               <v-btn
+                v-if="card.showOpenApp"
                 color="info"
+                @click.stop="openApp(card.appLink)"
               >
                 앱 열기
               </v-btn>
-              <!-- <v-btn color="primary">
+              <v-btn 
+                v-else-if="card.showApply"
+                color="secondary"
+                @click.stop="applyNow(card.applyLink)"
+              >
                 신청 대기중
-              </v-btn> -->
+              </v-btn>
             </div>
           </div>
         </v-card>
@@ -170,6 +177,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 //import { inject } from 'vue';
 //const isMobile = inject('isMobile');
 
@@ -181,10 +189,10 @@
     'Fifth',
   ]
 
-  const cardData = [
+  const cardData = ref([
     {
       href: "#",
-      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -195,9 +203,9 @@
     },
     {
       href: "#",
-      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      imageSrc: "src/assets/images/profile.png",
+      title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
@@ -206,7 +214,7 @@
     },
     {
       href: "#",
-      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -216,7 +224,7 @@
     },
     {
       href: "#",
-      imageSrc: "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+      imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -224,5 +232,80 @@
         { text: "추천", color: "purple" },
       ],
     }
-  ];
+  ]);
+
+  const cardData2 = ref([
+    {
+      href: "#",
+      title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+      subtitle: "총무형",
+      badges: [
+        { text: "NEW", color: "success" },
+        { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
+      ],
+      showOpenApp: true,
+      showApply: false,
+      appLink: "#appopen",
+      applyLink: "#wait",
+    },
+    {
+      href: "#",
+      title: "공통총무알리미",
+      subtitle: "총무형",
+      badges: [
+        { text: "NEW", color: "success" },
+        { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
+      ],
+      showOpenApp: false,
+      showApply: true,
+      appLink: "#appopen",
+      applyLink: "#wait",
+    },
+    {
+      href: "#",
+      title: "공통총무알리미",
+      subtitle: "총무형",
+      badges: [
+        { text: "NEW", color: "success" },
+        { text: "추천", color: "purple" },
+      ],
+      showOpenApp: false,
+      showApply: true,
+      appLink: "#appopen",
+      applyLink: "#wait",
+    },
+    {
+      href: "#",
+      title: "공통총무알리미",
+      subtitle: "총무형",
+      badges: [
+        { text: "NEW", color: "success" },
+        { text: "추천", color: "purple" },
+      ],
+      showOpenApp: false,
+      showApply: true,
+      appLink: "#appopen",
+      applyLink: "#wait",
+    }
+  ]);
+
+  const goToDetail = (url) => {
+    if (url) {
+      window.open(url, '_blank');
+    }
+  };
+
+  const openApp = (appLink) => {
+    if (appLink) {
+      window.open(appLink, '_blank');
+    }
+  };
+
+  const applyNow = (applyLink) => {
+    if (applyLink) {
+      window.open(applyLink, '_blank');
+    }
+  };
 </script>
