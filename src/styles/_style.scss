@@ -44,34 +44,6 @@
   }
 }
 
-//v-chip
-.v-chip {
-  &.flag {//flag
-    &.v-chip--variant-tonal {
-      .v-chip__underlay {display:none;}
-    }
-    &.v-chip--size {
-      &-default {
-        padding: 0 10px;
-      }
-      &-xsmall {
-        padding: 0 8px;
-      }
-      &-x-large {
-        padding: 0 16px;
-      }
-    }
-    &.text-success {background: $blue-100;}
-    &.text-purple {background: $purple-100;}
-    &.text-pink {background: $pink-100;}
-    @at-root .flags & {//in .apps
-      & + .flag {
-        margin: 0 0 0 5px;
-      }
-    }
-  }
-}
-
 .search-wrap {
   margin-bottom: 50px;
   &:has(.v-form) {
@@ -250,31 +222,5 @@
   }
   .v-field--active.v-field--variant-outlined .v-field__outline__notch::before {
     opacity: var(--v-field-border-opacity);
-  }
-}
-
-
-//앱 리스트
-.apps {
-  &.v-card {
-    padding: 30px;
-    border-radius: 20px;
-    .v-card-title {
-      padding:31px 0 0;
-    }
-    .v-card-text {
-      padding:12px 0 0;
-    }
-    .v-card-subtitle {
-      padding:0;
-    }
-    .v-card-subtitle + .v-card-title {padding-top:6px;}
-  }
-  &-flex {
-    display:flex;
-    justify-content: space-between;
-  }
-  &-bottom {
-    
   }
 }
