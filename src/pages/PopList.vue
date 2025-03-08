@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex ga-3 flex-wrap w-75">
+  <div class="inner d-flex ga-3 flex-wrap">
     <v-btn
       color="primary"
       @click="alert=true"

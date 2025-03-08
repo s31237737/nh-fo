@@ -1,5 +1,18 @@
 <template>
   <div class="w-75 ma-auto mt-5 mb-5">
+    <router-link
+      to="PopList"
+      class="link-button-arrow"
+    >
+      <span
+        class="text-primary"
+      > 팝업리스트</span>
+      <v-icon
+        icon="custom:arrow-right"
+        class="me-1"
+        color="primary"
+      />
+    </router-link>
     <!-- icons -->
     <div class="d-flex flex-wrap ga-2 bg-info">
       <div class="icon-item">

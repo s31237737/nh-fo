@@ -38,11 +38,15 @@
             </v-card>
           </v-menu>
         </v-btn>
-
         <v-btn
           to=""
         >
           커뮤니티
+        </v-btn>
+        <v-btn
+          to="Guide"
+        >
+          Pub
         </v-btn>
       </v-btn-toggle>
     </template>
