@@ -647,7 +647,67 @@
         </v-col>
       </v-row>
 
+      <v-row>
+        <!-- default/Primary -->
+        <v-col cols="auto">
+          <v-btn
+            color="primary"
+            disabled
+          >
+            disabled/Primary
+          </v-btn>
+        </v-col>
 
+        <!-- default/success -->
+        <v-col cols="auto">
+          <v-btn
+            color="success"
+            disabled
+          >
+            disabled/success
+          </v-btn>
+        </v-col>
+
+        <!-- default/secondary -->
+        <v-col cols="auto">
+          <v-btn
+            color="secondary"
+            disabled
+          >
+            disabled/secondary
+          </v-btn>
+        </v-col>
+
+        <!-- default/info -->
+        <v-col cols="auto">
+          <v-btn
+            color="info"
+            disabled
+          >
+            disabled/info
+          </v-btn>
+        </v-col>
+
+        <!-- default/Warning -->
+        <v-col cols="auto">
+          <v-btn
+            color="warning"
+            disabled
+          >
+            disabled/Warning
+          </v-btn>
+        </v-col>
+        <!-- default/Warning -->
+        <v-col cols="auto">
+          <v-btn
+            color="warning"
+            disabled
+            variant="outlined"
+          >
+            disabled/Warning
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-row>
         <!-- large/Primary -->
         <v-col cols="auto">

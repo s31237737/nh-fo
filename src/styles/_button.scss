@@ -10,9 +10,23 @@
       opacity: 1;
     }
   }
+  &--disabled {
+    opacity: 0.26 !important;
+  }
   &.bg-info {
     border: thin solid $gray-400;
-    color: $black;
+    &.v-btn--disabled {
+      .v-btn__overlay {
+        opacity: 0 !important;
+      }
+    }
+  }
+  &.bg-secondary {
+    &.v-btn--disabled {
+      .v-btn__overlay {
+        opacity: 0 !important;
+      }
+    }
   }
   &.v-btn--size {
     &-large {
