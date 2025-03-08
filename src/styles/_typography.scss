@@ -83,7 +83,9 @@
 .caption-3-md {
   @include typography(500, 1.125rem, 0.75rem);
 }
-@at-root .mobile {
+
+
+.mobile {
   .title-1 {
     @include typography(400, 2.125rem, 1.625rem);
   }
