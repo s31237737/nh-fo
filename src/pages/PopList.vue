@@ -48,7 +48,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn
-            color="secondary"
+            color="info"
             size="large"
             @click="alert = false"
           >

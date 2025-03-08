@@ -112,7 +112,7 @@ export default createVuetify({
         },
       },
     },
-     VMenu: {
+    VMenu: {
       location: "bottom center",
       offset: "4",
     },
@@ -139,7 +139,7 @@ export default createVuetify({
         VBtn: { variant: "flat" },
       },
     },
-     VSelect: {
+    VSelect: {
       persistentPlaceholder: true,
       variant: "outlined",
       hideDetails: true,
