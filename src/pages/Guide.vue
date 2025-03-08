@@ -832,7 +832,32 @@
           </v-btn>
         </v-col>
       </v-row>
-
+      <!-- 링크버튼? -->
+      <v-row>
+        <v-col cols="auto">
+          <router-link
+            to="/"
+            class="link-button"
+          >
+            Text
+          </router-link>
+        </v-col>
+        <v-col cols="auto">
+          <router-link
+            to="/"
+            class="link-button-arrow"
+          >
+            <span
+              class="text-primary"
+            > 더보러가기</span>
+            <v-icon
+              icon="custom:arrow-right"
+              class="me-1"
+              color="primary"
+            />
+          </router-link>
+        </v-col>
+      </v-row>
       <v-row>
         <!-- icon/ 40px -->
         <v-col cols="auto">
