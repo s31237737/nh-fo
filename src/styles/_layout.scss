@@ -25,7 +25,10 @@
 
 .v-main {
   margin-top: 80px;
-   @at-root .mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @at-root .mobile {
     .v-main {
       margin-top: 40px;
     }
