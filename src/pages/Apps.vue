@@ -157,7 +157,7 @@
               >
                 앱 열기
               </v-btn>
-              <v-btn 
+              <v-btn
                 v-else-if="card.showApply"
                 color="info"
                 disabled
@@ -228,7 +228,7 @@ import { ref } from 'vue';
   ]
   const cardData = ref([
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -239,7 +239,7 @@ import { ref } from 'vue';
       ],
     },
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -250,7 +250,7 @@ import { ref } from 'vue';
       ],
     },
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -260,7 +260,7 @@ import { ref } from 'vue';
       ],
     },
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       imageSrc: "src/assets/images/profile.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -272,7 +272,7 @@ import { ref } from 'vue';
   ]);
   const cardData2 = ref([
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -284,7 +284,7 @@ import { ref } from 'vue';
       showApply: false,
     },
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -296,7 +296,7 @@ import { ref } from 'vue';
       showApply: true,
     },
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
@@ -307,7 +307,7 @@ import { ref } from 'vue';
       showApply: true,
     },
     {
-      link: "src/pages/AppsDetail",
+      link: "AppsDetail",
       title: "공통총무알리미",
       subtitle: "총무형",
       badges: [
