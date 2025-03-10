@@ -218,7 +218,7 @@
   }
   @at-root .mobile {
     .v-footer {
-       margin-top: 60px;
+      margin-top: 60px;
       .inner {
         align-items: unset;
         flex-direction: column;
@@ -238,6 +238,9 @@
 }
 
 .v-navigation-drawer {
+  &--active {
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1) !important;
+  }
   .inner {
     display: flex;
     justify-content: flex-end;
@@ -245,12 +248,16 @@
     gap: 52px;
     .search-inp {
       flex: none;
-        --v-input-control-height: 24px;
-        --v-input-padding-top: 8px;
-        input {
-          padding-bottom: 8px !important;
-          min-height: 40px !important;
-        }
+      --v-input-control-height: 24px;
+      --v-input-padding-top: 8px;
+      input {
+        padding-bottom: 8px !important;
+        min-height: 40px !important;
+        padding-left: 20px;
+      }
+      .v-field {
+        padding-inline-end: 20px;
+      }
     }
   }
 }
