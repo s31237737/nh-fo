@@ -238,4 +238,22 @@
       align-self: end;
     }
   }
+  [class*="title"] {
+    color: $black;
+  }
+  @at-root .mobile{
+    .tit-wrap {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+//section space
+section + section {margin-top: 120px;}
+section > .tit-wrap:first-child {margin-top:0;}
+.v-carousel + .v-container {margin-top: 80px !important;}
+@at-root .mobile{
+  section + section {margin-top: 60px;}
+  .v-carousel + .v-container {margin-top: 40px !important;}
 }

@@ -21,9 +21,7 @@
   &.text-purple {background: $purple-100;}
   &.text-pink {background: $pink-100;}
   @at-root .flags .v-chip.flag {//in .apps
-    & + .flag {
-      margin-left: 5px;
-    }
+    margin-left: 4px;
   }
   @at-root .mobile {
     .v-chip.flag {
@@ -36,52 +34,86 @@
   }
 }
 
-
 //앱 리스트
-.apps {
+.appCard {
   &.v-card {
     height: 100%;
     padding: 30px;
     border-radius: 20px;
+    .d-flex {
+      justify-content: space-between;
+      & + .d-flex {margin-top: 31px;}
+    }
+    & .v-card__overlay {display:none;}
+    .btns {
+      margin-bottom:-14px;
+      .v-btn {width: 96px !important;}
+    }
+    .v-btn.like {
+      padding: 0 !important;
+      min-width: auto !important;
+      @extend .text-2-md;
+      .v-icon {margin-right: 4px;}
+    }
+    .thumnail.v-img{
+      width: 60px; 
+      height: 60px;
+      object-fit: contain;
+    }
+    .flags {
+      text-align: right;
+      margin-bottom: -4px;
+      .flag {
+        margin-bottom: 4px;
+      }
+    }
     .v-card-title, .v-card-subtitle {
       padding:0 10px 0 0;
       @include line-clamp(1);
-    }
-    .clamp2 {
-      @include line-clamp(2);
     }
     .v-card-text {
       padding:12px 0 0;
     }
     .v-card-subtitle + .v-card-title {padding-top:6px;}
-    & .v-card__overlay {display:none;}
-    .thumnail {
-      width: 60px; height: 60px;
-      .v-img {object-fit: contain;}
-    }
-    .btns {
-      margin-bottom:-16px;
-    }
-    .d-flex {
-      justify-content: space-between;
-      & + .d-flex {margin-top: 31px;}
+    .clamp2 {
+      @include line-clamp(2);
     }
     @at-root .tablet {
-      .apps.v-card{
+      .appCard.v-card{
         & {padding: 24px; }
       }
     }
     @at-root .mobile {
-      .apps.v-card {
+      .appCard.v-card {
+        padding: 20px;
         .thumnail {
           width: 54px; height: 54px;
         }
         .d-flex  + .d-flex {margin-top: 24px;}
+        .v-btn.like .v-icon {margin-right: 0;}
       }
     }
   }
 }
 .appsLst{
+  .v-empty-state {
+    height: 720px;
+    border-radius: 20px;
+    &__media {
+      $empty-icon-size: 60px;
+      width: $empty-icon-size;
+      height: $empty-icon-size;
+      margin-bottom: 26px;
+      .v-icon {
+        width: 100% !important;
+        height: 100% !important;
+        font-size: $empty-icon-size;
+      }
+    }
+    &__text {
+      @extend .text-2-md;
+    }
+  }
   @at-root .tablet .appsLst {
     .v-col-12.v-col-lg-4 {
       flex: 0 0 50%;

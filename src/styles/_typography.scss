@@ -139,17 +139,6 @@
   }
 }
 
-//color
-[class*="title"] {
-  color: $black;
-}
-[class*="text"] {
-  color: $gray-900;
-}
-[class*="caption"] {
-  color: $gray-700;
-}
-
 @mixin line-clamp($lines) {
   display: -webkit-box;
   -webkit-line-clamp: $lines;
