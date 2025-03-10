@@ -2,28 +2,35 @@
 @use "typography" as *;
 
 //v-chip
-.v-chip {
-  &.flag {//flag
-    &.v-chip--variant-tonal {
-      .v-chip__underlay {display:none;}
+.v-chip.flag {//flag
+  &.v-chip--variant-tonal {
+    .v-chip__underlay {display:none;}
+  }
+  &.v-chip--size {
+    &-default {
+      padding: 0 10px;
     }
-    &.v-chip--size {
-      &-default {
-        padding: 0 10px;
-      }
-      &-xsmall {
-        padding: 0 8px;
-      }
-      &-x-large {
-        padding: 0 16px;
-      }
+    &-xsmall {
+      padding: 0 8px;
     }
-    &.text-success {background: $blue-100;}
-    &.text-purple {background: $purple-100;}
-    &.text-pink {background: $pink-100;}
-    @at-root .flags .v-chip.flag {//in .apps
-      & + .flag {
-        margin-left: 5px;
+    &-x-large {
+      padding: 0 16px;
+    }
+  }
+  &.text-success {background: $blue-100;}
+  &.text-purple {background: $purple-100;}
+  &.text-pink {background: $pink-100;}
+  @at-root .flags .v-chip.flag {//in .apps
+    & + .flag {
+      margin-left: 5px;
+    }
+  }
+  @at-root .mobile {
+    .v-chip.flag {
+      &.v-chip--size {
+        &-default {
+          height: 24px !important;
+        }
       }
     }
   }
@@ -37,9 +44,10 @@
     padding: 30px;
     border-radius: 20px;
     .v-card-title, .v-card-subtitle {
-      padding:0;
+      padding:0 10px 0 0;
+      @include line-clamp(1);
     }
-    .v-card-title, .v-card-text {
+    .clamp2 {
       @include line-clamp(2);
     }
     .v-card-text {
@@ -58,8 +66,18 @@
       justify-content: space-between;
       & + .d-flex {margin-top: 31px;}
     }
-    @at-root .tablet .apps.v-card{
-      & {padding: 24px; }
+    @at-root .tablet {
+      .apps.v-card{
+        & {padding: 24px; }
+      }
+    }
+    @at-root .mobile {
+      .apps.v-card {
+        .thumnail {
+          width: 54px; height: 54px;
+        }
+        .d-flex  + .d-flex {margin-top: 24px;}
+      }
     }
   }
 }
