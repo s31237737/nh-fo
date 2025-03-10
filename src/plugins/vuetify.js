@@ -38,6 +38,7 @@ const nhFo = {
     pink: '#DB3174',
     purple: '#7B3BCD',
     gray: '#373839',
+    quaternary:'#7F8186',
   },
   variables: {
     'border-color': '#000000',

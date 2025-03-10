@@ -135,7 +135,7 @@
             variant="text"
             density="compact"
             append-icon="custom:arrow-down"
-            color="gray-700"
+            color="quaternary"
             class="more"
             :ripple="false"
           >
