@@ -194,6 +194,31 @@
     </div>
     <!-- form -->
     <v-divider class="mt-4 pt-4" />
+    <div class="tit-wrap">
+      <strong class="title-4">
+        타이틀
+      </strong>
+      <div class="btns">
+        <v-btn
+          size="large"
+          color="warning"
+          variant="outlined"
+          prepend-icon="custom:remove"
+        >
+          답변 삭제
+        </v-btn>
+        <v-btn
+          color="info"
+          size="large"
+          prepend-icon="custom:edit"
+          to="QnaRegistration"
+        >
+          답변 수정
+        </v-btn>
+      </div>
+    </div>
+    <!-- form -->
+    <v-divider class="mt-4 pt-4" />
     <div class="search-wrap">
       <v-form>
         <v-select
