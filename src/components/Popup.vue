@@ -75,7 +75,6 @@
         <span>popup-md</span>
         <v-btn
           icon="custom:close"
-          variant="text"
           density="comfortable"
           @click="dialog2 = false"
         />
