@@ -38,6 +38,7 @@
           :email-switch="emailSwitch"
           :is-admin="isAdmin"
           :active-tab="activeTab"
+          @update:model-value="updateEmailSwitch"
         />
       </v-card>
     </v-menu>
@@ -59,6 +60,7 @@
           :email-switch="emailSwitch"
           :is-admin="isAdmin"
           :active-tab="activeTab"
+          @update:model-value="updateEmailSwitch"
         />
         <v-card-actions>
           <v-btn
@@ -83,12 +85,55 @@ const isSetting = ref(false);
 const isAdmin = ref(true);
 const activeTab = ref("store");
 const emailSwitch = ref(true);
-const dialog = ref(false); // 모바일에서 다이얼로그 관리
+const dialog = ref(false);
 
 const notifications = ref([
-  { title: "알림 1", date: "2025-09-30 09:38", isNew: true },
-  { title: "알림 2", date: "2025-09-30 09:38", isNew: true },
+  {
+    title: '알림 내용은 최대 2줄까지 제공 최대 글자 수 초과 시 닷(...) 처리 알림 내용은 최대 2줄까지',
+    date: '2025-09-30 09:38',
+    isNew: true,
+  },
+  {
+    title: '업스토어 신규 앱 출시에 따라 땡땡땡땡 앱 업데이트 버전이 출시되었습니다. 지금 바로',
+    date: '2025-09-30 09:38',
+    isNew: true,
+  },
+  {
+    title: '신규가입이 완료되었습니다.',
+    date: '2025-09-30 09:38',
+
+
+  },
+  {
+    title: 'NH QR 앱 사용 신청이 수락되었습니다.',
+    date: '2025-09-30 09:38',
+  },
+  {
+    title: '사용중이신 [앱 이름] 앱이 업데이트 되었습니다. : 댓글기능 개선, 작성 입력 시 오류 최소화',
+    date: '2025-09-30 09:38',
+  },
+  {
+    title: '알림내용',
+    date: '2025-09-30 09:38',
+  },
+  {
+    title: '업스토어 알림',
+    date: '2025-09-30 09:38',
+  },
+  {
+    title: '알림내용',
+    date: '2025-09-30 09:38',
+  },
+  {
+    title: '업스토어 알림',
+    date: '2025-09-30 09:38',
+  },
+  {
+    title: '알림내용',
+    date: '2025-09-30 09:38',
+  },
 ]);
+
 
 const toggleSetting = () => {
   isSetting.value = !isSetting.value;

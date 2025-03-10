@@ -87,7 +87,7 @@
       />
 
       <!-- 알림 -->
-      <NotificationMenu />
+      <Alarm />
 
       <!-- 프로필 -->
       <v-btn
