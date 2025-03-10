@@ -12,6 +12,7 @@
   }
   &--disabled {
     opacity: 0.26 !important;
+    pointer-events: auto;
   }
   &.bg-info {
     border: thin solid $gray-400;
