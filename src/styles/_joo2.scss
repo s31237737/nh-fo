@@ -2,15 +2,22 @@
 @use "typography" as *;
 
 //공통에 옮길 예정
-.v-btn.more {
-  font-size: 16px !important;
-  color: $gray-700;
-  .v-icon {
-    margin-left: 10px;
-    background: inherit;
+.v-btn {
+  &.more {
+    font-size: 16px !important;
+    color: $gray-700;
+    .v-icon {
+      margin-left: 10px;
+      background: inherit;
+    }
+  }
+  &.like {
+    padding: 0 !important;
+    min-width: auto !important;
+    @extend .text-2-md;
+    .v-icon {margin-right: 4px;}
   }
 }
-
 
 //v-chip
 .v-chip.flag {//flag
@@ -59,12 +66,6 @@
     .btns {
       margin-bottom:-14px;
       .v-btn {width: 96px !important;}
-    }
-    .v-btn.like {
-      padding: 0 !important;
-      min-width: auto !important;
-      @extend .text-2-md;
-      .v-icon {margin-right: 4px;}
     }
     .thumnail.v-img{
       width: 60px; 
@@ -129,10 +130,40 @@
       @extend .text-2-md;
     }
   }
-  @at-root .tablet .appsLst {
-    .v-col-12.v-col-lg-4 {
-      flex: 0 0 50%;
-      max-width: 50%;
+  &.grid {
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    .apps-grid-fix {
+      display:flex;
+      margin-left: 20px;
+      img {display:block; width:100%; height: auto; object-fit: contain;}
+    }
+  }
+  @at-root .tablet  {
+    .appsLst {
+      .v-col-12.v-col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+  @at-root .mobile {
+    .v-row {margin:-6px;}
+    .v-row > [class*="v-col"] {
+      padding: 6px;
+    }
+    .appsLst.grid {
+      display:block;
+      .v-col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .apps-grid-fix {
+        display:block;
+        margin-top: 12px;
+        margin-left: 0;
+        img {width:100%; max-width: 320px; margin:0 auto;}
+      }
     }
   }
 }
