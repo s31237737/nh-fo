@@ -37,7 +37,7 @@
       variant="text"
       density="compact"
       append-icon="custom:arrow-down"
-      color="text-gray"
+      color="gray"
       class="more"
       :ripple="false"
     >
@@ -48,7 +48,7 @@
       variant="text"
       density="compact"
       append-icon="custom:arrow-right"
-      color="text-gray"
+      color="gray"
       class="link-button-arrow"
       :ripple="false"
     >
@@ -76,7 +76,6 @@
               :ripple="false"
               :to="card.link"
               class="appCard"
-              variant="flat"
             >
               <div class="d-flex">
                 <div>
@@ -166,7 +165,6 @@
               :ripple="false"
               :to="card.link"
               class="appCard"
-              variant="flat"
             >
               <div class="d-flex align-center">
                 <div class="">
@@ -269,7 +267,6 @@
               :to="card.link"
               :ripple="false"
               class="appCard"
-              variant="flat"
             >
               <div class="d-flex align-center">
                 <div class="">

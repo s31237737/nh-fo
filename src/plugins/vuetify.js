@@ -37,7 +37,7 @@ const nhFo = {
     'on-info':'#1E1E1E',
     pink: '#DB3174',
     purple: '#7B3BCD',
-    'text-gray': '#373839',
+    gray: '#373839',
   },
   variables: {
     'border-color': '#000000',
@@ -190,6 +190,9 @@ export default createVuetify({
       hideDetails: true,
     },
     VChip: {
+      variant: "flat",
+    },
+    VCard: {
       variant: "flat",
     },
   }
