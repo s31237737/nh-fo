@@ -3,10 +3,21 @@
 
 //공통에 옮길 예정
 .v-btn {
-  &.v-btn--variant-text {
-    .v-btn__overlay {display:none;}
+  &.v-btn--variant-text:not([class*="icon"]) {
     --v-btn-size: 1rem;
-    padding: 0 8px;
+    .v-btn__overlay {display:none;}
+    // .v-btn__append, .v-btn__prepend {margin-inline: 0 0;}
+    padding: 0 10px;
+    .v-btn__prepend {
+      margin-inline-end: 4px;
+    }
+    .v-btn__append {
+      margin-inline-start: 10px;
+    }
+    .v-icon--size-default {font-size: calc(var(--v-btn-height) + -2px);}
+    &[class*="compact"] {
+      .v-icon--size-default {font-size: calc(var(--v-btn-height) + -12px);}
+    }
   }
 }
 
@@ -54,6 +65,9 @@
       & + .d-flex {margin-top: 31px;}
     }
     & .v-card__overlay {display:none;}
+    .v-btn.like {
+      margin-left: -10px;
+    }
     .btns {
       margin-bottom:-14px;
       .v-btn {width: 96px !important;}

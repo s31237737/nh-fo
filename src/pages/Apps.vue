@@ -25,37 +25,34 @@
   >
     <v-btn
       variant="text"
-      class="like"
       prepend-icon="custom:full-heart"
+      color="primary"
+      class="like"
       :ripple="false"
     >
-      prepend
+      999
     </v-btn>
 
     <v-btn
       variant="text"
       density="compact"
-      class="more"
       append-icon="custom:arrow-down"
+      color="text-gray"
+      class="more"
       :ripple="false"
     >
-      append
+      font 16px/margin-inline-end:10px/icon24
     </v-btn>
 
     <v-btn
       variant="text"
-      class="link-button"
-      :ripple="false"
-    >
-      더보기
-    </v-btn>
-
-    <v-btn
-      variant="text"
+      density="compact"
+      append-icon="custom:arrow-right"
+      color="text-gray"
       class="link-button-arrow"
       :ripple="false"
     >
-      더보기
+      font 16px/margin-inline-end:4px/icon16
     </v-btn>
 
     <!-- 앱: 전체 리스트 -->
@@ -136,15 +133,14 @@
         />
         <div class="appsLst_btn">
           <v-btn
-            class="more"
             variant="text"
             density="compact"
+            append-icon="custom:arrow-down"
+            color="gray-700"
+            class="more"
+            :ripple="false"
           >
             더보기
-            <v-icon
-              icon="custom:arrow-down"
-              size="24"
-            />
           </v-btn>
         </div>
       </div>
@@ -177,14 +173,12 @@
                   <!-- btn: 좋아요 -->
                   <v-btn
                     variant="text"
-                    density="comfortable"
+                    prepend-icon="custom:full-heart"
+                    color="primary"
                     class="like"
+                    :ripple="false"
                     @click.stop.prevent="incrementLikes(card)"
                   >
-                    <v-icon
-                      icon="custom:full-heart"
-                      size="32"
-                    />
                     {{ card.likeCount }}
                   </v-btn>
                 </div>
@@ -282,14 +276,12 @@
                   <!-- btn: 좋아요 -->
                   <v-btn
                     variant="text"
-                    density="comfortable"
+                    prepend-icon="custom:full-heart"
+                    color="primary"
                     class="like"
+                    :ripple="false"
                     @click.stop.prevent="incrementLikes(card)"
                   >
-                    <v-icon
-                      icon="custom:full-heart"
-                      size="32"
-                    />
                     {{ card.likeCount }}
                   </v-btn>
                 </div>
