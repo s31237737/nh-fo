@@ -9,6 +9,28 @@
     &-plain {
       opacity: 1;
     }
+    &-text:not([class*="icon"]) {
+      --v-btn-size: 1rem;
+      .v-btn__overlay {
+        display: none;
+      }
+      // .v-btn__append, .v-btn__prepend {margin-inline: 0 0;}
+      padding: 0 10px;
+      .v-btn__prepend {
+        margin-inline-end: 4px;
+      }
+      .v-btn__append {
+        margin-inline-start: 10px;
+      }
+      .v-icon--size-default {
+        font-size: calc(var(--v-btn-height) + -2px);
+      }
+      &[class*="compact"] {
+        .v-icon--size-default {
+          font-size: calc(var(--v-btn-height) + -12px);
+        }
+      }
+    }
   }
   &--disabled {
     opacity: 0.26 !important;
@@ -26,7 +48,7 @@
   &.bg-secondary {
     &.v-btn--disabled {
       .v-btn__overlay {
-        opacity: .5 !important;
+        opacity: 0.5 !important;
       }
     }
   }
