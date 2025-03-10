@@ -64,6 +64,7 @@
 
               <!-- 상태 배지 (필요할 때만 표시) -->
               <v-chip
+                v-if="card.inUse"
                 class="flag"
                 density="comfortable"
                 color="primary"
@@ -108,12 +109,11 @@
           variant="flat"
           @click="handleCardClick(card, $event)"
         >
-          <div class="d-flex">
+          <div class="d-flex align-center">
             <div class="like">
               <v-btn
-                color="medium-emphasis"
-                prepend-icon="mdi-heart"
-                size="small"
+                prepend-icon="custom:full-heart"
+                density="comfortable"
               >
                 999
               </v-btn>
@@ -133,6 +133,7 @@
 
               <!-- 상태 배지 (필요할 때만 표시) -->
               <v-chip
+                v-if="card.inUse"
                 class="flag"
                 density="comfortable"
                 color="primary"
@@ -159,7 +160,7 @@
                 앱 열기
               </v-btn>
               <v-btn
-                v-else-if="card.showApply"
+                v-else
                 color="info"
                 disabled
                 @click.stop="handleCardClick(card, $event)"
@@ -238,6 +239,7 @@ import { ref } from 'vue';
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
+      inUse: true,
     },
     {
       link: "AppsDetail",
@@ -249,6 +251,7 @@ import { ref } from 'vue';
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
+      inUse: false,
     },
     {
       link: "AppsDetail",
@@ -259,6 +262,7 @@ import { ref } from 'vue';
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
       ],
+      inUse: false,
     },
     {
       link: "AppsDetail",
@@ -269,6 +273,7 @@ import { ref } from 'vue';
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
       ],
+      inUse: false,
     }
   ]);
   const cardData2 = ref([
@@ -281,8 +286,8 @@ import { ref } from 'vue';
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
+      inUse: true,
       showOpenApp: true,
-      showApply: false,
     },
     {
       link: "AppsDetail",
@@ -293,8 +298,8 @@ import { ref } from 'vue';
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
+      inUse: true,
       showOpenApp: false,
-      showApply: true,
     },
     {
       link: "AppsDetail",
@@ -304,8 +309,8 @@ import { ref } from 'vue';
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
       ],
+      inUse: false,
       showOpenApp: false,
-      showApply: true,
     },
     {
       link: "AppsDetail",
@@ -315,8 +320,8 @@ import { ref } from 'vue';
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
       ],
+      inUse: false,
       showOpenApp: false,
-      showApply: true,
     }
   ]);
   const handleCardClick = (card, event) => {
