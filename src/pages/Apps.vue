@@ -23,156 +23,271 @@
   <v-container
     class="inner"
   >
-    <p class="title-2 pb-10">
-      앱 전체 리스트
-    </p>
-    <!-- 앱 목록  -->
-    <v-row
-      class="appsLst"
-    >
-      <v-col
-        v-for="(card, index) in cardData"
-        :key="index"
-        cols="12"
-        lg="4"
-      >
-        <v-card
-          :to="card.link"
-          class="apps"
-          variant="flat"
+    <!-- 앱: 전체 리스트 -->
+    <section>
+      <div class="tit-wrap">
+        <strong class="title-2">
+          앱 전체 리스트
+        </strong>
+      </div>
+      <!-- 앱 목록  -->
+      <div class="appsLst">
+        <v-row
+          v-if="cardData.length"
         >
-          <div class="d-flex">
-            <div class="thumnail">
-              <v-img
-                :src="card.imageSrc"
-                alt="앱 아이콘"
-                cover
-              />
-            </div>
-            <!-- 배지 (최대 3개) -->
-            <div class="flags">
-              <v-chip
-                v-for="(badge, idx) in card.badges.slice(0, 3)"
-                :key="idx"
-                :color="badge.color"
-                variant="tonal"
-                density="comfortable"
-                class="flag"
-              >
-                {{ badge.text }}
-              </v-chip>
+          <v-col
+            v-for="(card, index) in cardData"
+            :key="index"
+            cols="12"
+            lg="4"
+          >
+            <v-card
+              :to="card.link"
+              class="appCard"
+              variant="flat"
+            >
+              <div class="d-flex">
+                <div>
+                  <v-img
+                    class="thumnail"
+                    :src="card.imageSrc"
+                    alt="앱 아이콘"
+                    cover
+                  />
+                </div>
+                <!-- 배지 (최대 3개) -->
+                <div class="flags">
+                  <v-chip
+                    v-for="(badge, idx) in card.badges.slice(0, 3)"
+                    :key="idx"
+                    :color="badge.color"
+                    variant="tonal"
+                    density="comfortable"
+                    class="flag"
+                  >
+                    {{ badge.text }}
+                  </v-chip>
 
-              <!-- 상태 배지 (필요할 때만 표시) -->
-              <v-chip
-                v-if="card.inUse"
-                class="flag"
-                density="comfortable"
-                color="primary"
-              >
-                사용중
-              </v-chip>
-            </div>
-          </div>
+                  <!-- 상태 배지 (필요할 때만 표시) -->
+                  <v-chip
+                    v-if="card.inUse"
+                    class="flag"
+                    density="comfortable"
+                    color="primary"
+                  >
+                    사용중
+                  </v-chip>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <!-- 제목 -->
+                <v-card-title class="title-4 clamp2">
+                  {{ card.title }}
+                </v-card-title>
 
-          <!-- 제목 -->
-          <div class="d-flex flex-column">
-            <v-card-title class="title-4 clamp2">
-              {{ card.title }}
-            </v-card-title>
+                <!-- 내용 -->
+                <v-card-text class="text-3 clamp2">
+                  {{ card.description }}
+                </v-card-text>
+              </div>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-empty-state
+          v-else
+          text="‘농협' 검색결과가 없습니다."
+          icon="custom:warning"
+          bg-color="#FEFEFE"
+        />
+      </div>
+      <!--// 앱 목록  -->
+    </section>
 
-            <!-- 내용 -->
-            <v-card-text class="text-3 clamp2">
-              {{ card.description }}
-            </v-card-text>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-    <!--// 앱 목록  -->
-
-    <p class="title-2 pb-10">
-      가장 많은 좋아요를 받았어요!
-    </p>
-    <!-- 앱 목록 -->
-    <v-row
-      class="appsLst"
-    >
-      <v-col
-        v-for="(card, index) in cardData2"
-        :key="index"
-        cols="12"
-        lg="4"
+    <!-- 앱: 좋아요 리스트 (최소 4개 노출)-->
+    <section>
+      <div class="tit-wrap">
+        <strong class="title-2">
+          가장 많은 좋아요를 받았어요!
+        </strong>
+      </div>
+      <!-- 앱 목록 -->
+      <v-row
+        class="appsLst"
       >
-        <v-card
-          :to="card.link"
-          class="apps"
-          variant="flat"
-          @click="handleCardClick(card, $event)"
+        <v-col
+          v-for="(card, index) in cardRecommend"
+          :key="index"
+          cols="12"
+          lg="4"
         >
-          <div class="d-flex align-center">
-            <div class="like">
-              <v-btn
-                prepend-icon="custom:full-heart"
-                density="comfortable"
-              >
-                999
-              </v-btn>
-            </div>
-            <!-- 배지 (최대 3개) -->
-            <div class="flags">
-              <v-chip
-                v-for="(badge, idx) in card.badges.slice(0, 3)"
-                :key="idx"
-                :color="badge.color"
-                variant="tonal"
-                density="comfortable"
-                class="flag"
-              >
-                {{ badge.text }}
-              </v-chip>
+          <v-card
+            :to="card.link"
+            class="appCard"
+            variant="flat"
+          >
+            <div class="d-flex align-center">
+              <div class="">
+                <!-- btn: 좋아요 -->
+                <v-btn
+                  variant="text"
+                  density="comfortable"
+                  class="like"
+                  @click.stop.prevent="incrementLikes(card)"
+                >
+                  <v-icon
+                    icon="custom:full-heart"
+                    size="32"
+                  />
+                  {{ card.likeCount }}
+                </v-btn>
+              </div>
+              <!-- 배지 (최대 3개) -->
+              <div class="flags">
+                <v-chip
+                  v-for="(badge, idx) in card.badges.slice(0, 3)"
+                  :key="idx"
+                  :color="badge.color"
+                  variant="tonal"
+                  density="comfortable"
+                  class="flag"
+                >
+                  {{ badge.text }}
+                </v-chip>
 
-              <!-- 상태 배지 (필요할 때만 표시) -->
-              <v-chip
-                v-if="card.inUse"
-                class="flag"
-                density="comfortable"
-                color="primary"
-              >
-                사용중
-              </v-chip>
+                <!-- 상태 배지 (필요할 때만 표시) -->
+                <v-chip
+                  v-if="card.inUse"
+                  class="flag"
+                  density="comfortable"
+                  color="primary"
+                >
+                  사용중
+                </v-chip>
+              </div>
             </div>
-          </div>
+            <div class="d-flex align-center">
+              <div class="context">
+                <!-- 제목 -->
+                <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
+                <v-card-title class="title-4">
+                  {{ card.title }}
+                </v-card-title>
+              </div>
+              <div class="btns">
+                <v-btn
+                  v-if="card.showOpenApp"
+                  color="info"
+                  @click.stop.prevent="alert = true"
+                >
+                  앱 열기
+                </v-btn>
+                <v-btn
+                  v-else
+                  color="info"
+                  disabled
+                >
+                  신청 대기중
+                </v-btn>
+              </div>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+      <!--// 앱 목록 -->
+    </section>
 
-          <!-- 제목 -->
-          <div class="d-flex align-center">
-            <div class="context">
-              <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
-              <v-card-title class="title-4">
-                {{ card.title }}
-              </v-card-title>
+    <!-- 앱: 많이 쓰는 리스트 -->
+    <section>
+      <div class="tit-wrap">
+        <strong class="title-2">
+          총무업무 담당자들이 자주 사용해요!
+        </strong>
+      </div>
+      <!-- 앱 목록 -->
+      <v-row
+        class="appsLst"
+      >
+        <v-col
+          v-for="(card, index) in cardRecommend"
+          :key="index"
+          cols="12"
+          lg="4"
+        >
+          <v-card
+            :to="card.link"
+            class="appCard"
+            variant="flat"
+          >
+            <div class="d-flex align-center">
+              <div class="">
+                <!-- btn: 좋아요 -->
+                <v-btn
+                  variant="text"
+                  density="comfortable"
+                  class="like"
+                  @click.stop.prevent="incrementLikes(card)"
+                >
+                  <v-icon
+                    icon="custom:full-heart"
+                    size="32"
+                  />
+                  {{ card.likeCount }}
+                </v-btn>
+              </div>
+              <!-- 배지 (최대 3개) -->
+              <div class="flags">
+                <v-chip
+                  v-for="(badge, idx) in card.badges.slice(0, 3)"
+                  :key="idx"
+                  :color="badge.color"
+                  variant="tonal"
+                  density="comfortable"
+                  class="flag"
+                >
+                  {{ badge.text }}
+                </v-chip>
+
+                <!-- 상태 배지 (필요할 때만 표시) -->
+                <v-chip
+                  v-if="card.inUse"
+                  class="flag"
+                  density="comfortable"
+                  color="primary"
+                >
+                  사용중
+                </v-chip>
+              </div>
             </div>
-            <div class="btns">
-              <v-btn
-                v-if="card.showOpenApp"
-                color="info"
-                @click.stop.prevent="alert = true"
-              >
-                앱 열기
-              </v-btn>
-              <v-btn
-                v-else
-                color="info"
-                disabled
-                @click.stop="handleCardClick(card, $event)"
-              >
-                신청 대기중
-              </v-btn>
+            <div class="d-flex align-center">
+              <div class="context">
+                <!-- 제목 -->
+                <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
+                <v-card-title class="title-4">
+                  {{ card.title }}
+                </v-card-title>
+              </div>
+              <div class="btns">
+                <v-btn
+                  v-if="card.showOpenApp"
+                  color="info"
+                  @click.stop.prevent="alert = true"
+                >
+                  앱 열기
+                </v-btn>
+                <v-btn
+                  v-else
+                  color="bg-secondary"
+                  disabled
+                >
+                  신청 대기중
+                </v-btn>
+              </div>
             </div>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-    <!--// 앱 목록 -->
+          </v-card>
+        </v-col>
+      </v-row>
+      <!--// 앱 목록 -->
+    </section>
   </v-container>
 
   <!-- alert -->
@@ -219,8 +334,9 @@
 
 <script setup>
 import { ref } from 'vue';
-
   const alert = ref(false);
+
+  //slide
   const slides = [
     'First',
     'Second',
@@ -228,6 +344,8 @@ import { ref } from 'vue';
     'Fourth',
     'Fifth',
   ]
+
+  //appsLst
   const cardData = ref([
     {
       link: "AppsDetail",
@@ -248,10 +366,30 @@ import { ref } from 'vue';
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
         { text: "NEW", color: "success" },
+      ],
+      inUse: false,
+    },
+    {
+      link: "AppsDetail",
+      imageSrc: "src/assets/images/profile.png",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "success" },
+      ],
+      inUse: true,
+    },
+    {
+      link: "AppsDetail",
+      imageSrc: "src/assets/images/profile.png",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
         { text: "HOT", color: "pink" }
       ],
-      inUse: false,
+      inUse: true,
     },
     {
       link: "AppsDetail",
@@ -261,8 +399,9 @@ import { ref } from 'vue';
       badges: [
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
       ],
-      inUse: false,
+      inUse: true,
     },
     {
       link: "AppsDetail",
@@ -272,11 +411,12 @@ import { ref } from 'vue';
       badges: [
         { text: "NEW", color: "success" },
         { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
       ],
-      inUse: false,
+      inUse: true,
     }
   ]);
-  const cardData2 = ref([
+  const cardRecommend = ref([
     {
       link: "AppsDetail",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
@@ -288,6 +428,7 @@ import { ref } from 'vue';
       ],
       inUse: true,
       showOpenApp: true,
+      likeCount: 999,
     },
     {
       link: "AppsDetail",
@@ -300,6 +441,7 @@ import { ref } from 'vue';
       ],
       inUse: true,
       showOpenApp: false,
+      likeCount: 0,
     },
     {
       link: "AppsDetail",
@@ -311,6 +453,7 @@ import { ref } from 'vue';
       ],
       inUse: false,
       showOpenApp: false,
+      likeCount: 555,
     },
     {
       link: "AppsDetail",
@@ -322,12 +465,10 @@ import { ref } from 'vue';
       ],
       inUse: false,
       showOpenApp: false,
+      likeCount: 888,
     }
   ]);
-  const handleCardClick = (card, event) => {
-    if (card.showApply) {
-      event.preventDefault(); // 네비게이션 방지
-      event.stopPropagation(); // 이벤트 전파 방지
-    }
+  const incrementLikes = (card) => {
+    card.likeCount++; // 해당 카드의 likeCount 증가
   };
 </script>
