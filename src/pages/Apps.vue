@@ -99,6 +99,19 @@
           icon="custom:warning"
           bg-color="#FEFEFE"
         />
+        <div class="appsLst_btn">
+          <v-btn
+            class="more"
+            variant="text"
+            density="compact"
+          >
+            더보기
+            <v-icon
+              icon="custom:arrow-down"
+              size="24"
+            />
+          </v-btn>
+        </div>
       </div>
       <!--// 앱 목록  -->
     </section>
@@ -345,7 +358,7 @@ import { ref } from 'vue';
     'Fifth',
   ]
 
-  //appsLst
+  //앱 전체 목록록
   const cardData = ref([
     {
       link: "AppsDetail",
@@ -416,6 +429,8 @@ import { ref } from 'vue';
       inUse: true,
     }
   ]);
+
+  //앱 좋아요 목록
   const cardRecommend = ref([
     {
       link: "AppsDetail",
