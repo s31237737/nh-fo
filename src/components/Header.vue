@@ -89,6 +89,16 @@
       <!-- 알림 -->
       <Alarm />
 
+      <Notification
+        :has-notification="true"
+        :notification-count="99"
+        :is-admin="true"
+        :email-switch="emailSwitch"
+        :icon="'custom:alarm'"
+        :notifications="notifications"
+        @update:email-switch="emailSwitch = $event"
+      />
+
       <!-- 프로필 -->
       <v-btn
         v-if="isDesktop"
@@ -148,10 +158,23 @@
 <script setup>
 import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 
+const notifications = ref([
+  {
+    title: '새로운 알림이 있습니다!',
+    date: '2025-09-30 09:38',
+    isNew: true,
+  },
+  {
+    title: '업데이트 알림',
+    date: '2025-09-30 09:38',
+    isNew: false,
+  },
+]);
 const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 const drawer = ref(null);
+const emailSwitch = ref(true);
 
 // 검색
 const search = ref('');
