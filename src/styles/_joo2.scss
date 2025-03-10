@@ -3,19 +3,10 @@
 
 //공통에 옮길 예정
 .v-btn {
-  &.more {
-    font-size: 16px !important;
-    color: $gray-700;
-    .v-icon {
-      margin-left: 10px;
-      background: inherit;
-    }
-  }
-  &.like {
-    padding: 0 !important;
-    min-width: auto !important;
-    @extend .text-2-md;
-    .v-icon {margin-right: 4px;}
+  &.v-btn--variant-text {
+    .v-btn__overlay {display:none;}
+    --v-btn-size: 1rem;
+    padding: 0 8px;
   }
 }
 
@@ -140,6 +131,9 @@
         flex: 0 0 50%;
         max-width: 50%;
       }
+      &.grid {
+        display:block;
+      }
     }
   }
   @at-root .mobile {
@@ -152,14 +146,14 @@
         flex: 0 0 100%;
         max-width: 100%;
       }
-    }
-    .appsLst.grid {
-      display:block;
-      .apps-grid-fix {
+      &.grid {
         display:block;
-        margin-top: 12px;
-        margin-left: 0;
-        img {width:100%; max-width: 320px; margin:0 auto;}
+        .apps-grid-fix {
+          display:block;
+          margin-top: 12px;
+          margin-left: 0;
+          img {width:100%; max-width: 320px; margin:0 auto;}
+        }
       }
     }
   }

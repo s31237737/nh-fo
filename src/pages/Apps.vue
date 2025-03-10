@@ -27,21 +27,25 @@
       variant="text"
       class="like"
       prepend-icon="custom:full-heart"
+      :ripple="false"
     >
-      999
+      prepend
     </v-btn>
 
     <v-btn
       variant="text"
+      density="compact"
       class="more"
       append-icon="custom:arrow-down"
+      :ripple="false"
     >
-      더보기
+      append
     </v-btn>
 
     <v-btn
       variant="text"
       class="link-button"
+      :ripple="false"
     >
       더보기
     </v-btn>
@@ -49,6 +53,7 @@
     <v-btn
       variant="text"
       class="link-button-arrow"
+      :ripple="false"
     >
       더보기
     </v-btn>
@@ -71,6 +76,7 @@
             cols="4"
           >
             <v-card
+              :ripple="false"
               :to="card.link"
               class="appCard"
               variant="flat"
@@ -161,6 +167,7 @@
             cols="6"
           >
             <v-card
+              :ripple="false"
               :to="card.link"
               class="appCard"
               variant="flat"
@@ -217,6 +224,7 @@
                   <v-btn
                     v-if="card.showOpenApp"
                     color="info"
+                    :ripple="false"
                     @click.stop.prevent="alert = true"
                   >
                     앱 열기
@@ -234,7 +242,7 @@
           </v-col>
         </v-row>
         <div
-          v-if="!isMobile"
+          v-if="isDesktop"
           class="apps-grid-fix"
         >
           <img
@@ -265,6 +273,7 @@
           >
             <v-card
               :to="card.link"
+              :ripple="false"
               class="appCard"
               variant="flat"
             >
@@ -393,7 +402,7 @@
 import { ref } from 'vue';
 import { inject } from 'vue';
 
-const isMobile = inject('isMobile');
+const isDesktop = inject('isDesktop');
 const alert = ref(false);
 
 //slide
