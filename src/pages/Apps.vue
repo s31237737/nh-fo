@@ -349,7 +349,7 @@ import { ref } from 'vue';
   const cardData = ref([
     {
       link: "AppsDetail",
-      imageSrc: "src/assets/images/profile.png",
+      imageSrc: "src/assets/images/app_module_img.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -361,7 +361,7 @@ import { ref } from 'vue';
     },
     {
       link: "AppsDetail",
-      imageSrc: "src/assets/images/profile.png",
+      imageSrc: "src/assets/images/app_module_img.png",
       title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -371,7 +371,7 @@ import { ref } from 'vue';
     },
     {
       link: "AppsDetail",
-      imageSrc: "src/assets/images/profile.png",
+      imageSrc: "src/assets/images/app_module_img.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -381,19 +381,7 @@ import { ref } from 'vue';
     },
     {
       link: "AppsDetail",
-      imageSrc: "src/assets/images/profile.png",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-    },
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/profile.png",
+      imageSrc: "src/assets/images/app_module_img.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
@@ -405,7 +393,19 @@ import { ref } from 'vue';
     },
     {
       link: "AppsDetail",
-      imageSrc: "src/assets/images/profile.png",
+      imageSrc: "src/assets/images/app_module_img.png",
+      title: "공통총무알리미",
+      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+      badges: [
+        { text: "NEW", color: "success" },
+        { text: "추천", color: "purple" },
+        { text: "HOT", color: "pink" }
+      ],
+      inUse: true,
+    },
+    {
+      link: "AppsDetail",
+      imageSrc: "src/assets/images/app_module_img.png",
       title: "공통총무알리미",
       description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
       badges: [
