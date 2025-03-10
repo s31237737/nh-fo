@@ -129,7 +129,7 @@
     >
       <v-text-field
         v-model="search"
-        width="544"
+        width="300"
         class="search-inp"
         placeholder="앱과 앱가이드를 검색해보세요"
         append-inner-icon="custom:search"
@@ -139,7 +139,7 @@
       <v-btn
         icon="custom:close"
         density="comfortable"
-        @click="snackbar03 = false"
+        @click="drawer = false"
       />
     </v-container>
   </v-navigation-drawer>

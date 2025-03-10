@@ -243,6 +243,16 @@
   .inner {
     display: flex;
     justify-content: flex-end;
-    .search-inp {flex: none;}
+    align-items: center;
+    gap: 52px;
+    .search-inp {
+      flex: none;
+        --v-input-control-height: 24px;
+        --v-input-padding-top: 8px;
+        input {
+          padding-bottom: 8px !important;
+          min-height: 40px !important;
+        }
+    }
   }
 }
