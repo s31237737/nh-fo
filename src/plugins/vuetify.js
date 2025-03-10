@@ -39,6 +39,7 @@ const nhFo = {
     purple: '#7B3BCD',
     gray: '#373839',
     quaternary:'#7F8186',
+    white: '#FEFEFE',
   },
   variables: {
     'border-color': '#000000',
@@ -196,5 +197,10 @@ export default createVuetify({
     VCard: {
       variant: "flat",
     },
+    VEmptyState: {
+      icon:"custom:warning",
+      bgColor:"white",
+      size:"60",
+    }
   }
 })

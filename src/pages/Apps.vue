@@ -337,8 +337,6 @@
         <v-empty-state
           v-else
           text="‘농협' 검색결과가 없습니다."
-          icon="custom:warning"
-          bg-color="#FEFEFE"
         />
       </div>
       <!--// 앱 목록 -->
@@ -403,7 +401,7 @@ const alert = ref(false);
 //   'Fifth',
 // ]
 
-//앱 전체 목록록
+//앱 전체 목록
 const cardData = ref([
   {
     link: "AppsDetail",
