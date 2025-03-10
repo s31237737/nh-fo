@@ -921,7 +921,6 @@
             > 더보러가기</span>
             <v-icon
               icon="custom:arrow-right"
-              class="me-1"
               color="primary"
             />
           </router-link>
