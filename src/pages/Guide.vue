@@ -211,7 +211,6 @@
           color="info"
           size="large"
           prepend-icon="custom:edit"
-          to="QnaRegistration"
         >
           답변 수정
         </v-btn>
