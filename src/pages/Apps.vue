@@ -75,12 +75,12 @@
 
           <!-- 제목 -->
           <div class="d-flex flex-column">
-            <v-card-title class="title-5">
+            <v-card-title class="title-4 clamp2">
               {{ card.title }}
             </v-card-title>
 
             <!-- 내용 -->
-            <v-card-text class="text-3">
+            <v-card-text class="text-3 clamp2">
               {{ card.description }}
             </v-card-text>
           </div>
@@ -106,6 +106,7 @@
           :to="card.link"
           class="apps"
           variant="flat"
+          @click="handleCardClick(card, $event)"
         >
           <div class="d-flex">
             <div class="like">
@@ -145,7 +146,7 @@
           <div class="d-flex align-center">
             <div class="context">
               <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
-              <v-card-title class="title-5">
+              <v-card-title class="title-4">
                 {{ card.title }}
               </v-card-title>
             </div>
@@ -161,7 +162,7 @@
                 v-else-if="card.showApply"
                 color="info"
                 disabled
-                @click.stop.prevent="preventNavigation"
+                @click.stop="handleCardClick(card, $event)"
               >
                 신청 대기중
               </v-btn>
@@ -318,8 +319,10 @@ import { ref } from 'vue';
       showApply: true,
     }
   ]);
-  const preventNavigation = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  const handleCardClick = (card, event) => {
+    if (card.showApply) {
+      event.preventDefault(); // 네비게이션 방지
+      event.stopPropagation(); // 이벤트 전파 방지
+    }
   };
 </script>
