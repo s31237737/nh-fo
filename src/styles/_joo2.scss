@@ -90,11 +90,6 @@
     .clamp2 {
       @include line-clamp(2);
     }
-    @at-root .tablet {
-      .appCard.v-card{
-        & {padding: 24px; }
-      }
-    }
     @at-root .mobile {
       .appCard.v-card {
         padding: 20px;
@@ -137,14 +132,6 @@
       display:flex;
       margin-left: 20px;
       img {display:block; width:100%; height: auto; object-fit: contain;}
-    }
-  }
-  @at-root .tablet  {
-    .appsLst {
-      .v-col-12.v-col-lg-4 {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
     }
   }
   @at-root .mobile {
