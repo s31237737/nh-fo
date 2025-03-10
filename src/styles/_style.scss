@@ -217,26 +217,25 @@
   }
 }
 
-
-  .tit-wrap {
-    margin: 16px 0 40px;
+.tit-wrap {
+  margin: 16px 0 40px;
+  display: flex;
+  justify-content: space-between;
+  .btns {
     display: flex;
-    justify-content: space-between;
-    .btns {
-      display: flex;
-      gap: 12px;
-    }
-    .v-btn {
-      margin-left: auto;
-    }
-    &:has(.v-btn) {
-      strong {
-        align-self: end;
-      }
-    }
-    &:has(.btns) {
-      strong {
-        align-self: end;
-      }
+    gap: 12px;
+  }
+  .v-btn {
+    margin-left: auto;
+  }
+  &:has(.v-btn) {
+    strong {
+      align-self: end;
     }
   }
+  &:has(.btns) {
+    strong {
+      align-self: end;
+    }
+  }
+}

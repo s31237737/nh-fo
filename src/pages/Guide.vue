@@ -196,7 +196,7 @@
         size="x-small"
       />
     </div>
-    <!-- form -->
+    <!-- tit-wrap -->
     <v-divider class="mt-4 pt-4" />
     <div class="tit-wrap">
       <strong class="title-4">
@@ -222,16 +222,39 @@
     </div>
     <!-- form -->
     <v-divider class="mt-4 pt-4" />
+    <v-text-field
+      density="default"
+      placeholder="h48px"
+      prepend-inner-icon="mdi-email-outline"
+    />
+    <v-text-field
+      density="comfortable"
+      placeholder="h44px "
+      prepend-inner-icon="mdi-email-outline"
+    />
+    <v-text-field
+      density="compact"
+      placeholder="h36px"
+      prepend-inner-icon="mdi-email-outline"
+    />
     <div class="search-wrap">
       <v-form>
         <v-select
           v-model="select"
+          density="default"
           label="앱 타입"
           :items="['전체', '타입1', '타입2']"
         />
 
         <v-select
           v-model="select"
+          density="comfortable"
+          label="자동사용여부"
+          :items="['전체', '상태1', '상태2']"
+        />
+        <v-select
+          v-model="select"
+          density="compact"
           label="자동사용여부"
           :items="['전체', '상태1', '상태2']"
         />

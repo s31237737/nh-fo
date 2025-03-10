@@ -87,7 +87,7 @@
       />
 
       <!-- 알림 -->
-      <Alarm />
+      <NotificationMenu />
 
       <!-- 프로필 -->
       <v-btn
@@ -122,19 +122,24 @@
     location="top"
     temporary
     floating
-    width="120"
+    width="60"
   >
     <v-container
-      class="inner h-100"
+      class="inner"
     >
       <v-text-field
         v-model="search"
         width="544"
-        class="search-inp ma-auto"
+        class="search-inp"
         placeholder="앱과 앱가이드를 검색해보세요"
         append-inner-icon="custom:search"
         rounded="pill"
         @click:append-inner="onAppendClick"
+      />
+      <v-btn
+        icon="custom:close"
+        density="comfortable"
+        @click="snackbar03 = false"
       />
     </v-container>
   </v-navigation-drawer>

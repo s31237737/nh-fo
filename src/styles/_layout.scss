@@ -238,3 +238,11 @@
     }
   }
 }
+
+.v-navigation-drawer {
+  .inner {
+    display: flex;
+    justify-content: flex-end;
+    .search-inp {flex: none;}
+  }
+}
