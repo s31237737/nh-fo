@@ -68,8 +68,7 @@
           <v-col
             v-for="(card, index) in cardData"
             :key="index"
-            cols="12"
-            lg="4"
+            cols="4"
           >
             <v-card
               :to="card.link"
@@ -224,7 +223,7 @@
                   </v-btn>
                   <v-btn
                     v-else
-                    color="info"
+                    color="secondary"
                     disabled
                   >
                     신청 대기중
@@ -234,7 +233,10 @@
             </v-card>
           </v-col>
         </v-row>
-        <div class="apps-grid-fix">
+        <div
+          v-if="!isMobile"
+          class="apps-grid-fix"
+        >
           <img
             src="../assets/images/apps_bnr_bg02.png"
             alt=""
@@ -259,8 +261,7 @@
           <v-col
             v-for="(card, index) in cardRecommend2"
             :key="index"
-            cols="12"
-            lg="4"
+            cols="4"
           >
             <v-card
               :to="card.link"
@@ -325,7 +326,7 @@
                   </v-btn>
                   <v-btn
                     v-else
-                    color="bg-secondary"
+                    color="secondary"
                     disabled
                   >
                     신청 대기중
@@ -390,183 +391,222 @@
 
 <script setup>
 import { ref } from 'vue';
-  const alert = ref(false);
+import { inject } from 'vue';
 
-  //slide
-  // const slides = [
-  //   'First',
-  //   'Second',
-  //   'Third',
-  //   'Fourth',
-  //   'Fifth',
-  // ]
+const isMobile = inject('isMobile');
+const alert = ref(false);
 
-  //앱 전체 목록록
-  const cardData = ref([
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/app_module_img.png",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-    },
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/app_module_img.png",
-      title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-      ],
-      inUse: false,
-    },
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/app_module_img.png",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-      ],
-      inUse: true,
-    },
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/app_module_img.png",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-    },
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/app_module_img.png",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-    },
-    {
-      link: "AppsDetail",
-      imageSrc: "src/assets/images/app_module_img.png",
-      title: "공통총무알리미",
-      description: "농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-    }
-  ]);
+//slide
+// const slides = [
+//   'First',
+//   'Second',
+//   'Third',
+//   'Fourth',
+//   'Fifth',
+// ]
 
-  //앱 좋아요 목록
-  const cardRecommend = ref([
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-      showOpenApp: true,
-      likeCount: 999,
-    },
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-      showOpenApp: false,
-      likeCount: 0,
-    },
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-      ],
-      inUse: false,
-      showOpenApp: false,
-      likeCount: 555,
-    },
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-      ],
-      inUse: false,
-      showOpenApp: false,
-      likeCount: 888,
-    }
-  ]);
-  const cardRecommend2 = ref([
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-      showOpenApp: true,
-      likeCount: 999,
-    },
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-        { text: "HOT", color: "pink" }
-      ],
-      inUse: true,
-      showOpenApp: false,
-      likeCount: 0,
-    },
-    {
-      link: "AppsDetail",
-      title: "공통총무알리미",
-      subtitle: "총무형",
-      badges: [
-        { text: "NEW", color: "success" },
-        { text: "추천", color: "purple" },
-      ],
-      inUse: false,
-      showOpenApp: false,
-      likeCount: 555,
-    },
-  ]);
-  const incrementLikes = (card) => {
-    card.likeCount++; // 해당 카드의 likeCount 증가
-  };
+//앱 전체 목록록
+const cardData = ref([
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "1공통총무알리미",
+    description: "1농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "2공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+    description: "2농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+    ],
+    inUse: false,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "3공통총무알리미",
+    description: "3농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "4공통총무알리미",
+    description: "4농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "5공통총무알리미",
+    description: "5농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "6공통총무알리미",
+    description: "6농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "7공통총무알리미",
+    description: "7농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "8공통총무알리미",
+    description: "8농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  },
+  {
+    link: "AppsDetail",
+    imageSrc: "src/assets/images/app_module_img.png",
+    title: "9공통총무알리미",
+    description: "9농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+  }
+]);
+
+//앱 좋아요 목록
+const cardRecommend = ref([
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 999,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: false,
+    likeCount: 0,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+    ],
+    inUse: false,
+    showOpenApp: false,
+    likeCount: 555,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+    ],
+    inUse: false,
+    showOpenApp: false,
+    likeCount: 888,
+  }
+]);
+const cardRecommend2 = ref([
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 999,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: false,
+    likeCount: 0,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+    ],
+    inUse: false,
+    showOpenApp: false,
+    likeCount: 555,
+  },
+]);
+const incrementLikes = (card) => {
+  card.likeCount++; // 해당 카드의 likeCount 증가
+};
 </script>
