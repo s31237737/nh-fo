@@ -100,6 +100,22 @@
         <span>clear</span>
       </div>
       <div class="icon-item">
+        <v-icon icon="custom:plus" />
+        <span>plus</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:edit" />
+        <span>edit</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:file" />
+        <span>file</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:refresh" />
+        <span>refresh</span>
+      </div>
+      <div class="icon-item">
         <v-icon icon="custom:full-heart" />
         <span>full-heart</span>
       </div>
@@ -128,17 +144,8 @@
       </div>
 
       <div class="icon-item">
-        <v-icon icon="custom:edit" />
-        <span>edit</span>
-      </div>
-
-      <div class="icon-item">
         <v-icon icon="custom:move" />
         <span>move</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:refresh" />
-        <span>refresh</span>
       </div>
 
       <div class="icon-item">
@@ -156,16 +163,8 @@
 
 
       <div class="icon-item">
-        <v-icon icon="custom:plus" />
-        <span>plus</span>
-      </div>
-      <div class="icon-item">
         <v-icon icon="custom:minus" />
         <span>minus</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:file" />
-        <span>file</span>
       </div>
 
       <div class="icon-item">
@@ -178,23 +177,29 @@
       </div>
     </div>
     <div class="d-flex ga-2 mt-4">
+      <v-label>아이콘 사이즈</v-label>
       <v-icon
         icon="$vuetify"
         size="x-large"
       />
+      <span>:x-large 32</span>
       <v-icon
         icon="$vuetify"
         size="large"
       />
+      <span>:large 28</span>
       <v-icon icon="$vuetify" />
+      <span>:default 24</span>
       <v-icon
         icon="$vuetify"
         size="small"
       />
+      <span>:small 20</span>
       <v-icon
         icon="$vuetify"
         size="x-small"
       />
+      <span>:x-small 16</span>
     </div>
     <!-- tit-wrap -->
     <v-divider class="mt-4 pt-4" />
@@ -920,6 +925,19 @@
               color="primary"
             />
           </router-link>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn
+            class="more"
+            variant="text"
+            density="compact"
+          >
+            더보기
+            <v-icon
+              icon="custom:arrow-down"
+              size="24"
+            />
+          </v-btn>
         </v-col>
       </v-row>
       <v-row>
