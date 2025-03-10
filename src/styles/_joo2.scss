@@ -134,17 +134,27 @@
       img {display:block; width:100%; height: auto; object-fit: contain;}
     }
   }
+  @at-root .tablet {
+    .appsLst {
+      .v-col-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
   @at-root .mobile {
     .v-row {margin:-6px;}
     .v-row > [class*="v-col"] {
       padding: 6px;
     }
-    .appsLst.grid {
-      display:block;
-      .v-col-6 {
+    .appsLst {
+      [class*="v-col"] {
         flex: 0 0 100%;
         max-width: 100%;
       }
+    }
+    .appsLst.grid {
+      display:block;
       .apps-grid-fix {
         display:block;
         margin-top: 12px;
