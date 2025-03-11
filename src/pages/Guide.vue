@@ -995,6 +995,7 @@
     <!-- //버튼 -->
     
     <!-- editor -->
+    <v-divider class="mt-4 pt-4" />
     <v-sheet
       class="editor"
       height="300"
@@ -1031,13 +1032,29 @@
         </v-table>
       </v-col>
     </v-row>
+
+    <v-divider class="mt-4 pt-4" />
+
+    <!-- 배너 -->
+    <section class="banner-wrap">
+      <v-img
+        class="banner"
+        :style="{ backgroundImage: `url(${banner.imageUrl})` }"
+      >
+        <div class="banner-text">
+          <p v-html="banner.description"></p>
+        </div>
+      </v-img>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+
 const form = ref("");
 const select = ref("전체");
+
 const onAppendClick = () => {
   alert("Append icon clicked!");
 };
@@ -1089,6 +1106,12 @@ const desserts = ref([
     value: 3,
   },
 ]
+
+//배너
+const banner = ref({
+  imageUrl: "src/assets/images/apps_bnr_bg01.png",
+  description: "세상에 없던 NH 고객 라이프<br>관리 서비스 공개"
+});
 </script>
 <style scoped>
 .icon-item {
