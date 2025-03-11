@@ -129,16 +129,11 @@
     <!-- 배너 -->
     <section class="banner-wrap">
       <v-img
-        :src="banners.imageUrl"
         class="banner"
+        :style="{ backgroundImage: `url(${banner.imageUrl})` }"
       >
         <div class="banner-text">
-          <h2 class="">
-            {{ banners.title }}
-          </h2>
-          <p class="">
-            {{ banners.description }}
-          </p>
+          <p v-html="banner.description"></p>
         </div>
       </v-img>
     </section>
@@ -385,9 +380,10 @@
 <script setup>
 import { ref } from 'vue';
 import { inject } from 'vue';
+//import bannerImage from '@/assets/images/apps_bnr_bg01.png'; // 배너 이미지
 
 const isDesktop = inject('isDesktop');
-const alert = ref(false);
+const alert = ref(false); //"앱 열기" 팝업
 const select = ref("전체");
 
 //slide
@@ -601,15 +597,12 @@ const cardRecommend2 = ref([
   },
 ]);
 const incrementLikes = (card) => {
-  card.likeCount++; // 해당 카드의 likeCount 증가
+  card.likeCount++;
 };
 
 //배너
-const banners = ref([
-  {
-    imageUrl: "src/assets/images/apps_bnr_bg01.png",
-    title: "test",
-    description: "test"
-  }
-]);
+const banner = ref({
+  imageUrl: "src/assets/images/apps_bnr_bg01.png",
+  description: "세상에 없던 NH 고객 라이프<br>관리 서비스 공개"
+});
 </script>

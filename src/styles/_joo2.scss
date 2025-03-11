@@ -12,6 +12,37 @@
   }
 }
 
+.banner {
+  height:100%;
+  background-position: center center;
+  display:flex;
+  align-items: center;
+  &-text {
+    width: 100%;
+    max-width: 660px;
+    margin:0 auto;
+    padding: 0 0 0 24px;
+    @extend .title-4-bd;
+    color: $white;
+  }
+  @at-root .banner-wrap {
+    height: 140px;
+    border-radius: 12px;
+    overflow:hidden;
+  }
+  @at-root .mobile {
+    .banner-wrap {height: 90px;}
+    .banner {
+      background-size: auto 100%;
+      .banner-text {
+        margin-block: 24px;
+        max-width: 100%;
+        @extend .text-4-md;
+      }
+    }
+  }
+}
+
 //v-chip
 .v-chip.flag {//flag
   &.v-chip--variant-tonal {
