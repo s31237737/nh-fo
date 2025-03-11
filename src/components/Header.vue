@@ -89,16 +89,6 @@
       <!-- 알림 -->
       <Alarm />
 
-      <Notification
-        :has-notification="true"
-        :notification-count="99"
-        :is-admin="true"
-        :email-switch="emailSwitch"
-        :icon="'custom:alarm'"
-        :notifications="notifications"
-        @update:email-switch="emailSwitch = $event"
-      />
-
       <!-- 프로필 -->
       <v-btn
         v-if="isDesktop"
