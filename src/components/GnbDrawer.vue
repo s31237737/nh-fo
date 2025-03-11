@@ -7,7 +7,6 @@
   >
     <v-card>
       <v-card-title>
-        <span>앱 타입 설정</span>
         <v-btn
           icon="custom:close"
           density="comfortable"

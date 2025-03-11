@@ -1,4 +1,6 @@
 <template>
+  <!-- 모바일 메뉴 -->
+  <GnbDrawer v-model="gnbDrawer" />
   <v-app-bar
     class="header"
     :height="isDesktop ? 80 : 56"
@@ -121,9 +123,6 @@
 
   <!-- 검색 레이어-->
   <SearchDrawer v-model="searchDrawer" />
-
-  <!-- 모바일 메뉴 -->
-  <GnbDrawer v-model="gnbDrawer" />
 </template>
 
 <script setup>
