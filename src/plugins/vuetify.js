@@ -135,7 +135,6 @@ export default createVuetify({
         VBtn: {
           width: "32",
           height: "32",
-          style: "font-size: 1.25rem",
         },
       },
       VCardActions: {
