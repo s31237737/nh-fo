@@ -247,20 +247,20 @@
         <v-select
           v-model="select"
           density="default"
-          label="앱 타입"
+          label="default48"
           :items="['전체', '타입1', '타입2']"
         />
 
         <v-select
           v-model="select"
           density="comfortable"
-          label="자동사용여부"
+          label="comfortable44"
           :items="['전체', '상태1', '상태2']"
         />
         <v-select
           v-model="select"
           density="compact"
-          label="자동사용여부"
+          label="compact36"
           :items="['전체', '상태1', '상태2']"
         />
 
@@ -275,6 +275,24 @@
         <v-btn
           color="line"
           icon="custom:refresh"
+        />
+      </v-form>
+
+      <v-form>
+        <v-select
+          v-model="select"
+          density="default"
+          label="default"
+          :items="['전체', '타입1', '타입2']"
+        />
+
+        <v-select
+          v-model="select"
+          density="default"
+          label="round"
+          rounded="xl"
+          class="round"
+          :items="['전체', '상태1', '상태2']"
         />
       </v-form>
     </div>

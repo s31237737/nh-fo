@@ -1,25 +1,28 @@
 <template>
-  <!-- <v-carousel
-    :show-arrows="false"
-    height="400"
-    cycle
-    hide-delimiter-background
-  >
-    <v-carousel-item
-      v-for="(slide, i) in slides"
-      :key="i"
+  <v-container>
+    <v-carousel
+      :show-arrows="false"
+      height="400"
+      cycle
+      hide-delimiter-background
     >
-      <v-sheet
-        height="100%"
+      <v-carousel-item
+        v-for="(slide, i) in slides"
+        :key="i"
+        class="keyvisual"
       >
-        <div class="d-flex fill-height justify-center align-center">
-          <div class="text-h2">
-            {{ slide }} Slide
+        <v-sheet
+          height="100%"
+        >
+          <div class="d-flex fill-height justify-center align-center">
+            <div class="text-h2">
+              {{ slide }} Slide
+            </div>
           </div>
-        </div>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel> -->
+        </v-sheet>
+      </v-carousel-item>
+    </v-carousel>
+  </v-container>
   <v-container
     class="inner"
   >
@@ -30,27 +33,24 @@
           앱 전체 리스트
         </strong>
       </div>
-      <div class="apps-list-top">
-        <div class="select-group">
-          select group
-        </div>
+
+      <!-- form -->
+      <div class="apps-list-top search-wrap">
+        <v-form class="selection-group">
+          <v-select
+            v-model="select"
+            density="default"
+            label="round"
+            rounded="xl"
+            class="round"
+            :items="['전체', '상태1', '상태2']"
+          />
+        </v-form>
         <div class="sort-group">
           sort btns
         </div>
       </div>
-      <div class="tit-form">
-        <div class="selection-group">
-          <v-select
-            v-model="select"
-            density="default"
-            label="앱 타입"
-            :items="['전체', '타입1', '타입2']"
-          />
-        </div>
-        <div class="toggle-btns">
-          toggle
-        </div>
-      </div>
+
       <!-- 앱 목록  -->
       <div class="apps-list">
         <v-row
@@ -395,13 +395,13 @@ const alert = ref(false); //"앱 열기" 팝업
 const select = ref("전체");
 
 //slide
-// const slides = [
-//   'First',
-//   'Second',
-//   'Third',
-//   'Fourth',
-//   'Fifth',
-// ]
+const slides = [
+  'First',
+  'Second',
+  'Third',
+  'Fourth',
+  'Fifth',
+]
 
 //앱 전체 목록
 const cardData = ref([

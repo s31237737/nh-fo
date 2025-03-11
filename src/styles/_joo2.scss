@@ -43,6 +43,25 @@
   }
 }
 
+.v-select {
+  &.round {
+    .v-field {
+      &__outline__start {
+        flex-basis: 50% !important;
+      }
+    }
+  }
+  &.v-input--density-comfortable .v-field__input{
+    font-size: 1rem !important;
+  }
+}
+
+.keyvisual {
+  &.v-carousel {
+    
+  }
+}
+
 //v-chip
 .v-chip.flag {//flag
   &.v-chip--variant-tonal {
