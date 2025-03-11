@@ -123,7 +123,7 @@
     location="top"
     temporary
     floating
-    width="60"
+    :width="!isMobile? '60' : '56'"
   >
     <v-container
       class="inner"

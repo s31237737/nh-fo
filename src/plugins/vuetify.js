@@ -101,7 +101,7 @@ export default createVuetify({
         }
       },
       VMenu: {
-        offset: "18",
+        offset: "20",
         contentClass: "popover",
         attach: ".v-app-bar",
         transition: "false",

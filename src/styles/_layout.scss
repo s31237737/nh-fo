@@ -38,6 +38,7 @@
 .header {
   > .v-toolbar__content {
     @extend .inner;
+   
     .v-btn[aria-expanded="true"] {
       position: relative;
       &::before {
@@ -47,7 +48,7 @@
         width: 16px;
         height: 9px;
         background: url("@/assets/images/pop_tail.png") no-repeat 0 0 / 100%;
-        bottom: -19px;
+        bottom: -21px;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -184,6 +185,7 @@
   @at-root .mobile, .tablet {
     .header {
       > .v-toolbar__content {
+        overflow: unset;
         padding: 0 12px 0 24px !important;
       }
       .v-toolbar__append {
@@ -261,15 +263,17 @@
       }
     }
   }
-    @at-root .mobile {
-      .v-navigation-drawer {
-        .inner {
-          max-width: 360px !important;
-          gap: 8px;
-          .search-inp {
-            max-width: calc(100% - 40px);
-          }
+  @at-root .mobile {
+    .v-navigation-drawer {
+      .inner {
+        gap: 8px;
+        align-items: center;
+        max-width: 360px !important;
+        height: 100%;
+        .search-inp {
+          max-width: calc(100% - 40px);
         }
       }
     }
+  }
 }
