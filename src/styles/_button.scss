@@ -11,6 +11,7 @@
     }
     &-text:not([class*="icon"]) {
       --v-btn-size: 1rem;
+      font-weight: 500;
       .v-btn__overlay {
         display: none;
       }
