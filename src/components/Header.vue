@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     class="header"
-    :height="isDesktop ? 80 : 52"
+    :height="isDesktop ? 80 : 56"
   >
     <template #prepend>
       <router-link to="/">
