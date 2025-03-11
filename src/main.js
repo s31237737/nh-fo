@@ -25,17 +25,10 @@ function closeAllVuetifyMenus() {
     if (activatorId) {
       const activator = document.querySelector(`[aria-controls="${activatorId}"]`);
       if (activator) {
-        activator.setAttribute("aria-expanded", "false");
+        activator.click();
       }
     }
   });
-
-  document.querySelectorAll(".v-overlay").forEach((menu) => {
-    menu.style.display = "none";
-  });
-
-  const event = new Event("close-v-menu");
-  window.dispatchEvent(event);
 }
 window.addEventListener("resize", closeAllVuetifyMenus);
 
