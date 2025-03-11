@@ -931,6 +931,7 @@
             prepend-icon="custom:full-heart"
             color="primary"
             :ripple="false"
+            class="like"
           >
             999
           </v-btn>

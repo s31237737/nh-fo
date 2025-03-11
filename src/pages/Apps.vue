@@ -127,13 +127,20 @@
     </section>
 
     <!-- 배너 -->
-    <section class="banner">
-      <v-sheet>
-        <v-img
-          class="bg-white"
-          src="../assets/images/apps_bnr_bg01.png"
-        />
-      </v-sheet>
+    <section class="banner-wrap">
+      <v-img
+        :src="banners.imageUrl"
+        class="banner"
+      >
+        <div class="banner-text">
+          <h2 class="">
+            {{ banners.title }}
+          </h2>
+          <p class="">
+            {{ banners.description }}
+          </p>
+        </div>
+      </v-img>
     </section>
 
     <!-- 앱: 좋아요 리스트 (최소 4개 노출)-->
@@ -164,6 +171,7 @@
                     prepend-icon="custom:full-heart"
                     color="primary"
                     :ripple="false"
+                    class="like"
                     @click.stop.prevent="incrementLikes(card)"
                   >
                     {{ card.likeCount }}
@@ -265,6 +273,7 @@
                     prepend-icon="custom:full-heart"
                     color="primary"
                     :ripple="false"
+                    class="like"
                     @click.stop.prevent="incrementLikes(card)"
                   >
                     {{ card.likeCount }}
@@ -594,4 +603,13 @@ const cardRecommend2 = ref([
 const incrementLikes = (card) => {
   card.likeCount++; // 해당 카드의 likeCount 증가
 };
+
+//배너
+const banners = ref([
+  {
+    imageUrl: "src/assets/images/apps_bnr_bg01.png",
+    title: "test",
+    description: "test"
+  }
+]);
 </script>
