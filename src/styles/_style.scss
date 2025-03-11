@@ -24,14 +24,7 @@
       transform: translateX(-6px) !important;
     }
   }
-  .v-selection-control--dirty {
-    .v-selection-control__input {
-      transform: translateX(10px) !important;
-    }
-  }
-  .v-selection-control__input {
-    transform: translateX(-10px) !important;
-  }
+  
 }
 
 .v-empty-state {

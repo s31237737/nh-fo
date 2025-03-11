@@ -187,7 +187,7 @@ export default createVuetify({
       class: ["tbl-row"],
     },
     VSwitch: {
-      color: "#555D69",
+      color: "success",
       inset: true,
       hideDetails: true,
     },
