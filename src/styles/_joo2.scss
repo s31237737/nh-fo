@@ -2,6 +2,11 @@
 @use "typography" as *;
 
 //공통 옮길 예정
+//ma-n10	margin: -40px;
+.mt-n17 {
+  margin-top: -80px !important;
+}
+
 .v-empty-state {
   border-radius: 20px;
   &__media {
@@ -40,6 +45,24 @@
         max-width: 100%;
         @extend .text-4-md;
       }
+    }
+  }
+}
+
+.v-btn-toggle.sort-group {
+  .v-btn {
+    padding: 0 8px;
+    font-weight: 400;
+    color: $gray-700;
+    &--size-default {
+      min-width: auto;
+    }
+    .v-btn__content {
+      line-height: 1;
+    }
+    &.v-btn--active {
+      font-weight: 500;
+      color: $black;
     }
   }
 }

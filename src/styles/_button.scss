@@ -11,12 +11,11 @@
     }
     &-text:not([class*="icon"]) {
       --v-btn-size: 1rem;
+      padding: 0 10px;
       font-weight: 500;
       .v-btn__overlay {
         display: none;
       }
-      // .v-btn__append, .v-btn__prepend {margin-inline: 0 0;}
-      padding: 0 10px;
       .v-btn__prepend {
         margin-inline-end: 4px;
       }
@@ -32,6 +31,7 @@
         }
       }
     }
+    @at-root .v-btn-toggle .v-btn.v-btn--variant-text:not([class*="icon"]){--v-btn-size: 0.875rem;}
   }
   &--disabled {
     opacity: 0.26 !important;

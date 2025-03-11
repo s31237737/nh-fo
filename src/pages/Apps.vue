@@ -1,28 +1,25 @@
 <template>
-  <v-container>
-    <v-carousel
-      :show-arrows="false"
-      height="400"
-      cycle
-      hide-delimiter-background
+  <v-carousel
+    height="400"
+    cycle
+    class="keyvisual mt-n17"
+  >
+    <v-carousel-item
+      v-for="(slide, i) in slides"
+      :key="i"
     >
-      <v-carousel-item
-        v-for="(slide, i) in slides"
-        :key="i"
-        class="keyvisual"
+      <v-sheet
+        class="inner"
+        height="100%"
       >
-        <v-sheet
-          height="100%"
-        >
-          <div class="d-flex fill-height justify-center align-center">
-            <div class="text-h2">
-              {{ slide }} Slide
-            </div>
+        <div class="">
+          <div class="text-h2">
+            {{ slide }} Slide
           </div>
-        </v-sheet>
-      </v-carousel-item>
-    </v-carousel>
-  </v-container>
+        </div>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
   <v-container
     class="inner"
   >
@@ -36,6 +33,25 @@
 
       <!-- form -->
       <div class="apps-list-top search-wrap">
+        <v-btn-toggle
+          v-model="toggle"
+          color="primary"
+          variant="text"
+          class="sort-group"
+          density="compact"
+        >
+          <v-btn 
+            :ripple="false"
+          >
+            업데이트순
+          </v-btn>
+          <v-btn
+            :ripple="false"
+          >
+            인기순
+          </v-btn>
+        </v-btn-toggle>
+
         <v-form class="selection-group">
           <v-select
             v-model="select"
@@ -46,9 +62,6 @@
             :items="['전체', '상태1', '상태2']"
           />
         </v-form>
-        <div class="sort-group">
-          sort btns
-        </div>
       </div>
 
       <!-- 앱 목록  -->
@@ -393,6 +406,7 @@ import { inject } from 'vue';
 const isDesktop = inject('isDesktop');
 const alert = ref(false); //"앱 열기" 팝업
 const select = ref("전체");
+const toggle = ref(null)
 
 //slide
 const slides = [
