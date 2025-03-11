@@ -126,6 +126,16 @@
       <!--// 앱 목록  -->
     </section>
 
+    <!-- 배너 -->
+    <section class="banner">
+      <v-sheet>
+        <v-img
+          class="bg-white"
+          src="../assets/images/apps_bnr_bg01.png"
+        />
+      </v-sheet>
+    </section>
+
     <!-- 앱: 좋아요 리스트 (최소 4개 노출)-->
     <section>
       <div class="tit-wrap">
