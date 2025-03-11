@@ -84,7 +84,7 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
-        @click.stop="drawer = !drawer"
+        @click.stop="searchDrawer = !searchDrawer"
       />
 
       <!-- 알림 -->
@@ -111,39 +111,19 @@
       </v-btn>
 
       <!-- 모바일 메뉴 버튼-->
-      <v-app-bar-nav-icon
+      <v-btn
         v-if="!isDesktop"
-        density="comfortable"
+        icon="custom:hamburger"
+        @click.stop="gnbDrawer = !gnbDrawer"
       />
     </template>
   </v-app-bar>
+
+  <!-- 검색 레이어-->
+  <SearchDrawer v-model="searchDrawer" />
+
   <!-- 모바일 메뉴 -->
-  <v-navigation-drawer
-    v-model="drawer"
-    location="top"
-    temporary
-    floating
-    :width="!isMobile? '60' : '56'"
-  >
-    <v-container
-      class="inner"
-    >
-      <v-text-field
-        v-model="search"
-        :width="!isMobile? '300' : '100%'"
-        class="search-inp"
-        placeholder="앱과 앱가이드를 검색해보세요"
-        append-inner-icon="custom:search"
-        rounded="pill"
-        @click:append-inner="onAppendClick"
-      />
-      <v-btn
-        icon="custom:close"
-        density="comfortable"
-        @click="drawer = false"
-      />
-    </v-container>
-  </v-navigation-drawer>
+  <GnbDrawer v-model="gnbDrawer" />
 </template>
 
 <script setup>
@@ -152,13 +132,10 @@ import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
-const drawer = ref(null);
+const searchDrawer = ref(null);
+const gnbDrawer = ref(false);
 
-// 검색
-const search = ref('');
-const onAppendClick = () => {
-  alert('Append icon clicked!');
-}
+
 
 // 남은 시간을 초 단위로 관리
 const remainingTime = ref(5 * 60);
@@ -188,7 +165,6 @@ const onExtendClick = () => {
 
 // gnb
 const gnbItems = ref([
-
   {
     title: '새소식',
     value: 1,
@@ -218,6 +194,7 @@ const gnbItems = ref([
     },
   },
 ]);
+
 // 프로필
 const profileItems = ref([
   {

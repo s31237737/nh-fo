@@ -16,6 +16,10 @@
     <!-- icons -->
     <div class="d-flex flex-wrap ga-2 bg-info">
       <div class="icon-item">
+        <v-icon icon="custom:hamburger" />
+        <span>hamburger</span>
+      </div>
+      <div class="icon-item">
         <v-icon icon="custom:alarm" />
         <span>alarm</span>
       </div>
@@ -1011,7 +1015,7 @@
       </v-row>
     </div>
     <!-- //버튼 -->
-    
+
     <!-- editor -->
     <v-divider class="mt-4 pt-4" />
     <v-sheet
