@@ -30,6 +30,14 @@
           앱 전체 리스트
         </strong>
       </div>
+      <div class="apps-list-top">
+        <div class="select-group">
+          select group
+        </div>
+        <div class="sort-group">
+          sort btns
+        </div>
+      </div>
       <div class="tit-form">
         <div class="selection-group">
           <v-select
@@ -133,7 +141,7 @@
         :style="{ backgroundImage: `url(${banner.imageUrl})` }"
       >
         <div class="banner-text">
-          <p v-html="banner.description"></p>
+          <p v-html="banner.description" />
         </div>
       </v-img>
     </section>
