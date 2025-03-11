@@ -114,6 +114,9 @@
           &__media {
             margin-bottom: 10px;
           }
+          &__text {
+            @extend .text-4-md;
+          }
         }
 
         .v-list {
