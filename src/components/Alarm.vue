@@ -102,7 +102,7 @@
                 관리자 알림
               </v-chip>
             </v-chip-group>
-            <v-card-text>
+            <v-card-text style="height:317px">
               <v-window
                 v-model="activeTab"
               >
