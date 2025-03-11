@@ -1042,7 +1042,7 @@
         :style="{ backgroundImage: `url(${banner.imageUrl})` }"
       >
         <div class="banner-text">
-          <p v-html="banner.description"></p>
+          <p v-html="banner.description" />
         </div>
       </v-img>
     </section>
