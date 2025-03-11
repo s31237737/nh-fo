@@ -34,6 +34,7 @@
     }
   }
 }
+
 .header {
   > .v-toolbar__content {
     @extend .inner;
@@ -180,10 +181,14 @@
     }
   }
 
-  @at-root .mobile {
+  @at-root .mobile,
+    .tablet {
     .header {
       > .v-toolbar__content {
-        padding: 0 12px 0 24px;
+        padding: 0 12px 0 24px !important;
+      }
+      .v-toolbar__append {
+        gap: 10px;
       }
     }
   }

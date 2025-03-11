@@ -53,6 +53,7 @@
     <template #append>
       <!-- 캘린더 -->
       <v-btn
+        v-if="isDesktop"
         icon="custom:calendar"
         density="comfortable"
       />

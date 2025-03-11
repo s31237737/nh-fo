@@ -992,6 +992,16 @@
       </v-row>
     </div>
     <!-- //버튼 -->
+    
+    <!-- editor -->
+    <v-sheet
+      class="editor"
+      height="300"
+    >
+      <QuillEditor
+        toolbar="full"
+      />
+    </v-sheet>
 
     <!-- table -->
     <v-divider class="mt-4 pt-4" />

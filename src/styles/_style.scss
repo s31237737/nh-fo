@@ -1,6 +1,18 @@
 @use "variables" as *;
 @use "typography" as *;
 
+.editor {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .ql-toolbar.ql-snow {
+    height: 44px;
+  }
+  .ql-container.ql-snow {
+    height: calc(100% - 44px);
+  }
+}
+
 .v-switch {
   &.switch-flip {
     .v-selection-control {
@@ -24,7 +36,6 @@
       transform: translateX(-6px) !important;
     }
   }
-  
 }
 
 .v-empty-state {
