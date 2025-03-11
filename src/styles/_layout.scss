@@ -277,3 +277,20 @@
     }
   }
 }
+
+
+
+@media only screen and (orientation: landscape) {
+  .mobile, .tablet {
+    .header {
+      .v-btn[aria-expanded="true"] {
+        &::before {
+          display: none;
+        }
+      }
+      .popover .alarm .v-card-text {
+        max-height: calc(100vh - 145px);
+      }
+    }
+  }
+}
