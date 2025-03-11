@@ -927,15 +927,34 @@
         </v-col>
         <v-col cols="auto">
           <v-btn
-            class="more"
+            variant="text"
+            prepend-icon="custom:full-heart"
+            color="primary"
+            :ripple="false"
+          >
+            999
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn
             variant="text"
             density="compact"
+            append-icon="custom:arrow-down"
+            color="quaternary"
+            :ripple="false"
           >
             더보기
-            <v-icon
-              icon="custom:arrow-down"
-              size="24"
-            />
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn
+            variant="text"
+            density="compact"
+            append-icon="custom:arrow-right"
+            color="quaternary"
+            :ripple="false"
+          >
+            더 보러가기
           </v-btn>
         </v-col>
       </v-row>

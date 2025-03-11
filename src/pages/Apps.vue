@@ -23,38 +23,6 @@
   <v-container
     class="inner"
   >
-    <v-btn
-      variant="text"
-      prepend-icon="custom:full-heart"
-      color="primary"
-      class="like"
-      :ripple="false"
-    >
-      999
-    </v-btn>
-
-    <v-btn
-      variant="text"
-      density="compact"
-      append-icon="custom:arrow-down"
-      color="gray"
-      class="more"
-      :ripple="false"
-    >
-      font 16px/margin-inline-end:10px/icon24
-    </v-btn>
-
-    <v-btn
-      variant="text"
-      density="compact"
-      append-icon="custom:arrow-right"
-      color="gray"
-      class="link-button-arrow"
-      :ripple="false"
-    >
-      font 16px/margin-inline-end:4px/icon16
-    </v-btn>
-
     <!-- 앱: 전체 리스트 -->
     <section>
       <div class="tit-wrap">
@@ -62,8 +30,21 @@
           앱 전체 리스트
         </strong>
       </div>
+      <div class="tit-form">
+        <div class="selection-group">
+          <v-select
+            v-model="select"
+            density="default"
+            label="앱 타입"
+            :items="['전체', '타입1', '타입2']"
+          />
+        </div>
+        <div class="toggle-btns">
+          toggle
+        </div>
+      </div>
       <!-- 앱 목록  -->
-      <div class="appsLst">
+      <div class="apps-list">
         <v-row
           v-if="cardData.length"
         >
@@ -75,7 +56,7 @@
             <v-card
               :ripple="false"
               :to="card.link"
-              class="appCard"
+              class="appcard"
             >
               <div class="d-flex">
                 <div>
@@ -130,13 +111,12 @@
           icon="custom:warning"
           bg-color="#FEFEFE"
         />
-        <div class="appsLst_btn">
+        <div class="apps-list_btn">
           <v-btn
             variant="text"
             density="compact"
             append-icon="custom:arrow-down"
             color="quaternary"
-            class="more"
             :ripple="false"
           >
             더보기
@@ -154,7 +134,7 @@
         </strong>
       </div>
       <!-- 앱 목록 -->
-      <div class="appsLst grid">
+      <div class="apps-list grid">
         <v-row>
           <v-col
             v-for="(card, index) in cardRecommend"
@@ -164,7 +144,7 @@
             <v-card
               :ripple="false"
               :to="card.link"
-              class="appCard"
+              class="appcard"
             >
               <div class="d-flex align-center">
                 <div class="">
@@ -173,7 +153,6 @@
                     variant="text"
                     prepend-icon="custom:full-heart"
                     color="primary"
-                    class="like"
                     :ripple="false"
                     @click.stop.prevent="incrementLikes(card)"
                   >
@@ -254,7 +233,7 @@
         </strong>
       </div>
       <!-- 앱 목록 -->
-      <div class="appsLst">
+      <div class="apps-list">
         <v-row
           v-if="cardRecommend2.length"
         >
@@ -266,7 +245,7 @@
             <v-card
               :to="card.link"
               :ripple="false"
-              class="appCard"
+              class="appcard"
             >
               <div class="d-flex align-center">
                 <div class="">
@@ -275,7 +254,6 @@
                     variant="text"
                     prepend-icon="custom:full-heart"
                     color="primary"
-                    class="like"
                     :ripple="false"
                     @click.stop.prevent="incrementLikes(card)"
                   >
@@ -391,6 +369,7 @@ import { inject } from 'vue';
 
 const isDesktop = inject('isDesktop');
 const alert = ref(false);
+const select = ref("전체");
 
 //slide
 // const slides = [

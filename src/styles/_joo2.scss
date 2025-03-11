@@ -1,6 +1,17 @@
 @use "variables" as *;
 @use "typography" as *;
 
+//공통 옮길 예정
+.v-empty-state {
+  border-radius: 20px;
+  &__media {
+    margin-bottom: 26px;
+  }
+  &__text {
+    @extend .text-2-md;
+  }
+}
+
 //v-chip
 .v-chip.flag {//flag
   &.v-chip--variant-tonal {
@@ -35,7 +46,7 @@
 }
 
 //앱 리스트
-.appCard {
+.appcard {
   &.v-card {
     height: 100%;
     padding: 30px;
@@ -76,7 +87,7 @@
       @include line-clamp(2);
     }
     @at-root .mobile {
-      .appCard.v-card {
+      .appcard.v-card {
         padding: 20px;
         .thumnail {
           width: 54px; height: 54px;
@@ -85,30 +96,22 @@
         .v-btn.like .v-icon {margin-right: 0;}
       }
     }
+
+    //carousel
+    @at-root .v-carousel {
+      .appcard.v-card {
+        height: auto;
+      }
+    }
   }
 }
-.appsLst{
-  .appsLst_btn {
+.apps-list{
+  .apps-list_btn {
     margin-top: 40px;
     text-align:center;
   }
   .v-empty-state {
     height: 720px;
-    border-radius: 20px;
-    &__media {
-      $empty-icon-size: 60px;
-      width: $empty-icon-size;
-      height: $empty-icon-size;
-      margin-bottom: 26px;
-      .v-icon {
-        width: 100% !important;
-        height: 100% !important;
-        font-size: $empty-icon-size;
-      }
-    }
-    &__text {
-      @extend .text-2-md;
-    }
   }
   &.grid {
     display:grid;
@@ -120,7 +123,7 @@
     }
   }
   @at-root .tablet {
-    .appsLst {
+    .apps-list {
       .v-col-4 {
         flex: 0 0 50%;
         max-width: 50%;
@@ -135,7 +138,10 @@
     .v-row > [class*="v-col"] {
       padding: 6px;
     }
-    .appsLst {
+    .apps-list_btn {
+      margin-top: 20px;
+    }
+    .apps-list {
       [class*="v-col"] {
         flex: 0 0 100%;
         max-width: 100%;
