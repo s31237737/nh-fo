@@ -181,8 +181,7 @@
     }
   }
 
-  @at-root .mobile,
-    .tablet {
+  @at-root .mobile, .tablet {
     .header {
       > .v-toolbar__content {
         padding: 0 12px 0 24px !important;
@@ -262,4 +261,15 @@
       }
     }
   }
+    @at-root .mobile {
+      .v-navigation-drawer {
+        .inner {
+          max-width: 360px !important;
+          gap: 8px;
+          .search-inp {
+            max-width: calc(100% - 40px);
+          }
+        }
+      }
+    }
 }

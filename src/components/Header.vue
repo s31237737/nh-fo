@@ -130,7 +130,7 @@
     >
       <v-text-field
         v-model="search"
-        width="300"
+        :width="!isMobile? '300' : '100%'"
         class="search-inp"
         placeholder="앱과 앱가이드를 검색해보세요"
         append-inner-icon="custom:search"
@@ -149,23 +149,10 @@
 <script setup>
 import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 
-const notifications = ref([
-  {
-    title: '새로운 알림이 있습니다!',
-    date: '2025-09-30 09:38',
-    isNew: true,
-  },
-  {
-    title: '업데이트 알림',
-    date: '2025-09-30 09:38',
-    isNew: false,
-  },
-]);
 const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 const drawer = ref(null);
-const emailSwitch = ref(true);
 
 // 검색
 const search = ref('');
