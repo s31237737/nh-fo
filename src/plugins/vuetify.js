@@ -96,6 +96,8 @@ export default createVuetify({
       floating: true,
       VList: {
         openStrategy: "single",
+        expandIcon: "custom:arrow-down",
+        collapseIcon: "custom:arrow-up"
       },
       VListItem: {
         minHeight: "52",
