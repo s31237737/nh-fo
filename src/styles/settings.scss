@@ -29,6 +29,7 @@
   $badge-font-size: 0.625rem,
   $badge-font-weight: 600,
   $badge-theme:(#d32226, #fff),
+  $btn-group-height: 36px,
   $button-border-radius: 8px,
   $button-text-transform: none,
   $button-text-letter-spacing: 0,
@@ -64,8 +65,8 @@
     "comfortable": -3,
     "compact": -5
   ),
-  $btn-group-height: 36px,
   $text-field-affix-color: (rgb(0, 0, 0),1),
   $select-content-elevation: 0,
-   $overlay-opacity: 0.2,
+  $overlay-opacity: 0.6,
+  $navigation-drawer-scrim-opacity: 0.6,
 );
