@@ -1,13 +1,33 @@
 <template>
-  <div class="onboarding-container">
-    <v-fade-transition mode="out-in">
-      <div
-        :key="onboarding"
-        class="slide-content"
+  <!-- banner slider -->
+  <div class="banner-container mt-n17">
+    <v-window
+      v-model="slider"
+    >
+      <v-window-item
+        v-for="(banner, index) in banners"
+        :key="`card-${index}`"
+        :value="index"
       >
-        <span class="text-h2">Card {{ onboarding }}</span>
-      </div>
-    </v-fade-transition>
+        <div
+          class="slide-content"
+          :style="{ backgroundImage: `url(${banner.image})` }"
+        >
+          <div class="text-box">
+            <span class="text-h2">{{ banner.title }}</span>
+            <p class="text-body-1">
+              {{ banner.description }}
+            </p>
+          </div>
+          <v-img
+            class="thumnail"
+            :src="banner.image"
+            height="200"
+            cover
+          />
+        </div>
+      </v-window-item>
+    </v-window>
 
     <div class="actions">
       <v-btn
@@ -15,16 +35,17 @@
         variant="plain"
         @click="prev"
       />
+
       <v-item-group
         v-model="onboarding"
         class="text-center"
         mandatory
       >
         <v-item
-          v-for="n in length"
-          :key="`btn-${n}`"
+          v-for="(index) in slides"
+          :key="`btn-${index}`"
           v-slot="{ isSelected, toggle }"
-          :value="n"
+          :value="index"
         >
           <v-btn
             :variant="isSelected ? 'outlined' : 'text'"
@@ -33,6 +54,15 @@
           />
         </v-item>
       </v-item-group>
+
+      <v-btn
+        icon
+        variant="plain"
+        @click="toggleAutoPlay"
+      >
+        <v-icon>{{ isPlaying ? "mdi-pause" : "mdi-play" }}</v-icon>
+      </v-btn>
+
       <v-btn
         icon="mdi-chevron-right"
         variant="plain"
@@ -40,6 +70,7 @@
       />
     </div>
   </div>
+  <!--// banner slider -->
 
   <!-- contents area -->
   <v-container
@@ -422,7 +453,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watchEffect, onMounted, onUnmounted } from "vue";
 import { inject } from 'vue';
 //import bannerImage from '@/assets/images/apps_bnr_bg01.png'; // 배너 이미지
 
@@ -432,14 +463,64 @@ const select = ref("전체");
 const toggle = ref(null)
 
 //keyvisual
-const length = ref(3)
-const onboarding = ref(1)
-function next () {
-  onboarding.value = onboarding.value + 1 > length.value ? 1 : onboarding.value + 1
-}
-function prev () {
-  onboarding.value = onboarding.value - 1 <= 0 ? length.value : onboarding.value - 1
-}
+const banners = ref([
+  {
+    image: "src/assets/images/apps_bnr_bg01.png",
+    title: "첫 번째 슬라이드",
+    description: "이것은 첫 번째 슬라이드의 설명입니다."
+  },
+  {
+    image: "src/assets/images/apps_bnr_bg01.png",
+    title: "두 번째 슬라이드",
+    description: "이것은 두 번째 슬라이드의 설명입니다."
+  },
+  {
+    image: "src/assets/images/apps_bnr_bg01.png",
+    title: "세 번째 슬라이드",
+    description: "이것은 세 번째 슬라이드의 설명입니다."
+  }
+]);
+
+const slider = ref(0);
+const autoPlay = ref(true);
+let interval = null;
+
+const startAutoPlay = () => {
+  stopAutoPlay();
+  interval = setInterval(() => {
+    slider.value = (slider.value + 1) % banners.value.length;
+  }, 3000);
+};
+
+const stopAutoPlay = () => {
+  clearInterval(interval);
+};
+
+const toggleAutoPlay = () => {
+  autoPlay.value = !autoPlay.value;
+};
+const prev = () => {
+  slider.value = (slider.value - 1 + banners.value.length) % banners.value.length;
+  restartAutoPlay();
+};
+
+const next = () => {
+  slider.value = (slider.value + 1) % banners.value.length;
+  restartAutoPlay();
+};
+
+const restartAutoPlay = () => {
+  stopAutoPlay();
+  if (autoPlay.value) startAutoPlay();
+};
+
+watchEffect(() => {
+  if (autoPlay.value) startAutoPlay();
+  else stopAutoPlay();
+});
+
+onMounted(startAutoPlay);
+onUnmounted(stopAutoPlay);
 
 //앱 전체 목록
 const cardData = ref([
