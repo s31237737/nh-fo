@@ -38,6 +38,12 @@
     pointer-events: auto !important;
     cursor: default;
   }
+  &__prepend {
+    margin-inline-end: 4px !important;
+  }
+  &__apepend {
+    margin-inline-start: 4px !important;
+  }
   &.bg-info {
     border: thin solid $gray-400;
     &.v-btn--disabled {
