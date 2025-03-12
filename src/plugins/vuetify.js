@@ -95,6 +95,7 @@ export default createVuetify({
       width: "320",
       temporary: true,
       floating: true,
+      scrim: false,
       VList: {
         openStrategy: "single",
         expandIcon: "custom:arrow-down",
@@ -219,6 +220,6 @@ export default createVuetify({
       icon:"custom:warning",
       bgColor:"white",
       size:"60",
-    }
+    },
   }
 })

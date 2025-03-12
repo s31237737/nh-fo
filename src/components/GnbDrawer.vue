@@ -1,7 +1,6 @@
 <template>
   <v-navigation-drawer
     :model-value="modelValue"
-    :scrim="false"
     @update:model-value="emit('update:modelValue', $event)"
   >
     <v-card class="gnb-drawer">
@@ -78,6 +77,7 @@
 
     <v-overlay
       :model-value="modelValue"
+      @update:model-value="emit('update:modelValue', $event)"
       @click="emit('update:modelValue', false)"
     />
   </v-navigation-drawer>
