@@ -38,8 +38,8 @@
 .title-5 {
   @include typography(500, 1.625rem, 1.125rem);
 }
-.title-5-bd {
-  @include typography(700, 1.625rem, 1.125rem);
+.title-5- {
+  @include typography(600, 1.625rem, 1.125rem);
 }
 .text-1 {
   @include typography(500, 1.75rem, 1.25rem);
