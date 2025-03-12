@@ -60,15 +60,17 @@
           size="large"
           color="primary"
           variant="flat"
+          prepend-icon="custom:admin"
         >
-          Button
+          관리자
         </v-btn>
         <v-btn
           size="large"
           color="info"
           variant="flat"
+          prepend-icon="custom:logout"
         >
-          Button
+          로그아웃
         </v-btn>
       </v-card-actions>
     </v-card>

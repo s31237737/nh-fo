@@ -290,10 +290,13 @@
       padding: 12px 20px;
     }
     &-text {
-      height: calc(100vh - 114px);
+      height: calc(100vh - 146px);
     }
     &-actions {
       padding: 0 20px 48px;
+      .v-btn {
+        flex: 1;
+      }
     }
   }
   .v-list-item {
