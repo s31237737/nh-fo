@@ -133,6 +133,14 @@
         <v-icon icon="custom:logout" />
         <span>logout</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:auto-pause" />
+        <span>auto-pause</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:auto-play" />
+        <span>auto-play</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">

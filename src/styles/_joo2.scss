@@ -2,11 +2,6 @@
 @use "typography" as *;
 
 //공통 옮길 예정
-//ma-n10	margin: -40px;
-.mt-n17 {
-  margin-top: -80px !important;
-}
-
 .v-empty-state {
   border-radius: 20px;
   &__media {
@@ -49,7 +44,7 @@
   }
 }
 
-.v-btn-toggle.sort-group {
+.v-btn-toggle.sort-btns {
   .v-btn {
     padding: 0 8px;
     font-weight: 400;
@@ -81,8 +76,26 @@
 }
 
 .keyvisual {
-  &.v-carousel {
-    
+  position: relative;
+  height: 548px;
+  background: $white;
+  margin-top: -80px;
+  .v-window {height: 100%;}
+  .banner-bg {position: absolute; top:0; left:0;}
+  .banner-content {
+    width:100%;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .controls {
+    position: absolute; 
+    bottom:58px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    display:flex;
+    .arrow-btn {
+      color: $gray-500;
+    }
   }
 }
 

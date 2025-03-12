@@ -1,6 +1,6 @@
 <template>
   <!-- banner slider -->
-  <div class="banner-container mt-n17">
+  <div class="keyvisual mt-n17">
     <v-window
       v-model="slider"
     >
@@ -8,16 +8,23 @@
         v-for="(banner, index) in banners"
         :key="`card-${index}`"
         :value="index"
+        class="banner"
       >
+        <v-img
+          :src="banner.bgimage"
+          class="banner-bg"
+        />
         <div
-          class="slide-content"
-          :style="{ backgroundImage: `url(${banner.image})` }"
+          class="banner-content"
         >
-          <div class="text-box">
-            <span class="text-h2">{{ banner.title }}</span>
-            <p class="text-body-1">
-              {{ banner.description }}
+          <div class="info">
+            <p class="type">
+              {{ banner.type }}
             </p>
+            <strong class="title">{{ banner.title }}</strong>
+            <div class="description">
+              {{ banner.description }}
+            </div>
           </div>
           <v-img
             class="thumnail"
@@ -29,21 +36,21 @@
       </v-window-item>
     </v-window>
 
-    <div class="actions">
+    <div class="controls">
       <v-btn
-        icon="mdi-chevron-left"
+        class="prev arrow-btn"
+        icon="custom:arrow-left"
         variant="plain"
         @click="prev"
       />
 
       <v-item-group
-        v-model="onboarding"
-        class="text-center"
+        v-model="slider"
         mandatory
       >
         <v-item
-          v-for="(index) in slides"
-          :key="`btn-${index}`"
+          v-for="(_, index) in banners"
+          :key="index"
           v-slot="{ isSelected, toggle }"
           :value="index"
         >
@@ -56,15 +63,17 @@
       </v-item-group>
 
       <v-btn
+        class="next"
         icon
         variant="plain"
         @click="toggleAutoPlay"
       >
-        <v-icon>{{ isPlaying ? "mdi-pause" : "mdi-play" }}</v-icon>
+        <v-icon>{{ autoPlay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
       </v-btn>
 
       <v-btn
-        icon="mdi-chevron-right"
+        class="next arrow-btn"
+        icon="custom:arrow-right"
         variant="plain"
         @click="next"
       />
@@ -87,15 +96,14 @@
       <!-- form -->
       <div class="apps-list-top search-wrap">
         <v-btn-toggle
-          v-model="toggle"
+          v-model="sort"
           color="primary"
           variant="text"
-          class="sort-group"
+          class="sort-btns"
           density="compact"
         >
           <v-btn 
             :ripple="false"
-            active
           >
             업데이트순
           </v-btn>
@@ -460,21 +468,25 @@ import { inject } from 'vue';
 const isDesktop = inject('isDesktop');
 const alert = ref(false); //"앱 열기" 팝업
 const select = ref("전체");
-const toggle = ref(null)
+const sort = ref(0)
 
 //keyvisual
 const banners = ref([
   {
+    bgimage: "#fff",
     image: "src/assets/images/apps_bnr_bg01.png",
+    type: "#앱 타입",
     title: "첫 번째 슬라이드",
     description: "이것은 첫 번째 슬라이드의 설명입니다."
   },
   {
+    bgimage: "#fff",
     image: "src/assets/images/apps_bnr_bg01.png",
     title: "두 번째 슬라이드",
     description: "이것은 두 번째 슬라이드의 설명입니다."
   },
   {
+    bgimage: "#fff",
     image: "src/assets/images/apps_bnr_bg01.png",
     title: "세 번째 슬라이드",
     description: "이것은 세 번째 슬라이드의 설명입니다."
