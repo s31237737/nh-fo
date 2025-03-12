@@ -6,8 +6,15 @@
     :model-value="modelValue"
     @update:model-value="emit('update:modelValue', $event)"
   >
-    <v-card>
+    <v-card class="gnb-drawer">
       <v-card-title>
+        <!-- 캘린더 -->
+        <v-btn
+          v-if="!isDesktop"
+          icon="custom:calendar"
+          density="comfortable"
+        />
+        <!-- 닫기 -->
         <v-btn
           icon="custom:close"
           density="comfortable"

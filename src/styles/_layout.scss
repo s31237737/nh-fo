@@ -281,6 +281,18 @@
   }
 }
 
+.gnb-drawer {
+  .v-card {
+    &-title {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      padding: 12px 20px;
+    }
+  }
+}
+
+
 
 
 @media only screen and (max-width: 1024px) and (max-height: 768px) {
