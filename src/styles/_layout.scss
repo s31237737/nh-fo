@@ -290,6 +290,7 @@
       padding: 12px 20px;
     }
     &-text {
+      padding: 0 8px;
       height: calc(100vh - 146px);
     }
     &-actions {
@@ -304,6 +305,7 @@
       @extend .title-5-bd;
     }
     &.sub-menu {
+      min-height: 40px !important;
       .v-list-item-title {
         @extend .text-3-md;
         color: $gray-800;
