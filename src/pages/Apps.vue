@@ -1,25 +1,47 @@
 <template>
-  <v-carousel
-    height="400"
-    cycle
-    class="keyvisual mt-n17"
-  >
-    <v-carousel-item
-      v-for="(slide, i) in slides"
-      :key="i"
-    >
-      <v-sheet
-        class="inner"
-        height="100%"
+  <div class="onboarding-container">
+    <v-fade-transition mode="out-in">
+      <div
+        :key="onboarding"
+        class="slide-content"
       >
-        <div class="">
-          <div class="text-h2">
-            {{ slide }} Slide
-          </div>
-        </div>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel>
+        <span class="text-h2">Card {{ onboarding }}</span>
+      </div>
+    </v-fade-transition>
+
+    <div class="actions">
+      <v-btn
+        icon="mdi-chevron-left"
+        variant="plain"
+        @click="prev"
+      />
+      <v-item-group
+        v-model="onboarding"
+        class="text-center"
+        mandatory
+      >
+        <v-item
+          v-for="n in length"
+          :key="`btn-${n}`"
+          v-slot="{ isSelected, toggle }"
+          :value="n"
+        >
+          <v-btn
+            :variant="isSelected ? 'outlined' : 'text'"
+            icon="mdi-record"
+            @click="toggle"
+          />
+        </v-item>
+      </v-item-group>
+      <v-btn
+        icon="mdi-chevron-right"
+        variant="plain"
+        @click="next"
+      />
+    </div>
+  </div>
+
+  <!-- contents area -->
   <v-container
     class="inner"
   >
@@ -42,6 +64,7 @@
         >
           <v-btn 
             :ripple="false"
+            active
           >
             업데이트순
           </v-btn>
@@ -408,14 +431,15 @@ const alert = ref(false); //"앱 열기" 팝업
 const select = ref("전체");
 const toggle = ref(null)
 
-//slide
-const slides = [
-  'First',
-  'Second',
-  'Third',
-  'Fourth',
-  'Fifth',
-]
+//keyvisual
+const length = ref(3)
+const onboarding = ref(1)
+function next () {
+  onboarding.value = onboarding.value + 1 > length.value ? 1 : onboarding.value + 1
+}
+function prev () {
+  onboarding.value = onboarding.value - 1 <= 0 ? length.value : onboarding.value - 1
+}
 
 //앱 전체 목록
 const cardData = ref([
