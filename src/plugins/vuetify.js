@@ -91,6 +91,16 @@ export default createVuetify({
     },
   },
   defaults: {
+    VNavigationDrawer: {
+      temporary: true,
+      floating: true,
+      VList: {
+        openStrategy: "single",
+      },
+      VListItem: {
+        minHeight: "52",
+      },
+    },
     VAppBar: {
       elevation: 0,
       VBtnGroup: {

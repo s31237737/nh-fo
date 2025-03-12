@@ -1,7 +1,5 @@
 <template>
   <v-navigation-drawer
-    floating
-    temporary
     width="320"
     :model-value="modelValue"
     @update:model-value="emit('update:modelValue', $event)"
