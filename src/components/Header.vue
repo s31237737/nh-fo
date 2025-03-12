@@ -86,7 +86,7 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
-        @click.stop="toggleSearchDrawer"
+        @click.stop="searchDrawer = !searchDrawer;"
       />
 
       <!-- 알림 -->
@@ -139,10 +139,6 @@ const toggleGnbDrawer = () => {
   if (gnbDrawer.value) searchDrawer.value = false;
 };
 
-const toggleSearchDrawer = () => {
-  searchDrawer.value = !searchDrawer.value;
-  if (searchDrawer.value) gnbDrawer.value = false;
-};
 
 // 남은 시간을 초 단위로 관리
 const remainingTime = ref(5 * 60);
