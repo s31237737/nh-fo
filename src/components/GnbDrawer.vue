@@ -30,6 +30,7 @@
               v-if="!item.submenu"
               :to="item.to"
               :title="item.title"
+              color="success"
             />
 
             <!-- 하위 항목이 있으면 v-list-group로 표시 -->

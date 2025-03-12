@@ -15,9 +15,9 @@
     overflow: unset;
     .v-btn {
       @extend .title-5-bd;
-      color: $gray-700;
+      color: $black;
       &:hover {
-        color: $black;
+        color: $blue-500;
       }
     }
   }
@@ -307,6 +307,11 @@
       .v-list-item-title {
         @extend .text-3-md;
         color: $gray-800;
+      }
+    }
+    &--active {
+      .v-list-item__overlay {
+        opacity: 0 !important;
       }
     }
   }

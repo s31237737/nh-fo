@@ -16,7 +16,7 @@
       <v-btn-toggle
         v-if="isDesktop"
         class="gnb"
-        color="primary"
+        color="success"
         density="comfortable"
       >
         <v-btn
