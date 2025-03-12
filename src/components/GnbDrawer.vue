@@ -30,7 +30,6 @@
               v-if="!item.submenu"
               :to="item.to"
               :title="item.title"
-              active-class="is-active"
             />
 
             <!-- 하위 항목이 있으면 v-list-group로 표시 -->
@@ -48,9 +47,9 @@
               <v-list-item
                 v-for="(subItem, index) in item.submenu"
                 :key="index"
+                class="sub-menu"
                 :to="subItem.to"
                 :title="subItem.title"
-                :class="['sub-menu',{'is-active':item.isActive}]"
               />
             </v-list-group>
           </template>
@@ -63,8 +62,6 @@
 <script setup>
 import { inject, ref } from 'vue';
 
-const isMobile = inject('isMobile');
-const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 
 defineProps({
@@ -78,7 +75,7 @@ const emit = defineEmits(['update:modelValue']);
 
 const menuItems = ref([
   { title: "About",  to: "" },
-  { title: "Apps",  to: "" },
+  { title: "Apps",  to: "Apps" },
   {
     title: "새소식 및 도움말",
     submenu: [
@@ -87,7 +84,6 @@ const menuItems = ref([
       { title: "Q&A", to: "" },
       { title: "앱가이드", to: "" }
     ],
-    submenuProps: { value: "news" },
   },
   { title: "커뮤니티",  to: "" },
   {
@@ -97,7 +93,6 @@ const menuItems = ref([
       { title: "내 앱", to: "" },
       { title: "작성한 게시물", to: "" }
     ],
-    submenuProps: { value: "mypage" },
   },
 ]);
 

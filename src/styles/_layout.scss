@@ -290,6 +290,18 @@
       padding: 12px 20px;
     }
   }
+  .v-list-item {
+    &-title {
+      @extend .title-5-bd;
+    }
+    &.sub-menu {
+      .v-list-item-title {
+        @extend .text-3-md;
+        color: $gray-800;
+      }
+    }
+  }
+ 
 }
 
 

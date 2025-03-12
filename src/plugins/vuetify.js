@@ -99,6 +99,8 @@ export default createVuetify({
       },
       VListItem: {
         minHeight: "52",
+        ripple: false,
+        rounded: "lg"
       },
     },
     VAppBar: {
