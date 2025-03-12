@@ -55,6 +55,22 @@
           </template>
         </v-list>
       </v-card-text>
+      <v-card-actions>
+        <v-btn
+          size="large"
+          color="primary"
+          variant="flat"
+        >
+          Button
+        </v-btn>
+        <v-btn
+          size="large"
+          color="info"
+          variant="flat"
+        >
+          Button
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </v-navigation-drawer>
 </template>
