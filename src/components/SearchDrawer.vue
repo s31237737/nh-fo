@@ -2,7 +2,6 @@
   <v-navigation-drawer
     :model-value="modelValue"
     location="top"
-
     :width="!isMobile? '60' : '56'"
     @update:model-value="emit('update:modelValue', $event)"
   >

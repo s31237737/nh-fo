@@ -86,7 +86,7 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
-        @click.stop="searchDrawer = !searchDrawer"
+        @click.stop="toggleSearchDrawer"
       />
 
       <!-- 알림 -->
@@ -116,7 +116,7 @@
       <v-btn
         v-if="!isDesktop"
         icon="custom:hamburger"
-        @click.stop="gnbDrawer = !gnbDrawer"
+        @click.stop="toggleGnbDrawer"
       />
     </template>
   </v-app-bar>
@@ -131,10 +131,18 @@ import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
-const searchDrawer = ref(null);
+const searchDrawer = ref(false);
 const gnbDrawer = ref(false);
 
+const toggleGnbDrawer = () => {
+  gnbDrawer.value = !gnbDrawer.value;
+  if (gnbDrawer.value) searchDrawer.value = false;
+};
 
+const toggleSearchDrawer = () => {
+  searchDrawer.value = !searchDrawer.value;
+  if (searchDrawer.value) gnbDrawer.value = false;
+};
 
 // 남은 시간을 초 단위로 관리
 const remainingTime = ref(5 * 60);

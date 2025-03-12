@@ -281,7 +281,10 @@
   }
 }
 
-.gnb-drawer {
+.gnb-drawer.v-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   .v-card {
     &-title {
       display: flex;
@@ -290,8 +293,10 @@
       padding: 12px 20px;
     }
     &-text {
+      overflow-y: auto;
+      flex: 1;
       padding: 0 8px;
-      height: calc(100vh - 146px);
+      max-height: calc(100vh - 146px);
     }
     &-actions {
       padding: 0 20px 48px;
