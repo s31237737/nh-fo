@@ -86,7 +86,7 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
-        @click.stop="searchDrawer = !searchDrawer;"
+        @click.stop="searchDrawer = !searchDrawer"
       />
 
       <!-- 알림 -->
