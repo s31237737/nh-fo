@@ -92,8 +92,10 @@ export default createVuetify({
   },
   defaults: {
     VNavigationDrawer: {
+      width: "320",
       temporary: true,
       floating: true,
+      scrim: false,
       VList: {
         openStrategy: "single",
         expandIcon: "custom:arrow-down",
@@ -104,6 +106,9 @@ export default createVuetify({
         ripple: false,
         rounded: "lg"
       },
+      VOverlay: {
+        zIndex: "1007",
+      }
     },
     VAppBar: {
       elevation: 0,
@@ -215,6 +220,6 @@ export default createVuetify({
       icon:"custom:warning",
       bgColor:"white",
       size:"60",
-    }
+    },
   }
 })

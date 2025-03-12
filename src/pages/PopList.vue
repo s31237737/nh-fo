@@ -2,6 +2,11 @@
   <div class="inner d-flex ga-3 flex-wrap">
     <v-btn
       color="primary"
+      text="로그인 연장 팝업"
+      @click="loginPop = true"
+    />
+    <v-btn
+      color="primary"
       @click="alert=true"
     >
       얼럿
@@ -24,6 +29,49 @@
     >
       토스트팝업 오류
     </v-btn>
+    <!-- 로그인 연장 팝업 -->
+
+    <v-dialog
+      v-model="loginPop"
+      class="popup-sm"
+    >
+      <v-card>
+        <v-card-title>
+          <v-btn
+            icon="custom:close"
+            density="comfortable"
+            variant="text"
+            @click="loginPop = false"
+          />
+        </v-card-title>
+
+        <v-card-text>
+          <strong>로그인 연장</strong>
+          <p class="text-2">
+            $60$초 후 자동 로그아웃 됩니다.<br>계속 사용하려면 로그인을 연장해주세요.
+          </p>
+          <strong class="text-1-md mt-5">
+            남은 시간 : $60$초
+          </strong>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="secondary"
+            size="large"
+            @click="loginPop = false"
+          >
+            취소
+          </v-btn>
+          <v-btn
+            color="primary"
+            size="large"
+          >
+            로그인 연장
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <!-- // 로그인 연장 팝업 -->
     <!-- alert -->
     <v-dialog
       v-model="alert"
@@ -222,6 +270,8 @@ const popOpen = (name) => {
 
 
 const alert = ref(false);
+const loginPop = ref(false);
+
 
 const snackbar01 = ref(false);
 const snackbarText01 = ref('등록이 완료되었습니다.');

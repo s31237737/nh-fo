@@ -45,10 +45,15 @@
         >
           커뮤니티
         </v-btn>
-        <v-btn
-          to="Guide"
-        >
+        <v-btn>
           Pub
+          <v-menu
+            activator="parent"
+          >
+            <v-card>
+              <v-list :items="pubItems" />
+            </v-card>
+          </v-menu>
         </v-btn>
       </v-btn-toggle>
     </template>
@@ -86,7 +91,7 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
-        @click.stop="toggleSearchDrawer"
+        @click.stop="searchDrawer = !searchDrawer"
       />
 
       <!-- 알림 -->
@@ -139,10 +144,6 @@ const toggleGnbDrawer = () => {
   if (gnbDrawer.value) searchDrawer.value = false;
 };
 
-const toggleSearchDrawer = () => {
-  searchDrawer.value = !searchDrawer.value;
-  if (searchDrawer.value) gnbDrawer.value = false;
-};
 
 // 남은 시간을 초 단위로 관리
 const remainingTime = ref(5 * 60);
@@ -198,6 +199,24 @@ const gnbItems = ref([
     value: 4,
     props: {
       to: "",
+    },
+  },
+]);
+
+// pub
+const pubItems = ref([
+   {
+    title: 'popup',
+    value: 1,
+    props: {
+      to: "PopList",
+    },
+  },
+   {
+    title: 'guide',
+    value: 2,
+    props: {
+      to: "Guide",
     },
   },
 ]);
