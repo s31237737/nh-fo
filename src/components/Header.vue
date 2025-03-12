@@ -45,10 +45,15 @@
         >
           커뮤니티
         </v-btn>
-        <v-btn
-          to="Guide"
-        >
+        <v-btn>
           Pub
+          <v-menu
+            activator="parent"
+          >
+            <v-card>
+              <v-list :items="pubItems" />
+            </v-card>
+          </v-menu>
         </v-btn>
       </v-btn-toggle>
     </template>
@@ -194,6 +199,24 @@ const gnbItems = ref([
     value: 4,
     props: {
       to: "",
+    },
+  },
+]);
+
+// pub
+const pubItems = ref([
+   {
+    title: 'popup',
+    value: 1,
+    props: {
+      to: "PopList",
+    },
+  },
+   {
+    title: 'guide',
+    value: 2,
+    props: {
+      to: "Guide",
     },
   },
 ]);
