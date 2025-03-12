@@ -92,6 +92,7 @@ export default createVuetify({
   },
   defaults: {
     VNavigationDrawer: {
+      width: "320",
       temporary: true,
       floating: true,
       VList: {
@@ -104,6 +105,9 @@ export default createVuetify({
         ripple: false,
         rounded: "lg"
       },
+      VOverlay: {
+        zIndex: "1007",
+      }
     },
     VAppBar: {
       elevation: 0,

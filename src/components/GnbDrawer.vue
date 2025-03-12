@@ -1,6 +1,5 @@
 <template>
   <v-navigation-drawer
-    width="320"
     :model-value="modelValue"
     :scrim="false"
     @update:model-value="emit('update:modelValue', $event)"
@@ -79,7 +78,6 @@
 
     <v-overlay
       :model-value="modelValue"
-      z-index="1007"
       @click="emit('update:modelValue', false)"
     />
   </v-navigation-drawer>
