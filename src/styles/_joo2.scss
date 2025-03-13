@@ -14,7 +14,7 @@
   }
 }
 
-.v-btn-toggle.sort-btns {
+.sort-btns.v-btn-toggle {
   .v-btn {
     padding: 0 8px;
     font-weight: 400;
@@ -46,6 +46,7 @@
 }
 
 //상단 비주얼
+
 .keyvisual {
   $keyvisual-w: 1920px;
   $keyvisual-h: 548px;
@@ -162,6 +163,7 @@
     .keyvisual {
       .visual-content {
         .context {
+          top: -56px;
           max-width: 52%;
         }
         .context-img {
@@ -184,18 +186,20 @@
       .visual-content {
         flex-direction: column;
         align-items: flex-start;
+        justify-content: space-between;
         .context {
           top: 40px;
           max-width: 100%;
         }
         .context-img {
+          position: relative;
           top:auto;
-          right: auto;
-          bottom: 100px;
+          right:auto;
           width: 100%;
           height: auto;
           max-width: 318px;
           max-height: 198px;
+          margin: 0 auto 100px;
         }
       }
       .controls {bottom: 40px;}
@@ -253,7 +257,7 @@
       --v-chip-height: 40px;
       padding: 0 16px;
     }
-    line-height: var(--v-chip-height);
+    
   }
   &.text-success {background: $blue-100;}
   &.text-purple {background: $purple-100;}

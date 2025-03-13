@@ -123,7 +123,7 @@
       </div>
 
       <!-- form -->
-      <div class="apps-list-top search-wrap">
+      <div class="appcard-list-top">
         <v-btn-toggle
           v-model="sort"
           color="primary"
@@ -142,17 +142,6 @@
             인기순
           </v-btn>
         </v-btn-toggle>
-
-        <v-form class="selection-group">
-          <v-select
-            v-model="select"
-            density="default"
-            label="round"
-            rounded="xl"
-            class="round"
-            :items="['전체', '상태1', '상태2']"
-          />
-        </v-form>
       </div>
 
       <!-- 앱 목록  -->
@@ -238,7 +227,7 @@
       <!--// 앱 목록  -->
     </section>
 
-    <!-- 배너 -->
+    <!-- 컨텐츠 배너 -->
     <section class="banner-wrap">
       <v-img
         class="banner"
@@ -491,12 +480,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { inject } from 'vue';
-//import bannerImage from '@/assets/images/apps_bnr_bg01.png'; // 배너 이미지
 
 const isDesktop = inject('isDesktop');
 const alert = ref(false); //"앱 열기" 팝업
-const select = ref("전체");
-const sort = ref(0)
+const sort = ref(0);
 
 //keyvisual
 const visual = ref([
