@@ -106,9 +106,6 @@ export default createVuetify({
         ripple: false,
         rounded: "lg"
       },
-      VOverlay: {
-        zIndex: "1007",
-      }
     },
     VAppBar: {
       elevation: 0,
