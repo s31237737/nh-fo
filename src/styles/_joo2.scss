@@ -206,6 +206,69 @@
     }
   }
 }
+.keyvisual2 {
+  $keyvisual-h: 548px;
+  overflow: hidden;
+  position: relative;
+  height: $keyvisual-h;
+  background: $white;
+  margin-top: -$base-margin;
+  margin-bottom: $base-margin;
+  .visual {
+    position: relative;
+    width: 100%;
+    height: $keyvisual-h;
+    background-position: center top;
+  }
+  .visual-bg {
+    position: absolute;
+    width: 1920px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .visual-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width:100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    .context {
+      position: relative;   
+      top: -38px; 
+      max-width: 540px;           
+      z-index: 1;
+      .title {
+        display: block;
+        @extend .title-1;
+      }
+      .description {
+        margin-top: 12px;
+        word-break: keep-all;
+        @extend .text-2;
+        color: $gray-700;
+        word-break: keep-all;
+      }
+      .type {
+        display: block;
+        margin-bottom: 16px;
+        @extend .title-5-bd;
+        color: $green-700;
+      }
+    }
+    .context-img {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      z-index: 0;
+      width: 530px;
+      height: 330px;
+    }
+  }
+}
 
 //띠배너
 .banner {
