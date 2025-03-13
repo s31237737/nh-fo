@@ -140,6 +140,14 @@
         <v-icon icon="custom:slide-dot" />
         <span>slide-dot</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:faq" />
+        <span>faq</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:app-guide" />
+        <span>app-guide</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">

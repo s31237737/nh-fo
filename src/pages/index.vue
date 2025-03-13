@@ -5,38 +5,25 @@
     >
       <v-row>
         <v-col
-          md="6"
-          sm="12"
+          v-for="(item, index) in quickLinks"
+          :key="index"
+          :md="6"
+          :sm="12"
         >
           <v-card
-            append-icon="mdi-open-in-new"
-
-            href="https://github.com/vuetifyjs/vuetify/"
-
-            prepend-icon="mdi-github"
-            rel="noopener"
-            subtitle="Check out the official repository"
-            target="_blank"
-            title="Vuetify on GitHub"
-            color="#2872F2"
-          />
-        </v-col>
-        <v-col
-          md="6"
-          sm="12"
-        >
-          <v-card
-            append-icon="mdi-open-in-new"
-
-            href="https://github.com/vuetifyjs/vuetify/"
-
-            prepend-icon="mdi-github"
-            rel="noopener"
-            subtitle="Check out the official repository"
-            target="_blank"
-            title="Vuetify on GitHub"
-            color="#68C4E8"
-          />
+            class="quick-links"
+            :subtitle="item.subtitle"
+            :title="item.title"
+            :color="item.color"
+            :to="item.to"
+          >
+            <template #append>
+              <v-icon
+                size="54"
+                :icon="item.appendIcon"
+              />
+            </template>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -49,6 +36,23 @@ import { inject } from 'vue';
 const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
+
+const quickLinks = ref([
+  {
+    appendIcon: 'custom:faq',
+    subtitle: '자주 묻는 질문을 찾아보세요.',
+    title: '자주 묻는 질문',
+    color: 'success',
+    to: '',
+  },
+  {
+    appendIcon: 'custom:app-guide',
+    subtitle: '앱 사용방법이 궁금하신가요?',
+    title: '앱 가이드',
+    color: 'sky',
+    to: '',
+  },
+]);
 </script>
 <route lang="yaml">
 meta:
