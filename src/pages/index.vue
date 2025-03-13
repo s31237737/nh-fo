@@ -3,43 +3,55 @@
     <v-container
       class="inner"
     >
-      <div class="user">
+      <div
+        v-if="isDesktop"
+        class="user"
+      >
         김농협님
         안녕하세요.
       </div>
       <div class="content">
-        <div
-          class="notice-banner"
-        >
+        <!-- 콘텐츠 배너 -->
+        <!-- // 콘텐츠 배너 -->
+        <!-- 최신 새소식 -->
+        <div class="notice-banner">
           <v-icon
             icon="custom:notice"
             size="small"
           />
-          <div class="cont">
-            <div class="links">
+          <v-carousel
+            direction="vertical"
+            :cycle="isCycling"
+            height="20"
+            interval="5000"
+            :show-arrows="false"
+            hide-delimiters
+            @mouseenter="isCycling = false"
+            @mouseleave="isCycling = true"
+          >
+            <v-carousel-item
+              v-for="(item, index) in notice"
+              :key="index"
+            >
               <router-link
-                v-for="(text, index) in texts"
-                :key="index"
-                :to="text.link"
+                :to="item.link"
               >
-                {{ text.text }}
+                {{ item.news }}
               </router-link>
-            </div>
-          </div>
+            </v-carousel-item>
+          </v-carousel>
         </div>
+        <!-- // 최신 새소식 -->
+        <!-- 추천 앱 영역 -->
         <section>
           <div class="tit-wrap">
             <strong class="title-1">
               이런 앱은 어떠세요?
             </strong>
-            <v-btn
-              color="info"
-              size="large"
-            >
-              아이디어 제안하기
-            </v-btn>
           </div>
         </section>
+        <!-- // 추천 앱 영역 -->
+        <!-- 커뮤니티 영역 -->
         <section>
           <div class="tit-wrap">
             <strong class="title-1">
@@ -53,6 +65,8 @@
             </v-btn>
           </div>
         </section>
+        <!-- // 커뮤니티 영역 -->
+        <!-- quickLink -->
         <v-row class="section">
           <v-col
             v-for="(item, index) in quickLinks"
@@ -76,6 +90,7 @@
             </v-card>
           </v-col>
         </v-row>
+        <!-- // quickLink -->
       </div>
     </v-container>
     <Footer />
@@ -88,15 +103,17 @@ const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 
-const texts = ref([
-  { text: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공", link: "/" },
-  { text: "최대글자수 초과 시 ...처리", link: "/" },
-  { text: "선택 시 해당 새소식 상세페이지로 이동", link: "/" },
-  { text: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "/" },
-  { text: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식", link: "/" }
+// 최신 새소식
+const isCycling = ref(true);
+const notice = ref([
+  { news: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공", link: "/" },
+  { news: "최대글자수 초과 시 ...처리", link: "/" },
+  { news: "선택 시 해당 새소식 상세페이지로 이동", link: "/" },
+  { news: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "/" },
+  { news: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식", link: "/" }
 ]);
 
-
+// quickLink
 const quickLinks = ref([
   {
     appendIcon: 'custom:faq',
@@ -114,6 +131,7 @@ const quickLinks = ref([
   },
 ]);
 </script>
+
 <route lang="yaml">
 meta:
   layout: MainLayout
