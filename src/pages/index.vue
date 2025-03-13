@@ -8,7 +8,7 @@
         안녕하세요.
       </div>
       <div class="content">
-        <div class="text-rolling-container">
+        <v-container class="text-rolling-container">
           <div
             class="rolling-wrapper"
             @mouseover="pauseAnimation"
@@ -27,7 +27,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </v-container>
         <section>
           <div class="tit-wrap">
             <strong class="title-1">

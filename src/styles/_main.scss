@@ -94,3 +94,31 @@
     transform: translateY(100%);
   }
 }
+
+.scrolling-titles {
+  overflow: hidden;
+  width: 100%;
+  height: 50px; /* 필요에 따라 높이를 조절하세요 */
+  position: relative;
+}
+
+.scroll-content {
+  display: flex;
+  flex-direction: column;
+  animation: scrollDown 10s linear infinite;
+}
+
+.scroll-title {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
