@@ -100,8 +100,7 @@
     height: 100%;
     margin: 0 auto;
     .context {
-      position: relative;
-      top: -38px;                     
+      position: relative;               
       z-index: 1;
       .title {
         display: block;
@@ -162,6 +161,13 @@
         }
       }
     }
+  }
+  .hidden {
+    visibility: hidden;
+    position: absolute;
+    top:0;
+    font-size: 1px;
+    color: transparent;
   }
 }
 

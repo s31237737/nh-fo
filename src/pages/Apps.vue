@@ -60,7 +60,9 @@
         class="visual"
         :style="{ backgroundImage: `url(${visual[3].background})` }"
       >
-        <div>{{ visual[3].alt }}</div>
+        <div class="hidden">
+          {{ visual[3].alt }}
+        </div>
       </v-window-item>
     </v-window>
 
@@ -511,14 +513,14 @@ const visual = ref([
   {
     title: "두 번째 배너",
     description: `두 번째 배너 설명`,
-    background: "src/assets/images/dummy_visual_banner.png",
+    background: "src/assets/images/dummy_visual_banner_01.png",
   },
   {
     title: "세 번째 배너",
-    background: "src/assets/images/dummy_visual_banner.png",
+    background: "src/assets/images/dummy_visual_banner_01.png",
   },
   {
-    background: "src/assets/images/dummy_visual_banner.png",
+    background: "src/assets/images/dummy_visual_banner_02.png",
     alt: "배경이미지"
   },
 ]);
@@ -548,7 +550,7 @@ const stopAutoPlay = () => {
   }
 };
 
-const restartAutoPlayWithDelay = () => {
+const WithDelay = () => {
   stopAutoPlay();
   restartTimeout = setTimeout(() => {
     if (autoPlay.value) startAutoPlay();
@@ -558,7 +560,7 @@ const restartAutoPlayWithDelay = () => {
 const toggleAutoPlay = () => {
   autoPlay.value = !autoPlay.value;
   if (autoPlay.value) {
-    restartAutoPlayWithDelay();
+    WithDelay();
   } else {
     stopAutoPlay();
   }
@@ -566,12 +568,12 @@ const toggleAutoPlay = () => {
 
 const prev = () => {
   slider.value = (slider.value - 1 + visual.value.length) % visual.value.length;
-  restartAutoPlayWithDelay();
+  WithDelay();
 };
 
 const next = () => {
   slider.value = (slider.value + 1) % visual.value.length;
-  restartAutoPlayWithDelay();
+  WithDelay();
 };
 
 onMounted(startAutoPlay);
