@@ -53,52 +53,8 @@
     display: flex;
     gap: 16px;
     border-radius: 32px;
-    &:hover .links a {
-      animation-play-state: paused;
+    a {
+      @include line-clamp(1);
     }
-    .cont {
-      overflow: hidden;
-      height: 20px;
-    }
-    .links {
-      a {
-        animation: rolling 5s linear infinite;
-        @include line-clamp(1);
-        &:nth-child(1) {
-          animation-delay: 0s; /* 첫 번째 링크는 바로 애니메이션 시작 */
-        }
-
-        &:nth-child(2) {
-          animation-delay: 5s;
-        }
-
-        &:nth-child(3) {
-          animation-delay: 10s;
-        }
-
-        &:nth-child(4) {
-          animation-delay: 15s;
-        }
-
-        &:nth-child(5) {
-          animation-delay: 20s;
-        }
-      }
-    }
-  }
-}
-
-@keyframes rolling {
-  0% {
-    transform: translateY(100%);
-  }
-  10% {
-    transform: translateY(0);
-  }
-  90% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100%);
   }
 }

@@ -8,25 +8,33 @@
         안녕하세요.
       </div>
       <div class="content">
-        <div
-          class="notice-banner"
-        >
+        <div class="notice-banner">
           <v-icon
             icon="custom:notice"
             size="small"
           />
-          <div class="cont">
-            <div class="links">
+          <v-carousel
+
+            direction="vertical"
+            cycle
+            height="20"
+            interval="5000"
+            :show-arrows="false"
+            hide-delimiters
+          >
+            <v-carousel-item
+              v-for="(text, index) in texts"
+              :key="index"
+            >
               <router-link
-                v-for="(text, index) in texts"
-                :key="index"
                 :to="text.link"
               >
                 {{ text.text }}
               </router-link>
-            </div>
-          </div>
+            </v-carousel-item>
+          </v-carousel>
         </div>
+
         <section>
           <div class="tit-wrap">
             <strong class="title-1">
@@ -89,7 +97,7 @@ const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 
 const texts = ref([
-  { text: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공", link: "/" },
+  { text: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공", link: "/" },
   { text: "최대글자수 초과 시 ...처리", link: "/" },
   { text: "선택 시 해당 새소식 상세페이지로 이동", link: "/" },
   { text: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "/" },
