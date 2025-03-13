@@ -82,7 +82,7 @@
   position: relative;
   height: $keyvisual-h;
   background: $white;
-  margin-top: -80px;
+  margin-top: -$base-margin;
   .v-window {
     height: 100%;
   }
