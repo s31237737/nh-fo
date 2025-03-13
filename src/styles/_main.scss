@@ -4,7 +4,17 @@
 .v-main.main {
   margin-top: 0;
   background: $white;
-  
+  .inner {
+    display: flex;
+    gap: 56px;
+    .user {
+      width: 254px;
+      flex: none;
+    }
+    .content {
+      flex: 1;
+    }
+  }
   .v-footer {
     margin-top: 0;
   }
