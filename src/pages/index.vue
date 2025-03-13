@@ -48,12 +48,6 @@
             <strong class="title-1">
               이런 앱은 어떠세요?
             </strong>
-            <v-btn
-              color="info"
-              size="large"
-            >
-              아이디어 제안하기
-            </v-btn>
           </div>
         </section>
         <!-- // 추천 앱 영역 -->
