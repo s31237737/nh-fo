@@ -30,7 +30,7 @@
           APPS
         </v-btn>
 
-        <v-btn>
+        <v-btn @click.stop="closeSearchDrawer">
           새소식 및 도움말
           <v-menu
             activator="parent"
@@ -102,6 +102,7 @@
         v-if="isDesktop"
         icon
         density="comfortable"
+        @click.stop="closeSearchDrawer"
       >
         <v-avatar size="32">
           <v-img

@@ -1,0 +1,11 @@
+@use "variables" as *;
+@use "typography" as *;
+
+.v-main.main {
+  margin-top: 0;
+  background: $white;
+
+  .v-footer {
+    margin-top: 0;
+  }
+}
