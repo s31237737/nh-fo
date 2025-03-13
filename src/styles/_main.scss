@@ -47,6 +47,7 @@
     }
   }
   .notice-banner {
+    margin: 20px 0 80px;
     background: $gray-200;
     height: 52px;
     padding: 16px 24px;
@@ -55,6 +56,13 @@
     border-radius: 32px;
     a {
       @include line-clamp(1);
+    }
+  }
+  @at-root .mobile {
+    .v-main.main {
+      .notice-banner {
+        height: 44px;
+      }
     }
   }
 }

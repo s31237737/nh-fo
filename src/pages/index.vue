@@ -3,7 +3,10 @@
     <v-container
       class="inner"
     >
-      <div class="user">
+      <div
+        v-if="isDesktop"
+        class="user"
+      >
         김농협님
         안녕하세요.
       </div>
