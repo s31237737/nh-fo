@@ -10,14 +10,15 @@
         >
           <v-card
             append-icon="mdi-open-in-new"
-            class="mx-auto"
+
             href="https://github.com/vuetifyjs/vuetify/"
-            max-width="344"
+
             prepend-icon="mdi-github"
             rel="noopener"
             subtitle="Check out the official repository"
             target="_blank"
             title="Vuetify on GitHub"
+            color="#2872F2"
           />
         </v-col>
         <v-col
@@ -26,14 +27,15 @@
         >
           <v-card
             append-icon="mdi-open-in-new"
-            class="mx-auto"
+
             href="https://github.com/vuetifyjs/vuetify/"
-            max-width="344"
+
             prepend-icon="mdi-github"
             rel="noopener"
             subtitle="Check out the official repository"
             target="_blank"
             title="Vuetify on GitHub"
+            color="#68C4E8"
           />
         </v-col>
       </v-row>
