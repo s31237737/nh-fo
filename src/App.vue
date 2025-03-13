@@ -21,7 +21,7 @@ const displaySize = computed(() => {
 
 const isMobile = computed(() => name.value === 'sm');
 const isTablet = computed(() => name.value === 'md');
-const isDesktop = computed(() => name.value === 'xl');
+const isDesktop = computed(() => name.value === 'lg');
 
 provide('isMobile', isMobile);
 provide('isTablet', isTablet);
