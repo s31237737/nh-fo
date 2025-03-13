@@ -10,7 +10,7 @@
       <div class="content">
         <section>
           <div class="tit-wrap">
-            <strong class="title-2">
+            <strong class="title-1">
               더 좋은 서비스를 위한<br>커뮤니티를 만들어주세요.
             </strong>
             <v-btn
