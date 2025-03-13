@@ -9,19 +9,19 @@
 import { provide, computed } from 'vue';
 import { useDisplay } from 'vuetify';
 
-const { name } = useDisplay();
+const display = useDisplay();
 const displaySize = computed(() => {
   const displayMap = {
     sm: 'mobile',
     md: 'tablet',
-    xl: 'desktop',
+    lg: 'desktop',
   };
-  return displayMap[name.value] || 'desktop';
+  return display.lgAndUp.value ? "desktop" : displayMap[display.name.value] || "desktop";
 });
 
-const isMobile = computed(() => name.value === 'sm');
-const isTablet = computed(() => name.value === 'md');
-const isDesktop = computed(() => name.value === 'lg');
+const isMobile = computed(() => displaySize.value === "mobile");
+const isTablet = computed(() => displaySize.value === "tablet");
+const isDesktop = computed(() => displaySize.value === "desktop");
 
 provide('isMobile', isMobile);
 provide('isTablet', isTablet);
