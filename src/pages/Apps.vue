@@ -1,80 +1,110 @@
 <template>
   <!-- banner slider -->
-  <div class="keyvisual mt-n17">
+  <div class="keyvisual">
     <v-window
       v-model="slider"
+      touchless
     >
+      <!-- type 1: 앱 타입 -->
       <v-window-item
-        v-for="(banner, index) in banners"
-        :key="`card-${index}`"
-        :value="index"
-        class="banner"
+        class="visual"
       >
-        <v-img
-          :src="banner.bgimage"
-          class="banner-bg"
-        />
-        <div
-          class="banner-content"
-        >
-          <div class="info">
-            <p class="type">
-              {{ banner.type }}
-            </p>
-            <strong class="title">{{ banner.title }}</strong>
-            <div class="description">
-              {{ banner.description }}
-            </div>
+        <div class="visual-content">
+          <div class="context">
+            <span class="type">{{ visual[0].type }}</span>
+            <strong class="title">{{ visual[0].title }}</strong>
+            <p
+              class="description"
+              v-html="visual[0].description"
+            />
           </div>
-          <v-img
-            class="thumnail"
-            :src="banner.image"
-            height="200"
-            cover
-          />
+          <div class="context-img">
+            <v-img
+              :src="visual[0].image"
+              :alt="visual[0].title"
+            />
+          </div>
         </div>
+      </v-window-item>
+      
+      <!-- 타입2-1: 배경이미지+텍스트 -->
+      <v-window-item
+        class="visual"
+        :style="{ backgroundImage: `url(${visual[1].background})` }"
+      >
+        <div class="visual-content">
+          <div class="context">
+            <strong class="title">{{ visual[1].title }}</strong>
+            <p
+              class="description"
+              v-html="visual[1].description"
+            />
+          </div>
+        </div>
+      </v-window-item>
+
+      <!-- 타입2-2: 배경이미지+텍스트 -->
+      <v-window-item
+        class="visual"
+        :style="{ backgroundImage: `url(${visual[2].background})` }"
+      >
+        <div class="visual-content">
+          <div class="context">
+            <strong class="title">{{ visual[2].title }}</strong>
+          </div>
+        </div>
+      </v-window-item>
+      
+      <!-- 타입2-3: 배경이미지 -->
+      <v-window-item
+        class="visual"
+        :style="{ backgroundImage: `url(${visual[3].background})` }"
+      >
+        <div>{{ visual[3].alt }}</div>
       </v-window-item>
     </v-window>
 
     <div class="controls">
       <v-btn
+        density="compact"
         class="prev arrow-btn"
-        icon="custom:arrow-left"
-        variant="plain"
+        icon="custom:slide-prev"
         @click="prev"
       />
 
       <v-item-group
         v-model="slider"
         mandatory
+        class="indicator"
       >
         <v-item
-          v-for="(_, index) in banners"
+          v-for="(_, index) in visual"
           :key="index"
           v-slot="{ isSelected, toggle }"
           :value="index"
         >
           <v-btn
-            :variant="isSelected ? 'outlined' : 'text'"
-            icon="mdi-record"
+            density="compact"
+            :class="{ active: isSelected }"
+            icon="custom:slide-dot"
             @click="toggle"
           />
         </v-item>
       </v-item-group>
 
       <v-btn
-        class="next"
+        density="compact"
+        class="togglePlay"
         icon
-        variant="plain"
         @click="toggleAutoPlay"
       >
         <v-icon>{{ autoPlay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
       </v-btn>
 
       <v-btn
+        density="compact"
         class="next arrow-btn"
-        icon="custom:arrow-right"
-        variant="plain"
+        icon="custom:slide-next"
         @click="next"
       />
     </div>
@@ -461,7 +491,7 @@
 </template>
 
 <script setup>
-import { ref, watchEffect, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { inject } from 'vue';
 //import bannerImage from '@/assets/images/apps_bnr_bg01.png'; // 배너 이미지
 
@@ -471,68 +501,82 @@ const select = ref("전체");
 const sort = ref(0)
 
 //keyvisual
-const banners = ref([
+const visual = ref([
   {
-    bgimage: "#fff",
-    image: "src/assets/images/apps_bnr_bg01.png",
-    type: "#앱 타입",
-    title: "첫 번째 슬라이드",
-    description: "이것은 첫 번째 슬라이드의 설명입니다."
+    type: "안성맞춤 앱 추천",
+    title: "농협식품R&D연구소",
+    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
+    image: "src/assets/images/apps_visual_bnr01.png",
   },
   {
-    bgimage: "#fff",
-    image: "src/assets/images/apps_bnr_bg01.png",
-    title: "두 번째 슬라이드",
-    description: "이것은 두 번째 슬라이드의 설명입니다."
+    title: "두 번째 배너",
+    description: `두 번째 배너 설명`,
+    background: "src/assets/images/dummy_visual_banner.png",
   },
   {
-    bgimage: "#fff",
-    image: "src/assets/images/apps_bnr_bg01.png",
-    title: "세 번째 슬라이드",
-    description: "이것은 세 번째 슬라이드의 설명입니다."
-  }
+    title: "세 번째 배너",
+    background: "src/assets/images/dummy_visual_banner.png",
+  },
+  {
+    background: "src/assets/images/dummy_visual_banner.png",
+    alt: "배경이미지"
+  },
 ]);
 
 const slider = ref(0);
 const autoPlay = ref(true);
 let interval = null;
+let restartTimeout = null;
 
 const startAutoPlay = () => {
   stopAutoPlay();
-  interval = setInterval(() => {
-    slider.value = (slider.value + 1) % banners.value.length;
-  }, 3000);
+  if (autoPlay.value) {
+    interval = setInterval(() => {
+      slider.value = (slider.value + 1) % visual.value.length;
+    }, 3000);
+  }
 };
 
 const stopAutoPlay = () => {
-  clearInterval(interval);
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
+  }
+  if (restartTimeout) {
+    clearTimeout(restartTimeout);
+    restartTimeout = null;
+  }
+};
+
+const restartAutoPlayWithDelay = () => {
+  stopAutoPlay();
+  restartTimeout = setTimeout(() => {
+    if (autoPlay.value) startAutoPlay();
+  }, 300);
 };
 
 const toggleAutoPlay = () => {
   autoPlay.value = !autoPlay.value;
+  if (autoPlay.value) {
+    restartAutoPlayWithDelay();
+  } else {
+    stopAutoPlay();
+  }
 };
+
 const prev = () => {
-  slider.value = (slider.value - 1 + banners.value.length) % banners.value.length;
-  restartAutoPlay();
+  slider.value = (slider.value - 1 + visual.value.length) % visual.value.length;
+  restartAutoPlayWithDelay();
 };
 
 const next = () => {
-  slider.value = (slider.value + 1) % banners.value.length;
-  restartAutoPlay();
+  slider.value = (slider.value + 1) % visual.value.length;
+  restartAutoPlayWithDelay();
 };
-
-const restartAutoPlay = () => {
-  stopAutoPlay();
-  if (autoPlay.value) startAutoPlay();
-};
-
-watchEffect(() => {
-  if (autoPlay.value) startAutoPlay();
-  else stopAutoPlay();
-});
 
 onMounted(startAutoPlay);
 onUnmounted(stopAutoPlay);
+
 
 //앱 전체 목록
 const cardData = ref([

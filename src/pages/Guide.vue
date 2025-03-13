@@ -128,6 +128,18 @@
         <v-icon icon="custom:auto-play" />
         <span>auto-play</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:slide-prev" />
+        <span>slide-prev</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:slide-next" />
+        <span>slide-next</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:slide-dot" />
+        <span>slide-dot</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
