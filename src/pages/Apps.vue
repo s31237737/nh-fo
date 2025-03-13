@@ -71,7 +71,7 @@
         density="compact"
         class="prev arrow-btn"
         icon="custom:slide-prev"
-        @click="prev"
+        @click="() => changeSlide(-1)"
       />
 
       <div class="indicator">
@@ -98,7 +98,7 @@
         density="compact"
         class="next arrow-btn"
         icon="custom:slide-next"
-        @click="next"
+        @click="() => changeSlide(1)"
       />
     </div>
   </div>
@@ -518,58 +518,38 @@ const visual = ref([
 
 const slider = ref(0);
 const autoPlay = ref(true);
-let interval = null;
-let restartTimeout = null;
+let interval = null, restartTimeout = null;
 
 const startAutoPlay = () => {
   stopAutoPlay();
   if (autoPlay.value) {
-    interval = setInterval(() => {
-      slider.value = (slider.value + 1) % visual.value.length;
-    }, 3000);
+    interval = setInterval(() => slider.value = (slider.value + 1) % visual.value.length, 3000);
   }
 };
 
 const stopAutoPlay = () => {
-  if (interval) {
-    clearInterval(interval);
-    interval = null;
-  }
-  if (restartTimeout) {
-    clearTimeout(restartTimeout);
-    restartTimeout = null;
-  }
+  clearInterval(interval);
+  clearTimeout(restartTimeout);
+  interval = restartTimeout = null;
 };
 
-const WithDelay = () => {
+const restartAutoPlay = () => {
   stopAutoPlay();
-  restartTimeout = setTimeout(() => {
-    if (autoPlay.value) startAutoPlay();
-  }, 300);
+  restartTimeout = setTimeout(() => autoPlay.value && startAutoPlay(), 300);
 };
 
 const toggleAutoPlay = () => {
   autoPlay.value = !autoPlay.value;
-  if (autoPlay.value) {
-    WithDelay();
-  } else {
-    stopAutoPlay();
-  }
+  autoPlay.value ? startAutoPlay() : stopAutoPlay();
 };
 
-const prev = () => {
-  slider.value = (slider.value - 1 + visual.value.length) % visual.value.length;
-  WithDelay();
-};
-
-const next = () => {
-  slider.value = (slider.value + 1) % visual.value.length;
-  WithDelay();
+const changeSlide = (direction) => {
+  slider.value = (slider.value + direction + visual.value.length) % visual.value.length;
+  restartAutoPlay();
 };
 
 onMounted(startAutoPlay);
 onUnmounted(stopAutoPlay);
-
 
 //앱 전체 목록
 const cardData = ref([
