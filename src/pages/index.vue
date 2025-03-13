@@ -8,26 +8,25 @@
         안녕하세요.
       </div>
       <div class="content">
-        <v-container class="text-rolling-container">
-          <div
-            class="rolling-wrapper"
-            @mouseover="pauseAnimation"
-            @mouseleave="resumeAnimation"
-          >
-            <ul
-              ref="rollingList"
-              class="rolling-list"
-            >
-              <li
-                v-for="(item, index) in items"
+        <div
+          class="notice-banner"
+        >
+          <v-icon
+            icon="custom:notice"
+            size="small"
+          />
+          <div class="cont">
+            <div class="links">
+              <router-link
+                v-for="(text, index) in texts"
                 :key="index"
-                @click="navigateTo(item.link)"
+                :to="text.link"
               >
-                {{ item.text }}
-              </li>
-            </ul>
+                {{ text.text }}
+              </router-link>
+            </div>
           </div>
-        </v-container>
+        </div>
         <section>
           <div class="tit-wrap">
             <strong class="title-1">
@@ -89,28 +88,15 @@ const isMobile = inject('isMobile');
 const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 
-const rollingList = ref(null);
-const items = ref([
-  { text: "국민권익위원회 주관 2024년도 공공기관 종합청렴도 평가 결과 발표", link: "https://example.com/news1" },
-  { text: "새로운 정책 발표 예정", link: "https://example.com/news2" },
-  { text: "정부 지원 사업 신청 마감 임박", link: "https://example.com/news3" },
-  { text: "기후 변화 대응 전략 공개", link: "https://example.com/news4" }
+const texts = ref([
+  { text: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공", link: "/" },
+  { text: "최대글자수 초과 시 ...처리", link: "/" },
+  { text: "선택 시 해당 새소식 상세페이지로 이동", link: "/" },
+  { text: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "/" },
+  { text: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식", link: "/" }
 ]);
 
-const pauseAnimation = () => {
-  if (rollingList.value) {
-    rollingList.value.style.animationPlayState = "paused";
-  }
-};
 
-const resumeAnimation = () => {
-  if (rollingList.value) {
-    rollingList.value.style.animationPlayState = "running";
-  }
-};
-const navigateTo = (url) => {
-  window.open(url, "_blank");
-};
 const quickLinks = ref([
   {
     appendIcon: 'custom:faq',

@@ -148,6 +148,10 @@
         <v-icon icon="custom:app-guide" />
         <span>app-guide</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:notice" />
+        <span>notice</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
