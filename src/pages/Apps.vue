@@ -74,25 +74,16 @@
         @click="prev"
       />
 
-      <v-item-group
-        v-model="slider"
-        mandatory
-        class="indicator"
-      >
-        <v-item
+      <div class="indicator">
+        <span
           v-for="(_, index) in visual"
           :key="index"
-          v-slot="{ isSelected, toggle }"
-          :value="index"
-        >
-          <v-btn
-            density="compact"
-            :class="{ active: isSelected }"
-            icon="custom:slide-dot"
-            @click="toggle"
-          />
-        </v-item>
-      </v-item-group>
+          :class="{ active: slider === index }"
+        ><v-icon
+          icon="custom:slide-dot"
+          size="small"
+        /></span>
+      </div>
 
       <v-btn
         density="compact"
