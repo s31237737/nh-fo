@@ -8,7 +8,20 @@
         안녕하세요.
       </div>
       <div class="content">
-        <v-row>
+        <section>
+          <div class="tit-wrap">
+            <strong class="title-2">
+              더 좋은 서비스를 위한<br>커뮤니티를 만들어주세요.
+            </strong>
+            <v-btn
+              color="info"
+              size="large"
+            >
+              아이디어 제안하기
+            </v-btn>
+          </div>
+        </section>
+        <v-row class="section">
           <v-col
             v-for="(item, index) in quickLinks"
             :key="index"
