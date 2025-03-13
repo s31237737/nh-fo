@@ -91,11 +91,11 @@
       <v-btn
         icon="custom:search"
         density="comfortable"
-        @click.stop="searchDrawer = !searchDrawer"
+        @click.stop="toggleSearchDrawer"
       />
 
       <!-- 알림 -->
-      <Alarm />
+      <Alarm @click.stop="closeSearchDrawer" />
 
       <!-- 프로필 -->
       <v-btn
@@ -142,6 +142,14 @@ const gnbDrawer = ref(false);
 const toggleGnbDrawer = () => {
   gnbDrawer.value = !gnbDrawer.value;
   if (gnbDrawer.value) searchDrawer.value = false;
+};
+const toggleSearchDrawer = () => {
+  searchDrawer.value = !searchDrawer.value;
+  if (searchDrawer.value) gnbDrawer.value = false;
+};
+const closeSearchDrawer = () => {
+  gnbDrawer.value = false;
+  searchDrawer.value = false;
 };
 
 
