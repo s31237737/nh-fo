@@ -437,22 +437,20 @@
         <v-col cols="auto">
           <v-chip
             class="flag"
-            size="x-small"
+            size="small"
           >
-            x-small/20px
+            small/20px
           </v-chip>
           <v-chip
             class="flag"
-            density="comfortable"
           >
-            default/28px
+            default/24px
           </v-chip>
           <v-chip
             class="flag"
-            density="compact"
-            size="x-large"
+            size="large"
           >
-            x-large/40px
+            large/40px
           </v-chip>
         </v-col>
       </v-row>

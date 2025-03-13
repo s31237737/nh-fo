@@ -2,6 +2,7 @@
 @use "typography" as *;
 
 //공통 옮길 예정
+//컨텐츠 없음
 .v-empty-state {
   border-radius: 20px;
   &__media {
@@ -10,37 +11,6 @@
   &__text {
     @extend .text-2-md;
     color: $gray-800;
-  }
-}
-
-.banner {
-  height:100%;
-  background-position: center center;
-  display:flex;
-  align-items: center;
-  &-text {
-    width: 100%;
-    max-width: 660px;
-    margin:0 auto;
-    padding: 0 0 0 24px;
-    @extend .title-4-bd;
-    color: $white;
-  }
-  @at-root .banner-wrap {
-    height: 140px;
-    border-radius: 12px;
-    overflow:hidden;
-  }
-  @at-root .mobile {
-    .banner-wrap {height: 90px;}
-    .banner {
-      background-size: auto 100%;
-      .banner-text {
-        margin-block: 24px;
-        max-width: 100%;
-        @extend .text-4-md;
-      }
-    }
   }
 }
 
@@ -75,6 +45,7 @@
   }
 }
 
+//상단 비주얼
 .keyvisual {
   $keyvisual-w: 1920px;
   $keyvisual-h: 548px;
@@ -88,14 +59,22 @@
     height: 100%;
   }
   .visual {
+    position: relative;
     width: 100%;
     height: $keyvisual-h;
     background-position: center top;
   }
+  .visual-bg {
+    position: absolute;
+    width: 1920px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .visual-content {
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
     width:100%;
     max-width: 1280px;
     height: 100%;
@@ -103,18 +82,19 @@
     padding: 0 20px;
     .context {
       position: relative;   
-      top: -20px;            
+      top: -38px; 
+      max-width: 540px;           
       z-index: 1;
       .title {
         display: block;
         @extend .title-1;
       }
       .description {
-        max-width: 540px;
         margin-top: 12px;
         word-break: keep-all;
         @extend .text-2;
         color: $gray-700;
+        word-break: keep-all;
       }
       .type {
         display: block;
@@ -178,37 +158,113 @@
     font-size: 1px;
     color: transparent;
   }
+  @at-root .tablet {
+    .keyvisual {
+      .visual-content {
+        .context {
+          max-width: 52%;
+        }
+        .context-img {
+          width: 45%;
+          max-width: 530px;
+          height: auto; 
+          top: 50%;
+          transform: translateY(-65%);
+        }
+      }
+    }
+  }
+  @at-root .mobile {
+    $base-margin: 40px;
+    .keyvisual {
+      $keyvisual-h: 526px;
+      height: $keyvisual-h;
+      margin-top: -$base-margin;
+      margin-bottom: $base-margin;
+      .visual-content {
+        flex-direction: column;
+        align-items: flex-start;
+        .context {
+          top: 40px;
+          max-width: 100%;
+        }
+        .context-img {
+          top:auto;
+          right: auto;
+          bottom: 100px;
+          width: 100%;
+          height: auto;
+          max-width: 318px;
+          max-height: 198px;
+        }
+      }
+      .controls {bottom: 40px;}
+    }
+  }
+}
+
+//띠배너
+.banner {
+  height:100%;
+  background-position: center center;
+  display:flex;
+  align-items: center;
+  &-text {
+    width: 100%;
+    max-width: 660px;
+    margin:0 auto;
+    padding: 0 0 0 24px;
+    @extend .title-4-bd;
+    color: $white;
+  }
+  @at-root .banner-wrap {
+    height: 140px;
+    border-radius: 12px;
+    overflow:hidden;
+  }
+  @at-root .mobile {
+    .banner-wrap {height: 90px;}
+    .banner {
+      background-size: auto 100%;
+      .banner-text {
+        margin-block: 24px;
+        max-width: 100%;
+        @extend .text-4-md;
+      }
+    }
+  }
 }
 
 //v-chip
-.v-chip.flag {//flag
-  &.v-chip--variant-tonal {
-    .v-chip__underlay {display:none;}
-  }
+.flag.v-chip {//flag
+  margin-bottom: 4px;
+  font-weight: 600;
+  &.v-chip--variant-tonal .v-chip__underlay {display:none;}
   &.v-chip--size {
     &-default {
+      --v-chip-height: 24px;
       padding: 0 10px;
     }
-    &-xsmall {
+    &-small {
+      --v-chip-height: 20px;
       padding: 0 8px;
     }
-    &-x-large {
+    &-large {
+      --v-chip-height: 40px;
       padding: 0 16px;
     }
+    line-height: var(--v-chip-height);
   }
   &.text-success {background: $blue-100;}
   &.text-purple {background: $purple-100;}
   &.text-pink {background: $pink-100;}
-  @at-root .flags .v-chip.flag {//in .apps
-    margin-left: 4px;
-  }
-  @at-root .mobile {
-    .v-chip.flag {
-      &.v-chip--size {
-        &-default {
-          height: 24px !important;
-        }
-      }
+  @at-root .flag-wrap {
+    margin-bottom: -4px;
+    .v-chip.flag {//in .apps
+      margin-left: 4px;
+    }
+    &.r {
+      text-align: right;
     }
   }
 }
@@ -235,13 +291,6 @@
       width: 60px; 
       height: 60px;
       object-fit: contain;
-    }
-    .flags {
-      text-align: right;
-      margin-bottom: -4px;
-      .flag {
-        margin-bottom: 4px;
-      }
     }
     .v-card-title, .v-card-subtitle {
       padding:0 10px 0 0;
@@ -273,55 +322,42 @@
     }
   }
 }
-.apps-list{
-  .apps-list_btn {
+.appcard-list{
+  .appcard-list_btn {
     margin-top: 40px;
     text-align:center;
   }
   .v-empty-state {
     height: 720px;
   }
-  &.grid {
+  &.fix {
     display:grid;
     grid-template-columns: 2fr 1fr;
-    .apps-grid-fix {
+    .fix_item {
       display:flex;
       margin-left: 20px;
       img {display:block; width:100%; height: auto; object-fit: contain;}
     }
   }
   @at-root .tablet {
-    .apps-list {
-      .v-col-4 {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-      &.grid {
+    .appcard-list {
+      &.fix {
         display:block;
       }
     }
   }
   @at-root .mobile {
-    .v-row {margin:-6px;}
-    .v-row > [class*="v-col"] {
-      padding: 6px;
-    }
-    .apps-list_btn {
+    $grid-gutter: 6px;
+    // .v-row {margin:-6px;}
+    // .v-row > [class*="v-col"] {
+    //   padding: 6px;
+    // }
+    .appcard-list_btn {
       margin-top: 20px;
     }
-    .apps-list {
-      [class*="v-col"] {
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-      &.grid {
+    .appcard-list {
+      &.fix {
         display:block;
-        .apps-grid-fix {
-          display:block;
-          margin-top: 12px;
-          margin-left: 0;
-          img {width:100%; max-width: 320px; margin:0 auto;}
-        }
       }
     }
   }

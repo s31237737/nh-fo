@@ -30,8 +30,10 @@
       <!-- 타입2-1: 배경이미지+텍스트 -->
       <v-window-item
         class="visual"
-        :style="{ backgroundImage: `url(${visual[1].background})` }"
       >
+        <div class="visual-bg">
+          <img :src="visual[1].background">
+        </div>
         <div class="visual-content">
           <div class="context">
             <strong class="title">{{ visual[1].title }}</strong>
@@ -46,8 +48,10 @@
       <!-- 타입2-2: 배경이미지+텍스트 -->
       <v-window-item
         class="visual"
-        :style="{ backgroundImage: `url(${visual[2].background})` }"
       >
+        <div class="visual-bg">
+          <img :src="visual[1].background">
+        </div>
         <div class="visual-content">
           <div class="context">
             <strong class="title">{{ visual[2].title }}</strong>
@@ -58,8 +62,10 @@
       <!-- 타입2-3: 배경이미지 -->
       <v-window-item
         class="visual"
-        :style="{ backgroundImage: `url(${visual[3].background})` }"
       >
+        <div class="visual-bg">
+          <img :src="visual[1].background">
+        </div>
         <div class="hidden">
           {{ visual[3].alt }}
         </div>
@@ -150,14 +156,16 @@
       </div>
 
       <!-- 앱 목록  -->
-      <div class="apps-list">
+      <div class="appcard-list">
         <v-row
           v-if="cardData.length"
         >
           <v-col
             v-for="(card, index) in cardData"
             :key="index"
-            cols="4"
+            lg="4"
+            md="6"
+            sm="12"
           >
             <v-card
               :ripple="false"
@@ -174,13 +182,12 @@
                   />
                 </div>
                 <!-- 배지 (최대 3개) -->
-                <div class="flags">
+                <div class="flag-wrap r">
                   <v-chip
                     v-for="(badge, idx) in card.badges.slice(0, 3)"
                     :key="idx"
                     :color="badge.color"
                     variant="tonal"
-                    density="comfortable"
                     class="flag"
                   >
                     {{ badge.text }}
@@ -190,7 +197,6 @@
                   <v-chip
                     v-if="card.inUse"
                     class="flag"
-                    density="comfortable"
                     color="primary"
                   >
                     사용중
@@ -217,7 +223,7 @@
           icon="custom:warning"
           bg-color="#FEFEFE"
         />
-        <div class="apps-list_btn">
+        <div class="appcard-list_btn">
           <v-btn
             variant="text"
             density="compact"
@@ -252,12 +258,13 @@
         </strong>
       </div>
       <!-- 앱 목록 -->
-      <div class="apps-list grid">
+      <div class="appcard-list fix">
         <v-row>
           <v-col
             v-for="(card, index) in cardRecommend"
             :key="index"
-            cols="6"
+            md="6"
+            sm="12"
           >
             <v-card
               :ripple="false"
@@ -279,13 +286,12 @@
                   </v-btn>
                 </div>
                 <!-- 배지 (최대 3개) -->
-                <div class="flags">
+                <div class="flag-wrap r">
                   <v-chip
                     v-for="(badge, idx) in card.badges.slice(0, 3)"
                     :key="idx"
                     :color="badge.color"
                     variant="tonal"
-                    density="comfortable"
                     class="flag"
                   >
                     {{ badge.text }}
@@ -295,7 +301,6 @@
                   <v-chip
                     v-if="card.inUse"
                     class="flag"
-                    density="comfortable"
                     color="primary"
                   >
                     사용중
@@ -333,7 +338,7 @@
         </v-row>
         <div
           v-if="isDesktop"
-          class="apps-grid-fix"
+          class="fix_item"
         >
           <img
             src="../assets/images/apps_bnr_bg02.png"
@@ -352,14 +357,16 @@
         </strong>
       </div>
       <!-- 앱 목록 -->
-      <div class="apps-list">
+      <div class="appcard-list">
         <v-row
           v-if="cardRecommend2.length"
         >
           <v-col
             v-for="(card, index) in cardRecommend2"
             :key="index"
-            cols="4"
+            lg="4"
+            md="6"
+            sm="12"
           >
             <v-card
               :to="card.link"
@@ -381,13 +388,12 @@
                   </v-btn>
                 </div>
                 <!-- 배지 (최대 3개) -->
-                <div class="flags">
+                <div class="flag-wrap r">
                   <v-chip
                     v-for="(badge, idx) in card.badges.slice(0, 3)"
                     :key="idx"
                     :color="badge.color"
                     variant="tonal"
-                    density="comfortable"
                     class="flag"
                   >
                     {{ badge.text }}
@@ -397,7 +403,6 @@
                   <v-chip
                     v-if="card.inUse"
                     class="flag"
-                    density="comfortable"
                     color="primary"
                   >
                     사용중
@@ -502,8 +507,8 @@ const visual = ref([
     image: "src/assets/images/apps_visual_bnr01.png",
   },
   {
-    title: "두 번째 배너",
-    description: `두 번째 배너 설명`,
+    title: "두 번째 배너두 번째 배너 설명",
+    description: `두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명`,
     background: "src/assets/images/dummy_visual_banner_01.png",
   },
   {
@@ -511,7 +516,7 @@ const visual = ref([
     background: "src/assets/images/dummy_visual_banner_01.png",
   },
   {
-    background: "src/assets/images/dummy_visual_banner_02.png",
+    background: "src/assets/images/dummy_visual_banner_01.png",
     alt: "배경이미지"
   },
 ]);
