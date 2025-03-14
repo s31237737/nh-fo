@@ -1,110 +1,106 @@
 <template>
   <!-- banner slider -->
-  <div class="keyvisual">
-    <v-window
-      v-model="slider"
-      touchless
+  <div class="slider keyvisual">
+    <v-carousel
+      v-model="currentSlide"
+      :continuous="autoplay"
+      :cycle="autoplay"
+      :show-arrows="false" 
+      hide-delimiters
     >
       <!-- type 1: 앱 타입 -->
-      <v-window-item
-        class="visual"
-      >
+      <v-carousel-item>
         <div class="visual-content">
           <div class="context">
-            <span class="type">{{ visual[0].type }}</span>
-            <strong class="title">{{ visual[0].title }}</strong>
+            <span class="type">{{ sliders[0].type }}</span>
+            <strong class="title">{{ sliders[0].title }}</strong>
             <p
               class="description"
-              v-html="visual[0].description"
+              v-html="sliders[0].description"
             />
           </div>
           <div class="context-img">
             <v-img
-              :src="visual[0].image"
-              :alt="visual[0].title"
+              :src="sliders[0].image"
+              :alt="sliders[0].title"
             />
           </div>
         </div>
-      </v-window-item>
+      </v-carousel-item>
       
       <!-- 타입2-1: 배경이미지+텍스트 -->
-      <v-window-item
-        class="visual"
-      >
+      <v-carousel-item>
         <div class="visual-bg">
-          <img :src="visual[1].background">
+          <img :src="sliders[1].background">
         </div>
         <div class="visual-content">
           <div class="context">
-            <strong class="title">{{ visual[1].title }}</strong>
+            <strong class="title">{{ sliders[1].title }}</strong>
             <p
               class="description"
-              v-html="visual[1].description"
+              v-html="sliders[1].description"
             />
           </div>
         </div>
-      </v-window-item>
+      </v-carousel-item>
 
       <!-- 타입2-2: 배경이미지+텍스트 -->
-      <v-window-item
-        class="visual"
-      >
+      <v-carousel-item>
         <div class="visual-bg">
-          <img :src="visual[1].background">
+          <img :src="sliders[1].background">
         </div>
         <div class="visual-content">
           <div class="context">
-            <strong class="title">{{ visual[2].title }}</strong>
+            <strong class="title">{{ sliders[2].title }}</strong>
           </div>
         </div>
-      </v-window-item>
+      </v-carousel-item>
       
       <!-- 타입2-3: 배경이미지 -->
-      <v-window-item
-        class="visual"
-      >
+      <v-carousel-item>
         <div class="visual-bg">
-          <img :src="visual[1].background">
+          <img :src="sliders[1].background">
         </div>
         <div class="hidden">
-          {{ visual[3].alt }}
+          {{ sliders[3].alt }}
         </div>
-      </v-window-item>
-    </v-window>
+      </v-carousel-item>
+    </v-carousel>
 
-    <div class="controls">
+    <div class="slider-controls">
       <v-btn
         density="compact"
         class="prev arrow-btn"
         icon="custom:slide-prev"
-        @click="() => changeSlide(-1)"
+        @click="prevSlide"
       />
-
-      <div class="indicator">
-        <span
-          v-for="(_, index) in visual"
-          :key="index"
-          :class="{ active: slider === index }"
-        ><v-icon
+      
+      <div class="dots">
+        <v-btn
+          v-for="(_, i) in sliders"
+          :key="i"
           icon="custom:slide-dot"
-          size="small"
-        /></span>
+          dednsity="compact"
+          class="dot"
+          :class="{ active: currentSlide === i }"
+          @click="currentSlide = i"
+        />
       </div>
-
       <v-btn
         density="compact"
         class="togglePlay"
         icon
-        @click="toggleAutoPlay"
+        :ripple="false"
+        @click="toggleAutoplay"
       >
-        <v-icon>{{ autoPlay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
+        <v-icon>{{ autoplay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
       </v-btn>
 
       <v-btn
         density="compact"
         class="next arrow-btn"
         icon="custom:slide-next"
-        @click="() => changeSlide(1)"
+        @click="nextSlide"
       />
     </div>
   </div>
@@ -478,7 +474,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
 import { inject } from 'vue';
 
 const isDesktop = inject('isDesktop');
@@ -486,7 +482,7 @@ const alert = ref(false); //"앱 열기" 팝업
 const sort = ref(0);
 
 //keyvisual
-const visual = ref([
+const sliders = ref([
   {
     type: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
@@ -507,41 +503,19 @@ const visual = ref([
     alt: "배경이미지"
   },
 ]);
+const currentSlide = ref(0);
+const autoplay = ref(true);
 
-const slider = ref(0);
-const autoPlay = ref(true);
-let interval = null, restartTimeout = null;
-
-const startAutoPlay = () => {
-  stopAutoPlay();
-  if (autoPlay.value) {
-    interval = setInterval(() => slider.value = (slider.value + 1) % visual.value.length, 3000);
-  }
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + sliders.value.length) % sliders.value.length;
 };
 
-const stopAutoPlay = () => {
-  clearInterval(interval);
-  clearTimeout(restartTimeout);
-  interval = restartTimeout = null;
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % sliders.value.length;
 };
-
-const restartAutoPlay = () => {
-  stopAutoPlay();
-  restartTimeout = setTimeout(() => autoPlay.value && startAutoPlay(), 300);
+const toggleAutoplay = () => {
+  autoplay.value = !autoplay.value;
 };
-
-const toggleAutoPlay = () => {
-  autoPlay.value = !autoPlay.value;
-  autoPlay.value ? startAutoPlay() : stopAutoPlay();
-};
-
-const changeSlide = (direction) => {
-  slider.value = (slider.value + direction + visual.value.length) % visual.value.length;
-  restartAutoPlay();
-};
-
-onMounted(startAutoPlay);
-onUnmounted(stopAutoPlay);
 
 //앱 전체 목록
 const cardData = ref([
