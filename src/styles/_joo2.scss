@@ -2,17 +2,7 @@
 @use "typography" as *;
 
 //공통 옮길 예정
-//컨텐츠 없음
-.v-empty-state {
-  border-radius: 20px;
-  &__media {
-    margin-bottom: 26px;
-  }
-  &__text {
-    @extend .text-2-md;
-    color: $gray-800;
-  }
-}
+
 
 .sort-btns.v-btn-toggle {
   .v-btn {
@@ -47,73 +37,23 @@
 
 //상단 비주얼
 
-.keyvisual {
-  $keyvisual-w: 1920px;
-  $keyvisual-h: 548px;
+.slider{
   overflow: hidden;
   position: relative;
-  height: $keyvisual-h;
-  background: $white;
   margin-top: -$base-margin;
   margin-bottom: $base-margin;
-  .v-window {
-    height: 100%;
-  }
-  .visual {
-    position: relative;
-    width: 100%;
-    height: $keyvisual-h;
-    background-position: center top;
-  }
-  .visual-bg {
-    position: absolute;
-    width: 1920px;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .visual-content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width:100%;
-    max-width: 1280px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    .context {
-      position: relative;   
-      top: -38px; 
-      max-width: 540px;           
-      z-index: 1;
-      .title {
-        display: block;
-        @extend .title-1;
-      }
-      .description {
-        margin-top: 12px;
-        word-break: keep-all;
-        @extend .text-2;
-        color: $gray-700;
-        word-break: keep-all;
-      }
-      .type {
-        display: block;
-        margin-bottom: 16px;
-        @extend .title-5-bd;
-        color: $green-700;
-      }
-    }
-    .context-img {
-      position: absolute;
-      top: 80px;
-      right: 20px;
-      z-index: 0;
-      width: 530px;
-      height: 330px;
+  $slider-h: 300px;
+  height: $slider-h;
+  .v-carousel {
+    height:100% !important;
+    background: $white;
+    .v-carousel-item {
+      position: relative;
+      width: 100%;
+      height:100%;
     }
   }
-  .controls {
+  .slider-controls {
     position: absolute; 
     bottom:58px; 
     left: 50%; 
@@ -129,143 +69,124 @@
         font-size: 20px;
       }
     }
-    .v-btn {
-      &.prev {margin-right: 6px;}
-      &.next {margin-left: 6px;}
-    }
-    .indicator {
+    .v-btn.prev {margin-right: 6px;}
+    .v-btn.next {margin-left: 6px;}
+    .dots {
       display:flex; 
       align-items: center;
       margin-inline: -3px 4px;
-      & > span {
+      .v-btn.v-btn--icon {
         overflow: hidden;
         width: 12px;
-        height: 20px;
-        color: $gray-500;
+        & > [class*="ripple"] {
+          display:none !important;
+        }
         &.active {
           color: $blue-500;
         }
-        .v-icon {
-          display:block;
-          margin-left:-3px;
-        }
       }
-    }
-  }
-  .hidden {
-    visibility: hidden;
-    position: absolute;
-    top:0;
-    font-size: 1px;
-    color: transparent;
-  }
-  @at-root .tablet {
-    .keyvisual {
-      .visual-content {
-        .context {
-          top: -56px;
-          max-width: 52%;
-        }
-        .context-img {
-          width: 45%;
-          max-width: 530px;
-          height: auto; 
-          top: 50%;
-          transform: translateY(-65%);
-        }
-      }
-    }
-  }
-  @at-root .mobile {
-    $base-margin: 40px;
-    .keyvisual {
-      $keyvisual-h: 526px;
-      height: $keyvisual-h;
-      margin-top: -$base-margin;
-      margin-bottom: $base-margin;
-      .visual-content {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-        .context {
-          top: 40px;
-          max-width: 100%;
-        }
-        .context-img {
-          position: relative;
-          top:auto;
-          right:auto;
-          width: 100%;
-          height: auto;
-          max-width: 318px;
-          max-height: 198px;
-          margin: 0 auto 100px;
-        }
-      }
-      .controls {bottom: 40px;}
     }
   }
 }
-.keyvisual2 {
+.keyvisual.slider {
   $keyvisual-h: 548px;
-  overflow: hidden;
-  position: relative;
   height: $keyvisual-h;
-  background: $white;
-  margin-top: -$base-margin;
-  margin-bottom: $base-margin;
-  .visual {
-    position: relative;
-    width: 100%;
-    height: $keyvisual-h;
-    background-position: center top;
-  }
-  .visual-bg {
-    position: absolute;
-    width: 1920px;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .visual-content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width:100%;
-    max-width: 1280px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    .context {
-      position: relative;   
-      top: -38px; 
-      max-width: 540px;           
-      z-index: 1;
-      .title {
-        display: block;
-        @extend .title-1;
+  .v-carousel {
+    .v-carousel-item{
+      height: $keyvisual-h;
+    }
+    .visual-bg {
+      position: absolute;
+      width: 1920px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .visual-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width:100%;
+      max-width: 1280px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      .context {
+        position: relative;   
+        top: -38px; 
+        max-width: 540px;           
+        z-index: 1;
+        .title {
+          display: block;
+          @extend .title-1;
+        }
+        .description {
+          margin-top: 12px;
+          word-break: keep-all;
+          @extend .text-2;
+          color: $gray-700;
+          word-break: keep-all;
+        }
+        .type {
+          display: block;
+          margin-bottom: 16px;
+          @extend .title-5-bd;
+          color: $green-700;
+        }
       }
-      .description {
-        margin-top: 12px;
-        word-break: keep-all;
-        @extend .text-2;
-        color: $gray-700;
-        word-break: keep-all;
-      }
-      .type {
-        display: block;
-        margin-bottom: 16px;
-        @extend .title-5-bd;
-        color: $green-700;
+      .context-img {
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        z-index: 0;
+        width: 530px;
+        height: 330px;
       }
     }
-    .context-img {
-      position: absolute;
-      top: 80px;
-      right: 20px;
-      z-index: 0;
-      width: 530px;
-      height: 330px;
+    @at-root .tablet {
+      .keyvisual {
+        .visual-content {
+          .context {
+            top: -56px;
+            max-width: 52%;
+          }
+          .context-img {
+            width: 45%;
+            max-width: 530px;
+            height: auto; 
+            top: 50%;
+            transform: translateY(-65%);
+          }
+        }
+      }
+    }
+    @at-root .mobile {
+      .keyvisual {
+        $keyvisual-h: 526px;
+        height: $keyvisual-h;
+        margin-top: -$base-margin;
+        margin-bottom: $base-margin;
+        .visual-content {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+          .context {
+            top: 40px;
+            max-width: 100%;
+          }
+          .context-img {
+            position: relative;
+            top:auto;
+            right:auto;
+            width: 100%;
+            height: auto;
+            max-width: 318px;
+            max-height: 198px;
+            margin: 0 auto 100px;
+          }
+        }
+        .controls {bottom: 40px;}
+      }
     }
   }
 }
@@ -396,6 +317,13 @@
   }
   .v-empty-state {
     height: 720px;
+    border-radius: 20px;
+    &__media {
+      margin-bottom: 36px;
+    }
+    &__text {
+      @extend .text-2-md;
+    }
   }
   &.fix {
     display:grid;
