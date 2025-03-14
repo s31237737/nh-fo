@@ -40,6 +40,37 @@
     }
   }
   .recomm-app {
+    .recomm-box {
+      display: flex;
+      height: 100%;
+      gap: 15px;
+    }
+    .v-card {
+      flex: 1;
+      &-item  {
+        padding: 40px;
+        
+        text-align: center;
+        color: $white;
+      }
+      &-title {
+        padding: 0;
+        @extend .title-4-bd;
+        font-weight: 700 !important;
+        @include line-clamp(2);
+      }
+      &-subtitle {
+        @extend .text-3-md;
+        margin-bottom: 7px;
+      }
+      .v-btn {
+        margin-top: 10px;
+        pointer-events: none;
+      }
+    }
+    .v-img {
+      height: 100%;
+    }
     .more {
       margin-top: 30px;
       text-align: right;
