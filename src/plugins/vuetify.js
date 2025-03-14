@@ -221,5 +221,8 @@ export default createVuetify({
       bgColor:"white",
       size:"60",
     },
+    VCarousel: {
+      interval: 5000,
+    }
   }
 })
