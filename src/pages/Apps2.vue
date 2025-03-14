@@ -1,97 +1,115 @@
 <template>
-  <!-- banner slider -->
-  <v-carousel
-    v-model="slide"
-    v-model:cycle="autoplay"
-    class="keyvisual2"
-    :interval="30000"
-  >
-    <v-carousel-item
-      v-for="(visual, i) in visuals"
-      :key="i"
-      class="visual"
+  <v-container>
+    <v-carousel
+      v-model="currentSlide"
+      :continuous="isAutoplay"
+      :cycle="autoplay"
+      hide-delimiters
+      show-arrows="hover"
+      height="300"
     >
-      <div class="visual-bg">
-        <img :src="visual.image">
-      </div>
-      <div class="visual-content">
-        <div class="context">
-          <strong class="title">{{ visual.title }}</strong>
-          <p
-            class="description"
-            v-html="visual.description"
-          />
-        </div>
-      </div>
-    </v-carousel-item>
-    <template #controls>
-      <div class="custom-controls">
-        <!-- 왼쪽 버튼 -->
+      <v-carousel-item
+        v-for="(image, index) in images"
+        :key="index"
+        :src="image"
+      />
+    </v-carousel>
+    <div class="custom-controls">
+      <!-- ◀️ 왼쪽 버튼 -->
+      <v-btn
+        icon
+        @click="prevSlide"
+      >
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+      <!-- 🔘 도트 버튼 -->
+      <div class="dots">
         <v-btn
-          icon="mdi-chevron-left"
-          @click="prevSlide"
-        />
-
-        <!-- 오토플레이 토글 버튼 -->
-        <v-btn @click="toggleAutoplay">
-          <v-icon>{{ autoplay ? 'mdi-pause' : 'mdi-play' }}</v-icon>
+          v-for="(_, i) in images"
+          :key="i"
+          :color="currentSlide === i ? 'primary' : 'gray'"
+          icon
+          small
+          @click="currentSlide = i"
+        >
+          <v-icon small>
+            {{ currentSlide === i ? 'mdi-circle' : 'mdi-circle-outline' }}
+          </v-icon>
         </v-btn>
-
-        <!-- 오른쪽 버튼 -->
-        <v-btn
-          icon="mdi-chevron-right"
-          @click="nextSlide"
-        />
       </div>
-    </template>
-  </v-carousel>
-  <!--// banner slider -->
+      <!-- ⏯ 오토 플레이 토글 버튼 -->
+      <v-btn
+        icon
+        @click="toggleAutoplay"
+      >
+        <v-icon>{{ autoplay ? 'mdi-pause' : 'mdi-play' }}</v-icon>
+      </v-btn>
+      <!-- ▶️ 오른쪽 버튼 -->
+      <v-btn
+        icon
+        @click="nextSlide"
+      >
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+    </div>
+  </v-container>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-
-//keyvisual
-const slide = ref(0);
-const autoplay = ref(true);
-const visuals = ref([
-  {
-    type: "안성맞춤 앱 추천",
-    title: "농협식품R&D연구소",
-    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "src/assets/images/dummy_visual_banner_01.png",
-  },
-  {
-    type: "안성맞춤 앱 추천",
-    title: "농협식품R&D연구소",
-    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "src/assets/images/dummy_visual_banner_01.png",
-  },
-  {
-    type: "안성맞춤 앱 추천",
-    title: "농협식품R&D연구소",
-    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "src/assets/images/dummy_visual_banner_01.png",
-  },
-  {
-    type: "안성맞춤 앱 추천",
-    title: "농협식품R&D연구소",
-    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "src/assets/images/dummy_visual_banner_01.png",
-  },
+const images = ref([
+  "https://picsum.photos/800/300?random=1",
+  "https://picsum.photos/800/300?random=2",
+  "https://picsum.photos/800/300?random=3",
 ]);
 
+const currentSlide = ref(0);
+const autoplay = ref(true);
+
 const prevSlide = () => {
-  slide.value = (slide.value - 1 + images.value.length) % images.value.length;
+  currentSlide.value = (currentSlide.value - 1 + images.value.length) % images.value.length;
 };
 
 const nextSlide = () => {
-  slide.value = (slide.value + 1) % images.value.length;
+  currentSlide.value = (currentSlide.value + 1) % images.value.length;
 };
-
 const toggleAutoplay = () => {
   autoplay.value = !autoplay.value;
 };
-
 </script>
+
+<style scoped>
+/* 커스텀 버튼과 도트 컨트롤 스타일 */
+.v-container {position:relative;}
+.custom-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  padding: 8px;
+  z-index: 10; /* z-index 추가 */
+}
+
+/* 도트 버튼 스타일 */
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots .v-btn {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.dots .v-btn.v-btn--active {
+  background-color: #ff4081; /* 선택된 도트 색상 */
+}
+</style>
