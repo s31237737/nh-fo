@@ -989,8 +989,9 @@
             color="primary"
             :ripple="false"
             class="like"
+            @click="incrementLikes"
           >
-            999
+            {{ likes }}
           </v-btn>
         </v-col>
         <v-col cols="auto">
@@ -1169,6 +1170,11 @@ const banner = ref({
   imageUrl: "src/assets/images/apps_bnr_bg01.png",
   description: "세상에 없던 NH 고객 라이프<br>관리 서비스 공개"
 });
+
+const likes = ref(0);
+const incrementLikes = () => {
+  likes.value++;
+};
 </script>
 <style scoped>
 .icon-item {

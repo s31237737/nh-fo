@@ -2,9 +2,6 @@
 @use "typography" as *;
 @use "style" as *;
 
-//공통 옮길 예정
-
-
 .sort-btns.v-btn-toggle {
   .v-btn {
     padding: 0 8px;
@@ -20,19 +17,6 @@
       font-weight: 500;
       color: $black;
     }
-  }
-}
-
-.v-select {
-  &.round {
-    .v-field {
-      &__outline__start {
-        flex-basis: 50% !important;
-      }
-    }
-  }
-  &.v-input--density-comfortable .v-field__input{
-    font-size: 1rem !important;
   }
 }
 
@@ -217,9 +201,6 @@
       & + .d-flex {margin-top: 31px;}
     }
     & .v-card__overlay {display:none;}
-    .v-btn.like {
-      margin-left: -10px;
-    }
     .btns {
       margin-bottom:-14px;
       .v-btn {width: 96px !important;}
