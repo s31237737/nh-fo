@@ -112,12 +112,12 @@
   }
 }
 
-.link-button {
+.link-btn {
   text-decoration: underline;
   color: inherit;
   cursor: pointer;
   &-arrow {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
   }

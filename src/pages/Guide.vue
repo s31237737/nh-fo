@@ -963,7 +963,7 @@
         <v-col cols="auto">
           <router-link
             to="/"
-            class="link-button"
+            class="link-btn"
           >
             Text
           </router-link>
@@ -971,7 +971,7 @@
         <v-col cols="auto">
           <router-link
             to="/"
-            class="link-button-arrow"
+            class="link-btn-arrow"
           >
             <span
               class="text-primary"

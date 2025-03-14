@@ -1,14 +1,11 @@
 <template>
   <v-main class="main">
-    <v-container
-      class="inner"
-    >
+    <v-container class="inner">
       <div
         v-if="isDesktop"
         class="user"
       >
-        김농협님
-        안녕하세요.
+        김농협님 안녕하세요.
       </div>
 
       <div class="content">
@@ -33,9 +30,7 @@
               v-for="(item, index) in notice"
               :key="index"
             >
-              <router-link
-                :to="item.link"
-              >
+              <router-link :to="item.link">
                 {{ item.news }}
               </router-link>
             </v-carousel-item>
@@ -43,12 +38,94 @@
         </div>
         <!-- // 최신 새소식 -->
         <!-- 추천 앱 영역 -->
-        <section>
-          <div class="tit-wrap">
-            <strong class="title-1">
-              이런 앱은 어떠세요?
-            </strong>
+        <section class="recomm-app">
+          <div class="tit-wrap align-center">
+            <strong class="title-1"> 이런 앱은 어떠세요? </strong>
+            <div class="btns">
+              <v-btn
+                v-for="(item, i) in recommBtn"
+                :key="i"
+                size="large"
+                height="44"
+                rounded="pill"
+                :color="recomm === i ? 'primary' : 'info'"
+                @click="recomm = i"
+              >
+                {{ item.btn }}
+              </v-btn>
+            </div>
           </div>
+          <v-carousel
+            v-model="recomm"
+            hide-delimiters
+            :show-arrows="false"
+            height="440"
+          >
+            <v-carousel-item>
+              <v-sheet class="d-flex ga-3">
+                <v-card
+                  to="/"
+                  color="#D1E2FF"
+                  height="390"
+                >
+                  <v-card-text>
+                    <p class="title-4">
+                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
+                    </p>
+                    <p class="text-2">
+                      하나로마트 식품전문 일일점검
+                    </p>
+                    <v-spacer />
+                    <div class="icon-text">
+                      <v-icon
+                        size="x-large"
+                        icon="custom:full-heart"
+                      />
+                      <span>982</span>
+                    </div>
+                    <div class="author bg">
+                      <span>지원1팀</span>
+                      <v-divider vertical />
+                      <span>김농협 대리</span>
+                    </div>
+                  </v-card-text>
+                </v-card>
+                <v-card
+                  to="/"
+                  color="#D1E2FF"
+                  height="390"
+                >
+                  <v-card-text>
+                    <p class="title-4">
+                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
+                    </p>
+                  </v-card-text>
+                </v-card>
+                <v-card
+                  to="/"
+                  color="#D1E2FF"
+                  height="390"
+                >
+                  <v-card-text>
+                    <p class="title-4">
+                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
+                    </p>
+                  </v-card-text>
+                </v-card>
+              </v-sheet>
+            </v-carousel-item>
+          </v-carousel>
+          <p class="more">
+            <router-link
+              to="/"
+              class="link-btn-arrow"
+            >
+              <span class="text-primary"> 더보러가기</span>
+              <v-icon
+                icon="custom:arrow-right"
+              />
+            </router-link>
+          </p>
         </section>
         <!-- // 추천 앱 영역 -->
         <!-- 커뮤니티 영역 -->
@@ -92,9 +169,7 @@
                   </div>
                   <div class="author bg">
                     <span>지원1팀</span>
-                    <v-divider
-                      vertical
-                    />
+                    <v-divider vertical />
                     <span>김농협 대리</span>
                   </div>
                 </v-card-text>
@@ -127,13 +202,9 @@
                     />
                     <span>982</span>
                   </div>
-                  <div
-                    class="author bg"
-                  >
+                  <div class="author bg">
                     <span>지원1팀</span>
-                    <v-divider
-                      vertical
-                    />
+                    <v-divider vertical />
                     <span>김농협 대리</span>
                   </div>
                 </v-card-text>
@@ -158,18 +229,15 @@
                   >
                     <v-card-text>
                       <p class="title-5 line-clamp2">
-                        퇴비 비료를 효율적으로 관리할 수 있는 기능이 있으면 좋을 것 같아요!
+                        퇴비 비료를 효율적으로 관리할 수 있는 기능이 있으면 좋을
+                        것 같아요!
                       </p>
                       <v-spacer />
                       <div class="author">
                         <span>지원1팀</span>
-                        <v-divider
-                          vertical
-                        />
+                        <v-divider vertical />
                         <span>김농협 대리</span>
-                        <v-icon
-                          icon="custom:arrow-right"
-                        />
+                        <v-icon icon="custom:arrow-right" />
                       </div>
                     </v-card-text>
                   </v-card>
@@ -187,18 +255,15 @@
                   >
                     <v-card-text>
                       <p class="title-5 line-clamp2">
-                        농협 업스토어 덕분에 편리한 업무 할 수 있어 즐겁습니다 :D
+                        농협 업스토어 덕분에 편리한 업무 할 수 있어 즐겁습니다
+                        :D
                       </p>
                       <v-spacer />
                       <div class="author">
                         <span>지원1팀</span>
-                        <v-divider
-                          vertical
-                        />
+                        <v-divider vertical />
                         <span>김농협 대리</span>
-                        <v-icon
-                          icon="custom:arrow-right"
-                        />
+                        <v-icon icon="custom:arrow-right" />
                       </div>
                     </v-card-text>
                   </v-card>
@@ -223,13 +288,9 @@
                   <v-spacer />
                   <div class="author">
                     <span>지원1팀</span>
-                    <v-divider
-                      vertical
-                    />
+                    <v-divider vertical />
                     <span>김농협 대리</span>
-                    <v-icon
-                      icon="custom:arrow-right"
-                    />
+                    <v-icon icon="custom:arrow-right" />
                   </div>
                 </v-card-text>
               </v-card>
@@ -251,13 +312,9 @@
                   <v-spacer />
                   <div class="author">
                     <span>지원1팀</span>
-                    <v-divider
-                      vertical
-                    />
+                    <v-divider vertical />
                     <span>김농협 대리</span>
-                    <v-icon
-                      icon="custom:arrow-right"
-                    />
+                    <v-icon icon="custom:arrow-right" />
                   </div>
                 </v-card-text>
               </v-card>
@@ -298,7 +355,7 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue';
+import { inject, ref } from "vue";
 const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
@@ -306,13 +363,27 @@ const isDesktop = inject("isDesktop");
 // 최신 새소식
 const isCycling = ref(true);
 const notice = ref([
-  { news: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공", link: "/" },
+  {
+    news: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공",
+    link: "/",
+  },
   { news: "최대글자수 초과 시 ...처리", link: "/" },
   { news: "선택 시 해당 새소식 상세페이지로 이동", link: "/" },
   { news: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "/" },
-  { news: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식", link: "/" }
+  {
+    news: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식",
+    link: "/",
+  },
 ]);
 
+// 추천 앱
+const recomm = ref(0);
+const recommBtn = ref([
+  { btn: "직무 추천" },
+  { btn: "인기 앱 추천" },
+  { btn: "많이 사용되는 앱" },
+  { btn: "만족도가 높은 앱" },
+]);
 // quickLink
 const quickLinks = ref([
   {
