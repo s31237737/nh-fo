@@ -259,16 +259,13 @@
               <div class="d-flex align-center">
                 <div class="">
                   <!-- btn: 좋아요 -->
-                  <v-btn
-                    variant="text"
-                    prepend-icon="custom:full-heart"
-                    color="primary"
-                    :ripple="false"
-                    class="like"
-                    @click.stop.prevent="incrementLikes(card)"
-                  >
-                    {{ card.likeCount }}
-                  </v-btn>
+                  <div class="icon-text">
+                    <v-icon
+                      size="x-large"
+                      icon="custom:full-heart"
+                    />
+                    <span>982</span>
+                  </div>
                 </div>
                 <!-- 배지 (최대 3개) -->
                 <div class="flag-wrap r">
@@ -361,16 +358,13 @@
               <div class="d-flex align-center">
                 <div class="">
                   <!-- btn: 좋아요 -->
-                  <v-btn
-                    variant="text"
-                    prepend-icon="custom:full-heart"
-                    color="primary"
-                    :ripple="false"
-                    class="like"
-                    @click.stop.prevent="incrementLikes(card)"
-                  >
-                    {{ card.likeCount }}
-                  </v-btn>
+                  <div class="icon-text">
+                    <v-icon
+                      size="x-large"
+                      icon="custom:full-heart"
+                    />
+                    <span>982</span>
+                  </div>
                 </div>
                 <!-- 배지 (최대 3개) -->
                 <div class="flag-wrap r">
@@ -638,7 +632,6 @@ const cardRecommend = ref([
     ],
     inUse: true,
     showOpenApp: true,
-    likeCount: 999,
   },
   {
     link: "AppsDetail",
@@ -651,7 +644,6 @@ const cardRecommend = ref([
     ],
     inUse: true,
     showOpenApp: false,
-    likeCount: 0,
   },
   {
     link: "AppsDetail",
@@ -663,7 +655,6 @@ const cardRecommend = ref([
     ],
     inUse: false,
     showOpenApp: false,
-    likeCount: 555,
   },
   {
     link: "AppsDetail",
@@ -675,7 +666,6 @@ const cardRecommend = ref([
     ],
     inUse: false,
     showOpenApp: false,
-    likeCount: 888,
   }
 ]);
 const cardRecommend2 = ref([
@@ -690,7 +680,6 @@ const cardRecommend2 = ref([
     ],
     inUse: true,
     showOpenApp: true,
-    likeCount: 999,
   },
   {
     link: "AppsDetail",
@@ -703,7 +692,6 @@ const cardRecommend2 = ref([
     ],
     inUse: true,
     showOpenApp: false,
-    likeCount: 0,
   },
   {
     link: "AppsDetail",
@@ -715,12 +703,8 @@ const cardRecommend2 = ref([
     ],
     inUse: false,
     showOpenApp: false,
-    likeCount: 555,
   },
 ]);
-const incrementLikes = (card) => {
-  card.likeCount++;
-};
 
 //배너
 const banner = ref({
