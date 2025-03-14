@@ -81,11 +81,13 @@
                   <p class="text-2">
                     하나로마트 식품전문 일일점검
                   </p>
-                  <v-icon
-                    color="green"
-                    icon="mdi-heart"
-                  />
-                  <span>982</span>
+                  <div class="icon-text">
+                    <v-icon
+                      size="x-large"
+                      icon="custom:full-heart"
+                    />
+                    <span>982</span>
+                  </div>
                   <div class="author bg">
                     <span>지원1팀</span>
                     <v-divider
@@ -169,6 +171,13 @@
                       <p class="title-5">
                         농협 업스토어 덕분에 편리한 업무 할 수 있어 즐겁습니다 :D
                       </p>
+                      <div class="author">
+                        <span>지원1팀</span>
+                        <v-divider
+                          vertical
+                        />
+                        <span>김농협 대리</span>
+                      </div>
                     </v-card-text>
                   </v-card>
                 </v-col>
@@ -188,6 +197,13 @@
                   <p class="title-5">
                     농협 입사한 선임이라면 지금 바로 사용해보세요! 정말...
                   </p>
+                  <div class="author">
+                    <span>지원1팀</span>
+                    <v-divider
+                      vertical
+                    />
+                    <span>김농협 대리</span>
+                  </div>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -204,6 +220,13 @@
                   <p class="title-5">
                     QR 코드를 활용해서 쉽고 간편하게 제품 스캔이 가능해요
                   </p>
+                  <div class="author">
+                    <span>지원1팀</span>
+                    <v-divider
+                      vertical
+                    />
+                    <span>김농협 대리</span>
+                  </div>
                 </v-card-text>
               </v-card>
             </v-col>

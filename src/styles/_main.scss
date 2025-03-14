@@ -45,10 +45,11 @@
       &-text {
         display: flex;
         flex-direction: column;
-        padding: 30px;
+        padding: 40px 30px;
         height: 100%;
       }
       .author {
+        margin-top: auto;
         display: flex;
         gap: 7px;
         font-size: 1rem;
@@ -62,7 +63,7 @@
         &.bg {
           align-items: center;
           gap: 9px;
-          margin:auto -30px -30px;
+          margin:auto -30px -40px;
           padding: 0 30px;
           height: 98px;
           background: rgba(0, 0, 0, 0.1);

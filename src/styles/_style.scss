@@ -258,7 +258,14 @@
     }
   }
 }
-
+.icon-text {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  span {
+    @extend .text-2-md;
+  }
+}
 //section space
 section + section {
   margin-top: 120px;

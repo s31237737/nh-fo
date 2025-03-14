@@ -234,6 +234,14 @@
       />
       <span>:x-small 16</span>
     </div>
+
+    <div class="icon-text">
+      <v-icon
+        size="x-large"
+        icon="custom:full-heart"
+      />
+      <span>982</span>
+    </div>
     <!-- tit-wrap -->
     <v-divider class="mt-4 pt-4" />
     <div class="tit-wrap">
