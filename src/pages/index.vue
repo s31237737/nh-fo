@@ -153,7 +153,7 @@
                     height="187"
                   >
                     <v-card-text>
-                      <p class="title-5">
+                      <p class="title-5 line-clamp2">
                         퇴비 비료를 효율적으로 관리할 수 있는 기능이 있으면 좋을 것 같아요!
                       </p>
                       <v-spacer />
@@ -178,7 +178,7 @@
                     height="187"
                   >
                     <v-card-text>
-                      <p class="title-5">
+                      <p class="title-5 line-clamp2">
                         농협 업스토어 덕분에 편리한 업무 할 수 있어 즐겁습니다 :D
                       </p>
                       <v-spacer />

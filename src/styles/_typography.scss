@@ -147,3 +147,10 @@
   text-overflow: ellipsis;
   white-space: normal;
 }
+
+.line-clamp {
+  @include line-clamp(1);
+}
+.line-clamp2 {
+  @include line-clamp(2);
+}
