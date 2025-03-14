@@ -108,6 +108,7 @@
               <v-card
                 color="#3B424E"
                 height="390"
+                class="white"
               >
                 <v-card-text>
                   <p class="title-4">
@@ -125,7 +126,7 @@
                     <span>982</span>
                   </div>
                   <div
-                    class="author bg white"
+                    class="author bg"
                   >
                     <span>지원1팀</span>
                     <v-divider
@@ -163,6 +164,9 @@
                           vertical
                         />
                         <span>김농협 대리</span>
+                        <v-icon
+                          icon="custom:arrow-right"
+                        />
                       </div>
                     </v-card-text>
                   </v-card>
@@ -188,6 +192,9 @@
                           vertical
                         />
                         <span>김농협 대리</span>
+                        <v-icon
+                          icon="custom:arrow-right"
+                        />
                       </div>
                     </v-card-text>
                   </v-card>
@@ -215,6 +222,9 @@
                       vertical
                     />
                     <span>김농협 대리</span>
+                    <v-icon
+                      icon="custom:arrow-right"
+                    />
                   </div>
                 </v-card-text>
               </v-card>
@@ -239,6 +249,9 @@
                       vertical
                     />
                     <span>김농협 대리</span>
+                    <v-icon
+                      icon="custom:arrow-right"
+                    />
                   </div>
                 </v-card-text>
               </v-card>

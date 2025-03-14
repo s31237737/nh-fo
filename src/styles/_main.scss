@@ -45,10 +45,10 @@
       &-text {
         display: flex;
         flex-direction: column;
-        padding: 40px 30px;
+        padding: 36px 30px;
         height: 100%;
-            word-wrap: break-word;
-    word-break: keep-all;
+        word-wrap: break-word;
+        word-break: keep-all;
       }
       .text-2 {
         margin-top: 16px;
@@ -56,34 +56,43 @@
       }
       .author {
         display: flex;
+        align-items: center;
         gap: 7px;
         font-size: 1rem;
         line-height: 15px;
         color: $gray-800;
         .v-divider {
-          opacity: .8;
+          align-self: auto;
+          opacity: 0.8;
           margin: 0;
           height: 15px;
         }
+        .v-icon {
+          margin-left: auto;
+          width: 30px;
+          height: 30px;
+          background: $white;
+          border-radius: 100%;
+        }
         &.bg {
-          align-items: center;
           gap: 9px;
-          margin:24px -30px -40px;
+          margin: 24px -30px -36px;
           padding: 0 30px;
           height: 98px;
           background: rgba(0, 0, 0, 0.1);
           font-size: 1.25rem;
           line-height: 18px;
           .v-divider {
-            align-self: auto;
             height: 18px;
           }
         }
-        &.white {
+      }
+      &.white {
+        .author {
+          background: rgba(255, 255, 255, 0.1);
           color: $white;
         }
       }
-      
     }
   }
 
