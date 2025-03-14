@@ -167,6 +167,16 @@
       }
     }
   }
+  &.round {
+    .v-field {
+      &__outline__start {
+        flex-basis: 50% !important;
+      }
+    }
+  }
+  &.v-input--density-comfortable .v-field__input{
+    font-size: 1rem !important;
+  }
 }
 
 .upload-guide {

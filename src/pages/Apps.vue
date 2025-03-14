@@ -257,18 +257,13 @@
               class="appcard"
             >
               <div class="d-flex align-center">
-                <div class="">
-                  <!-- btn: 좋아요 -->
-                  <v-btn
-                    variant="text"
-                    prepend-icon="custom:full-heart"
-                    color="primary"
-                    :ripple="false"
+                <div class="icon-text">
+                  <v-icon
                     class="like"
-                    @click.stop.prevent="incrementLikes(card)"
-                  >
-                    {{ card.likeCount }}
-                  </v-btn>
+                    size="x-large"
+                    icon="custom:full-heart"
+                  />
+                  <span>{{ card.likeCount }}</span>
                 </div>
                 <!-- 배지 (최대 3개) -->
                 <div class="flag-wrap r">
@@ -359,18 +354,14 @@
               class="appcard"
             >
               <div class="d-flex align-center">
-                <div class="">
-                  <!-- btn: 좋아요 -->
-                  <v-btn
-                    variant="text"
-                    prepend-icon="custom:full-heart"
-                    color="primary"
-                    :ripple="false"
+                <!-- btn: 좋아요 -->
+                <div class="icon-text">
+                  <v-icon
                     class="like"
-                    @click.stop.prevent="incrementLikes(card)"
-                  >
-                    {{ card.likeCount }}
-                  </v-btn>
+                    size="x-large"
+                    icon="custom:full-heart"
+                  />
+                  <span>{{ card.likeCount }}</span>
                 </div>
                 <!-- 배지 (최대 3개) -->
                 <div class="flag-wrap r">
@@ -718,9 +709,6 @@ const cardRecommend2 = ref([
     likeCount: 555,
   },
 ]);
-const incrementLikes = (card) => {
-  card.likeCount++;
-};
 
 //배너
 const banner = ref({
