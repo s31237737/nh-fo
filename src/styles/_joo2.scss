@@ -58,7 +58,7 @@
           color: $gray-700;
           word-break: keep-all;
         }
-        .type {
+        .apptype {
           display: block;
           margin-bottom: 16px;
           @extend .title-5-bd;
@@ -74,11 +74,13 @@
         height: 330px;
       }
     }
-    .hidden {
+    .visual-content.hidden {
       visibility: hidden;
+      display:block;
       position: absolute;
       top:0;
       width:1px;
+      height:1px;
       font-size:1px;
       color: transparent;
     }
@@ -124,7 +126,7 @@
           .context {
             top: 40px;
             max-width: 100%;
-            .type {
+            .apptype {
               margin-bottom: 12px;
             }
             .description {

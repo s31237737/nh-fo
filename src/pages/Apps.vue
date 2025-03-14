@@ -8,72 +8,71 @@
       :show-arrows="false" 
       hide-delimiters
     >
-      <!-- type 1: 앱 타입 -->
-      <v-carousel-item>
-        <div class="visual-content">
-          <div class="context">
-            <span class="type">{{ sliders[0].type }}</span>
-            <strong class="title">{{ sliders[0].title }}</strong>
-            <p
-              class="description"
-              v-html="sliders[0].description"
-            />
+      <v-carousel-item
+        v-for="(slide, index) in sliders"
+        :key="index"
+      >
+        <template v-if="slide.type === 'recommand'">
+          <!-- type 1: 앱 타입 -->
+          <div class="visual-content">
+            <div class="context">
+              <span class="apptype">{{ slide.apptype }}</span>
+              <strong class="title">{{ slide.title }}</strong>
+              <p
+                class="description"
+                v-html="slide.description"
+              />
+            </div>
+            <div class="context-img">
+              <v-img
+                :src="slide.image"
+                :alt="slide.title"
+              />
+            </div>
           </div>
-          <div class="context-img">
-            <v-img
-              :src="sliders[0].image"
-              :alt="sliders[0].title"
-            />
-          </div>
-        </div>
-      </v-carousel-item>
-      
-      <!-- 타입2-1: 배경이미지+텍스트 -->
-      <v-carousel-item>
-        <div class="visual-bg">
-          <img :src="sliders[1].background">
-        </div>
-        <div class="visual-content">
-          <div class="context">
-            <strong class="title">{{ sliders[1].title }}</strong>
-            <p
-              class="description"
-              v-html="sliders[1].description"
-            />
-          </div>
-        </div>
-      </v-carousel-item>
+        </template>
 
-      <!-- 타입2-2: 배경이미지+텍스트 -->
-      <v-carousel-item>
-        <div
-          class="visual-bg"
-          :class="sliders[2].addClass"
-        >
-          <img
-            :src="sliders[2].background"
-          >
-        </div>
-        <div class="visual-content">
-          <div class="context">
-            <strong class="title">{{ sliders[2].title }}</strong>
+        <template v-else-if="slide.type === 'img-type1'">
+          <!-- 타입2-1: 배경이미지 + 타이틀 + 텍스트 -->
+          <div class="visual-bg">
+            <img :src="slide.background">
           </div>
-        </div>
-      </v-carousel-item>
-      
-      <!-- 타입2-3: 배경이미지 -->
-      <v-carousel-item>
-        <div
-          class="visual-bg"
-          :class="sliders[3].addClass"
-        >
-          <img
-            :src="sliders[3].background"
+          <div class="visual-content">
+            <div class="context">
+              <strong class="title">{{ slide.title }}</strong>
+              <p
+                class="description"
+                v-html="slide.description"
+              />
+            </div>
+          </div>
+        </template>
+
+        <template v-else-if="slide.type === 'img-type2'">
+          <!-- 타입2-2: 배경이미지 + 타이틀/ 타입2-3: 배경이미지 -->
+          <div
+            class="visual-bg"
+            :class="slide.addClass"
           >
-        </div>
-        <div class="hidden">
-          {{ sliders[3].alt }}
-        </div>
+            <img
+              :src="slide.background"
+            >
+          </div>
+          <div
+            class="visual-content"
+            :class="{ hidden: slide.hiddenContent }"
+          >
+            <div
+              v-if="!slide.hiddenContent"
+              class="context"
+            >
+              <strong class="title">{{ slide.title }}</strong>
+            </div>
+            <div v-else>
+              {{ slide.alt }}
+            </div>
+          </div>
+        </template>
       </v-carousel-item>
     </v-carousel>
 
@@ -488,26 +487,31 @@ const sort = ref(0);
 
 //keyvisual
 const sliders = ref([
-  {
-    type: "안성맞춤 앱 추천",
+  { 
+    type: "recommand",
+    apptype: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
     description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
     image: "src/assets/images/apps_visual_bnr01.png",
   },
   {
+    type: "img-type1",
     title: "두 번째 배너두 번째 배너 설명",
     description: `두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명`,
     background: "src/assets/images/dummy_visual_banner_01.png",
   },
   {
+    type: "img-type2",
     title: "세 번째 배너",
     background: "src/assets/images/dummy_visual_banner_01.png",
     addClass: "center"
   },
   {
+    type: "img-type2",
     background: "src/assets/images/dummy_visual_banner_01.png",
-    alt: "배경이미지",
     addClass: "center",
+    hiddenContent: "hidden",
+    alt: "배경이미지",
   },
 ]);
 const currentSlide = ref(0);

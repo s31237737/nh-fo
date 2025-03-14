@@ -319,10 +319,10 @@ section > .tit-wrap:first-child {
     }
     .v-btn.prev {margin-right: 6px;}
     .v-btn.next {margin-left: 6px;}
+    .v-btn.togglePlay {margin-left: 6px;}
     .dots {
       display:flex; 
       align-items: center;
-      margin-inline: -3px 4px;
       .v-btn.v-btn--icon {
         overflow: hidden;
         width: 12px;
