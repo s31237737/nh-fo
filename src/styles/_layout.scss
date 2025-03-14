@@ -38,7 +38,7 @@
 .header {
   > .v-toolbar__content {
     @extend .inner;
-   
+
     .v-btn[aria-expanded="true"] {
       position: relative;
       &::before {
@@ -185,7 +185,8 @@
     }
   }
 
-  @at-root .mobile, .tablet {
+  @at-root .mobile,
+    .tablet {
     .header {
       > .v-toolbar__content {
         overflow: unset;
@@ -322,14 +323,20 @@
       }
     }
   }
- 
 }
 
-
-
+.mobile {
+  .v-row {
+    margin: -6px;
+    [class*="v-col"] {
+      padding: 6px;
+    }
+  }
+}
 
 @media only screen and (max-height: 520px) {
-  .mobile, .tablet {
+  .mobile,
+  .tablet {
     .header {
       .v-btn[aria-expanded="true"] {
         &::before {
