@@ -177,8 +177,8 @@
           <v-col
             v-for="(item, index) in quickLinks"
             :key="index"
-            :md="6"
-            :sm="12"
+            md="6"
+            sm="12"
           >
             <v-card
               class="quick-links"
