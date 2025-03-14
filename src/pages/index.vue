@@ -64,6 +64,112 @@
               아이디어 제안하기
             </v-btn>
           </div>
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                md="4"
+              >
+                <v-card class="custom-card blue-card">
+                  <v-card-text>
+                    <p class="title">
+                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
+                    </p>
+                    <p class="subtitle">
+                      하나로마트 식품전문 일일점장
+                    </p>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-btn icon>
+                      <v-icon color="green">
+                        mdi-heart
+                      </v-icon>
+                    </v-btn>
+                    <span>982</span>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+
+              <v-col
+                cols="12"
+                md="4"
+              >
+                <v-card class="custom-card dark-card">
+                  <v-card-text>
+                    <p class="title">
+                      QR 코드를 활용해서 쉽게 간편하게 제품 스캔이 가능해요
+                    </p>
+                    <p class="subtitle">
+                      농산물 출하관리
+                    </p>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-btn icon>
+                      <v-icon color="green">
+                        mdi-heart
+                      </v-icon>
+                    </v-btn>
+                    <span>560</span>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+
+              <v-col
+                cols="12"
+                md="4"
+              >
+                <v-row>
+                  <v-col cols="12">
+                    <v-card class="custom-card">
+                      <v-card-text>
+                        <p class="title">
+                          뒤비 비품을 효율적으로 관리할 수 있는 기능이 있으면 좋을 것 같아...
+                        </p>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+
+                  <v-col cols="12">
+                    <v-card class="custom-card">
+                      <v-card-text>
+                        <p class="title">
+                          농협 업소도 덕분에 편리한 업무 할 수 있어 좋습니다 :D
+                        </p>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col
+                cols="12"
+                md="6"
+              >
+                <v-card class="custom-card">
+                  <v-card-text>
+                    <p class="title">
+                      농협 입사한 선임이라면 지금 바로 사용해보세요! 정말...
+                    </p>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+
+              <v-col
+                cols="12"
+                md="6"
+              >
+                <v-card class="custom-card">
+                  <v-card-text>
+                    <p class="title">
+                      QR 코드를 활용해서 쉽고 간편하게 제품 스캔이 가능해요
+                    </p>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
         </section>
         <!-- // 커뮤니티 영역 -->
         <!-- quickLink -->

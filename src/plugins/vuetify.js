@@ -33,6 +33,7 @@ const nhFo = {
     pink: '#DB3174',
     purple: '#7B3BCD',
     gray: '#373839',
+    coolgray: '#F3F4F9',
     quaternary:'#7F8186',
     white: '#FEFEFE',
     sky:"#68C4E8",
