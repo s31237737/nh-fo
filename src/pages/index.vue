@@ -23,7 +23,6 @@
             direction="vertical"
             :cycle="isCycling"
             height="20"
-            interval="5000"
             :show-arrows="false"
             hide-delimiters
             @mouseenter="isCycling = false"
