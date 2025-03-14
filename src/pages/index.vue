@@ -205,7 +205,7 @@
                 height="136"
               >
                 <v-card-text>
-                  <p class="title-5">
+                  <p class="title-5 text-truncate">
                     농협 입사한 선임이라면 지금 바로 사용해보세요! 정말...
                   </p>
                   <v-spacer />
@@ -229,7 +229,7 @@
                 height="136"
               >
                 <v-card-text>
-                  <p class="title-5">
+                  <p class="title-5 text-truncate">
                     QR 코드를 활용해서 쉽고 간편하게 제품 스캔이 가능해요
                   </p>
                   <v-spacer />
