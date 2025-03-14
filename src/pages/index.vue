@@ -46,6 +46,7 @@
                 v-for="(item, i) in recommBtn"
                 :key="i"
                 size="large"
+                :ripple="false"
                 height="44"
                 rounded="pill"
                 :color="recomm === i ? 'primary' : 'info'"
@@ -62,57 +63,27 @@
             height="440"
           >
             <v-carousel-item>
-              <v-sheet class="d-flex ga-3">
-                <v-card
-                  to="/"
-                  color="#D1E2FF"
-                  height="390"
-                >
-                  <v-card-text>
-                    <p class="title-4">
-                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
-                    </p>
-                    <p class="text-2">
-                      하나로마트 식품전문 일일점검
-                    </p>
-                    <v-spacer />
-                    <div class="icon-text">
-                      <v-icon
-                        size="x-large"
-                        icon="custom:full-heart"
-                      />
-                      <span>982</span>
-                    </div>
-                    <div class="author bg">
-                      <span>지원1팀</span>
-                      <v-divider vertical />
-                      <span>김농협 대리</span>
-                    </div>
-                  </v-card-text>
+              <div class="recomm-box">
+                <v-card>
+                  <v-img
+                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                    cover
+                  >
+                    <v-card-subtitle>
+                      카테고리
+                    </v-card-subtitle>
+                    <v-card-title>
+                      경제사업장 근무스케줄 관리
+                    </v-card-title>
+                    <v-btn
+                      color="primary"
+                      size="small"
+                    >
+                      앱 열기
+                    </v-btn>
+                  </v-img>
                 </v-card>
-                <v-card
-                  to="/"
-                  color="#D1E2FF"
-                  height="390"
-                >
-                  <v-card-text>
-                    <p class="title-4">
-                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
-                    </p>
-                  </v-card-text>
-                </v-card>
-                <v-card
-                  to="/"
-                  color="#D1E2FF"
-                  height="390"
-                >
-                  <v-card-text>
-                    <p class="title-4">
-                      농산물 출하관리 앱 덕분에 업무 효율이 200% 늘었습니다.
-                    </p>
-                  </v-card-text>
-                </v-card>
-              </v-sheet>
+              </div>
             </v-carousel-item>
           </v-carousel>
           <p class="more">
