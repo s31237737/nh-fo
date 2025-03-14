@@ -20,7 +20,7 @@
         density="comfortable"
       >
         <v-btn
-          to=""
+          to="About"
         >
           About
         </v-btn>
