@@ -188,29 +188,31 @@
         </section>
         <!-- // 커뮤니티 영역 -->
         <!-- quickLink -->
-        <v-row class="section">
-          <v-col
-            v-for="(item, index) in quickLinks"
-            :key="index"
-            md="6"
-            sm="12"
-          >
-            <v-card
-              class="quick-links"
-              :subtitle="item.subtitle"
-              :title="item.title"
-              :color="item.color"
-              :to="item.to"
+        <section class="quick-links">
+          <v-row>
+            <v-col
+              v-for="(item, index) in quickLinks"
+              :key="index"
+              md="6"
+              sm="12"
             >
-              <template #append>
-                <v-icon
-                  size="54"
-                  :icon="item.appendIcon"
-                />
-              </template>
-            </v-card>
-          </v-col>
-        </v-row>
+              <v-card
+
+                :subtitle="item.subtitle"
+                :title="item.title"
+                :color="item.color"
+                :to="item.to"
+              >
+                <template #append>
+                  <v-icon
+                    size="54"
+                    :icon="item.appendIcon"
+                  />
+                </template>
+              </v-card>
+            </v-col>
+          </v-row>
+        </section>
         <!-- // quickLink -->
       </div>
     </v-container>
