@@ -71,6 +71,7 @@
               lg="4"
             >
               <v-card
+                to="/"
                 color="#D1E2FF"
                 height="390"
               >
@@ -106,6 +107,7 @@
               lg="4"
             >
               <v-card
+                to="/"
                 color="#3B424E"
                 height="390"
                 class="white"
@@ -150,6 +152,7 @@
                   lg="12"
                 >
                   <v-card
+                    to="/"
                     color="coolgray"
                     height="187"
                   >
@@ -178,6 +181,7 @@
                   lg="12"
                 >
                   <v-card
+                    to="/"
                     color="coolgray"
                     height="187"
                   >
@@ -208,6 +212,7 @@
               md="6"
             >
               <v-card
+                to="/"
                 color="coolgray"
                 height="136"
               >
@@ -235,6 +240,7 @@
               md="6"
             >
               <v-card
+                to="/"
                 color="coolgray"
                 height="136"
               >
