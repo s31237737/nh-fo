@@ -10,6 +10,7 @@
         김농협님
         안녕하세요.
       </div>
+
       <div class="content">
         <!-- 콘텐츠 배너 -->
         <!-- // 콘텐츠 배너 -->
@@ -85,13 +86,12 @@
                     icon="mdi-heart"
                   />
                   <span>982</span>
-                  <div class="d-flex">
-                    지원1팀
+                  <div class="author bg">
+                    <span>지원1팀</span>
                     <v-divider
-                      class="border-opacity-100"
                       vertical
                     />
-                    김농협 대리
+                    <span>김농협 대리</span>
                   </div>
                 </v-card-text>
               </v-card>
@@ -113,6 +113,15 @@
                   <p class="text-2">
                     농산물 출하관리
                   </p>
+                  <div
+                    class="author bg white"
+                  >
+                    <span>지원1팀</span>
+                    <v-divider
+                      vertical
+                    />
+                    <span>김농협 대리</span>
+                  </div>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -136,6 +145,13 @@
                       <p class="title-5">
                         퇴비 비료를 효율적으로 관리할 수 있는 기능이 있으면 좋을 것 같아요!
                       </p>
+                      <div class="author">
+                        <span>지원1팀</span>
+                        <v-divider
+                          vertical
+                        />
+                        <span>김농협 대리</span>
+                      </div>
                     </v-card-text>
                   </v-card>
                 </v-col>
