@@ -78,7 +78,6 @@
       text-align: left;
       background: $gray-200;
       .v-card {
-         transition: opacity .4s ease-in-out;
         &-item {
           padding: 40px 30px;
           text-align: left;
@@ -95,12 +94,13 @@
           flex: none;
           padding: 0;
           color: $gray-900;
-          @include line-clamp(5)
+          @include line-clamp(5);
         }
       }
     }
 
     .v-img {
+      border-radius: 20px;
       height: 100%;
     }
     .more {

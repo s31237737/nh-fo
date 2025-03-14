@@ -72,7 +72,7 @@
             >
               <div class="recomm-box">
                 <v-hover
-                  v-for="(app, idx) in apps.slice(index * 3, (index + 1) * 3)"
+                  v-for="(item, idx) in recommApps.slice(index * 3, (index + 1) * 3)"
                   :key="idx"
                   v-slot="{ isHovering, props }"
                 >
@@ -82,7 +82,7 @@
                     v-bind="props"
                   >
                     <v-img
-                      :src="getImageUrl(app.image)"
+                      :src="getImageUrl(item.image)"
                       cover
                     >
                       <v-expand-transition>
@@ -91,15 +91,15 @@
                           class="hovering"
                         >
                           <v-card-item>
-                            <v-card-subtitle>{{ app.category }}</v-card-subtitle>
-                            <v-card-title>{{ app.title }}</v-card-title>
-                            <v-card-text>{{ app.description }}</v-card-text>
+                            <v-card-subtitle>{{ item.category }}</v-card-subtitle>
+                            <v-card-title>{{ item.title }}</v-card-title>
+                            <v-card-text>{{ item.description }}</v-card-text>
                           </v-card-item>
                         </div>
                       </v-expand-transition>
                       <v-card-item>
-                        <v-card-subtitle>{{ app.category }}</v-card-subtitle>
-                        <v-card-title>{{ app.title }}</v-card-title>
+                        <v-card-subtitle>{{ item.category }}</v-card-subtitle>
+                        <v-card-title>{{ item.title }}</v-card-title>
                         <v-btn
                           color="primary"
                           size="small"
@@ -389,7 +389,7 @@ const recommBtn = ref([
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
-const apps = ref([
+const recommApps = ref([
   {
     image: "@temp_main_app card_01.jpg",
     category: "금융",
