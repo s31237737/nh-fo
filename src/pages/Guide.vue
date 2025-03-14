@@ -307,9 +307,11 @@
 
         <v-text-field
           v-model="form"
-          class="search-inp"
+          class="search-inp round"
           placeholder="앱코드, 앱 이름을 검색해주세요."
           append-inner-icon="custom:search"
+          rounded="pill"
+          bg-color="white"
           @click:append-inner="onAppendClick"
         />
 
@@ -329,9 +331,8 @@
 
         <v-select
           v-model="select"
-          density="default"
           label="round"
-          rounded="xl"
+          rounded="pill"
           class="round"
           :items="['전체', '상태1', '상태2']"
         />
