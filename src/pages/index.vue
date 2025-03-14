@@ -64,23 +64,69 @@
           >
             <v-carousel-item>
               <div class="recomm-box">
-                <v-card>
+                <v-card to="/">
                   <v-img
-                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                    src="@/assets/images/@temp_main_app card_01.jpg"
                     cover
                   >
-                    <v-card-subtitle>
-                      카테고리
-                    </v-card-subtitle>
-                    <v-card-title>
-                      경제사업장 근무스케줄 관리
-                    </v-card-title>
-                    <v-btn
-                      color="primary"
-                      size="small"
-                    >
-                      앱 열기
-                    </v-btn>
+                    <v-card-item>
+                      <v-card-subtitle>
+                        카테고리
+                      </v-card-subtitle>
+                      <v-card-title>
+                        NH QR
+                      </v-card-title>
+                      <v-btn
+                        color="primary"
+                        size="small"
+                      >
+                        앱 열기
+                      </v-btn>
+                    </v-card-item>
+                  </v-img>
+                </v-card>
+                <v-card to="/">
+                  <v-img
+                    src="@/assets/images/@temp_main_app card_02.jpg"
+                    cover
+                  >
+                    <v-card-item>
+                      <v-card-subtitle>
+                        우리 농축협
+                        예약관리
+                      </v-card-subtitle>
+                      <v-card-title>
+                        경제사업장 근무스케줄 관리
+                      </v-card-title>
+                      <v-btn
+                        color="primary"
+                        size="small"
+                      >
+                        앱 열기
+                      </v-btn>
+                    </v-card-item>
+                  </v-img>
+                </v-card>
+                <v-card to="/">
+                  <v-img
+                    src="@/assets/images/@temp_main_app card_03.jpg"
+                    cover
+                  >
+                    <v-card-item>
+                      <v-card-subtitle>
+                        카테고리
+                      </v-card-subtitle>
+                      <v-card-title>
+                        관리자 및 책임자
+                        현황 관리
+                      </v-card-title>
+                      <v-btn
+                        color="primary"
+                        size="small"
+                      >
+                        앱 열기
+                      </v-btn>
+                    </v-card-item>
                   </v-img>
                 </v-card>
               </div>

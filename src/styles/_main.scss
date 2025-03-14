@@ -43,14 +43,21 @@
     .recomm-box {
       display: flex;
       height: 100%;
+      gap: 15px;
     }
     .v-card {
-      text-align: center;
-      color: $white;
+      flex: 1;
+      &-item  {
+        padding: 40px;
+        
+        text-align: center;
+        color: $white;
+      }
       &-title {
         padding: 0;
         @extend .title-4-bd;
         font-weight: 700 !important;
+        @include line-clamp(2);
       }
       &-subtitle {
         @extend .text-3-md;
@@ -58,12 +65,11 @@
       }
       .v-btn {
         margin-top: 10px;
+        pointer-events: none;
       }
     }
     .v-img {
       height: 100%;
-      padding: 40px;
-
     }
     .more {
       margin-top: 30px;
