@@ -11,6 +11,8 @@
       <v-carousel-item
         v-for="(slide, index) in sliders"
         :key="index"
+        :role="slide.url ? 'link' : undefined"
+        tabindex="0"
         @click="handleClick(slide)"
       >
         <template v-if="slide.type === 'recommand'">
@@ -130,6 +132,15 @@
 
       <!-- form -->
       <div class="appcard-list-top">
+        <v-form>
+          <v-text-field
+            v-model="form"
+            class="search-inp round"
+            placeholder="앱코드, 앱 이름을 검색해주세요."
+            append-inner-icon="custom:search"
+            @click:append-inner="onAppendClick"
+          />
+        </v-form>
         <v-btn-toggle
           v-model="sort"
           color="primary"
@@ -485,6 +496,11 @@ import { useRouter } from "vue-router";
 const isDesktop = inject("isDesktop");
 const alert = ref(false); //"앱 열기" 팝업
 const sort = ref(0);
+
+const form = ref("");
+const onAppendClick = () => {
+  alert("Append icon clicked!");
+};
 
 //keyvisual
 const router = useRouter();

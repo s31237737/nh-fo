@@ -25,6 +25,11 @@
   $keyvisual-h: 548px;
   height: $keyvisual-h;
   .v-carousel {
+    &-item {
+      [role="link"] {
+        cursor: pointer;
+      }
+    }
     .visual-bg {
       position: absolute;
       width: 1920px;
