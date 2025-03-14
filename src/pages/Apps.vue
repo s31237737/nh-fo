@@ -11,6 +11,7 @@
       <v-carousel-item
         v-for="(slide, index) in sliders"
         :key="index"
+        @click="handleClick(slide)"
       >
         <template v-if="slide.type === 'recommand'">
           <!-- type 1: 앱 타입 -->
@@ -478,17 +479,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { inject } from 'vue';
+import { ref, inject } from 'vue';
+import { useRouter } from "vue-router";
 
 const isDesktop = inject("isDesktop");
 const alert = ref(false); //"앱 열기" 팝업
 const sort = ref(0);
 
 //keyvisual
+const router = useRouter();
 const sliders = ref([
   { 
     type: "recommand",
+    url: "AppsDetail",
     apptype: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
     description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
@@ -514,13 +517,18 @@ const sliders = ref([
     alt: "배경이미지",
   },
 ]);
+const handleClick = (slide) => {
+  if (!slide.url) { 
+    return; // URL이 없으면 아무 동작 X
+  } else {
+    router.push(slide.url);
+  } 
+};
 const currentSlide = ref(0);
 const autoplay = ref(true);
-
 const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + sliders.value.length) % sliders.value.length;
 };
-
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % sliders.value.length;
 };
