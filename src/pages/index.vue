@@ -81,6 +81,7 @@
                   <p class="text-2">
                     하나로마트 식품전문 일일점검
                   </p>
+                  <v-spacer />
                   <div class="icon-text">
                     <v-icon
                       size="x-large"
@@ -115,6 +116,14 @@
                   <p class="text-2">
                     농산물 출하관리
                   </p>
+                  <v-spacer />
+                  <div class="icon-text">
+                    <v-icon
+                      size="x-large"
+                      icon="custom:full-heart"
+                    />
+                    <span>982</span>
+                  </div>
                   <div
                     class="author bg white"
                   >
@@ -147,6 +156,7 @@
                       <p class="title-5">
                         퇴비 비료를 효율적으로 관리할 수 있는 기능이 있으면 좋을 것 같아요!
                       </p>
+                      <v-spacer />
                       <div class="author">
                         <span>지원1팀</span>
                         <v-divider
@@ -171,6 +181,7 @@
                       <p class="title-5">
                         농협 업스토어 덕분에 편리한 업무 할 수 있어 즐겁습니다 :D
                       </p>
+                      <v-spacer />
                       <div class="author">
                         <span>지원1팀</span>
                         <v-divider
@@ -197,6 +208,7 @@
                   <p class="title-5">
                     농협 입사한 선임이라면 지금 바로 사용해보세요! 정말...
                   </p>
+                  <v-spacer />
                   <div class="author">
                     <span>지원1팀</span>
                     <v-divider
@@ -220,6 +232,7 @@
                   <p class="title-5">
                     QR 코드를 활용해서 쉽고 간편하게 제품 스캔이 가능해요
                   </p>
+                  <v-spacer />
                   <div class="author">
                     <span>지원1팀</span>
                     <v-divider

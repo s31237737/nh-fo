@@ -19,8 +19,8 @@ const nhFo = {
   dark: false,
   colors: {
     background: '#F3F4F9',
-    surface: '#FFFFFF',
-    'surface-bright': '#FFFFFF',
+    surface: '#FEFEFE',
+    'surface-bright': '#FEFEFE',
     'surface-light': '#EEEEEE',
     'surface-variant': '#FBFBFB',
     'on-surface-variant': '#4E4F52',
@@ -58,7 +58,7 @@ const nhFo = {
     'pressed-opacity': 0.12,
     'dragged-opacity': 0.08,
     'theme-kbd': '#212529',
-    'theme-on-kbd': '#FFFFFF',
+    'theme-on-kbd': '#FEFEFE',
     'theme-code': '#F5F5F5',
     'theme-on-code': '#000000',
   }
