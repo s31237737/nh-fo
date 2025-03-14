@@ -474,10 +474,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 import { inject } from 'vue';
 
-const isDesktop = inject('isDesktop');
+const isDesktop = inject("isDesktop");
 const alert = ref(false); //"앱 열기" 팝업
 const sort = ref(0);
 
