@@ -12,9 +12,9 @@ import { useDisplay } from 'vuetify';
 const display = useDisplay();
 const displaySize = computed(() => {
   const displayMap = {
-    sm: 'mobile',
-    md: 'tablet',
-    lg: 'desktop',
+    sm: "mobile",
+    md: "tablet",
+    lg: "desktop",
   };
   return display.lgAndUp.value ? "desktop" : displayMap[display.name.value] || "desktop";
 });
@@ -23,8 +23,8 @@ const isMobile = computed(() => displaySize.value === "mobile");
 const isTablet = computed(() => displaySize.value === "tablet");
 const isDesktop = computed(() => displaySize.value === "desktop");
 
-provide('isMobile', isMobile);
-provide('isTablet', isTablet);
-provide('isDesktop', isDesktop);
+provide("isMobile", isMobile);
+provide("isTablet", isTablet);
+provide("isDesktop", isDesktop);
 
 </script>

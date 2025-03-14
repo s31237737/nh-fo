@@ -25,7 +25,7 @@
 
 <script setup>
 import { inject } from 'vue';
-const isMobile = inject('isMobile');
-const isTablet = inject('isTablet');
-const isDesktop = inject('isDesktop');
+const isMobile = inject("isMobile");
+const isTablet = inject("isTablet");
+const isDesktop = inject("isDesktop");
 </script>

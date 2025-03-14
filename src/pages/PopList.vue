@@ -274,19 +274,19 @@ const loginPop = ref(false);
 
 
 const snackbar01 = ref(false);
-const snackbarText01 = ref('등록이 완료되었습니다.');
+const snackbarText01 = ref("등록이 완료되었습니다.");
 const snackbarOpen01 = () => {
   snackbar01.value=true
     return;
 }
 const snackbar02 = ref(false);
-const snackbarText02 = ref('태그는 10개까지 추가 가능합니다. 추가한 태그를 확인하고 다시 진행해 주세요.');
+const snackbarText02 = ref("태그는 10개까지 추가 가능합니다. 추가한 태그를 확인하고 다시 진행해 주세요.");
 const snackbarOpen02 = () => {
   snackbar02.value=true
     return;
 }
 const snackbar03 = ref(false);
-const snackbarText03 = ref('제한된 크기 10MB가 초과되어, 업로드에 실패하였습니다.');
+const snackbarText03 = ref("제한된 크기 10MB가 초과되어, 업로드에 실패하였습니다.");
 const snackbarOpen03 = () => {
   snackbar03.value=true
     return;

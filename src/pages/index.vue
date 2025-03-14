@@ -86,6 +86,14 @@
                     icon="mdi-heart"
                   />
                   <span>982</span>
+                  <div class="d-flex">
+                    지원1팀
+                    <v-divider
+                      class="border-opacity-100"
+                      vertical
+                    />
+                    김농협 대리
+                  </div>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -197,7 +205,6 @@
               sm="12"
             >
               <v-card
-
                 :subtitle="item.subtitle"
                 :title="item.title"
                 :color="item.color"
@@ -222,9 +229,9 @@
 
 <script setup>
 import { inject, ref } from 'vue';
-const isMobile = inject('isMobile');
-const isTablet = inject('isTablet');
-const isDesktop = inject('isDesktop');
+const isMobile = inject("isMobile");
+const isTablet = inject("isTablet");
+const isDesktop = inject("isDesktop");
 
 // 최신 새소식
 const isCycling = ref(true);
@@ -239,18 +246,18 @@ const notice = ref([
 // quickLink
 const quickLinks = ref([
   {
-    appendIcon: 'custom:faq',
-    subtitle: '자주 묻는 질문을 찾아보세요.',
-    title: '자주 묻는 질문',
-    color: 'success',
-    to: '',
+    appendIcon: "custom:faq",
+    subtitle: "자주 묻는 질문을 찾아보세요.",
+    title: "자주 묻는 질문",
+    color: "success",
+    to: "",
   },
   {
-    appendIcon: 'custom:app-guide',
-    subtitle: '앱 사용방법이 궁금하신가요?',
-    title: '앱 가이드',
-    color: 'sky',
-    to: '',
+    appendIcon: "custom:app-guide",
+    subtitle: "앱 사용방법이 궁금하신가요?",
+    title: "앱 가이드",
+    color: "sky",
+    to: "",
   },
 ]);
 </script>
