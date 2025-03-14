@@ -25,15 +25,13 @@
   $keyvisual-h: 548px;
   height: $keyvisual-h;
   .v-carousel {
-    .v-carousel-item{
-      height: $keyvisual-h;
-    }
     .visual-bg {
       position: absolute;
       width: 1920px;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
+      img {display:block; width: 100%;}
     }
     .visual-content {
       position: relative;
@@ -76,6 +74,14 @@
         height: 330px;
       }
     }
+    .hidden {
+      visibility: hidden;
+      position: absolute;
+      top:0;
+      width:1px;
+      font-size:1px;
+      color: transparent;
+    }
     @at-root .tablet {
       .keyvisual {
         .visual-content {
@@ -94,31 +100,48 @@
       }
     }
     @at-root .mobile {
-      .keyvisual {
+      .keyvisual.slider {
         $keyvisual-h: 526px;
         height: $keyvisual-h;
-        margin-top: -$base-margin;
-        margin-bottom: $base-margin;
+        .visual-bg {
+          position: absolute;
+          width: 768px;
+          height: 225px;
+          top: auto;
+          bottom: 78px;
+          left: 50%;
+          transform: translateX(-50%);
+          &.center {
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
         .visual-content {
+          max-width: 100%;
           flex-direction: column;
           align-items: flex-start;
           justify-content: space-between;
           .context {
             top: 40px;
             max-width: 100%;
+            .type {
+              margin-bottom: 12px;
+            }
+            .description {
+              margin-top: 8px;
+            }
           }
           .context-img {
             position: relative;
             top:auto;
-            right:auto;
+            right:auto; 
             width: 100%;
             height: auto;
-            max-width: 318px;
-            max-height: 198px;
+            max-width: 320px;
+            max-height: auto;
             margin: 0 auto 100px;
           }
         }
-        .controls {bottom: 40px;}
       }
     }
   }
@@ -212,14 +235,14 @@
     }
     .v-card-title, .v-card-subtitle {
       padding:0 10px 0 0;
-      @include line-clamp(1);
     }
-    .v-card-text {
-      padding:12px 0 0;
+    .v-card-title {
+      display: -webkit-box;
+      white-space: normal;
     }
     .v-card-subtitle + .v-card-title {padding-top:6px;}
-    .clamp2 {
-      @include line-clamp(2);
+    .v-card-text {
+      padding:12px 0 0;
     }
     @at-root .mobile {
       .appcard.v-card {

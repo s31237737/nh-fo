@@ -46,8 +46,13 @@
 
       <!-- 타입2-2: 배경이미지+텍스트 -->
       <v-carousel-item>
-        <div class="visual-bg">
-          <img :src="sliders[1].background">
+        <div
+          class="visual-bg"
+          :class="sliders[2].addClass"
+        >
+          <img
+            :src="sliders[2].background"
+          >
         </div>
         <div class="visual-content">
           <div class="context">
@@ -58,8 +63,13 @@
       
       <!-- 타입2-3: 배경이미지 -->
       <v-carousel-item>
-        <div class="visual-bg">
-          <img :src="sliders[1].background">
+        <div
+          class="visual-bg"
+          :class="sliders[3].addClass"
+        >
+          <img
+            :src="sliders[3].background"
+          >
         </div>
         <div class="hidden">
           {{ sliders[3].alt }}
@@ -190,12 +200,12 @@
               </div>
               <div class="d-flex flex-column">
                 <!-- 제목 -->
-                <v-card-title class="title-4 clamp2">
+                <v-card-title class="title-4 line-clamp">
                   {{ card.title }}
                 </v-card-title>
 
                 <!-- 내용 -->
-                <v-card-text class="text-3 clamp2">
+                <v-card-text class="text-3 line-clamp2">
                   {{ card.description }}
                 </v-card-text>
               </div>
@@ -290,8 +300,10 @@
               <div class="d-flex align-center">
                 <div class="context">
                   <!-- 제목 -->
-                  <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
-                  <v-card-title class="title-4">
+                  <v-card-subtitle class="line-clamp">
+                    {{ card.subtitle }}
+                  </v-card-subtitle>
+                  <v-card-title class="title-4 line-clamp">
                     {{ card.title }}
                   </v-card-title>
                 </div>
@@ -388,8 +400,10 @@
               <div class="d-flex align-center">
                 <div class="context">
                   <!-- 제목 -->
-                  <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
-                  <v-card-title class="title-4">
+                  <v-card-subtitle class="line-clamp">
+                    {{ card.subtitle }}
+                  </v-card-subtitle>
+                  <v-card-title class="title-4 line-clamp">
                     {{ card.title }}
                   </v-card-title>
                 </div>
@@ -488,10 +502,12 @@ const sliders = ref([
   {
     title: "세 번째 배너",
     background: "src/assets/images/dummy_visual_banner_01.png",
+    addClass: "center"
   },
   {
     background: "src/assets/images/dummy_visual_banner_01.png",
-    alt: "배경이미지"
+    alt: "배경이미지",
+    addClass: "center",
   },
 ]);
 const currentSlide = ref(0);

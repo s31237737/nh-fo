@@ -1,4 +1,6 @@
-$base-margin: 80px;
+:root {
+  --base-margin: 80px;
+}
 
 // gray colors
 $white: #fefefe;
@@ -75,6 +77,8 @@ $green-1000: #004714;
 
 
 //mobile 
-.mobile {
-  $base-margin: 40px;
+@media only screen and (max-height: 767px) {
+  :root {
+    --base-margin: 40px;
+  }
 }
