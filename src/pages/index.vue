@@ -64,27 +64,32 @@
           >
             <v-carousel-item>
               <div class="recomm-box">
-                <v-card to="/">
-                  <v-img
-                    src="@/assets/images/@temp_main_app card_01.jpg"
-                    cover
+                <v-hover v-slot="{ isHovering, props }">
+                  <v-card
+                    :ripple="false"
+                    to="/"
                   >
-                    <v-card-item>
-                      <v-card-subtitle>
-                        카테고리
-                      </v-card-subtitle>
-                      <v-card-title>
-                        NH QR
-                      </v-card-title>
-                      <v-btn
-                        color="primary"
-                        size="small"
-                      >
-                        앱 열기
-                      </v-btn>
-                    </v-card-item>
-                  </v-img>
-                </v-card>
+                    <v-img
+                      src="@/assets/images/@temp_main_app card_01.jpg"
+                      cover
+                    >
+                      <v-card-item>
+                        <v-card-subtitle>
+                          카테고리
+                        </v-card-subtitle>
+                        <v-card-title>
+                          NH QR
+                        </v-card-title>
+                        <v-btn
+                          color="primary"
+                          size="small"
+                        >
+                          앱 열기
+                        </v-btn>
+                      </v-card-item>
+                    </v-img>
+                  </v-card>
+                </v-hover>
                 <v-card to="/">
                   <v-img
                     src="@/assets/images/@temp_main_app card_02.jpg"
