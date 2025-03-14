@@ -90,7 +90,10 @@
                     </v-img>
                   </v-card>
                 </v-hover>
-                <v-card to="/">
+                <v-card
+                  to="/"
+                  :ripple="false"
+                >
                   <v-img
                     src="@/assets/images/@temp_main_app card_02.jpg"
                     cover
@@ -112,7 +115,10 @@
                     </v-card-item>
                   </v-img>
                 </v-card>
-                <v-card to="/">
+                <v-card
+                  to="/"
+                  :ripple="false"
+                >
                   <v-img
                     src="@/assets/images/@temp_main_app card_03.jpg"
                     cover
