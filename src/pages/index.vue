@@ -62,7 +62,7 @@
             hide-delimiters
             :show-arrows="false"
             height="440"
-            :cycle="isRecommPlay"
+            :cycle="!isDesktop ? false : isRecommPlay"
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >

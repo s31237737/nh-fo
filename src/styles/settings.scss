@@ -9,6 +9,7 @@
 @forward 'vuetify/settings' with (
   // $layers: true,
   // $color-pack: false,
+  $application-color:rgba(30, 30, 30, 1),
   $size-scales: (
     'x-small': -2,
     'small': -1,
