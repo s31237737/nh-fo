@@ -28,7 +28,7 @@
             </div>
             <div class="context-img">
               <v-img
-                :src="slide.image"
+                :src="getImageUrl(slide.image)"
                 :alt="slide.title"
               />
             </div>
@@ -38,7 +38,7 @@
         <template v-else-if="slide.type === 'img-type1'">
           <!-- 타입2-1: 배경이미지 + 타이틀 + 텍스트 -->
           <div class="visual-bg">
-            <img :src="slide.background">
+            <img :src="getImageUrl(slide.background)">
           </div>
           <div class="visual-content">
             <div class="context">
@@ -58,7 +58,7 @@
             :class="slide.addClass"
           >
             <img
-              :src="slide.background"
+              :src="getImageUrl(slide.background)"
             >
           </div>
           <div
@@ -184,7 +184,7 @@
                 <div>
                   <v-img
                     class="thumnail"
-                    :src="card.imageSrc"
+                    :src="getImageUrl(card.imageSrc)"
                     alt="앱 아이콘"
                     cover
                   />
@@ -250,7 +250,7 @@
     <section class="banner-wrap">
       <v-img
         class="banner"
-        :style="{ backgroundImage: `url(${banner.imageUrl})` }"
+        :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
       >
         <div class="banner-text">
           <p v-html="banner.description" />
@@ -499,13 +499,17 @@ const isDesktop = inject("isDesktop");
 const alert = ref(false); //"앱 열기" 팝업
 const sort = ref(0);
 
+const router = useRouter();
 const form = ref("");
 const onAppendClick = () => {
   alert("Append icon clicked!");
 };
 
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+
 //keyvisual
-const router = useRouter();
 const sliders = ref([
   { 
     type: "recommand",
@@ -513,23 +517,23 @@ const sliders = ref([
     apptype: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
     description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "src/assets/images/apps_visual_bnr01.png",
+    image: "apps_visual_bnr01.png",
   },
   {
     type: "img-type1",
     title: "두 번째 배너두 번째 배너 설명",
     description: `두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명`,
-    background: "src/assets/images/dummy_visual_banner_01.png",
+    background: "dummy_visual_banner_01.png",
   },
   {
     type: "img-type2",
     title: "세 번째 배너",
-    background: "src/assets/images/dummy_visual_banner_01.png",
+    background: "dummy_visual_banner_01.png",
     addClass: "center"
   },
   {
     type: "img-type2",
-    background: "src/assets/images/dummy_visual_banner_01.png",
+    background: "dummy_visual_banner_01.png",
     addClass: "center",
     hiddenContent: "hidden",
     alt: "배경이미지",
@@ -558,7 +562,7 @@ const toggleAutoplay = () => {
 const cardData = ref([
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "1공통총무알리미",
     description: "1농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -570,7 +574,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "2공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     description: "2농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -580,7 +584,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "3공통총무알리미",
     description: "3농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -590,7 +594,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "4공통총무알리미",
     description: "4농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -602,7 +606,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "5공통총무알리미",
     description: "5농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -614,7 +618,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "6공통총무알리미",
     description: "6농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -626,7 +630,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "7공통총무알리미",
     description: "7농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -638,7 +642,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "8공통총무알리미",
     description: "8농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -650,7 +654,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "src/assets/images/app_module_img.png",
+    imageSrc: "app_module_img.png",
     title: "9공통총무알리미",
     description: "9농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -758,7 +762,7 @@ const cardRecommend2 = ref([
 
 //배너
 const banner = ref({
-  imageUrl: "src/assets/images/apps_bnr_bg01.png",
+  imageUrl: "apps_bnr_bg01.png",
   description: "세상에 없던 NH 고객 라이프<br>관리 서비스 공개"
 });
 </script>
