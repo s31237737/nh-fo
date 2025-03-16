@@ -108,6 +108,17 @@
       margin-top: 30px;
       text-align: right;
     }
+    @at-root .mobile {
+      .recomm-app {
+        // .v-carousel {
+        //   @extend .mscroll-area;
+        //   width: max-content;
+        // }
+        .v-card-item {
+          width: 300px;
+        }
+      }
+    }
   }
 
   .community {

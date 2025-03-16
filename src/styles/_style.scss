@@ -184,7 +184,6 @@
     }
   }
   &.search-inp {
-
   }
 }
 
@@ -255,25 +254,16 @@
     display: flex;
     gap: 12px;
   }
-  .v-btn {
-    margin-left: auto;
-  }
-  &:has(.v-btn) {
-    strong {
-      align-self: end;
-    }
-  }
-  &:has(.btns) {
-    strong {
-      align-self: end;
-    }
-  }
-  [class*="title"] {
-    color: $black;
-  }
+
   @at-root .mobile {
     .tit-wrap {
-      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .btns {
+        gap: 6px;
+        @extend .mscroll-area;
+      }
     }
   }
 }
@@ -295,7 +285,7 @@ section > .tit-wrap:first-child {
 }
 
 //slider
-.slider{
+.slider {
   overflow: hidden;
   position: relative;
   margin-top: calc(-1 * var(--base-margin));
@@ -303,7 +293,7 @@ section > .tit-wrap:first-child {
   $slider-h: 300px;
   height: $slider-h;
   .v-carousel {
-    height:100% !important;
+    height: 100% !important;
     background: $white;
     .v-carousel-item {
       position: relative;
@@ -312,11 +302,11 @@ section > .tit-wrap:first-child {
     }
   }
   .slider-controls {
-    position: absolute; 
-    bottom:58px; 
-    left: 50%; 
+    position: absolute;
+    bottom: 58px;
+    left: 50%;
     transform: translateX(-50%);
-    display:flex;
+    display: flex;
     align-items: center;
     .v-btn--icon {
       width: 20px;
@@ -327,17 +317,23 @@ section > .tit-wrap:first-child {
         font-size: 20px;
       }
     }
-    .v-btn.prev {margin-right: 6px;}
-    .v-btn.next {margin-left: 6px;}
-    .v-btn.togglePlay {margin-left: 6px;}
+    .v-btn.prev {
+      margin-right: 6px;
+    }
+    .v-btn.next {
+      margin-left: 6px;
+    }
+    .v-btn.togglePlay {
+      margin-left: 6px;
+    }
     .dots {
-      display:flex; 
+      display: flex;
       align-items: center;
       .v-btn.v-btn--icon {
         overflow: hidden;
         width: 12px;
         & > [class*="ripple"] {
-          display:none !important;
+          display: none !important;
         }
         &.active {
           color: $blue-500;
@@ -347,7 +343,9 @@ section > .tit-wrap:first-child {
   }
   @at-root .mobile {
     .slider {
-      .slider-controls {bottom: 40px;}
+      .slider-controls {
+        bottom: 40px;
+      }
     }
   }
 }

@@ -37,6 +37,7 @@ const nhFo = {
     quaternary:'#7F8186',
     white: '#FEFEFE',
     sky:"#68C4E8",
+    'on-background':"#1E1E1E",
     'on-primary':'#FEFEFE',
     'on-secondary':'#1E1E1E',
     'on-success':'#FEFEFE',
