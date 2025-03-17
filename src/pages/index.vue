@@ -136,7 +136,6 @@
             <div
               v-show="recomm === index"
               class="recomm-box"
-              @scroll="handleScroll(index)"
             >
               <v-card
                 v-for="(item, idx) in recommApps.slice(index * 3, (index + 1) * 3)"
@@ -426,21 +425,7 @@ const recommBtn = ref([
   { btn: "만족도가 높은 앱" },
 ]);
 
-const handleScroll = (index) => {
-  const scrollableDiv = document.querySelectorAll('.recomm-box')[index];
-  if (scrollableDiv) {
-    if (scrollableDiv.scrollLeft + scrollableDiv.offsetWidth >= scrollableDiv.scrollWidth) {
-      if (index < 3) {
-        recomm.value = index + 1;
-      }
-    }
-    if (scrollableDiv.scrollLeft === 0) {
-      if (index > 0) {
-        recomm.value = index - 1;
-      }
-    }
-  }
-};
+
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
