@@ -136,6 +136,7 @@
             <div
               v-show="recomm === index"
               class="recomm-box"
+              @scroll="handleScroll(index)"
             >
               <v-card
                 v-for="(item, idx) in recommApps.slice(index * 3, (index + 1) * 3)"
@@ -397,15 +398,7 @@ const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 
-const handleScroll = (index) => {
-  const scrollableDiv = document.getElementById(`scrollableDiv${index}`);
-  if (scrollableDiv) {
-    // 마지막 카드에 도달하면 슬라이드로 넘어가도록 설정
-    if (scrollableDiv.scrollLeft + scrollableDiv.offsetWidth >= scrollableDiv.scrollWidth) {
-      recomm.value = index + 1; // 마지막 카드에 도달하면 슬라이드로 넘어감
-    }
-  }
-};
+
 
 // 최신 새소식
 const isNoticePlay= ref(true);
@@ -433,6 +426,21 @@ const recommBtn = ref([
   { btn: "만족도가 높은 앱" },
 ]);
 
+const handleScroll = (index) => {
+  const scrollableDiv = document.querySelectorAll('.recomm-box')[index];
+  if (scrollableDiv) {
+    if (scrollableDiv.scrollLeft + scrollableDiv.offsetWidth >= scrollableDiv.scrollWidth) {
+      if (index < 3) {
+        recomm.value = index + 1;
+      }
+    }
+    if (scrollableDiv.scrollLeft === 0) {
+      if (index > 0) {
+        recomm.value = index - 1;
+      }
+    }
+  }
+};
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
