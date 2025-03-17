@@ -40,18 +40,18 @@
       line-height: 20px;
     }
     @at-root .mobile {
-    .v-main.main {
-      .notice-banner {
-        padding: 12px 20px;
-        height: 44px;
-         gap: 10px;
-         a {
-          font-size: 14px;
-          line-height: 20px;
+      .v-main.main {
+        .notice-banner {
+          padding: 12px 20px;
+          height: 44px;
+          gap: 10px;
+          a {
+            font-size: 14px;
+            line-height: 20px;
+          }
         }
       }
     }
-  }
   }
   .recomm-app {
     .recomm-box {
@@ -61,6 +61,8 @@
     }
     .v-card {
       flex: 1;
+      width: 300px;
+      min-width: 300px;
       &-item {
         display: flex;
         flex-direction: column;
@@ -127,9 +129,16 @@
         //   @extend .mscroll-area;
         //   width: max-content;
         // }
-        .v-card-item {
-          width: 300px;
+        
+      }
+    }
+    @at-root .tablet {
+      .recomm-app {
+        .v-carousel {
+          @extend .mscroll-area;
+          width: max-content;
         }
+        
       }
     }
   }
@@ -220,4 +229,10 @@
   }
 
   
+}
+
+#app .tablet {
+  .inner {
+    max-width: 930px;
+  }
 }
