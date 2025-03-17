@@ -39,22 +39,22 @@
       margin-block: 0 40px;
     }
     .support-txt {
-      margin-top: 20px;
+      margin-top: 12px;
       color: $gray-700;
       span {display:inline-block; margin-left: 4px;vertical-align: middle;}
     }
-    .divider {
-      color: $gray-800;
-      margin-block: 28vh 24px;
-    }
-    .v-btn.bg-yellow {
-      width: 480px;
-    }
-    .v-btn.bg-info {
-      width: 180px;
-      .v-icon--size-large {
-        font-size: 20px;
-      }
+  }
+  .divider {
+    color: $gray-800;
+    margin-block: 28vh 24px;
+  }
+  .v-btn.bg-yellow {
+    width: 480px;
+  }
+  .v-btn.bg-info {
+    width: 180px;
+    .v-icon--size-large {
+      font-size: 20px;
     }
   }
   
@@ -92,6 +92,9 @@
         & > div {margin-top: 0;}
         .title-4-bd {
           margin-bottom: 28px;
+        }
+        .support-txt {
+          margin-top: 20px;
         }
       }
       .v-btn.bg-yellow {
