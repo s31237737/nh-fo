@@ -85,7 +85,7 @@
 }
 
 
-.mobile {
+.mobile, .tablet {
   .title-1 {
     @include typography(400, 2.125rem, 1.625rem);
   }
