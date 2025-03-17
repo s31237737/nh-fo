@@ -40,8 +40,20 @@
         <!-- 추천 앱 영역 -->
         <section class="recomm-app">
           <div class="tit-wrap align-center">
-            <strong class="title-1">이런 앱은 어떠세요?</strong>
-            <v-slide-group v-model="recomm">
+            <strong class="title-1">
+              이런 앱은 어떠세요?
+            </strong>
+            <router-link
+              to="/"
+              class="link-btn-arrow"
+            >
+              <span>더보러가기</span>
+              <v-icon icon="custom:arrow-right" />
+            </router-link>
+            <v-slide-group
+              v-model="recomm"
+              center-active
+            >
               <v-slide-group-item
                 v-for="(item, i) in recommBtn"
                 :key="i"
@@ -62,11 +74,12 @@
           </div>
 
           <v-carousel
+            v-if="isDesktop"
             v-model="recomm"
             hide-delimiters
             :show-arrows="false"
             height="440"
-            :cycle="!isDesktop ? false : isRecommPlay"
+            :cycle="isRecommPlay"
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >
@@ -115,17 +128,42 @@
               </div>
             </v-carousel-item>
           </v-carousel>
-
-          <p class="more">
-            <router-link
-              to="/"
-              class="link-btn-arrow"
+          <template v-else>
+            <div
+              v-for="(group, index) in 4"
+              :key="index"
             >
-              <span class="text-primary">더보러가기</span>
-              <v-icon icon="custom:arrow-right" />
-            </router-link>
-          </p>
+              <div
+                v-show="recomm === index"
+                class="recomm-box"
+              >
+                <v-card
+                  v-for="(item, idx) in recommApps.slice(index * 3, (index + 1) * 3)"
+                  :key="idx"
+                  :ripple="false"
+                  to="/"
+                >
+                  <v-img
+                    :src="getImageUrl(item.image)"
+                    cover
+                  >
+                    <v-card-item>
+                      <v-card-subtitle>{{ item.category }}</v-card-subtitle>
+                      <v-card-title v-html="item.title" />
+                      <v-btn
+                        color="primary"
+                        size="small"
+                      >
+                        앱 열기
+                      </v-btn>
+                    </v-card-item>
+                  </v-img>
+                </v-card>
+              </div>
+            </div>
+          </template>
         </section>
+
         <!-- // 추천 앱 영역 -->
         <!-- 커뮤니티 영역 -->
         <section class="community">
@@ -360,7 +398,15 @@ const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 
-
+const handleScroll = (index) => {
+  const scrollableDiv = document.getElementById(`scrollableDiv${index}`);
+  if (scrollableDiv) {
+    // 마지막 카드에 도달하면 슬라이드로 넘어가도록 설정
+    if (scrollableDiv.scrollLeft + scrollableDiv.offsetWidth >= scrollableDiv.scrollWidth) {
+      recomm.value = index + 1; // 마지막 카드에 도달하면 슬라이드로 넘어감
+    }
+  }
+};
 
 // 최신 새소식
 const isNoticePlay= ref(true);
