@@ -1,0 +1,223 @@
+@use "variables" as *;
+@use "typography" as *;
+
+.main {
+  margin-top: 0;
+  background: $white;
+  .inner {
+    display: flex;
+    gap: 56px;
+    .user {
+      width: 254px;
+      flex: none;
+    }
+    .content {
+      width: 100%;
+      flex: 1;
+    }
+  }
+
+  .v-footer {
+    margin-top: 0;
+  }
+  .v-row {
+    margin: -7.5px;
+    [class*="v-col"] {
+      padding: 7.5px;
+    }
+  }
+
+  .notice-banner {
+    margin: 20px 0 80px;
+    background: $gray-200;
+    height: 52px;
+    padding: 16px 24px;
+    display: flex;
+    gap: 16px;
+    border-radius: 32px;
+    a {
+      @include line-clamp(1);
+      line-height: 20px;
+    }
+    @at-root .mobile {
+    .v-main.main {
+      .notice-banner {
+        padding: 12px 20px;
+        height: 44px;
+         gap: 10px;
+         a {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  }
+  .recomm-app {
+    .recomm-box {
+      display: flex;
+      height: 100%;
+      gap: 15px;
+    }
+    .v-card {
+      flex: 1;
+      &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: unset;
+        padding: 40px;
+        height: 100%;
+        text-align: center;
+        color: $white;
+      }
+      &-title {
+        padding: 0;
+        @extend .title-4-bd;
+        font-weight: 700 !important;
+        @include line-clamp(2);
+      }
+      &-subtitle {
+        @extend .text-3-md;
+        margin-bottom: 7px;
+      }
+      .v-btn {
+        margin-top: 10px;
+        pointer-events: none;
+      }
+    }
+    .hovering {
+      z-index: 1;
+      position: absolute;
+      height: 100%;
+      text-align: left;
+      background: $gray-200;
+      .v-card {
+        &-item {
+          padding: 40px 30px;
+          text-align: left;
+          color: $black;
+          &__content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &-text {
+          margin-top: auto;
+          flex: none;
+          padding: 0;
+          color: $gray-900;
+          @include line-clamp(5);
+        }
+      }
+    }
+
+    .v-img {
+      border-radius: 20px;
+      height: 100%;
+    }
+    .more {
+      margin-top: 30px;
+      text-align: right;
+    }
+    @at-root .mobile {
+      .recomm-app {
+        // .v-carousel {
+        //   @extend .mscroll-area;
+        //   width: max-content;
+        // }
+        .v-card-item {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  .community {
+    .v-card {
+      &-text {
+        display: flex;
+        flex-direction: column;
+        padding: 36px 30px;
+        height: 100%;
+      }
+      .title-4 {
+        word-wrap: break-word;
+        word-break: keep-all;
+      }
+      .text-2 {
+        margin-top: 16px;
+        color: $gray-700;
+      }
+      .author {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 1rem;
+        line-height: 15px;
+        color: $gray-800;
+        .v-divider {
+          align-self: auto;
+          opacity: 0.8;
+          margin: 0;
+          height: 15px;
+        }
+        .v-icon {
+          margin-left: auto;
+          width: 30px;
+          height: 30px;
+          background: $white;
+          border-radius: 100%;
+        }
+        &.bg {
+          gap: 9px;
+          margin: 24px -30px -36px;
+          padding: 0 30px;
+          height: 98px;
+          background: rgba(0, 0, 0, 0.1);
+          font-size: 1.25rem;
+          line-height: 18px;
+          .v-divider {
+            height: 18px;
+          }
+        }
+      }
+      &.white {
+        .author {
+          background: rgba(255, 255, 255, 0.1);
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .quick-links {
+    margin-bottom: 120px;
+    .v-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 40px;
+      height: 136px;
+
+      &-item {
+        padding: 0;
+      }
+      &-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 2rem;
+      }
+      &-subtitle {
+        padding: 0;
+        margin-top: 10px;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.125rem;
+      }
+    }
+  }
+
+  
+}
