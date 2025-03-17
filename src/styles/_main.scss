@@ -135,8 +135,11 @@
     @at-root .mobile, .tablet {
       .recomm-app {
         padding-bottom: 0;
-        .v-slide-group__content {
-          gap: 6px;
+        .v-slide-group {
+          margin-right: -20px;
+          &__content {
+            gap: 6px;
+          }
         }
         .link-btn-arrow {
           top: 6px;
