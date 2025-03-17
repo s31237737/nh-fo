@@ -41,17 +41,18 @@
         <section class="recomm-app">
           <div class="tit-wrap align-center">
             <strong class="title-1">이런 앱은 어떠세요?</strong>
-            <v-slide-group>
+            <v-slide-group v-model="recomm">
               <v-slide-group-item
                 v-for="(item, i) in recommBtn"
                 :key="i"
+                v-slot="{ isSelected }"
               >
                 <v-btn
                   size="large"
                   :ripple="false"
                   height="44"
                   rounded="pill"
-                  :color="recomm === i ? 'primary' : 'info'"
+                  :color="isSelected ? 'primary' : 'info'"
                   @click="recomm = i"
                 >
                   {{ item.btn }}
