@@ -42,46 +42,14 @@
               </v-card>
             </v-carousel-item>
           </v-carousel>
-
-          <div
+          <SliderControls
             v-if="appBanner.length >= 2"
-            class="slider-controls"
-          >
-            <v-btn
-              density="compact"
-              class="prev arrow-btn"
-              icon="custom:slide-prev"
-              @click="prevSlide"
-            />
-
-            <div class="dots">
-              <v-btn
-                v-for="(_, i) in appBanner"
-                :key="i"
-                icon="custom:slide-dot"
-                dednsity="compact"
-                class="dot"
-                :class="{ active: currentSlide === i }"
-                @click="currentSlide = i"
-              />
-            </div>
-            <v-btn
-              density="compact"
-              class="togglePlay"
-              icon
-              :ripple="false"
-              @click="toggleAutoplay"
-            >
-              <v-icon>{{ autoplay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
-            </v-btn>
-
-            <v-btn
-              density="compact"
-              class="next arrow-btn"
-              icon="custom:slide-next"
-              @click="nextSlide"
-            />
-          </div>
+            :current-slide="currentSlide"
+            :autoplay="autoplay"
+            :carousel="appBanner"
+            @update:current-slide="currentSlide = $event"
+            @update:autoplay="autoplay = $event"
+          />
         </div>
         <!-- // 콘텐츠 배너 -->
         <!-- 최신 새소식 -->
@@ -491,26 +459,9 @@ const appBanner = ref([
     link:"/",
   },
 ]);
-const router = useRouter();
-const handleClick = (slide) => {
-  if (!slide.url) {
-    return; // URL이 없으면 아무 동작 X
-  } else {
-    router.push(slide.url);
-  }
-};
+
 const currentSlide = ref(0);
 const autoplay = ref(true);
-const prevSlide = () => {
-  currentSlide.value = (currentSlide.value - 1 + appBanner.value.length) % appBanner.value.length;
-};
-const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % appBanner.value.length;
-};
-const toggleAutoplay = () => {
-  autoplay.value = !autoplay.value;
-};
-
 
 // 최신 새소식
 const isNoticePlay= ref(true);

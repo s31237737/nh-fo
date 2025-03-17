@@ -5,7 +5,7 @@
       v-model="currentSlide"
       :continuous="autoplay"
       :cycle="autoplay"
-      :show-arrows="false" 
+      :show-arrows="false"
       hide-delimiters
     >
       <v-carousel-item
@@ -82,43 +82,13 @@
         </template>
       </v-carousel-item>
     </v-carousel>
-
-    <div class="slider-controls">
-      <v-btn
-        density="compact"
-        class="prev arrow-btn"
-        icon="custom:slide-prev"
-        @click="prevSlide"
-      />
-      
-      <div class="dots">
-        <v-btn
-          v-for="(_, i) in sliders"
-          :key="i"
-          icon="custom:slide-dot"
-          dednsity="compact"
-          class="dot"
-          :class="{ active: currentSlide === i }"
-          @click="currentSlide = i"
-        />
-      </div>
-      <v-btn
-        density="compact"
-        class="togglePlay"
-        icon
-        :ripple="false"
-        @click="toggleAutoplay"
-      >
-        <v-icon>{{ autoplay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
-      </v-btn>
-
-      <v-btn
-        density="compact"
-        class="next arrow-btn"
-        icon="custom:slide-next"
-        @click="nextSlide"
-      />
-    </div>
+    <SliderControls
+      :current-slide="currentSlide"
+      :autoplay="autoplay"
+      :carousel="sliders"
+      @update:current-slide="currentSlide = $event"
+      @update:autoplay="autoplay = $event"
+    />
   </div>
   <!--// banner slider -->
 
@@ -154,7 +124,7 @@
           class="sort-btns"
           density="compact"
         >
-          <v-btn 
+          <v-btn
             :ripple="false"
           >
             업데이트순
@@ -518,7 +488,7 @@ const getImageUrl = (imageName) => {
 
 //keyvisual
 const sliders = ref([
-  { 
+  {
     type: "recommand",
     url: "AppsDetail",
     apptype: "안성맞춤 앱 추천",
@@ -547,23 +517,14 @@ const sliders = ref([
   },
 ]);
 const handleClick = (slide) => {
-  if (!slide.url) { 
+  if (!slide.url) {
     return; // URL이 없으면 아무 동작 X
   } else {
     router.push(slide.url);
-  } 
+  }
 };
 const currentSlide = ref(0);
 const autoplay = ref(true);
-const prevSlide = () => {
-  currentSlide.value = (currentSlide.value - 1 + sliders.value.length) % sliders.value.length;
-};
-const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % sliders.value.length;
-};
-const toggleAutoplay = () => {
-  autoplay.value = !autoplay.value;
-};
 
 //앱 전체 목록
 const cardData = ref([

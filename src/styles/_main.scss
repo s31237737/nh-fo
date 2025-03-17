@@ -2,7 +2,7 @@
 @use "typography" as *;
 
 .main {
-  margin-top: 0;
+  margin-top: 0 !important; 
   background: $white;
   .inner {
     display: flex;
