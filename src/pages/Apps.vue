@@ -29,7 +29,7 @@
             <div class="context-img">
               <v-img
                 :src="getImageUrl(slide.image)"
-                :alt="slide.title"
+                :alt="slide.alt"
               />
             </div>
           </div>
@@ -38,7 +38,10 @@
         <template v-else-if="slide.type === 'img-type1'">
           <!-- 타입2-1: 배경이미지 + 타이틀 + 텍스트 -->
           <div class="visual-bg">
-            <img :src="getImageUrl(slide.background)">
+            <img
+              :src="getImageUrl(slide.background)"
+              alt="배경이미지"
+            >
           </div>
           <div class="visual-content">
             <div class="context">
@@ -59,6 +62,7 @@
           >
             <img
               :src="getImageUrl(slide.background)"
+              alt="배경이미지"
             >
           </div>
           <div
@@ -247,10 +251,13 @@
     </section>
 
     <!-- 컨텐츠 배너 -->
-    <section class="banner-wrap">
+    <section
+      class="banner-wrap"
+    >
       <v-img
-        class="banner"
         :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
+        class="banner"
+        role="banner"
       >
         <div class="banner-text">
           <p v-html="banner.description" />
@@ -571,6 +578,7 @@ const cardData = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
+    alt: "앱 이미지"
   },
   {
     link: "AppsDetail",

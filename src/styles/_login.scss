@@ -1,5 +1,60 @@
 @use "variables" as *;
 @use "typography" as *;
 
-.login {
+.login.v-main {
+  flex-wrap: wrap;
+  flex-direction: inherit;
+  width: 100%;
+  margin-top: 0;
+  background: $gray-200;
+  display:grid;
+  grid-template-columns: 1fr 740px;
+  .loginBg {
+    padding: 0 54px;
+    .logo {
+      display:inline-block; 
+      margin-top: 40px;
+    }
+    .bg {
+      width: 100%; 
+      max-width: 654px; 
+      height: auto; 
+      top: calc(50% - 88px);
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+  .loginForm {
+    padding: 0 20px;
+    background: $white;
+    box-shadow: 0px 4px 60px 0px #DCE2F7;
+  }
+  @at-root .tablet {
+    .login.v-main {
+      grid-template-columns: 1fr 50%;
+      
+    }
+  }
+  @at-root .mobile {
+    .login.v-main {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      .loginBg {
+        padding: 0 20px 36px;
+        background: $gray-200;
+        .logo {}
+        .bg {
+          top: 32px;
+          left:50%;
+          transform: translate(-50%, 0);
+          max-width: 324px; 
+          height: auto;
+        }
+      }
+      .loginForm {
+        background: $gray-200;
+        box-shadow: none;
+      }
+    }
+  }
 }

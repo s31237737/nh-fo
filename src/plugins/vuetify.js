@@ -44,6 +44,7 @@ const nhFo = {
     'on-warning':'#FEFEFE',
     'on-info':'#1E1E1E',
     'on-sky':'#FEFEFE',
+    yellow: '#FFDF42',
   },
   variables: {
     'border-color': '#000000',
