@@ -24,7 +24,7 @@
 }
 
 .v-main {
-  margin-top: var(--base-margin);
+  margin-top: $base-margin;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

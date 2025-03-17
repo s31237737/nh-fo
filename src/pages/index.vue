@@ -35,7 +35,6 @@
                     <v-img
                       max-width="100"
                       height="100"
-
                       :src="getImageUrl(item.image)"
                     />
                   </template>
@@ -44,7 +43,10 @@
             </v-carousel-item>
           </v-carousel>
 
-          <div class="slider-controls">
+          <div
+            v-if="appBanner.length >= 2"
+            class="slider-controls"
+          >
             <v-btn
               density="compact"
               class="prev arrow-btn"

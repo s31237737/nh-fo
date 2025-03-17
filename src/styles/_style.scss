@@ -292,8 +292,8 @@ section > .tit-wrap:first-child {
 .slider {
   overflow: hidden;
   position: relative;
-  margin-top: calc(-1 * var(--base-margin));
-  margin-bottom: var(--base-margin);
+  margin-top: calc(-1 * $base-margin);
+  margin-bottom: $base-margin;
 
   .v-carousel {
     background: $white;

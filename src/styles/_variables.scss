@@ -1,7 +1,8 @@
-:root {
-  --base-margin: 80px;
-}
 
+$base-margin: 80px;
+.mobile, .tablet {
+  $base-margin: 40px;
+}
 // gray colors
 $white: #fefefe;
 $gray-100: #fbfbfb;
@@ -76,12 +77,7 @@ $green-900: #006f20;
 $green-1000: #004714;
 
 
-//mobile 
-@media only screen and (max-height: 767px) {
-  :root {
-    --base-margin: 40px;
-  }
-}
+
 
 //모바일 스크롤
 .mscroll-area {
