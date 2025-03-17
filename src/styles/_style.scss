@@ -255,11 +255,15 @@
     gap: 12px;
   }
 
-  @at-root .mobile, .tablet {
+  @at-root .mobile,
+    .tablet {
     .tit-wrap {
+      margin: 16px 0 20px;
       flex-wrap: wrap;
       gap: 20px;
-
+      strong {
+        width: 100%;
+      }
       .btns {
         gap: 6px;
         @extend .mscroll-area;

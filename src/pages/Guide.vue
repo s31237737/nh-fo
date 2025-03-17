@@ -966,7 +966,7 @@
             to="/"
             class="link-btn"
           >
-            Text
+            <span>Text</span>
           </router-link>
         </v-col>
         <v-col cols="auto">
@@ -974,9 +974,7 @@
             to="/"
             class="link-btn-arrow"
           >
-            <span
-              class="text-primary"
-            > 더보러가기</span>
+            <span> 더보러가기</span>
             <v-icon
               icon="custom:arrow-right"
               color="primary"
