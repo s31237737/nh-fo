@@ -33,7 +33,27 @@
       height: 100%;
       color: $white;
       &-item {
-
+        padding: 0 50px;
+        height: 100%;
+        &__append {
+          width: 360px;
+        }
+      }
+      &-title {
+        padding: 0;
+        margin: 10px 0;
+        @extend .title-2-bd;
+      }
+      &-subtitle {
+        @extend .title-5-bd;
+        padding: 0;
+        color: $blue-500;
+      }
+      &-text {
+        padding: 0;
+        @extend .text-1;
+        @include line-clamp(2);
+        font-weight: 400 !important;
       }
     }
   }

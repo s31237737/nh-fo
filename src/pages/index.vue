@@ -473,11 +473,17 @@ const getImageUrl = (imageName) => {
 
 //콘텐츠 배너
 const appBanner = ref([
-   {
+  {
+    category: "앱타입 노출",
+    title: "일이삼사오육칠팔구십일이삼사오",
+    description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
     image: "@temp_main_app card_01.jpg",
-    category: "금융",
-    title: "NH QR",
-    description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스."
+  },
+  {
+    category: "앱타입 노출",
+    title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
+    description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
+    image: "@temp_main_app card_01.jpg",
   },
 ]);
 const router = useRouter();
