@@ -134,12 +134,12 @@
     @at-root .mobile, .tablet {
       .recomm-app {
         padding-bottom: 0;
+        .v-slide-group__content {
+          gap: 6px;
+        }
         .link-btn-arrow {
           top: 6px;
           bottom: auto;
-        }
-        .recomm-scroll {
-          display: flex
         }
         .recomm-box {
           @extend .mscroll-area;
