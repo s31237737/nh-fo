@@ -54,6 +54,7 @@
     }
   }
   .recomm-app {
+    .v-slide-group__content {gap: 12px;}
     .recomm-box {
       display: flex;
       height: 100%;
@@ -111,6 +112,7 @@
           padding: 0;
           color: $gray-900;
           @include line-clamp(5);
+          @extend .text-2;
         }
       }
     }
@@ -123,19 +125,13 @@
       margin-top: 30px;
       text-align: right;
     }
-    @at-root .mobile {
+    @at-root .mobile, .tablet {
       .recomm-app {
-        // .v-carousel {
-        //   @extend .mscroll-area;
-        //   width: max-content;
-        // }
-        
-      }
-    }
-    @at-root .tablet {
-      .recomm-app {
+        .v-slide-group {
+          margin-right: -20px;
+          &__content {gap: 6px; @extend .mscroll-area;}
+        }
         .v-carousel {
-          @extend .mscroll-area;
           width: max-content;
         }
         
@@ -233,6 +229,6 @@
 
 #app .tablet {
   .inner {
-    max-width: 930px;
+    max-width: 970px;
   }
 }

@@ -41,20 +41,23 @@
         <section class="recomm-app">
           <div class="tit-wrap align-center">
             <strong class="title-1">이런 앱은 어떠세요?</strong>
-            <div class="btns">
-              <v-btn
+            <v-slide-group>
+              <v-slide-group-item
                 v-for="(item, i) in recommBtn"
                 :key="i"
-                size="large"
-                :ripple="false"
-                height="44"
-                rounded="pill"
-                :color="recomm === i ? 'primary' : 'info'"
-                @click="recomm = i"
               >
-                {{ item.btn }}
-              </v-btn>
-            </div>
+                <v-btn
+                  size="large"
+                  :ripple="false"
+                  height="44"
+                  rounded="pill"
+                  :color="recomm === i ? 'primary' : 'info'"
+                  @click="recomm = i"
+                >
+                  {{ item.btn }}
+                </v-btn>
+              </v-slide-group-item>
+            </v-slide-group>
           </div>
 
           <v-carousel
@@ -392,7 +395,7 @@ const recommApps = ref([
     image: "@temp_main_app card_01.jpg",
     category: "금융",
     title: "NH QR",
-    description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스. 도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스. 도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스."
+    description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스."
   },
   {
     image: "@temp_main_app card_02.jpg",
@@ -404,7 +407,7 @@ const recommApps = ref([
     image: "@temp_main_app card_03.jpg",
     category: "관리",
     title: "관리자 및 책임자<br>현황 관리",
-    description: "농촌 및 도시 지역의 관리자 및 책임자들의 현황을 한눈에 볼 수 있는 관리 서비스."
+    description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회..."
   },
   {
     image: "@temp_main_app card_04.jpg",
