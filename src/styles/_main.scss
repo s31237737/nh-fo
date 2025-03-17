@@ -39,6 +39,19 @@
       @include line-clamp(1);
       line-height: 20px;
     }
+    @at-root .mobile {
+    .v-main.main {
+      .notice-banner {
+        padding: 12px 20px;
+        height: 44px;
+         gap: 10px;
+         a {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
   }
   .recomm-app {
     .recomm-box {
@@ -206,11 +219,5 @@
     }
   }
 
-  @at-root .mobile {
-    .v-main.main {
-      .notice-banner {
-        height: 44px;
-      }
-    }
-  }
+  
 }
