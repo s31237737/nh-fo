@@ -56,7 +56,6 @@ const props = defineProps({
   },
 });
 
-
 const emit = defineEmits(['update:currentSlide', 'update:autoplay']);
 
 const updateCurrentSlide = (index) => {
@@ -64,11 +63,11 @@ const updateCurrentSlide = (index) => {
 };
 
 const prevSlide = () => {
-  emit("update:currentSlide", (props.currentSlide - 1 + props.appBanner.length) % props.appBanner.length);
+  emit("update:currentSlide", (props.currentSlide - 1 + props.carousel.length) % props.carousel.length);
 };
 
 const nextSlide = () => {
-  emit("update:currentSlide", (props.currentSlide + 1) % props.appBanner.length);
+  emit("update:currentSlide", (props.currentSlide + 1) % props.carousel.length);
 };
 
 const toggleAutoplay = () => {

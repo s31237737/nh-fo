@@ -13,11 +13,12 @@
         <div class="slider recomm-app-banner">
           <v-carousel
             v-model="currentSlide"
-            :continuous="autoplay"
-            :cycle="autoplay"
+            :cycle="isAppPlay"
             :show-arrows="false"
             hide-delimiters
             height="258"
+            @mouseenter="isAppPlay = false"
+            @mouseleave="isAppPlay = true"
           >
             <v-carousel-item
               v-for="(item, index) in appBanner"
@@ -460,6 +461,7 @@ const appBanner = ref([
   },
 ]);
 
+const isAppPlay = ref(true);
 const currentSlide = ref(0);
 const autoplay = ref(true);
 
