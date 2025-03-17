@@ -128,38 +128,37 @@
               </div>
             </v-carousel-item>
           </v-carousel>
-          <template v-else>
+          <template
+            v-for="(group, index) in 4"
+            v-else
+            :key="index"
+          >
             <div
-              v-for="(group, index) in 4"
-              :key="index"
+              v-show="recomm === index"
+              class="recomm-box"
             >
-              <div
-                v-show="recomm === index"
-                class="recomm-box"
+              <v-card
+                v-for="(item, idx) in recommApps.slice(index * 3, (index + 1) * 3)"
+                :key="idx"
+                :ripple="false"
+                to="/"
               >
-                <v-card
-                  v-for="(item, idx) in recommApps.slice(index * 3, (index + 1) * 3)"
-                  :key="idx"
-                  :ripple="false"
-                  to="/"
+                <v-img
+                  :src="getImageUrl(item.image)"
+                  cover
                 >
-                  <v-img
-                    :src="getImageUrl(item.image)"
-                    cover
-                  >
-                    <v-card-item>
-                      <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                      <v-card-title v-html="item.title" />
-                      <v-btn
-                        color="primary"
-                        size="small"
-                      >
-                        앱 열기
-                      </v-btn>
-                    </v-card-item>
-                  </v-img>
-                </v-card>
-              </div>
+                  <v-card-item>
+                    <v-card-subtitle>{{ item.category }}</v-card-subtitle>
+                    <v-card-title v-html="item.title" />
+                    <v-btn
+                      color="primary"
+                      size="small"
+                    >
+                      앱 열기
+                    </v-btn>
+                  </v-card-item>
+                </v-img>
+              </v-card>
             </div>
           </template>
         </section>
