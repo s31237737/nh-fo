@@ -25,7 +25,7 @@
             >
               <v-card
                 :ripple="false"
-                to="/"
+                :to="item.link"
               >
                 <v-card-item>
                   <v-card-subtitle>{{ item.category }}</v-card-subtitle>
@@ -33,8 +33,9 @@
                   <v-card-text>{{ item.description }}</v-card-text>
                   <template #append>
                     <v-img
-                      width="100"
+                      max-width="100"
                       height="100"
+
                       :src="getImageUrl(item.image)"
                     />
                   </template>
@@ -477,13 +478,15 @@ const appBanner = ref([
     category: "앱타입 노출",
     title: "일이삼사오육칠팔구십일이삼사오",
     description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
-    image: "@temp_main_app card_01.jpg",
+    image: "@temp_img_app_icon.png",
+    link:"Login",
   },
   {
     category: "앱타입 노출",
     title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
     description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
-    image: "@temp_main_app card_01.jpg",
+    image: "@temp_img_app_icon.png",
+    link:"/",
   },
 ]);
 const router = useRouter();

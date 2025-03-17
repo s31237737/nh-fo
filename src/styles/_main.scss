@@ -36,7 +36,9 @@
         padding: 0 50px;
         height: 100%;
         &__append {
-          width: 360px;
+          justify-content: center;
+          padding: 0;
+          width: 348px;
         }
       }
       &-title {
