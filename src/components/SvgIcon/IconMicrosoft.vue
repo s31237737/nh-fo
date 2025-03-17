@@ -1,25 +1,25 @@
 <template>
   <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M9.5625 9.0625H4.875V4.375H9.5625V9.0625Z"
+      d="M14.5 14.5H7V7H14.5V14.5Z"
       fill="#F1511B"
     />
     <path
-      d="M16.125 9.0625H11.4375V4.375H16.125V9.0625Z"
+      d="M25 14.5H17.5V7H25V14.5Z"
       fill="#80CC28"
     />
     <path
-      d="M9.5625 15.625H4.875V10.9375H9.5625V15.625Z"
+      d="M14.5 25H7V17.5H14.5V25Z"
       fill="#00ADEF"
     />
     <path
-      d="M16.125 15.625H11.4375V10.9375H16.125V15.625Z"
+      d="M25 25H17.5V17.5H25V25Z"
       fill="#FBBC09"
     />
   </svg>
