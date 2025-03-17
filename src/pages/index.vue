@@ -10,6 +10,77 @@
 
       <div class="content">
         <!-- 콘텐츠 배너 -->
+        <div class="slider recomm-app-banner">
+          <v-carousel
+            v-model="currentSlide"
+            :continuous="autoplay"
+            :cycle="autoplay"
+            :show-arrows="false"
+            hide-delimiters
+            height="258"
+          >
+            <v-carousel-item
+              v-for="(item, index) in appBanner"
+              :key="index"
+            >
+              <v-card
+                :ripple="false"
+                :to="item.link"
+              >
+                <v-card-item>
+                  <v-card-subtitle>{{ item.category }}</v-card-subtitle>
+                  <v-card-title>{{ item.title }}</v-card-title>
+                  <v-card-text>{{ item.description }}</v-card-text>
+                  <template #append>
+                    <v-img
+                      max-width="100"
+                      height="100"
+
+                      :src="getImageUrl(item.image)"
+                    />
+                  </template>
+                </v-card-item>
+              </v-card>
+            </v-carousel-item>
+          </v-carousel>
+
+          <div class="slider-controls">
+            <v-btn
+              density="compact"
+              class="prev arrow-btn"
+              icon="custom:slide-prev"
+              @click="prevSlide"
+            />
+
+            <div class="dots">
+              <v-btn
+                v-for="(_, i) in appBanner"
+                :key="i"
+                icon="custom:slide-dot"
+                dednsity="compact"
+                class="dot"
+                :class="{ active: currentSlide === i }"
+                @click="currentSlide = i"
+              />
+            </div>
+            <v-btn
+              density="compact"
+              class="togglePlay"
+              icon
+              :ripple="false"
+              @click="toggleAutoplay"
+            >
+              <v-icon>{{ autoplay ? "custom:auto-pause" : "custom:auto-play" }}</v-icon>
+            </v-btn>
+
+            <v-btn
+              density="compact"
+              class="next arrow-btn"
+              icon="custom:slide-next"
+              @click="nextSlide"
+            />
+          </div>
+        </div>
         <!-- // 콘텐츠 배너 -->
         <!-- 최신 새소식 -->
         <div class="notice-banner">
@@ -79,7 +150,7 @@
             hide-delimiters
             :show-arrows="false"
             height="440"
-            :cycle="isRecommPlay"
+
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >
@@ -392,11 +463,51 @@
 
 <script setup>
 import { inject, ref } from "vue";
-
+import { useRouter } from "vue-router";
 const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+
+//콘텐츠 배너
+const appBanner = ref([
+  {
+    category: "앱타입 노출",
+    title: "일이삼사오육칠팔구십일이삼사오",
+    description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
+    image: "@temp_img_app_icon.png",
+    link:"Login",
+  },
+  {
+    category: "앱타입 노출",
+    title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
+    description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
+    image: "@temp_img_app_icon.png",
+    link:"/",
+  },
+]);
+const router = useRouter();
+const handleClick = (slide) => {
+  if (!slide.url) {
+    return; // URL이 없으면 아무 동작 X
+  } else {
+    router.push(slide.url);
+  }
+};
+const currentSlide = ref(0);
+const autoplay = ref(true);
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + appBanner.value.length) % appBanner.value.length;
+};
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % appBanner.value.length;
+};
+const toggleAutoplay = () => {
+  autoplay.value = !autoplay.value;
+};
 
 
 // 최신 새소식
@@ -426,9 +537,6 @@ const recommBtn = ref([
 ]);
 
 
-const getImageUrl = (imageName) => {
-  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
-};
 const recommApps = ref([
   {
     image: "@temp_main_app card_01.jpg",

@@ -294,10 +294,8 @@ section > .tit-wrap:first-child {
   position: relative;
   margin-top: calc(-1 * var(--base-margin));
   margin-bottom: var(--base-margin);
-  $slider-h: 300px;
-  height: $slider-h;
+
   .v-carousel {
-    height: 100% !important;
     background: $white;
     .v-carousel-item {
       position: relative;
