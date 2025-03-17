@@ -59,17 +59,11 @@
   }
   
   @at-root .tablet {
-    .login.v-main {
-      grid-template-columns: 1fr 50%;
-      .divider {
-        margin-block: 18.52vh 24px;
-      }
-      .v-btn.bg-yellow {
-        width: 100%;
-      }
+    .v-btn.bg-yellow {
+      width: 480px !important;
     }
   }
-  @at-root .mobile {
+  @at-root .mobile, .tablet {
     .login.v-main {
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr;
