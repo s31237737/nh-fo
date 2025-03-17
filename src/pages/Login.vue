@@ -27,7 +27,6 @@
         <v-btn
           size="x-large"
           color="yellow"
-          block
         >
           카카오 간편 로그인
         </v-btn>
