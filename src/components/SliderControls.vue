@@ -9,7 +9,7 @@
 
     <div class="dots">
       <v-btn
-        v-for="(_, i) in carousel"
+        v-for="(_, i) in slide"
         :key="i"
         icon="custom:slide-dot"
         density="compact"
@@ -48,7 +48,7 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-  carousel: {
+  slide: {
     type: Array,
     required: true,
   },
@@ -61,11 +61,11 @@ const updateCurrentSlide = (index) => {
 };
 
 const prevSlide = () => {
-  emit("update:currentSlide", (props.currentSlide - 1 + props.carousel.length) % props.carousel.length);
+  emit("update:currentSlide", (props.currentSlide - 1 + props.slide.length) % props.slide.length);
 };
 
 const nextSlide = () => {
-  emit("update:currentSlide", (props.currentSlide + 1) % props.carousel.length);
+  emit("update:currentSlide", (props.currentSlide + 1) % props.slide.length);
 };
 
 const toggleAutoplay = () => {

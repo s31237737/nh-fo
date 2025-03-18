@@ -85,7 +85,7 @@
     <SliderControls
       :current-slide="currentSlide"
       :autoplay="autoplay"
-      :carousel="sliders"
+      :slide="sliders"
       @update:current-slide="currentSlide = $event"
       @update:autoplay="autoplay = $event"
     />

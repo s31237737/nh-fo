@@ -47,7 +47,7 @@
             v-if="appBanner.length >= 2"
             :current-slide="currentSlide"
             :autoplay="autoplay"
-            :carousel="appBanner"
+            :slide="appBanner"
             @update:current-slide="currentSlide = $event"
             @update:autoplay="autoplay = $event"
           />
