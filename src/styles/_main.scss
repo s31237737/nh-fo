@@ -26,256 +26,257 @@
       padding: 7.5px;
     }
   }
-  .recomm-app-banner {
-    margin-top: 0;
-    .v-card {
-      background: #191919 url('@/assets/images/img_main_appbn.jpg') no-repeat right center/ auto 100%;
+}
+
+.recomm-app-banner {
+  margin-top: 0;
+  .v-card {
+    background: #191919 url('@/assets/images/img_main_appbn.jpg') no-repeat right center/ auto 100%;
+    height: 100%;
+    color: $white;
+    &-item {
+      padding: 0 50px;
       height: 100%;
-      color: $white;
-      &-item {
-        padding: 0 50px;
-        height: 100%;
-        &__append {
-          justify-content: center;
-          padding: 0;
-          width: 348px;
-        }
-      }
-      &-title {
+      &__append {
+        justify-content: center;
         padding: 0;
-        margin: 10px 0;
-        @extend .title-2-bd;
-      }
-      &-subtitle {
-        @extend .title-5-bd;
-        padding: 0;
-        color: $blue-500;
-      }
-      &-text {
-        padding: 0;
-        @extend .text-1;
-        @include line-clamp(2);
-        font-weight: 400 !important;
+        width: 348px;
       }
     }
-    .slider-controls {
-      bottom: 20px;
-      left: auto;
-      right: 20px;
-      transform: none;
+    &-title {
+      padding: 0;
+      margin: 10px 0;
+      @extend .title-2-bd;
+    }
+    &-subtitle {
+      @extend .title-5-bd;
+      padding: 0;
+      color: $blue-500;
+    }
+    &-text {
+      padding: 0;
+      @extend .text-1;
+      @include line-clamp(2);
+      font-weight: 400 !important;
     }
   }
+  .slider-controls {
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+    transform: none;
+  }
+}
 
-  .notice-banner {
-    margin: 20px 0 80px;
-    background: $gray-200;
-    height: 52px;
-    padding: 16px 24px;
+.notice-banner {
+  margin: 20px 0 80px;
+  background: $gray-200;
+  height: 52px;
+  padding: 16px 24px;
+  display: flex;
+  gap: 16px;
+  border-radius: 32px;
+  a {
+    @include line-clamp(1);
+    line-height: 20px;
+  }
+  @at-root .mobile, .tablet {
+    .notice-banner {
+      padding: 12px 20px;
+      height: 44px;
+      gap: 10px;
+      a {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.recomm-app {
+  position: relative;
+  padding-bottom: 54px;
+  .v-slide-group__content {
+    gap: 12px;
+  }
+ 
+  .recomm-box {
     display: flex;
-    gap: 16px;
-    border-radius: 32px;
-    a {
-      @include line-clamp(1);
-      line-height: 20px;
-    }
-    @at-root .mobile,
-      .tablet {
-      .v-main.main {
-        .notice-banner {
-          padding: 12px 20px;
-          height: 44px;
-          gap: 10px;
-          a {
-            font-size: 14px;
-            line-height: 20px;
-          }
-        }
-      }
-    }
+    gap: 15px;
+    height: 100%;
   }
-
-  .recomm-app {
-    position: relative;
-    padding-bottom: 54px;
-    .v-slide-group__content {
-      gap: 12px;
-    }
-   
-    .recomm-box {
-      display: flex;
-      gap: 15px;
-      height: 100%;
-    }
-    .v-card {
-      flex: 1;
-      width: 300px;
-      min-width: 300px;
-      &-item {
-        display: flex;
-        flex-direction: column;
-        align-items: unset;
-        padding: 40px;
-        height: 100%;
-        text-align: center;
-        color: $white;
-      }
-      &-title {
-        padding: 0;
-        @extend .title-4-bd;
-        font-weight: 700 !important;
-        @include line-clamp(2);
-      }
-      &-subtitle {
-        @extend .text-3-md;
-        margin-bottom: 7px;
-      }
-      .v-btn {
-        margin-top: 10px;
-        pointer-events: none;
-      }
-      .v-img {
-        border-radius: 20px;
-        height: 100%;
-      }
-    }
-    .hovering {
-      z-index: 1;
-      position: absolute;
-      height: 100%;
-      text-align: left;
-      background: $gray-200;
-      .v-card {
-        &-item {
-          padding: 40px 30px;
-          text-align: left;
-          color: $black;
-          &__content {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-          }
-        }
-        &-text {
-          margin-top: auto;
-          flex: none;
-          padding: 0;
-          color: $gray-900;
-          @include line-clamp(5);
-          @extend .text-2;
-        }
-      }
-    }
-
-    .link-btn-arrow {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-    @at-root .mobile, .tablet {
-      .recomm-app {
-        padding-bottom: 0;
-        .v-slide-group {
-          margin-right: -20px;
-          &__content {
-            padding-right: 20px;
-            gap: 6px;
-          }
-        }
-        .link-btn-arrow {
-          top: 6px;
-          bottom: auto;
-        }
-        .recomm-box {
-          @extend .mscroll-area;
-          padding-right: 0;
-        }
-      }
-    }
-  }
-
-  .community {
-    .v-card {
-      &-text {
-        display: flex;
-        flex-direction: column;
-        padding: 36px 30px;
-        height: 100%;
-      }
-      .title-4 {
-        word-wrap: break-word;
-        word-break: keep-all;
-      }
-      .text-2 {
-        margin-top: 16px;
-        color: $gray-700;
-      }
-      .author {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        font-size: 1rem;
-        line-height: 15px;
-        color: $gray-800;
-        .v-divider {
-          align-self: auto;
-          opacity: 0.8;
-          margin: 0;
-          height: 15px;
-        }
-        .v-icon {
-          margin-left: auto;
-          width: 30px;
-          height: 30px;
-          background: $white;
-          border-radius: 100%;
-        }
-        &.bg {
-          gap: 9px;
-          margin: 24px -30px -36px;
-          padding: 0 30px;
-          height: 98px;
-          background: rgba(0, 0, 0, 0.1);
-          font-size: 1.25rem;
-          line-height: 18px;
-          .v-divider {
-            height: 18px;
-          }
-        }
-      }
-      &.white {
-        .author {
-          background: rgba(255, 255, 255, 0.1);
-          color: $white;
-        }
-      }
-    }
-  }
-
-  .quick-links {
-    margin-bottom: 120px;
-    .v-card {
+  .v-card {
+    flex: 1;
+    width: 300px;
+    min-width: 300px;
+    &-item {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 0 40px;
-      height: 136px;
-
+      align-items: unset;
+      padding: 40px;
+      height: 100%;
+      text-align: center;
+      color: $white;
+    }
+    &-title {
+      padding: 0;
+      @extend .title-4-bd;
+      font-weight: 700 !important;
+      @include line-clamp(2);
+    }
+    &-subtitle {
+      @extend .text-3-md;
+      margin-bottom: 7px;
+    }
+    .v-btn {
+      margin-top: 10px;
+      pointer-events: none;
+    }
+    .v-img {
+      border-radius: 20px;
+      height: 100%;
+    }
+  }
+  .hovering {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    text-align: left;
+    background: $gray-200;
+    .v-card {
       &-item {
+        padding: 40px 30px;
+        text-align: left;
+        color: $black;
+        &__content {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &-text {
+        margin-top: auto;
+        flex: none;
         padding: 0;
+        color: $gray-900;
+        @include line-clamp(5);
+        @extend .text-2;
       }
-      &-title {
-        font-size: 1.75rem;
-        font-weight: 700;
-        line-height: 2rem;
+    }
+  }
+
+  .link-btn-arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  @at-root .mobile, .tablet {
+    .recomm-app {
+      padding-bottom: 0;
+      .v-slide-group {
+        margin-right: -20px;
+        &__content {
+          padding-right: 20px;
+          gap: 6px;
+        }
       }
-      &-subtitle {
-        padding: 0;
-        margin-top: 10px;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.125rem;
+      .link-btn-arrow {
+        top: 6px;
+        bottom: auto;
       }
+      .recomm-box {
+        scroll-snap-type: x mandatory;
+        @extend .mscroll-area;
+        .v-card {
+          scroll-snap-align: start;
+        }
+      }
+    }
+  }
+}
+
+.community {
+  .v-card {
+    &-text {
+      display: flex;
+      flex-direction: column;
+      padding: 36px 30px;
+      height: 100%;
+    }
+    .title-4 {
+      word-wrap: break-word;
+      word-break: keep-all;
+    }
+    .text-2 {
+      margin-top: 16px;
+      color: $gray-700;
+    }
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 1rem;
+      line-height: 15px;
+      color: $gray-800;
+      .v-divider {
+        align-self: auto;
+        opacity: 0.8;
+        margin: 0;
+        height: 15px;
+      }
+      .v-icon {
+        margin-left: auto;
+        width: 30px;
+        height: 30px;
+        background: $white;
+        border-radius: 100%;
+      }
+      &.bg {
+        gap: 9px;
+        margin: 24px -30px -36px;
+        padding: 0 30px;
+        height: 98px;
+        background: rgba(0, 0, 0, 0.1);
+        font-size: 1.25rem;
+        line-height: 18px;
+        .v-divider {
+          height: 18px;
+        }
+      }
+    }
+    &.white {
+      .author {
+        background: rgba(255, 255, 255, 0.1);
+        color: $white;
+      }
+    }
+  }
+}
+
+.quick-links {
+  margin-bottom: 120px;
+  .v-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    height: 136px;
+
+    &-item {
+      padding: 0;
+    }
+    &-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 2rem;
+    }
+    &-subtitle {
+      padding: 0;
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.125rem;
     }
   }
 }
