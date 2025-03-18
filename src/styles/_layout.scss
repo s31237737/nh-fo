@@ -538,10 +538,13 @@
 .privacy-wrap {
   margin-top: 12px;
 }
-.index {
+.privacy-index {
   padding: 26px 30px;
   border-radius: 10px !important; 
-  strong {display:block; margin-bottom: 20px;}
+  strong {
+    display:block; 
+    margin-bottom: 20px;
+  }
   &-item {
     display:block;
     height: 20px;
@@ -552,7 +555,7 @@
       text-underline-offset: 2px;
       vertical-align: top;
     }
-    & + .index-item {
+    & + .privacy-index-item {
       margin-top: 8px;   
     }
   }
@@ -569,5 +572,21 @@
   &-context {
     padding: 40px; 
     @extend .text-4;
+  }
+  @at-root .v-layout:not(.desktop) {
+    .privacy-index {
+      padding: 20px;
+      strong {
+        margin-bottom: 16px;
+      }
+    }
+    .privacy {
+      &-title {
+        padding-bottom: 20px;
+      }
+      &-context {
+        padding: 20px; 
+      }
+    }
   }
 }

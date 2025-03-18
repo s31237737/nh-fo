@@ -5,13 +5,13 @@
     <p class="page-title">
       <strong>개인정보 처리 방침</strong>
     </p>
-    <v-sheet class="index">
+    <v-sheet class="privacy-index">
       <strong class="text-3-bd">Index</strong>
       <ul>
         <li
           v-for="(item, index) in list"
           :key="index"
-          class="index-item"
+          class="privacy-index-item"
         >
           <a
             href="javascript:void(0);"
