@@ -37,8 +37,13 @@
     }
     @at-root #app .mobile,
       #app .tablet {
-      .main .inner {
-        margin-top: 20px !important;
+      .main {
+        .inner {
+          margin-top: 20px !important;
+        }
+        .content {
+          padding-left: 0;
+        }
       }
     }
   }
