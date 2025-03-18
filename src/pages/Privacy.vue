@@ -2,9 +2,11 @@
   <v-container
     class="inner"
   >
-    <p class="page-title">
-      <strong>개인정보 처리 방침</strong>
-    </p>
+    <div class="tit-wrap">
+      <strong class="title-2">
+        개인정보 처리 방침
+      </strong>
+    </div>
     <v-sheet class="privacy-index">
       <strong class="text-3-bd">Index</strong>
       <ul>
