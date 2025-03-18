@@ -434,7 +434,7 @@
 
 <script setup>
 import { inject, ref } from "vue";
-import { useRouter } from "vue-router";
+
 const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
@@ -449,14 +449,28 @@ const appBanner = ref([
     category: "앱타입 노출",
     title: "일이삼사오육칠팔구십일이삼사오",
     description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
-    image: "@temp_img_app_icon.png",
+    image: "@temp_img_app_icon01.png",
     link:"Login",
   },
   {
     category: "앱타입 노출",
     title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
     description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
-    image: "@temp_img_app_icon.png",
+    image: "@temp_img_app_icon02.png",
+    link:"/",
+  },
+  {
+    category: "앱타입 노출",
+    title: "일이삼사오육칠팔구십일이삼사오",
+    description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
+    image: "@temp_img_app_icon01.png",
+    link:"Login",
+  },
+  {
+    category: "앱타입 노출",
+    title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
+    description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
+    image: "@temp_img_app_icon02.png",
     link:"/",
   },
 ]);
