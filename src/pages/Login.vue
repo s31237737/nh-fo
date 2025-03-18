@@ -22,39 +22,37 @@
     <div
       class="loginForm"
     > 
-      <div>
-        <strong class="title-4-bd">간편하게 로그인하고<br>편리한 앱들을 사용해보세요.</strong>
-        <v-btn
-          size="x-large"
-          color="yellow"
-        >
-          카카오 간편 로그인
-        </v-btn>
+      <strong class="title-4-bd">간편하게 로그인하고<br>편리한 앱들을 사용해보세요.</strong>
+      <v-btn
+        size="x-large"
+        color="yellow"
+      >
+        카카오 간편 로그인
+      </v-btn>
 
-        <div class="divider">
-          <p class="text-3-bd">
-            <span>
-              {{ isDesktop ? "다른 방법으로 시작하기" : "OR" }}
-            </span>
-          </p>
-        </div>
-        <v-btn
-          size="large"
-          color="info"
-        >
-          <v-icon
-            icon="custom:microsoft"
-            size="large"
-          />MS 간편로그인
-        </v-btn>
-        <p class="info-txt">
-          <v-icon
-            icon="custom:surpport"
-            size="x-small"
-          />
-          <span class="text-4">최초 비밀번호는 아이디와 동일한 개인번호입니다.</span>
+      <div class="divider">
+        <p class="text-3-bd">
+          <span>
+            {{ isDesktop ? "다른 방법으로 시작하기" : "OR" }}
+          </span>
         </p>
       </div>
+      <v-btn
+        size="large"
+        color="info"
+      >
+        <v-icon
+          icon="custom:microsoft"
+          size="large"
+        />MS 간편로그인
+      </v-btn>
+      <p class="info-txt">
+        <v-icon
+          icon="custom:surpport"
+          size="x-small"
+        />
+        <span class="text-4">최초 비밀번호는 아이디와 동일한 개인번호입니다.</span>
+      </p>
     </div>
   </v-main>
 </template>
