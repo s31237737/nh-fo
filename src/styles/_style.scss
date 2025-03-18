@@ -289,6 +289,15 @@ section + section {
 section > .tit-wrap:first-child {
   margin-top: 0;
 }
+.page-title {
+  @extend .title-4-bd;
+  margin-bottom: 30px;
+  @at-root .v-layout:not(.desktop) {
+    .page-title {
+      margin-bottom: 20px;
+    }
+  }
+}
 
 //slider
 .slider {
