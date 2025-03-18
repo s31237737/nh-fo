@@ -121,7 +121,7 @@
             v-if="isDesktop"
             v-model="recomm"
             height="440"
-            :cycle="isRecommPlay"
+            :cycle="false"
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >
@@ -133,8 +133,23 @@
                 <!-- 사용자의 직무선택이 없을 경우 -->
                 <v-empty-state
                   v-if="group.length === 0"
-                  text="알림이 없습니다."
-                />
+                  bg-color="coolgray"
+                  :icon="false"
+                >
+                  <template #title>
+                    <div class="title-4-bd">
+                      자신의 직무를 설정하시면,<br>맞춤형 앱을 추천드리고 있어요!
+                    </div>
+                  </template>
+                  <template #actions>
+                    <v-btn
+                      color="info"
+                      size="large"
+                    >
+                      직무 설정하기
+                    </v-btn>
+                  </template>
+                </v-empty-state>
                 <template v-else>
                   <v-hover
                     v-for="(item, idx) in group"
@@ -189,8 +204,24 @@
               <!-- 사용자의 직무선택이 없을 경우 -->
               <v-empty-state
                 v-if="group.length === 0"
-                text="알림이 없습니다."
-              />
+                bg-color="coolgray"
+                :icon="false"
+                height="440"
+              >
+                <template #title>
+                  <div class="title-4-bd">
+                    자신의 직무를 설정하시면,<br>맞춤형 앱을 추천드리고 있어요!
+                  </div>
+                </template>
+                <template #actions>
+                  <v-btn
+                    color="info"
+                    size="large"
+                  >
+                    직무 설정하기
+                  </v-btn>
+                </template>
+              </v-empty-state>
 
               <template v-else>
                 <v-card
