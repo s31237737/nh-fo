@@ -7,7 +7,7 @@
     <v-card class="profile-card">
       <v-avatar size="60">
         <v-img
-          src="https://randomuser.me/api/portraits/women/1.jpg"
+          src="https://cdn.vuetifyjs.com/images/john.jpg"
           alt="profile"
         />
       </v-avatar>
@@ -44,9 +44,17 @@
 
     <!-- 내가 쓰는 앱 -->
     <div class="app-section">
-      <h3 class="section-title">
-        내가 쓰는 앱
-      </h3>
+      <router-link
+        to="/"
+        class="link-btn-arrow"
+      >
+        <span>내가 쓰는 앱</span>
+        <v-icon
+          icon="custom:arrow-right"
+          color="primary"
+        />
+      </router-link>
+
       <v-list>
         <v-list-item
           v-for="(app, index) in apps"
@@ -69,22 +77,24 @@
     </div>
 
     <!-- 하단 버튼 -->
-    <v-row class="bottom-actions">
-      <v-col cols="6">
-        <v-btn block>
-          <v-icon left>
-            mdi-calendar
-          </v-icon> 일정관리
-        </v-btn>
-      </v-col>
-      <v-col cols="6">
-        <v-btn block>
-          <v-icon left>
-            mdi-alert
-          </v-icon> 불편신고
-        </v-btn>
-      </v-col>
-    </v-row>
+    <div class="bottom-actions">
+      <v-btn>
+        <v-icon left>
+          mdi-calendar
+        </v-icon> 일정관리
+      </v-btn>
+      <v-divider
+        vertical
+        inset
+        color="primary"
+        class="ma-0"
+      />
+      <v-btn>
+        <v-icon left>
+          mdi-alert
+        </v-icon> 불편신고
+      </v-btn>
+    </div>
   </v-navigation-drawer>
 </template>
 
