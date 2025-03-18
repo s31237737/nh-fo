@@ -87,13 +87,6 @@
             <strong class="title-1">
               이런 앱은 어떠세요?
             </strong>
-            <router-link
-              to="/"
-              class="link-btn-arrow"
-            >
-              <span>더보러가기</span>
-              <v-icon icon="custom:arrow-right" />
-            </router-link>
             <v-slide-group
               v-model="recomm"
               center-active
@@ -249,6 +242,14 @@
               </template>
             </div>
           </template>
+          <router-link
+            v-if="recomm !== 0 || recommApps[0].length > 0"
+            to="/"
+            class="link-btn-arrow"
+          >
+            <span>더보러가기</span>
+            <v-icon icon="custom:arrow-right" />
+          </router-link>
         </section>
         <!-- // 추천 앱 영역 -->
         <!-- 커뮤니티 영역 -->
