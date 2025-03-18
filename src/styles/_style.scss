@@ -352,7 +352,11 @@ section > .tit-wrap:first-child {
   }
 }
 
-@at-root .mobile {
+@at-root .mobile, .tablet {
+  .slider {
+    margin-top: calc(-1 * $base-margin-mobile);
+    margin-bottom: $base-margin-mobile;
+  }
   section + section {
     margin-top: 60px;
   }
