@@ -2,43 +2,42 @@
 @use "typography" as *;
 
 .login.v-main {
-  flex-wrap: wrap;
-  flex-direction: inherit;
-  width: 100%;
-  margin-top: 0;
-  background: $gray-200;
   display:grid;
   grid-template-columns: 1fr 740px;
+  width: 100%;
+  background: $gray-200;
   .loginBg {
-    padding: 0 54px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 54px 0;
     .logo {
-      display:inline-block; 
-      margin-top: 40px;
+      display:block; 
+      width: fit-content;
+      position: absolute;
+      top: 40px;
+      left: 54px;
     }
     .bg {
       width: 100%; 
       max-width: 654px; 
       height: auto; 
-      top: calc(50% - 88px);
-      left:50%;
-      transform: translate(-50%,-50%);
     }
   }
   .loginForm {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 0 40px 30px;
     background: $white;
     box-shadow: 0px 4px 60px 0px #DCE2F7;
-    text-align: center;
-    & > div {margin-top: 7.31vh;}
-    
     .title-4-bd {
       display:block;
-      margin-block: 0 40px;
+      margin-block:7.31vh 40px;
+      text-align: center;
     }
-    .support-txt {
+    .info-txt {
       margin-top: 12px;
       color: $gray-700;
       span {display:inline-block; margin-left: 4px;vertical-align: middle;}
@@ -47,6 +46,7 @@
   .divider {
     color: $gray-800;
     margin-block: 28vh 24px;
+    text-align: center;
   }
   .v-btn.bg-yellow {
     width: 480px;
@@ -59,40 +59,44 @@
   }
   
   @at-root .tablet {
-    .v-btn.bg-yellow {
-      width: 480px !important;
+    .login.v-main {
+      grid-template-rows: minmax(1fr, 50%) auto;
+      .loginBg .bg{
+        max-width: calc(654px * 0.6) !important; 
+      }
+      .divider {
+        width: 480px;
+        margin-inline: auto;
+      }
+      .v-btn.bg-yellow {
+        width: 480px !important;
+      }
     }
   }
   @at-root .mobile, .tablet {
     .login.v-main {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
       .loginBg {
-        padding: 0 20px 36px;
-        background: $gray-200;
-        .logo {margin-left: 4px;}
+        padding: 88px 20px 0;
+        .logo {
+          left: 24px;
+        }
         .bg {
-          top: 32px; 
-          left:50%;
-          transform: translate(-50%, 0);
           max-width: 324px; 
-          height: auto;
+          padding: 32px 0;
         }
       }
       .loginForm {
-        padding: 0 20px 62px;
+        justify-content: flex-start;
+        padding: 0 20px 40px;
         background: $gray-200;
         box-shadow: none;
-        & > div {margin-top: 0;}
         .title-4-bd {
-          margin-bottom: 28px;
+          margin-block: 0 28px;
         }
-        .support-txt {
+        .info-txt {
           margin-top: 20px;
         }
-      }
-      .v-btn.bg-yellow {
-        width: 100%;
       }
       .divider {
         position: relative;
@@ -117,5 +121,18 @@
         }
       }
     }
+  }
+  @at-root .mobile {
+    .login.v-main {
+      .loginForm {
+        grid-template-rows: auto 1fr;
+      }
+      .divider {
+        width:100%;
+      }
+      .v-btn.bg-yellow {
+        width: 100%;
+      }
+    } 
   }
 }
