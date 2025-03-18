@@ -5,14 +5,13 @@
   .main {
     background: $white;
     .inner {
+      position: relative;
       margin-top: 40px !important;
       display: flex;
       gap: 56px;
-      .user {
-        width: 254px;
-        flex: none;
-      }
+     
       .content {
+        padding-left: 310px;
         width: 100%;
         flex: 1;
       }

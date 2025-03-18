@@ -1,7 +1,7 @@
 <template>
-  <v-app-bar flat
-
-    permanent
+  <v-navigation-drawer
+    
+    width="254px"
     class="profile-container"
   >
     <!-- 프로필 섹션 -->
@@ -89,7 +89,7 @@
         </v-btn>
       </v-col>
     </v-row>
-  </v-app-bar>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
@@ -105,9 +105,10 @@ const apps = ref([
 
 <style scoped>
 .profile-container {
-  max-width: 400px;
   margin: auto;
+  top:0  !important;
   padding: 20px;
+  box-shadow: none  !important;
 }
 
 .profile-card {
