@@ -4,12 +4,11 @@
 #app {
   .main {
     background: $white;
-    .inner {
-      position: relative;
+    > .inner {
       margin-top: 40px !important;
       display: flex;
       gap: 56px;
-     
+
       .content {
         padding-left: 310px;
         width: 100%;
@@ -35,8 +34,13 @@
     }
     @at-root #app .mobile,
       #app .tablet {
-      .main .inner {
-        margin-top: 20px !important;
+      .main {
+        .inner {
+          margin-top: 20px !important;
+        }
+        .content {
+          padding-left: 0;
+        }
       }
     }
   }
@@ -60,6 +64,7 @@
         &-title {
           padding: 0;
           @extend .title-2-bd;
+          @include line-clamp(2);
         }
         &-subtitle {
           margin-bottom: 10px;
@@ -301,4 +306,12 @@
       line-height: 1.125rem;
     }
   }
+}
+
+.user-container {
+  width: 254px !important;
+  flex: none;
+  left: calc(50% - 640px) !important;
+  box-shadow: none  !important;
+  height: calc(100% - 240px) !important;
 }
