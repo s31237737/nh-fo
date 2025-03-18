@@ -24,26 +24,23 @@
       </div>
     </v-card>
 
+    <div class="d-flex">
+      <v-btn
+        size="large"
+        color="primary"
+        prepend-icon="custom:admin"
+      >
+        관리자
+      </v-btn>
+      <v-btn
+        size="large"
+        color="info"
+        prepend-icon="custom:logout"
+      >
+        로그아웃
+      </v-btn>
+    </div>
     <!-- 버튼 섹션 -->
-    <v-btn
-      class="manage-btn"
-      color="black"
-      block
-    >
-      <v-icon left>
-        mdi-account-cog
-      </v-icon> 관리자
-    </v-btn>
-    <v-btn
-      class="logout-btn"
-      color="white"
-      variant="outlined"
-      block
-    >
-      <v-icon left>
-        mdi-logout
-      </v-icon> 로그아웃
-    </v-btn>
 
     <!-- 내가 쓰는 앱 -->
     <div class="app-section">
@@ -61,7 +58,7 @@
           <v-list-item-title>{{ app.name }}</v-list-item-title>
           <template #append>
             <v-btn
-              variant="outlined"
+              color="info"
               size="small"
             >
               앱 열기
@@ -101,61 +98,3 @@ const apps = ref([
   { name: "시설순찰일지", icon: "mdi-note-text-outline" },
 ]);
 </script>
-
-<style scoped>
-.user-container {
-  left: calc(50% - 640px) !important;
-
-  box-shadow: none  !important;
-  height: calc(100% - 240px) !important;
-}
-
-.profile-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
-  background: white;
-  border-radius: 12px;
-}
-
-.profile-info {
-  flex-grow: 1;
-}
-
-.name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: gray;
-}
-
-.id {
-  font-size: 12px;
-  color: darkgray;
-}
-
-.manage-btn {
-  margin-top: 10px;
-}
-
-.logout-btn {
-  margin-top: 5px;
-}
-
-.app-section {
-  margin-top: 20px;
-}
-
-.section-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.bottom-actions {
-  margin-top: 20px;
-}
-</style>
