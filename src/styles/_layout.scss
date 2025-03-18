@@ -23,14 +23,19 @@
   }
 }
 
+
 .v-main {
-  margin-top: $base-margin;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  > .inner:first-child {
+    margin: $base-margin auto 0 !important;
+  }
   @at-root .mobile, .tablet {
     .v-main {
-      margin-top: $base-margin-mobile;
+      > .inner:first-child {
+        margin: $base-margin-mobile auto 0 !important;
+      }
     }
   }
 }

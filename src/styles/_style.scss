@@ -292,7 +292,6 @@ section > .tit-wrap:first-child {
 .slider {
   overflow: hidden;
   position: relative;
-  margin-top: calc(-1 * $base-margin);
   margin-bottom: $base-margin;
 
   .v-carousel {
@@ -354,7 +353,6 @@ section > .tit-wrap:first-child {
 
 @at-root .mobile, .tablet {
   .slider {
-    margin-top: calc(-1 * $base-margin-mobile);
     margin-bottom: $base-margin-mobile;
   }
   section + section {
