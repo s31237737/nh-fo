@@ -15,8 +15,6 @@
             v-model="currentSlide"
             :cycle="isAppPlay"
             height="258"
-            @mouseenter="isAppPlay = false"
-            @mouseleave="isAppPlay = true"
           >
             <v-carousel-item
               v-for="(item, index) in appBanner"
@@ -25,13 +23,21 @@
               <v-card
                 :ripple="false"
                 :to="item.link"
+                :style="{ backgroundImage: item.type === 'image' ? 'url(' + getImageUrl(item.image) + ')' : '' }"
               >
                 <v-card-item>
-                  <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                  <v-card-title>{{ item.title }}</v-card-title>
-                  <v-card-text>{{ item.description }}</v-card-text>
+                  <v-card-subtitle v-if="item.category">
+                    {{ item.category }}
+                  </v-card-subtitle>
+                  <v-card-title v-if="item.title">
+                    {{ item.title }}
+                  </v-card-title>
+                  <v-card-text v-if="item.description">
+                    {{ item.description }}
+                  </v-card-text>
                   <template #append>
                     <v-img
+                      v-if="item.type && item.type === 'app'"
                       max-width="100"
                       height="100"
                       :src="getImageUrl(item.image)"
@@ -44,10 +50,10 @@
           <SliderControls
             v-if="appBanner.length >= 2"
             :current-slide="currentSlide"
-            :autoplay="autoplay"
+            :autoplay="isAppPlay"
             :slide="appBanner"
             @update:current-slide="currentSlide = $event"
-            @update:autoplay="autoplay = $event"
+            @update:autoplay="isAppPlay = $event"
           />
         </div>
         <!-- // 콘텐츠 배너 -->
@@ -115,6 +121,7 @@
             v-if="isDesktop"
             v-model="recomm"
             height="440"
+            :cycle="isRecommPlay"
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >
@@ -440,31 +447,39 @@ const getImageUrl = (imageName) => {
 const appBanner = ref([
   {
     category: "앱타입 노출",
-    title: "일이삼사오육칠팔구십일이삼사오",
+    title: "로그인 화면 확인용 링크",
     description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
     image: "@temp_img_app_icon01.png",
-    link:"Login",
+    link: "Login",
+    type: "app"
   },
   {
     category: "앱타입 노출",
-    title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
+    title: "관리자에 등록된 배너 제목",
     description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
     image: "@temp_img_app_icon02.png",
-    link:"/",
+    link: "/",
+    type: "app"
   },
   {
-    category: "앱타입 노출",
     title: "일이삼사오육칠팔구십일이삼사오",
-    description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
     image: "@temp_img_app_icon01.png",
-    link:"Login",
+    link: "/",
+    type: "app"
   },
   {
     category: "앱타입 노출",
-    title: "관리자에 등록된 배너 제목 (최대 15자 노출)",
-    description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
+    title: "배너 제목 (최대 15자 노출)",
     image: "@temp_img_app_icon02.png",
-    link:"/",
+    link: "/",
+    type: "app"
+  },
+  {
+    title: "콘텐츠 유형 이미지",
+    description: "type추가하여 구분",
+    image: "@temp_img_app_banner.png",
+    link: "/",
+    type: "image"
   },
 ]);
 

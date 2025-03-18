@@ -5,7 +5,7 @@
   .main {
     background: $white;
     .inner {
-      margin-top: 20px !important;
+      margin-top: 40px !important;
       display: flex;
       gap: 56px;
       .user {
@@ -17,7 +17,9 @@
         flex: 1;
       }
     }
-  
+    .v-carousel {
+      border-radius: 20px;
+    }
     .v-footer {
       margin-top: 0;
     }
@@ -32,12 +34,19 @@
         max-width: 970px;
       }
     }
+    @at-root #app .mobile,
+      #app .tablet {
+      .main .inner {
+        margin-top: 20px !important;
+      }
+    }
   }
 }
 
 .recomm-app-banner {
+  margin-bottom: 0;
   .v-card {
-    background: #191919 url('@/assets/images/img_main_appbn.jpg') no-repeat right center/ auto 100%;
+    background: #191919 url("@/assets/images/img_main_appbn.jpg") no-repeat right center/ auto 100%;
     height: 100%;
     color: $white;
     &-item {
@@ -48,22 +57,25 @@
         padding: 0;
         width: 348px;
       }
-    }
-    &-title {
-      padding: 0;
-      margin: 10px 0;
-      @extend .title-2-bd;
-    }
-    &-subtitle {
-      @extend .title-5-bd;
-      padding: 0;
-      color: $blue-500;
-    }
-    &-text {
-      padding: 0;
-      @extend .text-1;
-      @include line-clamp(2);
-      font-weight: 400 !important;
+      .v-card {
+        &-title {
+          padding: 0;
+          @extend .title-2-bd;
+        }
+        &-subtitle {
+          margin-bottom: 10px;
+          padding: 0;
+          @extend .title-5-bd;
+          color: $blue-500;
+        }
+        &-text {
+          margin-top: 10px;
+          padding: 0;
+          @extend .text-1;
+          @include line-clamp(2);
+          font-weight: 400 !important;
+        }
+      }
     }
   }
   .slider-controls {
@@ -72,7 +84,6 @@
     right: 20px;
     transform: none;
   }
- 
 }
 
 .notice-banner {
@@ -87,7 +98,8 @@
     @include line-clamp(1);
     line-height: 20px;
   }
-  @at-root .mobile, .tablet {
+  @at-root .mobile,
+    .tablet {
     .notice-banner {
       padding: 12px 20px;
       height: 44px;
@@ -106,7 +118,7 @@
   .v-slide-group__content {
     gap: 12px;
   }
- 
+
   .recomm-box {
     display: flex;
     gap: 15px;
@@ -178,7 +190,8 @@
     bottom: 0;
     right: 0;
   }
-  @at-root .mobile, .tablet {
+  @at-root .mobile,
+    .tablet {
     .recomm-app {
       padding-bottom: 0;
       .v-slide-group {
@@ -287,4 +300,3 @@
     }
   }
 }
-
