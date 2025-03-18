@@ -34,7 +34,7 @@
         <div class="divider">
           <p class="text-3-bd">
             <span>
-              {{ isMobile ? "OR" : "다른 방법으로 시작하기" }}
+              {{ isDesktop ? "다른 방법으로 시작하기" : "OR" }}
             </span>
           </p>
         </div>
@@ -47,7 +47,7 @@
             size="large"
           />MS 간편로그인
         </v-btn>
-        <p class="support-txt">
+        <p class="info-txt">
           <v-icon
             icon="custom:surpport"
             size="x-small"
@@ -63,7 +63,6 @@
 import { inject } from 'vue';
 
 const isDesktop = inject('isDesktop');
-const isMobile = inject('isMobile');
 
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;

@@ -10,18 +10,25 @@
   display:grid;
   grid-template-columns: 1fr 740px;
   .loginBg {
+    display:flex;
     padding: 0 54px;
+    align-items: center;
+    justify-content: center;
     .logo {
-      display:inline-block; 
-      margin-top: 40px;
+      display:block; 
+      // margin-top: 40px;
+      width: fit-content;
+      position: absolute;
+      top: 40px;
+      left: 54px;
     }
     .bg {
       width: 100%; 
       max-width: 654px; 
       height: auto; 
-      top: calc(50% - 88px);
-      left:50%;
-      transform: translate(-50%,-50%);
+      // top: calc(50% - 88px);
+      // left:50%;
+      // transform: translate(-50%,-50%);
     }
   }
   .loginForm {
@@ -36,9 +43,9 @@
     
     .title-4-bd {
       display:block;
-      margin-block: 0 40px;
+      margin-bottom: 40px;
     }
-    .support-txt {
+    .info-txt {
       margin-top: 12px;
       color: $gray-700;
       span {display:inline-block; margin-left: 4px;vertical-align: middle;}
@@ -59,35 +66,45 @@
   }
   
   @at-root .tablet {
-    .v-btn.bg-yellow {
-      width: 480px !important;
+    .login.v-main {
+      grid-template-rows: minmax(1fr, 50%) auto;
+      .loginBg {
+        .bg { 
+          max-width: calc(654px * 0.6) !important; 
+        }
+      }
+      .divider {
+        width: 480px;
+        margin-inline: auto;
+      }
+      .v-btn.bg-yellow {
+        width: 480px !important;
+      }
     }
   }
   @at-root .mobile, .tablet {
     .login.v-main {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
       .loginBg {
-        padding: 0 20px 36px;
-        background: $gray-200;
-        .logo {margin-left: 4px;}
+        padding: 88px 20px 0;
+        .logo {
+          left: 24px;
+        }
         .bg {
-          top: 32px; 
-          left:50%;
-          transform: translate(-50%, 0);
           max-width: 324px; 
-          height: auto;
+          padding: 32px 0;
         }
       }
       .loginForm {
-        padding: 0 20px 62px;
+        justify-content: flex-start;
+        padding: 0 20px 40px;
         background: $gray-200;
         box-shadow: none;
         & > div {margin-top: 0;}
         .title-4-bd {
           margin-bottom: 28px;
         }
-        .support-txt {
+        .info-txt {
           margin-top: 20px;
         }
       }
@@ -117,5 +134,15 @@
         }
       }
     }
+  }
+  @at-root .mobile {
+    .login.v-main {
+      .loginForm {
+        grid-template-rows: auto 1fr;
+      }
+      .divider {
+        width:auto;
+      }
+    } 
   }
 }
