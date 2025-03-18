@@ -314,3 +314,23 @@
     }
   }
 }
+
+
+//v-sheet
+.v-sheet {
+  padding: 50px 40px;
+  & + & {
+    margin-top: 20px;
+  }
+}
+
+
+//error
+.error.v-main {
+  .error-title {
+
+  }
+  .error-context {
+
+  }
+}

@@ -227,6 +227,6 @@ export default createVuetify({
       interval: 5000,
       hideDelimiters: true,
       showArrows: false,
-    }
+    },
   }
 })
