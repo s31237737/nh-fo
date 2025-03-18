@@ -1,8 +1,7 @@
 <template>
   <v-navigation-drawer
-    
     width="254px"
-    class="profile-container"
+    class="user-container"
   >
     <!-- 프로필 섹션 -->
     <v-card class="profile-card">
@@ -104,11 +103,11 @@ const apps = ref([
 </script>
 
 <style scoped>
-.profile-container {
-  margin: auto;
-  top:0  !important;
-  padding: 20px;
+.user-container {
+  left: calc(50% - 640px) !important;
+
   box-shadow: none  !important;
+  height: calc(100% - 240px) !important;
 }
 
 .profile-card {
