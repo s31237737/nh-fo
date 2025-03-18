@@ -978,7 +978,7 @@
             to="/"
             class="link-btn-arrow"
           >
-            <span> 더보러가기</span>
+            <span>더보러가기</span>
             <v-icon
               icon="custom:arrow-right"
               color="primary"
