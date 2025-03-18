@@ -93,8 +93,8 @@ import { ref } from "vue";
 
 const apps = ref([
   { name: "공통총무알리미", icon: "mdi-office-building" },
-  { name: "퇴비비료생산 및 출...", icon: "mdi-flask-outline" },
-  { name: "하나로마트 식품 안...", icon: "mdi-cart-outline" },
+  { name: "퇴비비료생산 및 출고", icon: "mdi-flask-outline" },
+  { name: "하나로마트 식품 안전관리", icon: "mdi-cart-outline" },
   { name: "시설순찰일지", icon: "mdi-note-text-outline" },
 ]);
 </script>

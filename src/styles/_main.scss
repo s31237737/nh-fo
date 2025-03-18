@@ -64,6 +64,7 @@
         &-title {
           padding: 0;
           @extend .title-2-bd;
+          @include line-clamp(2);
         }
         &-subtitle {
           margin-bottom: 10px;
