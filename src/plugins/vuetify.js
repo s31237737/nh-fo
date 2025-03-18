@@ -225,6 +225,9 @@ export default createVuetify({
     },
     VCarousel: {
       interval: 5000,
+      hideDelimiters: true,
+      showArrows: false,
+      style: {borderRadius: "20px"}
     }
   }
 })

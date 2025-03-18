@@ -5,8 +5,6 @@
       v-model="currentSlide"
       :continuous="autoplay"
       :cycle="autoplay"
-      :show-arrows="false"
-      hide-delimiters
     >
       <v-carousel-item
         v-for="(slide, index) in sliders"

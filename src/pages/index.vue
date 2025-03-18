@@ -14,8 +14,6 @@
           <v-carousel
             v-model="currentSlide"
             :cycle="isAppPlay"
-            :show-arrows="false"
-            hide-delimiters
             height="258"
             @mouseenter="isAppPlay = false"
             @mouseleave="isAppPlay = true"
@@ -63,8 +61,6 @@
             direction="vertical"
             :cycle="isNoticePlay"
             height="20"
-            :show-arrows="false"
-            hide-delimiters
             @mouseenter="isNoticePlay = false"
             @mouseleave="isNoticePlay = true"
           >
@@ -118,10 +114,7 @@
           <v-carousel
             v-if="isDesktop"
             v-model="recomm"
-            hide-delimiters
-            :show-arrows="false"
             height="440"
-
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >
