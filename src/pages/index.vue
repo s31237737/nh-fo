@@ -121,7 +121,7 @@
             v-if="isDesktop"
             v-model="recomm"
             height="440"
-            :cycle="false"
+            :cycle="isRecommPlay"
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
           >
@@ -134,7 +134,7 @@
                 <v-empty-state
                   v-if="group.length === 0"
                   bg-color="coolgray"
-                  :icon="false"
+                  :icon="null"
                 >
                   <template #title>
                     <div class="title-4-bd">
@@ -205,7 +205,7 @@
               <v-empty-state
                 v-if="group.length === 0"
                 bg-color="coolgray"
-                :icon="false"
+                :icon="null"
                 height="440"
               >
                 <template #title>
