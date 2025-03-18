@@ -1,12 +1,7 @@
 <template>
   <v-main class="main">
     <v-container class="inner">
-      <div
-        v-if="isDesktop"
-        class="user"
-      >
-        김농협님 안녕하세요.
-      </div>
+      <ProfileView v-if="isDesktop" />
 
       <div class="content">
         <!-- 콘텐츠 배너 -->
@@ -501,14 +496,15 @@ const appBanner = ref([
   },
   {
     category: "앱타입 노출",
-    title: "관리자에 등록된 배너 제목",
+    title: "에러 화면 확인용 링크",
     description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
     image: "@temp_img_app_icon02.png",
-    link: "/",
+    link: "Error",
     type: "app"
   },
   {
-    title: "일이삼사오육칠팔구십일이삼사오",
+    title: "관리자에 등록된 배너 제목",
+    description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
     image: "@temp_img_app_icon01.png",
     link: "/",
     type: "app"
