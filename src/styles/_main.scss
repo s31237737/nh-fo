@@ -56,9 +56,31 @@
     z-index: 1;
     opacity: 1;
     color: $gray-300;
-   
+    align-self: center;
+    height: 12px;
   }
   .profile {
+    
+    .user {
+      display: flex;
+      flex-direction: column;
+      margin: 15px 0 12px;
+      span {
+        @extend .title-3;
+        font-weight: 400 !important;
+        strong {
+          @extend .title-3-bd;
+        }
+      }
+    }
+    .info {
+      display: flex;
+      gap: 10px;
+      span {
+        color: $gray-700;
+        @extend .text-4-md
+      }
+    }
     .btns {
       display: flex;
       gap: 10px;
@@ -140,7 +162,7 @@
           padding: 0;
           @extend .title-2-bd;
           @include line-clamp(2);
-          white-space: pre;
+          white-space: pre-wrap;
         }
         &-subtitle {
           margin-bottom: 10px;
@@ -225,7 +247,7 @@
       @extend .title-4-bd;
       font-weight: 700 !important;
       @include line-clamp(2);
-      white-space: pre;
+      white-space: pre-wrap;
     }
     &-subtitle {
       @extend .text-3-md;

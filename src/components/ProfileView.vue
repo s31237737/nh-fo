@@ -10,21 +10,17 @@
           alt="profile"
         />
       </v-avatar>
-      <div class="profile-info">
-        <h2 class="name">
-          김농협님
-        </h2>
-        <p class="subtitle">
-          안녕하세요.
-        </p>
-        <p class="id">
-          <span>창전6통</span>
-          <v-divider
-            vertical
-          />
-          <span>245678</span>
-        </p>
-      </div>
+
+      <p class="user">
+        <span><strong>김농협</strong>님</span> <span>안녕하세요.</span>
+      </p>
+      <p class="info">
+        <span class="text-4-md">창전6통</span>
+        <v-divider
+          vertical
+        />
+        <span>245678</span>
+      </p>
       <div class="btns">
         <v-btn
           size="large"
