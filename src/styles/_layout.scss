@@ -377,7 +377,7 @@
     }
   }
   .error-context {
-    white-space: pre;
+    white-space: pre-wrap;
     color: $gray-700;
   }
   @at-root .mobile {
