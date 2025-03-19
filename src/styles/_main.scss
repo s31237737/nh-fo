@@ -294,44 +294,49 @@
         border-radius: 20px;
         height: 100%;
       }
-      &:hover {
-        --v-hover-opacity: 0;
-        .v-card {
-          &-item {
-            padding: 40px 30px;
-            color: $black;
-            background: $gray-200;
-            &__content {
-              display: flex;
-              flex-direction: column;
-              width: 100%;
-              height: 100%;
-            }
-          }
-          &-text {
-            display: block;
-            margin-top: auto;
-            flex: none;
-            padding: 0;
-            text-align: left;
-            color: $gray-900;
-            @include line-clamp(5);
-            @extend .text-2;
-          }
-        }
-        .v-img__img--cover {
-          border-radius: 25px;
-        }
-        .v-btn {
-          display: none;
-        }
-      }
+      
     }
 
     .link-btn-arrow {
       position: absolute;
       bottom: 0;
       right: 0;
+    }
+    @at-root .desktop {
+      .recomm-app {
+        .v-card:hover {
+          --v-hover-opacity: 0;
+          .v-card {
+            &-item {
+              padding: 40px 30px;
+              color: $black;
+              background: $gray-200;
+              &__content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            &-text {
+              display: block;
+              margin-top: auto;
+              flex: none;
+              padding: 0;
+              text-align: left;
+              color: $gray-900;
+              @include line-clamp(5);
+              @extend .text-2;
+            }
+          }
+          .v-img__img--cover {
+            border-radius: 25px;
+          }
+          .v-btn {
+            display: none;
+          }
+        }
+      }
     }
     @at-root .mobile, .tablet {
       .recomm-app {
