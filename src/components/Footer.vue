@@ -23,5 +23,6 @@
 
 <script setup>
 import { inject } from 'vue';
+
 const isMobile = inject('isMobile');
 </script>

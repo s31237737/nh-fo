@@ -10,6 +10,9 @@ import { setupLayouts } from 'virtual:generated-layouts'
 // import { routes } from 'vue-router/auto-routes'
 import pages from 'virtual:generated-pages';
 const router = createRouter({
+  scrollBehavior() {
+    return {top: 0};
+  },
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(pages),
 })
