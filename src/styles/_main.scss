@@ -46,7 +46,9 @@
       }
     }
   }
-  
+}
+
+.main {
   .user-drawer {
     top: auto;
     bottom: 0;
@@ -109,6 +111,7 @@
       .link-btn-arrow {
         display: flex;
         justify-content: space-between;
+        color: $black;
         span {
           @extend .caption-1;
         }
@@ -330,8 +333,7 @@
       bottom: 0;
       right: 0;
     }
-    @at-root .mobile,
-      .tablet {
+    @at-root .mobile, .tablet {
       .recomm-app {
         padding-bottom: 0;
         .v-slide-group {
