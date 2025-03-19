@@ -139,43 +139,29 @@
                   </template>
                 </v-empty-state>
                 <template v-else>
-                  <v-hover
+                  <v-card
                     v-for="(item, idx) in group"
                     :key="idx"
-                    v-slot="{ isHovering, props }"
+                    :ripple="false"
+                    to="/"
                   >
-                    <v-card
-                      :ripple="false"
-                      to="/"
-                      v-bind="props"
+                    <v-img
+                      :src="getImageUrl(item.image)"
+                      cover
                     >
-                      <v-img
-                        :src="getImageUrl(item.image)"
-                        cover
-                      >
-                        <div
-                          v-if="isHovering"
-                          class="hovering"
+                      <v-card-item>
+                        <v-card-subtitle>{{ item.category }}</v-card-subtitle>
+                        <v-card-title>{{ item.title }}</v-card-title>
+                        <v-card-text>{{ item.description }}</v-card-text>
+                        <v-btn
+                          color="primary"
+                          size="small"
                         >
-                          <v-card-item>
-                            <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                            <v-card-title>{{ item.title }}</v-card-title>
-                            <v-card-text>{{ item.description }}</v-card-text>
-                          </v-card-item>
-                        </div>
-                        <v-card-item>
-                          <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                          <v-card-title>{{ item.title }}</v-card-title>
-                          <v-btn
-                            color="primary"
-                            size="small"
-                          >
-                            앱 열기
-                          </v-btn>
-                        </v-card-item>
-                      </v-img>
-                    </v-card>
-                  </v-hover>
+                          앱 열기
+                        </v-btn>
+                      </v-card-item>
+                    </v-img>
+                  </v-card>
                 </template>
               </div>
             </v-carousel-item>
@@ -237,7 +223,7 @@
               </template>
             </div>
           </template>
-          
+
           <router-link
             v-if="recomm !== 0 || recommApps[0].length > 0"
             to="/"

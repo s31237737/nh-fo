@@ -114,7 +114,6 @@
         }
       }
       .app-list {
-      
         padding: 0;
         border-radius: 10px;
         .v-list-item {
@@ -281,6 +280,9 @@
         @extend .text-3-md;
         margin-bottom: 7px;
       }
+       &-text {
+        display: none;
+       }
       .v-btn {
         margin-top: 10px;
         pointer-events: none;
@@ -289,32 +291,36 @@
         border-radius: 20px;
         height: 100%;
       }
-    }
-    .hovering {
-      z-index: 1;
-      position: absolute;
-      height: 100%;
-      text-align: left;
-      background: $gray-200;
-      .v-card {
-        &-item {
-          padding: 40px 30px;
-          text-align: left;
-          color: $black;
-          &__content {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
+      &:hover {
+        --v-hover-opacity: 0;
+        .v-card {
+          &-item {
+            padding: 40px 30px;
+            color: $black;
+            background: $gray-200;
+            &__content {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          &-text {
+            display: block;
+            margin-top: auto;
+            flex: none;
+            padding: 0;
+            text-align: left;
+            color: $gray-900;
+            @include line-clamp(5);
+            @extend .text-2;
           }
         }
-        &-text {
-          margin-top: auto;
-          flex: none;
-          padding: 0;
-          color: $gray-900;
-          @include line-clamp(5);
-          @extend .text-2;
+        .v-img__img--cover {
+          border-radius: 25px;
+        }
+        .v-btn {
+          display: none;
         }
       }
     }
