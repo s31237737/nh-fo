@@ -59,6 +59,7 @@
       </router-link>
 
       <v-list
+        v-if="myApps.length > 0"
         class="app-list"
         border
       >
@@ -83,6 +84,26 @@
           </template>
         </v-list-item>
       </v-list>
+      <v-empty-state
+
+        justify="start"
+        :icon="null"
+      >
+        <template #title>
+          <div class="text-3-md">
+            NH 업스토어만의,<br>다양한 앱을 사용해보세요.
+          </div>
+        </template>
+        <template #actions>
+          <v-btn
+            color="primary"
+            size="large"
+            to="Apps"
+          >
+            APPs 보러가기
+          </v-btn>
+        </template>
+      </v-empty-state>
     </div>
 
     <!-- 바로가기 버튼 -->
@@ -91,7 +112,6 @@
     >
       <v-btn
         :ripple="false"
-        to="/"
       >
         <v-icon
           size="x-large"
@@ -102,7 +122,6 @@
 
       <v-btn
         :ripple="false"
-        to="/"
       >
         <v-icon
           size="x-large"

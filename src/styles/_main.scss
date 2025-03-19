@@ -90,6 +90,9 @@
     }
   }
   .my-app {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     .link-btn-arrow {
       display: flex;
       justify-content: space-between;
@@ -98,18 +101,31 @@
       }
     }
     .app-list {
-      margin-top: 20px;
+     
       padding: 0;
       border-radius: 10px;
       .v-list-item {
         gap: 4px;
         padding: 16px 18px;
+        height: 64px;
         &-title {
           @extend .text-4-bd;
         }
         &:not(:first-child) {
           border-top: thin solid $gray-300;
         }
+      }
+    }
+    .v-empty-state {
+      height: 258px;
+      min-height: auto;
+      border-radius: 10px;
+      border: thin solid $gray-300;
+      &__title{
+        text-align: left;
+      }
+      &__actions{
+        padding: 16px 0 0;
       }
     }
   }
