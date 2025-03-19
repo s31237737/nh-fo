@@ -76,6 +76,21 @@
         @extend .caption-1;
       }
     }
+    .app-list {
+      margin-top: 20px;
+      padding: 0;
+      border-radius: 10px;
+      .v-list-item {
+        gap: 4px;
+        padding: 16px 18px;
+        &-title {
+          @extend .text-4-bd;
+        }
+        &:not(:first-child) {
+          border-top: thin solid $gray-300;
+        }
+      }
+    }
   }
   .v-btn-group {
     position: relative;
