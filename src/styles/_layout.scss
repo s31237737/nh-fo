@@ -580,6 +580,7 @@
   &-context {
     padding: 40px; 
     @extend .text-4;
+    white-space: pre-wrap;
   }
   @at-root .v-layout:not(.desktop) {
     .privacy-index {

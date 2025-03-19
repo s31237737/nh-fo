@@ -21,8 +21,9 @@
               <strong class="title">{{ slide.title }}</strong>
               <p
                 class="description"
-                v-html="slide.description"
-              />
+              >
+                {{ slide.description }}
+              </p>
             </div>
             <div class="context-img">
               <v-img
@@ -46,8 +47,9 @@
               <strong class="title">{{ slide.title }}</strong>
               <p
                 class="description"
-                v-html="slide.description"
-              />
+              >
+                {{ slide.description }}
+              </p>
             </div>
           </div>
         </template>
@@ -228,7 +230,11 @@
         role="banner"
       >
         <div class="banner-text">
-          <p v-html="banner.description" />
+          <p
+            class="description"
+          >
+            {{ banner.description }}
+          </p>
         </div>
       </v-img>
     </section>
@@ -730,6 +736,6 @@ const cardRecommend2 = ref([
 //배너
 const banner = ref({
   imageUrl: "apps_bnr_bg01.png",
-  description: "세상에 없던 NH 고객 라이프<br>관리 서비스 공개"
+  description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개"
 });
 </script>

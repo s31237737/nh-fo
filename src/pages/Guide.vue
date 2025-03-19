@@ -1111,7 +1111,7 @@
         :style="{ backgroundImage: `url(${banner.imageUrl})` }"
       >
         <div class="banner-text">
-          <p v-html="banner.description" />
+          <p>{{ banner.description }}</p>
         </div>
       </v-img>
     </section>
@@ -1179,7 +1179,7 @@ const desserts = ref([
 //배너
 const banner = ref({
   imageUrl: "src/assets/images/apps_bnr_bg01.png",
-  description: "세상에 없던 NH 고객 라이프<br>관리 서비스 공개"
+  description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개"
 });
 
 const likes = ref(0);

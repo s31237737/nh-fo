@@ -62,6 +62,7 @@
           @extend .text-2;
           color: $gray-700;
           word-break: keep-all;
+          white-space: pre-wrap;
         }
         .apptype {
           display: block;
@@ -167,6 +168,9 @@
     padding: 0 0 0 24px;
     @extend .title-4-bd;
     color: $white;
+    p {
+      white-space: pre-wrap;
+    }
   }
   @at-root .banner-wrap {
     height: 140px;
