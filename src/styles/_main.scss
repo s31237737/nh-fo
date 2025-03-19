@@ -5,7 +5,7 @@
   .main {
     background: $white;
     > .inner {
-      margin-top: 40px !important;
+      margin-top: 40px;
       display: flex;
       gap: 56px;
 
@@ -37,8 +37,8 @@
     @at-root #app .mobile,
       #app .tablet {
       .main {
-        .inner {
-          margin-top: 20px !important;
+        > .inner {
+          margin-top: 20px;
         }
         .content {
           padding-left: 0;
