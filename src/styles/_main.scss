@@ -10,7 +10,6 @@
       gap: 56px;
 
       .content {
-        padding-left: 310px;
         width: 100%;
         flex: 1;
       }
@@ -46,6 +45,67 @@
   }
 }
 
+.user-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 254px;
+  flex: none;
+  .v-divider {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    color: $gray-300;
+   
+  }
+  .profile {
+    .btns {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      .v-btn {
+        flex: 1;
+      }
+    }
+  }
+  .my-app {
+    .link-btn-arrow {
+      display: flex;
+      justify-content: space-between;
+      span {
+        @extend .caption-1;
+      }
+    }
+  }
+  .v-btn-group {
+    position: relative;
+    height: 96px !important;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      width: 1px;
+      height: calc(100% - 40px);
+      background-color: $gray-300;
+    }
+    .v-btn {
+      flex: 1;
+      --v-hover-opacity: 0;
+      --v-activated-opacity: 0;
+      &__content {
+        gap: 7px;
+        flex-direction: column;
+      }
+      .v-icon {
+        font-size: 2rem;
+        --v-icon-size-multiplier: 1;
+      }
+    }
+  }
+}
+
+
 .recomm-app-banner {
   margin-bottom: 0;
   .v-card {
@@ -65,6 +125,7 @@
           padding: 0;
           @extend .title-2-bd;
           @include line-clamp(2);
+          white-space: pre;
         }
         &-subtitle {
           margin-bottom: 10px;
@@ -149,6 +210,7 @@
       @extend .title-4-bd;
       font-weight: 700 !important;
       @include line-clamp(2);
+      white-space: pre;
     }
     &-subtitle {
       @extend .text-3-md;
@@ -306,12 +368,4 @@
       line-height: 1.125rem;
     }
   }
-}
-
-.user-container {
-  width: 254px !important;
-  flex: none;
-  left: calc(50% - 640px) !important;
-  box-shadow: none  !important;
-  height: calc(100% - 240px) !important;
 }

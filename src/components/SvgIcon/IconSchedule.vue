@@ -1,0 +1,52 @@
+<template>
+  <svg
+    width="33"
+    height="32"
+    viewBox="0 0 33 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.25 9.5C7.25 8.11929 8.36929 7 9.75 7H22.75C24.1307 7 25.25 8.11929 25.25 9.5V12H7.25V9.5Z"
+      fill="#0EC141"
+    />
+    <path
+      d="M7.25 13H25.25V22.5C25.25 23.8807 24.1307 25 22.75 25H9.75C8.36929 25 7.25 23.8807 7.25 22.5V13Z"
+      fill="#0279FE"
+    />
+    <circle
+      cx="11.25"
+      cy="18.75"
+      r="1.5"
+      fill="#FEFEFE"
+    />
+    <circle
+      cx="16.25"
+      cy="18.75"
+      r="1.5"
+      fill="#FEFEFE"
+    />
+    <circle
+      cx="21.25"
+      cy="18.75"
+      r="1.5"
+      fill="#FEFEFE"
+    />
+    <rect
+      x="10.25"
+      y="5"
+      width="2.5"
+      height="3"
+      rx="0.5"
+      fill="#0EC141"
+    />
+    <rect
+      x="19.75"
+      y="5"
+      width="2.5"
+      height="3"
+      rx="0.5"
+      fill="#0EC141"
+    />
+  </svg>
+</template>

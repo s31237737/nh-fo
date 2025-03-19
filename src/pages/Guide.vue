@@ -156,6 +156,14 @@
         <v-icon icon="custom:surpport" />
         <span>surpport</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:report" />
+        <span>report</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:schedule" />
+        <span>schedule</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
