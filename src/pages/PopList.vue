@@ -104,7 +104,7 @@
             color="primary"
             size="large"
           >
-            등록
+            로그인 연장
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -126,7 +126,7 @@
 
         <v-card-text>
           <!-- dialog contents -->
-          <v-icon icon="custom:complete" />
+          <v-icon icon="custom:warning" />
           <strong class="title-5-bd">페이지를 나가시겠습니까?</strong>
           <p class="text-4">
             변경사항이 저장되지 않을 수 있습니다.
@@ -166,7 +166,7 @@
 
         <v-card-text>
           <!-- dialog contents -->
-          <v-icon icon="custom:complete" />
+          <v-icon icon="custom:warning" />
           <strong class="title-5-bd">앱 사용 신청 완료</strong>
           <p class="text-4">
             [앱이름] 사용 신청이 완료되었습니다.
@@ -200,7 +200,7 @@
 
         <v-card-text>
           <!-- dialog contents -->
-          <v-icon icon="custom:complete" />
+          <v-icon icon="custom:warning" />
           <strong class="title-5-bd">관리자 삭제 게시글</strong>
           <p class="text-4">
             관리자에 의해 삭제된 게시글입니다.
