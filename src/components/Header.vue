@@ -134,8 +134,6 @@
 <script setup>
 import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
 
-const isMobile = inject('isMobile');
-const isTablet = inject('isTablet');
 const isDesktop = inject('isDesktop');
 const searchDrawer = ref(false);
 const gnbDrawer = ref(false);
