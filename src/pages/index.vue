@@ -486,6 +486,9 @@
           icon="custom:schedule"
         />
       </template>
+      <template #prepend>
+        <v-avatar />
+      </template>
     </v-banner>
     <Footer />
   </v-main>
