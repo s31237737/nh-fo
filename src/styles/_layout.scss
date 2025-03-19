@@ -548,12 +548,19 @@
   &-item {
     display:block;
     height: 20px;
+    & > span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 20px !important;
+      padding-right: 8px;
+    }
     & > a {
       display:inline-block;
-      line-height: 1.2 !important;
+      line-height: 20px !important;
       text-decoration: underline;
       text-underline-offset: 2px;
-      vertical-align: top;
+      vertical-align: text-bottom;
+      @extend .text-4;
     }
     & + .privacy-index-item {
       margin-top: 8px;   
