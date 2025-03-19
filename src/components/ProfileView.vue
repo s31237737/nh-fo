@@ -78,24 +78,6 @@
     </div>
 
     <!-- 바로가기 버튼 -->
-    <div class="bottom-actions">
-      <v-btn>
-        <v-icon left>
-          mdi-calendar
-        </v-icon> 일정관리
-      </v-btn>
-      <v-divider
-        vertical
-        inset
-        color="primary"
-        class="ma-0"
-      />
-      <v-btn>
-        <v-icon left>
-          mdi-alert
-        </v-icon> 불편신고
-      </v-btn>
-    </div>
     <v-btn-group
       variant="outlined"
     >

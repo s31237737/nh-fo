@@ -89,6 +89,10 @@
         gap: 7px;
         flex-direction: column;
       }
+      .v-icon {
+        font-size: 2rem;
+        --v-icon-size-multiplier: 1;
+      }
     }
   }
 }
