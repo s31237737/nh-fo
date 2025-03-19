@@ -85,7 +85,7 @@
         </v-list-item>
       </v-list>
       <v-empty-state
-
+        v-else
         justify="start"
         :icon="null"
       >
