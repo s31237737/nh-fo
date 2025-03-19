@@ -56,18 +56,21 @@
         />
       </router-link>
 
-      <v-list>
+      <v-list
+        class="app-list"
+        border
+      >
         <v-list-item
-          v-for="(app, index) in apps"
+          v-for="(item, index) in myApps"
           :key="index"
         >
           <template #prepend>
             <v-img
               :width="24"
-              src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+              :src="getImageUrl(item.image)"
             />
           </template>
-          <v-list-item-title>{{ app.name }}</v-list-item-title>
+          <v-list-item-title>{{ item.name }}</v-list-item-title>
           <template #append>
             <v-btn
               color="info"
@@ -111,11 +114,13 @@
 
 <script setup>
 import { ref } from "vue";
-
-const apps = ref([
-  { name: "공통총무알리미", icon: "mdi-office-building" },
-  { name: "퇴비비료생산 및 출고", icon: "mdi-flask-outline" },
-  { name: "하나로마트 식품 안전관리", icon: "mdi-cart-outline" },
-  { name: "시설순찰일지", icon: "mdi-note-text-outline" },
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+const myApps = ref([
+  { name: "공통총무알리미", image: "@temp_img_app_icon01.png" },
+  { name: "퇴비비료생산 및 출고", image: "@temp_img_app_icon02.png" },
+  { name: "하나로마트 식품 안전관리", image: "@temp_img_app_icon01.png" },
+  { name: "시설순찰일지", image: "@temp_img_app_icon02.png" },
 ]);
 </script>
