@@ -20,7 +20,7 @@
     word-break: keep-all;
     p {
       flex: 1;
-      padding-top: 1px;
+      padding-top: 2px;
     }
     .v-btn {
       margin-left: auto;
@@ -84,14 +84,14 @@
   // }
   &.popup-sm {
     .v-overlay__content {
-      max-width: 320px;
+      width: 320px !important;
       min-height: 224px;
     }
     .v-card-text {
       min-height: 48px;
-      padding: 0 16px !important;
+      margin-top: -30px;
+      padding: 16px 16px 0 !important;
       text-align: center;
-      @extend .text-4;
       .title-5-bd {
         display: block;
       }
@@ -99,15 +99,19 @@
         display: block;
         margin-top: 4px;
         color: $gray-700;
+        &.text-4-bd {
+          color: $gray-900;
+        }
       }
       .v-icon {
         width: 40px;
         height: 40px;
+        margin-top: -16px;
         margin-bottom: 20px;
       }
     }
     .v-card-actions {
-      margin-top: 27px;
+      margin-top: 16px;
       padding: 16px 20px;
       .v-btn {
         flex: 1;
@@ -132,7 +136,8 @@ $popup-base-margin: 20px;
 @media only screen and (max-width: 767px) {
   .v-dialog[class*="popup"] {
     .v-overlay__content {
-      max-width: calc(100% - ($popup-base-margin * 2));
+      width: 100% !important;
+      max-width: calc(100% - ($popup-base-margin * 2)) !important;
       max-height: calc(100% - 200px);
     }
     .v-card-actions .v-btn{
