@@ -3,11 +3,11 @@
 
 .v-dialog[class*="popup"] {
   .v-overlay__content {
+    max-width: 834px;
     min-height: 438px;
     max-height: 602px;
   }
   .v-card {
-    max-width: 834px;
     border-radius: 10px !important;
   }
   .v-card-title {
@@ -84,10 +84,8 @@
   // }
   &.popup-sm {
     .v-overlay__content {
-      min-height: 224px;
-    }
-    .v-card {
       max-width: 320px;
+      min-height: 224px;
     }
     .v-card-text {
       min-height: 48px;
@@ -122,9 +120,19 @@
   // }
 }
 
+$popup-base-margin: 20px;
+@media only screen and (max-width: 1279px) {
+  .v-dialog[class*="popup"] {
+    .v-overlay__content {
+      max-width: calc(100% - ($popup-base-margin * 4));
+      max-height: calc(100% - 200px);
+    }
+  }
+}
 @media only screen and (max-width: 767px) {
   .v-dialog[class*="popup"] {
     .v-overlay__content {
+      max-width: calc(100% - ($popup-base-margin * 2));
       max-height: calc(100% - 200px);
     }
     .v-card-actions .v-btn{
