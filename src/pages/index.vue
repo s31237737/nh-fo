@@ -237,6 +237,7 @@
               </template>
             </div>
           </template>
+          
           <router-link
             v-if="recomm !== 0 || recommApps[0].length > 0"
             to="/"

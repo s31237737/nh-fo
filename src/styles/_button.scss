@@ -118,7 +118,7 @@
     }
   }
   &.rounded-pill {
-  padding: 0 14px;
+    padding: 0 14px;
   }
 
 }
@@ -134,7 +134,7 @@
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    color: $gray-900;
+    color: $gray-700;
     gap: 2px;
     span {
       @extend .text-3-md;

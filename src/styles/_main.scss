@@ -421,16 +421,13 @@
         padding: 0;
       }
       &-title {
-        font-size: 1.75rem;
-        font-weight: 700;
-        line-height: 2rem;
+        @extend .title-4-bd;
+        font-weight: 700 !important;
       }
       &-subtitle {
         padding: 0;
-        margin-top: 8px;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.125rem;
+        margin-top: 3px;
+        @extend .text-3;
       }
     }
   }
