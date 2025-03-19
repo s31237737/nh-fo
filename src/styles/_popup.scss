@@ -2,7 +2,7 @@
 @use "typography" as *;
 
 .v-dialog {
-  &[class*="popup-"] {
+  &[class*="popup"] {
     .v-card-title {
       display: flex;
       justify-content: space-between;
@@ -34,46 +34,46 @@
         width: 180px;
       }
     }
-    .v-data-table {
-      border-radius: 4px;
-      .v-table__wrapper {
-        th {
-          border-top: thin solid black;
-          &:first-child {
-            border-radius: 4px 0 0 0;
-          }
-          &:last-child {
-            border-radius: 0 4px 0 0;
-          }
-        }
-        th:first-child,
-        td:first-child {
-          border-left: thin solid black;
-        }
-        th:last-child,
-        td:last-child {
-          border-right: thin solid black;
-        }
-        tr:last-child {
-          td:first-child {
-            border-radius: 0 0 0 4px;
-          }
-          td:last-child {
-            border-radius: 0 0 4px 0;
-          }
-        }
-      }
-    }
-    &:not(.popup-sm) {
-      .v-card-actions {
-        .v-btn {
-          min-width: 82px;
-          &:has(.v-btn__prepend) {
-            min-width: 106px;
-          }
-        }
-      }
-    }
+    // .v-data-table {
+    //   border-radius: 4px;
+    //   .v-table__wrapper {
+    //     th {
+    //       border-top: thin solid black;
+    //       &:first-child {
+    //         border-radius: 4px 0 0 0;
+    //       }
+    //       &:last-child {
+    //         border-radius: 0 4px 0 0;
+    //       }
+    //     }
+    //     th:first-child,
+    //     td:first-child {
+    //       border-left: thin solid black;
+    //     }
+    //     th:last-child,
+    //     td:last-child {
+    //       border-right: thin solid black;
+    //     }
+    //     tr:last-child {
+    //       td:first-child {
+    //         border-radius: 0 0 0 4px;
+    //       }
+    //       td:last-child {
+    //         border-radius: 0 0 4px 0;
+    //       }
+    //     }
+    //   }
+    // }
+    // &:not(.popup-sm) {
+    //   .v-card-actions {
+    //     .v-btn {
+    //       min-width: 82px;
+    //       &:has(.v-btn__prepend) {
+    //         min-width: 106px;
+    //       }
+    //     }
+    //   }
+    // }
   }
   &.popup-sm {
     .v-card {
@@ -97,22 +97,14 @@
       }
     }
   }
-  &.popup-md {
-    .v-card {
-      width: 640px;
-    }
-  }
-  &.popup-lg {
-    .v-card {
-      width: 1200px;
-    }
-  }
 
-  .v-table {
-    margin-top: 0 !important;
-  }
+  // .v-table {
+  //   margin-top: 0 !important;
+  // }
 }
 
+
+//header-menu
 .popover {
   .v-card {
     position: relative;
@@ -136,9 +128,9 @@
   }
 }
 
-.dropdown {
-  @extend .popover;
-  &::before {
-    display: none;
-  }
-}
+// .dropdown {
+//   @extend .popover;
+//   &::before {
+//     display: none;
+//   }
+// }

@@ -1,6 +1,6 @@
 <template>
   <div class="inner d-flex ga-3 flex-wrap">
-    <!-- <v-btn
+    <v-btn
       color="primary"
       text="로그인 연장 팝업"
       @click="loginPop = true"
@@ -10,7 +10,7 @@
       @click="alert=true"
     >
       얼럿
-    </v-btn> -->
+    </v-btn>
 
     <!-- 로그인 연장 팝업 -->
 
@@ -104,6 +104,7 @@
     >
       {{ popup.label }}
     </v-btn>
+    <popup />
   </div>
 
   <component

@@ -15,19 +15,12 @@
         color="purple"
         @click="dialog2 = true"
       >
-        popup-md
-      </v-btn>
-    </v-col>
-    <v-col cols="auto">
-      <v-btn
-        size="small"
-        color="purple"
-        @click="dialog3 = true"
-      >
-        popup-lg
+        popup
       </v-btn>
     </v-col>
   </v-row>
+
+  <!-- popup-sm(alert) -->
   <v-dialog
     v-model="dialog1"
     class="popup-sm"
@@ -66,13 +59,15 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+
+  <!-- popup(default) -->
   <v-dialog
     v-model="dialog2"
-    class="popup-md"
+    class="popup"
   >
     <v-card>
       <v-card-title>
-        <span>popup-md</span>
+        <span>popup-lg</span>
         <v-btn
           icon="custom:close"
           density="comfortable"
@@ -141,42 +136,6 @@
         <v-btn
           color="info"
           size="large"
-          @click="dialog2 = false"
-        >
-          취소
-        </v-btn>
-        <v-btn
-          color="primary"
-          size="large"
-        >
-          등록
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
-  <v-dialog
-    v-model="dialog3"
-    class="popup-lg"
-  >
-    <v-card>
-      <v-card-title>
-        <span>popup-lg</span>
-        <v-btn
-          icon="custom:close"
-          density="comfortable"
-          @click="dialog3 = false"
-        />
-      </v-card-title>
-
-      <v-card-text>
-        <!-- dialog contents -->
-        팝업텍스트팝업텍스트팝업텍스트팝업텍스트
-        <!-- // dialog contents -->
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          color="info"
-          size="large"
           @click="dialog3 = false"
         >
           취소
@@ -197,5 +156,4 @@ import { ref } from 'vue';
 
 const dialog1 = ref(false);
 const dialog2 = ref(false);
-const dialog3 = ref(false);
 </script>
