@@ -49,11 +49,19 @@
 import { useGoTo } from 'vuetify'
 
 const goTo = useGoTo();
+
+let offsetValue = -92;
+if (document.querySelector(".desktop")) {
+  offsetValue = -92;
+} else {
+  offsetValue = -68;
+}
+
 const scrollToSection = (index) => {
   console.log(index);
   goTo(`#section${index + 1}`, {
-    offset:-76,
-  }); // #section2 위치로 부드럽게 스크롤
+    offset: offsetValue,
+  });
 };
 
 const list = [
