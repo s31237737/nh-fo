@@ -69,7 +69,13 @@
     }
   }
   .my-app {
-    
+    .link-btn-arrow {
+      display: flex;
+      justify-content: space-between;
+      span {
+        @extend .caption-1;
+      }
+    }
   }
   .v-btn-group {
     position: relative;
@@ -85,6 +91,8 @@
     }
     .v-btn {
       flex: 1;
+      --v-hover-opacity: 0;
+      --v-activated-opacity: 0;
       &__content {
         gap: 7px;
         flex-direction: column;
@@ -117,6 +125,7 @@
           padding: 0;
           @extend .title-2-bd;
           @include line-clamp(2);
+          white-space: pre;
         }
         &-subtitle {
           margin-bottom: 10px;
@@ -201,6 +210,7 @@
       @extend .title-4-bd;
       font-weight: 700 !important;
       @include line-clamp(2);
+      white-space: pre;
     }
     &-subtitle {
       @extend .text-3-md;

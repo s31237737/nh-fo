@@ -159,13 +159,13 @@
                         >
                           <v-card-item>
                             <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                            <v-card-title v-html="item.title" />
+                            <v-card-title>{{ item.title }}</v-card-title>
                             <v-card-text>{{ item.description }}</v-card-text>
                           </v-card-item>
                         </div>
                         <v-card-item>
                           <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                          <v-card-title v-html="item.title" />
+                          <v-card-title>{{ item.title }}</v-card-title>
                           <v-btn
                             color="primary"
                             size="small"
@@ -224,7 +224,7 @@
                   >
                     <v-card-item>
                       <v-card-subtitle>{{ item.category }}</v-card-subtitle>
-                      <v-card-title v-html="item.title" />
+                      <v-card-title>{{ item.title }}</v-card-title>
                       <v-btn
                         color="primary"
                         size="small"
@@ -251,7 +251,7 @@
         <section class="community">
           <div class="tit-wrap">
             <strong class="title-1">
-              더 좋은 서비스를 위한<br>커뮤니티를 만들어주세요.
+              더 좋은 서비스를 위한\n커뮤니티를 만들어주세요.
             </strong>
             <v-btn
               color="info"
@@ -527,7 +527,6 @@ const appBanner = ref([
 
 const isAppPlay = ref(true);
 const currentSlide = ref(0);
-const autoplay = ref(true);
 
 // 최신 새소식
 const isNoticePlay= ref(true);
@@ -567,13 +566,13 @@ const recommApps = ref([
     // {
     //   image: "@temp_main_app card_02.jpg",
     //   category: "예약",
-    //   title: "우리 농축협<br>예약관리",
+    //   title: "우리 농축협\n예약관리",
     //   description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스."
     // },
     // {
     //   image: "@temp_main_app card_03.jpg",
     //   category: "관리",
-    //   title: "관리자 및 책임자<br>현황 관리",
+    //   title: "관리자 및 책임자\n현황 관리",
     //   description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회..."
     // }
   ],
@@ -587,13 +586,13 @@ const recommApps = ref([
     {
       image: "@temp_main_app card_02.jpg",
       category: "예약",
-      title: "우리 농축협<br>예약관리",
+      title: "우리 농축협\n예약관리",
       description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스."
     },
     {
       image: "@temp_main_app card_03.jpg",
       category: "관리",
-      title: "관리자 및 책임자<br>현황 관리",
+      title: "관리자 및 책임자\n현황 관리",
       description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회..."
     }
   ],

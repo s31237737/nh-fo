@@ -62,7 +62,10 @@
           :key="index"
         >
           <template #prepend>
-            <v-icon>{{ app.icon }}</v-icon>
+            <v-img
+              :width="24"
+              src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+            />
           </template>
           <v-list-item-title>{{ app.name }}</v-list-item-title>
           <template #append>
@@ -81,7 +84,10 @@
     <v-btn-group
       variant="outlined"
     >
-      <v-btn :ripple="false">
+      <v-btn
+        :ripple="false"
+        to="/"
+      >
         <v-icon
           size="x-large"
           icon="custom:schedule"
@@ -89,7 +95,10 @@
         <span>일정관리</span>
       </v-btn>
 
-      <v-btn :ripple="false">
+      <v-btn
+        :ripple="false"
+        to="/"
+      >
         <v-icon
           size="x-large"
           icon="custom:report"
