@@ -12,10 +12,9 @@
           {{ errorMessages.subtitle }}
         </p>
       </div>
-      <div
-        class="error-context text-4"
-        v-html="errorMessages.context"
-      />
+      <div class="error-context text-4">
+        {{ errorMessages.context }}
+      </div>
     </div>
   </v-main>
 </template>
