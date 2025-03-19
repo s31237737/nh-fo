@@ -4,18 +4,24 @@
   >
     <!-- 프로필 섹션 -->
     <div class="profile">
-      <v-avatar size="60">
-        <v-img
-          src="https://cdn.vuetifyjs.com/images/john.jpg"
-          alt="profile"
-        />
-      </v-avatar>
+      <v-btn
+        size="60"
+        icon="custom:edit-blue"
+        class="edit-profile"
+      >
+        <v-avatar size="60">
+          <v-img
+            src="@/assets/images/profile.png"
+            alt="profile"
+          />
+        </v-avatar>
+      </v-btn>
 
-      <p class="user">
+      <p class="greetings">
         <span><strong>김농협</strong>님</span> <span>안녕하세요.</span>
       </p>
       <p class="info">
-        <span class="text-4-md">창전6통</span>
+        <span>창전6통</span>
         <v-divider
           vertical
         />

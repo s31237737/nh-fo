@@ -282,10 +282,26 @@
   }
 }
 
+.edit-profile {
+  position: relative;
+
+  &::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: url('@/assets/images/icon_edit_profile.png') no-repeat center / 100%;
+  }
+}
+
 //section space
 section + section {
   margin-top: 120px;
 }
+
 //slider
 .slider {
   overflow: hidden;
@@ -301,6 +317,7 @@ section + section {
     }
   }
 }
+
 .slider-controls {
   position: absolute;
   bottom: 58px;
