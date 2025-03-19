@@ -1,10 +1,9 @@
 <template>
-  <v-navigation-drawer
-    width="254px"
+  <section
     class="user-container"
   >
     <!-- 프로필 섹션 -->
-    <v-card class="profile-card">
+    <div class="profile">
       <v-avatar size="60">
         <v-img
           src="https://cdn.vuetifyjs.com/images/john.jpg"
@@ -19,31 +18,33 @@
           안녕하세요.
         </p>
         <p class="id">
-          창전6통 | 245678
+          <span>창전6통</span>
+          <v-divider
+            vertical
+          />
+          <span>245678</span>
         </p>
       </div>
-    </v-card>
-
-    <div class="d-flex">
-      <v-btn
-        size="large"
-        color="primary"
-        prepend-icon="custom:admin"
-      >
-        관리자
-      </v-btn>
-      <v-btn
-        size="large"
-        color="info"
-        prepend-icon="custom:logout"
-      >
-        로그아웃
-      </v-btn>
+      <div class="btns">
+        <v-btn
+          size="large"
+          color="primary"
+          prepend-icon="custom:admin"
+        >
+          관리자
+        </v-btn>
+        <v-btn
+          size="large"
+          color="info"
+          prepend-icon="custom:logout"
+        >
+          로그아웃
+        </v-btn>
+      </div>
     </div>
-    <!-- 버튼 섹션 -->
 
     <!-- 내가 쓰는 앱 -->
-    <div class="app-section">
+    <div class="my-app">
       <router-link
         to="/"
         class="link-btn-arrow"
@@ -76,7 +77,7 @@
       </v-list>
     </div>
 
-    <!-- 하단 버튼 -->
+    <!-- 바로가기 버튼 -->
     <div class="bottom-actions">
       <v-btn>
         <v-icon left>
@@ -95,7 +96,26 @@
         </v-icon> 불편신고
       </v-btn>
     </div>
-  </v-navigation-drawer>
+    <v-btn-group
+      variant="outlined"
+    >
+      <v-btn :ripple="false">
+        <v-icon
+          size="x-large"
+          icon="custom:schedule"
+        />
+        <span>일정관리</span>
+      </v-btn>
+
+      <v-btn :ripple="false">
+        <v-icon
+          size="x-large"
+          icon="custom:report"
+        />
+        <span>불편신고</span>
+      </v-btn>
+    </v-btn-group>
+  </section>
 </template>
 
 <script setup>
