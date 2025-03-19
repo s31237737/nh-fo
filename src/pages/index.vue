@@ -469,13 +469,24 @@
         <!-- // quickLink -->
       </div>
     </v-container>
-    <!-- <v-bottom-navigation v-if="!isDesktop">
-      <v-btn value="nearby">
-        <v-icon>mdi-map-marker</v-icon>
 
-        <span>Nearby</span>
-      </v-btn>
-    </v-bottom-navigation> -->
+    <v-banner
+      v-if="!isDesktop"
+      class="user-drawer"
+      sticky
+      lines="two"
+    >
+      <template #text>
+        <strong>김농협님의 서랍</strong>
+        <p>자주 사용하는 메뉴를 확인해보세요!</p>
+      </template>
+      <template #append>
+        <v-icon
+          size="x-large"
+          icon="custom:schedule"
+        />
+      </template>
+    </v-banner>
     <Footer />
   </v-main>
 </template>
