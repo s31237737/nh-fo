@@ -135,9 +135,11 @@
 
 <script setup>
 import { ref } from "vue";
+
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
+
 const myApps = ref([
   { name: "공통총무알리미", image: "@temp_img_app_icon01.png" },
   { name: "퇴비비료생산 및 출고", image: "@temp_img_app_icon02.png" },
