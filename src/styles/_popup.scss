@@ -1,97 +1,116 @@
 @use "variables" as *;
 @use "typography" as *;
 
-.v-dialog {
-  &[class*="popup"] {
-    .v-card-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 12px 12px 24px;
-      @extend .title-5-bd;
-
-      border-bottom: 1px solid black;
-      .v-btn {
-        margin-left: auto;
-        padding: 0;
-        border-radius: 50%;
-      }
-      &:has(:not(span)) {
-        border-bottom-color: transparent;
-      }
-    }
-    .v-card-text {
-      position: relative;
-      padding: 24px !important;
-      .pagination {
-        margin-bottom: 0;
-      }
-    }
-    .v-card-actions {
-      justify-content: center !important;
-      padding: 16px 24px 24px;
-      &:not(:has(.v-spacer)) .v-btn {
-        width: 180px;
-      }
-    }
-    // .v-data-table {
-    //   border-radius: 4px;
-    //   .v-table__wrapper {
-    //     th {
-    //       border-top: thin solid black;
-    //       &:first-child {
-    //         border-radius: 4px 0 0 0;
-    //       }
-    //       &:last-child {
-    //         border-radius: 0 4px 0 0;
-    //       }
-    //     }
-    //     th:first-child,
-    //     td:first-child {
-    //       border-left: thin solid black;
-    //     }
-    //     th:last-child,
-    //     td:last-child {
-    //       border-right: thin solid black;
-    //     }
-    //     tr:last-child {
-    //       td:first-child {
-    //         border-radius: 0 0 0 4px;
-    //       }
-    //       td:last-child {
-    //         border-radius: 0 0 4px 0;
-    //       }
-    //     }
-    //   }
-    // }
-    // &:not(.popup-sm) {
-    //   .v-card-actions {
-    //     .v-btn {
-    //       min-width: 82px;
-    //       &:has(.v-btn__prepend) {
-    //         min-width: 106px;
-    //       }
-    //     }
-    //   }
-    // }
+.v-dialog[class*="popup"] {
+  .v-overlay__content {
+    min-height: 438px;
+    max-height: 602px;
   }
+  .v-card {
+    max-width: 834px;
+    border-radius: 10px !important;
+  }
+  .v-card-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 12px 16px 20px;
+    min-height: 64px;
+    @extend .title-5-bd;
+    white-space: normal;
+    word-break: keep-all;
+    p {
+      flex: 1;
+      padding-top: 1px;
+    }
+    .v-btn {
+      margin-left: auto;
+    }
+  }
+  .v-card-text {
+    position: relative;
+    padding: 20px 20px 0 !important;
+    white-space: normal;
+    .pagination {
+      margin-bottom: 0;
+    }
+  }
+  .v-card-actions {
+    justify-content: center !important;
+    margin-top: 20px;
+    padding: 16px 20px;
+    & .v-btn {
+      width: 180px;
+    }
+  }
+  // .v-data-table {
+  //   border-radius: 4px;
+  //   .v-table__wrapper {
+  //     th {
+  //       border-top: thin solid black;
+  //       &:first-child {
+  //         border-radius: 4px 0 0 0;
+  //       }
+  //       &:last-child {
+  //         border-radius: 0 4px 0 0;
+  //       }
+  //     }
+  //     th:first-child,
+  //     td:first-child {
+  //       border-left: thin solid black;
+  //     }
+  //     th:last-child,
+  //     td:last-child {
+  //       border-right: thin solid black;
+  //     }
+  //     tr:last-child {
+  //       td:first-child {
+  //         border-radius: 0 0 0 4px;
+  //       }
+  //       td:last-child {
+  //         border-radius: 0 0 4px 0;
+  //       }
+  //     }
+  //   }
+  // }
+  // &:not(.popup-sm) {
+  //   .v-card-actions {
+  //     .v-btn {
+  //       min-width: 82px;
+  //       &:has(.v-btn__prepend) {
+  //         min-width: 106px;
+  //       }
+  //     }
+  //   }
+  // }
   &.popup-sm {
+    .v-overlay__content {
+      min-height: 224px;
+    }
     .v-card {
-      width: 312px;
+      max-width: 320px;
     }
     .v-card-text {
-      min-height: 80px;
-      padding: 16px 24px !important;
+      min-height: 48px;
+      padding: 0 16px !important;
       text-align: center;
-      .alert-txt {
-        display: flex;
-        height: 80px;
-        align-items: center;
-        justify-content: center;
+      @extend .text-4;
+      .title-5-bd {
+        display: block;
+      }
+      p {
+        display: block;
+        margin-top: 4px;
+        color: $gray-700;
+      }
+      .v-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 20px;
       }
     }
     .v-card-actions {
-      padding: 16px;
+      margin-top: 27px;
+      padding: 16px 20px;
       .v-btn {
         flex: 1;
       }
@@ -103,6 +122,16 @@
   // }
 }
 
+@media only screen and (max-width: 767px) {
+  .v-dialog[class*="popup"] {
+    .v-overlay__content {
+      max-height: calc(100% - 200px);
+    }
+    .v-card-actions .v-btn{
+      width: 50%;
+    }
+  }
+}
 
 //header-menu
 .popover {

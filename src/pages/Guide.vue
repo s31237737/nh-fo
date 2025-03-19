@@ -63,6 +63,10 @@
         <span>warning</span>
       </div>
       <div class="icon-item">
+        <v-icon icon="custom:complete" />
+        <span>complete</span>
+      </div>
+      <div class="icon-item">
         <v-icon icon="custom:remove" />
         <span>remove</span>
       </div>
