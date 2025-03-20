@@ -485,6 +485,7 @@
       :height="isMobile ? '100%' : '400'"
       class="user-bottom-drawer"
     >
+      <!-- 상단닫기 -->
       <v-btn
         class="btn-close-drawer"
         density="compact"
