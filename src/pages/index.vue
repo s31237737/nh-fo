@@ -485,6 +485,14 @@
       :height="isMobile ? '100%' : '397'"
       class="user-bottom-drawer"
     >
+      <v-btn
+        class="btn-close-drawer"
+        density="compact"
+        block
+        :ripple="false"
+        icon="custom:close-drawer"
+        @click="sheet=false"
+      />
       <ProfileView />
     </v-bottom-sheet>
     <Footer />
