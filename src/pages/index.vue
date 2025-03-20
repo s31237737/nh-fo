@@ -18,7 +18,6 @@
               <v-card
                 :ripple="false"
                 :to="item.link"
-                :class="item.type === 'image' ? 'img' : ''"
                 :style="{ backgroundImage: item.type === 'image' ? 'url(' + getImageUrl(item.image) + ')' : '' }"
               >
                 <v-card-item>
