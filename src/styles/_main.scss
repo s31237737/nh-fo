@@ -56,7 +56,7 @@
     margin: 0 auto;
     padding: 20px 40px;
     max-width: 930px;
-    border-radius: 12px 12px 0 0 ;
+    border-radius: 12px 12px 0 0;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) !important;
     cursor: pointer;
     .v-banner__content {
@@ -463,4 +463,18 @@
       }
     }
   }
+}
+
+
+.user-bottom-drawer {
+  max-width: 930px;
+  .user-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px 12px 0 0;
+    background: $white;
+  }
+}
+.mobile {
+.v-bottom-sheet__content {height: 100%;}
 }
