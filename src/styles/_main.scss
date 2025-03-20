@@ -464,10 +464,25 @@
       }
     }
   }
+  @at-root .mobile {
+    .user-container {
+      .profile {
+        .greetings {
+          display: inline-flex;
+        
+        }
+        .info {
+        
+        }
+        .btns {
+
+        }
+      }
+    }
+  }
 }
 
 .user-bottom-drawer {
-
   max-width: 930px;
   .user-container {
     overflow-y: auto;
@@ -477,7 +492,4 @@
     border-radius: 12px 12px 0 0;
     background: $white;
   }
-}
-.mobile {
-.v-bottom-sheet__content {height: 100%;}
 }
