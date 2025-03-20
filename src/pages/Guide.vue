@@ -168,6 +168,10 @@
         <v-icon icon="custom:schedule" />
         <span>schedule</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:drawer" />
+        <span>drawer</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">

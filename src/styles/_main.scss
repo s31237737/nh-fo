@@ -53,7 +53,6 @@
     top: auto;
     bottom: 0;
     display: flex;
-    
     margin: 0 auto;
     padding: 20px 40px;
     max-width: 930px;
@@ -62,6 +61,17 @@
     .v-banner__content {
       width: 100%;
       justify-content: space-between;
+      > strong {
+        @extend .caption-2;
+        font-weight: 600 !important;
+      }
+      p {
+        @extend .caption-3;
+        color: $gray-800;
+      }
+    }
+    .v-icon {
+      font-size: 2rem;
     }
   }
 

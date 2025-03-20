@@ -228,7 +228,7 @@
 
           <router-link
             v-if="recomm !== 0 || recommApps[0].length > 0"
-            to="/"
+            to="Apps"
             class="link-btn-arrow"
           >
             <span>더보러가기</span>
@@ -467,11 +467,12 @@
     >
       <template #text>
         <strong>김농협님의 서랍</strong>
-        <p>자주 사용하는 메뉴를 확인해보세요!</p>
+        <p>최근에 <strong class="text-success">총무알리미</strong>를 사용했어요!</p>
+        <!-- <p>자주 사용하는 메뉴를 확인해보세요!</p> -->
       </template>
       <v-icon
         size="x-large"
-        icon="custom:schedule"
+        icon="custom:drawer"
       />
     </v-banner>
     <Footer />
