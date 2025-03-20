@@ -188,9 +188,6 @@ export default createVuetify({
       prependIcon: "",
       clearable: false,
       dirty: true,
-      VField: {
-        dirty: true
-      },
     },
     VCheckbox: {
       baseColor: "#c2c2c2",

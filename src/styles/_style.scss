@@ -91,11 +91,38 @@
   max-width: 900px;
 }
 .v-field {
-  &__input {
-    //@extend .text-4;
-  }
   &__outline {
     --v-field-border-opacity: 0.12;
+  }
+  .v-field__outline__start, 
+  .v-field__outline__notch::before, 
+  .v-field__outline__notch::after, 
+  .v-field__outline__end {
+    border-color: $gray-500 !important;
+  }
+  &:hover, &.v-field--focused {
+    .v-field__outline__start, 
+    .v-field__outline__notch::before, 
+    .v-field__outline__notch::after, 
+    .v-field__outline__end {
+      border-color: $gray-700 !important;
+    }
+    .v-field__clearable {
+      display: flex;
+    }
+  }
+  &.v-field--disabled {
+    opacity: 1;
+    color: $gray-500 !important;
+    .v-field__overlay {
+      background: $gray-100;
+    }
+    .v-field__outline__start, 
+    .v-field__outline__notch::before, 
+    .v-field__outline__notch::after, 
+    .v-field__outline__end {
+      border-color: $gray-300 !important;
+    }
   }
 }
 .v-select {
@@ -227,7 +254,39 @@
     flex-basis: 50% !important;
   }
 }
-.file-list {
+.v-file-input {
+  .v-field {
+    .v-field__outline__notch {
+      display:none;
+    }
+    .v-field__field .v-label.v-field-label {
+      @extend .text-4;
+    }
+  }
+  &:not(.v-input--dirty) {
+    .v-field--active .v-label.v-field-label {
+      visibility: unset;
+      color: $gray-500 ;
+    }
+  }
+}
+.file-input-guide {
+  margin-top: 6px;
+  p {
+    @extend .caption-3;
+    color: $gray-700;
+    &.text-1 {
+      color: $black;
+      .v-icon {
+        vertical-align: text-bottom;
+      }
+    }
+  }
+  & + .file-list {
+    margin-top: 12px;
+  }
+}
+.file-input-list {
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
@@ -241,44 +300,6 @@
     em {
       color: $gray-700;
     }
-  }
-}
-.v-file-input {
-  .v-field--active .v-label.v-field-label {
-    visibility: unset;
-  }
-  .v-field--variant-outlined .v-label.v-field-label--floating,
-  .v-field__input {
-    font-size: 0;
-  }
-  .v-field--active.v-field--variant-outlined .v-field__outline__notch::before {
-    opacity: var(--v-field-border-opacity);
-  }
-}
-.upload-guide {
-  margin-top: 12px;
-  p {
-    @extend .text-4;
-    color: $gray-700;
-    &.text-1 {
-      color: $black;
-      .v-icon {
-        vertical-align: text-bottom;
-      }
-    }
-  }
-  & + .file-list {
-    margin-top: 12px;
-  }
-}
-.upload-info {
-  margin-top: 8px;
-  display: flex;
-  gap: 10px;
-  p {
-    width: 100px;
-    @extend .caption-3;
-    color: $gray-700;
   }
 }
 

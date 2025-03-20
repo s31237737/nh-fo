@@ -476,12 +476,12 @@
                 </template>
               </v-file-input>
               <!-- 첨부된 파일 목록 표시 -->
-              <div class="upload-guide">
+              <div class="file-input-guide">
                 <p>*첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.</p>
               </div>
               <ul
                 v-if="files.length"
-                class="file-list"
+                class="file-input-list"
               >
                 <li
                   v-for="(file, index) in files"
