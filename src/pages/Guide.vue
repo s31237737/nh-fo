@@ -262,6 +262,7 @@
       />
       <span>982</span>
     </div>
+
     <!-- tit-wrap -->
     <v-divider class="mt-5 pt-5" />
     <div class="tit-wrap">
@@ -286,7 +287,9 @@
         </v-btn>
       </div>
     </div>
+
     <!-- form -->
+    <!-- email -->
     <v-divider class="mt-5 pt-5" />
     <v-text-field
       density="default"
@@ -304,6 +307,7 @@
       prepend-inner-icon="mdi-email-outline"
     />
 
+    <!-- search -->
     <v-divider class="mt-5 pt-5" />
     <div class="search-wrap">
       <v-form>
@@ -324,6 +328,7 @@
       </v-form>
     </div>
 
+    <!-- select -->
     <v-divider class="mt-5 pt-5" />
     <div>
       <v-form class="d-flex gutter">
@@ -366,10 +371,9 @@
       </v-form>
     </div>
 
+    <!-- form-sheet -->
     <v-divider class="mt-5 pt-5" />
-
-    <!-- formlist -->
-    <div class="formlist">
+    <div class="form-sheet">
       <v-row>
         <v-col>
           <v-label
@@ -380,7 +384,7 @@
           </v-label>
           <div class="label-form">
             <p class="text-value">
-              text-value
+              텍스트만 입력
             </p>
           </div>
         </v-col>
@@ -410,6 +414,8 @@
           <div class="label-form">
             <v-text-field
               id="custom-input"
+              error
+              error-messages="이름을 입력해주세요."
               placeholder="내용을 입력해 주세요."
             />
           </div>
@@ -460,7 +466,7 @@
         <v-col>
           <v-label>첨부파일</v-label>
           <div class="label-form">
-            <div>
+            <div class="upload-file-form">
               <v-file-input
                 v-model="files"
                 label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
@@ -492,6 +498,7 @@
                   <v-btn
                     density="compact"
                     icon="custom:close"
+                    class="file-delete"
                     @click="removeFile(index)"
                   />
                 </li>
@@ -516,56 +523,20 @@
     </div>
 
     <v-divider class="mt-5 pt-5" />
-    <div>
-      <v-file-input
-        v-model="files"
-        label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
-        multiple
-      >
-        <template #append-inner>
-          <v-btn
-            color="secondary"
-          >
-            파일첨부
-          </v-btn>
-        </template>
-      </v-file-input>
-      <!-- 첨부된 파일 목록 표시 -->
-      <div class="upload-guide">
-        <p>*첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.</p>
-      </div>
-      <ul
-        v-if="files.length"
-        class="file-list"
-      >
-        <li
-          v-for="(file, index) in files"
-          :key="index"
-        >
-          <v-icon icon="custom:file" />
-          <span>{{ file.name }}</span>
-          <v-btn
-            density="compact"
-            icon="custom:close"
-            @click="removeFile(index)"
-          />
-        </li>
-      </ul>
-    </div>
 
     <ul
-      class="file-list"
+      class="file-input-list"
     >
       <li
         v-for="(file, index) in files2"
         :key="index"
       >
-        <v-icon icon="custom:file" />
         <span>{{ file.name }}</span>
         <em>{{ file.size }}</em>
         <v-btn
           density="compact"
           icon="custom:download"
+          class="file-download"
           @click="downloadFile(file)"
         />
       </li>
