@@ -1,6 +1,7 @@
 <template>
   <v-main class="main">
     <v-container class="inner">
+      <!-- 프로필 -->
       <ProfileView v-if="isDesktop" />
 
       <div class="content">
