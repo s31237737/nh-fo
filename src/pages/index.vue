@@ -458,23 +458,34 @@
         <!-- // quickLink -->
       </div>
     </v-container>
-
-    <v-banner
+    <v-bottom-sheet
       v-if="!isDesktop"
-      class="user-drawer"
-      sticky
-      lines="two"
+      inset
     >
-      <template #text>
-        <strong>김농협님의 서랍</strong>
-        <p>최근에 <strong class="text-success">총무알리미</strong>를 사용했어요!</p>
-        <!-- <p>자주 사용하는 메뉴를 확인해보세요!</p> -->
+      <template #activator="{ props: activatorProps }">
+        <v-banner
+
+          v-bind="activatorProps"
+          class="user-drawer"
+          sticky
+          lines="two"
+        >
+          <template #text>
+            <strong>김농협님의 서랍</strong>
+            <p>최근에 <strong class="text-success">총무알리미</strong>를 사용했어요!</p>
+            <!-- <p>자주 사용하는 메뉴를 확인해보세요!</p> -->
+          </template>
+          <v-icon
+            size="x-large"
+            icon="custom:drawer"
+          />
+        </v-banner>
       </template>
-      <v-icon
-        size="x-large"
-        icon="custom:drawer"
+      <v-card
+        title="Bottom Sheet"
+        text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, eos? Nulla aspernatur odio rem, culpa voluptatibus eius debitis dolorem perspiciatis asperiores sed consectetur praesentium! Delectus et iure maxime eaque exercitationem!"
       />
-    </v-banner>
+    </v-bottom-sheet>
     <Footer />
   </v-main>
 </template>
