@@ -164,30 +164,30 @@ export default createVuetify({
     },
     VSelect: {
       variant: "outlined",
+      rounded: "lg",
       persistentPlaceholder: true,
       hideDetails: true,
       menuIcon: "custom:select",
-      rounded: "lg",
     },
     VTextarea: {
       variant: "outlined",
-      persistentPlaceholder: true,
       rounded: "lg",
+      persistentPlaceholder: true,
     },
     VTextField: {
       variant: "outlined",
+      rounded: "lg",
       clearable: true,
       clearIcon: "custom:clear",
       hideDetails: true,
-      rounded: "lg",
     },
     VFileInput: {
       variant: "outlined",
+      rounded: "lg",
       hideDetails: true,
       prependIcon: "",
       clearable: false,
       dirty: true,
-      rounded: "lg",
       VField: {
         dirty: true
       },

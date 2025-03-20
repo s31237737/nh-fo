@@ -367,6 +367,155 @@
     </div>
 
     <v-divider class="mt-5 pt-5" />
+
+    <!-- formlist -->
+    <div class="formlist">
+      <v-row>
+        <v-col>
+          <v-label
+            for="custom-input"
+            class="require"
+          >
+            텍스트
+          </v-label>
+          <div class="label-form">
+            <p class="text-value">
+              text-value
+            </p>
+          </div>
+        </v-col>
+        <v-col>
+          <v-label
+            for="custom-input"
+            class="require"
+          >
+            스위치버튼
+          </v-label>
+          <div class="label-form">
+            <v-switch
+              v-model="btnSwitch"
+              class="switch-flip"
+            />
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label
+            for="custom-input"
+            class="require"
+          >
+            텍스트필드
+          </v-label>
+          <div class="label-form">
+            <v-text-field
+              id="custom-input"
+              placeholder="내용을 입력해 주세요."
+            />
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label
+            for="custom-input"
+            class="require"
+          >
+            검색
+          </v-label>
+          <div class="label-form">
+            <v-text-field
+              v-model="appsearch"
+              placeholder="검색해 주세요."
+            >
+              <template #append-inner>
+                <v-btn
+                  color="secondary"
+                >
+                  검색
+                </v-btn>
+              </template>
+            </v-text-field>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label
+            for="custom-input"
+            class="require"
+          >
+            셀렉트
+          </v-label>
+          <div class="label-form">
+            <v-select
+              v-model="select"
+              density="default"
+              :items="['전체', '타입1', '타입2']"
+            />
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label>첨부파일</v-label>
+          <div class="label-form">
+            <div>
+              <v-file-input
+                v-model="files"
+                label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
+                rounded="lg"
+                multiple
+              >
+                <template #append-inner>
+                  <v-btn
+                    color="secondary"
+                  >
+                    파일첨부
+                  </v-btn>
+                </template>
+              </v-file-input>
+              <!-- 첨부된 파일 목록 표시 -->
+              <div class="upload-guide">
+                <p>*첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.</p>
+              </div>
+              <ul
+                v-if="files.length"
+                class="file-list"
+              >
+                <li
+                  v-for="(file, index) in files"
+                  :key="index"
+                >
+                  <v-icon icon="custom:file" />
+                  <span>{{ file.name }}</span>
+                  <v-btn
+                    density="compact"
+                    icon="custom:close"
+                    @click="removeFile(index)"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label>내용</v-label>
+          <div class="label-form">
+            <v-textarea
+              counter
+              persistent-counter
+              no-resize
+              placeholder="문의 내용을 입력해 주세요."
+            />
+          </div>
+        </v-col>
+      </v-row>
+    </div>
+
+    <v-divider class="mt-5 pt-5" />
     <div>
       <v-file-input
         v-model="files"
@@ -1137,22 +1286,22 @@
 <script setup>
 import { ref } from 'vue';
 
-const form = ref("");
-const select = ref("전체");
-
 const onAppendClick = () => {
   alert("Append icon clicked!");
 };
 
+// form
+const form = ref("");
+const select = ref("전체");
+const btnSwitch = ref(true);
+const appsearch = ref([]);
 const files = ref([]);
 const removeFile = (index) => {
   files.value.splice(index, 1);
 };
-
 const files2 = ref([
   { name: "C:/Download/Filename.png", size: "10.3MB", url: "#" },
 ]);
-
 const downloadFile = (files2) => {
   console.log(files2.name)
 };
@@ -1198,6 +1347,7 @@ const banner = ref({
   description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개"
 });
 
+// 좋아요 카운트
 const likes = ref(0);
 const incrementLikes = () => {
   likes.value++;
