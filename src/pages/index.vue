@@ -463,7 +463,6 @@
       v-if="!isDesktop"
       class="user-drawer"
       sticky
-      lines="two"
       @click="sheet = !sheet"
     >
       <template #text>

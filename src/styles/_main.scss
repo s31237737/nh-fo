@@ -328,9 +328,11 @@
     top: auto;
     bottom: 0;
     display: flex;
+    flex: auto;
     margin: 0 auto;
-    padding: 20px 40px;
-    max-width: 930px;
+    height: 74px;
+    padding: 0 40px !important;
+    max-width: 931px;
     border-radius: 12px 12px 0 0;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) !important;
     cursor: pointer;
@@ -469,16 +471,23 @@
       .profile {
         .greetings {
           display: inline-flex;
-        
+         flex-direction: row;
         }
         .info {
-        
+          display: inline-flex;
         }
         .btns {
 
         }
       }
     }
+    .v-btn-group {
+
+
+    .v-btn {
+       height: 96px !important;
+    }
+  }
   }
 }
 
