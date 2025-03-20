@@ -154,8 +154,9 @@
                         <v-card-title>{{ item.title }}</v-card-title>
                         <v-card-text>{{ item.description }}</v-card-text>
                         <v-btn
-                          color="primary"
+                          :color="item.btn === '앱 열기' ? 'primary' : 'info'"
                           size="small"
+                          :disabled="item.btn !== '앱 열기'"
                         >
                           {{ item.btn }}
                         </v-btn>
@@ -212,10 +213,11 @@
                       <v-card-subtitle>{{ item.category }}</v-card-subtitle>
                       <v-card-title>{{ item.title }}</v-card-title>
                       <v-btn
-                        color="primary"
+                        :color="item.btn === '앱 열기' ? 'primary' : 'info'"
                         size="small"
+                        :disabled="item.btn !== '앱 열기'"
                       >
-                        앱 열기
+                        {{ item.btn }}
                       </v-btn>
                     </v-card-item>
                   </v-img>
@@ -595,7 +597,7 @@ const recommApps = ref([
       category: "예약",
       title: "우리 농축협\n예약관리",
       description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스.",
-      btn: "신청대기 중"
+      btn: "신청 대기중"
     },
     {
       image: "@temp_main_app card_03.jpg",
@@ -618,7 +620,7 @@ const recommApps = ref([
       category: "건강",
       title: "스마트 건강 관리",
       description: "건강 데이터 분석을 통해 맞춤형 건강 관리 솔루션 제공.",
-      btn: "신청대기 중"
+      btn: "신청 대기중"
     },
     {
       image: "@temp_main_app card_06.jpg",
