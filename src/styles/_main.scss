@@ -271,9 +271,10 @@
       .recomm-app {
         padding-bottom: 0;
         .v-slide-group {
-          overflow: unset;
           margin-right: -20px;
-          &__container {overflow-y: auto;}
+          &__container {
+            overflow-y: auto;
+          }
           &__content {
             gap: 6px;
             padding-right: 20px;
@@ -446,9 +447,7 @@
       }
     }
   }
-
 }
-
 
 .user-container {
   .v-container {
