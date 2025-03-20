@@ -273,8 +273,9 @@
         .v-slide-group {
           margin-right: -20px;
           &__content {
-            padding-right: 20px;
+            align-items: flex-start;
             gap: 6px;
+            padding-right: 20px;
           }
         }
         .link-btn-arrow {
