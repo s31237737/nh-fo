@@ -3,7 +3,7 @@
     <div class="inner">
       <router-link to="/">
         <v-img
-          :width="!isMobile ? 140 : 100"
+          :width="!isMobile ? 180 : 144"
           alt="NH Nonghyup"
           src="@/assets/images/footer_logo.png"
         />
