@@ -501,6 +501,20 @@
       span {
         @extend .caption-1;
       }
+      @at-root .mobile, .tablet {
+        .main {
+          .user-container {
+            .my-app {
+              .link-btn-arrow {
+                .v-icon {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
     .app-list {
       padding: 0;
