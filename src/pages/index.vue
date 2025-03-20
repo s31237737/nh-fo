@@ -154,7 +154,7 @@
                         <v-card-title>{{ item.title }}</v-card-title>
                         <v-card-text>{{ item.description }}</v-card-text>
                         <v-btn
-                          :color="item.btn === '앱 열기' ? 'primary' : 'info'"
+                          :color="item.btn === '앱 열기' ? 'primary' : 'secondary'"
                           size="small"
                           :disabled="item.btn !== '앱 열기'"
                         >
@@ -213,7 +213,7 @@
                       <v-card-subtitle>{{ item.category }}</v-card-subtitle>
                       <v-card-title>{{ item.title }}</v-card-title>
                       <v-btn
-                        :color="item.btn === '앱 열기' ? 'primary' : 'info'"
+                        :color="item.btn === '앱 열기' ? 'primary' : 'secondary'"
                         size="small"
                         :disabled="item.btn !== '앱 열기'"
                       >

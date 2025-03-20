@@ -294,6 +294,9 @@
       .v-btn {
         margin-top: 10px;
         pointer-events: none;
+        &--disabled {
+          opacity: 1 !important;
+        }
       }
       .v-img {
         border-radius: 20px;
