@@ -466,7 +466,7 @@
       v-if="!isDesktop"
       class="user-drawer"
       sticky
-      @click="sheet = !sheet"
+      @click="isSheetOpen=true"
     >
       <template #text>
         <strong>김농협님의 서랍</strong>
@@ -481,7 +481,7 @@
 
     <!-- 프로필 bottom-sheet-->
     <v-bottom-sheet
-      v-model="sheet"
+      v-model="isSheetOpen"
       attach=".main"
       :height="isMobile ? '100%' : '400'"
       class="user-bottom-drawer"
@@ -493,7 +493,7 @@
         block
         :ripple="false"
         icon="custom:close-drawer"
-        @click="sheet=false"
+        @click="isSheetOpen=false"
       />
       <ProfileView />
     </v-bottom-sheet>
@@ -708,9 +708,10 @@ const quickLinks = ref([
 ]);
 
 // user-drawer
-const sheet = shallowRef(false);
+const isSheetOpen = shallowRef(false);
+
 window.addEventListener('resize', () => {
-  sheet.value = false;
+  isSheetOpen.value = false;
 });
 </script>
 <route lang="yaml">
