@@ -118,10 +118,7 @@
             label2
           </v-label>
           <div class="label-form">
-            <v-file-input
-              v-model="search"
-              multiple
-            >
+            <v-text-field>
               <template #append-inner>
                 <v-btn
                   color="secondary"
@@ -129,7 +126,7 @@
                   검색
                 </v-btn>
               </template>
-            </v-file-input>
+            </v-text-field>
           </div>
         </v-col>
       </v-row>
