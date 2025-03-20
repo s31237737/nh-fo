@@ -87,8 +87,6 @@
 
 //form
 .v-input {
-  min-width: 280px;
-  max-width: 900px;
 }
 .v-field {
   .v-field__outline__start, 
@@ -341,25 +339,38 @@
   .v-row + .v-row {margin-top: 40px;}
   .v-col {
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 248px 1fr;
     gap: 12px;
     min-height: 39px;
-  }
-  .v-label {
-    &.require {
-      &:after {
-        content:"*";
-        display:inline-block;
-        margin-left: 2px;
-        @extend .caption-3-md;
-        color: $red-600;
+    & > .v-label {
+      padding-top: 12px;
+      align-items: flex-start;
+      &.require {
+        &:after {
+          content:"*";
+          display:inline-block;
+          margin-left: 2px;
+          @extend .caption-3-md;
+          color: $red-600;
+        }
       }
     }
+    & + .v-col {
+      //justify-items: right;
+      grid-template-columns: 40% 1fr;
+    }
+  }
+  .v-input:not(.v-switch) {
+    min-width: 280px;
+    max-width: 900px;
   }
   .label-form {
     min-height: 39px;
     .text-value {
       padding: 10px 0 10px 16px;
+    }
+    .v-switch {
+      display:inline-flex;
     }
   }
 }

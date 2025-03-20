@@ -388,7 +388,7 @@
             </p>
           </div>
         </v-col>
-        <v-col>
+        <v-col cols="5">
           <v-label
             for="custom-input"
             class="require"
@@ -412,12 +412,14 @@
             텍스트필드
           </v-label>
           <div class="label-form">
-            <v-text-field
-              id="custom-input"
-              error
-              error-messages="이름을 입력해주세요."
-              placeholder="내용을 입력해 주세요."
-            />
+            <v-sheet
+              class="editor"
+              height="300"
+            >
+              <QuillEditor
+                toolbar="full"
+              />
+            </v-sheet>
           </div>
         </v-col>
       </v-row>
@@ -504,19 +506,6 @@
                 </li>
               </ul>
             </div>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-label>내용</v-label>
-          <div class="label-form">
-            <v-textarea
-              counter
-              persistent-counter
-              no-resize
-              placeholder="문의 내용을 입력해 주세요."
-            />
           </div>
         </v-col>
       </v-row>
@@ -1201,14 +1190,14 @@
 
     <!-- editor -->
     <v-divider class="mt-5 pt-5" />
-    <!-- <v-sheet
+    <v-sheet
       class="editor"
       height="300"
     >
       <QuillEditor
         toolbar="full"
       />
-    </v-sheet> -->
+    </v-sheet>
 
     <!-- table -->
     <v-divider class="mt-5 pt-5" />
