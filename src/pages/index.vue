@@ -390,7 +390,7 @@
                 :height="isDesktop ? '136': '140'"
               >
                 <v-card-text>
-                  <p class="title-5 line-clamp">
+                  <p :class="['title-5', isDesktop ? 'line-clamp' : 'line-clamp2']">
                     농협 입사한 선임이라면 지금 바로 사용해보세요! 정말 좋아요
                   </p>
                   <v-spacer />
@@ -414,7 +414,7 @@
                 :height="isDesktop ? '136': '140'"
               >
                 <v-card-text>
-                  <p class="title-5 line-clamp">
+                  <p :class="['title-5', isDesktop ? 'line-clamp' : 'line-clamp2']">
                     QR 코드를 활용해서 쉽고 간편하게 제품 스캔이 가능 해요
                   </p>
                   <v-spacer />
