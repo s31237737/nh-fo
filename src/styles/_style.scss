@@ -263,10 +263,14 @@
       @extend .text-4;
     }
   }
-  &:not(.v-input--dirty) {
-    .v-field--active .v-label.v-field-label {
+  .v-field--active {
+    .v-label.v-field-label {
       visibility: unset;
       color: $gray-500 ;
+    }
+    .v-field__input {
+      visibility: hidden;
+      opacity:0;
     }
   }
 }

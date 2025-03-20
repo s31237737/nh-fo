@@ -44,7 +44,7 @@
         <v-icon
           icon="custom:microsoft"
           size="large"
-        />MS 간편로그인
+        />MS 로그인
       </v-btn>
       <p class="info-txt">
         <v-icon
