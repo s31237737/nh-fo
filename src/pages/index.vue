@@ -482,7 +482,7 @@
     <v-bottom-sheet
       v-model="sheet"
       attach=".main"
-      :height="isMobile ? '100%' : '397'"
+      :height="isMobile ? '100%' : '400'"
       class="user-bottom-drawer"
     >
       <v-btn

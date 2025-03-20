@@ -582,7 +582,7 @@
   position: relative;
   max-width: 930px;
   .user-container {
-    padding-top: 50px;
+    padding-top: 40px;
     width: 100%;
     height: 100%;
     border-radius: 20px 20px 0 0;
@@ -629,12 +629,29 @@
     --v-hover-opacity: 0;
     .v-icon {width: 56px;}
   }
-  @at-root .mobile {
+  @at-root .tablet {
     .user-bottom-drawer {
       .user-container {
-        padding-top: 40px;
+        padding-top: 50px;
         .v-container {
-          padding: 0 20px 140px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 30px;
+          padding: 0 40px 50px;
+        }
+        .profile {
+          width: 320px;
+          align-content: flex-start;
+          
+        }
+        .v-btn-group {
+          position: absolute;
+          left: 40px;
+          bottom: 50px;
+          width: 320px;
+        }
+        .my-app {
+          flex: 1;
         }
       }
     }
