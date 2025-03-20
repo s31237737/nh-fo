@@ -1230,14 +1230,14 @@
 
     <!-- editor -->
     <v-divider class="mt-5 pt-5" />
-    <v-sheet
+    <!-- <v-sheet
       class="editor"
       height="300"
     >
       <QuillEditor
         toolbar="full"
       />
-    </v-sheet>
+    </v-sheet> -->
 
     <!-- table -->
     <v-divider class="mt-5 pt-5" />
@@ -1290,21 +1290,22 @@ const onAppendClick = () => {
   alert("Append icon clicked!");
 };
 
+const btnSwitch = ref(true);
+
 // form
 const form = ref("");
 const select = ref("전체");
-const btnSwitch = ref(true);
 const appsearch = ref([]);
 const files = ref([]);
 const removeFile = (index) => {
   files.value.splice(index, 1);
 };
-const files2 = ref([
-  { name: "C:/Download/Filename.png", size: "10.3MB", url: "#" },
-]);
 const downloadFile = (files2) => {
   console.log(files2.name)
 };
+const files2 = ref([
+  { name: "C:/Download/Filename.png", size: "10.3MB", url: "#" },
+]);
 
 
 const desserts = ref([
