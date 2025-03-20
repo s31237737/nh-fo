@@ -444,11 +444,14 @@
 
 
 .user-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 254px;
-  flex: none;
+  .v-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 254px;
+    flex: none;
+    padding: 0;
+  }
   .v-divider {
     position: relative;
     z-index: 1;
@@ -530,6 +533,7 @@
   .v-btn-group {
     position: relative;
     height: 96px !important;
+    overflow: unset;
     &::after {
       content: '';
       position: absolute;
@@ -567,6 +571,7 @@
         .greetings {
           display: inline-flex;
           flex-direction: row;
+          gap: 4px;
           margin: 0 0 4px;
         }
         .info {
@@ -577,25 +582,46 @@
           width: 100%;
         }
       }
+      .v-btn-group {
+        .v-btn {
+          height: 96px !important;
+        }
+      }
     }
-    .v-btn-group {
-
-
-    .v-btn {
-       height: 96px !important;
-    }
-  }
   }
 }
 
 .user-bottom-drawer {
+  position: relative;
   max-width: 930px;
   .user-container {
-    overflow-y: auto;
-    padding: 20px;
+    padding-top: 50px;
     width: 100%;
     height: 100%;
-    border-radius: 12px 12px 0 0;
+    border-radius: 20px 20px 0 0;
     background: $white;
+    .v-container {
+      overflow-y: auto;
+      padding: 0 20px 140px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .btn-close-drawer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    --v-hover-opacity: 0;
+    .v-icon {width: 56px;}
+  }
+  @at-root .mobile {
+    .user-bottom-drawer {
+      .user-container {
+        padding-top: 40px;
+        .v-container {
+          padding: 0 20px 140px;
+        }
+      }
+    }
   }
 }
