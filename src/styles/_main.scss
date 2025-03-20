@@ -272,10 +272,8 @@
         padding-bottom: 0;
         .v-slide-group {
           margin-right: -20px;
-          
-          &__container {
-            overflow-y: auto;
-          }
+          overflow: auto;
+         
           &__content {
             gap: 6px;
             padding-right: 20px;
