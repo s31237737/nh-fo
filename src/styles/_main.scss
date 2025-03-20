@@ -438,6 +438,11 @@
     .v-icon {
       font-size: 2rem;
     }
+    @at-root .mobile {
+      .main {
+        .user-drawer {height: 70px;}
+      }
+    }
   }
 
 }
@@ -571,38 +576,6 @@
       }
     }
   }
-  @at-root .mobile {
-    .user-container {
-      .profile {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        .info-wrap {
-          display: inline-flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-        .greetings {
-          display: inline-flex;
-          flex-direction: row;
-          gap: 4px;
-          margin: 0 0 4px;
-        }
-        .info {
-          display: inline-flex;
-        }
-        .btns {
-          margin-top: 0;
-          width: 100%;
-        }
-      }
-      .v-btn-group {
-        .v-btn {
-          height: 96px !important;
-        }
-      }
-    }
-  }
 }
 
 .user-bottom-drawer {
@@ -619,6 +592,34 @@
       padding: 0 20px 140px;
       width: 100%;
       height: 100%;
+    }
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      .info-wrap {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .greetings {
+        display: inline-flex;
+        flex-direction: row;
+        gap: 4px;
+        margin: 0 0 4px;
+      }
+      .info {
+        display: inline-flex;
+      }
+      .btns {
+        margin-top: 0;
+        width: 100%;
+      }
+    }
+    .v-btn-group {
+      .v-btn {
+        height: 96px !important;
+      }
     }
   }
   .btn-close-drawer {
