@@ -467,15 +467,10 @@
         <strong>김농협님의 서랍</strong>
         <p>자주 사용하는 메뉴를 확인해보세요!</p>
       </template>
-      <template #append>
-        <v-icon
-          size="x-large"
-          icon="custom:schedule"
-        />
-      </template>
-      <template #prepend>
-        <v-avatar />
-      </template>
+      <v-icon
+        size="x-large"
+        icon="custom:schedule"
+      />
     </v-banner>
     <Footer />
   </v-main>
