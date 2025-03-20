@@ -458,40 +458,38 @@
         <!-- // quickLink -->
       </div>
     </v-container>
-    <v-bottom-sheet
-      v-if="!isDesktop"
-      inset
-    >
-      <template #activator="{ props: activatorProps }">
-        <v-banner
 
-          v-bind="activatorProps"
-          class="user-drawer"
-          sticky
-          lines="two"
-        >
-          <template #text>
-            <strong>김농협님의 서랍</strong>
-            <p>최근에 <strong class="text-success">총무알리미</strong>를 사용했어요!</p>
-            <!-- <p>자주 사용하는 메뉴를 확인해보세요!</p> -->
-          </template>
-          <v-icon
-            size="x-large"
-            icon="custom:drawer"
-          />
-        </v-banner>
+    <v-banner
+      v-if="!isDesktop"
+      class="user-drawer"
+      sticky
+      @click="sheet = !sheet"
+    >
+      <template #text>
+        <strong>김농협님의 서랍</strong>
+        <p>최근에 <strong class="text-success">총무알리미</strong>를 사용했어요!</p>
+        <!-- <p>자주 사용하는 메뉴를 확인해보세요!</p> -->
       </template>
-      <v-card
-        title="Bottom Sheet"
-        text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, eos? Nulla aspernatur odio rem, culpa voluptatibus eius debitis dolorem perspiciatis asperiores sed consectetur praesentium! Delectus et iure maxime eaque exercitationem!"
+      <v-icon
+        size="x-large"
+        icon="custom:drawer"
       />
+    </v-banner>
+
+    <v-bottom-sheet
+      v-model="sheet"
+      attach=".main"
+      :height="isMobile ? '100%' : '397'"
+      class="user-bottom-drawer"
+    >
+      <ProfileView />
     </v-bottom-sheet>
     <Footer />
   </v-main>
 </template>
 
 <script setup>
-import { inject, ref } from "vue";
+import { inject, ref, shallowRef } from "vue";
 
 const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
@@ -684,8 +682,12 @@ const quickLinks = ref([
     to: "/",
   },
 ]);
-</script>
 
+// user-drawer
+const sheet = shallowRef(false);
+const drawer = ref(true)
+  const rail = ref(true)
+</script>
 <route lang="yaml">
 meta:
   layout: MainLayout
