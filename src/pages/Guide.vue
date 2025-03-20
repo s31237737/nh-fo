@@ -229,7 +229,7 @@
         <span>comment</span>
       </div>
     </div>
-    <div class="d-flex ga-2 mt-4">
+    <div class="d-flex ga-2 mt-5">
       <v-label>아이콘 사이즈</v-label>
       <v-icon
         icon="$vuetify"
@@ -263,7 +263,7 @@
       <span>982</span>
     </div>
     <!-- tit-wrap -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <div class="tit-wrap">
       <strong class="title-4">
         타이틀
@@ -287,7 +287,7 @@
       </div>
     </div>
     <!-- form -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <v-text-field
       density="default"
       placeholder="h48px"
@@ -303,8 +303,30 @@
       placeholder="h36px"
       prepend-inner-icon="mdi-email-outline"
     />
+
+    <v-divider class="mt-5 pt-5" />
     <div class="search-wrap">
       <v-form>
+        <v-text-field
+          v-model="form"
+          class="search-inp round"
+          placeholder="앱코드, 앱 이름을 검색해주세요."
+          append-inner-icon="custom:search"
+          rounded="pill"
+          bg-color="white"
+          @click:append-inner="onAppendClick"
+        />
+
+        <v-btn
+          color="line"
+          icon="custom:refresh"
+        />
+      </v-form>
+    </div>
+
+    <v-divider class="mt-5 pt-5" />
+    <div>
+      <v-form class="d-flex gutter">
         <v-select
           v-model="select"
           density="default"
@@ -324,29 +346,14 @@
           label="compact36"
           :items="['전체', '상태1', '상태2']"
         />
-
-        <v-text-field
-          v-model="form"
-          class="search-inp round"
-          placeholder="앱코드, 앱 이름을 검색해주세요."
-          append-inner-icon="custom:search"
-          rounded="pill"
-          bg-color="white"
-          @click:append-inner="onAppendClick"
-        />
-
-        <v-btn
-          color="line"
-          icon="custom:refresh"
-        />
       </v-form>
-
-      <v-form>
+      <v-form class="d-flex mt-5">
         <v-select
           v-model="select"
           density="default"
           label="default"
           :items="['전체', '타입1', '타입2']"
+          class="required"
         />
 
         <v-select
@@ -358,7 +365,8 @@
         />
       </v-form>
     </div>
-    <v-divider class="mt-4 pt-4" />
+
+    <v-divider class="mt-5 pt-5" />
     <div>
       <v-file-input
         v-model="files"
@@ -414,11 +422,11 @@
       </li>
     </ul>
     <!-- popup -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <Popup />
 
     <!-- flag -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <div>
       <v-row
         align="center"
@@ -490,7 +498,7 @@
     </div>
 
     <!-- radio -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <v-radio-group>
       <v-radio
         label="Radio One"
@@ -507,8 +515,8 @@
     </v-radio-group>
 
     <!-- list -->
-    <v-divider class="mt-4 pt-4" />
-    <div class="mt-4 d-flex">
+    <v-divider class="mt-5 pt-5" />
+    <div class="mt-5 d-flex">
       <v-list
         density="comfortable"
         :items="items"
@@ -516,7 +524,7 @@
     </div>
 
     <!-- 텍스트 -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <div>
       <div>
         <p class="title-1">
@@ -550,7 +558,7 @@
           title-5-bd 작은 크기 제목입니다 (600, 26, 18px)
         </p>
       </div>
-      <div class="mt-4 pt-4">
+      <div class="mt-5 pt-5">
         <p class="text-1">
           text-1 큰 본문 텍스트입니다. (500, 28, 20px)
         </p>
@@ -579,7 +587,7 @@
           text-4-bd 작은 본문 텍스트입니다. (700, 20, 14px)
         </p>
       </div>
-      <div class="mt-4 pt-4">
+      <div class="mt-5 pt-5">
         <p class="caption-1">
           caption-1 캡션 스타일입니다. (700, 26, 18px)
         </p>
@@ -600,7 +608,7 @@
     <!-- // 텍스트 -->
 
     <!-- 버튼 -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <div>
       <v-row
         align="center"
@@ -1072,7 +1080,7 @@
     <!-- //버튼 -->
 
     <!-- editor -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <v-sheet
       class="editor"
       height="300"
@@ -1083,7 +1091,7 @@
     </v-sheet>
 
     <!-- table -->
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
     <v-row>
       <v-col cols="auto">
         <v-table>
@@ -1110,7 +1118,7 @@
       </v-col>
     </v-row>
 
-    <v-divider class="mt-4 pt-4" />
+    <v-divider class="mt-5 pt-5" />
 
     <!-- 배너 -->
     <section class="banner-wrap">

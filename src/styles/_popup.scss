@@ -175,6 +175,7 @@ $popup-base-margin: 20px;
 
 .formlist {
   background: $white;
+  @extend .text-3-md;
   .v-row + .v-row {margin-top: 40px;}
   .v-col {
     display: grid;
@@ -183,7 +184,6 @@ $popup-base-margin: 20px;
     min-height: 39px;
   }
   .v-label {
-    @extend .text-3-md;
     &.require {
       &:after {
         content:"*";
@@ -196,9 +196,8 @@ $popup-base-margin: 20px;
   }
   .label-form {
     min-height: 39px;
-    vertical-align: middle;
-    & > span {
-      
+    .text-value {
+      padding: 10px 0 10px 16px;
     }
   }
 }

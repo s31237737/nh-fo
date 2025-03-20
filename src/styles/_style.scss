@@ -1,23 +1,9 @@
 @use "variables" as *;
 @use "typography" as *;
 
-.editor {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  .ql-toolbar.ql-snow {
-    height: 44px;
-  }
-  .ql-container.ql-snow {
-    height: calc(100% - 44px);
-  }
-}
-
 .v-switch {
   &.switch-flip {
     .v-selection-control {
-      // justify-content: space-between;
-      // flex-direction: row-reverse;
       .v-switch__track {
         height: 20px;
         min-width: 32px;
@@ -38,6 +24,56 @@
   }
 }
 
+//typo
+.tit-wrap {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  .btns {
+    display: flex;
+    gap: 12px;
+  }
+
+  @at-root .mobile,
+    .tablet {
+    .tit-wrap {
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+      strong {
+        width: 100%;
+      }
+      .btns {
+        gap: 6px;
+        @extend .mscroll-area;
+      }
+    }
+  }
+}
+.icon-text {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  span {
+    @extend .text-2-md;
+  }
+}
+
+//editor
+.editor {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .ql-toolbar.ql-snow {
+    height: 44px;
+  }
+  .ql-container.ql-snow {
+    height: calc(100% - 44px);
+  }
+}
+
+//no data
 .v-empty-state {
   width: 100%;
   height: 100%;
@@ -72,6 +108,15 @@
           @extend .text-4-md;
         }
       }
+    }
+  }
+  .v-field.rounded-pill {
+    .v-field__outline__start {
+      flex-basis: 50% !important;
+      border-start-start-radius: inherit;
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+      border-end-start-radius: inherit;
     }
   }
 }
@@ -178,44 +223,6 @@
     flex-basis: 50% !important;
   }
 }
-.v-input.round {
-  .v-field {
-    &__outline__start {
-      flex-basis: 50% !important;
-    }
-  }
-  &.search-inp {
-  }
-}
-
-.upload-guide {
-  margin-top: 12px;
-  p {
-    @extend .text-4;
-    color: $gray-700;
-    &.text-1 {
-      color: $black;
-      .v-icon {
-        vertical-align: text-bottom;
-      }
-    }
-  }
-  & + .file-list {
-    margin-top: 12px;
-  }
-}
-
-.upload-info {
-  margin-top: 8px;
-  display: flex;
-  gap: 10px;
-  p {
-    width: 100px;
-    @extend .caption-3;
-    color: $gray-700;
-  }
-}
-
 .file-list {
   display: inline-flex;
   flex-direction: column;
@@ -232,7 +239,6 @@
     }
   }
 }
-
 .v-file-input {
   .v-field--active .v-label.v-field-label {
     visibility: unset;
@@ -245,43 +251,34 @@
     opacity: var(--v-field-border-opacity);
   }
 }
-
-.tit-wrap {
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  .btns {
-    display: flex;
-    gap: 12px;
-  }
-
-  @at-root .mobile,
-    .tablet {
-    .tit-wrap {
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 20px;
-      strong {
-        width: 100%;
-      }
-      .btns {
-        gap: 6px;
-        @extend .mscroll-area;
+.upload-guide {
+  margin-top: 12px;
+  p {
+    @extend .text-4;
+    color: $gray-700;
+    &.text-1 {
+      color: $black;
+      .v-icon {
+        vertical-align: text-bottom;
       }
     }
   }
+  & + .file-list {
+    margin-top: 12px;
+  }
 }
-
-.icon-text {
+.upload-info {
+  margin-top: 8px;
   display: flex;
-  gap: 4px;
-  align-items: center;
-  span {
-    @extend .text-2-md;
+  gap: 10px;
+  p {
+    width: 100px;
+    @extend .caption-3;
+    color: $gray-700;
   }
 }
 
+//profile
 .edit-profile {
   position: relative;
 
@@ -295,11 +292,6 @@
     height: 20px;
     background: url('@/assets/images/icon_edit_profile.png') no-repeat center / 100%;
   }
-}
-
-//section space
-section + section {
-  margin-top: 120px;
 }
 
 //slider
@@ -316,8 +308,12 @@ section + section {
       height: 100%;
     }
   }
+  @at-root .v-layout:not(.desktop) {
+    .slider {
+      margin-bottom: $base-margin-mobile;
+    }
+  }
 }
-
 .slider-controls {
   position: absolute;
   bottom: 58px;
@@ -364,10 +360,11 @@ section + section {
   }
 }
 
+//section space
+section + section {
+  margin-top: 120px;
+}
 .mobile, .tablet {
-  .slider {
-    margin-bottom: $base-margin-mobile;
-  }
   section + section {
     margin-top: 60px;
   }
