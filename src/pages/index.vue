@@ -443,7 +443,7 @@
                 :subtitle="item.subtitle"
                 :title="item.title"
                 :color="item.color"
-                :to="item.to"
+                :to="item.link"
                 :height="isDesktop ? '136': '96'"
               >
                 <template #append>
@@ -695,14 +695,14 @@ const quickLinks = ref([
     subtitle: "자주 묻는 질문을 찾아보세요.",
     title: "자주 묻는 질문",
     color: "success",
-    to: "/",
+    link: "/",
   },
   {
     appendIcon: "custom:app-guide",
     subtitle: "앱 사용방법이 궁금하신가요?",
     title: "앱 가이드",
     color: "sky",
-    to: "/",
+    link: "/",
   },
 ]);
 
