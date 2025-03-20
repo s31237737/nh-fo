@@ -173,9 +173,26 @@ $popup-base-margin: 20px;
   }
 }
 
-// .dropdown {
-//   @extend .popover;
-//   &::before {
-//     display: none;
-//   }
-// }
+.formlist {
+  background: $white;
+  .v-row + .v-row {margin-top: 40px;}
+  .v-col {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 12px;
+    min-height: 39px;
+  }
+  .v-label {
+    @extend .text-3-md;
+    &.require {
+      &:after {
+        content:"*";
+        display:inline-block;
+        margin-left: 2px;
+        @extend .caption-3-md;
+        color: $red-600;
+      }
+    }
+  }
+    
+}
