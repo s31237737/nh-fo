@@ -118,6 +118,27 @@
             label2
           </v-label>
           <div class="label-form">
+            <v-text-field>
+              <template #append-inner>
+                <v-btn
+                  color="secondary"
+                >
+                  검색
+                </v-btn>
+              </template>
+            </v-text-field>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label
+            for="custom-input"
+            class="require"
+          >
+            label2
+          </v-label>
+          <div class="label-form">
             <v-select
               v-model="select"
               density="default"
@@ -170,7 +191,7 @@
         <v-col>
           <v-label>label4</v-label>
           <div class="label-form">
-            <v-textarea />
+            <v-textarea counter />
           </div>
         </v-col>
       </v-row>
@@ -452,6 +473,7 @@
 
   const btnSwitch = ref(true);
   const select = ref("전체");
+  const search = ref([]);
   const files = ref([]);
   const removeFile = (index) => {
     files.value.splice(index, 1);
