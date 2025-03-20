@@ -556,15 +556,25 @@
   @at-root .mobile {
     .user-container {
       .profile {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        .info-wrap {
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: center;
+        }
         .greetings {
           display: inline-flex;
-         flex-direction: row;
+          flex-direction: row;
+          margin: 0 0 4px;
         }
         .info {
           display: inline-flex;
         }
         .btns {
-
+          margin-top: 0;
+          width: 100%;
         }
       }
     }

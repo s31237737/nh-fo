@@ -16,17 +16,18 @@
           />
         </v-avatar>
       </v-btn>
-
-      <p class="greetings">
-        <span><strong>김농협</strong>님</span> <span>안녕하세요.</span>
-      </p>
-      <p class="info">
-        <span>창전6통</span>
-        <v-divider
-          vertical
-        />
-        <span>245678</span>
-      </p>
+      <div class="info-wrap">
+        <p class="greetings">
+          <span><strong>김농협</strong>님</span> <span>안녕하세요.</span>
+        </p>
+        <p class="info">
+          <span>창전6통</span>
+          <v-divider
+            vertical
+          />
+          <span>245678</span>
+        </p>
+      </div>
       <div class="btns">
         <v-btn
           size="large"
