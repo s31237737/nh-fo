@@ -95,37 +95,53 @@
       right: 20px;
       transform: none;
     }
+     @at-root .tablet {
+      .main {
+        .recomm-app-banner {
+          margin-bottom: 0;
+        }
+      }
+     }
     @at-root .mobile {
-      .recomm-app-banner {
-        .v-card-item {
-          padding: 0 16px;
-          &__content {
-            width: calc(100% - 20px)
-          }
-          &__append {
-            width: 120px;
+      .main {
+        .recomm-app-banner {
+          margin-bottom: 0;
+          .v-carousel,  .v-card {
+            border-radius: 12px !important;
           }
           .v-card {
-            &-title {
-              font-size: 0.875rem;
-              line-height: 14px;
+            
+          }
+          .v-card-item {
+            padding: 0 16px;
+            &__content {
+              width: calc(100% - 20px)
             }
-            &-subtitle {
-              margin-bottom: 3px;
-              font-size: 0.75rem;
-              font-weight: 700;
-              line-height: 17px;
+            &__append {
+              width: 120px;
             }
-            &-text {
-              margin-top: 4px;
-              font-size: 0.75rem;
-              line-height: 14px;
+            .v-card {
+              &-title {
+                font-size: 0.875rem;
+                line-height: 14px;
+              }
+              &-subtitle {
+                margin-bottom: 3px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                line-height: 17px;
+              }
+              &-text {
+                margin-top: 4px;
+                font-size: 0.75rem;
+                line-height: 14px;
+              }
             }
           }
-        }
-        .slider-controls {
-          bottom: 8px;
-          right: 8px;
+          .slider-controls {
+            bottom: 8px;
+            right: 8px;
+          }
         }
       }
     }
@@ -145,6 +161,7 @@
     }
     @at-root .mobile, .tablet {
       .notice-banner {
+        margin: 20px 0 40px;
         padding: 12px 20px;
         height: 44px;
         gap: 10px;
@@ -390,6 +407,7 @@
     @at-root .tablet, .mobile {
       .main {
         .quick-links {
+          margin-bottom: 60px;
           .v-card {padding: 0 24px;}
         }
       }
