@@ -142,7 +142,7 @@
         <v-btn
           color="info"
           size="large"
-          @click="alert02 = false"
+          @click="alert02 = true"
         >
           취소
         </v-btn>
@@ -290,6 +290,7 @@
         <v-btn
           color="primary"
           size="large"
+          @click="alert04 = true"
         >
           등록
         </v-btn>
