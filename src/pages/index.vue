@@ -258,7 +258,7 @@
               <v-card
                 to="/"
                 color="#D1E2FF"
-                height="390"
+                :height="isDesktop ? '390': '280'"
               >
                 <v-card-text>
                   <p class="title-4">
@@ -292,7 +292,7 @@
               <v-card
                 to="/"
                 color="#3B424E"
-                height="390"
+                :height="isDesktop ? '390': '280'"
                 class="white"
               >
                 <v-card-text>
@@ -333,7 +333,7 @@
                   <v-card
                     to="/"
                     color="coolgray"
-                    height="187"
+                    :height="isDesktop ? '187': '140'"
                   >
                     <v-card-text>
                       <p class="title-5 line-clamp2">
@@ -359,7 +359,7 @@
                   <v-card
                     to="/"
                     color="coolgray"
-                    height="187"
+                    :height="isDesktop ? '187': '140'"
                   >
                     <v-card-text>
                       <p class="title-5 line-clamp2">
@@ -387,10 +387,10 @@
               <v-card
                 to="/"
                 color="coolgray"
-                height="136"
+                :height="isDesktop ? '136': '140'"
               >
                 <v-card-text>
-                  <p class="title-5 line-clamp">
+                  <p :class="['title-5', isDesktop ? 'line-clamp' : 'line-clamp2']">
                     농협 입사한 선임이라면 지금 바로 사용해보세요! 정말 좋아요
                   </p>
                   <v-spacer />
@@ -411,10 +411,10 @@
               <v-card
                 to="/"
                 color="coolgray"
-                height="136"
+                :height="isDesktop ? '136': '140'"
               >
                 <v-card-text>
-                  <p class="title-5 line-clamp">
+                  <p :class="['title-5', isDesktop ? 'line-clamp' : 'line-clamp2']">
                     QR 코드를 활용해서 쉽고 간편하게 제품 스캔이 가능 해요
                   </p>
                   <v-spacer />
@@ -444,6 +444,7 @@
                 :title="item.title"
                 :color="item.color"
                 :to="item.to"
+                :height="isDesktop ? '136': '96'"
               >
                 <template #append>
                   <v-icon
@@ -459,6 +460,7 @@
       </div>
     </v-container>
 
+    <!-- 프로필 -->
     <v-banner
       v-if="!isDesktop"
       class="user-drawer"
@@ -476,6 +478,7 @@
       />
     </v-banner>
 
+    <!-- 프로필 bottom-sheet-->
     <v-bottom-sheet
       v-model="sheet"
       attach=".main"
