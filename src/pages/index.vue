@@ -9,7 +9,7 @@
           <v-carousel
             v-model="currentSlide"
             :cycle="isAppPlay"
-            height="258"
+            :height="!isMobile ? '258': '88'"
           >
             <v-carousel-item
               v-for="(item, index) in appBanner"
@@ -33,8 +33,8 @@
                   <template #append>
                     <v-img
                       v-if="item.type && item.type === 'app'"
-                      max-width="100"
-                      height="100"
+                      :max-width="!isMobile ? '100': '34'"
+                      :height="!isMobile ? '100': '34'"
                       :src="getImageUrl(item.image)"
                     />
                   </template>
