@@ -696,8 +696,9 @@ const quickLinks = ref([
 
 // user-drawer
 const sheet = shallowRef(false);
-const drawer = ref(true)
-  const rail = ref(true)
+window.addEventListener('resize', () => {
+  sheet.value = false;
+});
 </script>
 <route lang="yaml">
 meta:
