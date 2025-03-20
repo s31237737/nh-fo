@@ -1,14 +1,17 @@
 @use "variables" as *;
 @use "typography" as *;
 
+$popup-base-margin: 20px;
 .v-dialog[class*="popup"] {
   .v-overlay__content {
+    width: calc(100% - ($popup-base-margin * 4)) !important;
     max-width: 834px;
     min-height: 438px;
     max-height: 602px;
   }
   .v-card {
     border-radius: 10px !important;
+    padding-bottom: 20px;
   }
   .v-card-title {
     display: flex;
@@ -37,7 +40,8 @@
   .v-card-actions {
     justify-content: center !important;
     margin-top: 20px;
-    padding: 16px 20px;
+    padding: 16px 20px 0;
+    margin-bottom: -4px;
     & .v-btn {
       width: 180px;
     }
@@ -124,11 +128,9 @@
   // }
 }
 
-$popup-base-margin: 20px;
 @media only screen and (max-width: 1279px) {
   .v-dialog[class*="popup"] {
     .v-overlay__content {
-      max-width: calc(100% - ($popup-base-margin * 4));
       max-height: calc(100% - 200px);
     }
   }
@@ -137,8 +139,8 @@ $popup-base-margin: 20px;
   .v-dialog[class*="popup"] {
     .v-overlay__content {
       width: 100% !important;
-      min-height: 224px;
       max-width: calc(100% - ($popup-base-margin * 2)) !important;
+      min-height: 224px;
       max-height: calc(100% - 200px);
     }
     .v-card-actions .v-btn{
