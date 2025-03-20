@@ -49,146 +49,6 @@
 }
 
 .main {
-  .user-drawer {
-    top: auto;
-    bottom: 0;
-    display: flex;
-    margin: 0 auto;
-    padding: 20px 40px;
-    max-width: 930px;
-    border-radius: 12px 12px 0 0;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) !important;
-    cursor: pointer;
-    .v-banner__content {
-      width: 100%;
-      justify-content: space-between;
-      > strong {
-        @extend .caption-2;
-        font-weight: 600 !important;
-      }
-      p {
-        @extend .caption-3;
-        color: $gray-800;
-      }
-    }
-    .v-icon {
-      font-size: 2rem;
-    }
-  }
-
-  .user-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 254px;
-    flex: none;
-    .v-divider {
-      position: relative;
-      z-index: 1;
-      opacity: 1;
-      color: $gray-300;
-      align-self: center;
-      height: 12px;
-    }
-    .profile {
-      .greetings {
-        display: flex;
-        flex-direction: column;
-        margin: 15px 0 12px;
-        span {
-          @extend .title-3;
-          font-weight: 400 !important;
-          strong {
-            @extend .title-3-bd;
-          }
-        }
-      }
-      .info {
-        display: flex;
-        gap: 10px;
-        span {
-          color: $gray-700;
-          @extend .text-4-md
-        }
-      }
-      .btns {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-        .v-btn {
-          flex: 1;
-        }
-      }
-    }
-    .my-app {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      .link-btn-arrow {
-        display: flex;
-        justify-content: space-between;
-        color: $black;
-        span {
-          @extend .caption-1;
-        }
-      }
-      .app-list {
-        padding: 0;
-        border-radius: 10px;
-        .v-list-item {
-          gap: 4px;
-          padding: 16px 18px;
-          height: 64px;
-          &-title {
-            @extend .text-4-bd;
-          }
-          &:not(:first-child) {
-            border-top: thin solid $gray-300;
-          }
-        }
-      }
-      .v-empty-state {
-        height: 258px;
-        min-height: auto;
-        border-radius: 10px;
-        border: thin solid $gray-300;
-        &__title{
-          text-align: left;
-        }
-        &__actions{
-          padding: 16px 0 0;
-        }
-      }
-    }
-    .v-btn-group {
-      position: relative;
-      height: 96px !important;
-      &::after {
-        content: '';
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        width: 1px;
-        height: calc(100% - 40px);
-        background-color: $gray-300;
-      }
-      .v-btn {
-        flex: 1;
-        --v-hover-opacity: 0;
-        --v-activated-opacity: 0;
-        &__content {
-          gap: 7px;
-          flex-direction: column;
-        }
-        .v-icon {
-          font-size: 2rem;
-          --v-icon-size-multiplier: 1;
-        }
-      }
-    }
-  }
-
-
   .recomm-app-banner {
     margin-bottom: 0;
     .v-card {
@@ -463,12 +323,155 @@
       }
     }
   }
+
+  .user-drawer {
+    top: auto;
+    bottom: 0;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px 40px;
+    max-width: 930px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer;
+    .v-banner__content {
+      width: 100%;
+      justify-content: space-between;
+      > strong {
+        @extend .caption-2;
+        font-weight: 600 !important;
+      }
+      p {
+        @extend .caption-3;
+        color: $gray-800;
+      }
+    }
+    .v-icon {
+      font-size: 2rem;
+    }
+  }
+
 }
 
 
+.user-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 254px;
+  flex: none;
+  .v-divider {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    color: $gray-300;
+    align-self: center;
+    height: 12px;
+  }
+  .profile {
+    .greetings {
+      display: flex;
+      flex-direction: column;
+      margin: 15px 0 12px;
+      span {
+        @extend .title-3;
+        font-weight: 400 !important;
+        strong {
+          @extend .title-3-bd;
+        }
+      }
+    }
+    .info {
+      display: flex;
+      gap: 10px;
+      span {
+        color: $gray-700;
+        @extend .text-4-md
+      }
+    }
+    .btns {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      .v-btn {
+        flex: 1;
+      }
+    }
+  }
+  .my-app {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .link-btn-arrow {
+      display: flex;
+      justify-content: space-between;
+      color: $black;
+      span {
+        @extend .caption-1;
+      }
+    }
+    .app-list {
+      padding: 0;
+      border-radius: 10px;
+      .v-list-item {
+        gap: 4px;
+        padding: 16px 18px;
+        height: 64px;
+        &-title {
+          @extend .text-4-bd;
+        }
+        &:not(:first-child) {
+          border-top: thin solid $gray-300;
+        }
+      }
+    }
+    .v-empty-state {
+      height: 258px;
+      min-height: auto;
+      border-radius: 10px;
+      border: thin solid $gray-300;
+      &__title{
+        text-align: left;
+      }
+      &__actions{
+        padding: 16px 0 0;
+      }
+    }
+  }
+  .v-btn-group {
+    position: relative;
+    height: 96px !important;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      width: 1px;
+      height: calc(100% - 40px);
+      background-color: $gray-300;
+    }
+    .v-btn {
+      flex: 1;
+      --v-hover-opacity: 0;
+      --v-activated-opacity: 0;
+      &__content {
+        gap: 7px;
+        flex-direction: column;
+      }
+      .v-icon {
+        font-size: 2rem;
+        --v-icon-size-multiplier: 1;
+      }
+    }
+  }
+}
+
 .user-bottom-drawer {
+
   max-width: 930px;
   .user-container {
+    overflow-y: auto;
+    padding: 20px;
     width: 100%;
     height: 100%;
     border-radius: 12px 12px 0 0;
