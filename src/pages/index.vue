@@ -258,7 +258,7 @@
               <v-card
                 to="/"
                 color="#D1E2FF"
-                height="390"
+                :height="isDesktop ? '390': '280'"
               >
                 <v-card-text>
                   <p class="title-4">
@@ -292,7 +292,7 @@
               <v-card
                 to="/"
                 color="#3B424E"
-                height="390"
+                :height="isDesktop ? '390': '280'"
                 class="white"
               >
                 <v-card-text>
@@ -333,7 +333,7 @@
                   <v-card
                     to="/"
                     color="coolgray"
-                    height="187"
+                    :height="isDesktop ? '187': '140'"
                   >
                     <v-card-text>
                       <p class="title-5 line-clamp2">
@@ -359,7 +359,7 @@
                   <v-card
                     to="/"
                     color="coolgray"
-                    height="187"
+                    :height="isDesktop ? '187': '140'"
                   >
                     <v-card-text>
                       <p class="title-5 line-clamp2">
@@ -387,7 +387,7 @@
               <v-card
                 to="/"
                 color="coolgray"
-                height="136"
+                :height="isDesktop ? '136': '140'"
               >
                 <v-card-text>
                   <p class="title-5 line-clamp">
@@ -411,7 +411,7 @@
               <v-card
                 to="/"
                 color="coolgray"
-                height="136"
+                :height="isDesktop ? '136': '140'"
               >
                 <v-card-text>
                   <p class="title-5 line-clamp">
@@ -444,6 +444,7 @@
                 :title="item.title"
                 :color="item.color"
                 :to="item.to"
+                :height="isDesktop ? '136': '96'"
               >
                 <template #append>
                   <v-icon
@@ -459,6 +460,7 @@
       </div>
     </v-container>
 
+    <!-- 프로필 -->
     <v-banner
       v-if="!isDesktop"
       class="user-drawer"
@@ -476,6 +478,7 @@
       />
     </v-banner>
 
+    <!-- 프로필 bottom-sheet-->
     <v-bottom-sheet
       v-model="sheet"
       attach=".main"
