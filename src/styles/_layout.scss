@@ -171,6 +171,10 @@
         }
         .switch-flip {
           padding: 0 10px;
+          .v-selection-control {
+            justify-content: space-between;
+            flex-direction: row-reverse;
+          }
         }
       }
     }

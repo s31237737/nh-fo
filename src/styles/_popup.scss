@@ -194,5 +194,11 @@ $popup-base-margin: 20px;
       }
     }
   }
-    
+  .label-form {
+    min-height: 39px;
+    vertical-align: middle;
+    & > span {
+      
+    }
+  }
 }
