@@ -226,10 +226,10 @@
             남은 시간 : 60초
           </p>
         <!-- // dialog contents -->
-        </v-card-text>
+        </v-card-text>               
         <v-card-actions>
           <v-btn
-            color="primary"
+            color="info"
             size="large"
             @click="alert01 = false"
           >
@@ -270,7 +270,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn
-            color="primary"
+            color="info"
             size="large"
             @click="alert02 = false"
           >
@@ -411,7 +411,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn
-            color="primary"
+            color="info"
             size="large"
             @click="dialog1 = false"
           >
@@ -450,7 +450,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn
-            color="primary"
+            color="info"
             size="large"
             @click="dialog2 = false"
           >
