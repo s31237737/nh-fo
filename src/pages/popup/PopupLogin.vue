@@ -46,7 +46,11 @@
 </template>
 
 <script setup>
-
-const emit = defineEmits(['update:modelValue']);
-
+  defineProps({
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  });
+  const emit = defineEmits(['update:modelValue']);
 </script>

@@ -164,18 +164,15 @@ export default createVuetify({
     },
     VSelect: {
       variant: "outlined",
+      bgColor: "#fefefe",
       rounded: "lg",
       persistentPlaceholder: true,
       hideDetails: true,
       menuIcon: "custom:select",
     },
-    VTextarea: {
-      variant: "outlined",
-      rounded: "lg",
-      persistentPlaceholder: true,
-    },
     VTextField: {
       variant: "outlined",
+      bgColor: "#fefefe",
       rounded: "lg",
       clearable: true,
       clearIcon: "custom:clear",
@@ -184,10 +181,17 @@ export default createVuetify({
     VFileInput: {
       variant: "outlined",
       rounded: "lg",
+      clearable: false,
       hideDetails: true,
       prependIcon: "",
-      clearable: false,
       dirty: true,
+    },
+    VTextarea: {
+      variant: "outlined",
+      bgColor: "#fefefe",
+      rounded: "lg",
+      persistentPlaceholder: true,
+      hideDetails: true,
     },
     VCheckbox: {
       baseColor: "#c2c2c2",

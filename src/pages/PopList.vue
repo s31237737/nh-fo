@@ -31,6 +31,7 @@ import PopupAppUsage02 from '@/pages/popup/PopupAppUsage02.vue';
 import PopupAppUsage03 from '@/pages/popup/PopupAppUsage03.vue';
 import PopupOutPage from '@/pages/popup/PopupOutPage.vue';
 import PopupDelete from '@/pages/popup/PopupDelete.vue';
+import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
 
   const popups = ref([
     //{ name: 'PopupAppType01', label: '앱 타입 설정', component: shallowRef(PopupAppType01) },
@@ -40,6 +41,7 @@ import PopupDelete from '@/pages/popup/PopupDelete.vue';
     { name: 'PopupAppUsage03', label: '앱 사용 신청 완료', component: shallowRef(PopupAppUsage03) },
     { name: 'PopupOutPage', label: '페이지 나가기', component: shallowRef(PopupOutPage) },
     { name: 'PopupDelete', label: '관리자 삭제 게시글', component: shallowRef(PopupDelete) },
+    { name: 'PopupReportIssue', label: '불편사항 신고하기', component: shallowRef(PopupReportIssue) },
   ]);
 
   const popupVisible = ref({
@@ -50,6 +52,7 @@ import PopupDelete from '@/pages/popup/PopupDelete.vue';
     PopupAppUsage03: false,
     PopupOutPage: false,
     PopupDelete: false,
+    PopupReportIssue: false,
   });
 
   const popOpen = (name) => {
