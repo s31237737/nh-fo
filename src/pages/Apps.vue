@@ -441,24 +441,24 @@
   >
     <v-card>
       <v-card-title>
-        <span>사용중단</span>
         <v-btn
           icon="custom:close"
           density="comfortable"
           @click="alert = false"
         />
       </v-card-title>
-
       <v-card-text>
         <!-- dialog contents -->
-        <p class="alert-txt">
-          입력하신 정보가 저장되지 않습니다.<br>정말 나가시겠습니까?
+        <v-icon icon="custom:warning" />
+        <strong class="title-5-bd">앱 열기</strong>
+        <p class="text-4">
+          [앱이름]을 여시겠습니까?
         </p>
         <!-- // dialog contents -->
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="secondary"
+          color="info"
           size="large"
           @click="alert = false"
         >
@@ -468,7 +468,7 @@
           color="primary"
           size="large"
         >
-          확인
+          열기
         </v-btn>
       </v-card-actions>
     </v-card>
