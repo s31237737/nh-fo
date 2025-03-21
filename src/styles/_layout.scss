@@ -550,7 +550,7 @@
 }
 .privacy-index {
   padding: 26px 30px;
-  border-radius: 10px !important; 
+  border-radius: $base-radius !important; 
   strong {
     display:block; 
     margin-bottom: 20px;
@@ -578,8 +578,8 @@
   }
 }
 .privacy {
-  border-top-left-radius: 10px !important; 
-  border-top-right-radius: 10px !important;  
+  border-top-left-radius: $base-radius !important; 
+  border-top-right-radius: $base-radius !important;  
   & + & {margin-top: 12px;}
   &-title {
     padding: 18px;

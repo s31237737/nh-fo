@@ -10,7 +10,7 @@ $popup-base-margin: 20px;
     max-height: 602px;
   }
   .v-card {
-    border-radius: 10px !important;
+    border-radius: $base-radius !important;
     padding-bottom: 20px;
   }
   .v-card-title {

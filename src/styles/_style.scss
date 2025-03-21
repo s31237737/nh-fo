@@ -290,7 +290,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 24px;
-  border-radius: 10px;
+  border-radius: $base-radius;
   background: $gray-200;
   li {
     display: flex;
@@ -354,7 +354,9 @@
 
 // form sheet
 .form-sheet {
+  padding: 50px 40px;
   background: $white;
+  border-radius: $base-radius;
   @extend .text-3-md;
   .v-row + .v-row {margin-top: 40px;}
   .v-col {
@@ -377,7 +379,7 @@
     }
     & + .v-col {
       //justify-items: right;
-      grid-template-columns: 40% 1fr;
+      //grid-template-columns: 40% 1fr;
     }
   }
   .v-input:not(.v-switch) {

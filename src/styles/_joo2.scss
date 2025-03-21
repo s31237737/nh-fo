@@ -174,8 +174,11 @@
   }
   @at-root .banner-wrap {
     height: 140px;
-    border-radius: 12px;
+    border-radius: $banner-radius;
     overflow:hidden;
+    &.clickable {
+      cursor: pointer;
+    }
   }
   @at-root .mobile {
     .banner-wrap {height: 90px;}
@@ -229,7 +232,7 @@
   &.v-card {
     height: 100%;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: $base-radius-lg;
     .d-flex {
       justify-content: space-between;
       & + .d-flex {margin-top: 31px;}
@@ -281,7 +284,7 @@
   }
   .v-empty-state {
     height: 720px;
-    border-radius: 20px;
+    border-radius: $base-radius-lg;
     &__media {
       margin-bottom: 36px;
     }
