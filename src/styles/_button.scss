@@ -151,3 +151,44 @@
     }
   }
 }
+
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin: 32px 0 24px;
+    .v-btn {
+      padding: 0;
+      min-width: auto;
+      width: 24px;
+      height: 24px;
+    }
+    .numbers {
+      display: inline-flex;
+      gap: 8px;
+      margin: 0 4px;
+      .v-btn {
+        width: 30px;
+        height: 30px;
+
+        @extend .text-2;
+        &.active {
+          @extend .text-2-md;
+          .v-btn__content {
+            color: $black;
+          }
+        }
+        &__content {
+          color: $black;
+        }
+      }
+    }
+    &:not(.numbers) {
+      .v-btn--disabled.v-btn--variant-flat .v-btn__overlay {
+        opacity: 0;
+      }
+    }
+  }
+  
