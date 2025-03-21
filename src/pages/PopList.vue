@@ -7,7 +7,7 @@
         <v-btn
           size="small"
           color="primary"
-          @click="alert01 = true"
+          @click="alert1 = true"
         >
           로그인 연장
         </v-btn>
@@ -16,7 +16,7 @@
         <v-btn
           size="small"
           color="primary"
-          @click="alert02 = true"
+          @click="alert2 = true"
         >
           페이지 나가기
         </v-btn>
@@ -25,7 +25,7 @@
         <v-btn
           size="small"
           color="primary"
-          @click="alert03 = true"
+          @click="alert3 = true"
         >
           삭제 게시글
         </v-btn>
@@ -34,7 +34,7 @@
         <v-btn
           size="small"
           color="primary"
-          @click="alert04 = true"
+          @click="alert4 = true"
         >
           앱 사용 신청
         </v-btn>
@@ -43,7 +43,7 @@
         <v-btn
           size="small"
           color="primary"
-          @click="alert05 = true"
+          @click="alert5 = true"
         >
           앱 사용 중지
         </v-btn>
@@ -59,7 +59,7 @@
           popup sample
         </v-btn>
       </v-col>
-      <!-- <v-col cols="auto">
+    <!-- <v-col cols="auto">
         <v-btn
           size="small"
           color="blue"
@@ -73,7 +73,7 @@
     <!-- popup-sm(alert) -->
     <!-- 로그인 연장 -->
     <v-dialog
-      v-model="alert01"
+      v-model="alert1"
       class="popup-sm"
     >
       <v-card>
@@ -81,7 +81,7 @@
           <v-btn
             icon="custom:close"
             density="comfortable"
-            @click="alert01 = false"
+            @click="alert1 = false"
           />
         </v-card-title>
 
@@ -104,7 +104,7 @@
           <v-btn
             color="info"
             size="large"
-            @click="alert01 = false"
+            @click="alert1 = false"
           >
             취소
           </v-btn>
@@ -120,7 +120,7 @@
 
     <!-- 아이콘: warning -->
     <v-dialog
-      v-model="alert02"
+      v-model="alert2"
       class="popup-sm"
     >
       <v-card>
@@ -128,7 +128,7 @@
           <v-btn
             icon="custom:close"
             density="comfortable"
-            @click="alert02 = false"
+            @click="alert2 = false"
           />
         </v-card-title>
 
@@ -145,7 +145,7 @@
           <v-btn
             color="info"
             size="large"
-            @click="alert02 = false"
+            @click="alert2 = true"
           >
             취소
           </v-btn>
@@ -160,7 +160,7 @@
     </v-dialog>
     
     <v-dialog
-      v-model="alert03"
+      v-model="alert3"
       class="popup-sm"
     >
       <v-card>
@@ -168,7 +168,7 @@
           <v-btn
             icon="custom:close"
             density="comfortable"
-            @click="alert03 = false"
+            @click="alert3 = false"
           />
         </v-card-title>
 
@@ -185,7 +185,7 @@
           <v-btn
             color="primary"
             size="large"
-            @click="alert03 = false"
+            @click="alert3 = false"
           >
             확인
           </v-btn>
@@ -195,7 +195,7 @@
 
     <!-- 아이콘: complete -->
     <v-dialog
-      v-model="alert04"
+      v-model="alert4"
       class="popup-sm"
     >
       <v-card>
@@ -203,7 +203,7 @@
           <v-btn
             icon="custom:close"
             density="comfortable"
-            @click="alert04 = false"
+            @click="alert4 = false"
           />
         </v-card-title>
 
@@ -220,7 +220,7 @@
           <v-btn
             color="primary"
             size="large"
-            @click="alert04 = false"
+            @click="alert4 = false"
           >
             확인
           </v-btn>
@@ -229,7 +229,7 @@
     </v-dialog>
 
     <v-dialog
-      v-model="alert05"
+      v-model="alert5"
       class="popup-sm"
     >
       <v-card>
@@ -237,7 +237,7 @@
           <v-btn
             icon="custom:close"
             density="comfortable"
-            @click="alert05 = false"
+            @click="alert5 = false"
           />
         </v-card-title>
 
@@ -254,7 +254,7 @@
           <v-btn
             color="primary"
             size="large"
-            @click="alert05 = false"
+            @click="alert5 = false"
           >
             확인
           </v-btn>
@@ -279,8 +279,8 @@
         </v-card-title>
         <v-card-text>
           <!-- dialog contents -->
-          팝업텍스트
-          <!--// dialog contents -->
+          팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트 팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트<br>팝업텍스트
+        <!--// dialog contents -->
         </v-card-text>
         <v-card-actions>
           <v-btn
@@ -293,6 +293,7 @@
           <v-btn
             color="primary"
             size="large"
+            @click="alert4 = true"
           >
             등록
           </v-btn>
@@ -300,56 +301,103 @@
       </v-card>
     </v-dialog>
 
-    <!-- 불편사항 신고하기 -->
-    <v-dialog
-      v-model="dialog2"
-      class="popup"
+    <v-btn
+      v-for="popup in popups"
+      :key="popup.name"
+      color="primary"
+      @click="popOpen(popup.name)"
     >
-      <v-card>
-        <v-card-title>
-          <p>불편사항 신고하기</p>
-          <v-btn
-            icon="custom:close"
-            density="comfortable"
-            @click="dialog2 = false"
-          />
-        </v-card-title>
-        <v-card-text>
-          <!-- dialog contents -->
-          <p class="text-4">
-            업스토어 이용 중, 앱 사용 중 느낀 불편사항을 남겨주시면 관리자가 확인하여 답변드리겠습니다.
-          </p>
-          <!--// dialog contents -->
-        </v-card-text>
-        <v-card-actions>
-          <v-btn
-            color="info"
-            size="large"
-            @click="dialog2 = false"
-          >
-            취소
-          </v-btn>
-          <v-btn
-            color="primary"
-            size="large"
-          >
-            신고하기
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+      {{ popup.label }}
+    </v-btn>
   </div>
+
+  <component
+    :is="popup.component"
+    v-for="popup in popups"
+    :key="popup.name"
+    v-model="popupVisible[popup.name]"
+  />
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+import { ref,shallowRef  } from 'vue';
+
+  // import PopupAppType01 from '@/pages/popup/PopupAppType01.vue';
+  // import PopupAppType02 from '@/pages/popup/PopupAppType02.vue';
+  // import PopupAppType03 from '@/pages/popup/PopupAppType03.vue';
+  // import PopupAppType04 from '@/pages/popup/PopupAppType04.vue';
+  // import PopupCategoryTag01 from '@/pages/popup/PopupCategoryTag01.vue';
+  // import PopupCategoryTag02 from '@/pages/popup/PopupCategoryTag02.vue';
+  // import PopupCategoryTag03 from '@/pages/popup/PopupCategoryTag03.vue';
+  // import PopupAppVersion01 from '@/pages/popup/PopupAppVersion01.vue';
+  // import PopupAppVersion02 from '@/pages/popup/PopupAppVersion02.vue';
+  // import PopupAppVersion03 from '@/pages/popup/PopupAppVersion03.vue';
+  // import PopupOftenQuestion01 from '@/pages/popup/PopupOftenQuestion01.vue';
+  // import PopupOftenQuestion02 from '@/pages/popup/PopupOftenQuestion02.vue';
+  // import PopupAuthority01 from '@/pages/popup/PopupAuthority01.vue';
+  // import PopupAuthority02 from '@/pages/popup/PopupAuthority02.vue';
+  // import PopupAuthority03 from '@/pages/popup/PopupAuthority03.vue';
+  // import PopupAuthority04 from '@/pages/popup/PopupAuthority04.vue';
+  // import PopupAuthority05 from '@/pages/popup/PopupAuthority05.vue';
+  // import PopupDisplay01 from '@/pages/popup/PopupDisplay01.vue';
+  // import PopupDisplay02 from '@/pages/popup/PopupDisplay02.vue';
+
+  const popups = ref([
+    // { name: 'PopupAppType01', label: '앱 타입 설정', component: shallowRef(PopupAppType01) },
+    // { name: 'PopupAppType02', label: '앱 타입 등록', component: shallowRef(PopupAppType02) },
+    // { name: 'PopupAppType03', label: '앱 타입 수정', component: shallowRef(PopupAppType03) },
+    // { name: 'PopupAppType04', label: '앱 타입 상세', component: shallowRef(PopupAppType04) },
+    // { name: 'PopupCategoryTag01', label: '카테고리 태그 설정', component: shallowRef(PopupCategoryTag01) },
+    // { name: 'PopupCategoryTag02', label: '카테고리 태그 등록', component: shallowRef(PopupCategoryTag02) },
+    // { name: 'PopupCategoryTag03', label: '카테고리 태그 상세', component: shallowRef(PopupCategoryTag03) },
+    // { name: 'PopupAppVersion01', label: '앱 버전 관리', component: shallowRef(PopupAppVersion01) },
+    // { name: 'PopupAppVersion02', label: '앱 버전 등록', component: shallowRef(PopupAppVersion02) },
+    // { name: 'PopupAppVersion03', label: '앱 버전 상세', component: shallowRef(PopupAppVersion03) },
+    // { name: 'PopupOftenQuestion01', label: '자주 묻는 질문', component: shallowRef(PopupOftenQuestion01) },
+    // { name: 'PopupOftenQuestion02', label: '자주 묻는 질문 상세', component: shallowRef(PopupOftenQuestion02) },
+    // { name: 'PopupAuthority01', label: '직원검색', component: shallowRef(PopupAuthority01) },
+    // { name: 'PopupAuthority02', label: '직원검색2', component: shallowRef(PopupAuthority02) },
+    // { name: 'PopupAuthority03', label: '권한 범위 설정', component: shallowRef(PopupAuthority03) },
+    // { name: 'PopupAuthority04', label: '권한 범위 등록', component: shallowRef(PopupAuthority04) },
+    // { name: 'PopupAuthority05', label: '권한 범위 상세', component: shallowRef(PopupAuthority05) },
+    // { name: 'PopupDisplay01', label: '앱 검색', component: shallowRef(PopupDisplay01) },
+    // { name: 'PopupDisplay02', label: '콘텐츠 순서 설정', component: shallowRef(PopupDisplay02) },
+  ]);
+
+
+  const popupVisible = ref({
+    PopupAppType01: false,
+    PopupAppType02: false,
+    PopupAppType03: false,
+    PopupAppType04: false,
+    PopupCategoryTag01: false,
+    PopupCategoryTag02: false,
+    PopupCategoryTag03: false,
+    PopupAppVersion01: false,
+    PopupAppVersion02: false,
+    PopupAppVersion03: false,
+    PopupOftenQuestion01: false,
+    PopupOftenQuestion02: false,
+    PopupAuthority01: false,
+    PopupAuthority02: false,
+    PopupAuthority03: false,
+    PopupAuthority04: false,
+    PopupAuthority05: false,
+    PopupDisplay01: false,
+    PopupDisplay02: false,
+  });
+
+  const popOpen = (name) => {
+    popupVisible.value[name] = true;
+  };
+
 
   const dialog1 = ref(false);
-  const dialog2 = ref(false);
+  //const dialog2 = ref(false);
 
-  const alert01 = ref(false);
-  const alert02 = ref(false);
-  const alert03 = ref(false);
-  const alert04 = ref(false);
-  const alert05 = ref(false);
+  const alert1 = ref(false);
+  const alert2 = ref(false);
+  const alert3 = ref(false);
+  const alert4 = ref(false);
+  const alert5 = ref(false);
 </script>
