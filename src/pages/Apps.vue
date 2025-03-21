@@ -221,22 +221,26 @@
     </section>
 
     <!-- 컨텐츠 배너 -->
-    <section
-      class="banner-wrap"
-    >
-      <v-img
-        :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
-        class="banner"
-        role="banner"
+    <section>
+      <div
+        class="banner-wrap"
+        :class="{ 'clickable': banner.url }"
       >
-        <div class="banner-text">
-          <p
-            class="description"
-          >
-            {{ banner.description }}
-          </p>
-        </div>
-      </v-img>
+        <v-img
+          role="banner"
+          class="banner"
+          :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
+          @click="bannerClick(banner)"
+        >
+          <div class="banner-text">
+            <p
+              class="description"
+            >
+              {{ banner.description }}
+            </p>
+          </div>
+        </v-img>
+      </div>
     </section>
 
     <!-- 앱: 좋아요 리스트 (최소 4개 노출)-->
@@ -736,6 +740,13 @@ const cardRecommend2 = ref([
 //배너
 const banner = ref({
   imageUrl: "apps_bnr_bg01.png",
-  description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개"
+  description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
+const bannerClick = (banner) => {
+  if (!banner.url) {
+    return; // URL이 없으면 아무 동작 X
+  } else {
+    router.push(banner.url);
+  }
+};
 </script>

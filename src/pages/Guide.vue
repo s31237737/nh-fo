@@ -377,7 +377,6 @@
       <v-row>
         <v-col>
           <v-label
-            for="custom-input"
             class="require"
           >
             텍스트
@@ -388,9 +387,8 @@
             </p>
           </div>
         </v-col>
-        <v-col cols="5">
+        <v-col>
           <v-label
-            for="custom-input"
             class="require"
           >
             스위치버튼
@@ -406,10 +404,9 @@
       <v-row>
         <v-col>
           <v-label
-            for="custom-input"
             class="require"
           >
-            텍스트필드
+            에디터
           </v-label>
           <div class="label-form">
             <v-sheet
@@ -426,13 +423,37 @@
       <v-row>
         <v-col>
           <v-label
-            for="custom-input"
+            for="inp-txt"
+            class="require"
+          >
+            텍스트필드
+          </v-label>
+          <div class="label-form">
+            <v-text-field
+              id="inp-txt"
+              v-model="appsearch"
+              placeholder="내용을 입력해 주세요."
+            />
+            <v-text-field
+              id="inp-txt"
+              v-model="appsearch"
+              disabled
+              placeholder="내용을 입력해 주세요."
+            />
+          </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-label
+            for="inp-search"
             class="require"
           >
             검색
           </v-label>
           <div class="label-form">
             <v-text-field
+              id="inp-search"
               v-model="appsearch"
               placeholder="검색해 주세요."
             >
@@ -444,19 +465,37 @@
                 </v-btn>
               </template>
             </v-text-field>
+
+            <!-- disabled -->
+            <v-text-field
+              id="inp-search"
+              v-model="appsearch"
+              placeholder="검색해 주세요."
+              disabled
+            >
+              <template #append-inner>
+                <v-btn
+                  color="secondary"
+                  disabled
+                >
+                  검색
+                </v-btn>
+              </template>
+            </v-text-field>
           </div>
         </v-col>
       </v-row>
       <v-row>
         <v-col>
           <v-label
-            for="custom-input"
+            for="inp-select"
             class="require"
           >
             셀렉트
           </v-label>
           <div class="label-form">
             <v-select
+              id="inp-select"
               v-model="select"
               density="default"
               :items="['전체', '타입1', '타입2']"
@@ -512,25 +551,27 @@
     </div>
 
     <v-divider class="mt-5 pt-5" />
-
-    <ul
-      class="file-list download"
-    >
-      <li
-        v-for="(file, index) in downloadFile"
-        :key="index"
+    <div class="bg-info pa-5">
+      <ul
+        class="file-list download"
       >
-        <v-btn
-          variant="text"
-          density="compact"
-          class="file-download"
-          @click="download(file)"
+        <li
+          v-for="(file, index) in downloadFile"
+          :key="index"
         >
-          <span>{{ file.name }}</span>
-        </v-btn>
-        <em>{{ file.size }}</em>
-      </li>
-    </ul>
+          <v-btn
+            variant="text"
+            density="compact"
+            class="file-download"
+            @click="download(file)"
+          >
+            <span>{{ file.name }}</span>
+          </v-btn>
+          <em>{{ file.size }}</em>
+        </li>
+      </ul>
+    </div>
+
     <!-- popup -->
     <v-divider class="mt-5 pt-5" />
     <Popup />
@@ -1230,22 +1271,34 @@
 
     <v-divider class="mt-5 pt-5" />
 
-    <!-- 배너 -->
-    <section class="banner-wrap">
-      <v-img
-        class="banner"
-        :style="{ backgroundImage: `url(${banner.imageUrl})` }"
+    <!-- 컨텐츠 배너 -->
+    <section>
+      <div
+        class="banner-wrap"
+        :class="{ 'clickable': banner.url }"
       >
-        <div class="banner-text">
-          <p>{{ banner.description }}</p>
-        </div>
-      </v-img>
+        <v-img
+          role="banner"
+          class="banner"
+          :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
+          @click="bannerClick(banner)"
+        >
+          <div class="banner-text">
+            <p
+              class="description"
+            >
+              {{ banner.description }}
+            </p>
+          </div>
+        </v-img>
+      </div>
     </section>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from "vue-router";
 
 const onAppendClick = () => {
   alert("Append icon clicked!");
@@ -1304,10 +1357,21 @@ const desserts = ref([
 ]
 
 //배너
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+const router = useRouter();
 const banner = ref({
-  imageUrl: "src/assets/images/apps_bnr_bg01.png",
-  description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개"
+  imageUrl: "apps_bnr_bg01.png",
+  description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
+const bannerClick = (banner) => {
+  if (!banner.url) {
+    return; // URL이 없으면 아무 동작 X
+  } else {
+    router.push(banner.url);
+  }
+};
 
 // 좋아요 카운트
 const likes = ref(0);
