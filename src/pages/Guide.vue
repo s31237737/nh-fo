@@ -489,7 +489,7 @@
               </div>
               <ul
                 v-if="files.length"
-                class="file-input-list"
+                class="file-list upload"
               >
                 <li
                   v-for="(file, index) in files"
@@ -514,20 +514,21 @@
     <v-divider class="mt-5 pt-5" />
 
     <ul
-      class="file-input-list"
+      class="file-list download"
     >
       <li
-        v-for="(file, index) in files2"
+        v-for="(file, index) in downloadFile"
         :key="index"
       >
-        <span>{{ file.name }}</span>
-        <em>{{ file.size }}</em>
         <v-btn
+          variant="text"
           density="compact"
-          icon="custom:download"
           class="file-download"
-          @click="downloadFile(file)"
-        />
+          @click="download(file)"
+        >
+          <span>{{ file.name }}</span>
+        </v-btn>
+        <em>{{ file.size }}</em>
       </li>
     </ul>
     <!-- popup -->
@@ -1260,11 +1261,11 @@ const files = ref([]);
 const removeFile = (index) => {
   files.value.splice(index, 1);
 };
-const downloadFile = (files2) => {
-  console.log(files2.name)
+const download = (downloadFile) => {
+  console.log(downloadFile.name)
 };
-const files2 = ref([
-  { name: "C:/Download/Filename.png", size: "10.3MB", url: "#" },
+const downloadFile = ref([
+  { name: "Filename.png", size: "10.3MB", url: "#" },
 ]);
 
 
