@@ -21,6 +21,8 @@
         </template>
         <v-list-item-title>
           <span>{{ item.title }}</span>
+          <!-- 검색어 강조시 활용 -->
+          <!-- <strong class="text-success">파란글씨</strong> -->
           <v-icon
             v-if="item.attachment"
             icon="custom:attachment"

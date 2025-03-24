@@ -284,9 +284,11 @@ section + section {
     padding:0 0 0 18px !important;
     &-title {
       display: flex;
+      align-items: center;
       gap: 8px;
       text-overflow: unset;
       span {
+        @extend .text-3-md;
         @include line-clamp(1);
       }
     }
@@ -295,7 +297,7 @@ section + section {
     }
     &__append {
       span {
-        @extend .text-3;
+        @extend .text-3-md;
         text-align: center;
         width: 120px;
       }
