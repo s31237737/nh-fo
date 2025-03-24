@@ -184,7 +184,7 @@ const gnbItems = ref([
     title: '새소식',
     value: 1,
     props: {
-      to: "",
+      to: "News",
     },
   },
    {
