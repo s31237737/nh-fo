@@ -495,6 +495,36 @@
                 </v-btn>
               </template>
             </v-text-field>
+
+            <!-- autocomplete -->
+            <v-autocomplete
+              v-model="friends"
+              :disabled="isUpdating"
+              :items="people"
+              color="blue-grey-lighten-2"
+              item-title="name"
+              item-value="name"
+              chips
+              closable-chips
+              placeholder="앱 이름을 검색해주세요."
+            >
+              <template #chip="{ props, item }">
+                <v-chip
+                  v-bind="props"
+                  :prepend-avatar="item.raw.avatar"
+                  :text="item.raw.name"
+                />
+              </template>
+
+              <template #item="{ props, item }">
+                <v-list-item
+                  v-bind="props"
+                  :prepend-avatar="item.raw.avatar"
+                  :subtitle="item.raw.group"
+                  :title="item.raw.name"
+                />
+              </template>
+            </v-autocomplete>
           </div>
         </v-col>
       </v-row>
@@ -1339,7 +1369,7 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue';
+import { ref, inject, watch } from 'vue';
 import { useRouter } from "vue-router";
 
 const isDesktop = inject("isDesktop");
@@ -1528,6 +1558,38 @@ const dataTableItem = ref([
   },
 ]);
 
+//autocomplete
+const srcs = {
+    1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+    2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+    3: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+    4: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+    5: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+  }
+  const people = [
+    { name: 'Sandra Adams', group: 'Group 1', avatar: srcs[1] },
+    { name: 'Ali Connors', group: 'Group 1', avatar: srcs[2] },
+    { name: 'Trevor Hansen', group: 'Group 1', avatar: srcs[3] },
+    { name: 'Tucker Smith', group: 'Group 1', avatar: srcs[2] },
+    { name: 'Britta Holt', group: 'Group 2', avatar: srcs[4] },
+    { name: 'Jane Smith ', group: 'Group 2', avatar: srcs[5] },
+    { name: 'John Smith', group: 'Group 2', avatar: srcs[1] },
+    { name: 'Sandra Williams', group: 'Group 2', avatar: srcs[3] },
+  ]
+
+  //const autoUpdate = ref(true)
+  const friends = ref(null)
+  const isUpdating = ref(false)
+  //const name = ref('Midnight Crew')
+  //const title = ref('The summer breeze')
+
+  let timeout = -1
+  watch(isUpdating, val => {
+    clearTimeout(timeout)
+    if (val) {
+      timeout = setTimeout(() => (isUpdating.value = false), 3000)
+    }
+  })
 </script>
 <style scoped>
 .icon-item {

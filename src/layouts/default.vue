@@ -35,13 +35,12 @@ const hover = ref(false);
 const nearFooter = ref(false);
 const footerRef = ref(null);
 const mainRef = ref(null);
-let resizeObserver = null;
 
 const checkFooterPosition = () => {
   if (!footerRef.value) return;
 
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
-  const viewportHeight = window.innerHeight - 40;
+  const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight - 40;
 
   nearFooter.value = footerTop < viewportHeight;
 };
@@ -50,23 +49,27 @@ const onScroll = () => {
   checkFooterPosition();
 };
 
+const onResize = () => {
+  checkFooterPosition();
+};
+
 onMounted(async () => {
   await nextTick();
 
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onResize, { passive: true });
 
-  resizeObserver = new ResizeObserver(() => {
-    checkFooterPosition();
-  });
-
-  resizeObserver.observe(document.body);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", onResize);
+  }
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", onScroll);
-  
-  if (resizeObserver) {
-    resizeObserver.disconnect();
+  window.removeEventListener("resize", onResize);
+
+  if (window.visualViewport) {
+    window.visualViewport.removeEventListener("resize", onResize);
   }
 });
 </script>

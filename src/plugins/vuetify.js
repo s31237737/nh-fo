@@ -193,6 +193,12 @@ export default createVuetify({
       persistentPlaceholder: true,
       hideDetails: true,
     },
+    VAutocomplete: {
+      variant: "outlined",
+      bgColor: "#fefefe",
+      rounded: "lg",
+      appendIcon: false,
+    },
     VCheckbox: {
       baseColor: "#c2c2c2",
       hideDetails: true,
