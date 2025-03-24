@@ -10,11 +10,19 @@
             안녕하세요,<br>무엇을 도와드릴까요?
           </v-card-title>
           <v-card-text>
-            ttt
+            <v-text-field
+              v-model="search"
+              :width="!isMobile? '300' : '100%'"
+              class="search-inp"
+              placeholder="앱과 앱가이드를 검색해보세요"
+              append-inner-icon="custom:search"
+              rounded="pill"
+              @click:append-inner="onAppendClick"
+            />
           </v-card-text>
           <template #append>
             <v-img
-            width="300"
+              width="300"
               src="@/assets/images/img_news_banner.png"
             />
           </template>
@@ -28,4 +36,14 @@
 </template>
 
 <script setup>
+import { ref, inject } from "vue";
+
+const isMobile = inject("isMobile");
+const isTablet = inject("isTablet");
+const isDesktop = inject("isDesktop");
+
+const search = ref("");
+const onAppendClick = () => {
+  alert('Append icon clicked!');
+}
 </script>
