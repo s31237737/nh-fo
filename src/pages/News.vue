@@ -34,7 +34,7 @@
     </v-container>
   </v-sheet>
   <v-container class="inner">
-    <section>
+    <section class="board-list">
       <div class="tit-wrap">
         <v-slide-group
           v-model="tab"
