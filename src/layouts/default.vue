@@ -30,36 +30,43 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
-//
 
 const hover = ref(false);
-const nearFooter = ref(false);//버튼 클래스 체크하는 지점
-const footerRef = ref(true);//footer 컴포넌트 참조하여 푸터의 위치를 가져옴
+const nearFooter = ref(false);
+const footerRef = ref(null);
 const mainRef = ref(null);
+let resizeObserver = null;
 
-const onScroll = () => {
-  if (!footerRef.value || !mainRef.value) return;
+const checkFooterPosition = () => {
+  if (!footerRef.value) return;
 
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
-  const windowHeight = window.innerHeight;
+  const viewportHeight = window.innerHeight - 40;
 
-  // 푸터가 화면에 보이면 nearFooter 활성화
-  nearFooter.value = footerTop < windowHeight;
+  nearFooter.value = footerTop < viewportHeight;
+};
+
+const onScroll = () => {
+  checkFooterPosition();
 };
 
 onMounted(async () => {
-  await nextTick(); // DOM 업데이트 후 실행 (특히 SSR 환경에서 필요)
-  
-  const mainElement = mainRef.value?.$el || window;
-  
-  mainElement.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("scroll", onScroll, { passive: true }); // 모바일에서 더 정확하게 감지
+  await nextTick();
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  resizeObserver = new ResizeObserver(() => {
+    checkFooterPosition();
+  });
+
+  resizeObserver.observe(document.body);
 });
 
 onUnmounted(() => {
-  const mainElement = mainRef.value?.$el || window;
-
-  mainElement.removeEventListener("scroll", onScroll);
   window.removeEventListener("scroll", onScroll);
+  
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+  }
 });
 </script>
