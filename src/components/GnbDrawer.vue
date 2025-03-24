@@ -99,18 +99,18 @@ defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const menuItems = ref([
-  { title: "About",  to: "" },
+  { title: "About",  to: "About" },
   { title: "Apps",  to: "Apps" },
   {
     title: "새소식 및 도움말",
     submenu: [
-      { title: "새소식", to: "" },
+      { title: "새소식", to: "News" },
       { title: "자주 묻는 질문", to: "" },
       { title: "Q&A", to: "" },
       { title: "앱가이드", to: "" }
     ],
   },
-  { title: "커뮤니티",  to: "" },
+  { title: "커뮤니티",  to: "Community" },
   {
     title: "마이페이지",
     submenu: [
