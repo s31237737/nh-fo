@@ -193,6 +193,7 @@ section + section {
 
 .top-banner {
   .v-card {
+    padding: 40px 0;
     &-subtitle {
       margin-bottom: 8px;
       @extend .caption-1;
@@ -203,6 +204,31 @@ section + section {
     }
     &-text {
       margin-top: 24px;
+    }
+  }
+  @at-root .mobile {
+    .top-banner {
+      .v-card {
+        &-item {
+          display: flex;
+          flex-direction: column;
+          &__content {
+            width: 100%;
+          }
+          &__append {
+            margin-top: 97px;
+            margin-left: auto;
+            padding-inline-end: 0.625rem;
+          }
+        }
+      }
+    }
+  }
+  @at-root .tablet {
+    .top-banner {
+      .search-inp {
+        max-width: 400px;
+      }
     }
   }
 }

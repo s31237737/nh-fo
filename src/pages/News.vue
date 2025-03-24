@@ -1,5 +1,8 @@
 <template>
-  <v-sheet class="top-banner" height="370">
+  <v-sheet
+    class="top-banner"
+    :height="isDesktop ? '370' : 'auto'"
+  >
     <v-container class="inner">
       <v-card>
         <v-card-item>
@@ -12,7 +15,7 @@
           <v-card-text>
             <v-text-field
               v-model="search"
-              :width="isDesktop? '498' : '100%'"
+              :width="isDesktop ? '498' : '100%'"
               class="search-inp"
               placeholder="앱과 앱가이드를 검색해보세요"
               append-inner-icon="custom:search"
@@ -22,7 +25,7 @@
           </v-card-text>
           <template #append>
             <v-img
-              width="300"
+              :width="isDesktop ? '300': '240'"
               src="@/assets/images/img_news_banner.png"
             />
           </template>
