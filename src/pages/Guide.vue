@@ -506,13 +506,6 @@
               item-value="name"
               placeholder="앱 이름을 검색해주세요."
             >
-              <!-- <template #chip="{ props, item }">
-                <v-chip
-                  v-bind="props"
-                  :text="item.raw.name"
-                />
-              </template> -->
-
               <template #item="{ props, item }">
                 <v-list-item
                   v-bind="props"

@@ -35,7 +35,8 @@ const hover = ref(false);
 const nearFooter = ref(false);
 const footerRef = ref(null);
 const mainRef = ref(null);
-const lastInnerHeight = ref(window.innerHeight); // 최근 window.innerHeight 값을 저장
+const lastInnerHeight = ref(window.innerHeight);
+let resizeTimeout = null;
 
 const checkFooterPosition = () => {
   if (!footerRef.value) return;
@@ -43,16 +44,21 @@ const checkFooterPosition = () => {
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
   const currentInnerHeight = window.innerHeight;
 
-  // 툴바가 표시될 때 화면 크기가 줄어든 경우에도 감지
+  //  애니메이션이 부자연스럽지 않게 부드럽게 변하도록 조정
   if (currentInnerHeight !== lastInnerHeight.value) {
     lastInnerHeight.value = currentInnerHeight;
   }
 
+  // 툴바가 변하면서 너무 급격하게 버튼이 움직이지 않도록 부드럽게 조정
   nearFooter.value = footerTop < currentInnerHeight - 40;
 };
 
 const onResize = () => {
-  checkFooterPosition();
+  // 디바운싱 적용 (100ms 동안 여러 번 호출되는 걸 방지)
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    checkFooterPosition();
+  }, 100);
 };
 
 const onScroll = () => {
@@ -72,5 +78,9 @@ onMounted(async () => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll);
   window.removeEventListener('resize', onResize);
+
+  if (resizeTimeout) {
+    clearTimeout(resizeTimeout);
+  }
 });
 </script>
