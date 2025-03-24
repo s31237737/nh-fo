@@ -35,41 +35,42 @@ const hover = ref(false);
 const nearFooter = ref(false);
 const footerRef = ref(null);
 const mainRef = ref(null);
+const lastInnerHeight = ref(window.innerHeight); // 최근 window.innerHeight 값을 저장
 
 const checkFooterPosition = () => {
   if (!footerRef.value) return;
 
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
-  const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight - 40;
+  const currentInnerHeight = window.innerHeight;
 
-  nearFooter.value = footerTop < viewportHeight;
-};
+  // 툴바가 표시될 때 화면 크기가 줄어든 경우에도 감지
+  if (currentInnerHeight !== lastInnerHeight.value) {
+    lastInnerHeight.value = currentInnerHeight;
+  }
 
-const onScroll = () => {
-  checkFooterPosition();
+  nearFooter.value = footerTop < currentInnerHeight - 40;
 };
 
 const onResize = () => {
   checkFooterPosition();
 };
 
+const onScroll = () => {
+  checkFooterPosition();
+};
+
 onMounted(async () => {
   await nextTick();
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onResize, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
 
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", onResize);
-  }
+  // 초기 실행
+  checkFooterPosition();
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", onScroll);
-  window.removeEventListener("resize", onResize);
-
-  if (window.visualViewport) {
-    window.visualViewport.removeEventListener("resize", onResize);
-  }
+  window.removeEventListener('scroll', onScroll);
+  window.removeEventListener('resize', onResize);
 });
 </script>

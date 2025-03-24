@@ -197,7 +197,6 @@ export default createVuetify({
       variant: "outlined",
       bgColor: "#fefefe",
       rounded: "lg",
-      appendIcon: false,
     },
     VCheckbox: {
       baseColor: "#c2c2c2",
