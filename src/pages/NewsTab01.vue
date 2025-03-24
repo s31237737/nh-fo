@@ -4,8 +4,8 @@
     class="data-header"
   >
     <span class="title">제목</span>
-    <span class="date">작성일</span>
-    <span class="views">조회수</span>
+    <span>작성일</span>
+    <span>조회수</span>
   </div>
   <v-list class="data-board">
     <template
@@ -30,8 +30,8 @@
         </v-list-item-title>
 
         <template #append>
-          <span class="date">{{ item.date }}</span>
-          <span class="views">{{ item.views }}</span>
+          <span>{{ item.date }}</span>
+          <span>{{ item.views }}</span>
         </template>
       </v-list-item>
       <v-divider

@@ -267,8 +267,11 @@ section + section {
   .title {
     flex: 1;
     display: flex;
-    padding-inline-start: 18px;
+    
     text-align: left;
+    &:first-child {
+      padding-inline-start: 18px;
+    }
   }
   span {
     @extend .text-3-md;
