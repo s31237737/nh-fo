@@ -121,6 +121,10 @@
         <span>file</span>
       </div>
       <div class="icon-item">
+        <v-icon icon="custom:attachment" />
+        <span>attachment</span>
+      </div>
+      <div class="icon-item">
         <v-icon icon="custom:refresh" />
         <span>refresh</span>
       </div>
@@ -169,6 +173,10 @@
       <div class="icon-item">
         <v-icon icon="custom:notice" />
         <span>notice</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:fix" />
+        <span>fix</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:surpport" />
