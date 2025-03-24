@@ -10,7 +10,7 @@
           <v-carousel
             v-model="currentSlide"
             :cycle="isAppPlay"
-            :height="!isMobile ? '258': '88'"
+            :height="!isMobile ? '258': '110'"
           >
             <v-carousel-item
               v-for="(item, index) in appBanner"
