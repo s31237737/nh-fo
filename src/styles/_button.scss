@@ -122,24 +122,18 @@
   }
 
   //불편신고
-  @mixin floating_transition($n) {
-    transition-duration: $n;
-    transition-property: width;
-    transition-timing-function: ease-in-out;
-  }
   &.btn-floating {
+    --v-btn-height: 56px;
     position: fixed;
     bottom: 40px;
     right: calc(50% - 640px); 
     z-index:1;
-    //width: 116px;
-    box-shadow: 0px 4px 19.6px 0px #0F1B5712;
+    width: 116px;
     padding: 0 20px;
-    --v-btn-height: 56px;
-    // transition-duration: .3s;
-    // transition-property: width;
-    // transition-timing-function: ease-in-out;
-    @include floating_transition(.3s);
+    transition-duration: .3s, .1s;
+    transition-property: width, bottom;
+    transition-timing-function: ease-in-out;
+    box-shadow: 0px 4px 19px 0px #0F1B5712;
     &.btn-bottom {
       bottom: 140px;
     }
@@ -150,11 +144,10 @@
     }
     .btn-floating-text {
       overflow: hidden;
-      //width: 42px;
-      // transition-duration: .35s;
-      // transition-property: width;
-      // transition-timing-function: ease-in-out;
-    @include floating_transition(.35s);
+      width: 42px;
+      transition-duration: .35s;
+      transition-property: width;
+      transition-timing-function: ease-in-out;
       @extend .caption-3-md;
       span {
         display: block;
@@ -170,20 +163,11 @@
     }
     &:hover {
       width: 228px;
-      // transition-duration: .3s;
-      // transition-property: width;
-      // transition-timing-function: ease-in-out;
-    @include floating_transition(.3s);
       .v-btn__overlay {
         display: none;
       }
       .btn-floating-text {
         width: 154px;
-        // transition-duration: .35s;
-        // transition-property: width;
-        // transition-timing-function: ease-in-out;
-        
-    @include floating_transition(.35s);
         span:not(.hover) {
           width: 0;
           height:0;

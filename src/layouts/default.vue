@@ -1,6 +1,6 @@
-<template>
+<template v-scroll="onScroll">
   <Header />
-  <v-main v-scroll="onScroll">
+  <v-main>
     <router-view />
     <v-btn
       size="x-large"
