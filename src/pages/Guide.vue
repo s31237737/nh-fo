@@ -469,6 +469,7 @@
               id="inp-search"
               v-model="appsearch"
               placeholder="검색해 주세요."
+              class="append-button"
             >
               <template #append-inner>
                 <v-btn
@@ -485,6 +486,7 @@
               v-model="appsearch"
               placeholder="검색해 주세요."
               disabled
+              class="append-button"
             >
               <template #append-inner>
                 <v-btn
@@ -505,14 +507,24 @@
               item-title="name"
               item-value="name"
               placeholder="앱 이름을 검색해주세요."
+              :menu-icon="null"
+              class="append-button"
             >
               <template #item="{ props, item }">
                 <v-list-item
                   v-bind="props"
                   :prepend-avatar="item.raw.avatar"
-                  :subtitle="item.raw.group"
                   :title="item.raw.name"
                 />
+              </template>
+
+              <!-- 검색 버튼 추가 -->
+              <template #append-inner>
+                <v-btn
+                  color="secondary"
+                >
+                  검색
+                </v-btn>
               </template>
             </v-autocomplete>
           </div>
@@ -555,6 +567,7 @@
                 label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
                 rounded="lg"
                 multiple
+                class="append-button"
               >
                 <template #append-inner>
                   <v-btn
@@ -572,6 +585,7 @@
                 rounded="lg"
                 multiple
                 disabled
+                class="append-button"
               >
                 <template #append-inner>
                   <v-btn
@@ -1554,24 +1568,17 @@ const srcs = {
     2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
     3: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
     4: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-    5: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
   }
   const people = [
-    { name: 'Sandra Adams', group: 'Group 1', avatar: srcs[1] },
-    { name: 'Ali Connors', group: 'Group 1', avatar: srcs[2] },
-    { name: 'Trevor Hansen', group: 'Group 1', avatar: srcs[3] },
-    { name: 'Tucker Smith', group: 'Group 1', avatar: srcs[2] },
-    { name: 'Britta Holt', group: 'Group 2', avatar: srcs[4] },
-    { name: 'Jane Smith ', group: 'Group 2', avatar: srcs[5] },
-    { name: 'John Smith', group: 'Group 2', avatar: srcs[1] },
-    { name: 'Sandra Williams', group: 'Group 2', avatar: srcs[3] },
+    { name: '육묘대장', avatar: srcs[1] },
+    { name: 'text', avatar: srcs[2] },
+    { name: 'text text text text', avatar: srcs[3] },
+    { name: 'text text text', avatar: srcs[2] },
+    { name: '육묘대장 육묘대장 육묘대장', avatar: srcs[4] },
   ]
 
-  //const autoUpdate = ref(true)
-  const friends = ref(null)
-  const isUpdating = ref(false)
-  //const name = ref('Midnight Crew')
-  //const title = ref('The summer breeze')
+  const friends = ref(null);
+  const isUpdating = ref(false);
 
   let timeout = -1
   watch(isUpdating, val => {

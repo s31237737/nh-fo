@@ -63,6 +63,7 @@
                   id="inp-search"
                   v-model="appsearch"
                   placeholder="앱 이름을 검색해 주세요."
+                  class="append-button"
                 >
                   <template #append-inner>
                     <v-btn

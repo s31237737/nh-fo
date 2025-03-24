@@ -33,6 +33,11 @@
       border-color: $gray-300 !important;
     }
   }
+  @at-root .append-button {
+    .v-field--appended {
+      padding-inline-end: 8px;
+    }
+  }
 }
 .v-select {
   min-width: 120px;

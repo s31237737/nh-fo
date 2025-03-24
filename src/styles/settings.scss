@@ -34,6 +34,8 @@
   $footer-flex: 0 0 auto,
   $footer-padding: 8px 0,
   $field-focused-border-width: 1px,
+  $field-font-size: 14px,
+  $field-outline-opacity: 1,
   $badge-min-width: 14px,
   $badge-height: 14px,
   $badge-padding: 0 3px,
@@ -83,6 +85,4 @@
   $overlay-opacity: 0.6,
   $banner-border-width: 0,
   $banner-density: ('default': 0, 'comfortable': -1, 'compact': -2),
-  $field-font-size: 14px,
-  $field-outline-opacity: 1,
 );
