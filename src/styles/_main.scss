@@ -58,9 +58,9 @@
         padding: 0 50px;
         height: 100%;
         &__append {
-          justify-content: center;
+          margin-left: 40px;
           padding: 0;
-          width: 348px;
+          width: 225px;
         }
         .v-card {
           &-title {
@@ -111,11 +111,10 @@
           }
           .v-card-item {
             padding: 0 16px;
-            &__content {
-              width: calc(100% - 20px)
-            }
+           
             &__append {
-              width: 120px;
+              margin-left: 30px;
+              width: 96px;
             }
             .v-card {
               &-title {
