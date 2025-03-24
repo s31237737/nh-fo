@@ -61,6 +61,31 @@
       <v-label class="pr-4">
         dialog
       </v-label>
+
+      <v-btn
+        size="x-large"
+        rounded="pill"
+        class="btn-floating"
+        :ripple="false"
+        style="position:static"
+        @mouseover="hover = true"
+        @mouseleave="hover = false"
+        @click="popOpen('PopupReportIssue')"
+      >
+        <v-icon
+          icon="custom:report"
+          size="x-large"
+        />
+        <p class="btn-floating-text">
+          <span>
+            test 
+          </span>
+          <span class="hover">
+            사용 중 불편사항이 있으신가요?
+          </span>
+        </p>
+      </v-btn>
+    
       <v-btn
         v-for="popup in popups"
         :key="popup.name"
