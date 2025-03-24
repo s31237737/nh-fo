@@ -121,6 +121,96 @@
     padding: 0 14px;
   }
 
+  //불편신고
+  @mixin floating_transition($n) {
+    transition-duration: $n;
+    transition-property: width;
+    transition-timing-function: ease-in-out;
+  }
+  &.btn-floating {
+    position: fixed;
+    bottom: 40px;
+    right: calc(50% - 640px); 
+    z-index:1;
+    //width: 116px;
+    box-shadow: 0px 4px 19.6px 0px #0F1B5712;
+    padding: 0 20px;
+    --v-btn-height: 56px;
+    // transition-duration: .3s;
+    // transition-property: width;
+    // transition-timing-function: ease-in-out;
+    @include floating_transition(.3s);
+    &.btn-bottom {
+      bottom: 140px;
+    }
+    .v-icon--size-x-large {
+      font-size: 32px;
+      margin-right: 2px;
+      transition: none;
+    }
+    .btn-floating-text {
+      overflow: hidden;
+      //width: 42px;
+      // transition-duration: .35s;
+      // transition-property: width;
+      // transition-timing-function: ease-in-out;
+    @include floating_transition(.35s);
+      @extend .caption-3-md;
+      span {
+        display: block;
+      }
+      span:not(.hover) {
+        opacity:1;
+      }
+      span.hover {
+        width: 0;
+        height:0;
+        opacity:0;
+      }
+    }
+    &:hover {
+      width: 228px;
+      // transition-duration: .3s;
+      // transition-property: width;
+      // transition-timing-function: ease-in-out;
+    @include floating_transition(.3s);
+      .v-btn__overlay {
+        display: none;
+      }
+      .btn-floating-text {
+        width: 154px;
+        // transition-duration: .35s;
+        // transition-property: width;
+        // transition-timing-function: ease-in-out;
+        
+    @include floating_transition(.35s);
+        span:not(.hover) {
+          width: 0;
+          height:0;
+          opacity:0;
+        }
+        span.hover {
+          width: auto;
+          height: auto;
+          opacity:1;
+        }
+      }
+    }
+    @at-root .v-layout:not(.desktop) {
+      .v-btn.btn-floating {
+        right: 20px; 
+      }
+      
+    }
+    @at-root .mobile {
+      .v-btn.btn-floating {
+        bottom: 30px;
+        &.btn-bottom {
+          bottom: 170px;
+        }
+      }
+    }
+  }
 }
 
 .link-btn {
