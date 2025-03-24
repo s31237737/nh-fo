@@ -509,9 +509,7 @@
             <!-- autocomplete -->
             <v-autocomplete
               v-model="friends"
-              :disabled="isUpdating"
               :items="people"
-              color="blue-grey-lighten-2"
               item-title="name"
               item-value="name"
               placeholder="앱 이름을 검색해주세요."
@@ -1448,7 +1446,7 @@ const getImageUrl = (imageName) => {
 };
 const router = useRouter();
 const banner = ref({
-  imageUrl: "apps_bnr_bg01.png",
+  imageUrl: "img_apps_banner_02.png",
   description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
 const bannerClick = (banner) => {
@@ -1586,15 +1584,15 @@ const srcs = {
   ]
 
   const friends = ref(null);
-  const isUpdating = ref(false);
+  // const isUpdating = ref(false);
 
-  let timeout = -1
-  watch(isUpdating, val => {
-    clearTimeout(timeout)
-    if (val) {
-      timeout = setTimeout(() => (isUpdating.value = false), 3000)
-    }
-  })
+  // let timeout = -1
+  // watch(isUpdating, val => {
+  //   clearTimeout(timeout)
+  //   if (val) {
+  //     timeout = setTimeout(() => (isUpdating.value = false), 3000)
+  //   }
+  // })
 </script>
 <style scoped>
 .icon-item {

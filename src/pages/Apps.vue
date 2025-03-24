@@ -331,7 +331,7 @@
           class="fix_item"
         >
           <img
-            src="../assets/images/apps_bnr_bg02.png"
+            src="../assets/images/img_apps_banner_01.png"
             alt=""
           >
         </div>
@@ -502,23 +502,23 @@ const sliders = ref([
     apptype: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
     description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "apps_visual_bnr01.png",
+    image: "@temp_img_apps_visual_03.png",
   },
   {
     type: "img-type1",
     title: "두 번째 배너두 번째 배너 설명",
     description: `두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명`,
-    background: "dummy_visual_banner_01.png",
+    background: "@temp_img_apps_visual_01.png",
   },
   {
     type: "img-type2",
     title: "세 번째 배너",
-    background: "dummy_visual_banner_01.png",
+    background: "@temp_img_apps_visual_01.png",
     addClass: "center"
   },
   {
     type: "img-type2",
-    background: "dummy_visual_banner_01.png",
+    background: "@temp_img_apps_visual_01.png",
     addClass: "center",
     hiddenContent: "hidden",
     alt: "배경이미지",
@@ -538,7 +538,7 @@ const autoplay = ref(true);
 const cardData = ref([
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "1공통총무알리미",
     description: "1농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -551,7 +551,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "2공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     description: "2농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -561,7 +561,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "3공통총무알리미",
     description: "3농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -571,7 +571,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "4공통총무알리미",
     description: "4농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -583,7 +583,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "5공통총무알리미",
     description: "5농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -595,7 +595,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "6공통총무알리미",
     description: "6농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -607,7 +607,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "7공통총무알리미",
     description: "7농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -619,7 +619,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "8공통총무알리미",
     description: "8농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -631,7 +631,7 @@ const cardData = ref([
   },
   {
     link: "AppsDetail",
-    imageSrc: "app_module_img.png",
+    imageSrc: "@temp_img_app_icon03.png",
     title: "9공통총무알리미",
     description: "9농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
     badges: [
@@ -739,7 +739,7 @@ const cardRecommend2 = ref([
 
 //배너
 const banner = ref({
-  imageUrl: "apps_bnr_bg01.png",
+  imageUrl: "img_apps_banner_02.png",
   description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
 const bannerClick = (banner) => {
