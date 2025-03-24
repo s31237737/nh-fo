@@ -127,7 +127,7 @@
     --v-btn-height: 56px;
     position: fixed;
     bottom: 40px;
-    right: calc(50% - 640px); 
+    right: calc(50% - 640px + 20px);
     z-index:1;
     width: 116px;
     padding: 0 20px;
@@ -185,7 +185,6 @@
       .v-btn.btn-floating {
         right: 20px; 
       }
-      
     }
     @at-root .mobile {
       .v-btn.btn-floating {
