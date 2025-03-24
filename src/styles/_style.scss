@@ -185,6 +185,15 @@ section + section {
   }
 }
 
+.tab-container {
+  .v-window__container {
+    transition: none;
+  }
+  .v-window-item {
+    transition: none;
+  }
+}
+
 //상단 배너
 .v-sheet.top-banner {
   display: flex;

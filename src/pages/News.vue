@@ -58,6 +58,23 @@
           </v-slide-group-item>
         </v-slide-group>
       </div>
+
+      <v-window v-model="tab" class="tab-container">
+        <v-window-item>
+          One
+        </v-window-item>
+
+        <v-window-item>
+          Two
+        </v-window-item>
+
+        <v-window-item>
+          Three
+        </v-window-item>
+        <v-window-item>
+          four
+        </v-window-item>
+      </v-window>
     </section>
   </v-container>
 </template>
