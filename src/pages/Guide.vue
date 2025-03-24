@@ -504,17 +504,14 @@
               color="blue-grey-lighten-2"
               item-title="name"
               item-value="name"
-              chips
-              closable-chips
               placeholder="앱 이름을 검색해주세요."
             >
-              <template #chip="{ props, item }">
+              <!-- <template #chip="{ props, item }">
                 <v-chip
                   v-bind="props"
-                  :prepend-avatar="item.raw.avatar"
                   :text="item.raw.name"
                 />
-              </template>
+              </template> -->
 
               <template #item="{ props, item }">
                 <v-list-item
