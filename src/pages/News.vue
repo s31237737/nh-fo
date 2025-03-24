@@ -34,7 +34,31 @@
     </v-container>
   </v-sheet>
   <v-container class="inner">
-    <p>sssss</p>
+    <section>
+      <div class="tit-wrap">
+        <v-slide-group
+          v-model="tab"
+          center-active
+        >
+          <v-slide-group-item
+            v-for="(item, i) in tabBtn"
+            :key="i"
+            v-slot="{ isSelected }"
+          >
+            <v-btn
+              size="large"
+              :ripple="false"
+              height="44"
+              rounded="pill"
+              :color="isSelected ? 'primary' : 'info'"
+              @click="tab = i"
+            >
+              {{ item.btn }}
+            </v-btn>
+          </v-slide-group-item>
+        </v-slide-group>
+      </div>
+    </section>
   </v-container>
 </template>
 
@@ -49,4 +73,14 @@ const search = ref("");
 const onAppendClick = () => {
   alert('Append icon clicked!');
 }
+
+
+const tab = ref(0);
+const tabBtn = ref([
+  { btn: "직무 추천" },
+  { btn: "인기 앱 추천" },
+  { btn: "많이 사용되는 앱" },
+  { btn: "만족도가 높은 앱" },
+]);
+
 </script>

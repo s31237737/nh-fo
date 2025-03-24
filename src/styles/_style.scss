@@ -29,6 +29,21 @@
   .v-card-text {padding: 0;}
 }
 
+.v-slide-group {
+  &__content {
+    gap: 12px;
+  }
+  @at-root .mobile, .tablet {
+    .v-slide-group {
+      margin-right: -20px;
+      height: 45px;
+      &__content {
+        gap: 6px;
+      }
+    }
+  }
+}
+
 //typo
 .tit-wrap {
   margin-bottom: 40px;

@@ -172,9 +172,6 @@
   .recomm-app {
     position: relative;
     padding-bottom: 54px;
-    .v-slide-group__content {
-      gap: 12px;
-    }
 
     .recomm-box {
       display: flex;
@@ -269,14 +266,7 @@
     @at-root .mobile, .tablet {
       .recomm-app {
         padding-bottom: 0;
-        .v-slide-group {
-          margin-right: -20px;
-          height: 45px;
-          &__content {
-            gap: 6px;
-            padding-right: 20px;
-          }
-        }
+       
         .link-btn-arrow {
           top: 6px;
           bottom: auto;
