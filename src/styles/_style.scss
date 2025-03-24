@@ -198,6 +198,12 @@ section + section {
 .v-sheet.top-banner {
   display: flex;
   align-items: center;
+  margin-bottom: 80px;
+  @at-root .mobile, .tablet {
+    .v-sheet.top-banner {
+      margin-bottom: 40px;
+    }
+  } 
 }
 
 .top-banner {
