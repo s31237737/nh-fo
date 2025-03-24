@@ -407,6 +407,7 @@
           </div>
         </v-col>
       </v-row>
+      <v-divider v-if="!isDesktop" />
       <v-row>
         <v-col>
           <v-label
@@ -1329,8 +1330,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import { useRouter } from "vue-router";
+
+const isDesktop = inject("isDesktop");
 
 const onAppendClick = () => {
   alert("Append icon clicked!");
