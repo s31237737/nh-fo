@@ -142,6 +142,7 @@
   }
   .v-icon {
     pointer-events: none;
+    --v-medium-emphasis-opacity: 0.5;
   }
   &.v-input--dirty {
     .v-icon {
