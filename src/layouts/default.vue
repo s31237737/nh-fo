@@ -43,8 +43,8 @@ const onScroll = () => {
   nearFooter.value = footerTop < windowHeight;
 };
 
-// onMounted(() => window.addEventListener("scroll", onScroll));
-// onUnmounted(() => window.removeEventListener("scroll", onScroll));
+onMounted(() => window.addEventListener("scroll", onScroll));
+onUnmounted(() => window.removeEventListener("scroll", onScroll));
 </script>
 
 <style scoped>
