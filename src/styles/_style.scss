@@ -252,3 +252,45 @@ section + section {
 .board-list {
   
 }
+
+.data-header {
+  display: flex;
+  align-items: center;
+  height: 55px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: $white;
+  .title {
+    flex: 1;
+    display: flex;
+    padding-inline-start: 18px;
+    text-align: left;
+  }
+  span {
+    @extend .text-3-md;
+    text-align: center;
+    width: 120px;
+  }
+}
+.v-list.data-board {
+  padding: 0;
+  border-radius: 10px;
+  .v-list-item {
+    height: 55px;
+    padding:0 0 0 18px !important;
+    &-title {
+      display: flex;
+      text-overflow: unset;
+      span {
+        @include line-clamp(1);
+      }
+    }
+    &__append {
+      span {
+        @extend .text-3;
+        text-align: center;
+        width: 120px;
+      }
+    }
+  }
+}
