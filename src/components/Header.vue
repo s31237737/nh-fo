@@ -41,7 +41,7 @@
           </v-menu>
         </v-btn>
         <v-btn
-          to=""
+          to="Community"
         >
           커뮤니티
         </v-btn>

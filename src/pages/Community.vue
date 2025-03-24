@@ -7,10 +7,10 @@
       <v-card>
         <v-card-item>
           <v-card-subtitle>
-            새소식 및 도움말
+            커뮤니티
           </v-card-subtitle>
           <v-card-title>
-            안녕하세요,<br>무엇을 도와드릴까요?
+            앱에 대한 아이디어를<br>자유롭게 제안해 보세요!
           </v-card-title>
           <v-card-text>
             <v-text-field
@@ -26,7 +26,7 @@
           <template #append>
             <v-img
               :width="isDesktop ? '300': '240'"
-              src="@/assets/images/img_news_banner.png"
+              src="@/assets/images/img_community_banner.png"
             />
           </template>
         </v-card-item>
@@ -34,7 +34,7 @@
     </v-container>
   </v-sheet>
   <v-container class="inner">
-    <p>sssss</p>
+    <p>미작업</p>
   </v-container>
 </template>
 
