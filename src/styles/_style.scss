@@ -184,3 +184,25 @@ section + section {
     margin-top: 40px !important;
   }
 }
+
+//상단 배너
+.v-sheet.top-banner {
+  display: flex;
+  align-items: center;
+}
+
+.top-banner {
+  .v-card {
+    &-subtitle {
+      margin-bottom: 8px;
+      @extend .caption-1;
+      color: $blue-500;
+    }
+    &-title {
+      @extend .title-1;
+    }
+    &-text {
+      margin-top: 24px;
+    }
+  }
+}

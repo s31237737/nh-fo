@@ -1,5 +1,5 @@
 <template>
-  <v-sheet height="370">
+  <v-sheet class="top-banner" height="370">
     <v-container class="inner">
       <v-card>
         <v-card-item>
@@ -12,7 +12,7 @@
           <v-card-text>
             <v-text-field
               v-model="search"
-              :width="!isMobile? '300' : '100%'"
+              :width="isDesktop? '498' : '100%'"
               class="search-inp"
               placeholder="앱과 앱가이드를 검색해보세요"
               append-inner-icon="custom:search"
