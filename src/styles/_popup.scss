@@ -31,7 +31,7 @@ $popup-base-margin: 20px;
   }
   .v-card-text {
     position: relative;
-    padding: 20px 20px 0 !important;
+    padding: 20px !important;
     white-space: normal;
     .pagination {
       margin-bottom: 0;
@@ -39,7 +39,6 @@ $popup-base-margin: 20px;
   }
   .v-card-actions {
     justify-content: center !important;
-    margin-top: 20px;
     padding: 16px 20px 0;
     margin-bottom: -4px;
     & .v-btn {
@@ -106,19 +105,15 @@ $popup-base-margin: 20px;
     .v-overlay__content {
       max-height: calc(100% - 200px);
     }  
-    .v-card-text{
-      padding-bottom: 10px !important;
-    }
     .v-card-actions {
       margin-top: 0;
     }
     
     //form sheet
     .form-sheet {
-      margin-top: 12px;
+      padding-top: 12px;
       .v-col {
         grid-template-columns: 1fr;
-        //padding: 12px 0 !important;
         & > .v-label {
           padding-left: 0px;
         }
