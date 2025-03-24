@@ -34,7 +34,10 @@
           <span class="views">{{ item.views }}</span>
         </template>
       </v-list-item>
-      <v-divider v-if="index < tableItem.length - 1" />
+      <v-divider
+        v-if="index < tableItem.length - 1"
+        color="secondary"
+      />
     </template>
   </v-list>
   <Pagination
