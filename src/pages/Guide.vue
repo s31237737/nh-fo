@@ -554,7 +554,9 @@
               </v-file-input>
               <!-- 첨부된 파일 목록 표시 -->
               <div class="file-input-guide">
-                <p>*첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.</p>
+                <p>
+                  *첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.
+                </p>
               </div>
               <ul
                 v-if="files.length"
@@ -595,7 +597,7 @@
             class="file-download"
             @click="download(file)"
           >
-            <span>{{ file.name }}</span>
+            <span class="line-clamp">{{ file.name }}</span>
           </v-btn>
           <em>{{ file.size }}</em>
         </li>
