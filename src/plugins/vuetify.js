@@ -27,7 +27,7 @@ const nhFo = {
     primary: '#1E1E1E',
     secondary: '#E8EAF0',
     error: '#B00020',
-    info: '#FEFEFE',
+    info: '#FEFEFE00',
     success: '#0279FE',
     warning: '#D32226',
     pink: '#DB3174',

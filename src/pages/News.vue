@@ -77,10 +77,10 @@ const onAppendClick = () => {
 
 const tab = ref(0);
 const tabBtn = ref([
-  { btn: "직무 추천" },
-  { btn: "인기 앱 추천" },
-  { btn: "많이 사용되는 앱" },
-  { btn: "만족도가 높은 앱" },
+  { btn: "새소식" },
+  { btn: "자주 묻는 질문" },
+  { btn: "Q&A" },
+  { btn: "앱 가이드" },
 ]);
 
 </script>
