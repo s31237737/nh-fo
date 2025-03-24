@@ -4,15 +4,15 @@
       :ripple="false"
       icon="custom:arrow-first"
       :disabled="currentPage === 1"
-      density="compact"
+      color="info"
       @click="goToPage(1)"
     />
 
     <v-btn
       :ripple="false"
-      icon="custom:arrow-left"
+      icon="custom:arrow-prev"
       :disabled="currentPage === 1"
-      density="compact"
+      color="info"
       @click="goToPage(currentPage - 1)"
     />
 
@@ -21,8 +21,7 @@
         v-for="page in pageNumbers"
         :key="page"
         :ripple="false"
-        variant="text"
-        :class="{ active: currentPage === page }"
+        :color="currentPage === page ? 'primary' : 'info'"
         @click="goToPage(page)"
       >
         {{ page }}
@@ -31,9 +30,9 @@
 
     <v-btn
       :ripple="false"
-      icon="custom:arrow-right"
+      icon="custom:arrow-next"
       :disabled="currentPage === totalPages"
-      density="compact"
+      color="info"
       @click="goToPage(currentPage + 1)"
     />
 
@@ -41,7 +40,7 @@
       :ripple="false"
       icon="custom:arrow-last"
       :disabled="currentPage === totalPages"
-      density="compact"
+      color="info"
       @click="goToPage(totalPages)"
     />
   </div>

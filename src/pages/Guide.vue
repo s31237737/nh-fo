@@ -36,6 +36,14 @@
         <span>arrow-left</span>
       </div>
       <div class="icon-item">
+        <v-icon icon="custom:arrow-prev" />
+        <span>arrow-prev</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-next" />
+        <span>arrow-next</span>
+      </div>
+      <div class="icon-item">
         <v-icon icon="custom:arrow-up" />
         <span>arrow-up</span>
       </div>
