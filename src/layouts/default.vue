@@ -1,8 +1,8 @@
 <template>
   <Header />
-  <v-main>
+  <v-main v-scroll="onScroll">
     <router-view />
-    <!-- <v-btn
+    <v-btn
       size="x-large"
       rounded="pill"
       class="btn-floating"
@@ -23,29 +23,29 @@
           사용 중 불편사항이 있으신가요?
         </span>
       </p>
-    </v-btn> -->
-    <Footer />
+    </v-btn>
+    <Footer ref="footerRef" />
   </v-main>
 </template>
 
 <script setup>
-//import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 //
 
-// const hover = ref(false);
-// const nearFooter = ref(false);//버튼 클래스 체크하는 지점
-// const footerRef = ref(true);//footer 컴포넌트 참조하여 푸터의 위치를 가져옴
+const hover = ref(false);
+const nearFooter = ref(false);//버튼 클래스 체크하는 지점
+const footerRef = ref(true);//footer 컴포넌트 참조하여 푸터의 위치를 가져옴
 
-// const onScroll = () => {
-//   if (!footerRef.value) return;
+const onScroll = () => {
+  if (!footerRef.value) return;
 
-//   const footerTop = footerRef.value.$el.getBoundingClientRect().top;//footer 컴포넌트 참조하여 푸터의 위치를 가져옴
-//   const windowHeight = window.innerHeight - 20;
+  const footerTop = footerRef.value.$el.getBoundingClientRect().top;//footer 컴포넌트 참조하여 푸터의 위치를 가져옴
+  const windowHeight = window.innerHeight - 40;
 
-//   nearFooter.value = (footerTop) < windowHeight;
-//   console.log(windowHeight, window.innerHeight, footerTop)
-// };
+  nearFooter.value = (footerTop) < windowHeight;
+  console.log(windowHeight, window.innerHeight, footerTop)
+};
 
-// onMounted(() => window.addEventListener("scroll", onScroll));
-// onUnmounted(() => window.removeEventListener("scroll", onScroll));
+onMounted(() => window.addEventListener("scroll", onScroll));
+onUnmounted(() => window.removeEventListener("scroll", onScroll));
 </script>
