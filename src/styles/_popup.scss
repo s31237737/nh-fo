@@ -106,6 +106,12 @@ $popup-base-margin: 20px;
     .v-overlay__content {
       max-height: calc(100% - 200px);
     }  
+    .v-card-text{
+      padding-bottom: 10px !important;
+    }
+    .v-card-actions {
+      margin-top: 0;
+    }
     
     //form sheet
     .form-sheet {
