@@ -256,24 +256,22 @@
   .v-btn {
     padding: 0;
     min-width: 34px;
-   
+    font-weight: 400;
+  }
+  .bg-info {
+    color: $gray-700;
+    border-color: $gray-300 !important;
+    background-color: $white !important;
   }
   .numbers {
     display: inline-flex;
     gap: 6px;
-    margin: 0 4px;
-   .bg-info {
-    background-color: $white !important;
-   }
   }
   &:not(.numbers) {
     .v-btn {
       width: 34px;
       height: 36px;
       border-radius: 4px;
-    }
-    .v-btn--disabled.v-btn--variant-flat .v-btn__overlay {
-      opacity: 0;
     }
   }
 }

@@ -32,16 +32,16 @@
         <span>arrow-first</span>
       </div>
       <div class="icon-item">
-        <v-icon icon="custom:arrow-left" />
-        <span>arrow-left</span>
-      </div>
-      <div class="icon-item">
         <v-icon icon="custom:arrow-prev" />
         <span>arrow-prev</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:arrow-next" />
         <span>arrow-next</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:arrow-last" />
+        <span>arrow-last</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:arrow-up" />
@@ -51,9 +51,10 @@
         <v-icon icon="custom:arrow-down" />
         <span>arrow-down</span>
       </div>
+
       <div class="icon-item">
-        <v-icon icon="custom:arrow-last" />
-        <span>arrow-last</span>
+        <v-icon icon="custom:arrow-left" />
+        <span>arrow-left</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:arrow-right" />
