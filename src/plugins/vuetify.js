@@ -56,7 +56,7 @@ const nhFo = {
     'hover-opacity': 0.04,
     'focus-opacity': 0.12,
     'selected-opacity': 0.08,
-    'activated-opacity': 0.12,
+    'activated-opacity': 0.04,
     'pressed-opacity': 0.12,
     'dragged-opacity': 0.08,
     'theme-kbd': '#212529',
