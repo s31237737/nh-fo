@@ -133,7 +133,7 @@
     padding: 0 20px;
     transition-duration: .3s, .1s;
     transition-property: width, bottom;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease;
     box-shadow: 0px 4px 19px 0px #0F1B5712;
     &.btn-bottom {
       bottom: 140px;
@@ -148,7 +148,7 @@
       width: 42px;
       transition-duration: .35s;
       transition-property: width;
-      transition-timing-function: ease-in-out;
+      transition-timing-function: ease;
       @extend .caption-3-md;
       span {
         display: block;
