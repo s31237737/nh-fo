@@ -31,38 +31,41 @@
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
+//불편신고 팝업
 const hover = ref(false);
+
+//footer
 const nearFooter = ref(false);
 const footerRef = ref(null);
 const mainRef = ref(null);
-const lastInnerHeight = ref(window.innerHeight);
+const lastHeight = ref(window.innerHeight);
 let resizeTimeout = null;
 
-const checkFooterPosition = () => {
+const footerPosition = () => {
   if (!footerRef.value) return;
 
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
-  const currentInnerHeight = window.innerHeight;
+  const currentHeight = window.innerHeight;
 
   //  애니메이션이 부자연스럽지 않게 부드럽게 변하도록 조정
-  if (currentInnerHeight !== lastInnerHeight.value) {
-    lastInnerHeight.value = currentInnerHeight;
+  if (currentHeight !== lastHeight.value) {
+    lastHeight.value = currentHeight;
   }
 
   // 툴바가 변하면서 너무 급격하게 버튼이 움직이지 않도록 부드럽게 조정
-  nearFooter.value = footerTop < currentInnerHeight - 40;
+  nearFooter.value = footerTop < currentHeight - 40;
 };
 
 const onResize = () => {
   // 디바운싱 적용 (100ms 동안 여러 번 호출되는 걸 방지)
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
-    checkFooterPosition();
+    footerPosition();
   }, 100);
 };
 
 const onScroll = () => {
-  checkFooterPosition();
+  footerPosition();
 };
 
 onMounted(async () => {
@@ -72,7 +75,7 @@ onMounted(async () => {
   window.addEventListener('resize', onResize, { passive: true });
 
   // 초기 실행
-  checkFooterPosition();
+  footerPosition();
 });
 
 onUnmounted(() => {
