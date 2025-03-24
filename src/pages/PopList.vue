@@ -334,7 +334,6 @@ import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
   ]);
 
   const popupVisible = ref({
-    PopupLogin: false,
     PopupReportIssue: false,
   });
 
