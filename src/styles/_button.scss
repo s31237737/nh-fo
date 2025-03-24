@@ -228,6 +228,7 @@
 
 
 .v-slide-group {
+  padding-right: 1px;
   &__content {
     gap: 12px;
   }
@@ -238,7 +239,7 @@
   @at-root .mobile, .tablet {
     .v-slide-group {
       margin-right: -20px;
-      height: 45px;
+      min-height: 45px;
       &__content {
         gap: 6px;
       }
