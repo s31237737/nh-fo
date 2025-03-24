@@ -59,12 +59,24 @@
                 앱
               </v-label>
               <div class="label-form">
-                <v-text-field
-                  id="inp-search"
-                  v-model="appsearch"
-                  placeholder="앱 이름을 검색해 주세요."
+                <v-autocomplete
+                  v-model="searchApps"
+                  :items="apps"
+                  item-title="name"
+                  item-value="name"
+                  :menu-icon="null"
                   class="append-button"
+                  placeholder="앱 이름을 검색해주세요."
                 >
+                  <template #item="{ props, item }">
+                    <v-list-item
+                      v-bind="props"
+                      :prepend-avatar="getImageUrl(item.raw.avatar)"
+                      :title="item.raw.name"
+                    />
+                  </template>
+
+                  <!-- 검색 버튼 추가 -->
                   <template #append-inner>
                     <v-btn
                       color="secondary"
@@ -72,7 +84,7 @@
                       검색
                     </v-btn>
                   </template>
-                </v-text-field>
+                </v-autocomplete>
               </div>
             </v-col>
           </v-row>
@@ -117,8 +129,35 @@
 <script setup>
   import { ref } from 'vue';
 
+  const getImageUrl = (imageName) => {
+    return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+  };
   const select = ref("업스토어 이용 시 불편사항");
-  const appsearch = ref([]);
+
+  //autocomplete
+  const apps = [
+    { 
+      name: '육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: 'text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: 'text text text text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: 'text text text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+  ]
+  const searchApps = ref(null);
 
   defineProps({
     modelValue: {

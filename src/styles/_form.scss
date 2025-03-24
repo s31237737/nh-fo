@@ -67,22 +67,28 @@
 }
 .v-autocomplete {
   &__content {
-    box-shadow: none !important;
     border: thin solid $gray-400;
     .v-list {
       padding: 0 8px 8px;
       .v-list-item {
-        //margin-top: 8px;
-        border-radius: 8px;
+        padding-inline: 8px !important;
+        margin-top: 8px;
         min-height: 32px;
         .v-list-item-title {
           @extend .text-4-md;
         }
+        &__prepend {
+          padding:0;
+          margin-right: 6px;
+        }
+        &__spacer {
+          display:none;
+        }
       }
-    }
-    .v-avatar {
-      width: 24px !important;
-      height: 24px !important;
+      .v-avatar {
+        width: 24px !important;
+        height: 24px !important;
+      }
     }
   }
 }

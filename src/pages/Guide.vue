@@ -512,14 +512,14 @@
               :items="people"
               item-title="name"
               item-value="name"
-              placeholder="앱 이름을 검색해주세요."
               :menu-icon="null"
               class="append-button"
+              placeholder="앱 이름을 검색해주세요."
             >
               <template #item="{ props, item }">
                 <v-list-item
                   v-bind="props"
-                  :prepend-avatar="item.raw.avatar"
+                  :prepend-avatar="getImageUrl(item.raw.avatar)"
                   :title="item.raw.name"
                 />
               </template>
@@ -1379,7 +1379,7 @@
 </template>
 
 <script setup>
-import { ref, inject, watch } from 'vue';
+import { ref, inject } from 'vue';
 import { useRouter } from "vue-router";
 
 const isDesktop = inject("isDesktop");
@@ -1569,20 +1569,28 @@ const dataTableItem = ref([
 ]);
 
 //autocomplete
-const srcs = {
-    1: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-    2: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-    3: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-    4: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-  }
   const people = [
-    { name: '육묘대장', avatar: srcs[1] },
-    { name: 'text', avatar: srcs[2] },
-    { name: 'text text text text', avatar: srcs[3] },
-    { name: 'text text text', avatar: srcs[2] },
-    { name: '육묘대장 육묘대장 육묘대장', avatar: srcs[4] },
+    { 
+      name: '육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: 'text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: 'text text text text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: 'text text text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
   ]
-
   const friends = ref(null);
   // const isUpdating = ref(false);
 
