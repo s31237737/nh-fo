@@ -91,7 +91,7 @@ $popup-base-margin: 20px;
     .v-row + .v-row {margin-top: 0;}
     .v-col {
       grid-template-columns: 150px 1fr;
-      gap: 0;
+      //gap: 0;
       padding: 8px 0 !important;
       & > .v-label {
         padding-left: 10px;
@@ -111,10 +111,9 @@ $popup-base-margin: 20px;
     .form-sheet {
       .v-col {
         grid-template-columns: 1fr;
-        padding: 12px 0 !important;
+        //padding: 12px 0 !important;
         & > .v-label {
           padding-left: 0px;
-          padding-bottom: 10px;
         }
       }
     }
