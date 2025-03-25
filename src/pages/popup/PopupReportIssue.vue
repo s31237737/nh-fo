@@ -46,7 +46,7 @@
                   id="inp-select"
                   v-model="select"
                   density="default"
-                  :items="['업스토어 이용 시 불편사항', '앱 사용 시 불편사항', '기타']"
+                  :items="['업스토어 이용 시 불편사항', '앱 사용 시 불편사항', '기타', '기타', '기타', '기타', '기타', '기타', '기타', '기타', '기타', '기타']"
                 />
               </div>
             </v-col>
@@ -150,6 +150,26 @@
     },
     { 
       name: 'text text text', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
+      avatar: '@temp_img_app_icon01.png' 
+    },
+    { 
+      name: '육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
