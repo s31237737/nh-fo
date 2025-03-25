@@ -1,6 +1,6 @@
 @use "variables" as *;
 @use "typography" as *;
-
+$popup-base-margin: 20px;
 .v-dialog[class*="popup"] {
   .v-overlay__content {
     max-width: 834px;
