@@ -47,7 +47,6 @@
   }
   &.bg-info {
     border: thin solid $gray-400;
-    background-color: transparent !important;
     &.v-btn--disabled {
       .v-btn__overlay {
         opacity: 0 !important;
@@ -251,6 +250,7 @@
   .bg-info {
     font-weight: 500;
     color: $gray-800 !important;
+    background-color: transparent !important;
   }
   @at-root .mobile, .tablet {
     .v-slide-group {
@@ -277,7 +277,6 @@
   .bg-info {
     color: $gray-700;
     border-color: $gray-300 !important;
-    background-color: $white !important;
   }
   .numbers {
     display: inline-flex;
@@ -298,14 +297,7 @@
   display: flex;
   gap: 8px;
   justify-content: center;
-  &:not(:has(.v-spacer)) .v-btn {
-    width: 136px;
-  }
-  .v-btn {
-    &.bg-info {
-      background-color: $white !important;
-    }
-  }
+  
   .pagination {
     margin: 0;
   }

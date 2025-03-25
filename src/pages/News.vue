@@ -58,26 +58,21 @@
           </v-slide-group-item>
         </v-slide-group>
       </div>
-
-      <v-window
-        v-model="tab"
-        class="tab-container"
-      >
-        <v-window-item>
+      <!-- 일반 div로 탭 콘텐츠 구현 -->
+      <div class="tab-container">
+        <div v-if="tab === 0">
           <NewsTab01 />
-        </v-window-item>
-
-        <v-window-item>
+        </div>
+        <div v-else-if="tab === 1">
           <NewsTab02 />
-        </v-window-item>
-
-        <v-window-item>
+        </div>
+        <div v-else-if="tab === 2">
           <NewsTab03 />
-        </v-window-item>
-        <v-window-item>
+        </div>
+        <div v-else-if="tab === 3">
           <NewsTab04 />
-        </v-window-item>
-      </v-window>
+        </div>
+      </div>
     </section>
   </v-container>
 </template>
@@ -89,16 +84,14 @@ import NewsTab02 from "@/pages/NewsTab02.vue";
 import NewsTab03 from "@/pages/NewsTab03.vue";
 import NewsTab04 from "@/pages/NewsTab04.vue";
 
-
 const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 
 const search = ref("");
 const onAppendClick = () => {
-  alert('Append icon clicked!');
-}
-
+  alert("Append icon clicked!");
+};
 
 const tab = ref(0);
 const tabBtn = ref([
@@ -107,7 +100,14 @@ const tabBtn = ref([
   { btn: "Q&A" },
   { btn: "앱 가이드" },
 ]);
-
-
-
 </script>
+
+<style scoped>
+.tab-container > div {
+  display: none;
+}
+
+.tab-container > div:nth-child(1) {
+  display: block;
+}
+</style>
