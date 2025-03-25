@@ -1411,19 +1411,17 @@
     <!-- 컨텐츠 배너 -->
     <section>
       <div
-        class="banner-wrap"
+        class="line-banner-wrap"
         :class="{ 'clickable': banner.url }"
       >
         <v-img
           role="banner"
-          class="banner"
+          class="line-banner"
           :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
           @click="bannerClick(banner)"
         >
-          <div class="banner-text">
-            <p
-              class="description"
-            >
+          <div class="description">
+            <p>
               {{ banner.description }}
             </p>
           </div>

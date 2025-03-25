@@ -2,24 +2,6 @@
 @use "typography" as *;
 @use "style" as *;
 
-.sort-btns.v-btn-toggle {
-  .v-btn {
-    padding: 0 8px;
-    font-weight: 400;
-    color: $gray-700;
-    &--size-default {
-      min-width: auto;
-    }
-    .v-btn__content {
-      line-height: 1;
-    }
-    &.v-btn--active {
-      font-weight: 500;
-      color: $black;
-    }
-  }
-}
-
 //상단 비주얼
 .keyvisual.slider {
   $keyvisual-h: 548px;
@@ -155,13 +137,31 @@
   }
 }
 
+.sort-btns.v-btn-toggle {
+  .v-btn {
+    padding: 0 8px;
+    font-weight: 400;
+    color: $gray-700;
+    &--size-default {
+      min-width: auto;
+    }
+    .v-btn__content {
+      line-height: 1;
+    }
+    &.v-btn--active {
+      font-weight: 500;
+      color: $black;
+    }
+  }
+}
+
 //띠배너
-.banner {
+.line-banner {
   height:100%;
   background-position: center center;
   display:flex;
   align-items: center;
-  &-text {
+  .description {
     width: 100%;
     max-width: 660px;
     margin:0 auto;
@@ -172,7 +172,7 @@
       white-space: pre-wrap;
     }
   }
-  @at-root .banner-wrap {
+  @at-root .line-banner-wrap {
     height: 140px;
     border-radius: $banner-radius;
     overflow:hidden;
@@ -181,8 +181,8 @@
     }
   }
   @at-root .mobile {
-    .banner-wrap {height: 90px;}
-    .banner {
+    .line-banner-wrap {height: 90px;}
+    .line-banner {
       background-size: auto 100%;
       .banner-text {
         margin-block: 24px;
