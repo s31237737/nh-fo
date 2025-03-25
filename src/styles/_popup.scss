@@ -118,6 +118,8 @@ $popup-base-margin: 20px;
     .v-overlay__content {
       width: 100% !important;
       max-width: calc(100% - 40px) !important;
+      min-height: calc(100% - 40px);
+      max-height: calc(100% - 40px);
     }
     .v-card-actions .v-btn{
       width: 50%;
