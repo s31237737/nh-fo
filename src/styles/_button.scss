@@ -185,6 +185,17 @@
     @at-root .v-layout:not(.desktop) {
       .v-btn.btn-floating {
         right: 20px; 
+        &:hover {
+          width: 116px;
+          .btn-floating-text {
+            width: 42px;
+            span:not(.hover) {
+              width: auto;
+              height:auto;
+              opacity:1;
+            }
+          }
+        }
       }
     }
     @at-root .mobile {

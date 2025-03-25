@@ -19,7 +19,10 @@
         <span>
           불편신고
         </span>
-        <span class="hover">
+        <span
+          v-if="isDesktop"
+          class="hover"
+        >
           사용 중 불편사항이 있으신가요?
         </span>
       </p>
@@ -29,7 +32,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick, inject } from 'vue';
+
+const isDesktop = inject("isDesktop");
 
 //불편신고 팝업
 const hover = ref(false);
