@@ -129,8 +129,9 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, inject } from 'vue';
 
+  const isDesktop = inject("isDesktop");
   const getImageUrl = (imageName) => {
     return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
   };

@@ -1,7 +1,6 @@
 @use "variables" as *;
 @use "typography" as *;
 
-$popup-base-margin: 20px;
 .v-dialog[class*="popup"] {
   .v-overlay__content {
     max-width: 834px;
@@ -20,7 +19,7 @@ $popup-base-margin: 20px;
     @extend .title-5-bd;
     white-space: normal;
     word-break: keep-all;
-    .popup-title {
+    p {
       flex: 1;
       padding-top: 2px;
     }
@@ -117,6 +116,7 @@ $popup-base-margin: 20px;
 @media only screen and (max-width: 767px) {
   .v-dialog[class*="popup"] {
     .v-overlay__content {
+      width: 100% !important;
       max-width: calc(100% - ($popup-base-margin * 2)) !important;
     }
     .v-card-actions .v-btn{
