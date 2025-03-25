@@ -1,31 +1,27 @@
 <template>
   <div class="inner">
     <!-- sample -->
-    <div class="d-flex align-center ga-2">
-      <v-label class="pr-4">
-        sample
-      </v-label>
+    sample
+    <div class="d-flex flex-wrap align-center ga-2 mt-1 mb-7">
       <v-btn
         size="small"
-        color="purple"
+        color="success"
         @click="alertDefault = true"
       >
-        popup-sm(alert)
+        sample-alert
       </v-btn>
       <v-btn
         size="small"
-        color="purple"
+        color="success"
         @click="dialogDefault = true"
       >
-        popup
+        sample-popup
       </v-btn>
     </div>
 
     <!-- dialog: alert -->
-    <div class="d-flex align-center ga-2 mt-6">
-      <v-label class="pr-4">
-        alert
-      </v-label>
+    alert
+    <div class="d-flex flex-wrap  align-center ga-2 mt-1 mb-7">
       <v-btn
         size="small"
         color="primary"
@@ -57,10 +53,8 @@
     </div>
 
     <!-- dialog -->
-    <div class="d-flex align-center ga-2 mt-6">
-      <v-label class="pr-4">
-        dialog
-      </v-label>
+    dialog
+    <div class="d-flex flex-wrap align-center mt-1 mb-7">
       <v-btn
         v-for="popup in popups"
         :key="popup.name"
@@ -318,7 +312,7 @@
 <script setup>
 import { ref,shallowRef  } from 'vue';
 
-//alert
+//sample
 const alertDefault = ref(false);
 const dialogDefault = ref(false);
 

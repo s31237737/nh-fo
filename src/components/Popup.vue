@@ -3,26 +3,65 @@
     <v-col cols="auto">
       <v-btn
         size="small"
-        color="purple"
-        @click="alert1 = true"
+        color="success"
+        @click="alertDefault = true"
       >
-        popup-sm(alert)
+        sample-alert
       </v-btn>
     </v-col>
     <v-col cols="auto">
       <v-btn
         size="small"
-        color="purple"
-        @click="dialog2 = true"
+        color="success"
+        @click="dialogDefault = true"
       >
-        popup
+        sample-popup
       </v-btn>
     </v-col>
   </v-row>
 
+
+  <!-- popup(default) -->
+  <v-dialog
+    v-model="dialogDefault"
+    class="popup"
+  >
+    <v-card>
+      <v-card-title>
+        <p>팝업 타이틀</p>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="dialogDefault = false"
+        />
+      </v-card-title>
+      <v-card-text>
+        <!-- dialog contents -->
+        팝업텍스트
+        <!--// dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="info"
+          size="large"
+          @click="dialogDefault = false"
+        >
+          취소
+        </v-btn>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="alertDefault = true"
+        >
+          등록
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
   <!-- popup-sm(alert) -->
   <v-dialog
-    v-model="alert1"
+    v-model="alertDefault"
     class="popup-sm"
   >
     <v-card>
@@ -30,7 +69,7 @@
         <v-btn
           icon="custom:close"
           density="comfortable"
-          @click="alert1 = false"
+          @click="alertDefault = false"
         />
       </v-card-title>
 
@@ -47,7 +86,7 @@
         <v-btn
           color="info"
           size="large"
-          @click="alert1 = false"
+          @click="alertDefault = false"
         >
           cancel
         </v-btn>
@@ -60,48 +99,10 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-
-  <!-- popup(default) -->
-  <v-dialog
-    v-model="dialog2"
-    class="popup"
-  >
-    <v-card>
-      <v-card-title>
-        <p>팝업 타이틀</p>
-        <v-btn
-          icon="custom:close"
-          density="comfortable"
-          @click="dialog2 = false"
-        />
-      </v-card-title>
-      <v-card-text>
-        <!-- dialog contents -->
-        팝업텍스트
-        <!--// dialog contents -->
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          color="info"
-          size="large"
-          @click="dialog2 = false"
-        >
-          취소
-        </v-btn>
-        <v-btn
-          color="primary"
-          size="large"
-          @click="alert1 = true"
-        >
-          등록
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
 </template>
 <script setup>
 import { ref } from 'vue';
-
-const alert1 = ref(false);
-const dialog2 = ref(false);
+//sample
+const alertDefault = ref(false);
+const dialogDefault = ref(false);
 </script>
