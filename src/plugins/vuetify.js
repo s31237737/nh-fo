@@ -163,7 +163,7 @@ export default createVuetify({
     },
     VSelect: {
       variant: "outlined",
-      bgColor: "#fefefe",
+      bgColor: "transparent",
       rounded: "lg",
       persistentPlaceholder: true,
       hideDetails: true,
@@ -194,7 +194,6 @@ export default createVuetify({
     },
     VAutocomplete: {
       variant: "outlined",
-      bgColor: "#fefefe",
       rounded: "lg",
       hideDetails: true,
     },

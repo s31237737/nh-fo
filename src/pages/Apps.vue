@@ -105,10 +105,10 @@
       </div>
 
       <!-- form -->
-      <div class="appcard-list-top">
-        <div class="d-flex space-between align-center ga-2 mb-5">
+      <div class="appcard-list-form">
+        <div class="top">
           <v-text-field
-            v-model="form"
+            v-model="searchApps"
             class="search-inp round"
             placeholder="앱코드, 앱 이름을 검색해주세요."
             append-inner-icon="custom:search"
@@ -120,7 +120,6 @@
             v-model="sort"
             color="primary"
             variant="text"
-            class="sort-btns"
             density="compact"
           >
             <v-btn
@@ -135,26 +134,28 @@
             </v-btn>
           </v-btn-toggle>
         </div>
-        <div class="d-flex align-center space-between">
+        <div class="bottom">
           <v-slide-group
             show-arrows
           >
             <v-slide-group-item
-              v-for="n in 5"
-              :key="n"
-            >
-              <v-select
-                class="ma-2"
-                rounded
-                density="compact"
-                label="Select an option"
-                :items="['Option 1', 'Option 2', 'Option 3']"
-                :menu-props="{ closeOnClick: true }"
-              />
+              v-for="(item, index) in slideData"
+              :key="index"
+            > 
+              <div class="slide-select">
+                <label :for="item.selectId">
+                  {{ item.label }}
+                </label>
+                <v-select
+                  id="item.selectId"
+                  v-model="item.selected"
+                  rounded="pill"
+                  :items="item.options"
+                  :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
+                />
+              </div>
             </v-slide-group-item>
           </v-slide-group>
-
-        
           <v-btn
             color="white"
             icon="custom:refresh"
@@ -503,22 +504,25 @@
 import { ref, inject } from 'vue';
 import { useRouter } from "vue-router";
 
-const isDesktop = inject("isDesktop");
-
-const sort = ref(0);
-// const select1 = ref("전체");
-// const select2 = ref("전체");
-// const select3 = ref("전체");
-
 const router = useRouter();
-const form = ref("");
-const onAppendClick = () => {
-  alert("Append icon clicked!");
-};
-
+const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
+
+//app search
+const searchApps = ref("");
+const onAppendClick = () => {
+  alert("Append icon clicked!");
+};
+const sort = ref(0);
+const slideData = ref([
+  { selectId: 'select01', label: 'option1', options: ['Option 1', 'Option 2', 'Option 3'], selected: 'Option 1' },
+  { selectId: 'select02', label: 'option2', options: ['Option A', 'Option B', 'Option C'], selected: 'Option A' },
+  { selectId: 'select03', label: 'option3', options: ['Option ㄱ', 'Option ㄴ', 'Option ㄷ'], selected: 'Option ㄱ' },
+  { selectId: 'select04', label: 'option4', options: ['Option 00', 'Option 01', 'Option 10'], selected: 'Option 00' },
+  { selectId: 'select05', label: 'option5', options: ['Option 전체', 'Option 일', 'Option 이'], selected: 'Option 전체' }
+]);
 
 //keyvisual
 const sliders = ref([
