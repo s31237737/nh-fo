@@ -58,7 +58,6 @@
           </v-slide-group-item>
         </v-slide-group>
       </div>
-
       <!-- 일반 div로 탭 콘텐츠 구현 -->
       <div class="tab-container">
         <div v-if="tab === 0">
