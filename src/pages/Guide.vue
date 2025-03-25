@@ -508,11 +508,12 @@
 
             <!-- autocomplete -->
             <v-autocomplete
-              v-model="friends"
-              :items="people"
+              v-model="searchApps"
+              :items="apps"
               item-title="name"
               item-value="name"
               :menu-icon="null"
+              :menu-props="{ maxHeight: '208px', auto: true }"
               class="append-button"
               placeholder="앱 이름을 검색해주세요."
             >
@@ -1569,38 +1570,48 @@ const dataTableItem = ref([
 ]);
 
 //autocomplete
-  const people = [
-    { 
-      name: '육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
-    },
-    { 
-      name: 'text', 
-      avatar: '@temp_img_app_icon01.png' 
-    },
-    { 
-      name: 'text text text text', 
-      avatar: '@temp_img_app_icon01.png' 
-    },
-    { 
-      name: 'text text text', 
-      avatar: '@temp_img_app_icon01.png' 
-    },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
-    },
-  ]
-  const friends = ref(null);
-  // const isUpdating = ref(false);
-
-  // let timeout = -1
-  // watch(isUpdating, val => {
-  //   clearTimeout(timeout)
-  //   if (val) {
-  //     timeout = setTimeout(() => (isUpdating.value = false), 3000)
-  //   }
-  // })
+const apps = [
+  { 
+    name: '1육묘대장', 
+    avatar: '@temp_img_app_icon01.png' 
+  },
+  { 
+    name: '2text', 
+    avatar: '@temp_img_app_icon02.png' 
+  },
+  { 
+    name: '3text text text text', 
+    avatar: '@temp_img_app_icon03.png' 
+  },
+  { 
+    name: '4text text text', 
+    avatar: '@temp_img_app_icon01.png' 
+  },
+  { 
+    name: '5육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장', 
+    avatar: '@temp_img_app_icon02.png' 
+  },
+  { 
+    name: '6육묘대장 육묘대장 육묘대장', 
+    avatar: '@temp_img_app_icon03.png' 
+  },
+  { 
+    name: '7육묘대장 육묘대장 육묘대장', 
+    avatar: '@temp_img_app_icon01.png' 
+  },
+  { 
+    name: '8육묘대장 육묘대장 육묘대장', 
+    avatar: '@temp_img_app_icon02.png' 
+  },
+  { 
+    name: '9육묘대장 육묘대장 육묘대장', 
+    avatar: '@temp_img_app_icon03.png' 
+  },
+  { 
+    name: '10육묘대장 육묘대장 육묘대장', 
+    avatar: '@temp_img_app_icon01.png' 
+  },
+]
 </script>
 <style scoped>
 .icon-item {

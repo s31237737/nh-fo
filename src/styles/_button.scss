@@ -158,16 +158,22 @@
         transition-timing-function: ease;
         .btn-floating-text {
           width: 42px;
-          transition-duration: .35s;
-          transition-property: width;
-          transition-timing-function: ease;
-          span:not(.hover) {
+          transition: width .35s ease;
+          // transition-duration: .35s;
+          // transition-property: width;
+          // transition-timing-function: ease;
+          span {
             opacity:1;
+            transition: opacity .3s ease;
+            // transition-duration: .3s;
+            // transition-property: opacity;
+            // transition-timing-function: ease;
           }
           span.hover {
             width: 0;
             height:0;
             opacity:0;
+            transition-delay: .2s;
           }
         }
         &:hover {
@@ -177,13 +183,13 @@
           }
           .btn-floating-text {
             width: 154px;
-            span:not(.hover) {
+            span {
               width: 0;
               height:0;
               opacity:0;
             }
             span.hover {
-              width: auto;
+              width: 154px;
               height: auto;
               opacity:1;
             }
