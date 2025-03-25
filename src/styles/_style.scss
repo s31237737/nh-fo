@@ -257,28 +257,6 @@ section + section {
   
 }
 
-.data-header {
-  display: flex;
-  align-items: center;
-  height: 55px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  background: $white;
-  .title {
-    flex: 1;
-    display: flex;
-    
-    text-align: left;
-    &:first-child {
-      padding-inline-start: 18px;
-    }
-  }
-  span {
-    @extend .text-3-md;
-    text-align: center;
-    width: 120px;
-  }
-}
 .v-list.data-board {
   padding: 0;
   border-radius: 10px;
