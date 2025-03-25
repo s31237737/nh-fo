@@ -46,7 +46,7 @@
                   id="inp-select"
                   v-model="select"
                   density="default"
-                  :items="['업스토어 이용 시 불편사항', '앱 사용 시 불편사항', '기타', '기타', '기타', '기타', '기타', '기타', '기타', '기타', '기타', '기타']"
+                  :items="['업스토어 이용 시 불편사항', '앱 사용 시 불편사항', '기타기타기타기타기타기타', '기타기 타기타기 타기타기 타 타기타기 타기타기']"
                 />
               </div>
             </v-col>
@@ -137,43 +137,43 @@
   //autocomplete
   const apps = [
     { 
-      name: '육묘대장', 
+      name: '1육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: 'text', 
+      name: '2text', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: 'text text text text', 
+      name: '3text text text text', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: 'text text text', 
+      name: '4text text text', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: '육묘대장 육묘대장 육묘대장', 
+      name: '5육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: '육묘대장 육묘대장 육묘대장', 
+      name: '6육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: '육묘대장 육묘대장 육묘대장', 
+      name: '7육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: '육묘대장 육묘대장 육묘대장', 
+      name: '8육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: '육묘대장 육묘대장 육묘대장', 
+      name: '9육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
     { 
-      name: '육묘대장 육묘대장 육묘대장', 
+      name: '10육묘대장 육묘대장 육묘대장', 
       avatar: '@temp_img_app_icon01.png' 
     },
   ]
