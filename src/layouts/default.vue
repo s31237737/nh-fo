@@ -58,7 +58,7 @@ const footerPosition = () => {
   }
 
   // 툴바가 변하면서 너무 급격하게 버튼이 움직이지 않도록 부드럽게 조정
-  nearFooter.value = footerTop < currentHeight - 40;
+  nearFooter.value = footerTop < currentHeight;
 };
 
 const onResize = () => {
