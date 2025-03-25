@@ -1,5 +1,5 @@
 <template>
-  <div class="w-75 ma-auto mt-5 mb-5">
+  <section class="inner ma-auto mt-5 mb-5">
     <Pagination
       :total-items="dataTableItem.length"
       :items-per-page="itemsPerPage"
@@ -1430,7 +1430,7 @@
         </v-img>
       </div>
     </section>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -1625,45 +1625,45 @@ const dataTableItem = ref([
 
 //autocomplete
 const apps = [
-  { 
-    name: '1육묘대장', 
-    avatar: '@temp_img_app_icon01.png' 
+  {
+    name: '1육묘대장',
+    avatar: '@temp_img_app_icon01.png'
   },
-  { 
-    name: '2text', 
-    avatar: '@temp_img_app_icon02.png' 
+  {
+    name: '2text',
+    avatar: '@temp_img_app_icon02.png'
   },
-  { 
-    name: '3text text text text', 
-    avatar: '@temp_img_app_icon03.png' 
+  {
+    name: '3text text text text',
+    avatar: '@temp_img_app_icon03.png'
   },
-  { 
-    name: '4text text text', 
-    avatar: '@temp_img_app_icon01.png' 
+  {
+    name: '4text text text',
+    avatar: '@temp_img_app_icon01.png'
   },
-  { 
-    name: '5육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장', 
-    avatar: '@temp_img_app_icon02.png' 
+  {
+    name: '5육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon02.png'
   },
-  { 
-    name: '6육묘대장 육묘대장 육묘대장', 
-    avatar: '@temp_img_app_icon03.png' 
+  {
+    name: '6육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon03.png'
   },
-  { 
-    name: '7육묘대장 육묘대장 육묘대장', 
-    avatar: '@temp_img_app_icon01.png' 
+  {
+    name: '7육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon01.png'
   },
-  { 
-    name: '8육묘대장 육묘대장 육묘대장', 
-    avatar: '@temp_img_app_icon02.png' 
+  {
+    name: '8육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon02.png'
   },
-  { 
-    name: '9육묘대장 육묘대장 육묘대장', 
-    avatar: '@temp_img_app_icon03.png' 
+  {
+    name: '9육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon03.png'
   },
-  { 
-    name: '10육묘대장 육묘대장 육묘대장', 
-    avatar: '@temp_img_app_icon01.png' 
+  {
+    name: '10육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon01.png'
   },
 ]
 </script>
