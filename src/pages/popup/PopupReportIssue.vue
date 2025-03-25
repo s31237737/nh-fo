@@ -186,4 +186,13 @@
     },
   });
   const emit = defineEmits(['update:modelValue']);
+
+
+window.addEventListener('focusin', () => {
+  document.body.style.overflow = 'hidden';
+});
+
+window.addEventListener('focusout', () => {
+  document.body.style.overflow = '';
+});
 </script>
