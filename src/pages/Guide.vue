@@ -632,6 +632,40 @@
         </v-col>
       </v-row>
     </div>
+    <div class="page-actions">
+      <v-spacer />
+      <v-btn
+        size="large"
+        color="warning"
+        variant="outlined"
+        prepend-icon="custom:remove"
+      >
+        삭제
+      </v-btn>
+      <v-btn
+        color="tertiary"
+        size="large"
+        variant="outlined"
+        prepend-icon="custom:edit"
+        to="TermsRegistration"
+      >
+        수정
+      </v-btn>
+    </div>
+    <div class="page-actions">
+      <v-btn
+        color="secondary"
+        size="large"
+      >
+        취소
+      </v-btn>
+      <v-btn
+        color="primary"
+        size="large"
+      >
+        등록
+      </v-btn>
+    </div>
 
     <v-divider class="mt-5 pt-5" />
     <div class="bg-info pa-5">
