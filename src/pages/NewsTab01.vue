@@ -1,13 +1,7 @@
 <template>
-  <div
-    v-if="!isMobile"
-    class="data-header"
+  <v-list
+    class="data-board"
   >
-    <span class="title">제목</span>
-    <span>작성일</span>
-    <span>조회수</span>
-  </div>
-  <v-list class="data-board">
     <template
       v-for="(item, index) in tableItem"
       :key="item.id"
