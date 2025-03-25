@@ -10,6 +10,7 @@
       :ripple="false"
       @mouseover="hover = true"
       @mouseleave="hover = false"
+      @click="openPopup = true"
     >
       <v-icon
         icon="custom:report"
@@ -27,16 +28,18 @@
         </span>
       </p>
     </v-btn>
+    <PopupReportIssue v-model="openPopup" />
     <Footer ref="footerRef" />
   </v-main>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick, inject } from 'vue';
-
+import PopupReportIssue from "@/pages/popup/PopupReportIssue.vue";
 const isDesktop = inject("isDesktop");
 
 //불편신고 팝업
+const openPopup = ref(false);
 const hover = ref(false);
 
 //footer
