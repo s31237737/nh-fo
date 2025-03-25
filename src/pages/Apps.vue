@@ -106,7 +106,7 @@
 
       <!-- form -->
       <div class="appcard-list-top">
-        <v-form>
+        <div class="d-flex space-between align-center ga-2 mb-5">
           <v-text-field
             v-model="form"
             class="search-inp round"
@@ -116,25 +116,26 @@
             bg-color="white"
             @click:append-inner="onAppendClick"
           />
-        </v-form>
-        <v-btn-toggle
-          v-model="sort"
-          color="primary"
-          variant="text"
-          class="sort-btns"
-          density="compact"
-        >
-          <v-btn
-            :ripple="false"
+          <v-btn-toggle
+            v-model="sort"
+            color="primary"
+            variant="text"
+            class="sort-btns"
+            density="compact"
           >
-            업데이트순
-          </v-btn>
-          <v-btn
-            :ripple="false"
-          >
-            인기순
-          </v-btn>
-        </v-btn-toggle>
+            <v-btn
+              :ripple="false"
+            >
+              업데이트순
+            </v-btn>
+            <v-btn
+              :ripple="false"
+            >
+              인기순
+            </v-btn>
+          </v-btn-toggle>
+        </div>
+        <div />
       </div>
 
       <!-- 앱 목록  -->
