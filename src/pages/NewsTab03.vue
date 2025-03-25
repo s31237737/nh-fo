@@ -18,8 +18,8 @@
 <script setup>
   import { computed, ref } from 'vue'
 
-  const page = ref(1)
-  const itemsPerPage = ref(5)
+  const page = ref(1);
+  const itemsPerPage = ref(5);
   const headers = ref([
     {
       align: 'start',
