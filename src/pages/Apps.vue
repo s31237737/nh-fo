@@ -141,13 +141,13 @@
             <v-slide-group-item
               v-for="(item, index) in slideData"
               :key="index"
-            > 
+            >
               <div class="slide-select">
                 <label :for="item.selectId">
                   {{ item.label }}
                 </label>
                 <v-select
-                  id="item.selectId"
+                  :id="item.selectId"
                   v-model="item.selected"
                   rounded="pill"
                   :items="item.options"

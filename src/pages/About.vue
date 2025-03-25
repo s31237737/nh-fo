@@ -1,13 +1,6 @@
 <template>
   <v-container class="inner">
     <h1>테스트</h1>
-    <iframe
-      src="https://www.youtube.com/embed/FepuXV72_hQ"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    />
     <div
       v-for="(video, index) in videos"
       :key="index"

@@ -61,6 +61,7 @@
               </v-label>
               <div class="label-form">
                 <v-autocomplete
+                  id="inp-search"
                   v-model="searchApps"
                   :items="apps"
                   item-title="name"
@@ -93,12 +94,13 @@
           <v-row>
             <v-col>
               <v-label
-                for="inp-search"
+                for="inp-content"
               >
                 불편사항<br v-if="isDesktop">내용
               </v-label>
               <div class="label-form">
                 <v-textarea
+                  id="inp-content"
                   no-resize
                   maxlength="1000"
                   placeholder="불편사항 내용을 입력해 주세요."
@@ -139,45 +141,45 @@
 
   //autocomplete
   const apps = [
-    { 
-      name: '1육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '1육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '2text', 
-      avatar: '@temp_img_app_icon02.png' 
+    {
+      name: '2text',
+      avatar: '@temp_img_app_icon02.png'
     },
-    { 
-      name: '3text text text text', 
-      avatar: '@temp_img_app_icon03.png' 
+    {
+      name: '3text text text text',
+      avatar: '@temp_img_app_icon03.png'
     },
-    { 
-      name: '4text text text', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '4text text text',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '5육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon02.png' 
+    {
+      name: '5육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon02.png'
     },
-    { 
-      name: '6육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '6육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '7육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon03.png' 
+    {
+      name: '7육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon03.png'
     },
-    { 
-      name: '8육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '8육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '9육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon02.png' 
+    {
+      name: '9육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon02.png'
     },
-    { 
-      name: '10육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon03.png' 
+    {
+      name: '10육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon03.png'
     },
   ]
   const searchApps = ref(null);
