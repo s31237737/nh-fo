@@ -94,7 +94,7 @@
               <v-label
                 for="inp-search"
               >
-                불편사항 내용
+                불편사항<br>내용
               </v-label>
               <div class="label-form">
                 <v-textarea

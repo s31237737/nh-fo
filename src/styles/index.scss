@@ -8,6 +8,10 @@
 @forward "style";
 @forward "main";
 
+body {
+  min-height: 100svh;
+}
+
 ul,
 li {
   list-style: none;
