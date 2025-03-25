@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container class="inner">
     <h1>테스트</h1>
     <iframe
       src="https://www.youtube.com/embed/FepuXV72_hQ"
@@ -31,7 +31,7 @@
         allowfullscreen
       />
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script setup>
