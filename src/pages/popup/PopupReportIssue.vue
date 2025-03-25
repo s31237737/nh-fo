@@ -186,12 +186,4 @@
     },
   });
   const emit = defineEmits(['update:modelValue']);
-  function fixBodyScroll() {
-  if (window.innerHeight < document.documentElement.scrollHeight) {
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-// 팝업이 열린 상태에서 스크롤 막기
-window.addEventListener('resize', fixBodyScroll);
 </script>
