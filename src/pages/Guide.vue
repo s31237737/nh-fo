@@ -632,28 +632,41 @@
       </v-row>
     </div>
     <div class="page-actions">
+      <div class="pagination">
+        <v-btn
+          :ripple="false"
+          icon="custom:arrow-prev"
+          :disabled="currentPage === 1"
+          color="info"
+          @click="goToPage(currentPage - 1)"
+        />
+        <v-btn
+          :ripple="false"
+          icon="custom:arrow-next"
+          :disabled="currentPage === totalPages"
+          color="info"
+          @click="goToPage(currentPage + 1)"
+        />
+      </div>
       <v-spacer />
+
+      <v-btn
+        color="info"
+        size="large"
+      >
+        목록가기
+      </v-btn>
       <v-btn
         size="large"
         color="warning"
         variant="outlined"
-        prepend-icon="custom:remove"
       >
         삭제
-      </v-btn>
-      <v-btn
-        color="tertiary"
-        size="large"
-        variant="outlined"
-        prepend-icon="custom:edit"
-        to="TermsRegistration"
-      >
-        수정
       </v-btn>
     </div>
     <div class="page-actions">
       <v-btn
-        color="secondary"
+        color="info"
         size="large"
       >
         취소
@@ -662,7 +675,7 @@
         color="primary"
         size="large"
       >
-        등록
+        등록하기
       </v-btn>
     </div>
 

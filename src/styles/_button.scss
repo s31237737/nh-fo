@@ -295,12 +295,14 @@
   gap: 8px;
   justify-content: center;
   &:not(:has(.v-spacer)) .v-btn {
-    width: 180px;
+    width: 136px;
   }
   .v-btn {
-    min-width: 82px;
-    &:has(.v-btn__prepend) {
-      min-width: 106px;
+    &.bg-info {
+      background-color: $white !important;
     }
+  }
+  .pagination {
+    margin: 0;
   }
 }
