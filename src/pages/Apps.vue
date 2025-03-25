@@ -150,7 +150,6 @@
                 label="Select an option"
                 :items="['Option 1', 'Option 2', 'Option 3']"
                 :menu-props="{ closeOnClick: true }"
-                @click="toggle"
               />
             </v-slide-group-item>
           </v-slide-group>
@@ -509,9 +508,9 @@ import { useRouter } from "vue-router";
 const isDesktop = inject("isDesktop");
 
 const sort = ref(0);
-const select1 = ref("전체");
-const select2 = ref("전체");
-const select3 = ref("전체");
+// const select1 = ref("전체");
+// const select2 = ref("전체");
+// const select3 = ref("전체");
 
 const router = useRouter();
 const form = ref("");
