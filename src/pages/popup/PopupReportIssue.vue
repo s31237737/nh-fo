@@ -136,45 +136,45 @@
 
   //autocomplete
   const apps = [
-    { 
-      name: '육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: 'text', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: 'text',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: 'text text text text', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: 'text text text text',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: 'text text text', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: 'text text text',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
-    { 
-      name: '육묘대장 육묘대장 육묘대장', 
-      avatar: '@temp_img_app_icon01.png' 
+    {
+      name: '육묘대장 육묘대장 육묘대장',
+      avatar: '@temp_img_app_icon01.png'
     },
   ]
   const searchApps = ref(null);
@@ -186,4 +186,13 @@
     },
   });
   const emit = defineEmits(['update:modelValue']);
+
+
+window.addEventListener('focusin', () => {
+  document.body.style.overflow = 'hidden';
+});
+
+window.addEventListener('focusout', () => {
+  document.body.style.overflow = '';
+});
 </script>
