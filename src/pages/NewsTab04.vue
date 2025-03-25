@@ -43,12 +43,12 @@ const handleClick = (event, row) => {
 }
 
 const dataTableheaders = [
-  { title: "순서", key: "id", width: '80px'},
-  { title: "등록자", key: "registrant", sortable: false, width: '150px' },
-  { title: "제목", key: "appName", sortable: false, },
-  { title: "유형", key: "appType", sortable: false, width: '110px'},
-  { title: "공개여부", key: "status", sortable: false, width: '110px'},
-  { title: "등록일", key: "createdDate", sortable: false, width: '200px'},
+  { title: "순서", key: "id", minWidth: '80px'},
+  { title: "등록자", key: "registrant", sortable: false, minWidth: '150px' },
+  { title: "제목", key: "appName", sortable: false, minWidth: '400px'},
+  { title: "유형", key: "appType", sortable: false, minWidth: '110px'},
+  { title: "공개여부", key: "status", sortable: false, minWidth: '110px'},
+  { title: "등록일", key: "createdDate", sortable: false, minWidth: '200px'},
 ];
 
 const dataTableItem = ref([
