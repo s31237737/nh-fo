@@ -68,7 +68,7 @@
         </v-window-item>
 
         <v-window-item>
-          Two
+          <NewsTab02 />
         </v-window-item>
 
         <v-window-item>
@@ -85,6 +85,7 @@
 <script setup>
 import { ref, inject } from "vue";
 import NewsTab01 from "@/pages/NewsTab01.vue";
+import NewsTab02 from "@/pages/NewsTab02.vue";
 
 
 const isMobile = inject("isMobile");
