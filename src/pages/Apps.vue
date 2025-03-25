@@ -502,7 +502,7 @@ const sliders = ref([
     apptype: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
     description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "@temp_img_apps_visual_03.png",
+    image: "@temp_img_apps_visual_02.png",
   },
   {
     type: "img-type1",
