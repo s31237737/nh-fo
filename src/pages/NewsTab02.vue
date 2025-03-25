@@ -19,23 +19,14 @@
       :key="n"
       :value="n"
     >
-      <v-container fluid>
-        <v-row>
-          <v-col
-            v-for="i in 6"
-            :key="i"
-            cols="12"
-            md="4"
-          >
-            <v-img
-              :lazy-src="`https://picsum.photos/10/6?image=${i * n * 5 + 10}`"
-              :src="`https://picsum.photos/500/300?image=${i * n * 5 + 10}`"
-              height="205"
-              cover
-            />
-          </v-col>
-        </v-row>
-      </v-container>
+      <v-expansion-panels variant="accordion">
+        <v-expansion-panel
+          v-for="i in 3"
+          :key="i"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          title="Item"
+        />
+      </v-expansion-panels>
     </v-tabs-window-item>
   </v-tabs-window>
 </template>
