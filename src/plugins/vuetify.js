@@ -148,7 +148,6 @@ export default createVuetify({
     },
     VDialog: {
       scrollable: true,
-      width: "auto",
       VCard: {
         maxHeight: "872",
       },

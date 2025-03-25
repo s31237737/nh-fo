@@ -4,7 +4,6 @@
 $popup-base-margin: 20px;
 .v-dialog[class*="popup"] {
   .v-overlay__content {
-    width: calc(100% - ($popup-base-margin * 4)) !important;
     max-width: 834px;
     min-height: 438px;
     max-height: 602px;
@@ -118,7 +117,6 @@ $popup-base-margin: 20px;
 @media only screen and (max-width: 767px) {
   .v-dialog[class*="popup"] {
     .v-overlay__content {
-      width: 100% !important;
       max-width: calc(100% - ($popup-base-margin * 2)) !important;
     }
     .v-card-actions .v-btn{
