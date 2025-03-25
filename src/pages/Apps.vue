@@ -725,6 +725,8 @@ const cardRecommend = ref([
     likeCount: 888,
   }
 ]);
+
+//앱 추천 목록
 const cardRecommend2 = ref([
   {
     link: "AppsDetail",
