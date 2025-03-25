@@ -134,6 +134,7 @@
         </v-btn>
       </v-btn-group>
     </v-container>
+    <!-- 불편신고 팝업 -->
     <PopupReportIssue v-model="openPopup" />
   </section>
 </template>
