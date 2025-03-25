@@ -359,6 +359,7 @@
           density="default"
           label="default48"
           :items="['전체', '타입1', '타입2']"
+          :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
         />
 
         <v-select
@@ -366,12 +367,14 @@
           density="comfortable"
           label="comfortable44"
           :items="['전체', '상태1', '상태2']"
+          :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
         />
         <v-select
           v-model="select"
           density="compact"
           label="compact36"
           :items="['전체', '상태1', '상태2']"
+          :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
         />
       </v-form>
       <v-form class="d-flex mt-5">
@@ -380,6 +383,7 @@
           density="default"
           label="default"
           :items="['전체', '타입1', '타입2']"
+          :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
           class="required"
         />
 
@@ -389,6 +393,7 @@
           rounded="pill"
           class="round"
           :items="['전체', '상태1', '상태2']"
+          :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
         />
       </v-form>
     </div>
@@ -513,7 +518,7 @@
               item-title="name"
               item-value="name"
               :menu-icon="null"
-              :menu-props="{ maxHeight: '208px', auto: true }"
+              :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
               class="append-button"
               placeholder="앱 이름을 검색해주세요."
             >
@@ -551,6 +556,7 @@
               v-model="select"
               density="default"
               :items="['전체', '타입1', '타입2']"
+              :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
             />
 
             <!-- disabled -->
@@ -559,6 +565,7 @@
               v-model="select"
               density="default"
               :items="['전체', '타입1', '타입2']"
+              :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
               disabled
             />
           </div>

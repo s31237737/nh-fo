@@ -48,6 +48,7 @@
                   id="inp-select"
                   v-model="select"
                   density="default"
+                  :menu-props="{ maxWidth: '100%' }"
                   :items="['업스토어 이용 시 불편사항', '앱 사용 시 불편사항', '기타기타기타기타기타기타', '기타기 타기타기 타기타기 타 타기타기 타기타기']"
                 />
               </div>
@@ -67,7 +68,7 @@
                   item-title="name"
                   item-value="name"
                   :menu-icon="null"
-                  :menu-props="{ maxHeight: '208px', auto: true }"
+                  :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
                   class="append-button"
                   placeholder="앱 이름을 검색해주세요."
                 >
