@@ -594,7 +594,7 @@
     @extend .text-4;
     white-space: pre-wrap;
   }
-  @at-root .v-layout:not(.desktop) {
+  @at-root .mobile, .tablet {
     .privacy-index {
       padding: 20px;
       strong {

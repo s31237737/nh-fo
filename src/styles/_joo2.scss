@@ -71,65 +71,65 @@
       font-size:1px;
       color: transparent;
     }
-    @at-root .tablet {
-      .keyvisual.slider {
-        .visual-content {
-          .context {
-            top: -56px;
-            max-width: 52%;
-          }
-          .context-img {
-            width: 45%;
-            max-width: 530px;
-            height: auto; 
-            top: 50%;
-            transform: translateY(-65%);
-          }
+  }
+  @at-root .tablet {
+    .keyvisual.slider {
+      .visual-content {
+        .context {
+          top: -56px;
+          max-width: 52%;
+        }
+        .context-img {
+          width: 45%;
+          max-width: 530px;
+          height: auto; 
+          top: 50%;
+          transform: translateY(-65%);
         }
       }
     }
-    @at-root .mobile {
-      .keyvisual.slider {
-        $keyvisual-h: 526px;
-        height: $keyvisual-h;
-        .visual-bg {
-          position: absolute;
-          width: 768px;
-          height: 225px;
-          top: auto;
-          bottom: 78px;
-          left: 50%;
-          transform: translateX(-50%);
-          &.center {
-            top: 50%;
-            transform: translate(-50%, -50%);
+  }
+  @at-root .mobile {
+    .keyvisual.slider {
+      $keyvisual-h: 526px;
+      height: $keyvisual-h;
+      .visual-bg {
+        position: absolute;
+        width: 768px;
+        height: 225px;
+        top: auto;
+        bottom: 78px;
+        left: 50%;
+        transform: translateX(-50%);
+        &.center {
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .visual-content {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        .context {
+          top: 40px;
+          max-width: 100%;
+          .apptype {
+            margin-bottom: 12px;
+          }
+          .description {
+            margin-top: 8px;
           }
         }
-        .visual-content {
-          max-width: 100%;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: space-between;
-          .context {
-            top: 40px;
-            max-width: 100%;
-            .apptype {
-              margin-bottom: 12px;
-            }
-            .description {
-              margin-top: 8px;
-            }
-          }
-          .context-img {
-            position: relative;
-            top:auto;
-            right:auto; 
-            width: 100%;
-            height: auto;
-            max-width: 320px;
-            max-height: auto;
-            margin: 0 auto 100px;
-          }
+        .context-img {
+          position: relative;
+          top:auto;
+          right:auto; 
+          width: 100%;
+          height: auto;
+          max-width: 320px;
+          max-height: auto;
+          margin: 0 auto 100px;
         }
       }
     }
@@ -243,10 +243,6 @@
   }
 }
 .appcard-list{
-  .appcard-list_btn {
-    margin-top: 40px;
-    text-align:center;
-  }
   .v-empty-state {
     height: 720px;
     border-radius: $base-radius-lg;
@@ -274,14 +270,19 @@
     }
   }
   @at-root .mobile {
-    $grid-gutter: 6px;
-    .appcard-list_btn {
-      margin-top: 20px;
-    }
     .appcard-list {
       &.fix {
         display:block;
       }
+    }
+  }
+}
+.appcard-list_btn {
+  margin-top: 40px;
+  text-align:center;
+  @at-root .mobile {
+    .appcard-list_btn {
+      margin-top: 20px;
     }
   }
 }

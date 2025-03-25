@@ -120,93 +120,87 @@
   &.rounded-pill {
     padding: 0 14px;
   }
+}
 
-  //불편신고
-  &.btn-floating {
-    --v-btn-height: 56px;
-    position: fixed;
-    bottom: 40px;
-    right: calc(50% - 640px + 20px);
-    z-index:1;
-    padding: 0 20px;
-    box-shadow: 0px 4px 19px 0px #0F1B5712;
-    transition-duration: .1s;
-    transition-property: bottom;
-    transition-timing-function: linear;
-    &.btn-bottom {
-      bottom: 140px;
+//불편신고
+.v-btn.btn-floating {
+  --v-btn-height: 56px;
+  position: fixed;
+  bottom: 40px;
+  right: calc(50% - 640px + 20px);
+  z-index:1;
+  padding: 0 20px;
+  box-shadow: 0px 4px 19px 0px #0F1B5712;
+  transition-duration: .1s;
+  transition-property: bottom;
+  transition-timing-function: linear;
+  &.btn-bottom {
+    bottom: 140px;
+  }
+  .v-icon--size-x-large {
+    font-size: 32px;
+    margin-right: 2px;
+    transition: none;
+  }
+  .btn-floating-text {
+    overflow: hidden;
+    text-align: left;
+    @extend .caption-3-md;
+    span {
+      display: block;
     }
-    .v-icon--size-x-large {
-      font-size: 32px;
-      margin-right: 2px;
-      transition: none;
-    }
-    .btn-floating-text {
-      overflow: hidden;
-      text-align: left;
-      @extend .caption-3-md;
-      span {
-        display: block;
+  }
+  @at-root .desktop {//hover
+    .v-btn.btn-floating {
+      width: 116px;
+      transition-duration: .3s, .1s;
+      transition-property: width, bottom;
+      transition-timing-function: ease;
+      .btn-floating-text {
+        width: 42px;
+        transition: width .35s ease;
+        span {
+          opacity:1;
+          transition: opacity .3s ease;
+        }
+        span.hover {
+          width: 0;
+          height:0;
+          opacity:0;
+          transition-delay: .2s;
+        }
       }
-    }
-    @at-root .desktop {//hover
-      .v-btn.btn-floating {
-        width: 116px;
-        transition-duration: .3s, .1s;
-        transition-property: width, bottom;
-        transition-timing-function: ease;
+      &:hover {
+        width: 228px;
+        .v-btn__overlay {
+          display: none;
+        }
         .btn-floating-text {
-          width: 42px;
-          transition: width .35s ease;
-          // transition-duration: .35s;
-          // transition-property: width;
-          // transition-timing-function: ease;
+          width: 154px;
           span {
-            opacity:1;
-            transition: opacity .3s ease;
-            // transition-duration: .3s;
-            // transition-property: opacity;
-            // transition-timing-function: ease;
-          }
-          span.hover {
             width: 0;
             height:0;
             opacity:0;
-            transition-delay: .2s;
           }
-        }
-        &:hover {
-          width: 228px;
-          .v-btn__overlay {
-            display: none;
-          }
-          .btn-floating-text {
+          span.hover {
             width: 154px;
-            span {
-              width: 0;
-              height:0;
-              opacity:0;
-            }
-            span.hover {
-              width: 154px;
-              height: auto;
-              opacity:1;
-            }
+            height: auto;
+            opacity:1;
           }
         }
       }
     }
-    @at-root .v-layout:not(.desktop) {
-      .v-btn.btn-floating {
-        right: 20px; 
-      }
+  }
+  @at-root .mobile, .tablet {
+    .v-btn.btn-floating {
+      right: 20px; 
     }
-    @at-root .mobile {
-      .v-btn.btn-floating {
-        bottom: 30px;
-        &.btn-bottom {
-          bottom: 170px;
-        }
+  }
+  @at-root .mobile {
+    .v-btn.btn-floating {
+      bottom: 30px;
+      &.btn-bottom {
+        bottom: 170px;
       }
     }
   }
