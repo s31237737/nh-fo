@@ -537,7 +537,7 @@ const autoplay = ref(true);
 //앱 전체 목록
 const cardData = ref([
   {
-    link: "AppsDetail",
+    link: "PopList",
     imageSrc: "@temp_img_app_icon03.png",
     title: "1공통총무알리미",
     description: "1농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
