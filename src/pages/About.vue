@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>About</h1>
+    <h1>테스트</h1>
     <iframe
       src="https://www.youtube.com/embed/FepuXV72_hQ"
       title="YouTube video player"
