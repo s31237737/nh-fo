@@ -119,6 +119,13 @@ const menuItems = ref([
       { title: "작성한 게시물", to: "" }
     ],
   },
+  {
+    title: "pub",
+    submenu: [
+      { title: "popup", to: "PopList" },
+      { title: "guide", to: "Guide" },
+    ],
+  },
 ]);
 
 </script>
