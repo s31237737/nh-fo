@@ -1666,6 +1666,7 @@ const apps = [
     avatar: '@temp_img_app_icon01.png'
   },
 ]
+const searchApps = ref(null);
 </script>
 <style scoped>
 .icon-item {

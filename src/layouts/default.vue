@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <v-main ref="mainRef">
+  <v-main>
     <router-view />
     <v-btn
       size="x-large"
@@ -42,56 +42,49 @@ const isDesktop = inject("isDesktop");
 const openPopup = ref(false);
 const hover = ref(false);
 
-//footer
+//불편신고 버튼 위치잡기
+const footerRef = ref(null); //Footer
 const nearFooter = ref(false);
-const footerRef = ref(null);
-const mainRef = ref(null);
 const lastHeight = ref(window.innerHeight);
-let resizeTimeout = null;
+//let resizeTimeout = null;
 
-const footerPosition = () => {
-  if (!footerRef.value) return;
-
+const footerPosition = () => {//footer 위치 잡기
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
   const currentHeight = window.innerHeight;
 
-  //  애니메이션이 부자연스럽지 않게 부드럽게 변하도록 조정
   if (currentHeight !== lastHeight.value) {
     lastHeight.value = currentHeight;
   }
-
-  // 툴바가 변하면서 너무 급격하게 버튼이 움직이지 않도록 부드럽게 조정
   nearFooter.value = footerTop < currentHeight;
 };
 
-const onResize = () => {
-  // 디바운싱 적용 (100ms 동안 여러 번 호출되는 걸 방지)
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    footerPosition();
-  }, 100);
-};
+// const onResize = () => {// 디바운싱 적용 (100ms 동안 여러 번 호출되는 걸 방지)
+//   clearTimeout(resizeTimeout);
+//   resizeTimeout = setTimeout(() => {
+//     footerPosition();
+//   }, 100);
+// };
 
 const onScroll = () => {
   footerPosition();
 };
 
 onMounted(async () => {
-  await nextTick();
+  await nextTick(); //DOM 업데이트가 완료될 때까지 대기
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onResize, { passive: true });
+  //window.addEventListener('resize', onResize, { passive: true });
 
-  // 초기 실행
+  //DOM이 완전히 업데이트된 후 실행
   footerPosition();
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll);
-  window.removeEventListener('resize', onResize);
+  //window.removeEventListener('resize', onResize);
 
-  if (resizeTimeout) {
-    clearTimeout(resizeTimeout);
-  }
+  // if (resizeTimeout) {
+  //   clearTimeout(resizeTimeout);
+  // }
 });
 </script>
