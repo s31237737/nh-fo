@@ -46,7 +46,7 @@ const hover = ref(false);
 const footerRef = ref(null); //Footer
 const nearFooter = ref(false);
 const lastHeight = ref(window.innerHeight);
-//let resizeTimeout = null;
+let resizeTimeout = null;
 
 const footerPosition = () => {//footer 위치 잡기
   const footerTop = footerRef.value.$el.getBoundingClientRect().top;
@@ -58,12 +58,12 @@ const footerPosition = () => {//footer 위치 잡기
   nearFooter.value = footerTop < currentHeight;
 };
 
-// const onResize = () => {// 디바운싱 적용 (100ms 동안 여러 번 호출되는 걸 방지)
-//   clearTimeout(resizeTimeout);
-//   resizeTimeout = setTimeout(() => {
-//     footerPosition();
-//   }, 100);
-// };
+const onResize = () => {// 디바운싱 적용 (100ms 동안 여러 번 호출되는 걸 방지)
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    footerPosition();
+  }, 100);
+};
 
 const onScroll = () => {
   footerPosition();
@@ -73,7 +73,7 @@ onMounted(async () => {
   await nextTick(); //DOM 업데이트가 완료될 때까지 대기
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  //window.addEventListener('resize', onResize, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
 
   //DOM이 완전히 업데이트된 후 실행
   footerPosition();
@@ -81,10 +81,10 @@ onMounted(async () => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll);
-  //window.removeEventListener('resize', onResize);
+  window.removeEventListener('resize', onResize);
 
-  // if (resizeTimeout) {
-  //   clearTimeout(resizeTimeout);
-  // }
+  if (resizeTimeout) {
+    clearTimeout(resizeTimeout);
+  }
 });
 </script>
