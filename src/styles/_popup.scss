@@ -122,7 +122,7 @@ $popup-base-margin: 20px;
       max-height: calc(100% - 40px);
     }
     .v-card-actions .v-btn{
-      width: 50%;
+      flex: 1;
     }
   }
 }
