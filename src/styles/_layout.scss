@@ -1,10 +1,6 @@
 @use "variables" as *;
 @use "typography" as *;
 
-.v-overlay-scroll-blocked {
-  overflow: hidden;
-}
-
 #app {
   .gnb {
     gap: 24px;

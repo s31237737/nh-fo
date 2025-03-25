@@ -68,14 +68,14 @@
         </v-window-item>
 
         <v-window-item>
-          Two
+          <NewsTab02 />
         </v-window-item>
 
         <v-window-item>
-          Three
+          <NewsTab03 />
         </v-window-item>
         <v-window-item>
-          four
+          <NewsTab04 />
         </v-window-item>
       </v-window>
     </section>
@@ -85,6 +85,9 @@
 <script setup>
 import { ref, inject } from "vue";
 import NewsTab01 from "@/pages/NewsTab01.vue";
+import NewsTab02 from "@/pages/NewsTab02.vue";
+import NewsTab03 from "@/pages/NewsTab03.vue";
+import NewsTab04 from "@/pages/NewsTab04.vue";
 
 
 const isMobile = inject("isMobile");
