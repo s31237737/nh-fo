@@ -557,7 +557,6 @@ const currentSlide = ref(0);
 
 // 최신 새소식
 const isNoticePlay= ref(true);
-
 const notice = ref([
   {
     news: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공",
