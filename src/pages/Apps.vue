@@ -135,7 +135,32 @@
             </v-btn>
           </v-btn-toggle>
         </div>
-        <div />
+        <div class="d-flex align-center space-between">
+          <v-slide-group
+            show-arrows
+          >
+            <v-slide-group-item
+              v-for="n in 5"
+              :key="n"
+            >
+              <v-select
+                class="ma-2"
+                rounded
+                density="compact"
+                label="Select an option"
+                :items="['Option 1', 'Option 2', 'Option 3']"
+                :menu-props="{ closeOnClick: true }"
+                @click="toggle"
+              />
+            </v-slide-group-item>
+          </v-slide-group>
+
+        
+          <v-btn
+            color="white"
+            icon="custom:refresh"
+          />
+        </div>
       </div>
 
       <!-- 앱 목록  -->
@@ -482,8 +507,11 @@ import { ref, inject } from 'vue';
 import { useRouter } from "vue-router";
 
 const isDesktop = inject("isDesktop");
-const alert = ref(false); //"앱 열기" 팝업
+
 const sort = ref(0);
+const select1 = ref("전체");
+const select2 = ref("전체");
+const select3 = ref("전체");
 
 const router = useRouter();
 const form = ref("");
@@ -536,6 +564,7 @@ const currentSlide = ref(0);
 const autoplay = ref(true);
 
 //앱 전체 목록
+const alert = ref(false); //"앱 열기" 팝업
 const cardData = ref([
   {
     link: "PopList",

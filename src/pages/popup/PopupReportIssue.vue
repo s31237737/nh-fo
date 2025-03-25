@@ -6,9 +6,7 @@
   >
     <v-card>
       <v-card-title>
-        <div class="popup-title">
-          <p>불편사항 신고하기</p>
-        </div>
+        <p>불편사항 신고하기</p>
         <v-btn
           icon="custom:close"
           density="comfortable"
@@ -123,7 +121,7 @@
           color="primary"
           size="large"
         >
-          등록
+          신고하기
         </v-btn>
       </v-card-actions>
     </v-card>

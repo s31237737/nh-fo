@@ -6,10 +6,7 @@
   >
     <v-card>
       <v-card-title>
-        <div class="popup-title">
-          <slot name="title" />
-          <span>sfsds</span>
-        </div>
+        <p>팝업</p>
         <v-btn
           icon="custom:close"
           density="comfortable"
