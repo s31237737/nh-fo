@@ -6,7 +6,10 @@
   >
     <v-card>
       <v-card-title>
-        <p>직무선택</p>
+        <div class="popup-title">
+          <slot name="title" />
+          <span>sfsds</span>
+        </div>
         <v-btn
           icon="custom:close"
           density="comfortable"

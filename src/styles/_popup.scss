@@ -21,7 +21,7 @@ $popup-base-margin: 20px;
     @extend .title-5-bd;
     white-space: normal;
     word-break: keep-all;
-    p {
+    .popup-title {
       flex: 1;
       padding-top: 2px;
     }

@@ -54,7 +54,7 @@
 
     <!-- dialog -->
     dialog
-    <div class="d-flex flex-wrap align-center mt-1 mb-7">
+    <div class="d-flex flex-wrap align-center ga-2 mt-1 mb-7">
       <v-btn
         v-for="popup in popups"
         :key="popup.name"
@@ -74,7 +74,9 @@
   >
     <v-card>
       <v-card-title>
-        <p>팝업 타이틀</p>
+        <div class="popup-title">
+          <p>팝업 타이틀</p>
+        </div>
         <v-btn
           icon="custom:close"
           density="comfortable"
@@ -111,7 +113,14 @@
     v-for="popup in popups"
     :key="popup.name"
     v-model="popupVisible[popup.name]"
-  />
+  >
+    <template
+      v-if="popup.useLabelAsTitle"
+      #title
+    >
+      <p>{{ popup.label }}</p><!-- label을 타이틀로 사용 -->
+    </template>
+  </component>
 
 
   <!-- (sample) popup : alert -->
@@ -322,13 +331,16 @@ const alert03 = ref(false);
 const alert04 = ref(false);
 
 import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
+import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
 
   const popups = ref([
-    { name: 'PopupReportIssue', label: '불편사항 신고하기', component: shallowRef(PopupReportIssue) },
+    { name: 'PopupReportIssue', label: '불편사항 신고하기', useLabelAsTitle: false, component: shallowRef(PopupReportIssue) },//label을 타이틀로 사용 안할 경우 useLabelAsTitle: false
+    { name: 'PopupJobSelect', label: '직무 선택', useLabelAsTitle: true, component: shallowRef(PopupJobSelect) },
   ]);
 
   const popupVisible = ref({
     PopupReportIssue: false,
+    PopupJobSelect: false,
   });
 
   const popOpen = (name) => {
