@@ -33,6 +33,41 @@ hr.v-divider {
   opacity: 1;
 }
 
+
+//v-chip
+.flag.v-chip {//flag
+  margin-bottom: 4px;
+  font-weight: 600;
+  &.v-chip--variant-tonal .v-chip__underlay {display:none;}
+  &.v-chip--size {
+    &-default {
+      --v-chip-height: 24px;
+      padding: 0 10px;
+    }
+    &-small {
+      --v-chip-height: 20px;
+      padding: 0 8px;
+    }
+    &-large {
+      --v-chip-height: 40px;
+      padding: 0 16px;
+    }
+    
+  }
+  &.text-success {background: $blue-100;}
+  &.text-purple {background: $purple-100;}
+  &.text-pink {background: $pink-100;}
+  @at-root .flag-wrap {
+    margin-bottom: -4px;
+    .v-chip.flag {//in .apps
+      margin-left: 4px;
+    }
+    &.r {
+      text-align: right;
+    }
+  }
+}
+
 //typo
 .tit-wrap {
   margin-bottom: 40px;
