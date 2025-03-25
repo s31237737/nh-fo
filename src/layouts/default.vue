@@ -2,45 +2,15 @@
   <Header />
   <v-main>
     <router-view />
-    <v-btn
-      size="x-large"
-      rounded="pill"
-      class="btn-floating"
-      :class="{ 'btn-bottom': nearFooter }"
-      :ripple="false"
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
-      @click="openPopup = true"
-    >
-      <v-icon
-        icon="custom:report"
-        size="x-large"
-      />
-      <p class="btn-floating-text">
-        <span>
-          불편신고
-        </span>
-        <span
-          v-if="isDesktop"
-          class="hover"
-        >
-          사용 중 불편사항이 있으신가요?
-        </span>
-      </p>
-    </v-btn>
-    <PopupReportIssue v-model="openPopup" />
+    <!-- 불편신고 버튼 -->
+    <ReportIssueButton :near-footer="nearFooter" />
     <Footer ref="footerRef" />
   </v-main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick, inject } from 'vue';
-import PopupReportIssue from "@/pages/popup/PopupReportIssue.vue";
-const isDesktop = inject("isDesktop");
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
-//불편신고 팝업
-const openPopup = ref(false);
-const hover = ref(false);
 
 //불편신고 버튼 위치잡기
 const footerRef = ref(null); //Footer

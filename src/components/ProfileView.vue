@@ -124,6 +124,7 @@
 
         <v-btn
           :ripple="false"
+          @click="openPopup = true"
         >
           <v-icon
             size="x-large"
@@ -133,11 +134,13 @@
         </v-btn>
       </v-btn-group>
     </v-container>
+    <PopupReportIssue v-model="openPopup" />
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import PopupReportIssue from "@/pages/popup/PopupReportIssue.vue";
 
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
@@ -149,4 +152,7 @@ const myApps = ref([
   { name: "하나로마트 식품 안전관리", image: "@temp_img_app_icon01.png" },
   { name: "시설순찰일지", image: "@temp_img_app_icon02.png" },
 ]);
+
+const openPopup = ref(false);
+
 </script>
