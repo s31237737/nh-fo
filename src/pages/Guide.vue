@@ -251,7 +251,7 @@
         <span>comment</span>
       </div>
     </div>
-    <div class="d-flex ga-2 mt-5">
+    <div class="d-flex flex-wrap ga-2 mt-5">
       <v-label>아이콘 사이즈</v-label>
       <v-icon
         icon="$vuetify"
