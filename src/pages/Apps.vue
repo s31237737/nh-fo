@@ -137,6 +137,8 @@
         <div class="bottom">
           <v-slide-group
             show-arrows
+            prev-icon="custom:slide-prev"
+            next-icon="custom:slide-next"
           >
             <!-- 고정된 버튼 -->
             <v-slide-group-item>
@@ -542,11 +544,11 @@ const onAppendClick = () => {
 };
 const sort = ref(0);
 const slideData = ref([
-  { selectId: 'select01', label: '직무선택111', options: ['Option 1', 'Option 2', 'Option 3'], selected: 'Option 1' },
-  { selectId: 'select02', label: '직무선택2222', options: ['Option A', 'Option B', 'Option C'], selected: 'Option A' },
-  { selectId: 'select03', label: '직무선택3333', options: ['Option ㄱ', 'Option ㄴ', 'Option ㄷ'], selected: 'Option ㄱ' },
-  { selectId: 'select04', label: '직무선택44444', options: ['Option 00', 'Option 01', 'Option 10'], selected: 'Option 00' },
-  { selectId: 'select05', label: '직무선택555555', options: ['Option 전체', 'Option 일', 'Option 이'], selected: 'Option 전체' }
+  { selectId: 'select01', label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
+  { selectId: 'select02', label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
+  { selectId: 'select03', label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
+  { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
+  { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
 ]);
 
 //keyvisual
