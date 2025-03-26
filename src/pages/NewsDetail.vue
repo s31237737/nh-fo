@@ -12,6 +12,7 @@
         src="@/assets/images/@temp_img_01.png"
         alt=""
       >
+      
       <br>
       <br>
       <strong>공지사항</strong>
