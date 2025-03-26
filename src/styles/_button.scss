@@ -295,4 +295,20 @@
   .pagination {
     margin: 0;
   }
+  @at-root .mobile {
+    .page-actions {
+      flex-wrap: wrap;
+      .pagination {
+        justify-content: flex-start;
+        margin-bottom: 22px;
+        width: 100%;
+      }
+      .v-spacer {
+        display: none;
+      }
+      > .v-btn {
+        flex: 1;
+      }
+    }
+  }
 }
