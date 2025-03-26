@@ -231,6 +231,15 @@
     margin-top: 12px;
   }
 }
+
+.file-total {
+  display: flex;
+  gap: 6px;
+  @extend .text-3-md;
+  + .file-list {
+    margin-top: 16px;
+  }
+}
 .file-list {
   display: flex;
   flex-direction: column;
@@ -267,21 +276,18 @@
   }
   &.download {
     li {
-      .v-btn {
-        padding: 0;
+      gap: 8px;
+      .file-download {
         @extend .text-3;
-        &__content {
-          text-decoration: underline;
-          text-underline-offset: 2px;
-        }
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        cursor: pointer;
+        @include line-clamp(1);
+        display: unset;
       }
       em {
-        display: inline-block;
-        padding: 3px 4px 3px 8px;
         color: $gray-700;
-        height: 24px;
         @extend .text-3;
-        line-height: 1.35;
       }
     }
   }

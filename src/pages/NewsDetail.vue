@@ -5,21 +5,20 @@
       <span class="date">2024.06.13</span>
     </div>
     <v-sheet class="w-box">
-      <p class="total">첨부파일 <span class="text-success">{{downloadFile.length}}</span></p>
+      <p class="file-total">
+        첨부파일 <span class="text-success">{{ fileList.length }}</span>
+      </p>
       <ul
         class="file-list download"
       >
         <li
-          v-for="(file, index) in downloadFile"
+          v-for="(file, index) in fileList"
           :key="index"
         >
-          <v-btn
-            variant="text"
-            density="compact"
+          <span
             class="file-download"
-          >
-            <span class="line-clamp">{{ file.name }}</span>
-          </v-btn>
+            @click="downloadFile(file)"
+          >{{ file.name }}</span>
           <em>{{ file.size }}</em>
         </li>
       </ul>
@@ -94,9 +93,13 @@ const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 
-const downloadFile = ref([
+const fileList = ref([
   { name: "File_t_title_1.pdf", size: "10.3MB"},
   { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
   { name: "File_title_3565.pdf", size: "10.3MB"},
 ]);
+
+const downloadFile = (files) => {
+  console.log(files.name)
+};
 </script>
