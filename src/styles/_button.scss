@@ -287,17 +287,18 @@
 
 
 .page-actions {
-  margin-top: 50px;
   display: flex;
   gap: 8px;
   justify-content: center;
   align-items: flex-start;
+  margin-top: 60px;
   .pagination {
     margin: 0;
   }
   @at-root .mobile {
     .page-actions {
       flex-wrap: wrap;
+       margin-top: 30px;
       .pagination {
         justify-content: flex-start;
         margin-bottom: 22px;
