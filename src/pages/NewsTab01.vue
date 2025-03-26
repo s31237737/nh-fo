@@ -60,7 +60,7 @@ const tableItem = ref([
     attachment: true,
     date: "2025.03.24",
     views: 123,
-    link: "/"
+    link: "NewsDetail"
   },
   {
     id: 2,

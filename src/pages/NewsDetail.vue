@@ -4,6 +4,8 @@
       <strong class="title-4-bd">[공지] NH총무알리비 서비스 앱 개선 공지 (24.6.20(목) 18:00~24:00)</strong>
       <span class="date">2024.06.13</span>
     </div>
+    <v-sheet class="w-box">test</v-sheet>
+    <v-sheet class="w-box">test</v-sheet>
     <div class="page-actions">
       <div class="pagination">
         <v-btn
