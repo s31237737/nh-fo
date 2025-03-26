@@ -344,6 +344,8 @@ section + section {
 }
 
 .total {
+  display: flex;
+  gap: 6px;
   @extend .text-3-md;
   + .file-list {
     margin-top: 16px;
