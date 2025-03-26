@@ -1,28 +1,5 @@
 <template>
-  <v-data-table
-    v-model="checked"
-    v-model:page="page"
-    :headers="dataTableheaders"
-    :items="dataTableItem"
-    :items-per-page="itemsPerPage"
-    @click:row="handleClick"
-  >
-    <template #no-data>
-      <v-empty-state
-        text="검색결과가 없습니다."
-        icon="custom:warning"
-        size="60"
-      />
-    </template>
-
-    <template #bottom>
-      <Pagination
-        :total-items="dataTableItem.length"
-        :items-per-page="itemsPerPage"
-        @paging="page = $event.page"
-      />
-    </template>
-  </v-data-table>
+ 
 </template>
 
 <script setup>

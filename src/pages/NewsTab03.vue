@@ -1,19 +1,5 @@
 <template>
-  <v-data-table
-    v-model:page="page"
-    :headers="headers"
-    :items="desserts"
-    :items-per-page="itemsPerPage"
-  >
-    <template #bottom>
-      <div class="text-center pt-2">
-        <v-pagination
-          v-model="page"
-          :length="pageCount"
-        />
-      </div>
-    </template>
-  </v-data-table>
+  
 </template>
 <script setup>
   import { computed, ref } from 'vue'
