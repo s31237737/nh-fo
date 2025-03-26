@@ -132,6 +132,7 @@
                   </template>
                   <template #actions>
                     <v-btn
+                      to="MyPage"
                       color="info"
                       size="large"
                     >
@@ -144,7 +145,6 @@
                     v-for="(item, idx) in group"
                     :key="idx"
                     :ripple="false"
-                    :to="item.link"
                   >
                     <v-img
                       :src="getImageUrl(item.image)"
@@ -204,7 +204,6 @@
                   v-for="(item, idx) in group"
                   :key="idx"
                   :ripple="false"
-                  :to="item.link"
                 >
                   <v-img
                     :src="getImageUrl(item.image)"
@@ -244,6 +243,7 @@
               더 좋은 서비스를 위한<br>커뮤니티를 만들어주세요.
             </strong>
             <v-btn
+              to="Community"
               color="info"
               size="large"
             >
@@ -257,7 +257,7 @@
               lg="4"
             >
               <v-card
-                to="/"
+                to="Community"
                 color="#D1E2FF"
                 :height="isDesktop ? '390': '280'"
               >
@@ -291,7 +291,7 @@
               lg="4"
             >
               <v-card
-                to="/"
+                to="Community"
                 color="#3B424E"
                 :height="isDesktop ? '390': '280'"
                 class="white"
@@ -332,7 +332,7 @@
                   lg="12"
                 >
                   <v-card
-                    to="/"
+                    to="Community"
                     color="coolgray"
                     :height="isDesktop ? '187': '140'"
                   >
@@ -358,7 +358,7 @@
                   lg="12"
                 >
                   <v-card
-                    to="/"
+                    to="Community"
                     color="coolgray"
                     :height="isDesktop ? '187': '140'"
                   >
@@ -386,7 +386,7 @@
               md="6"
             >
               <v-card
-                to="/"
+                to="Community"
                 color="coolgray"
                 :height="isDesktop ? '136': '140'"
               >
@@ -560,14 +560,14 @@ const isNoticePlay= ref(true);
 const notice = ref([
   {
     news: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공",
-    link: "News",
+    link: "NewsDetail",
   },
-  { news: "최대글자수 초과 시 ...처리", link: "News" },
-  { news: "선택 시 해당 새소식 상세페이지로 이동", link: "News" },
-  { news: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "News" },
+  { news: "최대글자수 초과 시 ...처리", link: "NewsDetail" },
+  { news: "선택 시 해당 새소식 상세페이지로 이동", link: "NewsDetail" },
+  { news: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "NewsDetail" },
   {
     news: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식",
-    link: "News",
+    link: "NewsDetail",
   },
 ]);
 
@@ -590,7 +590,6 @@ const recommApps = ref([
     //   title: "NH QR",
     //   description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스.",
     //   btn: "앱 열기",
-    //   link: "",
     // },
     // {
     //   image: "@temp_main_app card_02.jpg",
@@ -598,7 +597,6 @@ const recommApps = ref([
     //   title: "우리 농축협\n예약관리",
     //   description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스.",
     //   btn: "앱 열기",
-    //   link: "",
     // },
     // {
     //   image: "@temp_main_app card_03.jpg",
@@ -606,7 +604,6 @@ const recommApps = ref([
     //   title: "관리자 및 책임자\n현황 관리",
     //   description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회...",
     //   btn: "앱 열기",
-    //   link: "",
     // }
   ],
   [
@@ -616,7 +613,6 @@ const recommApps = ref([
       title: "NH QR",
       description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스.",
       btn: "앱 열기",
-      link: "Apps",
     },
     {
       image: "@temp_main_app card_02.jpg",
@@ -624,7 +620,6 @@ const recommApps = ref([
       title: "우리 농축협\n예약관리",
       description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스.",
       btn: "신청 대기중",
-      link: "",
     },
     {
       image: "@temp_main_app card_03.jpg",
@@ -632,7 +627,6 @@ const recommApps = ref([
       title: "관리자 및 책임자\n현황 관리",
       description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회...",
       btn: "앱 열기",
-      link: "",
     }
   ],
   [
@@ -642,7 +636,6 @@ const recommApps = ref([
       title: "농협몰",
       description: "신선한 농산물을 온라인에서 간편하게 구매할 수 있는 공식 쇼핑몰.",
       btn: "앱 열기",
-      link: "",
     },
     {
       image: "@temp_main_app card_05.jpg",
@@ -650,7 +643,6 @@ const recommApps = ref([
       title: "스마트 건강 관리",
       description: "건강 데이터 분석을 통해 맞춤형 건강 관리 솔루션 제공.",
       btn: "신청 대기중",
-      link: "",
     },
     {
       image: "@temp_main_app card_06.jpg",
@@ -658,7 +650,6 @@ const recommApps = ref([
       title: "농업 교육 센터",
       description: "농업인들을 위한 전문 교육 과정 제공 및 온라인 강의 지원.",
       btn: "앱 열기",
-      link: "",
     }
   ],
   [
@@ -668,7 +659,6 @@ const recommApps = ref([
       title: "NH Pay",
       description: "빠르고 안전한 결제 시스템, 다양한 금융 서비스를 한곳에서.",
       btn: "앱 열기",
-      link: "",
     },
     {
       image: "@temp_main_app card_02.jpg",
@@ -676,7 +666,6 @@ const recommApps = ref([
       title: "농업 지도 시스템",
       description: "농업 관련 지도를 제공하여 최적의 재배 환경을 분석할 수 있는 서비스.",
       btn: "앱 열기",
-      link: "",
     },
     {
       image: "@temp_main_app card_03.jpg",
@@ -684,7 +673,6 @@ const recommApps = ref([
       title: "스마트 물류 관리",
       description: "농산물 물류를 최적화하고 실시간으로 추적할 수 있는 시스템.",
       btn: "앱 열기",
-      link: "",
     }
   ]
 ]);

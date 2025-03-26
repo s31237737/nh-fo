@@ -28,6 +28,7 @@
 
 <script setup>
 import { inject, ref } from 'vue';
+import { useRouter } from 'vue-router';
 const isMobile = inject('isMobile');
 
 defineProps({
@@ -38,8 +39,11 @@ defineProps({
 });
 // 검색
 const search = ref('');
+
+const router = useRouter();
 const onAppendClick = () => {
-  alert('Append icon clicked!');
+  emit('update:modelValue', false);
+  router.push('Apps');
 }
 const emit = defineEmits(['update:modelValue']);
 </script>
