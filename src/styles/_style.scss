@@ -300,8 +300,15 @@ section + section {
 }
 
 //게시판 목록
-.board-list {
-  
+.v-sheet.w-box {
+  margin-top: 12px;
+  padding: 50px 40px;
+  border-radius: 10px;
+  @at-root .mobile, .tablet {
+    .v-sheet.w-box {
+      padding: 20px;
+    }
+  } 
 }
 
 .v-list.data-board {
