@@ -301,11 +301,11 @@ section + section {
   }
 }
 
-//게시판 목록
+
 .v-sheet.w-box {
   margin-top: 12px;
   padding: 50px 40px;
-  border-radius: 10px;
+  border-radius: $base-radius;
   @at-root .mobile, .tablet {
     .v-sheet.w-box {
       padding: 20px;
@@ -313,11 +313,11 @@ section + section {
   } 
 }
 .v-sheet.g-box {
-  padding: 24px;
-  border-radius: $base-radius;
+  @extend .w-box;
   background: $gray-200;
 }
 
+//게시판 목록
 .v-list.data-board {
   padding: 0;
   border-radius: 10px;
