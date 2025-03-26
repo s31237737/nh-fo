@@ -371,18 +371,10 @@
       }
     }
   }
-  @at-root .mobile, .tabelt {
+  @at-root .tablet {
     .appcard-list-form {
       .bottom {
-        .v-slide-group {
-          margin-left: -20px;
-          > .v-slide-group__prev, > .v-slide-group__next {
-            display:none;
-          }
-          .slide-select:first-child {
-            padding-left: 20px;
-          }
-        }
+        .v-slide-group { margin-right:0; }
       }
     }
   }
@@ -396,6 +388,17 @@
           width: 100%;
           max-width: 100%;
           margin-right: 0;
+        }
+      }
+      .bottom {
+        .v-slide-group {
+          margin-left: -20px;
+          > .v-slide-group__prev, > .v-slide-group__next {
+            display:none;
+          }
+          .slide-select:first-child {
+            padding-left: 20px;
+          }
         }
       }
       .v-btn-toggle {
