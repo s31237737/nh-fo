@@ -369,7 +369,7 @@
                   <v-btn
                     v-else
                     color="secondary"
-                    disabled
+                    :ripple="false"
                   >
                     신청 대기중
                   </v-btn>
@@ -468,7 +468,7 @@
                   <v-btn
                     v-else
                     color="secondary"
-                    disabled
+                    :ripple="false"
                   >
                     신청 대기중
                   </v-btn>

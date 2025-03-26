@@ -187,7 +187,14 @@
     & .v-card__overlay {display:none;}
     .btns {
       margin-bottom:-14px;
-      .v-btn {width: 96px !important;}
+      .v-btn {
+        width: 96px !important;
+        &:not(.bg-info) {
+          .v-btn__overlay {
+            display: none;
+          }
+        }
+      }
     }
     .thumnail.v-img{
       width: 60px; 
