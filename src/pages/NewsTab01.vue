@@ -1,35 +1,7 @@
 <template>
-  <v-list lines="two">
-    <v-list-item>
-      <!-- 왼쪽 아이콘 -->
-      <template #prepend>
-        <v-icon>mdi-pin</v-icon>
-      </template>
-
-      <!-- 제목 및 내용 -->
-      <v-list-item-title>
-        앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?
-      </v-list-item-title>
-      <v-list-item-subtitle class="text-grey-darken-1">
-        2024.06.13 &nbsp; | &nbsp; 👁️ 999+
-      </v-list-item-subtitle>
-
-      <!-- 오른쪽 복사 아이콘 -->
-      <template #append>
-        <v-btn
-          icon
-          variant="text"
-        >
-          <v-icon>mdi-content-copy</v-icon>
-        </v-btn>
-      </template>
-    </v-list-item>
-
-    <!-- 구분선 -->
-    <v-divider />
-  </v-list>
   <v-list
     class="data-board"
+    lines="two"
   >
     <template
       v-for="(item, index) in tableItem"
@@ -46,16 +18,22 @@
           <span>{{ item.title }}</span>
           <!-- 검색어 강조시 활용 -->
           <!-- <strong class="text-success">파란글씨</strong> -->
-          <v-icon
-            v-if="item.attachment"
-            icon="custom:attachment"
-          />
         </v-list-item-title>
-        <p> 2024.06.13 &nbsp; | &nbsp; 👁️ 999+</p>
-        <template #append>
-          <span>{{ item.date }}</span>
-          <span>{{ item.views }}</span>
-        </template>
+        <div class="d-flex justify-space-between">
+          <p class="d-flex">
+            <span>{{ item.date }}</span>
+            <v-divider />
+            <span class="d-flex"><v-icon
+              icon="custom:view"
+            />{{ item.views }}</span>
+          </p>
+          <p>
+            <v-icon
+              v-if="item.attachment"
+              icon="custom:attachment"
+            />
+          </p>
+        </div>
       </v-list-item>
       <v-divider
         v-if="index < tableItem.length - 1"
