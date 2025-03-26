@@ -292,6 +292,34 @@
       .v-slide-group__content {
         gap: 24px;
       }
+      > .v-slide-group__prev, > .v-slide-group__next {
+        flex: 1;
+        min-width: auto;
+        position: relative;
+        z-index:1;
+        &::before {
+          content: "";
+          position: absolute;
+          top:0;
+          display: block;
+          width: 65px;
+          height: 100%;
+        }
+        &--disabled {
+          display: none;
+        }
+        .v-icon--size-default {
+          font-size: 32px;
+        }
+      }
+      & > .v-slide-group__prev::before {
+        left: 0;
+        background: linear-gradient(90deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
+      }
+      & > .v-slide-group__next::before {
+        right: 0;
+        background: linear-gradient(270deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
+      }
       label {
         font-weight: 500;
       }
@@ -299,6 +327,9 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        &:last-child {
+          padding-right: 20px;
+        }
       }
     }
     .v-btn.btn-selectJob {
@@ -350,9 +381,6 @@
           }
           .slide-select:first-child {
             padding-left: 20px;
-          }
-          .slide-select:last-child {
-            padding-right: 20px;
           }
         }
       }
