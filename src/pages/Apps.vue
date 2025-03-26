@@ -9,7 +9,7 @@
       <v-carousel-item
         v-for="(slide, index) in sliders"
         :key="index"
-        :role="slide.url ? 'link' : undefined"
+        :role="slide.link ? 'link' : undefined"
         tabindex="0"
         @click="handleClick(slide)"
       >
@@ -142,10 +142,15 @@
             <v-slide-group-item>
               <div class="slide-select">
                 <label>
-                  고정 버튼
+                  직무
                 </label>
-                <v-btn color="primary">
-                  직무선택 버튼
+                <v-btn
+                  class="btn-selectJob"
+                  rounded="pill"
+                  variant="outlined"
+                  append-icon="custom:select"
+                >
+                  전체
                 </v-btn>
               </div>
             </v-slide-group-item>
@@ -163,16 +168,23 @@
                   :id="item.selectId"
                   v-model="item.selected"
                   rounded="pill"
+                  density="comfortable"
                   :items="item.options"
                   :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
                 />
               </div>
             </v-slide-group-item>
+
+            <!-- 고정된 버튼 -->
+            <v-slide-group-item>
+              <div class="slide-select">
+                <v-btn
+                  color="white"
+                  icon="custom:refresh"
+                />
+              </div>
+            </v-slide-group-item>
           </v-slide-group>
-          <v-btn
-            color="white"
-            icon="custom:refresh"
-          />
         </div>
       </div>
 
@@ -263,7 +275,7 @@
     <section>
       <div
         class="line-banner-wrap"
-        :class="{ 'clickable': banner.url }"
+        :class="{ 'clickable': banner.link }"
       >
         <v-img
           role="banner"
@@ -530,18 +542,18 @@ const onAppendClick = () => {
 };
 const sort = ref(0);
 const slideData = ref([
-  { selectId: 'select01', label: 'option1', options: ['Option 1', 'Option 2', 'Option 3'], selected: 'Option 1' },
-  { selectId: 'select02', label: 'option2', options: ['Option A', 'Option B', 'Option C'], selected: 'Option A' },
-  { selectId: 'select03', label: 'option3', options: ['Option ㄱ', 'Option ㄴ', 'Option ㄷ'], selected: 'Option ㄱ' },
-  { selectId: 'select04', label: 'option4', options: ['Option 00', 'Option 01', 'Option 10'], selected: 'Option 00' },
-  { selectId: 'select05', label: 'option5', options: ['Option 전체', 'Option 일', 'Option 이'], selected: 'Option 전체' }
+  { selectId: 'select01', label: '직무선택111', options: ['Option 1', 'Option 2', 'Option 3'], selected: 'Option 1' },
+  { selectId: 'select02', label: '직무선택2222', options: ['Option A', 'Option B', 'Option C'], selected: 'Option A' },
+  { selectId: 'select03', label: '직무선택3333', options: ['Option ㄱ', 'Option ㄴ', 'Option ㄷ'], selected: 'Option ㄱ' },
+  { selectId: 'select04', label: '직무선택44444', options: ['Option 00', 'Option 01', 'Option 10'], selected: 'Option 00' },
+  { selectId: 'select05', label: '직무선택555555', options: ['Option 전체', 'Option 일', 'Option 이'], selected: 'Option 전체' }
 ]);
 
 //keyvisual
 const sliders = ref([
   {
     type: "recommand",
-    url: "AppsDetail",
+    link: "AppsDetail",
     apptype: "안성맞춤 앱 추천",
     title: "농협식품R&D연구소",
     description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
@@ -568,10 +580,10 @@ const sliders = ref([
   },
 ]);
 const handleClick = (slide) => {
-  if (!slide.url) {
-    return; // URL이 없으면 아무 동작 X
+  if (!slide.link) {
+    return; // link 없으면 아무 동작 X
   } else {
-    router.push(slide.url);
+    router.push(slide.link);
   }
 };
 const currentSlide = ref(0);
@@ -789,10 +801,10 @@ const banner = ref({
   description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
 const bannerClick = (banner) => {
-  if (!banner.url) {
-    return; // URL이 없으면 아무 동작 X
+  if (!banner.link) {
+    return; // link 없으면 아무 동작 X
   } else {
-    router.push(banner.url);
+    router.push(banner.link);
   }
 };
 </script>

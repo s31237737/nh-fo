@@ -276,29 +276,50 @@
     margin-bottom: 20px;
     .search-inp { 
       max-width: 900px;
+      margin-right: 20px;
     }
   }
   .bottom {
     position: relative;
     margin-bottom: 20px;
     .v-btn.v-btn--icon {
-      position: absolute;
-      top:calc(50% - 20px);
-      right:0;
       color: $gray-500 !important;
       &:hover {
         color: black !important;
       }
     }
     .v-slide-group {
-      margin-right: 64px;
+      .v-slide-group__content {
+        gap: 24px;
+      }
+      label {
+        font-weight: 500;
+      }
       .slide-select {
         display: flex;
         align-items: center;
         gap: 12px;
-        & + .slide-select {
-          margin-left: 24px;
+      }
+    }
+    .v-btn.btn-selectJob {
+      --v-btn-height: 44px;
+      padding-inline: 16px 12px;
+      border: thin solid $gray-500;
+      background: transparent;
+      font-weight: 400;
+      .v-btn__append {
+        margin-inline: 6px 0;
+        height: 44px;
+        .v-icon {
+          font-size: 21px;
+          margin-left: 4px;
         }
+      }
+      .v-btn__overlay {
+        display: none;
+      }
+      &:hover {
+        border-color: $gray-700 !important;
       }
     }
   }
@@ -316,6 +337,23 @@
       &.v-btn--active {
         font-weight: 500;
         color: $black;
+      }
+    }
+  }
+  @at-root .mobile {
+    .appcard-list-form {
+      .top {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: end;
+        .search-inp { 
+          width: 100%;
+          max-width: 100%;
+          margin-right: 0;
+        }
+      }
+      .v-btn-toggle {
+        margin-top: 12px;
       }
     }
   }
