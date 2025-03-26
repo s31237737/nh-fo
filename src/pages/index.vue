@@ -696,14 +696,14 @@ const quickLinks = ref([
     subtitle: "자주 묻는 질문을 찾아보세요.",
     title: "자주 묻는 질문",
     color: "success",
-    link: "/",
+    link: "Qna",
   },
   {
     appendIcon: "custom:app-guide",
     subtitle: "앱 사용방법이 궁금하신가요?",
     title: "앱 가이드",
     color: "sky",
-    link: "/",
+    link: "AppGuide",
   },
 ]);
 

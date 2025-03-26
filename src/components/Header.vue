@@ -191,7 +191,7 @@ const gnbItems = ref([
     title: '자주 묻는 질문',
     value: 2,
     props: {
-      to: "",
+      to: "Qna",
     },
   },
   {
@@ -205,7 +205,7 @@ const gnbItems = ref([
     title: '앱 가이드',
     value: 4,
     props: {
-      to: "",
+      to: "AppGuide",
     },
   },
 ]);

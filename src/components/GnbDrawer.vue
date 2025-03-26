@@ -105,9 +105,9 @@ const menuItems = ref([
     title: "새소식 및 도움말",
     submenu: [
       { title: "새소식", to: "News" },
-      { title: "자주 묻는 질문", to: "" },
+      { title: "자주 묻는 질문", to: "Qna" },
       { title: "Q&A", to: "" },
-      { title: "앱가이드", to: "" }
+      { title: "앱 가이드", to: "AppGuide" }
     ],
   },
   { title: "커뮤니티",  to: "Community" },
