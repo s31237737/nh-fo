@@ -173,6 +173,7 @@
                   density="comfortable"
                   :items="item.options"
                   :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
+                  center-active
                 />
               </div>
             </v-slide-group-item>
@@ -481,12 +482,12 @@
         </v-row>
         <v-empty-state
           v-else
-          bg-color="coolgray"
+          bg-color="white"
           height="180"
           :icon="null"
         >
           <template #title>
-            <div class="title-4-bd">
+            <div class="title-5">
               자신의 직무를 설정하시면,<br>맞춤형 앱을 추천드리고 있어요!
             </div>
           </template>
@@ -494,7 +495,7 @@
             <v-btn
               to="MyPage"
               color="info"
-              size="large"
+              size="default"
             >
               직무 설정하기
             </v-btn>
