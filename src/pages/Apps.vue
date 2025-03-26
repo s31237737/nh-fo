@@ -183,6 +183,7 @@
                 <v-btn
                   color="white"
                   icon="custom:refresh"
+                  class="btn-refresh"
                 />
               </div>
             </v-slide-group-item>
