@@ -3,13 +3,13 @@
     v-model="tab"
   >
     <v-tab :value="1">
-      Landscape
+      앱 사용 질문
     </v-tab>
     <v-tab :value="2">
-      City
+      업스토어 이용 질문
     </v-tab>
     <v-tab :value="3">
-      Abstract
+      기타
     </v-tab>
   </v-tabs>
 
