@@ -696,7 +696,6 @@
             variant="text"
             density="compact"
             class="file-download"
-            @click="download(file)"
           >
             <span class="line-clamp">{{ file.name }}</span>
           </v-btn>
@@ -1447,11 +1446,9 @@ const files = ref([]);
 const removeFile = (index) => {
   files.value.splice(index, 1);
 };
-const download = (downloadFile) => {
-  console.log(downloadFile.name)
-};
+
 const downloadFile = ref([
-  { name: "Filename.png", size: "10.3MB", url: "#" },
+  { name: "Filename.png", size: "10.3MB"},
 ]);
 
 

@@ -5,7 +5,23 @@
       <span class="date">2024.06.13</span>
     </div>
     <v-sheet class="w-box">
-      test
+      <ul
+        class="file-list download"
+      >
+        <li
+          v-for="(file, index) in downloadFile"
+          :key="index"
+        >
+          <v-btn
+            variant="text"
+            density="compact"
+            class="file-download"
+          >
+            <span class="line-clamp">{{ file.name }}</span>
+          </v-btn>
+          <em>{{ file.size }}</em>
+        </li>
+      </ul>
     </v-sheet>
     <v-sheet class="w-box">
       <div class="editor-content">
@@ -72,8 +88,12 @@
 </template>
 
 <script setup>
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 const isMobile = inject("isMobile");
 const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
+
+const downloadFile = ref([
+  { name: "Filename.png", size: "10.3MB"},
+]);
 </script>
