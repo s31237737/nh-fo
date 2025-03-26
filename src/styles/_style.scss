@@ -246,14 +246,6 @@ section + section {
   }
 }
 
-.tab-container {
-  .v-window__container {
-    transition: none;
-  }
-  .v-window-item {
-    transition: none;
-  }
-}
 
 //상단 배너
 .v-sheet.top-banner {
@@ -314,6 +306,7 @@ section + section {
   margin-top: 12px;
   padding: 50px 40px;
   border-radius: 10px;
+  .file-list { padding: 0; background: none;}
   @at-root .mobile, .tablet {
     .v-sheet.w-box {
       padding: 20px;
@@ -347,5 +340,12 @@ section + section {
         width: 120px;
       }
     }
+  }
+}
+
+.total {
+  @extend .text-3-md;
+  + .file-list {
+    margin-top: 16px;
   }
 }

@@ -5,6 +5,7 @@
       <span class="date">2024.06.13</span>
     </div>
     <v-sheet class="w-box">
+      <p class="total">첨부파일 <span class="text-success">{{downloadFile.length}}</span></p>
       <ul
         class="file-list download"
       >
@@ -94,6 +95,8 @@ const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 
 const downloadFile = ref([
-  { name: "Filename.png", size: "10.3MB"},
+  { name: "File_t_title_1.pdf", size: "10.3MB"},
+  { name: "File_title_title_2.pdf", size: "10.3MB"},
+  { name: "File_title_3565.pdf", size: "10.3MB"},
 ]);
 </script>
