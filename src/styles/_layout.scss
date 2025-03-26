@@ -183,6 +183,7 @@
     }
     .popover-tab {
       padding: 16px 20px 8px;
+      .v-slide-group__content {gap: 0;}
       .v-chip {
         margin: 0;
         margin-right: 4px;

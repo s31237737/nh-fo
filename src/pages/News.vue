@@ -34,46 +34,48 @@
     </v-container>
   </v-sheet>
   <v-container class="inner">
-    <section class="board-list">
-      <div class="tit-wrap">
-        <v-slide-group
-          v-model="tab"
-          center-active
+    <div class="tit-wrap">
+      <v-slide-group
+        v-model="tab"
+        center-active
+      >
+        <v-slide-group-item
+          v-for="(item, i) in tabBtn"
+          :key="i"
+          v-slot="{ isSelected }"
         >
-          <v-slide-group-item
-            v-for="(item, i) in tabBtn"
-            :key="i"
-            v-slot="{ isSelected }"
+          <v-btn
+            size="large"
+            :ripple="false"
+            height="44"
+            rounded="pill"
+            :color="isSelected ? 'primary' : 'info'"
+            @click="tab = i"
           >
-            <v-btn
-              size="large"
-              :ripple="false"
-              height="44"
-              rounded="pill"
-              :color="isSelected ? 'primary' : 'info'"
-              @click="tab = i"
-            >
-              {{ item.btn }}
-            </v-btn>
-          </v-slide-group-item>
-        </v-slide-group>
-      </div>
-      <!-- 일반 div로 탭 콘텐츠 구현 -->
-      <div class="tab-container">
-        <div v-if="tab === 0">
-          <NewsTab01 />
-        </div>
-        <div v-else-if="tab === 1">
-          <NewsTab02 />
-        </div>
-        <div v-else-if="tab === 2">
-          <NewsTab03 />
-        </div>
-        <div v-else-if="tab === 3">
-          <NewsTab04 />
-        </div>
-      </div>
-    </section>
+            {{ item.btn }}
+          </v-btn>
+        </v-slide-group-item>
+      </v-slide-group>
+    </div>
+    <v-window
+      v-model="tab"
+      class="tab-container"
+    >
+      <v-window-item>
+        <NewsTab01 />
+      </v-window-item>
+
+      <v-window-item>
+        <NewsTab02 />
+      </v-window-item>
+
+      <v-window-item>
+        <NewsTab03 />
+      </v-window-item>
+      <v-window-item>
+        <NewsTab04 />
+      </v-window-item>
+    </v-window>
   </v-container>
 </template>
 
@@ -102,12 +104,3 @@ const tabBtn = ref([
 ]);
 </script>
 
-<style scoped>
-.tab-container > div {
-  display: none;
-}
-
-.tab-container > div:nth-child(1) {
-  display: block;
-}
-</style>
