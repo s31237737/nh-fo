@@ -1,31 +1,75 @@
 <template>
-  <div
-    class="fill-height"
-    style="background:#fff; text-align:center"
+  <v-sheet
+    class="top-banner"
+    :height="isDesktop ? '548' : 'auto'"
   >
-    <div v-if="isMobile">
-      📱 모바일 화면입니다.
-    </div>
-    <div v-if="isTablet">
-      👀태블릿 화면입니다.<br>
-      실제로 사용하지 않겠죠? isDesktop이거나 isMobile이거나만 필요한듯
-    </div>
-    <div v-if="isDesktop">
-      💻 데스크탑 화면입니다.
-    </div>
+    <v-container class="inner">
+      앱 정보 영역
+    </v-container>
+  </v-sheet>
+  <v-container class="inner">
+    <section>
+      이미지 영역
+    </section>
+    <section>
+      탭
+    </section>
+    
+    <!-- 컨텐츠 배너 -->
+    <section>
+      <div
+        class="line-banner-wrap"
+        :class="{ 'clickable': banner.link }"
+      >
+        <v-img
+          role="banner"
+          class="line-banner"
+          :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
+          @click="bannerClick(banner)"
+        >
+          <div class="description">
+            <p>
+              {{ banner.description }}
+            </p>
+          </div>
+        </v-img>
+      </div>
+    </section>
 
-    <div v-if="!isDesktop">
-      헤더가 모바일로 바뀌어야함/lnb가 바뀌어야함
-    </div>
-    <div v-if="!isMobile">
-      최소1280px 가로가 유지되야함
-    </div>
-  </div>
+    <section>
+      <div class="tit-wrap">
+        <strong class="title-2">
+          관련된 앱을 만나보세요!
+        </strong>
+      </div>
+    </section>
+  </v-container>
 </template>
 
 <script setup>
-import { inject } from 'vue';
-const isMobile = inject("isMobile");
-const isTablet = inject("isTablet");
+import { ref, inject } from 'vue';
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+//const isMobile = inject("isMobile");
+//const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+
+//배너
+const banner = ref({
+  imageUrl: "img_apps_banner_03.png",
+  description: "앱 사용 가이드 바로가기",
+});
+const bannerClick = (banner) => {
+  if (!banner.link) {
+    return; // link 없으면 아무 동작 X
+  } else {
+    router.push(banner.link);
+  }
+};
+
 </script>

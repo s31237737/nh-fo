@@ -147,7 +147,8 @@
     max-width: 660px;
     margin:0 auto;
     padding: 0 0 0 24px;
-    @extend .title-4-bd;
+    font-size: 24px;
+    font-weight: 600;
     color: $white;
     p {
       white-space: pre-wrap;
@@ -165,10 +166,10 @@
     .line-banner-wrap {height: 90px;}
     .line-banner {
       background-size: auto 100%;
-      .banner-text {
+      .description {
         margin-block: 24px;
         max-width: 100%;
-        @extend .text-4-md;
+        font-size: 14px;
       }
     }
   }
