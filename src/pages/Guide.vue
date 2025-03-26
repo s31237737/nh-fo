@@ -251,7 +251,7 @@
         <span>comment</span>
       </div>
     </div>
-    <div class="d-flex ga-2 mt-5">
+    <div class="d-flex flex-wrap ga-2 mt-5">
       <v-label>아이콘 사이즈</v-label>
       <v-icon
         icon="$vuetify"
@@ -618,7 +618,7 @@
               </div>
               <ul
                 v-if="files.length"
-                class="file-list upload"
+                class="file-list upload bg"
               >
                 <li
                   v-for="(file, index) in files"
@@ -661,7 +661,7 @@
         목록가기
       </v-btn>
       <v-btn
-        size="large"
+        size="x-large"
         color="warning"
         variant="outlined"
       >
@@ -685,20 +685,20 @@
 
     <v-divider class="mt-5 pt-5" />
     <div class="bg-info pa-5">
+      <p class="file-total">
+        첨부파일 <span class="text-success">{{ fileList.length }}</span>
+      </p>
       <ul
         class="file-list download"
       >
         <li
-          v-for="(file, index) in downloadFile"
+          v-for="(file, index) in fileList"
           :key="index"
         >
-          <v-btn
-            variant="text"
-            density="compact"
+          <span
             class="file-download"
-          >
-            <span class="line-clamp">{{ file.name }}</span>
-          </v-btn>
+            @click="downloadFile(file)"
+          >{{ file.name }}</span>
           <em>{{ file.size }}</em>
         </li>
       </ul>
@@ -1447,9 +1447,15 @@ const removeFile = (index) => {
   files.value.splice(index, 1);
 };
 
-const downloadFile = ref([
-  { name: "Filename.png", size: "10.3MB"},
+const fileList = ref([
+  { name: "File_t_title_1.pdf", size: "10.3MB"},
+  { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
+  { name: "File_title_3565.pdf", size: "10.3MB"},
 ]);
+
+const downloadFile = (files) => {
+  console.log(files.name)
+};
 
 
 const desserts = ref([
