@@ -129,6 +129,16 @@ hr.v-divider {
   }
 }
 
+.editor-content {
+  font-size: 14px;
+  img {border-radius: 20px;}
+  @at-root .mobile, .tablet {
+    .editor-content {
+      img {border-radius: 10px;}
+    }
+  } 
+}
+
 //no data
 .v-empty-state {
   width: 100%;
