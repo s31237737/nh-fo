@@ -340,6 +340,24 @@
       }
     }
   }
+  @at-root .mobile, .tabelt {
+    .appcard-list-form {
+      .bottom {
+        .v-slide-group {
+          margin-left: -20px;
+          > .v-slide-group__prev, > .v-slide-group__next {
+            display:none;
+          }
+          .slide-select:first-child {
+            padding-left: 20px;
+          }
+          .slide-select:last-child {
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
   @at-root .mobile {
     .appcard-list-form {
       .top {
