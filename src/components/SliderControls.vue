@@ -20,7 +20,7 @@
     </div>
 
     <v-btn
-      v-if="autoplay"
+      v-if="cycle"
       density="compact"
       class="togglePlay"
       icon
@@ -47,11 +47,15 @@ const props = defineProps({
   },
   autoplay: {
     type: Boolean,
-    required: true,
+    default: true,
   },
   slide: {
     type: Array,
     required: true,
+  },
+  cycle: {
+    type: Boolean,
+    default: true,
   },
 });
 
