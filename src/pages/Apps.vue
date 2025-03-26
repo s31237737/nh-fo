@@ -395,7 +395,7 @@
     <section>
       <div class="tit-wrap">
         <strong class="title-2">
-          총무업무 담당자들이 자주 사용해요!
+          $총무업무$ 담당자들이 자주 사용해요!
         </strong>
       </div>
       <!-- 앱 목록 -->
@@ -479,8 +479,25 @@
         </v-row>
         <v-empty-state
           v-else
-          text="‘농협' 검색결과가 없습니다."
-        />
+          bg-color="coolgray"
+          height="180"
+          :icon="null"
+        >
+          <template #title>
+            <div class="title-4-bd">
+              자신의 직무를 설정하시면,<br>맞춤형 앱을 추천드리고 있어요!
+            </div>
+          </template>
+          <template #actions>
+            <v-btn
+              to="MyPage"
+              color="info"
+              size="large"
+            >
+              직무 설정하기
+            </v-btn>
+          </template>
+        </v-empty-state>
       </div>
       <!--// 앱 목록 -->
     </section>
@@ -546,10 +563,10 @@ const onAppendClick = () => {
 const sort = ref(0);
 const slideData = ref([
   { selectId: 'select01', label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
-  // { selectId: 'select02', label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
-  // { selectId: 'select03', label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
-  // { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
-  // { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
+  { selectId: 'select02', label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
+  { selectId: 'select03', label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
+  { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
+  { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
 ]);
 
 //keyvisual
@@ -758,44 +775,44 @@ const cardRecommend = ref([
 
 //앱 추천 목록
 const cardRecommend2 = ref([
-  {
-    link: "AppsDetail",
-    title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
-    subtitle: "총무형",
-    badges: [
-      { text: "NEW", color: "success" },
-      { text: "추천", color: "purple" },
-      { text: "HOT", color: "pink" }
-    ],
-    inUse: true,
-    showOpenApp: true,
-    likeCount: 999,
-  },
-  {
-    link: "AppsDetail",
-    title: "공통총무알리미",
-    subtitle: "총무형",
-    badges: [
-      { text: "NEW", color: "success" },
-      { text: "추천", color: "purple" },
-      { text: "HOT", color: "pink" }
-    ],
-    inUse: true,
-    showOpenApp: false,
-    likeCount: 0,
-  },
-  {
-    link: "AppsDetail",
-    title: "공통총무알리미",
-    subtitle: "총무형",
-    badges: [
-      { text: "NEW", color: "success" },
-      { text: "추천", color: "purple" },
-    ],
-    inUse: false,
-    showOpenApp: false,
-    likeCount: 555,
-  },
+  // {
+  //   link: "AppsDetail",
+  //   title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+  //   subtitle: "총무형",
+  //   badges: [
+  //     { text: "NEW", color: "success" },
+  //     { text: "추천", color: "purple" },
+  //     { text: "HOT", color: "pink" }
+  //   ],
+  //   inUse: true,
+  //   showOpenApp: true,
+  //   likeCount: 999,
+  // },
+  // {
+  //   link: "AppsDetail",
+  //   title: "공통총무알리미",
+  //   subtitle: "총무형",
+  //   badges: [
+  //     { text: "NEW", color: "success" },
+  //     { text: "추천", color: "purple" },
+  //     { text: "HOT", color: "pink" }
+  //   ],
+  //   inUse: true,
+  //   showOpenApp: false,
+  //   likeCount: 0,
+  // },
+  // {
+  //   link: "AppsDetail",
+  //   title: "공통총무알리미",
+  //   subtitle: "총무형",
+  //   badges: [
+  //     { text: "NEW", color: "success" },
+  //     { text: "추천", color: "purple" },
+  //   ],
+  //   inUse: false,
+  //   showOpenApp: false,
+  //   likeCount: 555,
+  // },
 ]);
 
 //배너

@@ -289,15 +289,6 @@
   .bottom {
     position: relative;
     margin-bottom: 20px;
-    .v-btn.btn-refresh {
-      color: $gray-500 !important;
-      .v-btn__overlay {
-        display: none;
-      }
-      &:hover {
-        color: black !important;
-      }
-    }
     .v-slide-group {
       .v-slide-group__content {
         gap: 24px;
@@ -339,26 +330,35 @@
         gap: 12px;
       }
     }
-    .v-btn.btn-selectJob {
-      --v-btn-height: 44px;
-      padding-inline: 16px 12px;
-      border: thin solid $gray-500;
-      background: transparent;
-      font-weight: 400;
-      .v-btn__append {
-        margin-inline: 6px 0;
-        height: 44px;
-        .v-icon {
-          font-size: 21px;
-          margin-left: 4px;
-        }
+  }
+  .v-btn.btn-refresh {
+    color: $gray-500 !important;
+    .v-btn__overlay {
+      display: none;
+    }
+    &:hover {
+      color: black !important;
+    }
+  }
+  .v-btn.btn-selectJob {
+    --v-btn-height: 44px;
+    padding-inline: 16px 12px;
+    border: thin solid $gray-500;
+    background: transparent;
+    font-weight: 400;
+    .v-btn__append {
+      margin-inline: 6px 0;
+      height: 44px;
+      .v-icon {
+        font-size: 21px;
+        margin-left: 4px;
       }
-      .v-btn__overlay {
-        display: none;
-      }
-      &:hover {
-        border-color: $gray-700 !important;
-      }
+    }
+    .v-btn__overlay {
+      display: none;
+    }
+    &:hover {
+      border-color: $gray-700 !important;
     }
   }
   .v-btn-toggle {
@@ -370,7 +370,7 @@
         min-width: auto;
       }
       .v-btn__content {
-        line-height: 1;
+        line-height: 24px;
       }
       &.v-btn--active {
         font-weight: 500;
