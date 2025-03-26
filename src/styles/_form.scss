@@ -291,11 +291,7 @@
       }
     }
   }
-  &.bg {
-    padding: 24px;
-    border-radius: $base-radius;
-    background: $gray-200;
-  }
+  
   @at-root .file-input-guide + .file-input-list {
     margin-top: 20px;
   }

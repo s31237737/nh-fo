@@ -312,6 +312,11 @@ section + section {
     }
   } 
 }
+.v-sheet.g-box {
+  padding: 24px;
+  border-radius: $base-radius;
+  background: $gray-200;
+}
 
 .v-list.data-board {
   padding: 0;

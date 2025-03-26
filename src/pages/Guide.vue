@@ -616,24 +616,26 @@
                   *첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.
                 </p>
               </div>
-              <ul
-                v-if="files.length"
-                class="file-list upload bg"
-              >
-                <li
-                  v-for="(file, index) in files"
-                  :key="index"
+              <v-sheet class="g-box">
+                <ul
+                  v-if="files.length"
+                  class="file-list upload"
                 >
-                  <v-icon icon="custom:file" />
-                  <span class="line-clamp">{{ file.name }}</span>
-                  <v-btn
-                    density="compact"
-                    icon="custom:close"
-                    class="file-delete"
-                    @click="removeFile(index)"
-                  />
-                </li>
-              </ul>
+                  <li
+                    v-for="(file, index) in files"
+                    :key="index"
+                  >
+                    <v-icon icon="custom:file" />
+                    <span class="line-clamp">{{ file.name }}</span>
+                    <v-btn
+                      density="compact"
+                      icon="custom:close"
+                      class="file-delete"
+                      @click="removeFile(index)"
+                    />
+                  </li>
+                </ul>
+              </v-sheet>
             </div>
           </div>
         </v-col>
