@@ -704,27 +704,6 @@
           <em>{{ file.size }}</em>
         </li>
       </ul>
-      <v-sheet
-        class="g-box pa-6"
-      >
-        <ul
-          class="file-list"
-        >
-          <li
-            v-for="(file, index) in fileList"
-            :key="index"
-          >
-            <v-icon icon="custom:file" />
-            <span class="name">{{ file.name }}</span>
-            <v-btn
-              density="compact"
-              icon="custom:close"
-              class="file-delete"
-              @click="removeFile(index)"
-            />
-          </li>
-        </ul>
-      </v-sheet>
     </div>
 
     <!-- popup -->

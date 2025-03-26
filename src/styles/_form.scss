@@ -264,7 +264,6 @@
       margin-left: 6px;
       @include line-clamp(1);
       @extend .text-4;
-      display: unset;
     }
   }
   @at-root .mobile, .tablet {
