@@ -194,28 +194,16 @@
         <v-icon icon="custom:drawer" />
         <span>drawer</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:view" />
+        <span>view</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
       <div class="icon-item">
         <v-icon icon="custom:info" />
         <span>info</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:view" />
-        <span>view</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:alert-success" />
-        <span>alert-success</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:alert" />
-        <span>alert</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:alert-error" />
-        <span>alert-error</span>
       </div>
 
       <div class="icon-item">
