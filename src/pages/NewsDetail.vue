@@ -28,7 +28,7 @@
       <v-btn
         to="News"
         color="info"
-        size="large"
+        size="x-large"
       >
         목록가기
       </v-btn>

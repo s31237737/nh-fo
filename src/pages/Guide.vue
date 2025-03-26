@@ -656,7 +656,7 @@
 
       <v-btn
         color="info"
-        size="large"
+        size="x-large"
       >
         목록가기
       </v-btn>
@@ -671,13 +671,13 @@
     <div class="page-actions">
       <v-btn
         color="info"
-        size="large"
+        size="x-large"
       >
         취소
       </v-btn>
       <v-btn
         color="primary"
-        size="large"
+        size="x-large"
       >
         등록하기
       </v-btn>
