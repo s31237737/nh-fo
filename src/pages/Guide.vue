@@ -611,24 +611,22 @@
                 </template>
               </v-file-input>
               <!-- 첨부된 파일 목록 표시 -->
-              <div class="file-input-guide">
-                <p>
-                  *첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.
-                </p>
-              </div>
+              <p class="file-guide-text">
+                *첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.
+              </p>
               <v-sheet
                 v-if="files.length"
-                class="g-box"
+                class="g-box pa-6"
               >
                 <ul
-                  class="file-list upload"
+                  class="file-list"
                 >
                   <li
                     v-for="(file, index) in files"
                     :key="index"
                   >
                     <v-icon icon="custom:file" />
-                    <span class="line-clamp">{{ file.name }}</span>
+                    <span class="name">{{ file.name }}</span>
                     <v-btn
                       density="compact"
                       icon="custom:close"
@@ -693,7 +691,7 @@
         첨부파일 <span class="text-success">{{ fileList.length }}</span>
       </p>
       <ul
-        class="file-list download"
+        class="file-list"
       >
         <li
           v-for="(file, index) in fileList"
@@ -706,6 +704,27 @@
           <em>{{ file.size }}</em>
         </li>
       </ul>
+      <v-sheet
+        class="g-box pa-6"
+      >
+        <ul
+          class="file-list"
+        >
+          <li
+            v-for="(file, index) in fileList"
+            :key="index"
+          >
+            <v-icon icon="custom:file" />
+            <span class="name">{{ file.name }}</span>
+            <v-btn
+              density="compact"
+              icon="custom:close"
+              class="file-delete"
+              @click="removeFile(index)"
+            />
+          </li>
+        </ul>
+      </v-sheet>
     </div>
 
     <!-- popup -->

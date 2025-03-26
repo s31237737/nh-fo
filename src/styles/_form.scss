@@ -215,18 +215,10 @@
     }
   }
 }
-.file-input-guide {
+.file-guide-text {
   margin-top: 6px;
-  p {
-    @extend .caption-3;
-    color: $gray-700;
-    &.text-1 {
-      color: $black;
-      .v-icon {
-        vertical-align: text-bottom;
-      }
-    }
-  }
+  @extend .caption-3;
+  color: $gray-700;
   & + .file-list {
     margin-top: 12px;
   }
@@ -241,53 +233,46 @@
   }
 }
 .file-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
   li {
     display: flex;
     align-items: center;
     & + li { margin-top: 10px; }
-    
-    & > .v-btn {
-      --v-btn-height: 32px;
+
+    .file-download {
+      @extend .text-3;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+      @include line-clamp(1);
+      display: unset;
     }
-  }
-  &.upload {
-    li {
+    em {
+      margin-left: 8px;
+      color: $gray-700;
+      @extend .text-3;
+    }
+    .v-icon {
+      font-size: 24px;
+    }
+    .v-btn.file-delete {
+      margin-left: 16px;
       .v-icon {
-        font-size: 24px;
-      }
-      .v-btn.file-delete {
-        margin-top: 2px;
-        margin-left: 16px;
-        .v-icon {
-          font-size: 12px;
-        }
-      }
-      & > span {
-        padding: 3px 4px 3px 6px;
-        height: 24px;
-        line-height: 1.35;
-        @extend .text-4;
+        font-size: 14px;
       }
     }
+    .name {
+      margin-left: 6px;
+      @include line-clamp(1);
+      @extend .text-4;
+      display: unset;
+    }
   }
-  &.download {
-    li {
-      gap: 8px;
-      .file-download {
-        @extend .text-3;
-        text-decoration: underline;
-        text-underline-offset: 2px;
-        cursor: pointer;
-        @include line-clamp(1);
-        display: unset;
-      }
-      em {
-        color: $gray-700;
-        @extend .text-3;
+  @at-root .mobile, .tablet {
+    .file-list {
+      li {
+        .v-btn.file-delete {
+          margin-left: 10px;
+        }
       }
     }
   }
