@@ -20,6 +20,7 @@
     </div>
 
     <v-btn
+      v-if="autoplay"
       density="compact"
       class="togglePlay"
       icon
