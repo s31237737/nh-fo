@@ -6,7 +6,7 @@
   >
     <v-card>
       <v-card-title>
-        <p>팝업</p>
+        <p>직무 선택 <span class="caption-3 text-quaternary ml-2">최대 5개까지 선택 가능</span></p>
         <v-btn
           icon="custom:close"
           density="comfortable"
