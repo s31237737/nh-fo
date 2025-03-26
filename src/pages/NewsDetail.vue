@@ -96,7 +96,7 @@ const isDesktop = inject("isDesktop");
 
 const downloadFile = ref([
   { name: "File_t_title_1.pdf", size: "10.3MB"},
-  { name: "File_title_title_2.pdf", size: "10.3MB"},
+  { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
   { name: "File_title_3565.pdf", size: "10.3MB"},
 ]);
 </script>

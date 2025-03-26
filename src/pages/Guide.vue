@@ -618,7 +618,7 @@
               </div>
               <ul
                 v-if="files.length"
-                class="file-list upload"
+                class="file-list upload bg"
               >
                 <li
                   v-for="(file, index) in files"
@@ -686,7 +686,7 @@
     <v-divider class="mt-5 pt-5" />
     <div class="bg-info pa-5">
       <ul
-        class="file-list download"
+        class="file-list download bg"
       >
         <li
           v-for="(file, index) in downloadFile"
