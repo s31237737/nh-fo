@@ -255,12 +255,14 @@
         </v-row>
         <v-empty-state
           v-else
-          text="‘농협' 검색결과가 없습니다."
+          text="'검색어' 검색결과가 없습니다."
           icon="custom:warning"
           bg-color="#FEFEFE"
+          :height="isDesktop ? '720': '440'"
         />
         <div class="appcard-list_btn">
           <v-btn
+            v-if="cardData.length"
             variant="text"
             density="compact"
             append-icon="custom:arrow-down"
@@ -395,7 +397,7 @@
     <section>
       <div class="tit-wrap">
         <strong class="title-2">
-          $총무업무$ 담당자들이 자주 사용해요!
+          총무업무 담당자들이 자주 사용해요!
         </strong>
       </div>
       <!-- 앱 목록 -->

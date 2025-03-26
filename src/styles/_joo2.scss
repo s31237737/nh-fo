@@ -184,7 +184,7 @@
       justify-content: space-between;
       & + .d-flex {margin-top: 31px;}
     }
-    & .v-card__overlay {display:none;}
+    .v-card__overlay {display:none;}
     .btns {
       margin-bottom:-14px;
       .v-btn {
@@ -233,7 +233,6 @@
 }
 .appcard-list{
   .v-empty-state {
-    height: 720px;
     border-radius: $base-radius-lg;
     &__media {
       margin-bottom: 36px;
@@ -245,10 +244,14 @@
   &.fix {
     display:grid;
     grid-template-columns: 2fr 1fr;
+    align-items: center;
     .fix_item {
       display:flex;
       margin-left: 20px;
       img {display:block; width:100%; height: auto; object-fit: contain;}
+    }
+    [class*="v-col-"] {
+      align-self: flex-start;
     }
   }
   @at-root .tablet {
