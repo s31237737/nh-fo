@@ -616,9 +616,11 @@
                   *첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.
                 </p>
               </div>
-              <v-sheet class="g-box">
+              <v-sheet
+                v-if="files.length"
+                class="g-box"
+              >
                 <ul
-                  v-if="files.length"
                   class="file-list upload"
                 >
                   <li
