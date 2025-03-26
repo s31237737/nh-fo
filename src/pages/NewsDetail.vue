@@ -1,26 +1,33 @@
 <template>
-  <div
-    class="fill-height"
-    style="background:#fff; text-align:center"
-  >
-    <div v-if="isMobile">
-      📱 모바일 화면입니다.
+  <v-container class="inner">
+    <div class="tit-wrap column">
+      <strong class="title-4-bd">[공지] NH총무알리비 서비스 앱 개선 공지 (24.6.20(목) 18:00~24:00)</strong>
+      <span class="date">2024.06.13</span>
     </div>
-    <div v-if="isTablet">
-      👀태블릿 화면입니다.<br>
-      실제로 사용하지 않겠죠? isDesktop이거나 isMobile이거나만 필요한듯
-    </div>
-    <div v-if="isDesktop">
-      💻 데스크탑 화면입니다.
-    </div>
+    <div class="page-actions">
+      <div class="pagination">
+        <v-btn
+          :ripple="false"
+          icon="custom:arrow-prev"
+          color="info"
+        />
+        <v-btn
+          :ripple="false"
+          icon="custom:arrow-next"
+          color="info"
+        />
+      </div>
+      <v-spacer />
 
-    <div v-if="!isDesktop">
-      헤더가 모바일로 바뀌어야함/lnb가 바뀌어야함
+      <v-btn
+        to="News"
+        color="info"
+        size="large"
+      >
+        목록가기
+      </v-btn>
     </div>
-    <div v-if="!isMobile">
-      최소1280px 가로가 유지되야함
-    </div>
-  </div>
+  </v-container>
 </template>
 
 <script setup>

@@ -644,16 +644,12 @@
         <v-btn
           :ripple="false"
           icon="custom:arrow-prev"
-          :disabled="currentPage === 1"
           color="info"
-          @click="goToPage(currentPage - 1)"
         />
         <v-btn
           :ripple="false"
           icon="custom:arrow-next"
-          :disabled="currentPage === totalPages"
           color="info"
-          @click="goToPage(currentPage + 1)"
         />
       </div>
       <v-spacer />
