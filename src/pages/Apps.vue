@@ -138,9 +138,22 @@
           <v-slide-group
             show-arrows
           >
+            <!-- 고정된 버튼 -->
+            <v-slide-group-item>
+              <div class="slide-select">
+                <label>
+                  고정 버튼
+                </label>
+                <v-btn color="primary">
+                  직무선택 버튼
+                </v-btn>
+              </div>
+            </v-slide-group-item>
+
+            <!-- 최대 4개의 v-select 요소 -->
             <v-slide-group-item
-              v-for="(item, index) in slideData"
-              :key="index"
+              v-for="(item) in slideData"
+              :key="item.selectId"
             >
               <div class="slide-select">
                 <label :for="item.selectId">
