@@ -100,17 +100,6 @@ $popup-base-margin: 20px;
     .v-card-actions {
       margin-top: 0;
     }
-    
-    //form sheet
-    .form-sheet {
-      padding-top: 12px;
-      .v-col {
-        grid-template-columns: 1fr;
-        & > .v-label {
-          padding-left: 0px;
-        }
-      }
-    }
   }
 }
 @media only screen and (max-width: 767px) {
@@ -123,6 +112,17 @@ $popup-base-margin: 20px;
     }
     .v-card-actions .v-btn{
       flex: 1;
+    }
+
+    //form sheet
+    .form-sheet {
+      padding-top: 12px;
+      .v-col {
+        grid-template-columns: 1fr;
+        & > .v-label {
+          padding-left: 0px;
+        }
+      }
     }
   }
 }

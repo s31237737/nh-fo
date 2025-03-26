@@ -546,10 +546,10 @@ const onAppendClick = () => {
 const sort = ref(0);
 const slideData = ref([
   { selectId: 'select01', label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
-  { selectId: 'select02', label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
-  { selectId: 'select03', label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
-  { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
-  { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
+  // { selectId: 'select02', label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
+  // { selectId: 'select03', label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
+  // { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
+  // { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
 ]);
 
 //keyvisual

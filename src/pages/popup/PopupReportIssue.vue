@@ -96,7 +96,7 @@
               <v-label
                 for="inp-content"
               >
-                불편사항<br v-if="isDesktop">내용
+                불편사항 <br v-if="!isMobile">내용
               </v-label>
               <div class="label-form">
                 <v-textarea
@@ -133,7 +133,7 @@
 <script setup>
   import { ref, inject } from 'vue';
 
-  const isDesktop = inject("isDesktop");
+  const isMobile = inject("isMobile");
   const getImageUrl = (imageName) => {
     return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
   };

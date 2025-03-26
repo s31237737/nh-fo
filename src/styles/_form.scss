@@ -350,6 +350,14 @@
 @media only screen and (max-width: 1279px) {
   .form-sheet {
     padding: 40px 20px;
+    .v-col {
+      grid-template-columns: 150px 1fr;
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .form-sheet {
+    //padding: 40px 20px;
     .v-row + .v-row {margin-top: 30px;}
     .v-col {
       grid-template-columns: 1fr;
