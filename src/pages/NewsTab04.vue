@@ -7,12 +7,9 @@
     >
       <!-- 리스트 아이템 -->
       <v-list-item :to="item.link">
-        <!-- 공지 아이콘 -->
+        <!-- 넘버 -->
         <template #prepend>
-          <v-icon
-            v-if="item.notice"
-            icon="custom:fix"
-          />
+          <span>{{ item.id }}</span>
         </template>
         <!-- 제목 -->
         <v-list-item-title>
@@ -74,7 +71,6 @@ const boardItem = ref([
   {
     id: 1,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: true,
     guide: true,
     video: true,
     date: "2025.03.24",
@@ -84,7 +80,6 @@ const boardItem = ref([
   {
     id: 2,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
     guide: true,
     video: true,
     date: "2025.03.23",
@@ -94,7 +89,6 @@ const boardItem = ref([
   {
     id: 3,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.22",
@@ -104,7 +98,6 @@ const boardItem = ref([
   {
     id: 4,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.21",
@@ -114,7 +107,6 @@ const boardItem = ref([
   {
     id: 5,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.24",
@@ -124,7 +116,6 @@ const boardItem = ref([
   {
     id: 6,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.23",
@@ -134,7 +125,6 @@ const boardItem = ref([
   {
     id: 7,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.22",
@@ -144,7 +134,6 @@ const boardItem = ref([
   {
     id: 8,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.21",
@@ -154,7 +143,6 @@ const boardItem = ref([
   {
     id: 9,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.24",
@@ -164,7 +152,6 @@ const boardItem = ref([
   {
     id: 10,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.23",
@@ -174,7 +161,6 @@ const boardItem = ref([
   {
     id: 11,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.22",
@@ -184,7 +170,6 @@ const boardItem = ref([
   {
     id: 12,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.21",
@@ -194,7 +179,6 @@ const boardItem = ref([
   {
     id: 13,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.24",
@@ -204,7 +188,6 @@ const boardItem = ref([
   {
     id: 14,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.23",
@@ -214,7 +197,6 @@ const boardItem = ref([
   {
     id: 15,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.22",
@@ -224,7 +206,6 @@ const boardItem = ref([
   {
     id: 16,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.21",
@@ -234,7 +215,6 @@ const boardItem = ref([
   {
     id: 17,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.24",
@@ -244,7 +224,6 @@ const boardItem = ref([
   {
     id: 18,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.23",
@@ -254,7 +233,6 @@ const boardItem = ref([
   {
     id: 19,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.22",
@@ -264,7 +242,6 @@ const boardItem = ref([
   {
     id: 20,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.21",
@@ -274,7 +251,6 @@ const boardItem = ref([
   {
     id: 21,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: false,
     guide: true,
     video: true,
     date: "2025.03.24",
@@ -284,7 +260,6 @@ const boardItem = ref([
   {
     id: 22,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: true,
       video: true,
     date: "2025.03.23",
@@ -294,7 +269,6 @@ const boardItem = ref([
   {
     id: 23,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.22",
@@ -304,7 +278,6 @@ const boardItem = ref([
   {
     id: 24,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
-    notice: false,
     guide: false,
     video: true,
     date: "2025.03.21",
