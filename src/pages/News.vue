@@ -44,6 +44,8 @@
           :key="i"
           v-slot="{ isSelected }"
         >
+          <!-- 검색어 강조 예제 -->
+          <!-- <span class="text-success">숫자</span> -->
           <v-btn
             size="large"
             :ripple="false"
@@ -52,7 +54,7 @@
             :color="isSelected ? 'primary' : 'info'"
             @click="tab = i"
           >
-            {{ item.btn }}
+            {{ item.btn }} <span class="text-success">10</span>
           </v-btn>
         </v-slide-group-item>
       </v-slide-group>

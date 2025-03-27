@@ -345,7 +345,7 @@ section + section {
     &__prepend {
       @extend .text-3;
       max-width: 34px;
-      span {
+      > span {
         width: 34px;
       }
       align-self: flex-start;

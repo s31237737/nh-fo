@@ -246,6 +246,9 @@
     color: $gray-800 !important;
     background-color: transparent !important;
   }
+  .text-success {
+    margin-left: 2px;
+  }
   @at-root .mobile, .tablet {
     .v-slide-group {
       margin-right: -20px;
