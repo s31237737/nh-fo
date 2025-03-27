@@ -104,7 +104,7 @@
         </strong>
       </div>
 
-      <!-- form -->
+      <!-- scroll -->
       <div class="appcard-list-form">
         <div class="top">
           <v-text-field
@@ -209,7 +209,7 @@
               :to="card.link"
               class="appcard"
             >
-              <div class="d-flex">
+              <div class="appcard-top">
                 <div>
                   <v-img
                     class="thumnail"
@@ -240,7 +240,7 @@
                   </v-chip>
                 </div>
               </div>
-              <div class="d-flex flex-column">
+              <div class="appcard-bottom">
                 <!-- 제목 -->
                 <v-card-title class="title-4 line-clamp">
                   {{ card.title }}
@@ -274,7 +274,6 @@
           </v-btn>
         </div>
       </div>
-      <!--// 앱 목록  -->
     </section>
 
     <!-- 컨텐츠 배너 -->
@@ -305,82 +304,84 @@
           가장 많은 좋아요를 받았어요!
         </strong>
       </div>
-      <!-- 앱 목록 -->
-      <div class="appcard-list fix">
-        <v-row>
-          <v-col
-            v-for="(card, index) in cardRecommend"
-            :key="index"
-            md="6"
-            sm="12"
-          >
-            <v-card
-              :ripple="false"
-              :to="card.link"
-              class="appcard"
+      <div class="appcard-list-wrap">
+        <!-- 앱 목록(type2) -->
+        <div class="appcard-list type2">
+          <v-row>
+            <v-col
+              v-for="(card, index) in cardRecommend"
+              :key="index"
+              md="6"
+              sm="12"
             >
-              <div class="d-flex align-center">
-                <div class="icon-text">
-                  <v-icon
-                    class="like"
-                    size="x-large"
-                    icon="custom:full-heart"
-                  />
-                  <span>{{ card.likeCount }}</span>
-                </div>
-                <!-- 배지 (최대 3개) -->
-                <div class="flag-wrap r">
-                  <v-chip
-                    v-for="(badge, idx) in card.badges.slice(0, 3)"
-                    :key="idx"
-                    :color="badge.color"
-                    variant="tonal"
-                    class="flag"
-                  >
-                    {{ badge.text }}
-                  </v-chip>
+              <v-card
+                :ripple="false"
+                :to="card.link"
+                class="appcard"
+              >
+                <div class="appcard-top">
+                  <div class="icon-text">
+                    <v-icon
+                      class="like"
+                      size="x-large"
+                      icon="custom:full-heart"
+                    />
+                    <span>{{ card.likeCount }}</span>
+                  </div>
+                  <!-- 배지 (최대 3개) -->
+                  <div class="flag-wrap r">
+                    <v-chip
+                      v-for="(badge, idx) in card.badges.slice(0, 3)"
+                      :key="idx"
+                      :color="badge.color"
+                      variant="tonal"
+                      class="flag"
+                    >
+                      {{ badge.text }}
+                    </v-chip>
 
-                  <!-- 상태 배지 (필요할 때만 표시) -->
-                  <v-chip
-                    v-if="card.inUse"
-                    class="flag"
-                    color="primary"
-                  >
-                    사용중
-                  </v-chip>
+                    <!-- 상태 배지 (필요할 때만 표시) -->
+                    <v-chip
+                      v-if="card.inUse"
+                      class="flag"
+                      color="primary"
+                    >
+                      사용중
+                    </v-chip>
+                  </div>
                 </div>
-              </div>
-              <div class="d-flex align-center">
-                <div class="context">
-                  <!-- 제목 -->
-                  <v-card-subtitle class="line-clamp">
-                    {{ card.subtitle }}
-                  </v-card-subtitle>
-                  <v-card-title class="title-4 line-clamp">
-                    {{ card.title }}
-                  </v-card-title>
+                <div class="appcard-bottom">
+                  <div class="context">
+                    <!-- 제목 -->
+                    <v-card-subtitle class="line-clamp">
+                      {{ card.subtitle }}
+                    </v-card-subtitle>
+                    <v-card-title class="title-4 line-clamp">
+                      {{ card.title }}
+                    </v-card-title>
+                  </div>
+                  <div class="btns">
+                    <v-btn
+                      v-if="card.showOpenApp"
+                      color="info"
+                      :ripple="false"
+                      @click.stop.prevent="alert = true"
+                    >
+                      앱 열기
+                    </v-btn>
+                    <v-btn
+                      v-else
+                      color="secondary"
+                      :ripple="false"
+                    >
+                      신청 대기중
+                    </v-btn>
+                  </div>
                 </div>
-                <div class="btns">
-                  <v-btn
-                    v-if="card.showOpenApp"
-                    color="info"
-                    :ripple="false"
-                    @click.stop.prevent="alert = true"
-                  >
-                    앱 열기
-                  </v-btn>
-                  <v-btn
-                    v-else
-                    color="secondary"
-                    :ripple="false"
-                  >
-                    신청 대기중
-                  </v-btn>
-                </div>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
+              </v-card>
+            </v-col>
+          </v-row>
+        </div>
         <div
           v-if="isDesktop"
           class="fix_item"
@@ -391,7 +392,6 @@
           >
         </div>
       </div>
-      <!--// 앱 목록 -->
     </section>
 
     <!-- 앱: 많이 쓰는 리스트 -->
@@ -401,8 +401,8 @@
           총무업무 담당자들이 자주 사용해요!
         </strong>
       </div>
-      <!-- 앱 목록 -->
-      <div class="appcard-list">
+      <!-- 앱 목록(type2) -->
+      <div class="appcard-list type2">
         <v-row
           v-if="cardRecommend2.length"
         >
@@ -418,7 +418,7 @@
               :ripple="false"
               class="appcard"
             >
-              <div class="d-flex align-center">
+              <div class="appcard-top">
                 <!-- btn: 좋아요 -->
                 <div class="icon-text">
                   <v-icon
@@ -450,7 +450,7 @@
                   </v-chip>
                 </div>
               </div>
-              <div class="d-flex align-center">
+              <div class="appcard-bottom">
                 <div class="context">
                   <!-- 제목 -->
                   <v-card-subtitle class="line-clamp">
@@ -502,7 +502,6 @@
           </template>
         </v-empty-state>
       </div>
-      <!--// 앱 목록 -->
     </section>
   </v-container>
 

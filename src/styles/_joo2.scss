@@ -176,97 +176,92 @@
 }
 
 //앱 리스트
-.appcard {
-  &.v-card {
-    height: 100%;
-    padding: 30px;
-    border-radius: $base-radius-lg;
-    .d-flex {
-      justify-content: space-between;
-      & + .d-flex {margin-top: 31px;}
-    }
-    .v-card__overlay {display:none;}
-    .btns {
-      margin-bottom:-14px;
-      .v-btn {
-        width: 96px !important;
-        &:not(.bg-info) {
-          .v-btn__overlay {
-            display: none;
-          }
+.appcard.v-card {
+  height: 100%;
+  padding: 30px;
+  border-radius: $base-radius-lg;
+  .appcard-top {
+    display: flex;
+    justify-content: space-between;
+  }
+  .appcard-bottom {
+    display: flex;
+    flex-direction: column;
+    margin-top: 31px;
+  }
+  .v-card__overlay {display:none;}
+  .btns {
+    margin-bottom:-14px;
+    .v-btn {
+      width: 96px !important;
+      &:not(.bg-info) {
+        .v-btn__overlay {
+          display: none;
         }
-      }
-    }
-    .thumnail.v-img{
-      width: 60px; 
-      height: 60px;
-      object-fit: contain;
-    }
-    .v-card-title, .v-card-subtitle {
-      padding:0 10px 0 0;
-    }
-    .v-card-title {
-      display: -webkit-box;
-      white-space: normal;
-    }
-    .v-card-subtitle + .v-card-title {padding-top:6px;}
-    .v-card-text {
-      padding:12px 0 0;
-    }
-    @at-root .mobile {
-      .appcard.v-card {
-        padding: 20px;
-        .thumnail {
-          width: 54px; height: 54px;
-        }
-        .d-flex  + .d-flex {margin-top: 24px;}
-        .v-btn.like .v-icon {margin-right: 0;}
-      }
-    }
-
-    //carousel
-    @at-root .v-carousel {
-      .appcard.v-card {
-        height: auto;
       }
     }
   }
+  .thumnail.v-img{
+    width: 60px; 
+    height: 60px;
+    object-fit: contain;
+  }
+  .v-card-title, .v-card-subtitle {
+    padding:0 10px 0 0;
+  }
+  .v-card-title {
+    display: -webkit-box;
+    white-space: normal;
+  }
+  .v-card-subtitle + .v-card-title {padding-top:6px;}
+  .v-card-text {
+    padding:12px 0 0;
+  }
+  @at-root .mobile {
+    .appcard.v-card {
+      padding: 20px;
+      .thumnail {
+        width: 54px; height: 54px;
+      }
+      .appcard-bottom {margin-top: 24px;}
+      .v-btn.like .v-icon {margin-right: 0;}
+    }
+  }
+
+  //carousel
+  @at-root .v-carousel {
+    .appcard.v-card {
+      height: auto;
+    }
+  }
 }
-.appcard-list{
+
+@at-root .appcard-list{
+  &.type2 {
+    .appcard {
+      .appcard-top {
+        align-items: center;
+      }
+      .appcard-bottom {
+        flex-direction:inherit;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
   .v-empty-state {
     border-radius: $base-radius-lg;
     &__media {
       margin-bottom: 36px;
     }
+    &__title {
+      margin-bottom: 16px;
+    }
     &__text {
       @extend .text-2-md;
     }
-  }
-  &.fix {
-    display:grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    .fix_item {
-      display:flex;
-      margin-left: 20px;
-      img {display:block; width:100%; height: auto; object-fit: contain;}
-    }
-    [class*="v-col-"] {
-      align-self: flex-start;
-    }
-  }
-  @at-root .tablet {
-    .appcard-list {
-      &.fix {
-        display:block;
-      }
-    }
-  }
-  @at-root .mobile {
-    .appcard-list {
-      &.fix {
-        display:block;
-      }
+    &__actions {
+      padding:0;
     }
   }
 }
@@ -425,6 +420,24 @@
           }
         }
       }
+    }
+  }
+}
+.appcard-list-wrap {
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  .fix_item {
+    display:flex;
+    margin-left: 20px;
+    img {display:block; width:100%; height: auto; object-fit: contain;}
+  }
+  [class*="v-col-"] {
+    align-self: flex-start;
+  }
+  @at-root .mobile, .tablet {
+    .appcard-list-wrap {
+      display: block;
     }
   }
 }
