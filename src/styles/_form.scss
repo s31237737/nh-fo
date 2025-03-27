@@ -368,7 +368,15 @@
   .v-expansion-panel-title {
     @extend .text-3;
     &--active {
-      border-bottom: thin solid $gray-300;
+      min-height: 55px;
+      &::after{
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-bottom: thin solid $gray-300;
+      }
     }
   }
   .v-expansion-panel-text {
