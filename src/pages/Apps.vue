@@ -151,7 +151,7 @@
             >
               <div class="slide-select">
                 <span>
-                  {{ item.label }}
+                {{ item.label }}
                 </span>
                 <v-select
                   ref="selectRefs"
@@ -160,6 +160,7 @@
                   density="comfortable"
                   :items="item.options"
                   :menu-props="{ maxHeight: '208px', location: 'bottom'}"
+                  @pointerdown.stop
                 />
               </div>
             </v-slide-group-item>
@@ -551,7 +552,7 @@
 </template>
 
 <script setup>
-import { ref, inject, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
+import { ref, inject, onMounted, onUnmounted } from 'vue';
 import { useRouter } from "vue-router";
 
 const router = useRouter();
