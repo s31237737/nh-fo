@@ -380,5 +380,15 @@ section + section {
       }
     }
   }
+  @at-root .mobile, .tablet {
+    .v-list.board-list {
+      .v-list-item {
+        &-title {
+          strong {
+            @include line-clamp(2);
+          }
+        }
+      }
+    }
+  }
 }
-
