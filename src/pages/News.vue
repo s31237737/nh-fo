@@ -63,16 +63,28 @@
       v-model="tab"
       class="tab-container"
     >
-      <v-window-item :value="0">
+      <v-window-item
+        key="tab-0"
+        :value="0"
+      >
         <NewsTab01 />
       </v-window-item>
-      <v-window-item :value="1">
+      <v-window-item
+        key="tab-1"
+        :value="1"
+      >
         <NewsTab02 />
       </v-window-item>
-      <v-window-item :value="2">
+      <v-window-item
+        key="tab-2"
+        :value="2"
+      >
         <NewsTab03 />
       </v-window-item>
-      <v-window-item :value="3">
+      <v-window-item
+        key="tab-3"
+        :value="3"
+      >
         <NewsTab04 />
       </v-window-item>
     </v-window>
@@ -101,6 +113,7 @@ const route = useRoute();
 const router = useRouter();
 
 const tab = ref(route.query.tab ? Number(route.query.tab) : 0);
+
 watch(tab, (newTab) => {
   if (newTab !== Number(route.query.tab)) {
     router.replace({ query: { tab: newTab } });
@@ -108,11 +121,10 @@ watch(tab, (newTab) => {
 });
 
 watch(() => route.query.tab, (newTab) => {
-  if (newTab !== undefined) {
+  if (newTab !== undefined && Number(newTab) !== tab.value) {
     tab.value = Number(newTab);
   }
 });
-
 
 const tabBtn = ref([
   { btn: "새소식" },
