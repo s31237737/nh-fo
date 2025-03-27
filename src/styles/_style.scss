@@ -344,7 +344,10 @@ section + section {
     }
     &__prepend {
       @extend .text-3;
-      width: 34px;
+      max-width: 34px;
+      span {
+        width: 34px;
+      }
       align-self: flex-start;
     }
     .info {
