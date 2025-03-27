@@ -12,8 +12,11 @@ import pages from 'virtual:generated-pages';
 
 const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
-    if (to.path.startsWith('/news')) {
-      return savedPosition || false;
+     if (to.path === from.path && to.path.startsWith('/news')) {
+      return false;
+    }
+    if (savedPosition) {
+      return savedPosition;
     }
     return { top: 0 };
   },
