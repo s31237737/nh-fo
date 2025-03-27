@@ -122,6 +122,7 @@
             show-arrows
             prev-icon="custom:slide-prev"
             next-icon="custom:slide-next"
+            :center-active="false"
           >
             <!-- 고정된 버튼 -->
             <v-slide-group-item>
@@ -147,7 +148,7 @@
               :key="item.selectId"
             >
               <div class="slide-select">
-                <label :for="item.selectId">
+                <label>
                   {{ item.label }}
                 </label>
                 <v-select
@@ -157,7 +158,6 @@
                   density="comfortable"
                   :items="item.options"
                   :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
-                  center-active
                 />
               </div>
             </v-slide-group-item>
