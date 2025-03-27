@@ -341,12 +341,12 @@ section + section {
       @extend .text-3;
     }
     &__prepend {
-      max-width: 42px;
+      max-width: 34px;
       align-self: flex-start;
     }
     .info {
       display: flex;
-      gap: 7px;
+      gap: 9px;
       align-items: center;
       span {
         position: relative;

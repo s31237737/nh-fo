@@ -1,33 +1,35 @@
 <template>
-  <v-list
-    class="board-list"
-  >
+  <!-- 게시판 리스트 -->
+  <v-list class="board-list">
     <template
-      v-for="(item, index) in boardItem"
+      v-for="(item, index) in paginatedItems"
       :key="item.id"
     >
+      <!-- 리스트 아이템 -->
       <v-list-item :to="item.link">
+        <!-- 공지 아이콘 -->
         <template #prepend>
           <v-icon
             v-if="item.notice"
             icon="custom:fix"
           />
         </template>
+        <!-- 제목 -->
         <v-list-item-title>
           <span>{{ item.title }}</span>
-          <!-- to: 개발 /검색어 강조시 활용 -->
+          <!-- 검색어 강조 예제 -->
           <!-- <strong class="text-success">파란글씨</strong> -->
         </v-list-item-title>
+        <!-- 날짜 및 조회수 -->
         <v-list-item-subtitle>
           <div class="info">
             <span>{{ item.date }}</span>
             <span>
-              <v-icon
-                icon="custom:view"
-              />
+              <v-icon icon="custom:view" />
               {{ item.views }}
             </span>
           </div>
+          <!-- 첨부파일 아이콘 -->
           <div class="files">
             <v-icon
               v-if="item.attachment"
@@ -36,16 +38,19 @@
           </div>
         </v-list-item-subtitle>
       </v-list-item>
+      <!-- 리스트 구분선 -->
       <v-divider
-        v-if="index < boardItem.length - 1"
+        v-if="index < paginatedItems.length - 1"
         color="secondary"
       />
     </template>
   </v-list>
+
+  <!-- 페이지네이션 -->
   <Pagination
+    v-model="page"
     :total-items="boardItem.length"
     :items-per-page="itemsPerPage"
-    @paging="page = $event.page"
   />
 </template>
 
@@ -59,7 +64,11 @@ const isDesktop = inject("isDesktop");
 
 const page = ref(1);
 const itemsPerPage = ref(10);
-
+// 현재 페이지의 데이터만 가져옴
+const paginatedItems = computed(() => {
+  const start = (page.value - 1) * itemsPerPage.value;
+  return boardItem.value.slice(start, start + itemsPerPage.value);
+});
 const boardItem = ref([
   {
     id: 1,
@@ -90,6 +99,186 @@ const boardItem = ref([
   },
   {
     id: 4,
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    notice: false,
+    attachment: false,
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 5,
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    notice: true,
+    attachment: true,
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 6,
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: false,
+    attachment: true,
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 7,
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: true,
+    attachment: false,
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 8,
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    notice: false,
+    attachment: false,
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 9,
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    notice: true,
+    attachment: true,
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 10,
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: false,
+    attachment: true,
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 11,
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: true,
+    attachment: false,
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 12,
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    notice: false,
+    attachment: false,
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 13,
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    notice: true,
+    attachment: true,
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 14,
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: false,
+    attachment: true,
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 15,
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: true,
+    attachment: false,
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 16,
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    notice: false,
+    attachment: false,
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 17,
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    notice: true,
+    attachment: true,
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 18,
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: false,
+    attachment: true,
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 19,
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: true,
+    attachment: false,
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 20,
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    notice: false,
+    attachment: false,
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 21,
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    notice: true,
+    attachment: true,
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 22,
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: false,
+    attachment: true,
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 23,
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    notice: true,
+    attachment: false,
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 24,
     title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
     notice: false,
     attachment: false,

@@ -3,7 +3,7 @@
     <v-btn
       :ripple="false"
       icon="custom:arrow-first"
-      :disabled="currentPage === 1"
+      :disabled="modelValue === 1"
       color="info"
       @click="goToPage(1)"
     />
@@ -11,9 +11,9 @@
     <v-btn
       :ripple="false"
       icon="custom:arrow-prev"
-      :disabled="currentPage === 1"
+      :disabled="modelValue === 1"
       color="info"
-      @click="goToPage(currentPage - 1)"
+      @click="goToPage(modelValue - 1)"
     />
 
     <div class="numbers">
@@ -21,7 +21,7 @@
         v-for="page in pageNumbers"
         :key="page"
         :ripple="false"
-        :color="currentPage === page ? 'primary' : 'info'"
+        :color="modelValue === page ? 'primary' : 'info'"
         @click="goToPage(page)"
       >
         {{ page }}
@@ -31,15 +31,15 @@
     <v-btn
       :ripple="false"
       icon="custom:arrow-next"
-      :disabled="currentPage === totalPages"
+      :disabled="modelValue === totalPages"
       color="info"
-      @click="goToPage(currentPage + 1)"
+      @click="goToPage(modelValue + 1)"
     />
 
     <v-btn
       :ripple="false"
       icon="custom:arrow-last"
-      :disabled="currentPage === totalPages"
+      :disabled="modelValue === totalPages"
       color="info"
       @click="goToPage(totalPages)"
     />
@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { computed } from 'vue';
 
 const props = defineProps({
   totalItems: {
@@ -58,46 +58,31 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  currentPage: {
+  modelValue: {
     type: Number,
     default: 1,
   },
 });
 
-const emit = defineEmits(['paging']);
+const emit = defineEmits(['update:modelValue']);
 
-const totalPages = computed(() => {
-  return Math.ceil(props.totalItems / props.itemsPerPage);
-});
+const totalPages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage));
 
-const currentPage = ref(props.currentPage);
-
-watch(() => props.itemsPerPage, () => {
-  currentPage.value = 1;
-   emit('paging', { page: currentPage.value });
-});
 
 const pageNumbers = computed(() => {
-  const pageLimit = 5; // 최대 페이지 번호 수
-  let startPage = Math.max(1, currentPage.value - Math.floor(pageLimit / 2));
-  let endPage = Math.min(totalPages.value, currentPage.value + Math.floor(pageLimit / 2));
+  const maxVisible = 5;
+  let start = Math.max(1, props.modelValue - Math.floor(maxVisible / 2));
+  let end = Math.min(totalPages.value, start + maxVisible - 1);
 
-  if (endPage - startPage < pageLimit - 1) {
-    if (startPage === 1) {
-      endPage = Math.min(totalPages.value, startPage + pageLimit - 1);
-    } else {
-      startPage = Math.max(1, endPage - pageLimit + 1);
-    }
+  if (end - start < maxVisible - 1) {
+    start = Math.max(1, end - maxVisible + 1);
   }
 
-  return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i); // 페이지 번호 배열 생성
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 });
 
 const goToPage = (page) => {
-  if (page < 1) page = 1;
-  if (page > totalPages.value) page = totalPages.value;
-
-  currentPage.value = page;
-  emit('paging', { page: currentPage.value });
+  if (page < 1 || page > totalPages.value) return;
+  emit('update:modelValue', page);
 };
 </script>
