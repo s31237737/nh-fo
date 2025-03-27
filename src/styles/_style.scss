@@ -392,8 +392,28 @@ section + section {
     }
   }
 }
-
 .tab-container {
+  .board-list {
+    margin-top: 40px;
+  }
+  @at-root .mobile, .tablet {
+    .tab-container {
+      .board-list {
+        margin-top: 24px;
+      }
+    }
+  } 
+}
+.sub-tab {
+  .v-slide-group {
+    &__content {
+      gap: 20px !important;
+    }
+    .v-tab.v-btn {
+      min-width: auto;
+      padding: 0;
+    }
+  }
   .v-window-item {
     transition: none !important;
   }
