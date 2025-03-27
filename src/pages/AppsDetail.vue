@@ -273,18 +273,7 @@ const cardRecommend2 = ref([
     showOpenApp: false,
     likeCount: 0,
   },
-  {
-    link: "AppsDetail",
-    title: "6공통총무알리미",
-    subtitle: "총무형",
-    badges: [
-      { text: "NEW", color: "success" },
-      { text: "추천", color: "purple" },
-    ],
-    inUse: false,
-    showOpenApp: false,
-    likeCount: 555,
-  },
+  
 ]);
 
 </script>
