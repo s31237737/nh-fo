@@ -283,15 +283,6 @@
       }
     }
   }
-  @at-root .mobile, .tablet {
-    .appcard-list {
-      position: relative;
-      padding-top: 44px;
-      .v-btn-toggle {
-        top: 0;
-      }
-    }
-  }
 }
 .appcard-list_btn {
   margin-top: 40px;
@@ -410,22 +401,31 @@
     }
   }
   @at-root .mobile, .tablet {
-    .appcard-list-form {
-      position: sticky;
-      top: 56px;
-      z-index: 1;
-      .top {
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: end;
-        .search-inp { 
-          width: 100%;
-          max-width: 100%;
-          margin-right: 0;
+    .relative {
+      .appcard-list-form {
+        position: sticky;
+        top: 56px;
+        z-index: 1;
+        .top {
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: end;
+          .search-inp { 
+            width: 100%;
+            max-width: 100%;
+            margin-right: 0;
+          }
+        }
+        .bottom {
+          margin-top: 12px;
         }
       }
-      .bottom {
-        margin-top: 12px;
+      .appcard-list {
+        position: relative;
+        padding-top: 44px;
+        .v-btn-toggle {
+          top: 0;
+        }
       }
     }
   }
