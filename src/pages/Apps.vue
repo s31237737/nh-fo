@@ -155,12 +155,12 @@
                 </label>
                 <v-select
                   :id="item.selectId"
+                  ref="selectRefs"
                   v-model="item.selected"
                   rounded="pill"
                   density="comfortable"
                   :items="item.options"
-                  :menu-props="{ auto: true, maxHeight: '208px', maxWidth: '100%' }"
-                  @click.stop
+                  :menu-props="{ auto: true, maxHeight: '208px' }"
                 />
               </div>
             </v-slide-group-item>
@@ -574,8 +574,8 @@ const slideData = ref([
   { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
   { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
 ]);
-const selectRefs = ref([]);
 
+const selectRefs = ref([]);
 const closeDropdown = (event) => {
   if (!selectRefs.value.some(select => select?.$el.contains(event.target))) {
     document.activeElement?.blur(); // 드롭다운 닫기
