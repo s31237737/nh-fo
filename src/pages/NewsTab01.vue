@@ -16,7 +16,7 @@
         </template>
         <!-- 제목 -->
         <v-list-item-title>
-          <span>{{ item.title }}</span>
+          <strong>{{ item.title }}</strong>
           <!-- 검색어 강조 예제 -->
           <!-- <strong class="text-success">파란글씨</strong> -->
         </v-list-item-title>
@@ -55,20 +55,15 @@
 </template>
 
 <script setup>
-import { ref, inject } from "vue";
-
-const isMobile = inject("isMobile");
-const isTablet = inject("isTablet");
-const isDesktop = inject("isDesktop");
-
+import { ref, computed } from "vue";
 
 const page = ref(1);
 const itemsPerPage = ref(10);
-// 현재 페이지의 데이터만 가져옴
 const paginatedItems = computed(() => {
   const start = (page.value - 1) * itemsPerPage.value;
   return boardItem.value.slice(start, start + itemsPerPage.value);
 });
+
 const boardItem = ref([
   {
     id: 1,
@@ -82,7 +77,7 @@ const boardItem = ref([
   {
     id: 2,
     title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: false,
+    notice: true,
     attachment: true,
     date: "2025.03.23",
     views: 456,
@@ -91,7 +86,7 @@ const boardItem = ref([
   {
     id: 3,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
+    notice: false,
     attachment: false,
     date: "2025.03.22",
     views: 789,
@@ -109,7 +104,7 @@ const boardItem = ref([
   {
     id: 5,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: true,
+    notice: false,
     attachment: true,
     date: "2025.03.24",
     views: 123,
@@ -127,7 +122,7 @@ const boardItem = ref([
   {
     id: 7,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
+    notice: false,
     attachment: false,
     date: "2025.03.22",
     views: 789,
@@ -145,7 +140,7 @@ const boardItem = ref([
   {
     id: 9,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: true,
+    notice: false,
     attachment: true,
     date: "2025.03.24",
     views: 123,
@@ -163,7 +158,7 @@ const boardItem = ref([
   {
     id: 11,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
+    notice: false,
     attachment: false,
     date: "2025.03.22",
     views: 789,
@@ -181,7 +176,7 @@ const boardItem = ref([
   {
     id: 13,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: true,
+    notice: false,
     attachment: true,
     date: "2025.03.24",
     views: 123,
@@ -199,7 +194,7 @@ const boardItem = ref([
   {
     id: 15,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
+    notice: false,
     attachment: false,
     date: "2025.03.22",
     views: 789,
@@ -217,7 +212,7 @@ const boardItem = ref([
   {
     id: 17,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: true,
+    notice: false,
     attachment: true,
     date: "2025.03.24",
     views: 123,
@@ -235,7 +230,7 @@ const boardItem = ref([
   {
     id: 19,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
+    notice: false,
     attachment: false,
     date: "2025.03.22",
     views: 789,
@@ -253,7 +248,7 @@ const boardItem = ref([
   {
     id: 21,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
-    notice: true,
+    notice: false,
     attachment: true,
     date: "2025.03.24",
     views: 123,
@@ -271,7 +266,7 @@ const boardItem = ref([
   {
     id: 23,
     title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
-    notice: true,
+    notice: false,
     attachment: false,
     date: "2025.03.22",
     views: 789,
