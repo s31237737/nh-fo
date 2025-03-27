@@ -159,11 +159,7 @@
                   rounded="pill"
                   density="comfortable"
                   :items="item.options"
-                  :menu-props="{ 
-                    maxHeight: '208px', 
-                    location: 'bottom'
-                  }"
-                  ,
+                  :menu-props="{ maxHeight: '208px', location: 'bottom'}"
                   @mousedown.stop="stopAutoScroll"
                 />
               </div>
