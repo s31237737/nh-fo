@@ -121,7 +121,7 @@
           class="bottom"
         >
           <v-slide-group
-            show-arrows
+            :show-arrows="!isMobile"
             prev-icon="custom:slide-prev"
             next-icon="custom:slide-next"
             :center-active="false"
@@ -150,9 +150,9 @@
               :key="inedx"
             >
               <div class="slide-select">
-                <label>
+                <span>
                   {{ item.label }}
-                </label>
+                </span>
                 <v-select
                   ref="selectRefs"
                   v-model="item.selected"
@@ -160,7 +160,6 @@
                   density="comfortable"
                   :items="item.options"
                   :menu-props="{ maxHeight: '208px', location: 'bottom'}"
-                  @mousedown.stop="stopAutoScroll"
                 />
               </div>
             </v-slide-group-item>
@@ -552,11 +551,12 @@
 </template>
 
 <script setup>
-import { ref, inject, onMounted, onUnmounted } from 'vue';
+import { ref, inject, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const isDesktop = inject("isDesktop");
+const isMobile = inject("isMobile");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
@@ -581,11 +581,6 @@ const closeDropdown = (event) => {
     document.activeElement?.blur(); // 드롭다운 닫기
   }
 };
-const stopAutoScroll = (event) => {
-  event.stopPropagation(); // 부모 요소(v-slide-group)의 이벤트 전파 방지
-  event.preventDefault();  // 기본 동작 방지
-};
-
 onMounted(() => {
   window.addEventListener('touchstart', closeDropdown);
   window.addEventListener('scroll', closeDropdown);
@@ -595,6 +590,7 @@ onUnmounted(() => {
   window.removeEventListener('touchstart', closeDropdown);
   window.removeEventListener('scroll', closeDropdown);
 });
+
 
 //keyvisual
 const sliders = ref([
