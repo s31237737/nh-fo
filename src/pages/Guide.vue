@@ -1401,12 +1401,12 @@
     <!-- 컨텐츠 배너 -->
     <section>
       <div
-        class="line-banner-wrap"
+        class="apps-banner-wrap"
         :class="{ 'clickable': banner.url }"
       >
         <v-img
           role="banner"
-          class="line-banner"
+          class="apps-banner"
           :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
           @click="bannerClick(banner)"
         >

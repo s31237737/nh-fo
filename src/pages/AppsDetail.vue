@@ -18,12 +18,12 @@
     <!-- 컨텐츠 배너 -->
     <section>
       <div
-        class="line-banner-wrap"
+        class="apps-banner-wrap"
         :class="{ 'clickable': banner.link }"
       >
         <v-img
           role="banner"
-          class="line-banner"
+          class="apps-banner"
           :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
           @click="bannerClick(banner)"
         >
@@ -54,7 +54,7 @@
             :key="index"
             :to="card.link"
             :ripple="false"
-            class="appcard"
+            class="apps"
           >
             <div class="d-flex align-center">
               <!-- btn: 좋아요 -->

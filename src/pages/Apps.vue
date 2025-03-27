@@ -1,10 +1,11 @@
 <template>
-  <!-- banner slider -->
-  <div class="slider keyvisual">
+  <!-- 사용자 맞춤형 앱 추천 배너 -->
+  <div class="slider apps-slide-banner">
     <v-carousel
       v-model="currentSlide"
       :continuous="autoplay"
       :cycle="autoplay"
+      :height="!isMobile ? '548': '526'"
     >
       <v-carousel-item
         v-for="(slide, index) in sliders"
@@ -15,7 +16,7 @@
       >
         <template v-if="slide.type === 'recommand'">
           <!-- type 1: 앱 타입 -->
-          <div class="visual-content">
+          <div class="apps-slide-content">
             <div class="context">
               <span class="apptype">{{ slide.apptype }}</span>
               <strong class="title">{{ slide.title }}</strong>
@@ -25,7 +26,9 @@
                 {{ slide.description }}
               </p>
             </div>
-            <div class="context-img">
+            <div
+              class="context-img"
+            >
               <v-img
                 :src="getImageUrl(slide.image)"
                 :alt="slide.alt"
@@ -36,13 +39,13 @@
 
         <template v-else-if="slide.type === 'img-type1'">
           <!-- 타입2-1: 배경이미지 + 타이틀 + 텍스트 -->
-          <div class="visual-bg">
+          <div class="apps-slide-bg">
             <img
               :src="getImageUrl(slide.background)"
               alt="배경이미지"
             >
           </div>
-          <div class="visual-content">
+          <div class="apps-slide-content">
             <div class="context">
               <strong class="title">{{ slide.title }}</strong>
               <p
@@ -57,7 +60,7 @@
         <template v-else-if="slide.type === 'img-type2'">
           <!-- 타입2-2: 배경이미지 + 타이틀/ 타입2-3: 배경이미지 -->
           <div
-            class="visual-bg"
+            class="apps-slide-bg"
             :class="slide.addClass"
           >
             <img
@@ -66,7 +69,7 @@
             >
           </div>
           <div
-            class="visual-content"
+            class="apps-slide-content"
             :class="{ hidden: slide.hiddenContent }"
           >
             <div
@@ -90,13 +93,12 @@
       @update:autoplay="autoplay = $event"
     />
   </div>
-  <!--// banner slider -->
 
   <!-- contents area -->
   <v-container
     class="inner"
   >
-    <!-- 앱: 전체 리스트 -->
+    <!-- 앱 전체 리스트 -->
     <section class="relative">
       <div class="tit-wrap">
         <strong class="title-2">
@@ -105,20 +107,18 @@
       </div>
 
       <!-- scroll -->
-      <div class="appcard-list-form">
-        <div class="top">
-          <v-text-field
-            v-model="searchApps"
-            class="search-inp round"
-            placeholder="앱코드, 앱 이름을 검색해주세요."
-            append-inner-icon="custom:search"
-            rounded="pill"
-            bg-color="white"
-            @click:append-inner="onAppendClick"
-          />
-        </div>
+      <div class="apps-search-wrap">
+        <v-text-field
+          v-model="searchApps"
+          class="search-inp round"
+          placeholder="앱코드, 앱 이름을 검색해주세요."
+          append-inner-icon="custom:search"
+          rounded="pill"
+          bg-color="white"
+          @click:append-inner="onAppendClick"
+        />
         <div
-          class="bottom"
+          class="apps-search-ctg"
         >
           <v-slide-group
             :show-arrows="!isMobile"
@@ -128,10 +128,10 @@
           >
             <!-- 고정된 버튼 -->
             <v-slide-group-item>
-              <div class="slide-select">
-                <label>
+              <div class="apps-category">
+                <span>
                   직무
-                </label>
+                </span>
                 <v-btn
                   class="btn-selectJob"
                   rounded="pill"
@@ -146,12 +146,12 @@
 
             <!-- 최대 4개의 v-select 요소 -->
             <v-slide-group-item
-              v-for="(item, inedx) in slideData"
+              v-for="(item, inedx) in appsCategory"
               :key="inedx"
             >
-              <div class="slide-select">
+              <div class="apps-category">
                 <span>
-                {{ item.label }}
+                  {{ item.label }}
                 </span>
                 <v-select
                   ref="selectRefs"
@@ -167,7 +167,7 @@
 
             <!-- 고정된 버튼 -->
             <v-slide-group-item>
-              <div class="slide-select">
+              <div class="apps-category">
                 <v-btn
                   color="white"
                   icon="custom:refresh"
@@ -180,7 +180,7 @@
       </div>
 
       <!-- 앱 목록  -->
-      <div class="appcard-list">
+      <div class="apps-list">
         <v-btn-toggle
           v-model="sort"
           color="primary"
@@ -199,10 +199,10 @@
           </v-btn>
         </v-btn-toggle>
         <v-row
-          v-if="cardData.length"
+          v-if="appsData.length"
         >
           <v-col
-            v-for="(card, index) in cardData"
+            v-for="(card, index) in appsData"
             :key="index"
             lg="4"
             md="6"
@@ -211,19 +211,17 @@
             <v-card
               :ripple="false"
               :to="card.link"
-              class="appcard"
+              class="apps"
             >
-              <div class="appcard-top">
-                <div>
-                  <v-img
-                    class="thumnail"
-                    :src="getImageUrl(card.imageSrc)"
-                    alt="앱 아이콘"
-                    cover
-                  />
-                </div>
-                <!-- 배지 (최대 3개) -->
-                <div class="flag-wrap r">
+              <div class="apps-top">
+                <v-img
+                  class="thumnail"
+                  :src="getImageUrl(card.imageSrc)"
+                  alt="앱 아이콘"
+                  cover
+                />
+                <!-- 플래그(최대 3개) -->
+                <div class="flag-wrap">
                   <v-chip
                     v-for="(badge, idx) in card.badges.slice(0, 3)"
                     :key="idx"
@@ -234,7 +232,7 @@
                     {{ badge.text }}
                   </v-chip>
 
-                  <!-- 상태 배지 (필요할 때만 표시) -->
+                  <!-- 필요할 때만 표시 -->
                   <v-chip
                     v-if="card.inUse"
                     class="flag"
@@ -244,7 +242,7 @@
                   </v-chip>
                 </div>
               </div>
-              <div class="appcard-bottom">
+              <div class="apps-bottom">
                 <!-- 제목 -->
                 <v-card-title class="title-4 line-clamp">
                   {{ card.title }}
@@ -266,9 +264,9 @@
           :height="isDesktop ? '720': '440'"
         />
       </div>
-      <div class="appcard-list_btn">
+      <div class="apps-list-more">
         <v-btn
-          v-if="cardData.length"
+          v-if="appsData.length"
           variant="text"
           density="compact"
           append-icon="custom:arrow-down"
@@ -283,37 +281,33 @@
     <!-- 컨텐츠 배너 -->
     <section>
       <div
-        class="line-banner-wrap"
-        :class="{ 'clickable': banner.link }"
+        role="banner"
+        class="apps-banner"
+        :class="{ 'clickable': appsBanner.link }"
+        :style="{ backgroundImage: 'url('+getImageUrl(appsBanner.imageUrl)+')' }"
+        @click="bannerClick(appsBanner)"
       >
-        <v-img
-          role="banner"
-          class="line-banner"
-          :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
-          @click="bannerClick(banner)"
-        >
-          <div class="description">
-            <p>
-              {{ banner.description }}
-            </p>
-          </div>
-        </v-img>
+        <div class="description">
+          <p>
+            {{ appsBanner.description }}
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- 앱: 좋아요 리스트 (최소 4개 노출)-->
+    <!-- 좋아요 리스트 -->
     <section>
       <div class="tit-wrap">
         <strong class="title-2">
           가장 많은 좋아요를 받았어요!
         </strong>
       </div>
-      <div class="appcard-list-wrap">
+      <div class="apps-list-grid">
         <!-- 앱 목록(type2) -->
-        <div class="appcard-list type2">
+        <div class="apps-list recomm">
           <v-row>
             <v-col
-              v-for="(card, index) in cardRecommend"
+              v-for="(card, index) in appsData_recomm"
               :key="index"
               md="6"
               sm="12"
@@ -321,9 +315,9 @@
               <v-card
                 :ripple="false"
                 :to="card.link"
-                class="appcard"
+                class="apps"
               >
-                <div class="appcard-top">
+                <div class="apps-top">
                   <div class="icon-text">
                     <v-icon
                       class="like"
@@ -332,8 +326,9 @@
                     />
                     <span>{{ card.likeCount }}</span>
                   </div>
-                  <!-- 배지 (최대 3개) -->
-                  <div class="flag-wrap r">
+
+                  <!-- 플래그(최대 3개) -->
+                  <div class="flag-wrap">
                     <v-chip
                       v-for="(badge, idx) in card.badges.slice(0, 3)"
                       :key="idx"
@@ -344,7 +339,7 @@
                       {{ badge.text }}
                     </v-chip>
 
-                    <!-- 상태 배지 (필요할 때만 표시) -->
+                    <!-- 필요할 때만 표시 -->
                     <v-chip
                       v-if="card.inUse"
                       class="flag"
@@ -354,9 +349,8 @@
                     </v-chip>
                   </div>
                 </div>
-                <div class="appcard-bottom">
+                <div class="apps-bottom">
                   <div class="context">
-                    <!-- 제목 -->
                     <v-card-subtitle class="line-clamp">
                       {{ card.subtitle }}
                     </v-card-subtitle>
@@ -364,7 +358,7 @@
                       {{ card.title }}
                     </v-card-title>
                   </div>
-                  <div class="btns">
+                  <div class="apps-bottom-btns">
                     <v-btn
                       v-if="card.showOpenApp"
                       color="info"
@@ -388,7 +382,7 @@
         </div>
         <div
           v-if="isDesktop"
-          class="fix_item"
+          class="apps-side-img"
         >
           <img
             src="../assets/images/img_apps_banner_01.png"
@@ -398,7 +392,7 @@
       </div>
     </section>
 
-    <!-- 앱: 많이 쓰는 리스트 -->
+    <!-- 많이 쓰는 리스트 -->
     <section>
       <div class="tit-wrap">
         <strong class="title-2">
@@ -406,12 +400,12 @@
         </strong>
       </div>
       <!-- 앱 목록(type2) -->
-      <div class="appcard-list type2">
+      <div class="apps-list recomm">
         <v-row
-          v-if="cardRecommend2.length"
+          v-if="appsData_recomm2.length"
         >
           <v-col
-            v-for="(card, index) in cardRecommend2"
+            v-for="(card, index) in appsData_recomm2"
             :key="index"
             lg="4"
             md="6"
@@ -420,10 +414,9 @@
             <v-card
               :to="card.link"
               :ripple="false"
-              class="appcard"
+              class="apps"
             >
-              <div class="appcard-top">
-                <!-- btn: 좋아요 -->
+              <div class="apps-top">
                 <div class="icon-text">
                   <v-icon
                     class="like"
@@ -432,8 +425,8 @@
                   />
                   <span>{{ card.likeCount }}</span>
                 </div>
-                <!-- 배지 (최대 3개) -->
-                <div class="flag-wrap r">
+                <!-- 플래그(최대 3개) -->
+                <div class="flag-wrap">
                   <v-chip
                     v-for="(badge, idx) in card.badges.slice(0, 3)"
                     :key="idx"
@@ -444,7 +437,7 @@
                     {{ badge.text }}
                   </v-chip>
 
-                  <!-- 상태 배지 (필요할 때만 표시) -->
+                  <!-- 필요할 때만 표시 -->
                   <v-chip
                     v-if="card.inUse"
                     class="flag"
@@ -454,7 +447,7 @@
                   </v-chip>
                 </div>
               </div>
-              <div class="appcard-bottom">
+              <div class="apps-bottom">
                 <div class="context">
                   <!-- 제목 -->
                   <v-card-subtitle class="line-clamp">
@@ -464,7 +457,7 @@
                     {{ card.title }}
                   </v-card-title>
                 </div>
-                <div class="btns">
+                <div class="apps-bottom-btns">
                   <v-btn
                     v-if="card.showOpenApp"
                     color="info"
@@ -509,7 +502,7 @@
     </section>
   </v-container>
 
-  <!-- alert -->
+  <!-- alert(sample) -->
   <v-dialog
     v-model="alert"
     class="popup-sm"
@@ -562,13 +555,55 @@ const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
 
-//app search
+
+/* apps-slide-banner */
+const sliders = ref([
+  {
+    type: "recommand",
+    apptype: "안성맞춤 앱 추천",
+    title: "농협식품R&D연구소",
+    description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스",
+    image: "@temp_img_apps_visual_02.png", //앱 관련 이미지
+    link: "AppsDetail", //랜딩 설정
+  },
+  {
+    type: "img-type1",
+    title: "등록된 제목 (최대 15자 노출)",
+    description: "관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출)",
+    background: "@temp_img_apps_visual_01.png", //배경이미지
+  },
+  {
+    type: "img-type2",
+    title: "등록된 제목 (최대 15자 노출)",
+    background: "@temp_img_apps_visual_01.png", //배경이미지
+    addClass: "center"
+  },
+  {
+    type: "img-type2",
+    background: "@temp_img_apps_visual_01.png", //배경이미지
+    addClass: "center",
+    hiddenContent: "hidden",
+  },
+]);
+const currentSlide = ref(0);
+const autoplay = ref(true);
+const handleClick = (slide) => {
+  if (!slide.link) {
+    return; // link 없으면 아무 동작 X
+  } else {
+    router.push(slide.link);
+  }
+};
+
+
+/* apps-search-wrap */
 const searchApps = ref("");
 const onAppendClick = () => {
   alert("Append icon clicked!");
 };
-const sort = ref(0);
-const slideData = ref([
+
+const selectRefs = ref([]);
+const appsCategory = ref([
   { label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
   { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
   { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
@@ -576,12 +611,12 @@ const slideData = ref([
   { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
 ]);
 
-const selectRefs = ref([]);
 const closeDropdown = (event) => {
   if (!selectRefs.value.some(select => select?.$el.contains(event.target))) {
     document.activeElement?.blur(); // 드롭다운 닫기
   }
 };
+
 onMounted(() => {
   window.addEventListener('touchstart', closeDropdown);
   window.addEventListener('scroll', closeDropdown);
@@ -593,49 +628,10 @@ onUnmounted(() => {
 });
 
 
-//keyvisual
-const sliders = ref([
-  {
-    type: "recommand",
-    link: "AppsDetail",
-    apptype: "안성맞춤 앱 추천",
-    title: "농협식품R&D연구소",
-    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
-    image: "@temp_img_apps_visual_02.png",
-  },
-  {
-    type: "img-type1",
-    title: "두 번째 배너두 번째 배너 설명",
-    description: `두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명두 번째 배너 설명`,
-    background: "@temp_img_apps_visual_01.png",
-  },
-  {
-    type: "img-type2",
-    title: "세 번째 배너",
-    background: "@temp_img_apps_visual_01.png",
-    addClass: "center"
-  },
-  {
-    type: "img-type2",
-    background: "@temp_img_apps_visual_01.png",
-    addClass: "center",
-    hiddenContent: "hidden",
-    alt: "배경이미지",
-  },
-]);
-const handleClick = (slide) => {
-  if (!slide.link) {
-    return; // link 없으면 아무 동작 X
-  } else {
-    router.push(slide.link);
-  }
-};
-const currentSlide = ref(0);
-const autoplay = ref(true);
-
-//앱 전체 목록
+//apps-list
+const sort = ref(0);
 const alert = ref(false); //"앱 열기" 팝업
-const cardData = ref([
+const appsData = ref([
   {
     link: "AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
@@ -744,7 +740,7 @@ const cardData = ref([
 ]);
 
 //앱 좋아요 목록
-const cardRecommend = ref([
+const appsData_recomm = ref([
   {
     link: "AppsDetail",
     title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
@@ -798,57 +794,57 @@ const cardRecommend = ref([
 ]);
 
 //앱 추천 목록
-const cardRecommend2 = ref([
-  // {
-  //   link: "AppsDetail",
-  //   title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
-  //   subtitle: "총무형",
-  //   badges: [
-  //     { text: "NEW", color: "success" },
-  //     { text: "추천", color: "purple" },
-  //     { text: "HOT", color: "pink" }
-  //   ],
-  //   inUse: true,
-  //   showOpenApp: true,
-  //   likeCount: 999,
-  // },
-  // {
-  //   link: "AppsDetail",
-  //   title: "공통총무알리미",
-  //   subtitle: "총무형",
-  //   badges: [
-  //     { text: "NEW", color: "success" },
-  //     { text: "추천", color: "purple" },
-  //     { text: "HOT", color: "pink" }
-  //   ],
-  //   inUse: true,
-  //   showOpenApp: false,
-  //   likeCount: 0,
-  // },
-  // {
-  //   link: "AppsDetail",
-  //   title: "공통총무알리미",
-  //   subtitle: "총무형",
-  //   badges: [
-  //     { text: "NEW", color: "success" },
-  //     { text: "추천", color: "purple" },
-  //   ],
-  //   inUse: false,
-  //   showOpenApp: false,
-  //   likeCount: 555,
-  // },
+const appsData_recomm2 = ref([
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 999,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: false,
+    likeCount: 0,
+  },
+  {
+    link: "AppsDetail",
+    title: "공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+    ],
+    inUse: false,
+    showOpenApp: false,
+    likeCount: 555,
+  },
 ]);
 
 //배너
-const banner = ref({
+const appsBanner = ref({
   imageUrl: "img_apps_banner_02.png",
   description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
-const bannerClick = (banner) => {
-  if (!banner.link) {
+const appsBannerClick = (appsBanner) => {
+  if (!appsBanner.link) {
     return; // link 없으면 아무 동작 X
   } else {
-    router.push(banner.link);
+    router.push(appsBanner.link);
   }
 };
 </script>
