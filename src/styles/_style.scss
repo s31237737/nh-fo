@@ -322,7 +322,6 @@ section + section {
   padding: 0;
   border-radius: 10px;
   .v-list-item {
-    min-height: 90px;
     padding: 20px !important;
     &-title {
       display: flex;
@@ -338,6 +337,7 @@ section + section {
       justify-content: space-between;
       gap: 12px;
       align-items: center;
+      margin-top: 2px;
       @extend .text-3;
     }
     &__prepend {
