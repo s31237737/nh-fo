@@ -36,7 +36,16 @@
             activator="parent"
           >
             <v-card>
-              <v-list :items="gnbItems" />
+              <v-list>
+                <v-list-item
+                  v-for="item in gnbItems"
+                  :key="item.value"
+                  :to="item.props.to"
+                  :active="activeTab === item.value"
+                >
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
             </v-card>
           </v-menu>
         </v-btn>
@@ -133,6 +142,8 @@
 
 <script setup>
 import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute();
 
 const isDesktop = inject('isDesktop');
 const searchDrawer = ref(false);
@@ -179,31 +190,34 @@ const onExtendClick = () => {
 };
 
 // gnb
+const activeTab = computed(() => {
+  return route.query.tab !== undefined ? Number(route.query.tab) : null;
+});
 const gnbItems = ref([
   {
     title: '새소식',
-    value: 1,
+    value: 0,
     props: {
       to: { path: "News", query: { tab: 0 } }
     },
   },
    {
     title: '자주 묻는 질문',
-    value: 2,
+    value: 1,
     props: {
       to: { path: "News", query: { tab: 1 } }
     },
   },
   {
     title: 'Q&A',
-    value: 3,
+    value: 2,
     props: {
      to: { path: "News", query: { tab: 2 } }
     },
   },
   {
     title: '앱 가이드',
-    value: 4,
+    value: 3,
     props: {
       to: { path: "News", query: { tab: 3 } }
     },

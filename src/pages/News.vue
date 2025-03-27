@@ -89,7 +89,6 @@ import NewsTab04 from "@/pages/NewsTab04.vue";
 
 
 const route = useRoute();
-const router = useRouter();
 
 // 라우터 쿼리 파라미터에서 탭 값 읽기
 const updateTabFromQuery = () => {
