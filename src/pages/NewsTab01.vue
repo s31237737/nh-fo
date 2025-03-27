@@ -26,7 +26,7 @@
             <span>{{ item.date }}</span>
             <span>
               <v-icon icon="custom:view" />
-              {{ item.views }}
+              {{ item.views > 999 ? '999+' : item.views }}
             </span>
           </div>
           <!-- 첨부파일 아이콘 -->
@@ -76,7 +76,7 @@ const boardItem = ref([
     notice: true,
     attachment: true,
     date: "2025.03.24",
-    views: 123,
+    views: 1000,
     link: "NewsDetail"
   },
   {

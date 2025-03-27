@@ -1,9 +1,9 @@
 <template>
   <section class="inner ma-auto mt-5 mb-5">
     <Pagination
+      v-model="page"
       :total-items="dataTableItem.length"
       :items-per-page="itemsPerPage"
-      @paging="page = $event.page"
     />
     <!-- icons -->
     <div class="d-flex flex-wrap ga-2 bg-info">
