@@ -146,21 +146,21 @@
 
             <!-- 최대 4개의 v-select 요소 -->
             <v-slide-group-item
-              v-for="(item) in slideData"
-              :key="item.selectId"
+              v-for="(item, inedx) in slideData"
+              :key="inedx"
             >
               <div class="slide-select">
                 <label>
                   {{ item.label }}
                 </label>
                 <v-select
-                  :id="item.selectId"
                   ref="selectRefs"
                   v-model="item.selected"
                   rounded="pill"
                   density="comfortable"
                   :items="item.options"
-                  :menu-props="{ auto: true, maxHeight: '208px' }"
+                  :menu-props="{ maxHeight: '208px', location: 'bottom'}"
+                  @mousedown.stop="stopAutoScroll"
                 />
               </div>
             </v-slide-group-item>
@@ -568,11 +568,11 @@ const onAppendClick = () => {
 };
 const sort = ref(0);
 const slideData = ref([
-  { selectId: 'select01', label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
-  { selectId: 'select02', label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
-  { selectId: 'select03', label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
-  { selectId: 'select04', label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
-  { selectId: 'select05', label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
+  { label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
+  { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
+  { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
+  { label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
+  { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
 ]);
 
 const selectRefs = ref([]);
@@ -580,6 +580,10 @@ const closeDropdown = (event) => {
   if (!selectRefs.value.some(select => select?.$el.contains(event.target))) {
     document.activeElement?.blur(); // 드롭다운 닫기
   }
+};
+const stopAutoScroll = (event) => {
+  event.stopPropagation(); // 부모 요소(v-slide-group)의 이벤트 전파 방지
+  event.preventDefault();  // 기본 동작 방지
 };
 
 onMounted(() => {
