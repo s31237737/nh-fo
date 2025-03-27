@@ -1,10 +1,9 @@
 <template>
   <v-list
-    class="data-board"
-    lines="two"
+    class="board-list"
   >
     <template
-      v-for="(item, index) in tableItem"
+      v-for="(item, index) in boardItem"
       :key="item.id"
     >
       <v-list-item :to="item.link">
@@ -19,30 +18,32 @@
           <!-- to: 개발 /검색어 강조시 활용 -->
           <!-- <strong class="text-success">파란글씨</strong> -->
         </v-list-item-title>
-        <div class="d-flex justify-space-between">
-          <p class="d-flex">
+        <v-list-item-subtitle>
+          <div class="info">
             <span>{{ item.date }}</span>
-            <v-divider />
-            <span class="d-flex"><v-icon
-              icon="custom:view"
-            />{{ item.views }}</span>
-          </p>
-          <p>
+            <span>
+              <v-icon
+                icon="custom:view"
+              />
+              {{ item.views }}
+            </span>
+          </div>
+          <div class="files">
             <v-icon
               v-if="item.attachment"
               icon="custom:attachment"
             />
-          </p>
-        </div>
+          </div>
+        </v-list-item-subtitle>
       </v-list-item>
       <v-divider
-        v-if="index < tableItem.length - 1"
+        v-if="index < boardItem.length - 1"
         color="secondary"
       />
     </template>
   </v-list>
   <Pagination
-    :total-items="tableItem.length"
+    :total-items="boardItem.length"
     :items-per-page="itemsPerPage"
     @paging="page = $event.page"
   />
@@ -59,7 +60,7 @@ const isDesktop = inject("isDesktop");
 const page = ref(1);
 const itemsPerPage = ref(10);
 
-const tableItem = ref([
+const boardItem = ref([
   {
     id: 1,
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
