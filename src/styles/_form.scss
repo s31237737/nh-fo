@@ -361,3 +361,20 @@
     }
   }
 }
+
+// 아코디언
+.v-expansion-panels {
+  margin-top: 20px;
+  .v-expansion-panel-title {
+    @extend .text-3;
+    &--active {
+      border-bottom: thin solid $gray-300;
+    }
+  }
+  .v-expansion-panel-text {
+    background-color: $gray-100;
+  }
+   .v-expansion-panel--active + .v-expansion-panel::after {
+      opacity: 0;
+  }
+}
