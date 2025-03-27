@@ -61,18 +61,16 @@
       v-model="tab"
       class="tab-container"
     >
-      <v-window-item>
+      <v-window-item :value="0">
         <NewsTab01 />
       </v-window-item>
-
-      <v-window-item>
+      <v-window-item :value="1">
         <NewsTab02 />
       </v-window-item>
-
-      <v-window-item>
+      <v-window-item :value="2">
         <NewsTab03 />
       </v-window-item>
-      <v-window-item>
+      <v-window-item :value="3">
         <NewsTab04 />
       </v-window-item>
     </v-window>
@@ -80,29 +78,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, inject } from "vue";
+import { ref, watch, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
+
 import NewsTab01 from "@/pages/NewsTab01.vue";
 import NewsTab02 from "@/pages/NewsTab02.vue";
 import NewsTab03 from "@/pages/NewsTab03.vue";
 import NewsTab04 from "@/pages/NewsTab04.vue";
 
-
-const route = useRoute();
-
-// 라우터 쿼리 파라미터에서 탭 값 읽기
-const updateTabFromQuery = () => {
-  const queryTab = parseInt(route.query.tab, 10);
-  if (!isNaN(queryTab) && queryTab >= 0 && queryTab < tabBtn.value.length) {
-    tab.value = queryTab;
-  }
-};
-
-// 쿼리 파라미터 변경 감지
-watch(() => route.query.tab, updateTabFromQuery);
-
-// 초기 탭 설정
-onMounted(updateTabFromQuery);
 const isDesktop = inject("isDesktop");
 
 const search = ref("");
@@ -110,7 +93,25 @@ const onAppendClick = () => {
   alert("Append icon clicked!");
 };
 
-const tab = ref(0);
+
+// 탭 처리
+const route = useRoute();
+const router = useRouter();
+
+const tab = ref(route.query.tab ? Number(route.query.tab) : 0);
+watch(tab, (newTab) => {
+  if (newTab !== Number(route.query.tab)) {
+    router.replace({ query: { tab: newTab } });
+  }
+});
+
+watch(() => route.query.tab, (newTab) => {
+  if (newTab !== undefined) {
+    tab.value = Number(newTab);
+  }
+});
+
+
 const tabBtn = ref([
   { btn: "새소식" },
   { btn: "자주 묻는 질문" },
