@@ -21,9 +21,11 @@
           >
             {{ item.status }}
           </v-chip>
-          <strong>{{ item.title }}</strong>
+          <strong>
+            {{ item.title }}
           <!-- 검색어 강조 예제 -->
-          <!-- <strong class="text-success">파란글씨</strong> -->
+          <!-- <span class="text-success">파란글씨</span> -->
+          </strong>
         </v-list-item-title>
         <!-- 날짜 및 조회수 등 -->
         <v-list-item-subtitle>
