@@ -1,107 +1,310 @@
 <template>
-  
-</template>
-<script setup>
-  import { computed, ref } from 'vue'
+  <!-- 게시판 리스트 -->
+  <v-list class="board-list">
+    <template
+      v-for="(item, index) in paginatedItems"
+      :key="item.id"
+    >
+      <!-- 리스트 아이템 -->
+      <v-list-item :to="item.link">
+        <!-- 넘버 -->
+        <template #prepend>
+          <span>{{ item.id }}</span>
+        </template>
+        <!-- 제목 -->
+        <v-list-item-title>
+          <v-chip
+            class="flag"
+            :color="item.status === '답변완료' ? 'success' : 'tertiary'"
 
-  const page = ref(1);
-  const itemsPerPage = ref(5);
-  const headers = ref([
-    {
-      align: 'start',
-      key: 'name',
-      sortable: false,
-      title: 'Dessert (100g serving)',
-    },
-    { title: 'Calories', key: 'calories' },
-    { title: 'Fat (g)', key: 'fat' },
-    { title: 'Carbs (g)', key: 'carbs' },
-    { title: 'Protein (g)', key: 'protein' },
-    { title: 'Iron (%)', key: 'iron' },
-  ])
-  const desserts = ref([
-    {
-      name: 'Frozen Yogurt',
-      calories: 159,
-      fat: 6,
-      carbs: 24,
-      protein: 4,
-      iron: 1,
-    },
-    {
-      name: 'Ice cream sandwich',
-      calories: 237,
-      fat: 9,
-      carbs: 37,
-      protein: 4.3,
-      iron: 1,
-    },
-    {
-      name: 'Eclair',
-      calories: 262,
-      fat: 16,
-      carbs: 23,
-      protein: 6,
-      iron: 7,
-    },
-    {
-      name: 'Cupcake',
-      calories: 305,
-      fat: 3.7,
-      carbs: 67,
-      protein: 4.3,
-      iron: 8,
-    },
-    {
-      name: 'Gingerbread',
-      calories: 356,
-      fat: 16,
-      carbs: 49,
-      protein: 3.9,
-      iron: 16,
-    },
-    {
-      name: 'Jelly bean',
-      calories: 375,
-      fat: 0,
-      carbs: 94,
-      protein: 0,
-      iron: 0,
-    },
-    {
-      name: 'Lollipop',
-      calories: 392,
-      fat: 0.2,
-      carbs: 98,
-      protein: 0,
-      iron: 2,
-    },
-    {
-      name: 'Honeycomb',
-      calories: 408,
-      fat: 3.2,
-      carbs: 87,
-      protein: 6.5,
-      iron: 45,
-    },
-    {
-      name: 'Donut',
-      calories: 452,
-      fat: 25,
-      carbs: 51,
-      protein: 4.9,
-      iron: 22,
-    },
-    {
-      name: 'KitKat',
-      calories: 518,
-      fat: 26,
-      carbs: 65,
-      protein: 7,
-      iron: 6,
-    },
-  ])
-  const pageCount = computed(() => {
-    return Math.ceil(desserts.value.length / itemsPerPage.value)
-  })
+            variant="tonal"
+          >
+            {{ item.status }}
+          </v-chip>
+          <strong>{{ item.title }}</strong>
+          <!-- 검색어 강조 예제 -->
+          <!-- <strong class="text-success">파란글씨</strong> -->
+        </v-list-item-title>
+        <!-- 날짜 및 조회수 등 -->
+        <v-list-item-subtitle>
+          <div class="info">
+            <span>{{ item.author }}</span>
+            <span>{{ item.date }}</span>
+            <span>{{ item.release }}</span>
+            <span>
+              <v-icon icon="custom:view" />
+              {{ item.views > 999 ? '999+' : item.views }}
+            </span>
+          </div>
+        </v-list-item-subtitle>
+      </v-list-item>
+      <!-- 리스트 구분선 -->
+      <v-divider
+        v-if="index < paginatedItems.length - 1"
+        color="secondary"
+      />
+    </template>
+  </v-list>
+
+  <!-- 페이지네이션 -->
+  <Pagination
+    v-model="page"
+    :total-items="boardItem.length"
+    :items-per-page="itemsPerPage"
+  />
+</template>
+
+<script setup>
+import { ref, computed } from "vue";
+
+const page = ref(1);
+const itemsPerPage = ref(10);
+const paginatedItems = computed(() => {
+  const start = (page.value - 1) * itemsPerPage.value;
+  return boardItem.value.slice(start, start + itemsPerPage.value);
+});
+
+const boardItem = ref([
+  {
+    id: 1,
+    status: "답변완료",
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    author: "김농협",
+    release: "공개",
+    date: "2025.03.24",
+    views: 1000,
+    link: "NewsDetail"
+  },
+  {
+    id: 2,
+    status: "미답변",
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협",
+    release: "공개",
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 3,
+    status: "답변완료",
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 4,
+    status: "미답변",
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 5,
+    status: "답변완료",
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 6,
+    status: "미답변",
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 7,
+    status: "답변완료",
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 8,
+    status: "미답변",
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 9,
+    status: "답변완료",
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 10,
+    status: "미답변",
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 11,
+    status: "답변완료",
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 12,
+    status: "미답변",
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 13,
+    status: "답변완료",
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 14,
+    status: "미답변",
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 15,
+    status: "답변완료",
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 16,
+    status: "미답변",
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 17,
+    status: "답변완료",
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 18,
+    status: "미답변",
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 19,
+    status: "답변완료",
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 20,
+    status: "미답변",
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+  {
+    id: 21,
+    status: "답변완료",
+    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.24",
+    views: 123,
+    link: ""
+  },
+  {
+    id: 22,
+    status: "미답변",
+    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "공개",
+    date: "2025.03.23",
+    views: 456,
+    link: ""
+  },
+  {
+    id: 23,
+    status: "답변완료",
+    title: "개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.22",
+    views: 789,
+    link: ""
+  },
+  {
+    id: 24,
+    status: "미답변",
+    title: "웹사이트 이용약관 개정 안내 (시행일: 2024년 10월 5일)",
+    author: "김농협농협",
+    release: "비공개",
+    date: "2025.03.21",
+    views: 101,
+    link: ""
+  },
+]);
+
 </script>

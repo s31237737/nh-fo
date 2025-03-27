@@ -80,14 +80,30 @@
 </template>
 
 <script setup>
-import { ref, inject } from "vue";
+import { ref, onMounted, watch, inject } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import NewsTab01 from "@/pages/NewsTab01.vue";
 import NewsTab02 from "@/pages/NewsTab02.vue";
 import NewsTab03 from "@/pages/NewsTab03.vue";
 import NewsTab04 from "@/pages/NewsTab04.vue";
 
-const isMobile = inject("isMobile");
-const isTablet = inject("isTablet");
+
+const route = useRoute();
+const router = useRouter();
+
+// 라우터 쿼리 파라미터에서 탭 값 읽기
+const updateTabFromQuery = () => {
+  const queryTab = parseInt(route.query.tab, 10);
+  if (!isNaN(queryTab) && queryTab >= 0 && queryTab < tabBtn.value.length) {
+    tab.value = queryTab;
+  }
+};
+
+// 쿼리 파라미터 변경 감지
+watch(() => route.query.tab, updateTabFromQuery);
+
+// 초기 탭 설정
+onMounted(updateTabFromQuery);
 const isDesktop = inject("isDesktop");
 
 const search = ref("");

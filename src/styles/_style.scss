@@ -57,6 +57,7 @@ hr.v-divider {
   &.text-success {background: $blue-100;}
   &.text-purple {background: $purple-100;}
   &.text-pink {background: $pink-100;}
+  &.text-tertiary {background: $gray-200;}
   @at-root .flag-wrap {
     margin-bottom: -4px;
     .v-chip.flag {//in .apps
@@ -324,10 +325,11 @@ section + section {
   .v-list-item {
     padding: 20px !important;
     &-title {
-      display: flex;
-      flex-direction: column;
       text-overflow: unset;
-      span {
+      .flag {
+        margin-bottom: 6px;
+      }
+      strong {
         @extend .text-3-md;
         @include line-clamp(1);
       }
@@ -341,12 +343,13 @@ section + section {
       @extend .text-3;
     }
     &__prepend {
-      max-width: 42px;
+      @extend .text-3;
+      width: 34px;
       align-self: flex-start;
     }
     .info {
       display: flex;
-      gap: 7px;
+      gap: 9px;
       align-items: center;
       span {
         position: relative;
@@ -356,7 +359,7 @@ section + section {
             content: '';
             position: absolute;
             top: 50%;
-            left: -3px;
+            left: -4px;
             width: 1px;
             height: 10px;
             transform: translateY(-50%);
