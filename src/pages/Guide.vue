@@ -198,6 +198,14 @@
         <v-icon icon="custom:view" />
         <span>view</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:video" />
+        <span>video</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:guide" />
+        <span>guide</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
@@ -230,10 +238,7 @@
         <span>minus</span>
       </div>
 
-      <div class="icon-item">
-        <v-icon icon="custom:play" />
-        <span>play</span>
-      </div>
+
       <div class="icon-item">
         <v-icon icon="custom:comment" />
         <span>comment</span>
