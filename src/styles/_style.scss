@@ -392,3 +392,9 @@ section + section {
     }
   }
 }
+
+.tab-container {
+  .v-window-item {
+    transition: none !important;
+  }
+}

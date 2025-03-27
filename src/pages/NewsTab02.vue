@@ -2,13 +2,22 @@
   <v-tabs
     v-model="tab"
   >
-    <v-tab :value="1">
+    <v-tab
+      :ripple="false"
+      :value="1"
+    >
       앱 사용 질문
     </v-tab>
-    <v-tab :value="2">
+    <v-tab
+      :ripple="false"
+      :value="2"
+    >
       업스토어 이용 질문
     </v-tab>
-    <v-tab :value="3">
+    <v-tab
+      :ripple="false"
+      :value="3"
+    >
       기타
     </v-tab>
   </v-tabs>
