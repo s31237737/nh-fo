@@ -97,7 +97,7 @@
     class="inner"
   >
     <!-- 앱: 전체 리스트 -->
-    <section>
+    <section class="relative">
       <div class="tit-wrap">
         <strong class="title-2">
           앱 전체 리스트
@@ -116,23 +116,6 @@
             bg-color="white"
             @click:append-inner="onAppendClick"
           />
-          <v-btn-toggle
-            v-model="sort"
-            color="primary"
-            variant="text"
-            density="compact"
-          >
-            <v-btn
-              :ripple="false"
-            >
-              업데이트순
-            </v-btn>
-            <v-btn
-              :ripple="false"
-            >
-              인기순
-            </v-btn>
-          </v-btn-toggle>
         </div>
         <div class="bottom">
           <v-slide-group
@@ -151,6 +134,7 @@
                   rounded="pill"
                   variant="outlined"
                   append-icon="custom:select"
+                  :ripple="false"
                 >
                   전체
                 </v-btn>
@@ -194,6 +178,23 @@
 
       <!-- 앱 목록  -->
       <div class="appcard-list">
+        <v-btn-toggle
+          v-model="sort"
+          color="primary"
+          variant="text"
+          density="compact"
+        >
+          <v-btn
+            :ripple="false"
+          >
+            업데이트순
+          </v-btn>
+          <v-btn
+            :ripple="false"
+          >
+            인기순
+          </v-btn>
+        </v-btn-toggle>
         <v-row
           v-if="cardData.length"
         >
@@ -261,18 +262,18 @@
           bg-color="#FEFEFE"
           :height="isDesktop ? '720': '440'"
         />
-        <div class="appcard-list_btn">
-          <v-btn
-            v-if="cardData.length"
-            variant="text"
-            density="compact"
-            append-icon="custom:arrow-down"
-            color="quaternary"
-            :ripple="false"
-          >
-            더보기
-          </v-btn>
-        </div>
+      </div>
+      <div class="appcard-list_btn">
+        <v-btn
+          v-if="cardData.length"
+          variant="text"
+          density="compact"
+          append-icon="custom:arrow-down"
+          color="quaternary"
+          :ripple="false"
+        >
+          더보기
+        </v-btn>
       </div>
     </section>
 

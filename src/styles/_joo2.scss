@@ -264,110 +264,16 @@
       padding:0;
     }
   }
-}
-.appcard-list_btn {
-  margin-top: 40px;
-  text-align:center;
-  @at-root .mobile {
-    .appcard-list_btn {
-      margin-top: 20px;
-    }
-  }
-}
-.appcard-list-form {
-  .top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    .search-inp { 
-      max-width: 900px;
-      margin-right: 20px;
-    }
-  }
-  .bottom {
-    position: relative;
-    margin-bottom: 20px;
-    .v-slide-group {
-      .v-slide-group__content {
-        gap: 24px;
-      }
-      > .v-slide-group__prev, > .v-slide-group__next {
-        flex: 1;
-        min-width: auto;
-        position: relative;
-        z-index:1;
-        &::before {
-          content: "";
-          position: absolute;
-          top:0;
-          display: block;
-          width: 65px;
-          height: 100%;
-        }
-        &--disabled {
-          display: none;
-        }
-        .v-icon--size-default {
-          font-size: 32px;
-        }
-      }
-      & > .v-slide-group__prev::before {
-        left: 0;
-        background: linear-gradient(90deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
-      }
-      & > .v-slide-group__next::before {
-        right: 0;
-        background: linear-gradient(270deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
-      }
-      label {
-        font-weight: 500;
-      }
-      .slide-select {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-    }
-  }
-  .v-btn.btn-refresh {
-    color: $gray-500 !important;
-    .v-btn__overlay {
-      display: none;
-    }
-    &:hover {
-      color: black !important;
-    }
-  }
-  .v-btn.btn-selectJob {
-    --v-btn-height: 44px;
-    padding-inline: 16px 12px;
-    border: thin solid $gray-500;
-    background: transparent;
-    font-weight: 400;
-    .v-btn__append {
-      margin-inline: 6px 0;
-      height: 44px;
-      .v-icon {
-        font-size: 21px;
-        margin-left: 4px;
-      }
-    }
-    .v-btn__overlay {
-      display: none;
-    }
-    &:hover {
-      border-color: $gray-700 !important;
-    }
-  }
   .v-btn-toggle {
+    position: absolute;
+    top: 102px;
+    right:0;
+    height: 24px;
     .v-btn {
-      padding: 0 8px;
+      padding:0 8px;
       font-weight: 400;
       color: $gray-700;
-      &--size-default {
-        min-width: auto;
-      }
+      min-width: auto;
       .v-btn__content {
         line-height: 24px;
       }
@@ -378,48 +284,21 @@
     }
   }
   @at-root .mobile, .tablet {
-    .appcard-list-form {
+    .appcard-list {
       position: relative;
-      .top {
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: end;
-        .search-inp { 
-          width: 100%;
-          max-width: 100%;
-          margin-right: 0;
-        }
-      }
-      .bottom {
-        position: absolute;
-        top: 60px;
-        width:100%;
-      }
+      padding-top: 44px;
       .v-btn-toggle {
-        margin-top: 78px;
+        top: 0;
       }
     }
   }
-  @at-root .tablet {
-    .appcard-list-form {
-      .bottom {
-        .v-slide-group { margin-right:0; }
-      }
-    }
-  }
+}
+.appcard-list_btn {
+  margin-top: 40px;
+  text-align:center;
   @at-root .mobile {
-    .appcard-list-form {
-      .bottom {
-        .v-slide-group {
-          margin-left: -20px;
-          > .v-slide-group__prev, > .v-slide-group__next {
-            display:none;
-          }
-          .slide-select:first-child {
-            padding-left: 20px;
-          }
-        }
-      }
+    .appcard-list_btn {
+      margin-top: 20px;
     }
   }
 }
@@ -438,6 +317,134 @@
   @at-root .mobile, .tablet {
     .appcard-list-wrap {
       display: block;
+    }
+  }
+}
+
+.relative {
+  position: relative;
+  height: auto;
+  .appcard-list-form {
+    padding-block: 20px;
+    margin-top: -20px;
+    background: $gray-200;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .search-inp { 
+        max-width: 900px;
+        margin-right: 20px;
+      }
+    }
+    .bottom {
+      position: relative;
+      margin-top: 20px;
+      .v-slide-group {
+        .v-slide-group__content {
+          gap: 24px;
+        }
+        > .v-slide-group__prev, > .v-slide-group__next {
+          flex: 1;
+          min-width: auto;
+          position: relative;
+          z-index:1;
+          &::before {
+            content: "";
+            position: absolute;
+            top:0;
+            display: block;
+            width: 65px;
+            height: 100%;
+          }
+          &--disabled {
+            display: none;
+          }
+          .v-icon--size-default {
+            font-size: 32px;
+          }
+        }
+        & > .v-slide-group__prev::before {
+          left: 0;
+          background: linear-gradient(90deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
+        }
+        & > .v-slide-group__next::before {
+          right: 0;
+          background: linear-gradient(270deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
+        }
+        label {
+          font-weight: 500;
+        }
+        .slide-select {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+      }
+    }
+    .v-btn.btn-refresh {
+      .v-btn__overlay {
+        display: none;
+      }
+    }
+    .v-btn.btn-selectJob {
+      --v-btn-height: 44px;
+      padding-inline: 16px 12px;
+      border: thin solid $gray-500;
+      background: transparent;
+      font-weight: 400;
+      .v-btn__append {
+        margin-inline: 6px 0;
+        height: 44px;
+        .v-icon {
+          font-size: 21px;
+          margin-left: 4px;
+        }
+      }
+      .v-btn__overlay {
+        display: none;
+      }
+      &:hover {
+        border-color: $gray-700 !important;
+      }
+    }
+  }
+  @at-root .mobile, .tablet {
+    .appcard-list-form {
+      position: sticky;
+      top: 56px;
+      z-index: 1;
+      .top {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: end;
+        .search-inp { 
+          width: 100%;
+          max-width: 100%;
+          margin-right: 0;
+        }
+      }
+      .bottom {
+        margin-top: 12px;
+      }
+    }
+  }
+  @at-root .tablet {
+    .appcard-list-form {
+      .bottom .v-slide-group { margin-right:0; }
+    }
+  }
+  @at-root .mobile {
+    .appcard-list-form {
+      .bottom .v-slide-group {
+        margin-left: -20px;
+        > .v-slide-group__prev, > .v-slide-group__next {
+          display:none;
+        }
+        .slide-select:first-child {
+          padding-left: 20px;
+        }
+      }
     }
   }
 }
