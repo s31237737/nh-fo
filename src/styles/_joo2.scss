@@ -374,8 +374,17 @@
       }
     }
     .v-btn.btn-refresh {
-      .v-btn__overlay {
+      .v-btn__overlay, .v-btn__underlay {
         display: none;
+      }
+      .v-icon--size-default {
+        font-size: 19px !important;
+      }
+      &.v-btn--disabled {
+        opacity: 1 !important;
+        .v-icon--size-default {
+          opacity: 0.26;
+        }
       }
     }
     .v-btn.btn-selectJob {

@@ -122,9 +122,9 @@
         >
           <v-slide-group
             :show-arrows="!isMobile"
+            :center-active="false"
             prev-icon="custom:slide-prev"
             next-icon="custom:slide-next"
-            :center-active="false"
           >
             <!-- 고정된 버튼 -->
             <v-slide-group-item>
