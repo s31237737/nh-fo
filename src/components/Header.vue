@@ -184,28 +184,28 @@ const gnbItems = ref([
     title: '새소식',
     value: 1,
     props: {
-      to: "News",
+      to: { path: "News", query: { tab: 0 } }
     },
   },
    {
     title: '자주 묻는 질문',
     value: 2,
     props: {
-      to: "Qna",
+      to: { path: "News", query: { tab: 1 } }
     },
   },
   {
     title: 'Q&A',
     value: 3,
     props: {
-      to: "",
+     to: { path: "News", query: { tab: 2 } }
     },
   },
   {
     title: '앱 가이드',
     value: 4,
     props: {
-      to: "AppGuide",
+      to: { path: "News", query: { tab: 3 } }
     },
   },
 ]);
