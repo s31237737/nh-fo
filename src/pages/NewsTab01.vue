@@ -16,7 +16,7 @@
         </template>
         <!-- 제목 -->
         <v-list-item-title>
-          <strong>{{ item.title }}</strong>
+          <strong>{{ item.title }} <span class="text-success">검색한 단어</span></strong>
           <!-- 검색어 강조 예제 -->
           <!-- <strong class="text-success">파란글씨</strong> -->
         </v-list-item-title>
