@@ -435,9 +435,9 @@
 }
 
 //AppDetail
-.apps-scroll-wrap {
+.apps-recomm-wrap {
   position: relative;
-  .scroll-container {
+  .scroll.apps-list {
     position: relative;
     display: flex;
     overflow-x: auto;
@@ -467,9 +467,9 @@
     }
   }
   @at-root .tablet {
-    .apps-scroll-wrap {
+    .apps-recomm-wrap {
       margin-inline: -20px;
-      .scroll-container {
+      .scroll {
         padding-inline: 20px;
       }
       .scroll-control {
@@ -479,8 +479,12 @@
     }
   }
   @at-root .mobile {
-    .apps-scroll-wrap {
-      .scroll-control { display:none; }
+    .apps-recomm-wrap {
+      .apps-list .apps{ 
+        & + .apps {
+          margin-top: 12px;
+        }
+      }
     }
   }
 }
