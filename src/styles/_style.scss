@@ -120,15 +120,15 @@ hr.v-divider {
 }
 
 //editor
-.editor {
+.v-sheet.editor {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   .ql-toolbar.ql-snow {
-    height: 44px;
+    
   }
   .ql-container.ql-snow {
-    height: calc(100% - 44px);
+    flex-grow: 1;
   }
 }
 
