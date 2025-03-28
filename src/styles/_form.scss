@@ -366,7 +366,11 @@
 .v-expansion-panels {
   margin-top: 20px;
   .v-expansion-panel-title {
+    gap: 12px;
     @extend .text-3;
+    > p {
+      @include line-clamp(1);
+    }
     &--active {
       min-height: 55px;
       &::after{
@@ -384,5 +388,15 @@
   }
    .v-expansion-panel--active + .v-expansion-panel::after {
       opacity: 0;
+  }
+  @at-root .mobile, .tablet {
+    .v-expansion-panels {
+      .v-expansion-panel-title {
+        padding: 20px ;
+        > p {
+          @include line-clamp(2);
+        }
+      }
+    }
   }
 }

@@ -28,8 +28,10 @@
           <v-expansion-panel
             v-for="(panel, j) in item.panels"
             :key="j"
-            :title="panel.title"
           >
+            <v-expansion-panel-title>
+              <p>{{ panel.title }}</p>
+            </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div
                 class="editor-content"
@@ -56,7 +58,7 @@ const subTabItem = [
     btn: "앱 사용 질문",
     panels: [
       {
-        title: "앱 설치 방법",
+        title: "자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공 자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공 자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공",
         appName: "앱이름 노출",
         content: `
         <p>안녕하세요, 총무알리미 사용자 여러분.</p>
