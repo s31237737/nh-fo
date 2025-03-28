@@ -28,7 +28,10 @@
     <!-- 서브 탭 내용 -->
     <v-tabs-window v-model="subTab">
       <!-- 앱 사용 질문 탭 -->
-      <v-tabs-window-item :value="0">
+      <v-tabs-window-item
+        :value="0"
+        :transition="false"
+      >
         <v-expansion-panels
           v-if="subTabItemTab1.length > 0"
           variant="accordion"
@@ -68,7 +71,10 @@
       </v-tabs-window-item>
 
       <!-- 업스토어 이용 질문 탭 -->
-      <v-tabs-window-item :value="1">
+      <v-tabs-window-item
+        :value="1"
+        :transition="false"
+      >
         <v-expansion-panels
           v-if="subTabItemTab2.length > 0"
           variant="accordion"
@@ -108,7 +114,10 @@
       </v-tabs-window-item>
 
       <!-- 기타 탭 -->
-      <v-tabs-window-item :value="2">
+      <v-tabs-window-item
+        :value="2"
+        :transition="false"
+      >
         <v-expansion-panels
           v-if="subTabItemTab3.length > 0"
           variant="accordion"
