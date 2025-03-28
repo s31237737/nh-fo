@@ -1,197 +1,167 @@
 <template>
   <v-container height="200vh">
-    <!-- <v-select
-      ref="selectRef"
-      v-model="selectedItem"
-      :items="items"
-      label="옵션 선택"
-      :menu="isMenuOpen"
-      @update:menu="isMenuOpen = $event"
-    /> -->
-
-    <div
-      ref="slideContainer"
-      class="slide-container"
+    <div 
+      ref="slideContainer" 
+      class="slide-wrapper" 
+      :class="{ 'mobile': isMobile }"
     >
-      <div
-        ref="slideTrack"
-        class="slide-track"
-      >
-        <div
-          v-for="(item, index) in appsCategory"
-          :key="index"
-          ref="slideItems"
+      <div class="slide-content">
+        <!-- 슬라이드 항목 -->
+        <div 
+          v-for="(item, index) in appsCategory" 
+          :key="index" 
           class="slide-item"
         >
-          <span>{{ item.label }}</span>
-          <v-select
-            v-model="item.selected"
-            :items="item.options"
-          />
+          <div class="apps-category">
+            <span>{{ item.label }}</span>
+            <v-select
+              v-model="item.selected"
+              :items="item.options"
+              dense
+              rounded
+              variant="outlined"
+              label="직무 선택"
+            />
+          </div>
         </div>
       </div>
-      <!-- 버튼 -->
+    </div>
+
+    <!-- 데스크톱에서만 버튼 표시 -->
+    <template v-if="!isMobile">
       <button
         class="slide-btn prev"
         @click="prevSlide"
       >
-        ◀
+        〈
       </button>
       <button
         class="slide-btn next"
         @click="nextSlide"
       >
-        ▶
+        〉
       </button>
-    </div>
+    </template>
   </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue';
-
-const slideContainer = ref(null);
-const slideItems = ref([]);
-const itemWidths = ref([]);
-const isDragging = ref(false);
-const startX = ref(0);
-const scrollLeft = ref(0);
+import { ref, onMounted, onUnmounted, inject } from 'vue';
 
 const appsCategory = ref([
-  { label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-2'], selected: '세부직군명1-1' },
+  { label: '선택직무1', options: ['세부직군1-1', '세부직군1-2'], selected: '세부직군1-1' },
   { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2'], selected: '세부직군2-1' },
   { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2'], selected: '세부직군3-1' },
   { label: '선택직무4', options: ['세부직군4-1', '세부직군4-2'], selected: '세부직군4-1' },
-  { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2'], selected: '세부직군5-1' }
+  { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2'], selected: '세부직군5-1' },
 ]);
 
-// 📌 개별 아이템 크기 계산
-const updateItemWidths = () => {
-  nextTick(() => {
-    itemWidths.value = slideItems.value.map((item) => item?.offsetWidth || 0);
-  });
-};
+const slideContainer = ref(null);
+const slideItemWidth = ref(0); // 슬라이드 항목 너비
 
-// 📌 터치 시작 (모바일 전용)
-const startDrag = (e) => {
-  isDragging.value = true;
-  startX.value = e.touches[0].pageX - slideContainer.value.offsetLeft;
-  scrollLeft.value = slideContainer.value.scrollLeft;
-};
+// 📌 모바일 여부 체크
+const isMobile = inject("isMobile");
 
-// 📌 드래그 이동 (모바일 전용)
-const onDrag = (e) => {
-  if (!isDragging.value) return;
-  const x = e.touches[0].pageX - slideContainer.value.offsetLeft;
-  const walk = (startX.value - x) * 1.5; // 스크롤 속도 조정
-  slideContainer.value.scrollLeft = scrollLeft.value + walk;
-};
-
-// 📌 드래그 종료
-const stopDrag = () => {
-  isDragging.value = false;
-};
-
-// 📌 현재 가장 왼쪽에 보이는 아이템 찾기
-const getFirstVisibleItem = () => {
-  let scrollLeft = slideContainer.value.scrollLeft;
-  let sumWidth = 0;
-  let offsetThreshold = 10;
-
-  for (let i = 0; i < itemWidths.value.length; i++) {
-    sumWidth += itemWidths.value[i];
-    if (sumWidth > scrollLeft + offsetThreshold) return i;
-  }
-  return 0;
-};
-
-// 📌 이전 버튼 클릭 시 이동
+// 📌 좌우 버튼 이동 (데스크톱 전용)
 const prevSlide = () => {
-  let firstVisibleIndex = getFirstVisibleItem();
-  
-  if (firstVisibleIndex > 0) {
-    let moveDistance = itemWidths.value[firstVisibleIndex - 1] || 0;
-    slideContainer.value.scrollBy({ left: -moveDistance, behavior: 'smooth' });
-  } else {
-    slideContainer.value.scrollTo({ left: 0, behavior: 'smooth' });
+  if (slideContainer.value) {
+    slideContainer.value.scrollBy({ left: -slideItemWidth.value, behavior: 'smooth' });
   }
 };
 
-// 📌 다음 버튼 클릭 시 이동
 const nextSlide = () => {
-  let firstVisibleIndex = getFirstVisibleItem();
-
-  if (firstVisibleIndex < itemWidths.value.length - 1) {
-    let moveDistance = itemWidths.value[firstVisibleIndex] || 0;
-    slideContainer.value.scrollBy({ left: moveDistance, behavior: 'smooth' });
+  if (slideContainer.value) {
+    slideContainer.value.scrollBy({ left: slideItemWidth.value, behavior: 'smooth' });
   }
 };
 
-// 📌 이벤트 등록 (모바일에서만)
-onMounted(() => {
-  updateItemWidths();
-  window.addEventListener('resize', updateItemWidths);
+// 📌 창 크기 변경 시 모바일 여부 및 슬라이드 항목 너비 업데이트
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 768;
+  updateSlideItemWidth(); // 창 크기 변경 시 슬라이드 항목 너비를 새로 계산
+};
 
-  if (window.matchMedia("(max-width: 768px)").matches) { // 🔹 모바일에서만 적용
-    slideContainer.value.addEventListener('touchstart', startDrag);
-    slideContainer.value.addEventListener('touchmove', onDrag);
-    slideContainer.value.addEventListener('touchend', stopDrag);
+// 📌 슬라이드 항목 너비 계산
+const updateSlideItemWidth = () => {
+  if (slideContainer.value) {
+    const slideItem = slideContainer.value.querySelector('.slide-item');
+    if (slideItem) {
+      slideItemWidth.value = slideItem.offsetWidth; // 첫 번째 슬라이드 항목의 너비로 설정
+    }
   }
+};
+
+// 📌 이벤트 등록
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  updateSlideItemWidth(); // 최초 마운트 시에도 슬라이드 항목 너비를 계산
 });
 
-// 📌 이벤트 제거
+// 📌 이벤트 해제
 onUnmounted(() => {
-  window.removeEventListener('resize', updateItemWidths);
-
-  if (slideContainer.value) {
-    slideContainer.value.removeEventListener('touchstart', startDrag);
-    slideContainer.value.removeEventListener('touchmove', onDrag);
-    slideContainer.value.removeEventListener('touchend', stopDrag);
-  }
+  window.removeEventListener('resize', handleResize);
 });
 </script>
 
-
-<style>
-.slide-container {
-  position: relative;
-  overflow: hidden;
+<style scoped>
+/* ✅ 모바일에서는 가로 스크롤만 적용 */
+.slide-wrapper {
+  overflow-x: auto;
   white-space: nowrap;
-  width: 100%;
   display: flex;
-  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  scroll-behavior: smooth;
 }
 
-.slide-track {
+/* ✅ 데스크톱에서는 버튼으로만 이동 */
+.slide-wrapper:not(.mobile) {
+  overflow-x: hidden;
+}
+
+.slide-content {
   display: flex;
-  transition: transform 0.3s ease;
+  gap: 10px;
 }
 
 .slide-item {
-  display:flex;
-  gap: 12px;
   flex: 0 0 auto;
-  margin-right: 10px;
-  padding: 10px;
-  background: white;
+  padding: 20px;
+  background: lightgray;
+  text-align: center;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
+/* 좌우 버튼 (데스크톱 전용) */
 .slide-btn {
   position: fixed;
-  top: 80px;
-  background: rgba(0, 0, 0, 0.5);
+  top: 50%;
+  transform: translateY(-50%);
+  background: black;
   color: white;
   border: none;
-  cursor: pointer;
   padding: 10px;
+  cursor: pointer;
 }
 
-.slide-btn.prev {
-  left: 0;
+.prev {
+  left: 10px;
 }
 
-.slide-btn.next {
-  right: 0;
+.next {
+  right: 10px;
+}
+
+/* v-select 스타일 (필요시 조정) */
+.apps-category {
+  display: flex;
+  flex-direction: unset !important;
+}
+
+.v-select {
+  width: 100%;
 }
 </style>
