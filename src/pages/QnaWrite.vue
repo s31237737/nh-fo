@@ -26,8 +26,7 @@
       <!-- 작성자 / 공개여부 -->
       <v-row>
         <v-col>
-          <span class="v-label">작성자
-          </span>
+          <span class="v-label">작성자</span>
           <div class="label-form">
             <p class="text-value">
               김농협
@@ -54,9 +53,7 @@
       <!-- 문의유형 -->
       <v-row>
         <v-col>
-          <v-label
-            for="inp-select"
-          >
+          <v-label for="inp-select">
             문의유형
           </v-label>
           <div class="label-form">
@@ -64,7 +61,7 @@
               id="inp-select"
               v-model="select"
               density="default"
-              :items="['전체', '앱 관련 문의사항', '업스토어 관련 문의사항']"
+              :items="['앱 관련 문의사항', '업스토어 관련 문의사항']"
               :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
             />
           </div>
@@ -73,9 +70,7 @@
       <!-- 앱 -->
       <v-row>
         <v-col>
-          <v-label
-            for="inp-search"
-          >
+          <v-label for="inp-search">
             앱
           </v-label>
           <div class="label-form">
@@ -100,9 +95,7 @@
 
               <!-- 검색 버튼 추가 -->
               <template #append-inner>
-                <v-btn
-                  color="secondary"
-                >
+                <v-btn color="secondary">
                   검색
                 </v-btn>
               </template>
@@ -113,12 +106,10 @@
       <!-- 내용 -->
       <v-row>
         <v-col>
-          <v-label
-            class="require"
-          >
+          <v-label class="require">
             내용
           </v-label>
-
+          <!-- 에디터 -->
           <v-sheet
             class="editor"
             height="300"
@@ -143,9 +134,7 @@
                 class="append-button"
               >
                 <template #append-inner>
-                  <v-btn
-                    color="secondary"
-                  >
+                  <v-btn color="secondary">
                     파일첨부
                   </v-btn>
                 </template>
@@ -204,23 +193,23 @@
 import { ref, inject } from 'vue';
 const isDesktop = inject("isDesktop");
 
-// form
 
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
 
+// form
 const btnSwitch = ref(true);
 const searchApps = ref(null);
-const select = ref("전체");
+const select = ref("앱 관련 문의사항");
 
+// 파일
 const files = ref([]);
 const removeFile = (index) => {
   files.value.splice(index, 1);
 };
 
-
-//autocomplete
+// 앱 데이터
 const apps = [
   {
     name: '1육묘대장',
@@ -263,6 +252,4 @@ const apps = [
     avatar: '@temp_img_app_icon03.png'
   },
 ]
-
-
 </script>
