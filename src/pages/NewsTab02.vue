@@ -27,9 +27,12 @@
 
     <!-- 서브 탭 내용 -->
     <v-tabs-window v-model="subTab">
-      <!-- 첫 번째 탭 -->
+      <!-- 앱 사용 질문 탭 -->
       <v-tabs-window-item :value="0">
-        <v-expansion-panels variant="accordion">
+        <v-expansion-panels
+          v-if="subTabItemTab1.length > 0"
+          variant="accordion"
+        >
           <v-expansion-panel
             v-for="(panel, j) in paginatedPanelsTab1"
             :key="j"
@@ -48,16 +51,28 @@
           </v-expansion-panel>
         </v-expansion-panels>
         <Pagination
+          v-if="subTabItemTab1.length > 0"
           v-model="pageTab1"
           :total-items="subTabItemTab1.length"
           :items-per-page="itemsPerPage"
           @update:model-value="updatePageTab1"
         />
+        <!-- 검색어 없을 경우 -->
+        <v-empty-state
+          v-else
+          :height="isDesktop ? '526': '440'"
+          text="‘농협' 검색결과가 없습니다."
+          icon="custom:warning"
+          size="60"
+        />
       </v-tabs-window-item>
 
-      <!-- 두 번째 탭 -->
+      <!-- 업스토어 이용 질문 탭 -->
       <v-tabs-window-item :value="1">
-        <v-expansion-panels variant="accordion">
+        <v-expansion-panels
+          v-if="subTabItemTab2.length > 0"
+          variant="accordion"
+        >
           <v-expansion-panel
             v-for="(panel, j) in paginatedPanelsTab2"
             :key="j"
@@ -76,16 +91,28 @@
           </v-expansion-panel>
         </v-expansion-panels>
         <Pagination
+          v-if="subTabItemTab2.length > 0"
           v-model="pageTab2"
           :total-items="subTabItemTab2.length"
           :items-per-page="itemsPerPage"
           @update:model-value="updatePageTab2"
         />
+        <!-- 검색어 없을 경우 -->
+        <v-empty-state
+          v-else
+          :height="isDesktop ? '526': '440'"
+          text="‘농협' 검색결과가 없습니다."
+          icon="custom:warning"
+          size="60"
+        />
       </v-tabs-window-item>
 
-      <!-- 세 번째 탭 -->
+      <!-- 기타 탭 -->
       <v-tabs-window-item :value="2">
-        <v-expansion-panels variant="accordion">
+        <v-expansion-panels
+          v-if="subTabItemTab3.length > 0"
+          variant="accordion"
+        >
           <v-expansion-panel
             v-for="(panel, j) in paginatedPanelsTab3"
             :key="j"
@@ -104,10 +131,19 @@
           </v-expansion-panel>
         </v-expansion-panels>
         <Pagination
+          v-if="subTabItemTab3.length > 0"
           v-model="pageTab3"
           :total-items="subTabItemTab3.length"
           :items-per-page="itemsPerPage"
           @update:model-value="updatePageTab3"
+        />
+        <!-- 검색어 없을 경우 -->
+        <v-empty-state
+          v-else
+          :height="isDesktop ? '526': '440'"
+          text="‘농협' 검색결과가 없습니다."
+          icon="custom:warning"
+          size="60"
         />
       </v-tabs-window-item>
     </v-tabs-window>
@@ -115,7 +151,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
+const isDesktop = inject('isDesktop');
 const subTab = ref(0);
 
 
@@ -153,7 +190,7 @@ const updatePageTab3 = (newPage) => {
 };
 
 
-// 첫 번째 탭
+// 앱 사용 질문 탭
 const subTabItemTab1 = ref([
   {
     title: "자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공 자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공 자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공",
@@ -267,7 +304,7 @@ const subTabItemTab1 = ref([
     content: "로그인 문제는 비밀번호 재설정을 통해 해결할 수 있습니다.",
   },
 ]);
-// 두 번째 탭
+// 업스토어 이용 질문 탭
 const subTabItemTab2 = ref([
   {
     title: "상품 등록 방법",
@@ -330,37 +367,37 @@ const subTabItemTab2 = ref([
     content: "결제 오류는 고객센터에 문의해 주세요.",
   },
 ]);
-// 두 번째 탭
+// 기타 탭
 const subTabItemTab3 = ref([
-  {
-    title: "문의 방법",
-    appName: "앱이름 노출",
-    content: "문의는 앱 내 고객센터를 통해 가능합니다.",
-  },
-  {
-    title: "업데이트 내역",
-    appName: "앱이름 노출",
-    content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
-  },
-  {
-    title: "문의 방법",
-    appName: "앱이름 노출",
-    content: "문의는 앱 내 고객센터를 통해 가능합니다.",
-  },
-  {
-    title: "업데이트 내역",
-    appName: "앱이름 노출",
-    content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
-  },
-  {
-    title: "문의 방법",
-    appName: "앱이름 노출",
-    content: "문의는 앱 내 고객센터를 통해 가능합니다.",
-  },
-  {
-    title: "업데이트 내역",
-    appName: "앱이름 노출",
-    content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
-  },
+  // {
+  //   title: "문의 방법",
+  //   appName: "앱이름 노출",
+  //   content: "문의는 앱 내 고객센터를 통해 가능합니다.",
+  // },
+  // {
+  //   title: "업데이트 내역",
+  //   appName: "앱이름 노출",
+  //   content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
+  // },
+  // {
+  //   title: "문의 방법",
+  //   appName: "앱이름 노출",
+  //   content: "문의는 앱 내 고객센터를 통해 가능합니다.",
+  // },
+  // {
+  //   title: "업데이트 내역",
+  //   appName: "앱이름 노출",
+  //   content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
+  // },
+  // {
+  //   title: "문의 방법",
+  //   appName: "앱이름 노출",
+  //   content: "문의는 앱 내 고객센터를 통해 가능합니다.",
+  // },
+  // {
+  //   title: "업데이트 내역",
+  //   appName: "앱이름 노출",
+  //   content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
+  // },
 ]);
 </script>

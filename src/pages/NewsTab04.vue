@@ -71,7 +71,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
+const isDesktop = inject('isDesktop');
 
 //Pagination
 const page = ref(1);
