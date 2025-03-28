@@ -70,6 +70,7 @@
 import { ref, computed, inject } from "vue";
 const isDesktop = inject('isDesktop');
 
+//Pagination
 const page = ref(1);
 const itemsPerPage = ref(10);
 const paginatedItems = computed(() => {
