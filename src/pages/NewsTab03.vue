@@ -1,6 +1,9 @@
 <template>
   <!-- 게시판 리스트 -->
-  <v-list class="board-list">
+  <v-list
+    v-if="boardItem.length > 0"
+    class="board-list"
+  >
     <template
       v-for="(item, index) in paginatedItems"
       :key="item.id"
@@ -49,9 +52,19 @@
 
   <!-- 페이지네이션 -->
   <Pagination
+    v-if="boardItem.length > 0"
     v-model="page"
     :total-items="boardItem.length"
     :items-per-page="itemsPerPage"
+  />
+  
+  <!-- 검색어 없을 경우 -->
+  <v-empty-state
+    v-else
+    :height="isDesktop ? '526': '440'"
+    text="‘농협' 검색결과가 없습니다."
+    icon="custom:warning"
+    size="60"
   />
 </template>
 

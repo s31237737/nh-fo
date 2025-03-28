@@ -150,7 +150,14 @@ hr.v-divider {
     @extend .text-2-md;
     color: $gray-800;
   }
-}
+  @at-root .mobile, .tablet {
+    .v-empty-state {
+      &__media {
+        margin-bottom: 20px;
+      }
+    }
+  }
+} 
 
 //profile
 .edit-profile {
@@ -396,12 +403,12 @@ section + section {
   .v-window-item {
     transition: none !important;
   }
-  .board-list {
+  .board-list, .v-empty-state {
     margin-top: 40px;
   }
   @at-root .mobile, .tablet {
     .tab-container {
-      .board-list {
+      .board-list, .v-empty-state {
         margin-top: 24px;
       }
     }
