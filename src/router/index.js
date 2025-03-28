@@ -11,15 +11,15 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import pages from 'virtual:generated-pages';
 
 const router = createRouter({
-  scrollBehavior(to, from, savedPosition) {
-     if (to.path === from.path && to.path.startsWith('/news')) {
-      return false;
-    }
-    if (savedPosition) {
-      return savedPosition;
-    }
-    return { top: 0 };
-  },
+  // scrollBehavior(to, from, savedPosition) {
+  //    if (to.path === from.path && to.path.startsWith('/news')) {
+  //     return false;
+  //   }
+  //   if (savedPosition) {
+  //     return savedPosition;
+  //   }
+  //   return { top: 0 };
+  // },
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(pages),
 })
