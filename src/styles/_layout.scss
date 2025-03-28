@@ -19,12 +19,12 @@
 .v-main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   > .inner:first-child {
     margin: $base-margin auto 0;
   }
   .inner {
     // display: flex;
+    flex: 1;
     margin: 0 auto;
     padding: 0 20px;
     max-width: 1280px;

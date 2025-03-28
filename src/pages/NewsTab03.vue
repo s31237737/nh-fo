@@ -16,7 +16,6 @@
           <v-chip
             class="flag"
             :color="item.status === '답변완료' ? 'success' : 'tertiary'"
-
             variant="tonal"
           >
             {{ item.status }}
