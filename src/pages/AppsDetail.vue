@@ -109,6 +109,7 @@
             <v-expansion-panels
               v-if="subTabItemTab1.length > 0"
               variant="accordion"
+              rounded="0"
             >
               <v-expansion-panel
                 v-for="(panel, j) in subTabItemTab1.slice(0, 5)"
