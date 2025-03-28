@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-import { ref, watch, inject } from "vue";
+import { ref, watch, shallowRef, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import NewsTab01 from "@/pages/NewsTab01.vue";
@@ -114,7 +114,7 @@ watch(() => route.query.tab, (newTab) => {
   }
 });
 
-const tabItem = ref([
+const tabItem = shallowRef([
   { btn: "새소식", component: NewsTab01 },
   { btn: "자주 묻는 질문", component: NewsTab02 },
   { btn: "Q&A", component: NewsTab03 },
