@@ -52,10 +52,18 @@
     :total-items="boardItem.length"
     :items-per-page="itemsPerPage"
   />
+
+  <v-empty-state
+    :height="isDesktop ? '526': '440'"
+    text="‘농협' 검색결과가 없습니다."
+    icon="custom:warning"
+    size="60"
+  />
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
+const isDesktop = inject('isDesktop');
 
 const page = ref(1);
 const itemsPerPage = ref(10);
