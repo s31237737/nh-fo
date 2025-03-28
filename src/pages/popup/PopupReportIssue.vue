@@ -22,13 +22,13 @@
           <v-row>
             <v-col>
               <v-label
-                for="inp-txt"
+                for="inp-tit"
               >
                 제목
               </v-label>
               <div class="label-form">
                 <v-text-field
-                  id="inp-txt"
+                  id="inp-tit"
                   placeholder="제목을 입력해주세요."
                 />
               </div>
