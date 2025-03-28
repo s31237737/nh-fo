@@ -46,18 +46,17 @@
       <div>
         <div
           ref="scrollContainer"
-          class="scroll-container"
+          class="scroll-container apps-list recomm"
         >
           <v-card
-            v-for="(card, index) in cardRecommend2"
+            v-for="(card, index) in cardRecommend"
             :id="`section${index + 1}`"
             :key="index"
             :to="card.link"
             :ripple="false"
             class="apps"
           >
-            <div class="d-flex align-center">
-              <!-- btn: 좋아요 -->
+            <div class="apps-top">
               <div class="icon-text">
                 <v-icon
                   class="like"
@@ -66,8 +65,8 @@
                 />
                 <span>{{ card.likeCount }}</span>
               </div>
-              <!-- 배지 (최대 3개) -->
-              <div class="flag-wrap r">
+              <!-- 플래그(최대 3개) -->
+              <div class="flag-wrap">
                 <v-chip
                   v-for="(badge, idx) in card.badges.slice(0, 3)"
                   :key="idx"
@@ -78,7 +77,7 @@
                   {{ badge.text }}
                 </v-chip>
 
-                <!-- 상태 배지 (필요할 때만 표시) -->
+                <!-- 필요할 때만 표시 -->
                 <v-chip
                   v-if="card.inUse"
                   class="flag"
@@ -88,7 +87,7 @@
                 </v-chip>
               </div>
             </div>
-            <div class="d-flex align-center">
+            <div class="apps-bottom">
               <div class="context">
                 <!-- 제목 -->
                 <v-card-subtitle class="line-clamp">
@@ -98,7 +97,7 @@
                   {{ card.title }}
                 </v-card-title>
               </div>
-              <div class="btns">
+              <div class="apps-bottom-btns">
                 <v-btn
                   v-if="card.showOpenApp"
                   color="info"
@@ -117,19 +116,11 @@
             </div>
           </v-card>
         </div>
-        <div class="d-flex mt-4 justify-center align-center">
+        <div class="scrollControl">
           <v-btn
             icon="custom:arrow-left"
             class="scroll-btn"
             @click="scrollPrev"
-          />
-          <v-btn
-            v-for="(_, i) in cardRecommend2.length"
-            :key="i"
-            icon="custom:slide-dot"
-            density="compact"
-            class="dot"
-            @click="scrollToSection(`section${i + 1}`)"
           />
           <v-btn
             icon="custom:arrow-right"
@@ -169,25 +160,9 @@ const bannerClick = (banner) => {
 };
 
 
-
-
-
-
-// 테스트
+// apps slide
 const scrollContainer = ref(null);
 const cardWidth = 400 + 20;
-const scrollToSection = (id) => {
-  const container = scrollContainer.value;
-  const target = document.getElementById(id);
-
-  if (container && target) {
-       container.scrollTo({
-      left: target.offsetLeft,
-      behavior: 'smooth',
-    });
-  }
-};
-
 const scrollPrev = () => {
   const container = scrollContainer.value;
   if (container) {
@@ -197,8 +172,6 @@ const scrollPrev = () => {
     });
   }
 };
-
-
 const scrollNext = () => {
   const container = scrollContainer.value;
   if (container) {
@@ -208,7 +181,7 @@ const scrollNext = () => {
     });
   }
 };
-const cardRecommend2 = ref([
+const cardRecommend = ref([
   {
     link: "AppsDetail",
     title: "1공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
@@ -275,22 +248,4 @@ const cardRecommend2 = ref([
   },
   
 ]);
-
 </script>
-<style scoped>
-.scroll-container {
-  position: relative;
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-  gap: 20px;
-}
-.scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.scroll-container .v-card {
-  min-width: 400px;
-}
-</style>
