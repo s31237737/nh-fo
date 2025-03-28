@@ -5,27 +5,45 @@
       <p>문의하시기 전 자주하는 질문을 통해 문제 해결방법을 확인하실 수 있습니다.</p>
     </div>
     <div class="form-sheet">
+      <!-- 제목 -->
       <v-row>
         <v-col>
           <v-label
+            for="inp-tit"
             class="require"
           >
-            텍스트
+            제목
           </v-label>
           <div class="label-form">
+            <v-text-field
+              id="inp-tit"
+              placeholder="제목을 입력해 주세요."
+            />
+          </div>
+        </v-col>
+      </v-row>
+      <v-divider v-if="!isDesktop" />
+      <!-- 작성자 / 공개여부 -->
+      <v-row>
+        <v-col>
+          <span class="v-label">작성자
+          </span>
+          <div class="label-form">
             <p class="text-value">
-              텍스트만 입력
+              김농협
             </p>
           </div>
         </v-col>
         <v-col>
           <v-label
             class="require"
+            for="inp-switch"
           >
-            스위치버튼
+            공개 여부
           </v-label>
           <div class="label-form">
             <v-switch
+              id="inp-switch"
               v-model="btnSwitch"
               density="compact"
               class="switch-flip"
@@ -33,90 +51,36 @@
           </div>
         </v-col>
       </v-row>
-      <v-divider v-if="!isDesktop" />
+      <!-- 문의유형 -->
       <v-row>
         <v-col>
           <v-label
-            class="require"
+            for="inp-select"
           >
-            에디터
+            문의유형
           </v-label>
           <div class="label-form">
-            <v-sheet
-              class="editor"
-            >
-              <QuillEditor
-                toolbar="full"
-              />
-            </v-sheet>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-label
-            for="inp-txt"
-            class="require"
-          >
-            텍스트필드
-          </v-label>
-          <div class="label-form">
-            <v-text-field
-              id="inp-txt"
-              placeholder="내용을 입력해 주세요."
-            />
-            <v-text-field
-              id="inp-txt"
-              disabled
-              placeholder="내용을 입력해 주세요."
+            <v-select
+              id="inp-select"
+              v-model="select"
+              density="default"
+              :items="['전체', '앱 관련 문의사항', '업스토어 관련 문의사항']"
+              :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
             />
           </div>
         </v-col>
       </v-row>
+      <!-- 앱 -->
       <v-row>
         <v-col>
           <v-label
             for="inp-search"
-            class="require"
           >
-            검색
+            앱
           </v-label>
           <div class="label-form">
-            <v-text-field
-              id="inp-search"
-              v-model="appsearch"
-              placeholder="검색해 주세요."
-              class="append-button"
-            >
-              <template #append-inner>
-                <v-btn
-                  color="secondary"
-                >
-                  검색
-                </v-btn>
-              </template>
-            </v-text-field>
-
-            <!-- disabled -->
-            <v-text-field
-              id="inp-search"
-              v-model="appsearch"
-              placeholder="검색해 주세요."
-              disabled
-              class="append-button"
-            >
-              <template #append-inner>
-                <v-btn
-                  color="secondary"
-                  disabled
-                >
-                  검색
-                </v-btn>
-              </template>
-            </v-text-field>
-
-            <!-- autocomplete -->
             <v-autocomplete
+              id="inp-search"
               v-model="searchApps"
               :items="apps"
               item-title="name"
@@ -146,35 +110,26 @@
           </div>
         </v-col>
       </v-row>
+      <!-- 내용 -->
       <v-row>
         <v-col>
           <v-label
-            for="inp-select"
             class="require"
           >
-            셀렉트
+            에디터
           </v-label>
           <div class="label-form">
-            <v-select
-              id="inp-select"
-              v-model="select"
-              density="default"
-              :items="['전체', '타입1', '타입2']"
-              :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
-            />
-
-            <!-- disabled -->
-            <v-select
-              id="inp-select"
-              v-model="select"
-              density="default"
-              :items="['전체', '타입1', '타입2']"
-              :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
-              disabled
-            />
+            <v-sheet
+              class="editor"
+            >
+              <QuillEditor
+                toolbar="full"
+              />
+            </v-sheet>
           </div>
         </v-col>
       </v-row>
+      <!-- 첨부파일 -->
       <v-row>
         <v-col>
           <v-label>첨부파일</v-label>
@@ -269,13 +224,17 @@ const isDesktop = inject("isDesktop");
 // form
 const btnSwitch = ref(true);
 const searchApps = ref(null);
-const form = ref("");
 const select = ref("전체");
-const appsearch = ref([]);
+
 const files = ref([]);
 const removeFile = (index) => {
   files.value.splice(index, 1);
 };
+
+const getImageUrl = (imageName) => {
+  return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
+};
+
 //autocomplete
 const apps = [
   {
@@ -300,33 +259,25 @@ const apps = [
   },
   {
     name: '6육묘대장 육묘대장 육묘대장',
-    avatar: '@temp_img_app_icon03.png'
+    avatar: '@temp_img_app_icon01.png'
   },
   {
     name: '7육묘대장 육묘대장 육묘대장',
-    avatar: '@temp_img_app_icon01.png'
-  },
-  {
-    name: '8육묘대장 육묘대장 육묘대장',
-    avatar: '@temp_img_app_icon02.png'
-  },
-  {
-    name: '9육묘대장 육묘대장 육묘대장',
     avatar: '@temp_img_app_icon03.png'
   },
   {
-    name: '10육묘대장 육묘대장 육묘대장',
+    name: '8육묘대장 육묘대장 육묘대장',
     avatar: '@temp_img_app_icon01.png'
   },
+  {
+    name: '9육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon02.png'
+  },
+  {
+    name: '10육묘대장 육묘대장 육묘대장',
+    avatar: '@temp_img_app_icon03.png'
+  },
 ]
-const fileList = ref([
-  { name: "File_t_title_1.pdf", size: "10.3MB"},
-  { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
-  { name: "File_title_3565.pdf", size: "10.3MB"},
-]);
 
-const downloadFile = (files) => {
-  console.log(files.name)
-};
 
 </script>
