@@ -330,7 +330,6 @@
     flex: 0 0 auto;
     align-items: center;
     gap: 12px;
-    scroll-snap-align: start;
      > span {
       color: $gray-900;
       font-size: 16px;
@@ -391,6 +390,7 @@
         scroll-snap-type: x mandatory;
         margin-inline: -20px;
         .category {
+          scroll-snap-align: start;
           &:first-child  {padding-left: 20px;}
           &:last-child  {padding-right: 20px;}
         }
@@ -435,35 +435,56 @@
 }
 
 //AppDetail
-.apps-scroll-wrap {
+.apps-recomm-wrap {
   position: relative;
-}
-.scroll-container {
-  position: relative;
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  gap: 20px;
-}
-.scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.scroll-container .v-card {
-  min-width: 400px;
-}
-.apps-scroll-control {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  height: 50px;
-  .v-btn.v-btn--icon {
-    width:32px;
-    height:32px;
-    .v-icon--size-default {
-      font-size: 32px;
+  .scroll.apps-list {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    gap: 20px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .v-card {
+      min-width: 400px;
+    }
+  } 
+  .scroll-control {
+    position: absolute;
+    right:0;
+    top: -80px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .v-btn.v-btn--icon {
+      width:32px;
+      height:32px;
+      .v-icon--size-default {
+        font-size: 32px;
+      }
+    }
+  }
+  @at-root .tablet {
+    .apps-recomm-wrap {
+      margin-inline: -20px;
+      .scroll {
+        padding-inline: 20px;
+      }
+      .scroll-control {
+        top: -51px;
+        right: 20px;
+      }
+    }
+  }
+  @at-root .mobile {
+    .apps-recomm-wrap {
+      .apps-list .apps{ 
+        & + .apps {
+          margin-top: 12px;
+        }
+      }
     }
   }
 }

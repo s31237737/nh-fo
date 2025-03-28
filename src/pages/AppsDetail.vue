@@ -41,7 +41,13 @@
         <strong class="title-2">
           관련된 앱을 만나보세요!
         </strong>
-        <div class="apps-scroll-control">
+      </div>
+      <!-- 테스트 -->
+      <div class="apps-recomm-wrap">
+        <div
+          v-if="!isMobile"
+          class="scroll-control"
+        >
           <v-btn
             icon="custom:arrow-left"
             class="scroll-btn"
@@ -53,15 +59,14 @@
             @click="scrollNext"
           />
         </div>
-      </div>
-      <!-- 테스트 -->
-      <div class="apps-scroll-wrap">
+
         <div
           ref="scrollContainer"
-          class="scroll-container apps-list recomm"
+          class="apps-list recomm"
+          :class="{ scroll: !isMobile }"
         >
           <v-card
-            v-for="(card, index) in cardRecommend"
+            v-for="(card, index) in appsRecommend"
             :id="`section${index + 1}`"
             :key="index"
             :to="card.link"
@@ -129,6 +134,21 @@
           </v-card>
         </div>
       </div>
+      <div
+        v-if="isMobile"
+        class="apps-list-more"
+      >
+        <v-btn
+          v-if="appsRecommend.length"
+          variant="text"
+          density="compact"
+          append-icon="custom:arrow-down"
+          color="quaternary"
+          :ripple="false"
+        >
+          더보기
+        </v-btn>
+      </div>
     </section>
   </v-container>
 </template>
@@ -139,7 +159,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-//const isMobile = inject("isMobile");
+const isMobile = inject("isMobile");
 //const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
@@ -181,7 +201,7 @@ const scrollNext = () => {
     });
   }
 };
-const cardRecommend = ref([
+const appsRecommend = ref([
   {
     link: "AppsDetail",
     title: "1공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
