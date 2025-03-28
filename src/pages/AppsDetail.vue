@@ -41,7 +41,10 @@
         <strong class="title-2">
           관련된 앱을 만나보세요!
         </strong>
-        <div class="apps-scroll-control">
+      </div>
+      <!-- 테스트 -->
+      <div class="apps-scroll-wrap">
+        <div class="scroll-control">
           <v-btn
             icon="custom:arrow-left"
             class="scroll-btn"
@@ -53,9 +56,7 @@
             @click="scrollNext"
           />
         </div>
-      </div>
-      <!-- 테스트 -->
-      <div class="apps-scroll-wrap">
+
         <div
           ref="scrollContainer"
           class="scroll-container apps-list recomm"
