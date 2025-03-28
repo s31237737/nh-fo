@@ -30,6 +30,7 @@
         v-for="n in 3"
         :key="n"
         :value="n"
+        :transition="false"
       >
         <v-expansion-panels variant="accordion">
           <v-expansion-panel
