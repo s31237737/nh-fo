@@ -89,9 +89,9 @@
       }
     }
   }
-  .v-btn {opacity: 0.26;}
+  .v-btn {opacity: 0.26; pointer-events: none;}
   &.v-input--dirty {
-    .v-btn {opacity: 1;}
+    .v-btn {opacity: 1; pointer-events: auto;}
   }
 }
 .search-wrap {

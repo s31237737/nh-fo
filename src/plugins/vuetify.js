@@ -197,6 +197,8 @@ export default createVuetify({
       variant: "outlined",
       rounded: "lg",
       hideDetails: true,
+      clearable: true,
+      clearIcon: "custom:clear",
     },
     VCheckbox: {
       baseColor: "#c2c2c2",
