@@ -28,7 +28,7 @@
               {{ item.views > 999 ? '999+' : item.views }}
             </span>
           </div>
-          <!-- 첨부파일 아이콘 -->
+          <!-- 아이콘 -->
           <div class="files">
             <v-icon
               v-if="item.guide"
