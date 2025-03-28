@@ -124,11 +124,20 @@ hr.v-divider {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  .ql-toolbar.ql-snow {
-    
-  }
+  width: 100%;
   .ql-container.ql-snow {
     flex-grow: 1;
+  }
+  @at-root .mobile, .tablet {
+    .v-sheet.editor {
+      .ql-toolbar.ql-snow {
+        overflow-x: auto;
+        white-space: nowrap;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
   }
 }
 

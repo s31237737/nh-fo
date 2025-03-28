@@ -116,17 +116,17 @@
           <v-label
             class="require"
           >
-            에디터
+            내용
           </v-label>
-          <div class="label-form">
-            <v-sheet
-              class="editor"
-            >
-              <QuillEditor
-                toolbar="full"
-              />
-            </v-sheet>
-          </div>
+
+          <v-sheet
+            class="editor"
+            height="300"
+          >
+            <QuillEditor
+              toolbar="full"
+            />
+          </v-sheet>
         </v-col>
       </v-row>
       <!-- 첨부파일 -->
@@ -182,6 +182,7 @@
         </v-col>
       </v-row>
     </div>
+
     <div class="page-actions">
       <v-btn
         color="info"
