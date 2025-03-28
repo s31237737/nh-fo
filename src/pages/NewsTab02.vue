@@ -5,22 +5,12 @@
       density="compact"
     >
       <v-tab
+        v-for="(item, i) in subTabItem"
+        :key="i"
         :ripple="false"
-        :value="1"
+        :value="i"
       >
-        앱 사용 질문
-      </v-tab>
-      <v-tab
-        :ripple="false"
-        :value="2"
-      >
-        업스토어 이용 질문
-      </v-tab>
-      <v-tab
-        :ripple="false"
-        :value="3"
-      >
-        기타
+        {{ item.btn }}
       </v-tab>
     </v-tabs>
 
@@ -82,5 +72,9 @@
 import { ref } from "vue";
 
  const subTab = ref(null);
-
+ const subTabItem = [
+   { btn: "앱 사용 질문" },
+   { btn: "업스토어 이용 질문" },
+   { btn: "기타" },
+ ];
 </script>
