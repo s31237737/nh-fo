@@ -6,7 +6,23 @@
       :class="{ 'mobile': resizeMobile }"
     >
       <div class="slide-content">
-        <!-- 슬라이드 항목 -->
+        <!-- 첫 번째 고정 버튼 -->
+        <div class="category fixed">
+          <span>
+            직무
+          </span>
+          <v-btn
+            class="btn-selectJob"
+            rounded="pill"
+            variant="outlined"
+            append-icon="custom:select"
+            :ripple="false"
+          >
+            전체
+          </v-btn>
+        </div>
+
+        <!-- 동적으로 삽입되는 셀렉트 -->
         <div
           v-for="(item, index) in appsCategory"
           :key="index"
@@ -19,8 +35,16 @@
             rounded="pill"
             density="comfortable"
             :items="item.options"
-            :menu-props="{ maxHeight: '208px', location: 'bottom'}"
-            @blur="onSelectBlur"
+            :menu-props="{ maxHeight: '208px', location: 'bottom' }"
+          />
+        </div>
+
+        <!-- 마지막 고정 버튼 -->
+        <div class="category fixed">
+          <v-btn
+            color="white"
+            icon="custom:refresh"
+            class="btn-refresh"
           />
         </div>
       </div>
@@ -32,14 +56,16 @@
         icon="custom:slide-prev"
         class="prev"
         :ripple="false"
-        @click="prevSlide"
+        :disabled="isAtLeftEnd"
+        @click="slide(-1)"
       />
 
       <v-btn
         icon="custom:slide-next"
         class="next"
         :ripple="false"
-        @click="nextSlide"
+        :disabled="isAtRightEnd"
+        @click="slide(1)"
       />
     </template>
   </div>
@@ -49,52 +75,34 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 defineProps({
-  appsCategory: {
-    type: Array,
-    required: true,
-  },
+  appsCategory: { type: Array, required: true },
 });
 
 const categoryWrap = ref(null);
-const slideItemWidth = ref(0);
+const selectRefs = ref([]);
 const resizeMobile = ref(window.innerWidth <= 768);
+const buttonWidth = 60; // 버튼 크기 60px
 
-const prevSlide = () => {
-  if (categoryWrap.value) {
-    categoryWrap.value.scrollBy({ left: -slideItemWidth.value, behavior: 'smooth' });
-  }
+const isAtLeftEnd = ref(false);
+const isAtRightEnd = ref(false);
+
+const slide = (direction) => {
+  categoryWrap.value?.scrollBy({ left: direction * getSlideItemWidth(), behavior: 'smooth' });
+  setTimeout(checkSlideEnds, 300);
 };
 
-const nextSlide = () => {
-  if (categoryWrap.value) {
-    categoryWrap.value.scrollBy({ left: slideItemWidth.value, behavior: 'smooth' });
-  }
+const getSlideItemWidth = () => categoryWrap.value?.querySelector('.category')?.offsetWidth || 0;
+
+const checkSlideEnds = () => {
+  if (!categoryWrap.value) return;
+  const { scrollLeft, scrollWidth, offsetWidth } = categoryWrap.value;
+  isAtLeftEnd.value = scrollLeft <= buttonWidth;
+  isAtRightEnd.value = scrollLeft + offsetWidth >= scrollWidth - buttonWidth;
 };
 
-// 📌 창 크기 변경 시 모바일 여부 및 슬라이드 항목 너비 업데이트
 const handleResize = () => {
   resizeMobile.value = window.innerWidth <= 768;
-  updateSlideItemWidth();
-};
-
-// 📌 슬라이드 항목 너비 계산
-const updateSlideItemWidth = () => {
-  if (categoryWrap.value) {
-    const slideItem = categoryWrap.value.querySelector('.category');
-    if (slideItem) {
-      slideItemWidth.value = slideItem.offsetWidth;
-    }
-  }
-};
-
-const selectRefs = ref([]);
-
-const onSelectBlur = () => {
-  selectRefs.value.forEach(select => {
-    if (select && select.$el.contains(document.activeElement) === false) {
-      select.blur();
-    }
-  });
+  checkSlideEnds();
 };
 
 const closeSelects = (event) => {
@@ -105,16 +113,16 @@ const closeSelects = (event) => {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
-  window.addEventListener('click', closeSelects);  
-  window.addEventListener('touchstart', closeSelects);  
-  window.addEventListener('scroll', closeSelects);  
-  updateSlideItemWidth();
+  window.addEventListener('click', closeSelects);
+  window.addEventListener('touchstart', closeSelects);
+  window.addEventListener('scroll', closeSelects);
+  checkSlideEnds();
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize);
   window.removeEventListener('click', closeSelects);
-  window.removeEventListener('touchstart', closeSelects);  
-  window.removeEventListener('scroll', closeSelects);  
+  window.removeEventListener('touchstart', closeSelects);
+  window.removeEventListener('scroll', closeSelects);
 });
 </script>

@@ -314,19 +314,22 @@
           background: linear-gradient(270deg, #F3F4F9 50%, rgba(243, 244, 249, 0) 100%);
         }
       }
+      &.v-btn--disabled {
+        display:none;
+      }
     }
   }
   .category-wrap {
     overflow-x: hidden;
-    scroll-behavior: smooth;
-    &.mobile {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
+    //scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
     }
     .slide-content {
       display: flex;
       gap: 24px;
     }
+    
   }
   .category {
     display: inline-flex;
@@ -387,12 +390,17 @@
       }
     }
   }
-  @at-root .tablet {
-    .apps-search-wrap {
-    }
-  }
   @at-root .mobile {
     .apps-search-wrap {
+      .category-wrap{
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin-inline: -20px;
+        .category {
+          &:first-child  {padding-left: 20px;}
+          &:last-child  {padding-right: 20px;}
+        }
+      }
     }
   }
 }
