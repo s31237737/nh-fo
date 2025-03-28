@@ -117,11 +117,7 @@
           bg-color="white"
           @click:append-inner="onAppendClick"
         />
-        <div
-          class="apps-search-ctg"
-        >
-          <SlideSelect :apps-category="appsCategory" />
-        </div>
+        <SlideSelect :apps-category="appsCategory" />
       </div>
 
       <!-- 앱 목록  -->
@@ -766,7 +762,7 @@ const appsBanner = ref({
   imageUrl: "img_apps_banner_02.png",
   description: "세상에 없던 NH 고객 라이프\n관리 서비스 공개",
 });
-const appsBannerClick = (appsBanner) => {
+const bannerClick = (appsBanner) => {
   if (!appsBanner.link) {
     return; // link 없으면 아무 동작 X
   } else {
