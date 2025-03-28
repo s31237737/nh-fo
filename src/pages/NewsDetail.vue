@@ -77,7 +77,7 @@
       <v-spacer />
 
       <v-btn
-        to="News"
+        :to="{path: 'News', query: { tab: 0 }}"
         color="info"
         size="x-large"
       >
@@ -88,10 +88,7 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue';
-const isMobile = inject("isMobile");
-const isTablet = inject("isTablet");
-const isDesktop = inject("isDesktop");
+import { ref } from 'vue';
 
 const fileList = ref([
   { name: "File_t_title_1.pdf", size: "10.3MB"},

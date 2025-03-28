@@ -67,16 +67,16 @@ const paginatedItems = computed(() => {
 const boardItem = ref([
   {
     id: 1,
-    title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
+    title: "새소식 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공",
     notice: true,
     attachment: true,
-    date: "2025.03.24",
+    date: "YYYY.MM.DD hh:mm",
     views: 1000,
     link: "NewsDetail"
   },
   {
     id: 2,
-    title: "[공지] 개인정보 처리방침 개정 예정 안내 (시행일: 2024년 9월 23일)",
+    title: "[공지] 공지사항 최상단 고정",
     notice: true,
     attachment: true,
     date: "2025.03.23",
