@@ -151,24 +151,6 @@
                 </template>
               </v-file-input>
 
-              <!-- disabled -->
-              <v-file-input
-                v-model="files"
-                label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
-                rounded="lg"
-                multiple
-                disabled
-                class="append-button"
-              >
-                <template #append-inner>
-                  <v-btn
-                    color="secondary"
-                    disabled
-                  >
-                    파일첨부
-                  </v-btn>
-                </template>
-              </v-file-input>
               <!-- 첨부된 파일 목록 표시 -->
               <p class="file-guide-text">
                 *첨부 가능 최대 용량은 100MB, 5개 까지 업로드 가능합니다.
@@ -222,6 +204,11 @@ import { ref, inject } from 'vue';
 const isDesktop = inject("isDesktop");
 
 // form
+
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+
 const btnSwitch = ref(true);
 const searchApps = ref(null);
 const select = ref("전체");
@@ -231,9 +218,6 @@ const removeFile = (index) => {
   files.value.splice(index, 1);
 };
 
-const getImageUrl = (imageName) => {
-  return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
-};
 
 //autocomplete
 const apps = [
