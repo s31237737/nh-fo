@@ -396,6 +396,9 @@
           @include line-clamp(2);
         }
       }
+      .v-expansion-panel-text__wrapper {
+        padding: 20px;
+      }
     }
   }
 }

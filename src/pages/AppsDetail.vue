@@ -11,6 +11,8 @@
     <section>
       이미지 영역
     </section>
+
+    <!-- 앱 상세 정보 -->
     <section>
       <div class="tit-wrap">
         <v-slide-group
@@ -38,7 +40,7 @@
 
       <v-window
         v-model="tab"
-        class="tab-container"
+        class="tab-container apps-information"
       >
         <v-window-item
           :transition="false"
@@ -46,16 +48,17 @@
           <v-sheet class="w-box">
             <div class="editor-content">
               <p class="mb-3">
-                <strong>앱 이름 노출</strong>
+                <strong>설명</strong>
               </p>
               <div>
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
-                도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
-                도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
-                도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
-                도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
+              </div>
+              <p class="editor-title">
+                <strong>설명</strong>
+              </p>
+              <div>
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
@@ -63,13 +66,22 @@
             </div>
           </v-sheet>
         </v-window-item>
+
         <v-window-item
           :transition="false"
         >
           <v-sheet class="w-box">
             <div class="editor-content">
               <p class="mb-3">
-                <strong>2앱 이름 노출</strong>
+                <strong>버전명</strong>
+
+                <v-select
+                  v-model="select"
+                  rounded="pill"
+                  class="round"
+                  :items="['선택', '1.1.1 ver', '1.1.0 ver']"
+                  :menu-props="{ maxHeight: '208px', auto: true, }"
+                />
               </p>
               <div>
                 도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
@@ -86,12 +98,13 @@
             </div>
           </v-sheet>
         </v-window-item>
+
         <v-window-item
           :transition="false"
         >
           <v-sheet class="w-box">
             <p class="mb-3">
-              <strong>3앱 이름 노출</strong>
+              <strong>자주 묻는 질문</strong>
             </p>
             <v-expansion-panels
               v-if="subTabItemTab1.length > 0"
@@ -273,6 +286,7 @@ const getImageUrl = (imageName) => {
 
 
 /* 탭 */
+const select = ref("선택");
 const tab = ref(0);
 const tabItem = ref([
   { btn: '앱 정보'}, { btn: '업데이트 정보'}, { btn: '자주 묻는 질문'}
@@ -280,7 +294,7 @@ const tabItem = ref([
 const subTabItemTab1 = ref([
   {
     title: "자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공 자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공 자주묻는질문 타이틀 최대 50자 노출 말줄임...처리 마킹 미제공",
-    appName: "앱이름 노출",
+    appName: "",
     content: `
     <p>안녕하세요, 총무알리미 사용자 여러분.</p>
     <br>
