@@ -66,24 +66,28 @@
       <v-window-item
         key="tab-0"
         :value="0"
+        :transition="false"
       >
         <NewsTab01 />
       </v-window-item>
       <v-window-item
         key="tab-1"
         :value="1"
+        :transition="false"
       >
         <NewsTab02 />
       </v-window-item>
       <v-window-item
         key="tab-2"
         :value="2"
+        :transition="false"
       >
         <NewsTab03 />
       </v-window-item>
       <v-window-item
         key="tab-3"
         :value="3"
+        :transition="false"
       >
         <NewsTab04 />
       </v-window-item>
