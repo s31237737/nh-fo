@@ -41,9 +41,21 @@
         <strong class="title-2">
           관련된 앱을 만나보세요!
         </strong>
+        <div class="apps-scroll-control">
+          <v-btn
+            icon="custom:arrow-left"
+            class="scroll-btn"
+            @click="scrollPrev"
+          />
+          <v-btn
+            icon="custom:arrow-right"
+            class="scroll-btn"
+            @click="scrollNext"
+          />
+        </div>
       </div>
       <!-- 테스트 -->
-      <div>
+      <div class="apps-scroll-wrap">
         <div
           ref="scrollContainer"
           class="scroll-container apps-list recomm"
@@ -115,18 +127,6 @@
               </div>
             </div>
           </v-card>
-        </div>
-        <div class="scrollControl">
-          <v-btn
-            icon="custom:arrow-left"
-            class="scroll-btn"
-            @click="scrollPrev"
-          />
-          <v-btn
-            icon="custom:arrow-right"
-            class="scroll-btn"
-            @click="scrollNext"
-          />
         </div>
       </div>
     </section>
