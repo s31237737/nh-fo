@@ -1,4 +1,5 @@
 <template>
+  <!-- 검색영역 -->
   <v-sheet
     class="top-banner"
     :height="isDesktop ? '370' : 'auto'"
@@ -33,6 +34,8 @@
       </v-card>
     </v-container>
   </v-sheet>
+  <!-- // 검색영역 -->
+  <!-- 탭 영역 -->
   <v-container class="inner">
     <div class="tit-wrap mb-0">
       <v-slide-group
@@ -40,12 +43,10 @@
         center-active
       >
         <v-slide-group-item
-          v-for="(item, i) in tabBtn"
+          v-for="(item, i) in tabItem"
           :key="i"
           v-slot="{ isSelected }"
         >
-          <!-- 검색어 강조 예제 -->
-          <!-- <span class="text-success">숫자</span> -->
           <v-btn
             size="large"
             :ripple="false"
@@ -54,7 +55,9 @@
             :color="isSelected ? 'primary' : 'info'"
             @click="tab = i"
           >
-            {{ item.btn }} <span class="text-success">10</span>
+            {{ item.btn }}
+            <!-- 검색어 강조 예제 -->
+            <span class="text-success">8</span>
           </v-btn>
         </v-slide-group-item>
       </v-slide-group>
@@ -64,35 +67,16 @@
       class="tab-container"
     >
       <v-window-item
-        key="tab-0"
-        :value="0"
+        v-for="(item, i) in tabItem"
+        :key="i"
+        :value="i"
         :transition="false"
       >
-        <NewsTab01 />
-      </v-window-item>
-      <v-window-item
-        key="tab-1"
-        :value="1"
-        :transition="false"
-      >
-        <NewsTab02 />
-      </v-window-item>
-      <v-window-item
-        key="tab-2"
-        :value="2"
-        :transition="false"
-      >
-        <NewsTab03 />
-      </v-window-item>
-      <v-window-item
-        key="tab-3"
-        :value="3"
-        :transition="false"
-      >
-        <NewsTab04 />
+        <component :is="item.component" />
       </v-window-item>
     </v-window>
   </v-container>
+  <!-- // 탭 영역 -->
 </template>
 
 <script setup>
@@ -130,11 +114,11 @@ watch(() => route.query.tab, (newTab) => {
   }
 });
 
-const tabBtn = ref([
-  { btn: "새소식" },
-  { btn: "자주 묻는 질문" },
-  { btn: "Q&A" },
-  { btn: "앱 가이드" },
+const tabItem = ref([
+  { btn: "새소식", component: NewsTab01 },
+  { btn: "자주 묻는 질문", component: NewsTab02 },
+  { btn: "Q&A", component: NewsTab03 },
+  { btn: "앱 가이드", component: NewsTab04 },
 ]);
 </script>
 
