@@ -5,13 +5,22 @@
       v-model="subTab"
       density="compact"
     >
-      <v-tab :value="0">
+      <v-tab
+        :value="0"
+        :ripple="false"
+      >
         앱 사용 질문
       </v-tab>
-      <v-tab :value="1">
+      <v-tab
+        :value="1"
+        :ripple="false"
+      >
         업스토어 이용 질문
       </v-tab>
-      <v-tab :value="2">
+      <v-tab
+        :value="2"
+        :ripple="false"
+      >
         기타
       </v-tab>
     </v-tabs>
