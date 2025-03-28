@@ -66,6 +66,7 @@
         color="info"
         size="large"
         class="ml-auto"
+        to="QnaWrite"
       >
         글쓰기
       </v-btn>
