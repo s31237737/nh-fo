@@ -1,66 +1,62 @@
 <template>
-  <v-container height="200vh">
-    <div 
-      ref="slideContainer" 
-      class="slide-wrapper" 
-      :class="{ 'mobile': resizeMobile }"
-    >
-      <div class="slide-content">
-        <!-- 슬라이드 항목 -->
-        <div 
-          v-for="(item, index) in appsCategory" 
-          :key="index" 
-          class="slide-item"
-        >
-          <div class="apps-category">
-            <span>{{ item.label }}</span>
-            <v-select
-              ref="selectRefs"
-              v-model="item.selected"
-              :items="item.options"
-              dense
-              rounded
-              variant="outlined"
-              label="직무 선택"
-            />
-          </div>
+  <div 
+    ref="slideContainer" 
+    class="slide-wrapper" 
+    :class="{ 'mobile': resizeMobile }"
+  >
+    <div class="slide-content">
+      <!-- 슬라이드 항목 -->
+      <div
+        v-for="(item, index) in appsCategory"
+        :key="index"
+        class="slide-item"
+      >
+        <div class="apps-category">
+          <span>{{ item.label }}</span>
+          <v-select
+            ref="selectRefs"
+            v-model="item.selected"
+            :items="item.options"
+            dense
+            rounded
+            variant="outlined"
+            label="직무 선택"
+            @blur="onSelectBlur"
+          />
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 데스크톱에서만 버튼 표시 -->
-    <template v-if="!resizeMobile">
-      <button
-        class="slide-btn prev"
-        @click="prevSlide"
-      >
-        〈
-      </button>
-      <button
-        class="slide-btn next"
-        @click="nextSlide"
-      >
-        〉
-      </button>
-    </template>
-  </v-container>
+  <!-- 데스크톱에서만 버튼 표시 -->
+  <template v-if="!resizeMobile">
+    <button
+      class="slide-btn prev"
+      @click="prevSlide"
+    >
+      〈
+    </button>
+    <button
+      class="slide-btn next"
+      @click="nextSlide"
+    >
+      〉
+    </button>
+  </template>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const appsCategory = ref([
-  { label: '선택직무1', options: ['세부직군1-1', '세부직군1-2'], selected: '세부직군1-1' },
-  { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2'], selected: '세부직군2-1' },
-  { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2'], selected: '세부직군3-1' },
-  { label: '선택직무4', options: ['세부직군4-1', '세부직군4-2'], selected: '세부직군4-1' },
-  { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2'], selected: '세부직군5-1' },
-]);
+defineProps({
+  appsCategory: {
+    type: Array,
+    required: true,
+  },
+});
 
 const slideContainer = ref(null);
 const slideItemWidth = ref(0); // 슬라이드 항목 너비
-
-// 📌 모바일 여부 체크
 const resizeMobile = ref(window.innerWidth <= 768); // 변경: 직접 ref로 선언
 
 // 📌 좌우 버튼 이동 (데스크톱 전용)
@@ -92,14 +88,21 @@ const updateSlideItemWidth = () => {
   }
 };
 
-// 📌 셀렉트 박스 열린 상태 관리
 const selectRefs = ref([]);
+
+// 📌 셀렉트 박스 열린 상태 관리
+const onSelectBlur = () => {
+  // 셀렉트 박스가 blur되면 닫히는 로직
+  selectRefs.value.forEach(select => {
+    if (select && select.$el.contains(document.activeElement) === false) {
+      select.blur();
+    }
+  });
+};
 
 // 📌 셀렉트 박스가 열린 상태일 때, 다른 곳을 클릭하거나 터치하면 닫히도록 처리
 const closeSelects = (event) => {
-  // 셀렉트 외부 클릭 시 닫기
   if (!selectRefs.value.some(select => select.$el.contains(event.target))) {
-    // 모든 셀렉트 닫기
     selectRefs.value.forEach(select => select?.blur());
   }
 };
