@@ -9,6 +9,7 @@
 @forward 'vuetify/settings' with (
   // $layers: true,
   // $color-pack: false,
+  $body-font-family: 'Pretendard',
   $application-color:rgba(30, 30, 30, 1),
   $size-scales: (
     'x-small': -2,
