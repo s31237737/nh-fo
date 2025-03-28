@@ -89,6 +89,10 @@
       }
     }
   }
+  .v-btn {opacity: 0.26;}
+  &.v-input--dirty {
+    .v-btn {opacity: 1;}
+  }
 }
 .search-wrap {
   margin-bottom: 50px;

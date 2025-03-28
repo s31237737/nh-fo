@@ -95,7 +95,9 @@
 
               <!-- 검색 버튼 추가 -->
               <template #append-inner>
-                <v-btn color="secondary">
+                <v-btn
+                  color="secondary"
+                >
                   검색
                 </v-btn>
               </template>
@@ -200,8 +202,8 @@ const getImageUrl = (imageName) => {
 
 // form
 const btnSwitch = ref(true);
-const searchApps = ref(null);
 const select = ref("앱 관련 문의사항");
+const searchApps = ref("");
 
 // 파일
 const files = ref([]);
