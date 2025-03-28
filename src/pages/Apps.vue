@@ -119,64 +119,7 @@
         />
         <div
           class="apps-search-ctg"
-        >
-          <v-slide-group
-            :show-arrows="!isMobile"
-            :center-active="false"
-            prev-icon="custom:slide-prev"
-            next-icon="custom:slide-next"
-          >
-            <!-- 고정된 버튼 -->
-            <v-slide-group-item>
-              <div class="apps-category">
-                <span>
-                  직무
-                </span>
-                <v-btn
-                  class="btn-selectJob"
-                  rounded="pill"
-                  variant="outlined"
-                  append-icon="custom:select"
-                  :ripple="false"
-                >
-                  전체
-                </v-btn>
-              </div>
-            </v-slide-group-item>
-
-            <!-- 최대 4개의 v-select 요소 -->
-            <v-slide-group-item
-              v-for="(item, inedx) in appsCategory"
-              :key="inedx"
-            >
-              <div class="apps-category">
-                <span>
-                  {{ item.label }}
-                </span>
-                <v-select
-                  ref="selectRefs"
-                  v-model="item.selected"
-                  rounded="pill"
-                  density="comfortable"
-                  :items="item.options"
-                  :menu-props="{ maxHeight: '208px', location: 'bottom'}"
-                  @pointerdown.stop
-                />
-              </div>
-            </v-slide-group-item>
-
-            <!-- 고정된 버튼 -->
-            <v-slide-group-item>
-              <div class="apps-category">
-                <v-btn
-                  color="white"
-                  icon="custom:refresh"
-                  class="btn-refresh"
-                />
-              </div>
-            </v-slide-group-item>
-          </v-slide-group>
-        </div>
+        />
       </div>
 
       <!-- 앱 목록  -->
@@ -545,7 +488,7 @@
 </template>
 
 <script setup>
-import { ref, inject, onMounted, onUnmounted } from 'vue';
+import { ref, inject } from 'vue';
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -601,31 +544,6 @@ const searchApps = ref("");
 const onAppendClick = () => {
   alert("Append icon clicked!");
 };
-
-const selectRefs = ref([]);
-const appsCategory = ref([
-  { label: '선택직무1', options: ['세부직군명1-1', '세부직군명1-1 외 4개', '세부직군명1-2', '세부직군명1-3', '세부직군명1-4'], selected: '세부직군명1 외 4개' },
-  { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2', '세부직군2-3'], selected: '세부직군2-1' },
-  { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2', '세부직군3-3'], selected: '세부직군3-1' },
-  { label: '선택직무4', options: ['세부직군4-1', '세부직군4-2', '세부직군4-3'], selected: '세부직군4-1' },
-  { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2', '세부직군5-3'], selected: '세부직군5-1' }
-]);
-
-const closeDropdown = (event) => {
-  if (!selectRefs.value.some(select => select?.$el.contains(event.target))) {
-    document.activeElement?.blur(); // 드롭다운 닫기
-  }
-};
-
-onMounted(() => {
-  window.addEventListener('touchstart', closeDropdown);
-  window.addEventListener('scroll', closeDropdown);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('touchstart', closeDropdown);
-  window.removeEventListener('scroll', closeDropdown);
-});
 
 
 //apps-list

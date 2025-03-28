@@ -3,7 +3,7 @@
     <div 
       ref="slideContainer" 
       class="slide-wrapper" 
-      :class="{ 'mobile': isMobile }"
+      :class="{ 'mobile': resizeMobile }"
     >
       <div class="slide-content">
         <!-- 슬라이드 항목 -->
@@ -28,7 +28,7 @@
     </div>
 
     <!-- 데스크톱에서만 버튼 표시 -->
-    <template v-if="!isMobile">
+    <template v-if="!resizeMobile">
       <button
         class="slide-btn prev"
         @click="prevSlide"
@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, inject } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const appsCategory = ref([
   { label: '선택직무1', options: ['세부직군1-1', '세부직군1-2'], selected: '세부직군1-1' },
@@ -60,7 +60,7 @@ const slideContainer = ref(null);
 const slideItemWidth = ref(0); // 슬라이드 항목 너비
 
 // 📌 모바일 여부 체크
-const isMobile = inject("isMobile");
+const resizeMobile = ref(window.innerWidth <= 768); // 변경: 직접 ref로 선언
 
 // 📌 좌우 버튼 이동 (데스크톱 전용)
 const prevSlide = () => {
@@ -77,7 +77,7 @@ const nextSlide = () => {
 
 // 📌 창 크기 변경 시 모바일 여부 및 슬라이드 항목 너비 업데이트
 const handleResize = () => {
-  isMobile.value = window.innerWidth <= 768;
+  resizeMobile.value = window.innerWidth <= 768;
   updateSlideItemWidth(); // 창 크기 변경 시 슬라이드 항목 너비를 새로 계산
 };
 
