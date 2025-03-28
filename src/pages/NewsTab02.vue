@@ -1,7 +1,8 @@
 <template>
   <div class="sub-tab">
     <v-tabs
-      v-model="tab"
+      v-model="subTab"
+      density="compact"
     >
       <v-tab
         :ripple="false"
@@ -24,7 +25,7 @@
     </v-tabs>
 
     <v-tabs-window
-      v-model="tab"
+      v-model="subTab"
     >
       <v-tabs-window-item
         v-for="n in 3"
@@ -78,13 +79,8 @@
 </template>
 
 <script setup>
-import { ref, inject } from "vue";
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
 
-const isMobile = inject("isMobile");
-const isTablet = inject("isTablet");
-const isDesktop = inject("isDesktop");
-
- const tab = ref(null);
+ const subTab = ref(null);
 
 </script>

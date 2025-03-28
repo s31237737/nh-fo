@@ -391,6 +391,9 @@ section + section {
   }
 }
 .tab-container {
+  .v-window-item {
+    transition: none !important;
+  }
   .board-list {
     margin-top: 40px;
   }
@@ -403,6 +406,7 @@ section + section {
   } 
 }
 .sub-tab {
+  margin-top: 14px;
   .v-slide-group {
     &__content {
       gap: 20px !important;
@@ -410,6 +414,11 @@ section + section {
     .v-tab.v-btn {
       min-width: auto;
       padding: 0;
+      color: $gray-900;
+      &.v-tab--selected {
+        color: $black;
+        font-weight: 700;
+      }
     }
   }
   .v-window-item {
