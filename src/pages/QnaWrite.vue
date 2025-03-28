@@ -84,7 +84,6 @@
               :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
               class="append-button"
               placeholder="앱 이름을 검색해주세요."
-              clearable
             >
               <template #item="{ props, item }">
                 <v-list-item
