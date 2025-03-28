@@ -147,6 +147,7 @@ hr.v-divider {
     margin-bottom: 36px;
   }
   &__text {
+    @extend .text-2-md;
     color: $gray-800;
   }
 }
