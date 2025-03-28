@@ -3,7 +3,6 @@
     <div 
       ref="categoryWrap" 
       class="category-wrap" 
-      :class="{ 'mobile': resizeMobile }"
     >
       <div class="slide-content">
         <!-- 첫 번째 고정 버튼 -->

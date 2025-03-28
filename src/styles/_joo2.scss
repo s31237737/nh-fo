@@ -181,12 +181,6 @@
       .apps-bottom {margin-top: 24px;}
     }
   }
-  //carousel
-  // @at-root .v-carousel {
-  //   .apps.v-card {
-  //     height: auto;
-  //   }
-  // }
 }
 .apps-list{
   &.recomm {
@@ -320,7 +314,8 @@
     }
   }
   .category-wrap {
-    overflow-x: hidden;
+    overflow: hidden;
+    //overflow-x: hidden;
     //scroll-behavior: smooth;
     &::-webkit-scrollbar {
       display: none;
@@ -438,4 +433,21 @@
       }
     }
   }
+}
+
+//AppDetail
+.scroll-container {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  gap: 20px;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container .v-card {
+  min-width: 400px;
 }
