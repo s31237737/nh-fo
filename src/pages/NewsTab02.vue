@@ -33,8 +33,12 @@
             <v-expansion-panel-text>
               <div
                 class="editor-content"
-                v-html="panel.content"
-              />
+              >
+                <p class="mb-3">
+                  <strong>{{ panel.appName }}</strong>
+                </p>
+                <div v-html="panel.content" />
+              </div>
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -46,17 +50,15 @@
 <script setup>
 import { ref } from "vue";
 
- const subTab = ref(null);
+const subTab = ref(null);
 const subTabItem = [
   {
     btn: "앱 사용 질문",
     panels: [
       {
         title: "앱 설치 방법",
+        appName: "앱이름 노출",
         content: `
-        <strong>공지사항</strong>
-        <br>
-        <br>
         <p>안녕하세요, 총무알리미 사용자 여러분.</p>
         <br>
         <p>항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.</p>
@@ -86,10 +88,12 @@ const subTabItem = [
       },
       {
         title: "앱 설치 방법",
+        appName: "앱이름 노출",
         content: "앱 설치는 앱스토어 또는 구글 플레이스토어에서 가능합니다.",
       },
       {
         title: "로그인 문제 해결",
+        appName: "앱이름 노출",
         content: "로그인 문제는 비밀번호 재설정을 통해 해결할 수 있습니다.",
       },
     ],
@@ -99,10 +103,12 @@ const subTabItem = [
     panels: [
       {
         title: "상품 등록 방법",
+        appName: "앱이름 노출",
         content: "상품 등록은 업스토어 관리자 페이지에서 가능합니다.",
       },
       {
         title: "결제 오류 해결",
+        appName: "앱이름 노출",
         content: "결제 오류는 고객센터에 문의해 주세요.",
       },
     ],
@@ -112,10 +118,12 @@ const subTabItem = [
     panels: [
       {
         title: "문의 방법",
+        appName: "앱이름 노출",
         content: "문의는 앱 내 고객센터를 통해 가능합니다.",
       },
       {
         title: "업데이트 내역",
+        appName: "앱이름 노출",
         content: "업데이트 내역은 공지사항에서 확인할 수 있습니다.",
       },
     ],
