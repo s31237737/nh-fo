@@ -61,6 +61,14 @@
           </v-btn>
         </v-slide-group-item>
       </v-slide-group>
+      <v-btn
+        v-if="tab === 2"
+        color="info"
+        size="large"
+        class="ml-auto"
+      >
+        글쓰기
+      </v-btn>
     </div>
     <v-window
       v-model="tab"
