@@ -89,6 +89,10 @@
       }
     }
   }
+  .v-btn {opacity: 0.26; pointer-events: none;}
+  &.v-input--dirty {
+    .v-btn {opacity: 1; pointer-events: auto;}
+  }
 }
 .search-wrap {
   margin-bottom: 50px;
