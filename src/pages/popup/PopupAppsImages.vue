@@ -6,7 +6,7 @@
   >
     <v-carousel
       v-model="model"
-      :height="isMobile ? 300 :'100%'"
+      :height="isMobile ? '300' :'500'"
     >
       <v-carousel-item>
         <iframe
