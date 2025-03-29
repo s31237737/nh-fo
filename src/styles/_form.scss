@@ -93,13 +93,8 @@
     opacity: 0.26;
     pointer-events: none;
   }
-  .v-field:hover .v-field__clearable {
-    display: none;
-  }
   &.v-input--dirty {
-     .v-field:hover .v-field__clearable {
-      display: flex;
-    }
+     
     .v-btn {
       opacity: 1;
       pointer-events: auto;

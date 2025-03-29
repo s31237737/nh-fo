@@ -203,7 +203,7 @@ const getImageUrl = (imageName) => {
 // form
 const btnSwitch = ref(true);
 const select = ref("앱 관련 문의사항");
-const searchApps = ref("");
+const searchApps = ref(null);
 
 // 파일
 const files = ref([]);
