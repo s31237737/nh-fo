@@ -165,11 +165,13 @@
           <v-btn
             icon="custom:arrow-left"
             class="scroll-btn"
+            :disabled="isAtStart"
             @click="scrollPrev"
           />
           <v-btn
             icon="custom:arrow-right"
             class="scroll-btn"
+            :disabled="isAtEnd"
             @click="scrollNext"
           />
         </div>
@@ -178,6 +180,7 @@
           ref="scrollContainer"
           class="apps-list recomm"
           :class="{ scroll: !isMobile }"
+          @scroll="checkScrollPosition"
         >
           <v-card
             v-for="(card, index) in appsRecommend"
@@ -439,6 +442,18 @@ const scrollNext = () => {
   }
 };
 
+// 스크롤 위치 확인
+const isAtStart = ref(true);
+const isAtEnd = ref(false);
+const checkScrollPosition = () => {
+  const container = scrollContainer.value;
+  if (container) {
+    isAtStart.value = container.scrollLeft === 0;
+    isAtEnd.value =
+      container.scrollLeft + container.clientWidth >= container.scrollWidth;
+  }
+};
+
 const appsRecommend = ref([
   {
     link: "AppsDetail",
@@ -504,6 +519,6 @@ const appsRecommend = ref([
     showOpenApp: false,
     likeCount: 0,
   },
-  
+
 ]);
 </script>
