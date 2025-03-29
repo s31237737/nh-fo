@@ -159,7 +159,7 @@
       <!-- 테스트 -->
       <div class="apps-recomm-wrap">
         <div
-          v-if="!isMobile"
+          v-if="!isMobile & appsRecommend.length > 3"
           class="scroll-control"
         >
           <v-btn
