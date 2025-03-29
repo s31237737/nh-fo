@@ -132,6 +132,7 @@ hr.v-divider {
     .v-sheet.editor {
       .ql-toolbar.ql-snow {
         overflow-x: auto;
+        overflow-y: hidden;
         white-space: nowrap;
         &::-webkit-scrollbar {
           display: none;
