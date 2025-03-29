@@ -4,7 +4,10 @@
     class="popup"
     @update:model-value="emit('update:modelValue', $event)"
   >
-    <v-carousel v-model="model">
+    <v-carousel
+      v-model="model"
+      :height="isMobile ? 300 :'100%'"
+    >
       <v-carousel-item>
         <iframe
           width="100%"
@@ -43,8 +46,9 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, inject } from 'vue';
 
+const isMobile = inject('isMobile');
   defineProps({
     modelValue: {
       type: Boolean,
