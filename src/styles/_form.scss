@@ -247,6 +247,7 @@
   li {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     & + li { margin-top: 10px; }
 
     .file-download {
@@ -273,6 +274,7 @@
     }
     .name {
       margin-left: 6px;
+      word-break: break-all;
       @include line-clamp(1);
       @extend .text-4;
     }

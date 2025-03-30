@@ -484,12 +484,14 @@
     scroll-behavior: smooth;
     width: 100%;
     gap: 20px;
+    scroll-snap-type: x mandatory;
     &::-webkit-scrollbar {
       display: none;
     }
     .v-card {
       min-width: 400px;
       flex: 1;
+      scroll-snap-align: start;
     }
   } 
   .scroll-control {
@@ -502,16 +504,22 @@
     .v-btn.v-btn--icon {
       width:32px;
       height:32px;
+      .v-btn__overlay, .v-btn__underlay {
+        display: none;
+      }
       .v-icon--size-default {
         font-size: 32px;
+      }
+      &.v-btn--disabled {
+        background: transparent;
       }
     }
   }
   @at-root .tablet {
     .apps-recomm-wrap {
-      margin-inline: -20px;
-      .scroll {
-        padding-inline: 20px;
+      margin-inline-end: -20px;
+      .scroll.apps-list {
+        padding-inline-end: 20px;
       }
       .scroll-control {
         top: -51px;
