@@ -112,7 +112,7 @@ const closeSelects = (event) => {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
-  window.addEventListener('click', closeSelects);
+  //window.addEventListener('click', closeSelects);
   window.addEventListener('touchstart', closeSelects);
   window.addEventListener('scroll', closeSelects);
   checkSlideEnds();
@@ -120,7 +120,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize);
-  window.removeEventListener('click', closeSelects);
+  //window.removeEventListener('click', closeSelects);
   window.removeEventListener('touchstart', closeSelects);
   window.removeEventListener('scroll', closeSelects);
 });
