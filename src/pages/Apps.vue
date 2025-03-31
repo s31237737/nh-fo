@@ -118,6 +118,7 @@
           @click:append-inner="onAppendClick"
         />
         <SlideSelect :apps-category="appsCategory" />
+        <testSlide :apps-category="testCategory" />
       </div>
 
       <!-- 앱 목록  -->
@@ -548,6 +549,13 @@ const appsCategory = ref([
   { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2'], selected: '세부직군3-1' },
   { label: '선택직무4', options: ['세부직군4-1', '세부직군4-2'], selected: '세부직군4-1' },
   { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2'], selected: '세부직군5-1' },
+]);
+const testCategory = ref([
+  { label: 't선택직무1', options: ['t세부직군1-1', 't세부직군1-2'], selected: 't세부직군1-1' },
+  { label: 't선택직무2', options: ['t세부직군2-1', 't세부직군2-2'], selected: 't세부직군2-1' },
+  { label: 't선택직무3', options: ['t세부직군3-1', 't세부직군3-2'], selected: 't세부직군3-1' },
+  { label: 't선택직무4', options: ['t세부직군4-1', 't세부직군4-2'], selected: 't세부직군4-1' },
+  { label: 't선택직무5', options: ['t세부직군5-1', 't세부직군5-2'], selected: 't세부직군5-1' },
 ]);
 
 //apps-list
