@@ -64,6 +64,7 @@
     <div class="page-actions">
       <div class="pagination">
         <v-btn
+          disabled
           :ripple="false"
           icon="custom:arrow-prev"
           color="info"

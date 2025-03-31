@@ -640,6 +640,7 @@
           :ripple="false"
           icon="custom:arrow-prev"
           color="info"
+          disabled
         />
         <v-btn
           :ripple="false"
