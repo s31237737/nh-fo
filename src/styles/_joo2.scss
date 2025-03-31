@@ -404,7 +404,7 @@
           overflow-y: hidden;
         }
         .category {
-          scroll-snap-align: center;
+          scroll-snap-align: left;
           &:first-child  {padding-left: 20px;}
           &:last-child  {padding-right: 20px;}
         }
