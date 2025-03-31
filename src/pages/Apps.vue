@@ -117,7 +117,7 @@
           bg-color="white"
           @click:append-inner="onAppendClick"
         />
-        <SlideSelect :apps-category="appsCategory" />
+        <CategoryFilter :apps-category="appsCategory" />
       </div>
 
       <!-- 앱 목록  -->
