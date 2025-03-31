@@ -5,6 +5,7 @@
   height: 548px;
   .v-carousel {
     height: 100% !important;
+    background: $white;
     &-item {
       [role="link"] {
         cursor: pointer;
@@ -70,6 +71,9 @@
     font-size:1px;
     color: transparent;
   }
+  .slider-controls {
+    bottom: 58px;
+  }
   @at-root .tablet {
     .apps-slide-banner.slider {
       .apps-slide-content {
@@ -127,6 +131,9 @@
           height: auto;
           margin: 0 auto 100px;
         }
+      }
+      .slider-controls {
+        bottom: 40px;
       }
     }
   }
@@ -204,25 +211,6 @@
       padding:0;
     }
   }
-  .v-btn-toggle {
-    position: absolute;
-    top: 102px;
-    right:0;
-    height: 24px;
-    .v-btn {
-      padding:0 8px;
-      font-weight: 400;
-      color: $gray-700;
-      min-width: auto;
-      .v-btn__content {
-        line-height: 24px;
-      }
-      &.v-btn--active {
-        font-weight: 500;
-        color: $black;
-      }
-    }
-  }
 }
 .apps-list-more {
   margin-top: 40px;
@@ -252,7 +240,29 @@
   }
 }
 .relative {
+  position: relative; 
   height: auto;
+  .apps-list { 
+    .v-btn-toggle {
+      position: absolute;
+      top: 102px;
+      right:0;
+      height: 24px;
+      .v-btn {
+        padding:0 8px;
+        font-weight: 400;
+        color: $gray-700;
+        min-width: auto;
+        .v-btn__content {
+          line-height: 24px;
+        }
+        &.v-btn--active {
+          font-weight: 500;
+          color: $black;
+        }
+      }
+    }
+  }
   @at-root .mobile, .tablet {
     .relative .apps-list {
       position: relative;
@@ -535,5 +545,24 @@
         }
       }
     }
+  }
+}
+
+.slider.apps-media-slide {
+  .v-carousel-item .v-responsive__content {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+    & > .v-card { 
+      flex: 1 0 50%;
+      max-width: 50%;
+      border-radius: $base-radius;
+    }
+  }
+  .slider-controls {
+    position: static;
+    transform: none;
+    justify-content: center;
+    margin-top: 40px;
   }
 }

@@ -10,11 +10,9 @@
   <v-container class="inner">
     <!-- 앱 상세 미디어 정보 -->
     <section>
-      <div class="slider">
+      <div class="slider apps-media-slide">
         <v-carousel
           v-model="mediaSlide"
-          :continuous="autoplay"
-          :cycle="autoplay"
         >
           <v-carousel-item
             v-for="(slide, index) in sliders"
@@ -23,7 +21,12 @@
             tabindex="0"
             @click="handleClick(slide)"
           >
-            슬라이드
+            <v-card>
+              <v-img :src="getImageUrl(slide.image1)" />
+            </v-card>
+            <v-card>
+              <v-img :src="getImageUrl(slide.image2)" />
+            </v-card>
           </v-carousel-item>
         </v-carousel>
         <SliderControls
@@ -310,31 +313,16 @@ const getImageUrl = (imageName) => {
 /* 슬라이드 */
 const sliders = ref([
   {
-    type: "recommand",
-    apptype: "안성맞춤 앱 추천",
-    title: "농협식품R&D연구소",
-    description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스",
-    image: "@temp_img_apps_visual_02.png", //앱 관련 이미지
-    link: "AppsDetail", //랜딩 설정
+    image1: '@temp_img_02.png', // 첫 번째 이미지
+    image2: '@temp_img_03.png', // 두 번째 이미지
+    link: '#', // 링크가 있을 경우 클릭 처리
   },
   {
-    type: "img-type1",
-    title: "등록된 제목 (최대 15자 노출)",
-    description: "관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출)",
-    background: "@temp_img_apps_visual_01.png", //배경이미지
+    image1: '@temp_img_02.png',
+    image2: '@temp_img_03.png',
+    link: '#',
   },
-  {
-    type: "img-type2",
-    title: "등록된 제목 (최대 15자 노출)",
-    background: "@temp_img_apps_visual_01.png", //배경이미지
-    addClass: "center"
-  },
-  {
-    type: "img-type2",
-    background: "@temp_img_apps_visual_01.png", //배경이미지
-    addClass: "center",
-    hiddenContent: "hidden",
-  },
+  // 슬라이드 추가...
 ]);
 const mediaSlide = ref(0);
 const autoplay = ref(true);

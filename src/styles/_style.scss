@@ -203,7 +203,6 @@ hr.v-divider {
   margin-bottom: $base-margin;
 
   .v-carousel {
-    background: $white;
     .v-carousel-item {
       position: relative;
       width: 100%;
@@ -218,7 +217,6 @@ hr.v-divider {
 }
 .slider-controls {
   position: absolute;
-  bottom: 58px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -253,11 +251,6 @@ hr.v-divider {
       &.active {
         color: $blue-500;
       }
-    }
-  }
-  @at-root .mobile, .tablet {
-    .slider-controls {
-      bottom: 40px;
     }
   }
 }
