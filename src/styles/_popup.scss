@@ -76,6 +76,27 @@ $popup-base-margin: 20px;
       }
     }
   }
+  .video-slide-wrap {
+    position: relative;
+    .v-card {
+      padding-bottom: 0;
+    }
+    .video-slide-control {
+      .v-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 70px;
+        height: 70px;
+        .v-icon--size-default {
+          font-size: 70px;
+          color: $gray-500;
+        }
+        &.video-slide-prev { left:calc((70px + 92px) * -1);}
+        &.video-slide-next { right:calc((70px + 92px) * -1);}
+      }
+    }
+  }
 
   //form sheet
   .form-sheet {
@@ -99,6 +120,14 @@ $popup-base-margin: 20px;
   .v-dialog[class*="popup"] {
     .v-card-actions {
       margin-top: 0;
+    }
+    .video-slide-wrap {
+      width: calc(100% - 140px);
+      margin:0 auto;
+      .video-slide-control {
+        .v-btn.video-slide-prev { left:-70px;}
+        .v-btn.video-slide-next { right:-70px;}
+      }
     }
   }
 }

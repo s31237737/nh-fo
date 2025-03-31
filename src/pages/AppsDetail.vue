@@ -22,6 +22,7 @@
           >
             <!-- 첫 번째 이미지 -->
             <v-card 
+              :class="{ 'player': slide[0].player }"
               @click="openPopup = true"
             >
               <v-img :src="getImageUrl(slide[0].image)" />
@@ -30,6 +31,7 @@
             <!-- 두 번째 이미지 (슬라이드에 두 번째 이미지가 있으면 표시) -->
             <v-card
               v-if="slide[1]"
+              :class="{ 'player': slide[1].player }"
               @click="openPopup = true"
             >
               <v-img :src="getImageUrl(slide[1].image)" />
@@ -47,7 +49,10 @@
             :key="index"
             tabindex="0"
           >
-            <v-card @click="openPopup = true">
+            <v-card
+              :class="{ 'player': slide.player }"
+              @click="openPopup = true"
+            >
               <v-img :src="getImageUrl(slide.image)" />
             </v-card>
           </v-carousel-item>
@@ -319,7 +324,10 @@
     </section>
   </v-container>
 
-  <PopupAppsImages v-model="openPopup" />
+  <PopupAppsImages
+    v-model="openPopup"
+    :sliders="sliders"
+  />
 </template>
 
 <script setup>
@@ -340,27 +348,23 @@ const openPopup = ref(false);
 const sliders = ref([
   {
     image: '@temp_img_02.png',
-    link: '#',
+    link: "https://www.youtube.com/embed/FepuXV72_hQ",
+    player: true,
   },
   {
     image: '@temp_img_03.png',
-    link: '#',
   },
   {
     image: '@temp_img_01.png',
-    link: '#',
   },
   {
     image: '@temp_img_02.png',
-    link: '#',
   },
   {
     image: '@temp_img_03.png',
-    link: '#',
   },
   {
     image: '@temp_img_01.png',
-    link: '#',
   },
 ]);
 
