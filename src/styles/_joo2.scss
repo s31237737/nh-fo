@@ -395,10 +395,10 @@
   }
   @at-root .mobile {
     .apps-search-wrap {
+      .slide-content{ gap: 0;}
       .category-wrap{
-        overflow-x: auto;
         margin-inline: -20px;
-        
+        padding-right: 20px;
         .slide-content {
           @extend .mscroll-area;
           scroll-snap-type: x mandatory;
@@ -407,8 +407,10 @@
         .category {
           scroll-snap-align: end;
           scroll-snap-stop: always;
-          &:first-child  {padding-left: 20px;}
-          &:last-child  {padding-right: 40px;}
+          padding-right: 20px;
+          &:first-child {
+            padding-left: 20px;
+          }
         }
       }
     }
