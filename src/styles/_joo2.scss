@@ -559,6 +559,9 @@
       max-height: 343px;
       border-radius: $base-radius;
     }
+    .v-img__img--contain {
+      object-fit: cover;
+    }
   }
   .slider-controls {
     position: static;
