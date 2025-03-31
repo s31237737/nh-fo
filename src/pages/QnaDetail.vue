@@ -6,7 +6,7 @@
       <div class="info">
         <span>김농협</span>
         <div class="details-bar">
-          <span>조회수 : 6</span>
+          <span>조회수 : 6</span><!-- 조회수: 999 이상일시 조회수: 999+로 표시  -->
           <span>2024.06.13</span>
         </div>
       </div>

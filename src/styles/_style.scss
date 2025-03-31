@@ -92,6 +92,7 @@ hr.v-divider {
   }
   .info {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
     color: $gray-700;
@@ -384,6 +385,7 @@ section + section {
       align-self: flex-start;
     }
     .info {
+      flex-wrap: wrap;
       @extend .details-bar;
       gap: 9px;
       span {
