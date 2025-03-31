@@ -1,16 +1,17 @@
 <template>
   <v-dialog
     :model-value="modelValue"
-    class="popup"
-    @update:model-value="emit('update:modelValue', $event)"
+    class="popup carousel"
+    @update:model-value="handleDialogToggle($event)"
   >
     <v-btn
       v-if="isMobile"
-      style="align-self: flex-end; color:white"
+      class="btn-closepop"
       icon="custom:close"
       density="comfortable"
       @click="emit('update:modelValue', false)"
     />
+    
     <div class="video-slide-wrap">
       <v-carousel
         v-model="popupSlide"
@@ -25,21 +26,20 @@
           <!-- player가 있을 경우 iframe 추가 -->
           <v-card
             v-if="slide.player"
+            class="video"
+            :class="{ playing: slide.isPlaying }"
+            @click="toggleVideoPlayback(slide)"
           >
-            <!-- <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/FepuXV72_hQ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            /> -->
+            <img
+              :src="getImageUrl(slide.image)"
+              class="thumbnail-image"
+            >
             <iframe
+              class="carousel-media"
+              title="YouTube video player"
               width="100%"
               height="100%"
-              :src="slide.link"
-              title="YouTube video player"
+              :src="slide.isPlaying ? `${slide.link}?autoplay=1&rel=0` : slide.link"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -50,7 +50,8 @@
           >
             <v-img
               :src="getImageUrl(slide.image)"
-              cover
+              eager
+              class="carousel-media"
             />
           </v-card>
         </v-carousel-item>
@@ -76,8 +77,8 @@
 <script setup>
   import { ref, inject } from 'vue';
 
-const isMobile = inject('isMobile');
-  defineProps({
+  const isMobile = inject('isMobile');
+  const { modelValue, sliders } = defineProps({
     modelValue: {
       type: Boolean,
       default: false,
@@ -88,19 +89,21 @@ const isMobile = inject('isMobile');
     return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
   };
   const popupSlide = ref(0);
-  // 비디오 ID 추출 함수
-// const extractVideoId = (url) => {
-//   const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
-//   return match ? match[1] : "";
-// };
-
-// 비디오 재생 함수
-// const playVideo = (index) => {
-//   // 모든 비디오의 재생 상태를 false로 초기화
-//   videos.value.forEach((video) => (video.isPlaying = false));
-//   // 클릭한 비디오만 재생 상태로 설정
-//   videos.value[index].isPlaying = true;
-// };
 
   const emit = defineEmits(['update:modelValue']);
+  const handleDialogToggle = (isOpen) => {
+    emit('update:modelValue', isOpen); // 상태 변경
+    if (!isOpen) {
+      // v-dialog 닫힐 때 모든 isPlaying 초기화
+      sliders.forEach(slide => {
+        if (slide.player) {
+          slide.isPlaying = false;
+        }
+      });
+    }
+  };
+  const toggleVideoPlayback = (slide) => {
+    slide.isPlaying = !slide.isPlaying;
+    console.log(slide.isPlaying )
+  };
 </script>

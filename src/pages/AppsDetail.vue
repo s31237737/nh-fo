@@ -219,13 +219,13 @@
         >
           <v-btn
             icon="custom:arrow-left"
-            class="scroll-btn"
+            class="btn-scroll"
             :disabled="isAtStart"
             @click="scrollPrev"
           />
           <v-btn
             icon="custom:arrow-right"
-            class="scroll-btn"
+            class="btn-scroll"
             :disabled="isAtEnd"
             @click="scrollNext"
           />
@@ -350,6 +350,7 @@ const sliders = ref([
     image: '@temp_img_02.png',
     link: "https://www.youtube.com/embed/FepuXV72_hQ",
     player: true,
+    isPlaying: false,
   },
   {
     image: '@temp_img_03.png',
