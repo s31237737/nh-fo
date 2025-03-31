@@ -90,7 +90,7 @@ const boardItem = ref([
     video: true,
     date: "2025.03.24",
     views: 1000,
-    link: "NewsDetail"
+    link: "AppGuideDetail"
   },
   {
     id: 2,
