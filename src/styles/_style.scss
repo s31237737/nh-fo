@@ -95,28 +95,7 @@ hr.v-divider {
     justify-content: space-between;
     width: 100%;
     color: $gray-700;
-    @extend .text-3;
-    .details-bar {
-      display: flex;
-      gap: 21px;
-      align-items: center;
-      span {
-        position: relative;
-        display: inline-flex;
-        &:not(:first-child) {
-          &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -10px;
-            width: 1px;
-            height: 12px;
-            transform: translateY(-50%);
-            background-color: $gray-700;
-          }
-        }
-      }
-    }
+    @extend .text-3;    
   }
 
   @at-root .mobile, .tablet {
@@ -400,21 +379,13 @@ section + section {
       align-self: flex-start;
     }
     .info {
-      display: flex;
+      @extend .details-bar;
       gap: 9px;
-      align-items: center;
       span {
-        position: relative;
-        display: inline-flex;
         &:not(:first-child) {
           &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
             left: -4px;
-            width: 1px;
             height: 10px;
-            transform: translateY(-50%);
             background-color: $black;
           }
         }
