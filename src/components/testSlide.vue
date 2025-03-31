@@ -47,7 +47,7 @@
             rounded="pill"
             density="comfortable"
             :items="item.options"
-            :menu-props="{ maxHeight: '208px', location: 'bottom', auto: true}"
+            :menu-props="{ maxHeight: '208px', location: 'bottom', auto: false}"
           />
         </div>
       </v-slide-group-item>
