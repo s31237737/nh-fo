@@ -34,7 +34,7 @@
             rounded="pill"
             density="comfortable"
             :items="item.options"
-            :menu-props="{ maxHeight: '208px', scrollStrategy: 'close' }"
+            :menu-props="{ maxHeight: '208px', scrollStrategy: 'close'}"
           />
         </div>
 
@@ -114,16 +114,16 @@ const closeSelects = (event) => {
   }
 };
 
-onMounted(() => {
-  window.addEventListener('resize', handleResize);
-  categoryWrap.value?.addEventListener('scroll', closeSelects);
-  window.addEventListener('touchstart', closeSelects);
-  checkSlideEnds();
-});
+// onMounted(() => {
+//   window.addEventListener('resize', handleResize);
+//   categoryWrap.value?.addEventListener('scroll', closeSelects);
+//   window.addEventListener('touchstart', closeSelects);
+//   checkSlideEnds();
+// });
 
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize);
-  categoryWrap.value?.removeEventListener('scroll', closeSelects);
-  window.removeEventListener('touchstart', closeSelects);
-});
+// onUnmounted(() => {
+//   window.removeEventListener('resize', handleResize);
+//   categoryWrap.value?.removeEventListener('scroll', closeSelects);
+//   window.removeEventListener('touchstart', closeSelects);
+// });
 </script>
