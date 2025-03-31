@@ -1,8 +1,8 @@
 <template>
   <div class="category-sliding">
-    <div 
-      ref="categoryWrap" 
-      class="category-wrap" 
+    <div
+      ref="categoryWrap"
+      class="category-wrap"
     >
       <div class="slide-content">
         <!-- 첫 번째 고정 버튼 -->
@@ -21,7 +21,7 @@
           </v-btn>
         </div>
 
-        <!-- 동적으로 삽입되는 셀렉트 -->
+        <!-- 동적으로 삽입되는 셀렉트 최대 4개 -->
         <div
           v-for="(item, index) in appsCategory"
           :key="index"
@@ -34,7 +34,7 @@
             rounded="pill"
             density="comfortable"
             :items="item.options"
-            :menu-props="{ maxHeight: '208px', location: 'bottom' }"
+            :menu-props="{ maxHeight: '208px', scrollStrategy: 'close' }"
           />
         </div>
 
@@ -78,10 +78,12 @@ defineProps({
 });
 
 const categoryWrap = ref(null);
-const selectRefs = ref([]);
+const selectRefs = ref([]); // v-select 참조 배열
 const resizeMobile = ref(window.innerWidth <= 768);
 const buttonWidth = 60; // 버튼 크기 60px
 
+
+// 슬라이드
 const isAtLeftEnd = ref(false);
 const isAtRightEnd = ref(false);
 
@@ -99,11 +101,13 @@ const checkSlideEnds = () => {
   isAtRightEnd.value = scrollLeft + offsetWidth >= scrollWidth - buttonWidth;
 };
 
+// 화면 크기 변경 처리
 const handleResize = () => {
   resizeMobile.value = window.innerWidth <= 768;
   checkSlideEnds();
 };
 
+// v-select 드롭다운 닫기 함수
 const closeSelects = (event) => {
   if (!selectRefs.value.some(select => select.$el.contains(event.target))) {
     selectRefs.value.forEach(select => select?.blur());
@@ -112,16 +116,14 @@ const closeSelects = (event) => {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
-  //window.addEventListener('click', closeSelects);
+  categoryWrap.value?.addEventListener('scroll', closeSelects);
   window.addEventListener('touchstart', closeSelects);
-  window.addEventListener('scroll', closeSelects);
   checkSlideEnds();
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize);
-  //window.removeEventListener('click', closeSelects);
+  categoryWrap.value?.removeEventListener('scroll', closeSelects);
   window.removeEventListener('touchstart', closeSelects);
-  window.removeEventListener('scroll', closeSelects);
 });
 </script>
