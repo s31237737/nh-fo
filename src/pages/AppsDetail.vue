@@ -12,7 +12,7 @@
     <section>
       <div class="slider">
         <v-carousel
-          v-model="currentSlide"
+          v-model="mediaSlide"
           :continuous="autoplay"
           :cycle="autoplay"
         >
@@ -27,11 +27,10 @@
           </v-carousel-item>
         </v-carousel>
         <SliderControls
-          :current-slide="currentSlide"
-          :autoplay="autoplay"
+          :current-slide="mediaSlide"
+          :autoplay-use="false"
           :slide="sliders"
-          @update:current-slide="currentSlide = $event"
-          @update:autoplay="autoplay = $event"
+          @update:current-slide="mediaSlide = $event"
         />
       </div>
     </section>
@@ -337,7 +336,7 @@ const sliders = ref([
     hiddenContent: "hidden",
   },
 ]);
-const currentSlide = ref(0);
+const mediaSlide = ref(0);
 const autoplay = ref(true);
 const handleClick = (slide) => {
   if (!slide.link) {

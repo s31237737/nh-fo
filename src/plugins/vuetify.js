@@ -238,7 +238,7 @@ export default createVuetify({
       interval: 5000,
       hideDelimiters: true,
       showArrows: false,
-      height: "auto",
+      height: "100",
     },
     VExpansionPanels: {
       collapseIcon: "custom:arrow-up",

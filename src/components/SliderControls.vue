@@ -20,7 +20,7 @@
     </div>
 
     <v-btn
-      v-if="cycle"
+      v-if="cycle && autoplayUse"
       density="compact"
       class="togglePlay"
       icon
@@ -56,6 +56,10 @@ const props = defineProps({
   cycle: {
     type: Boolean,
     default: true,
+  },
+  autoplayUse: {
+    type: Boolean,
+    default: true,  // 기본값을 true로 설정
   },
 });
 
