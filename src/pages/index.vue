@@ -191,6 +191,7 @@
                 </template>
                 <template #actions>
                   <v-btn
+                    to="MyPage"
                     color="info"
                     size="large"
                   >
