@@ -565,4 +565,19 @@
     justify-content: center;
     margin-top: 40px;
   }
+  @at-root .mobile {
+    .slider.apps-media-slide {
+      .v-carousel-item .v-responsive__content{
+        gap: 0;
+        padding: 0;
+        & > .v-card { 
+          flex: 1;
+          max-width: 100%;
+        }
+      }
+      .slider-controls {
+        margin-top: 6px;
+      }
+    }
+  }
 }

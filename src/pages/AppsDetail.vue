@@ -1,7 +1,6 @@
 <template>
   <v-sheet
     class="top-banner"
-    :height="isDesktop ? '548' : 'auto'"
   >
     <v-container class="inner">
       앱 정보 영역
@@ -12,23 +11,41 @@
     <section>
       <div class="slider apps-media-slide">
         <v-carousel
+          v-if="!isMobile"
           v-model="mediaSlide"
         >
           <v-carousel-item
             v-for="(slide, index) in sliders"
             :key="index"
-            :role="slide.link ? 'link' : undefined"
             tabindex="0"
-            @click="handleClick(slide)"
           >
+            <!-- 첫 번째 이미지 (image1) -->
             <v-card>
-              <v-img :src="getImageUrl(slide.image1)" />
+              <v-img :src="getImageUrl(slide.image)" />
             </v-card>
+
+            <!-- 두 번째 이미지 (image2) -->
             <v-card>
-              <v-img :src="getImageUrl(slide.image2)" />
+              <v-img :src="getImageUrl(slide.image)" />
             </v-card>
           </v-carousel-item>
         </v-carousel>
+
+        <v-carousel
+          v-else
+          v-model="mediaSlide"
+        >
+          <v-carousel-item
+            v-for="(slide, index) in sliders"
+            :key="index"
+            tabindex="0"
+          >
+            <v-card>
+              <v-img :src="getImageUrl(slide.image)" />
+            </v-card>
+          </v-carousel-item>
+        </v-carousel>
+
         <SliderControls
           :current-slide="mediaSlide"
           :autoplay-use="false"
@@ -304,7 +321,6 @@ const router = useRouter();
 
 const isMobile = inject("isMobile");
 //const isTablet = inject("isTablet");
-const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
@@ -313,26 +329,21 @@ const getImageUrl = (imageName) => {
 /* 슬라이드 */
 const sliders = ref([
   {
-    image1: '@temp_img_02.png', // 첫 번째 이미지
-    image2: '@temp_img_03.png', // 두 번째 이미지
-    link: '#', // 링크가 있을 경우 클릭 처리
+    image: '@temp_img_02.png',
+    link: '#',
   },
   {
-    image1: '@temp_img_02.png',
-    image2: '@temp_img_03.png',
+    image: '@temp_img_03.png',
+    link: '#',
+  },
+  {
+    image: '@temp_img_01.png',
     link: '#',
   },
   // 슬라이드 추가...
 ]);
 const mediaSlide = ref(0);
-const autoplay = ref(true);
-const handleClick = (slide) => {
-  if (!slide.link) {
-    return; // link 없으면 아무 동작 X
-  } else {
-    router.push(slide.link);
-  }
-};
+
 
 /* 탭 */
 const select = ref("선택");
@@ -454,6 +465,7 @@ const subTabItemTab1 = ref([
   },
 ]);
 
+
 /* 컨텐츠 배너 */
 const banner = ref({
   imageUrl: "img_apps_banner_03.png",
@@ -492,7 +504,6 @@ const scrollNext = () => {
   }
 };
 
-// 스크롤 위치 확인
 const isAtStart = ref(true);
 const isAtEnd = ref(false);
 const checkScrollPosition = () => {

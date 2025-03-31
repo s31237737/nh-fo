@@ -118,7 +118,7 @@
           @click:append-inner="onAppendClick"
         />
         <SlideSelect :apps-category="appsCategory" />
-        <testSlide :apps-category="testCategory" />
+        <!-- <testSlide :apps-category="testCategory" /> -->
       </div>
 
       <!-- 앱 목록  -->
