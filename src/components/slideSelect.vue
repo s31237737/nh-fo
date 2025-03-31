@@ -8,7 +8,7 @@
         <!-- 첫 번째 고정 버튼 -->
         <div class="category fixed">
           <span>
-            직무
+            직무test
           </span>
           <v-btn
             class="btn-selectJob"
