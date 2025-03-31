@@ -83,11 +83,24 @@
       <v-spacer />
 
       <v-btn
-        :to="{path: 'News', query: { tab: 0 }}"
+        :to="{path: 'News', query: { tab: 2 }}"
         color="info"
         size="x-large"
       >
         목록가기
+      </v-btn>
+      <v-btn
+        color="info"
+        size="x-large"
+      >
+        수정
+      </v-btn>
+      <v-btn
+        variant="outlined"
+        color="warning"
+        size="x-large"
+      >
+        삭제
       </v-btn>
     </div>
   </v-container>
