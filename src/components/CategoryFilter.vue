@@ -7,9 +7,7 @@
       <div class="slide-content">
         <!-- 첫 번째 고정 버튼 -->
         <div class="category fixed">
-          <span>
-            직무
-          </span>
+          <span>직무</span>
           <v-btn
             class="btn-selectJob"
             rounded="pill"
