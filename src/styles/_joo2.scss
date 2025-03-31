@@ -397,8 +397,12 @@
     .apps-search-wrap {
       .category-wrap{
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         margin-inline: -20px;
+        .slide-content {
+          @extend .mscroll-area;
+          scroll-snap-type: x mandatory;
+          overflow-y: hidden;
+        }
         .category {
           scroll-snap-align: center;
           &:first-child  {padding-left: 20px;}
