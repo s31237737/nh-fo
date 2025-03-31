@@ -7,7 +7,7 @@
       <div class="slide-content">
         <!-- 첫 번째 고정 버튼 -->
         <div class="category fixed">
-          <span>직무1</span>
+          <span>직무</span>
           <v-btn
             class="btn-selectJob"
             rounded="pill"
@@ -113,12 +113,10 @@ const closeSelects = (event) => {
   }
 };
 // 터치 시 드롭다운 닫기 함수
-const closeSelectOnTouch = (event) => {
-  const touchedSelect = selectRefs.value.find(select => select?.$el.contains(event.target));
-  if (touchedSelect) {
-    touchedSelect.blur();
-  }
+const closeSelectOnTouch = () => {
+  selectRefs.value.forEach(select => select?.blur());
 };
+
 onMounted(() => {
   window.addEventListener('resize', handleResize);
   window.addEventListener('touchstart', closeSelects);
