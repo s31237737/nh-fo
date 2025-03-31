@@ -5,6 +5,7 @@
     @update:model-value="emit('update:modelValue', $event)"
   >
     <v-btn
+      v-if="isMobile"
       style="align-self: flex-end;color:white"
       icon="custom:close"
       density="comfortable"

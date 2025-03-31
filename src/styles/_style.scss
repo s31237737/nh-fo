@@ -90,6 +90,34 @@ hr.v-divider {
     align-items: flex-start;
     gap: 12px ;
   }
+  .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: $gray-700;
+    @extend .text-3;
+    .details-bar {
+      display: flex;
+      gap: 21px;
+      align-items: center;
+      span {
+        position: relative;
+        display: inline-flex;
+        &:not(:first-child) {
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 1px;
+            height: 12px;
+            transform: translateY(-50%);
+            background-color: $gray-700;
+          }
+        }
+      }
+    }
+  }
 
   @at-root .mobile, .tablet {
     .tit-wrap {
