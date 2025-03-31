@@ -84,12 +84,14 @@ const closeDropdown2 = (event) => {
 
 onMounted(() => {
   window.addEventListener('touchstart', closeDropdown2);
-  window.addEventListener('scroll', closeDropdown2, true);;
+  window.addEventListener('scroll', closeDropdown2);
+  window.addEventListener('touchmove', closeDropdown2);
 });
 
 onUnmounted(() => {
   window.removeEventListener('touchstart', closeDropdown2);
-  window.removeEventListener('scroll', closeDropdown2, true);
+  window.removeEventListener('scroll', closeDropdown2);
+  window.removeEventListener('touchmove', closeDropdown2);
 });
 
 </script>
