@@ -33,6 +33,7 @@
             density="comfortable"
             :items="item.options"
             :menu-props="{ maxHeight: '208px', scrollStrategy: 'close'}"
+            @touchmove="closeSelectOnTouch"
           />
         </div>
 
@@ -76,7 +77,7 @@ defineProps({
 });
 
 const categoryWrap = ref(null);
-const selectRefs = ref([]); // v-select 참조 배열
+const selectRefs = ref([]);
 const resizeMobile = ref(window.innerWidth <= 768);
 const buttonWidth = 60; // 버튼 크기 60px
 
@@ -111,7 +112,13 @@ const closeSelects = (event) => {
     selectRefs.value.forEach(select => select?.blur());
   }
 };
-
+// 터치 시 드롭다운 닫기 함수
+const closeSelectOnTouch = (event) => {
+  const touchedSelect = selectRefs.value.find(select => select?.$el.contains(event.target));
+  if (touchedSelect) {
+    touchedSelect.blur();
+  }
+};
 onMounted(() => {
   window.addEventListener('resize', handleResize);
   window.addEventListener('touchstart', closeSelects);
