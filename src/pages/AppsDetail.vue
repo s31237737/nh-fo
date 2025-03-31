@@ -10,6 +10,7 @@
     <!-- 앱 상세 미디어 정보 -->
     <section>
       <div class="slider apps-media-slide">
+        <!-- !isMobile -->
         <v-carousel
           v-if="!isMobile"
           v-model="mediaSlide"
@@ -31,6 +32,7 @@
           </v-carousel-item>
         </v-carousel>
 
+        <!-- mobile -->
         <v-carousel
           v-else
           v-model="mediaSlide"
@@ -318,7 +320,6 @@ import { ref, inject, computed } from 'vue';
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-
 const isMobile = inject("isMobile");
 //const isTablet = inject("isTablet");
 const getImageUrl = (imageName) => {
@@ -357,7 +358,6 @@ const sliders = ref([
 const groupedSliders = computed(() => {
   let grouped = [];
   for (let i = 0; i < sliders.value.length; i += 2) {
-    // 두 개씩 묶고, 하나 남으면 하나씩만 묶기
     grouped.push(sliders.value.slice(i, i + 2));
   }
   return grouped;
@@ -365,9 +365,7 @@ const groupedSliders = computed(() => {
 
 const mediaSlide = ref(0);
 
-// @update:current-slide 이벤트를 처리하는 메소드
 const updateCurrentSlide = (newSlide) => {
-  // 새로운 슬라이드 번호가 유효한 범위 내에 있는지 확인
   const maxSlideIndex = isMobile.value ? sliders.value.length - 1 : groupedSliders.value.length - 1;
   if (newSlide >= 0 && newSlide <= maxSlideIndex) {
     mediaSlide.value = newSlide;
