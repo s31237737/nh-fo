@@ -8,8 +8,32 @@
     </v-container>
   </v-sheet>
   <v-container class="inner">
+    <!-- 앱 상세 미디어 정보 -->
     <section>
-      이미지 영역
+      <div class="slider">
+        <v-carousel
+          v-model="currentSlide"
+          :continuous="autoplay"
+          :cycle="autoplay"
+        >
+          <v-carousel-item
+            v-for="(slide, index) in sliders"
+            :key="index"
+            :role="slide.link ? 'link' : undefined"
+            tabindex="0"
+            @click="handleClick(slide)"
+          >
+            슬라이드
+          </v-carousel-item>
+        </v-carousel>
+        <SliderControls
+          :current-slide="currentSlide"
+          :autoplay="autoplay"
+          :slide="sliders"
+          @update:current-slide="currentSlide = $event"
+          @update:autoplay="autoplay = $event"
+        />
+      </div>
     </section>
 
     <!-- 앱 상세 정보 -->
@@ -283,6 +307,45 @@ const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
 
+
+/* 슬라이드 */
+const sliders = ref([
+  {
+    type: "recommand",
+    apptype: "안성맞춤 앱 추천",
+    title: "농협식품R&D연구소",
+    description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스",
+    image: "@temp_img_apps_visual_02.png", //앱 관련 이미지
+    link: "AppsDetail", //랜딩 설정
+  },
+  {
+    type: "img-type1",
+    title: "등록된 제목 (최대 15자 노출)",
+    description: "관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출)",
+    background: "@temp_img_apps_visual_01.png", //배경이미지
+  },
+  {
+    type: "img-type2",
+    title: "등록된 제목 (최대 15자 노출)",
+    background: "@temp_img_apps_visual_01.png", //배경이미지
+    addClass: "center"
+  },
+  {
+    type: "img-type2",
+    background: "@temp_img_apps_visual_01.png", //배경이미지
+    addClass: "center",
+    hiddenContent: "hidden",
+  },
+]);
+const currentSlide = ref(0);
+const autoplay = ref(true);
+const handleClick = (slide) => {
+  if (!slide.link) {
+    return; // link 없으면 아무 동작 X
+  } else {
+    router.push(slide.link);
+  }
+};
 
 /* 탭 */
 const select = ref("선택");
