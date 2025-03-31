@@ -387,7 +387,7 @@
     .apps-search-wrap {
       .category-wrap{
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        //scroll-snap-type: x mandatory;
         margin-inline: -20px;
         .category {
           scroll-snap-align: start;
