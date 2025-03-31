@@ -4,6 +4,12 @@
     class="popup"
     @update:model-value="emit('update:modelValue', $event)"
   >
+    <v-btn
+      style="align-self: flex-end;color:white"
+      icon="custom:close"
+      density="comfortable"
+      @click="emit('update:modelValue', false)"
+    />
     <v-carousel
       v-model="model"
       :height="isMobile ? '300' :'500'"
