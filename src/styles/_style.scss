@@ -336,6 +336,9 @@ section + section {
   padding: 50px 40px;
   border-radius: $base-radius;
   .tit-wrap {
+    strong {
+      width: auto;
+    }
     .date {
       @extend .text-3;
     }
