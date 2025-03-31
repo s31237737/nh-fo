@@ -392,6 +392,7 @@ section + section {
       align-self: flex-start;
     }
     .info {
+      flex-wrap: wrap;
       @extend .details-bar;
       gap: 9px;
       span {
