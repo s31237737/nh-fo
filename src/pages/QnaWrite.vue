@@ -1,9 +1,11 @@
 <template>
   <v-container class="inner">
+    <!-- 타이틀 -->
     <div class="tit-wrap column">
       <strong class="title-4-bd">Q&amp;A</strong>
       <p>문의하시기 전 자주하는 질문을 통해 문제 해결방법을 확인하실 수 있습니다.</p>
     </div>
+    <!-- form 영역 -->
     <div class="form-sheet">
       <!-- 제목 -->
       <v-row>
@@ -173,7 +175,7 @@
         </v-col>
       </v-row>
     </div>
-
+    <!-- 하단 버튼 -->
     <div class="page-actions">
       <v-btn
         color="info"

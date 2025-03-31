@@ -1,9 +1,11 @@
 <template>
   <v-container class="inner">
+    <!-- 타이틀 -->
     <div class="tit-wrap column">
       <strong class="title-4-bd">[공지] NH총무알리비 서비스 앱 개선 공지 (24.6.20(목) 18:00~24:00)</strong>
       <span class="date">2024.06.13</span>
     </div>
+    <!-- 첨부파일 -->
     <v-sheet class="w-box">
       <p class="file-total">
         첨부파일 <span class="text-success">{{ fileList.length }}</span>
@@ -23,6 +25,7 @@
         </li>
       </ul>
     </v-sheet>
+    <!-- 상세내용 -->
     <v-sheet class="w-box">
       <div class="editor-content">
         <img
@@ -61,6 +64,7 @@
         <p>총무알리미 팀 드림</p>
       </div>
     </v-sheet>
+    <!-- 하단 버튼 -->
     <div class="page-actions">
       <div class="pagination">
         <v-btn
