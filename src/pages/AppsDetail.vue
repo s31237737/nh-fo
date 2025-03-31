@@ -21,12 +21,17 @@
             tabindex="0"
           >
             <!-- 첫 번째 이미지 -->
-            <v-card>
+            <v-card 
+              @click="openPopup = true"
+            >
               <v-img :src="getImageUrl(slide[0].image)" />
             </v-card>
 
             <!-- 두 번째 이미지 (슬라이드에 두 번째 이미지가 있으면 표시) -->
-            <v-card v-if="slide[1]">
+            <v-card
+              v-if="slide[1]"
+              @click="openPopup = true"
+            >
               <v-img :src="getImageUrl(slide[1].image)" />
             </v-card>
           </v-carousel-item>
@@ -42,7 +47,7 @@
             :key="index"
             tabindex="0"
           >
-            <v-card>
+            <v-card @click="openPopup = true">
               <v-img :src="getImageUrl(slide.image)" />
             </v-card>
           </v-carousel-item>
@@ -313,11 +318,14 @@
       </div>
     </section>
   </v-container>
+
+  <PopupAppsImages v-model="openPopup" />
 </template>
 
 <script setup>
 import { ref, inject, computed } from 'vue';
 import { useRouter } from "vue-router";
+import PopupAppsImages from "@/pages/popup/PopupAppsImages.vue";
 
 const router = useRouter();
 const isMobile = inject("isMobile");
@@ -326,6 +334,7 @@ const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
 
+const openPopup = ref(false);
 
 /* 슬라이드 */
 const sliders = ref([
