@@ -15,18 +15,18 @@
           v-model="mediaSlide"
         >
           <v-carousel-item
-            v-for="(slide, index) in sliders"
+            v-for="(slide, index) in groupedSliders"
             :key="index"
             tabindex="0"
           >
-            <!-- 첫 번째 이미지 (image1) -->
+            <!-- 첫 번째 이미지 -->
             <v-card>
-              <v-img :src="getImageUrl(slide.image)" />
+              <v-img :src="getImageUrl(slide[0].image)" />
             </v-card>
 
-            <!-- 두 번째 이미지 (image2) -->
-            <v-card>
-              <v-img :src="getImageUrl(slide.image)" />
+            <!-- 두 번째 이미지 (슬라이드에 두 번째 이미지가 있으면 표시) -->
+            <v-card v-if="slide[1]">
+              <v-img :src="getImageUrl(slide[1].image)" />
             </v-card>
           </v-carousel-item>
         </v-carousel>
@@ -49,8 +49,8 @@
         <SliderControls
           :current-slide="mediaSlide"
           :autoplay-use="false"
-          :slide="sliders"
-          @update:current-slide="mediaSlide = $event"
+          :slide="isMobile ? sliders : groupedSliders"
+          @update:current-slide="updateCurrentSlide"
         />
       </div>
     </section>
@@ -314,7 +314,7 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue';
+import { ref, inject, computed } from 'vue';
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -340,10 +340,39 @@ const sliders = ref([
     image: '@temp_img_01.png',
     link: '#',
   },
-  // 슬라이드 추가...
+  {
+    image: '@temp_img_02.png',
+    link: '#',
+  },
+  {
+    image: '@temp_img_03.png',
+    link: '#',
+  },
+  {
+    image: '@temp_img_01.png',
+    link: '#',
+  },
 ]);
+
+const groupedSliders = computed(() => {
+  let grouped = [];
+  for (let i = 0; i < sliders.value.length; i += 2) {
+    // 두 개씩 묶고, 하나 남으면 하나씩만 묶기
+    grouped.push(sliders.value.slice(i, i + 2));
+  }
+  return grouped;
+});
+
 const mediaSlide = ref(0);
 
+// @update:current-slide 이벤트를 처리하는 메소드
+const updateCurrentSlide = (newSlide) => {
+  // 새로운 슬라이드 번호가 유효한 범위 내에 있는지 확인
+  const maxSlideIndex = isMobile.value ? sliders.value.length - 1 : groupedSliders.value.length - 1;
+  if (newSlide >= 0 && newSlide <= maxSlideIndex) {
+    mediaSlide.value = newSlide;
+  }
+};
 
 /* 탭 */
 const select = ref("선택");
