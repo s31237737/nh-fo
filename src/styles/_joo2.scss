@@ -397,10 +397,10 @@
     .apps-search-wrap {
       .category-wrap{
         overflow-x: auto;
-        //scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
         margin-inline: -20px;
         .category {
-          //scroll-snap-align: start;
+          scroll-snap-align: center;
           &:first-child  {padding-left: 20px;}
           &:last-child  {padding-right: 20px;}
         }
