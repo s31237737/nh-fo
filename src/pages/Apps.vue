@@ -117,6 +117,7 @@
           bg-color="white"
           @click:append-inner="onAppendClick"
         />
+        <!-- Filter -->
         <CategoryFilter :apps-category="appsCategory" />
       </div>
 
