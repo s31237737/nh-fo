@@ -395,8 +395,9 @@
   }
   @at-root .mobile {
     .apps-search-wrap {
+      .slide-content{ gap: 0;}
       .category-wrap{
-        margin-right: -20px;
+        margin-inline: -20px;
         padding-right: 20px;
         .slide-content {
           @extend .mscroll-area;
@@ -406,7 +407,10 @@
         .category {
           scroll-snap-align: end;
           scroll-snap-stop: always;
-          &:last-child  {padding-right: 20px;}
+          padding-right: 20px;
+          &:first-child {
+            padding-left: 20px;
+          }
         }
       }
     }
