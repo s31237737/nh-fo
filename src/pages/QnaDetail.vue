@@ -72,6 +72,11 @@
     </v-sheet>
     <!-- 답글 영역 -->
     <v-sheet class="w-box">
+      <div class="tit-wrap">
+        <strong class="text-2-md">관리자</strong>
+        <span class="date">2024.06.13</span>
+      </div>
+      <v-divider color="secondary" />
       <div class="editor-content">
         <p>관리자입니다.</p>
         <br>

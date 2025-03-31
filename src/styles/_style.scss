@@ -335,9 +335,18 @@ section + section {
   margin-top: 12px;
   padding: 50px 40px;
   border-radius: $base-radius;
+  .tit-wrap {
+    .date {
+      @extend .text-3;
+    }
+  }
+  .v-divider {margin: 20px 0 30px;}
   @at-root .mobile, .tablet {
     .v-sheet.w-box {
       padding: 20px;
+      .tit-wrap {
+        flex-wrap: nowrap;
+      }
     }
   }
 }
