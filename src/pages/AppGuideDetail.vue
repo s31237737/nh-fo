@@ -107,7 +107,5 @@ const selectedIndex = ref(null);
 const openPopupHandler = (index = 0) => {
   selectedIndex.value = sliders.value[index];
   openPopup.value = true;
-
-  //console.log("선택된 index (value):", selectedIndex.value);
 };
 </script>

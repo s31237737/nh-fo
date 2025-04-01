@@ -206,6 +206,26 @@
         <v-icon icon="custom:guide" />
         <span>guide</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:share" />
+        <span>share</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:thumbsup" />
+        <span>thumbsup</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:apptype" />
+        <span>apptype</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:user" />
+        <span>user</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:category" />
+        <span>category</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">

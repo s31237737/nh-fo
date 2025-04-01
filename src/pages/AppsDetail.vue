@@ -3,9 +3,82 @@
     class="top-banner"
   >
     <v-container class="inner">
-      앱 정보 영역
-      <ul class="mscroll-area">
-        <li>1</li>
+      <v-card class="top-banner-info">
+        <template
+          v-if="!isMobile"
+          #prepend
+        >
+          <v-img
+            :width="isDesktop ? '300': '240'"
+            src="@/assets/images/img_community_banner.png"
+          />
+        </template>
+        <v-card-title>
+          <div class="flag-wrap">
+            <v-chip
+              class="flag"
+              color="success"
+              variant="tonal"
+            >
+              NEW
+            </v-chip>
+          </div>
+          디지털 업무 가이드(최대 36자)
+        </v-card-title>
+        <v-card-text>
+          도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            size="x-large"
+            color="primary"
+            variant="flat"
+          >
+            앱 열기
+          </v-btn>
+          <v-btn
+            size="x-large"
+            color="info"
+            variant="flat"
+          >
+            공유
+          </v-btn>
+          <v-btn
+            size="x-large"
+            color="info"
+            variant="flat"
+            active
+          >
+            좋아요
+          </v-btn>
+        </v-card-actions>
+        <template
+          v-if="isMobile"
+          #append
+        >
+          <v-img
+            :width="isDesktop ? '300': '240'"
+            src="@/assets/images/img_community_banner.png"
+          />
+        </template>
+      </v-card>
+      <ul class="recomm-list">
+        <li class="type">
+          <span>제목</span>
+          <p>내용</p>
+        </li>
+        <li class="count">
+          <span>제목</span>
+          <p>내용</p>
+        </li>
+        <li class="user">
+          <span>제목</span>
+          <p>내용</p>
+        </li>
+        <li class="ctg">
+          <span>제목</span>
+          <p>내용</p>
+        </li>
       </ul>
     </v-container>
   </v-sheet>
@@ -343,14 +416,15 @@ import PopupAppsImages from "@/pages/popup/PopupAppsImages.vue";
 
 const router = useRouter();
 const isMobile = inject("isMobile");
-//const isTablet = inject("isTablet");
+const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
 
-const openPopup = ref(false);
+/* top banner */
 
 /* 슬라이드 */
+const openPopup = ref(false);
 const sliders = ref([
   {
     image: '@temp_img_02.png',
