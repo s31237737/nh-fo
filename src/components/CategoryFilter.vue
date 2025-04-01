@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <!-- 데스크톱에서만 버튼 표시 -->
+    <!-- 테블릿사이즈에서만 버튼 표시 -->
     <template v-if="!resizeMobile">
       <v-btn
         icon="custom:slide-prev"
