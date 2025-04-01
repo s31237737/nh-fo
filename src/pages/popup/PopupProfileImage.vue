@@ -13,7 +13,7 @@
           @click="emit('update:modelValue', false)"
         />
       </v-card-title>
-      <div class="tit-wrap">
+      <div class="tit-wrap pa-5 ma-0">
         <v-slide-group
           v-model="tab"
           center-active
