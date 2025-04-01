@@ -470,10 +470,15 @@ section + section {
 
 // 프로필 리스트
 .profile-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-right: -4px;
+  .v-row {
+    margin: -5px;
+    [class*="v-col"] {
+      padding: 5px;
+    }
+    & + .v-row {
+      margin: 5px;
+    }
+  }
   .v-avatar {
     border-radius: $base-radius;
   }
