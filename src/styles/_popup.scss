@@ -146,12 +146,14 @@ $popup-base-margin: 20px;
       transform: translateY(-50%);
       width: 70px;
       height: 70px;
-      .v-btn__overlay {
+      .v-btn__overlay, .v-btn__underlay {
         display: none;
+      }
+      .v-btn__content {
+        color: $gray-500;
       }
       .v-icon--size-default {
         font-size: 70px;
-        color: $gray-500;
       }
       &.prev {
         left: -162px;
@@ -159,6 +161,10 @@ $popup-base-margin: 20px;
       &.next {
         left: auto;
         right: -162px;
+      }
+      &.v-btn--disabled {
+        filter: opacity(0.25);
+        opacity: 1 !important;
       }
     }
   }
@@ -245,6 +251,16 @@ $popup-base-margin: 20px;
         }
       }
     }
+  }
+}
+@media (orientation: landscape) {
+	.v-dialog[class*="popup"] {
+    &.carousel {
+      .v-overlay__content {
+        max-width: calc(100% - 104px);
+      }
+    }
+
   }
 }
 
