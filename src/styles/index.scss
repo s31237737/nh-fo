@@ -8,6 +8,9 @@
 @forward "popup";
 @forward "main";
 
+html, body {
+  touch-action: manipulation;
+}
 body {
   min-height: 100svh;
 }
