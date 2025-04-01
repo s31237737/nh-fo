@@ -22,6 +22,7 @@
             <!-- 첫 번째 이미지 -->
             <v-card 
               :class="{ 'player': slide[0].player }"
+              :ripple="false"
               @click="openPopupHandler(index, 0)"
             >
               <v-img :src="getImageUrl(slide[0].image)" />
@@ -31,6 +32,7 @@
             <v-card
               v-if="slide[1]"
               :class="{ 'player': slide[1].player }"
+              :ripple="false"
               @click="openPopupHandler(index, 1)"
             >
               <v-img :src="getImageUrl(slide[1].image)" />
@@ -50,6 +52,7 @@
           >
             <v-card
               :class="{ 'player': slide.player }"
+              :ripple="false"
               @click="openPopupHandler(index)"
             >
               <v-img :src="getImageUrl(slide.image)" />
