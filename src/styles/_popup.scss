@@ -125,21 +125,27 @@ $popup-base-margin: 20px;
         transition-property: opacity, transform;
         transition-timing-function: ease;
       }
+      img {
+        transform: scale(1);
+        opacity:1;
+        transition-delay: .4s;
+        transition-duration: .2s, .35s;
+        transition-property: opacity, transform;
+        transition-timing-function: ease;
+      }
       iframe {
         position: absolute;
         top:0;
         left:0;
-        z-index: -1;
         opacity:0;
         transition: .2s ease opacity;
       }
       &.playing {
-        &::after {
+        &::after, & > img {
           transform: scale(0);
           opacity:0;
         }
         iframe {
-          z-index: 1;
           opacity:1;
         }
       }

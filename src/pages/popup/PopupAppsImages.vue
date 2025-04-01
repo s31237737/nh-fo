@@ -54,6 +54,7 @@
               class="thumbnail-image"
             >
             <iframe
+              :key="slide.isPlaying"
               class="carousel-media"
               title="YouTube video player"
               width="100%"
@@ -90,8 +91,15 @@
       type: Boolean,
       default: false,
     },
-    sliders: Array,
-    selectedIndex: Number,
+    //sliders: Array,
+    sliders: {
+      type: Array,
+      default: () => [],
+    },
+    selectedIndex: {
+      type: Number,
+      default: 0,
+    },
   });
 
   watch(() => modelValue, (newVal) => {
