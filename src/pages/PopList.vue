@@ -326,17 +326,20 @@ const alert04 = ref(false);
 import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
 import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
 import PopupAppsImages from '@/pages/popup/PopupAppsImages.vue';
+import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
 
   const popups = ref([
     { name: 'PopupReportIssue', label: '불편사항 신고하기', component: shallowRef(PopupReportIssue) },
     { name: 'PopupJobSelect', label: '직무 선택', component: shallowRef(PopupJobSelect) },
     { name: 'PopupAppsImages', label: '동영상 튜토리얼 모달', component: shallowRef(PopupAppsImages) },
+    { name: 'PopupProfileImage', label: '프로필 이미지 변경', component: shallowRef(PopupProfileImage) },
   ]);
 
   const popupVisible = ref({
     PopupReportIssue: false,
     PopupJobSelect: false,
     PopupAppsImages: false,
+    PopupProfileImage: false,
   });
 
   const popOpen = (name) => {

@@ -14,7 +14,8 @@
     "@mdi/font": "7.4.47",
     "@vueup/vue-quill": "^1.2.0",
     "roboto-fontface": "*",
-    "vue": "^3.4.31"
+    "vue": "^3.4.31",
+    "vue-cropperjs": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
