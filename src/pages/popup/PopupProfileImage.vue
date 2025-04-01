@@ -92,6 +92,20 @@
                 </v-btn>
               </template>
             </v-empty-state>
+            <v-row class="profile-list">
+              <v-col
+                cols="12"
+                sm="4"
+                md="2"
+              >
+                <v-avatar
+                  v-if="cropImg"
+                  :size="'100%'"
+                >
+                  <v-img :src="cropImg" />
+                </v-avatar>
+              </v-col>
+            </v-row>
           </v-window-item>
         </v-window>
         <div
@@ -179,7 +193,7 @@ const profileItems = ref([
   { src: "img_avatar13.jpg" },
 ]);
 
-const selectedIndex = ref(null);
+const selectedIndex = ref(0);
 const selectItem = (index) => {
   selectedIndex.value = index;
 };

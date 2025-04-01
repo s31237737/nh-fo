@@ -115,7 +115,7 @@
       >
         <v-avatar size="32">
           <v-img
-            src="@/assets/images/profile.png"
+            src="@/assets/images/img_avatar01.jpg"
           />
         </v-avatar>
         <v-menu
