@@ -19,6 +19,7 @@
         icon="custom:slide-prev"
         variant="text"
         class="video-slide-control prev"
+        :disabled="popupSlide === 0"
         @click="stopAllVideos(); popupSlide = Math.max(popupSlide - 1, 0)"
       />
       <v-btn
@@ -26,7 +27,8 @@
         icon="custom:slide-next"
         class="video-slide-control next"
         variant="text"
-        @click="stopAllVideos(); popupSlide = Math.min(popupSlide + 1, 2)"
+        :disabled="popupSlide >= sliders.length - 1"
+        @click="stopAllVideos(); popupSlide = Math.min(popupSlide + 1, sliders.length - 1)"
       />
 
       <!-- carousel -->
