@@ -43,12 +43,31 @@
           class="tab-container"
         >
           <v-window-item
-            v-for="(item, i) in tabItem"
-            :key="i"
-            :value="i"
+
             :transition="false"
           >
-            <component :is="item.component" />
+            <v-row>
+              <v-col
+                v-for="(item, index) in profileItems"
+                :key="index"
+                cols="3"
+                class="d-flex justify-center"
+              >
+                <v-avatar
+                  size="80"
+                  :class="{ 'selected': selectedIndex === index }"
+                  @click="selectItem(index)"
+                >
+                  <v-img :src="getImageUrl(item.src)" />
+                </v-avatar>
+              </v-col>
+            </v-row>
+          </v-window-item>
+          <v-window-item
+
+            :transition="false"
+          >
+            프로필
           </v-window-item>
         </v-window>
         <!--// dialog contents -->
@@ -84,9 +103,40 @@ defineProps({
 });
 const emit = defineEmits(['update:modelValue']);
 
+const getImageUrl = (imageName) => {
+  return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
+};
+
 const tab = ref();
 const tabItem = ref([
   { btn: "기본 이미지" },
   { btn: "사용자 업로드" },
 ]);
+const profileItems = ref([
+  { src: "img_avatar01.jpg" },
+  { src: "img_avatar02.jpg" },
+  { src: "img_avatar03.jpg" },
+  { src: "img_avatar04.jpg" },
+  { src: "img_avatar05.jpg" },
+  { src: "img_avatar06.jpg" },
+  { src: "img_avatar07.jpg" },
+  { src: "img_avatar08.jpg" },
+  { src: "img_avatar09.jpg" },
+  { src: "img_avatar10.jpg" },
+  { src: "img_avatar11.jpg" },
+  { src: "img_avatar12.jpg" },
+]);
+
+const selectedIndex = ref(null);
+
+const selectItem = (index) => {
+  selectedIndex.value = index;
+};
 </script>
+<style scoped>
+.selected {
+  border: 3px solid #4caf50;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+</style>
