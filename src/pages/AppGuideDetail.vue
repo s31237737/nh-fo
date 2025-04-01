@@ -33,9 +33,7 @@
     </v-sheet>
     <!-- 상세내용 -->
     <v-sheet class="w-box">
-      <div class="editor-content">
-        비디오
-      </div>
+      비디오
     </v-sheet>
     <!-- 하단 버튼 -->
     <div class="page-actions">
