@@ -116,6 +116,14 @@ hr.v-divider {
       }
     }
   }
+  @at-root .mobile {
+    .tit-wrap {
+      .btns:first-child {
+        width: 100%;
+        .v-btn {flex: 1;}
+      }
+    }
+  }
 }
 
 .icon-text {

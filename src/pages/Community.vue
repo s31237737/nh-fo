@@ -40,13 +40,13 @@
           color="info"
           size="large"
         >
-          업데이트순
+          내가 작성한 아이디어
         </v-btn>
         <v-btn
           color="info"
           size="large"
         >
-          인기순
+          아이디어 작성하기
         </v-btn>
       </div>
     </div>
