@@ -31,6 +31,10 @@ $popup-base-margin: 20px;
         margin-left: auto;
       }
     }
+    > .tit-wrap {
+      margin: 0;
+      padding: 20px 20px 0;
+    }
     .v-card-text {
       position: relative;
       padding: 20px !important;
@@ -183,7 +187,7 @@ $popup-base-margin: 20px;
         @extend .text-4-md;
       }
     }
-  }
+  }  
 }
 
 @media only screen and (max-width: 1279px) {

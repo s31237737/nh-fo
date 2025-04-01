@@ -127,5 +127,4 @@ const menuItems = ref([
     ],
   },
 ]);
-
 </script>
