@@ -4,80 +4,80 @@
   >
     <v-container class="inner">
       <v-card class="top-banner-info">
-        <template
-          v-if="!isMobile"
-          #prepend
-        >
-          <v-img
-            :width="isDesktop ? '300': '240'"
-            src="@/assets/images/img_community_banner.png"
-          />
-        </template>
-        <v-card-title>
+        <v-card-item>
+          <template
+            v-if="isMobile"
+            #prepend
+          >
+            <v-img
+              :width="64"
+              :src="getImageUrl(topbanner.appIcon)"
+            />
+          </template>
           <div class="flag-wrap">
             <v-chip
-              class="flag"
-              color="success"
+              v-for="(badge, idx) in topbanner.badges.slice(0, 3)"
+              :key="idx"
+              :color="badge.color"
               variant="tonal"
+              class="flag"
             >
-              NEW
+              {{ badge.text }}
             </v-chip>
           </div>
-          디지털 업무 가이드(최대 36자)
-        </v-card-title>
-        <v-card-text>
-          도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스
-        </v-card-text>
-        <v-card-actions>
-          <v-btn
-            size="x-large"
-            color="primary"
-            variant="flat"
+          <v-card-title>
+            {{ topbanner.title }}
+          </v-card-title>
+          <v-card-text>
+            {{ topbanner.description }}
+            <p class="version">
+              <span>최근 업데이트: {{ topbanner.date }}</span>
+              <span>버전: {{ topbanner.ver }}</span>
+            </p>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn
+              size="x-large"
+              color="primary"
+              variant="flat"
+            >
+              앱 열기
+            </v-btn>
+            <v-btn
+              size="x-large"
+              color="info"
+              variant="flat"
+            >
+              공유
+            </v-btn>
+            <v-btn
+              size="x-large"
+              color="info"
+              variant="flat"
+              active
+            >
+              좋아요
+            </v-btn>
+          </v-card-actions>
+          <template
+            v-if="!isMobile"
+            #append
           >
-            앱 열기
-          </v-btn>
-          <v-btn
-            size="x-large"
-            color="info"
-            variant="flat"
-          >
-            공유
-          </v-btn>
-          <v-btn
-            size="x-large"
-            color="info"
-            variant="flat"
-            active
-          >
-            좋아요
-          </v-btn>
-        </v-card-actions>
-        <template
-          v-if="isMobile"
-          #append
-        >
-          <v-img
-            :width="isDesktop ? '300': '240'"
-            src="@/assets/images/img_community_banner.png"
-          />
-        </template>
+            <v-img
+              :width="280"
+              :src="getImageUrl(topbanner.appIcon)"
+            />
+          </template>
+        </v-card-item>
       </v-card>
       <ul class="recomm-list">
-        <li class="type">
-          <span>제목</span>
-          <p>내용</p>
-        </li>
-        <li class="count">
-          <span>제목</span>
-          <p>내용</p>
-        </li>
-        <li class="user">
-          <span>제목</span>
-          <p>내용</p>
-        </li>
-        <li class="ctg">
-          <span>제목</span>
-          <p>내용</p>
+        <li 
+          v-for="(item, index) in listData" 
+          :key="index" 
+          :class="item.type"
+        >
+          <span>{{ item.title }}</span>
+          <p>{{ item.content }}</p>
         </li>
       </ul>
     </v-container>
@@ -422,6 +422,25 @@ const getImageUrl = (imageName) => {
 };
 
 /* top banner */
+const topbanner =ref({
+    appIcon: '@temp_img_app_icon01.png',
+    title: '디지털 업무 가이드(최대 36자)',
+    description: `도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스`,
+    date: '2025.04.01',
+    ver: '1.0.0',
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+  }
+);
+const listData = ref([
+  { type: 'apptype', title: '제목', content: '내용' },
+  { type: 'count', title: '제목', content: '내용' },
+  { type: 'user', title: '제목', content: '내용' },
+  { type: 'ctg', title: '제목', content: '내용' }
+]);
 
 /* 슬라이드 */
 const openPopup = ref(false);
