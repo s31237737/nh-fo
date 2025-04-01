@@ -36,7 +36,7 @@
           </v-slide-group-item>
         </v-slide-group>
       </div>
-      <v-card-text>
+      <v-card-text class="pt-0">
         <!-- dialog contents -->
         <v-window
           v-model="tab"
