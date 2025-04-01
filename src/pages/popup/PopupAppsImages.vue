@@ -19,14 +19,14 @@
         icon="custom:slide-prev"
         variant="text"
         class="video-slide-control prev"
-        @click="popupSlide = Math.max(popupSlide - 1, 0)"
+        @click="stopAllVideos(); popupSlide = Math.max(popupSlide - 1, 0)"
       />
       <v-btn
         v-if="sliders.length > 1"
         icon="custom:slide-next"
         class="video-slide-control next"
         variant="text"
-        @click="popupSlide = Math.min(popupSlide + 1, 2)"
+        @click="stopAllVideos(); popupSlide = Math.min(popupSlide + 1, 2)"
       />
 
       <!-- carousel -->
@@ -118,7 +118,16 @@
       });
     }
   };
+
   const toggleVideoPlayback = (slide) => {
     slide.isPlaying = !slide.isPlaying;
   };
+
+  const stopAllVideos = () => {
+  sliders.forEach(slide => {
+    if (slide.player) {
+      slide.isPlaying = false;
+    }
+  });
+};
 </script>
