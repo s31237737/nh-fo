@@ -64,10 +64,34 @@
             </v-row>
           </v-window-item>
           <v-window-item
-
             :transition="false"
           >
-            test
+            <v-empty-state
+              :image="getImageUrl('icon_folder_profile.png')"
+              :size="!isMobile? '92': '74'"
+              :icon="null"
+              height="360"
+              class="mt-0"
+            >
+              <template #actions>
+                <input
+                  ref="fileInput"
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  class="d-none"
+                  @change="setImage"
+                >
+                <v-btn
+                  prepend-icon="custom:plus"
+                  color="info"
+                  :size="!isMobile? 'large': 'small'"
+                  @click="triggerFileUpload"
+                >
+                  파일 탐색하기
+                </v-btn>
+              </template>
+            </v-empty-state>
           </v-window-item>
         </v-window>
         <!--// dialog contents -->
@@ -95,6 +119,8 @@
 
 <script setup>
 import { ref , inject} from 'vue';
+import VueCropper from "vue-cropperjs";
+import "cropperjs/dist/cropper.css";
 
 const isMobile = inject('isMobile');
 
@@ -135,5 +161,51 @@ const selectedIndex = ref(null);
 
 const selectItem = (index) => {
   selectedIndex.value = index;
+};
+
+
+
+const fileInput = ref(null);
+const triggerFileUpload = () => {
+  fileInput.value.click(); // 숨겨진 input을 클릭
+};
+
+//VueCropper
+const cropper = ref(null);
+const input = ref(null);
+const imgSrc = ref("/assets/images/berserk.jpg");
+const cropImg = ref("");
+const data = ref(null);
+
+// Methods
+const cropImage = () => {
+  cropImg.value = cropper.value.getCroppedCanvas().toDataURL();
+};
+
+
+const setImage = (e) => {
+  const file = e.target.files[0];
+
+  if (file.type.indexOf("image/") === -1) {
+    alert("Please select an image file");
+    return;
+  }
+
+  if (typeof FileReader === "function") {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      imgSrc.value = event.target.result;
+      cropper.value.replace(event.target.result);
+    };
+
+    reader.readAsDataURL(file);
+  } else {
+    alert("Sorry, FileReader API not supported");
+  }
+};
+
+const showFileChooser = () => {
+  input.value.click();
 };
 </script>

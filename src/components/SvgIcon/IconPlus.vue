@@ -1,23 +1,16 @@
 <template>
   <svg
-    width="32"
-    height="32"
-    style=""
-    viewBox="0 0 32 32"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M15.9578 7.6001V24.4034"
-      stroke="currentColor"
-      stroke-width="1.2"
-      stroke-linecap="round"
-    />
-    <path
-      d="M7.59991 15.9829H24.4032"
-      stroke="currentColor"
-      stroke-width="1.2"
-      stroke-linecap="round"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M10 3.18662C10.3452 3.18662 10.625 3.46644 10.625 3.81162L10.625 9.3738L16.1872 9.3738C16.5324 9.3738 16.8122 9.65363 16.8122 9.9988C16.8122 10.344 16.5324 10.6238 16.1872 10.6238L10.625 10.6238L10.625 16.186C10.625 16.5312 10.3452 16.811 10 16.811C9.65482 16.811 9.375 16.5312 9.375 16.186V10.6238L3.81282 10.6238C3.46764 10.6238 3.18782 10.344 3.18782 9.9988C3.18782 9.65362 3.46764 9.3738 3.81282 9.3738L9.375 9.3738L9.375 3.81162C9.375 3.46644 9.65482 3.18662 10 3.18662Z"
+      fill="currentColor"
     />
   </svg>
 </template>
