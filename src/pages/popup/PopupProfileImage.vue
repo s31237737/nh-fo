@@ -13,55 +13,49 @@
           @click="emit('update:modelValue', false)"
         />
       </v-card-title>
+      <div class="tit-wrap">
+        <v-slide-group
+          v-model="tab"
+          center-active
+        >
+          <v-slide-group-item
+            v-for="(item, i) in tabItem"
+            :key="i"
+            v-slot="{ isSelected }"
+          >
+            <v-btn
+              size="large"
+              :ripple="false"
+              height="44"
+              rounded="pill"
+              :color="isSelected ? 'primary' : 'info'"
+              @click="tab = i"
+            >
+              {{ item.btn }}
+            </v-btn>
+          </v-slide-group-item>
+        </v-slide-group>
+      </div>
       <v-card-text>
         <!-- dialog contents -->
-        <div class="tit-wrap mb-0">
-          <v-slide-group
-            v-model="tab"
-            center-active
-          >
-            <v-slide-group-item
-              v-for="(item, i) in tabItem"
-              :key="i"
-              v-slot="{ isSelected }"
-            >
-              <v-btn
-                size="large"
-                :ripple="false"
-                height="44"
-                rounded="pill"
-                :color="isSelected ? 'primary' : 'info'"
-                @click="tab = i"
-              >
-                {{ item.btn }}
-              </v-btn>
-            </v-slide-group-item>
-          </v-slide-group>
-        </div>
         <v-window
           v-model="tab"
           class="tab-container"
         >
           <v-window-item
-
             :transition="false"
           >
-            <v-row>
-              <v-col
+            <div class="profile-list">
+              <v-avatar
                 v-for="(item, index) in profileItems"
                 :key="index"
-                cols="3"
-                class="d-flex justify-center"
+                :size="!isMobile ? '124' : '88'"
+                :class="{ 'selected': selectedIndex === index }"
+                @click="selectItem(index)"
               >
-                <v-avatar
-                  size="80"
-                  :class="{ 'selected': selectedIndex === index }"
-                  @click="selectItem(index)"
-                >
-                  <v-img :src="getImageUrl(item.src)" />
-                </v-avatar>
-              </v-col>
-            </v-row>
+                <v-img :src="getImageUrl(item.src)" />
+              </v-avatar>
+            </div>
           </v-window-item>
           <v-window-item
 
@@ -94,7 +88,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref , inject} from 'vue';
+
+const isMobile = inject('isMobile');
+
 defineProps({
   modelValue: {
     type: Boolean,
@@ -125,6 +122,7 @@ const profileItems = ref([
   { src: "img_avatar10.jpg" },
   { src: "img_avatar11.jpg" },
   { src: "img_avatar12.jpg" },
+  { src: "img_avatar13.jpg" },
 ]);
 
 const selectedIndex = ref(null);
