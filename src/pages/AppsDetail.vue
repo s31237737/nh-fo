@@ -43,6 +43,7 @@
               size="x-large"
               color="primary"
               variant="flat"
+              :ripple="false"
             >
               앱 열기
             </v-btn>
@@ -50,6 +51,7 @@
               size="x-large"
               color="info"
               variant="flat"
+              :ripple="false"
               prepend-icon="custom:share"
             >
               공유
@@ -58,7 +60,10 @@
               size="x-large"
               color="info"
               variant="flat"
+              :ripple="false"
+              :class="{ active: isActive }"
               prepend-icon="custom:thumbsup"
+              @click="toggleActive"
             >
               좋아요
             </v-btn>
@@ -448,12 +453,18 @@ const topbanner =ref({
   }
 );
 const listData = ref([
-  { type: 'custom:apptype', title: '앱 타입', content: '내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용' },
+  { type: 'custom:apptype', title: '앱 타입', content: '내용' },
   { type: 'custom:thumbsup', title: '좋아요 수', content: '100+' },
   { type: 'custom:user', title: '사용자 수', content: '1000+' },
   { type: 'custom:category', title: '카테고리 1', content: '태그명' },
   { type: 'custom:category', title: '카테고리 2', content: '태그명' }
 ]);
+
+const isActive = ref(false);
+
+const toggleActive = () => {
+  isActive.value = !isActive.value;
+};
 
 /* 슬라이드 */
 const openPopup = ref(false);
