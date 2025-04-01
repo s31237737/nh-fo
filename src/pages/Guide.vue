@@ -384,7 +384,6 @@
           v-model="select"
           label="round"
           rounded="pill"
-          class="round"
           :items="['전체', '상태1', '상태2']"
           :menu-props="{ maxHeight: '208px', auto: true, maxWidth: '100%' }"
         />
