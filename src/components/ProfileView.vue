@@ -13,7 +13,7 @@
         >
           <v-avatar size="60">
             <v-img
-              src="@/assets/images/profile.png"
+              src="@/assets/images/img_avatar01.jpg"
               alt="profile"
             />
           </v-avatar>

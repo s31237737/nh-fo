@@ -13,7 +13,10 @@
           @click="emit('update:modelValue', false)"
         />
       </v-card-title>
-      <div class="tit-wrap pa-5 ma-0">
+      <div
+        v-show="!isImageSelected"
+        class="tit-wrap pa-5 ma-0"
+      >
         <v-slide-group
           v-model="tab"
           center-active
@@ -39,12 +42,11 @@
       <v-card-text class="pt-0">
         <!-- dialog contents -->
         <v-window
+          v-show="!isImageSelected"
           v-model="tab"
           class="tab-container"
         >
-          <v-window-item
-            :transition="false"
-          >
+          <v-window-item>
             <v-row class="profile-list">
               <v-col
                 v-for="(item, index) in profileItems"
@@ -54,7 +56,7 @@
                 md="2"
               >
                 <v-avatar
-                  :size="!isMobile ? '100%' : '100%'"
+                  :size="'100%'"
                   :class="{ 'selected': selectedIndex === index }"
                   @click="selectItem(index)"
                 >
@@ -63,19 +65,68 @@
               </v-col>
             </v-row>
           </v-window-item>
-          <v-window-item
-
-            :transition="false"
-          >
-            test
+          <v-window-item>
+            <v-empty-state
+              :image="getImageUrl('icon_folder_profile.png')"
+              :size="!isMobile ? '92' : '74'"
+              :icon="null"
+              height="360"
+              class="mt-0"
+            >
+              <template #actions>
+                <input
+                  ref="fileInput"
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  class="d-none"
+                  @change="setImage"
+                >
+                <v-btn
+                  prepend-icon="custom:plus"
+                  color="info"
+                  :size="!isMobile ? 'large' : 'small'"
+                  @click="triggerFileUpload"
+                >
+                  파일 탐색하기
+                </v-btn>
+              </template>
+            </v-empty-state>
+            <v-row class="profile-list">
+              <v-col
+                cols="12"
+                sm="4"
+                md="2"
+              >
+                <v-avatar
+                  v-if="cropImg"
+                  :size="'100%'"
+                >
+                  <v-img :src="cropImg" />
+                </v-avatar>
+              </v-col>
+            </v-row>
           </v-window-item>
         </v-window>
-        <!--// dialog contents -->
+        <div
+          v-show="isImageSelected"
+          class="content"
+        >
+          <section class="cropper-area">
+            <div class="img-cropper">
+              <vue-cropper
+                ref="cropper"
+                :aspect-ratio="16 / 9"
+                :src="imgSrc"
+                preview=".preview"
+              />
+            </div>
+          </section>
+        </div>
       </v-card-text>
-
-
       <v-card-actions>
         <v-btn
+          v-show="!isImageSelected"
           color="info"
           size="large"
           @click="emit('update:modelValue', false)"
@@ -83,10 +134,19 @@
           취소
         </v-btn>
         <v-btn
+          v-show="isImageSelected"
+          color="info"
+          size="large"
+          @click="isImageSelected = false"
+        >
+          이전
+        </v-btn>
+        <v-btn
           color="primary"
           size="large"
+          @click="cropImage"
         >
-          다음
+          저장하기
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -94,7 +154,9 @@
 </template>
 
 <script setup>
-import { ref , inject} from 'vue';
+import { ref, inject, nextTick } from 'vue';
+import VueCropper from "vue-cropperjs";
+import "cropperjs/dist/cropper.css";
 
 const isMobile = inject('isMobile');
 
@@ -110,7 +172,7 @@ const getImageUrl = (imageName) => {
   return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
 };
 
-const tab = ref();
+const tab = ref(0);
 const tabItem = ref([
   { btn: "기본 이미지" },
   { btn: "사용자 업로드" },
@@ -131,9 +193,50 @@ const profileItems = ref([
   { src: "img_avatar13.jpg" },
 ]);
 
-const selectedIndex = ref(null);
-
+const selectedIndex = ref(0);
 const selectItem = (index) => {
   selectedIndex.value = index;
+};
+
+// VueCropper
+const fileInput = ref(null);
+const cropper = ref(null);
+const imgSrc = ref("");
+const cropImg = ref("");
+const isImageSelected = ref(false);
+
+const triggerFileUpload = () => {
+  fileInput.value.click();
+};
+
+const cropImage = () => {
+  cropImg.value = cropper.value.getCroppedCanvas().toDataURL();
+};
+
+const setImage = (e) => {
+  const file = e.target.files[0];
+
+  if (file.type.indexOf("image/") === -1) {
+    alert("Please select an image file");
+    return;
+  }
+
+  if (typeof FileReader === "function") {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      imgSrc.value = event.target.result;
+
+      nextTick(() => {
+        cropper.value.replace(event.target.result);
+      });
+
+      isImageSelected.value = true;
+    };
+
+    reader.readAsDataURL(file);
+  } else {
+    alert("Sorry, FileReader API not supported");
+  }
 };
 </script>

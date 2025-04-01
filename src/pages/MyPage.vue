@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <div class="header">
-      <h2>Vue CropperJS</h2>
-      <a href="https://github.com/Agontuk/vue-cropperjs">Github</a>
-    </div>
-    <hr>
-
+  <v-container class="inner">
     <input
       ref="input"
       type="file"
@@ -57,7 +51,7 @@
         </div>
       </section>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script setup>
@@ -79,51 +73,6 @@ const cropImage = () => {
   cropImg.value = cropper.value.getCroppedCanvas().toDataURL();
 };
 
-const flipX = () => {
-  const dom = input.value;
-  let scale = dom.getAttribute("data-scale");
-  scale = scale ? -scale : -1;
-  cropper.value.scaleX(scale);
-  dom.setAttribute("data-scale", scale);
-};
-
-const flipY = () => {
-  const dom = input.value;
-  let scale = dom.getAttribute("data-scale");
-  scale = scale ? -scale : -1;
-  cropper.value.scaleY(scale);
-  dom.setAttribute("data-scale", scale);
-};
-
-const getCropBoxData = () => {
-  data.value = JSON.stringify(cropper.value.getCropBoxData(), null, 4);
-};
-
-const getData = () => {
-  data.value = JSON.stringify(cropper.value.getData(), null, 4);
-};
-
-const move = (offsetX, offsetY) => {
-  cropper.value.move(offsetX, offsetY);
-};
-
-const reset = () => {
-  cropper.value.reset();
-};
-
-const rotate = (deg) => {
-  cropper.value.rotate(deg);
-};
-
-const setCropBoxData = () => {
-  if (!data.value) return;
-  cropper.value.setCropBoxData(JSON.parse(data.value));
-};
-
-const setData = () => {
-  if (!data.value) return;
-  cropper.value.setData(JSON.parse(data.value));
-};
 
 const setImage = (e) => {
   const file = e.target.files[0];
@@ -151,37 +100,11 @@ const showFileChooser = () => {
   input.value.click();
 };
 
-const zoom = (percent) => {
-  cropper.value.relativeZoom(percent);
-};
+
 </script>
 
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 1024px;
-  margin: 0 auto;
-}
+<style lang="css" scoped>
 
-input[type="file"] {
-  display: none;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0 5px 0;
-}
-
-.header h2 {
-  margin: 0;
-}
-
-.header a {
-  text-decoration: none;
-  color: black;
-}
 
 .content {
   display: flex;
