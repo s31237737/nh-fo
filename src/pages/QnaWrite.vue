@@ -180,6 +180,7 @@
       <v-btn
         color="info"
         size="x-large"
+        :to="{path: 'News', query: { tab: 2 }}"
       >
         취소
       </v-btn>
