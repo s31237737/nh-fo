@@ -12,9 +12,10 @@ import pages from 'virtual:generated-pages';
 
 const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
-    if (to.path === from.path && to.path.startsWith('/news')) {
+    if (to.path.startsWith('/news') && to.query.tab !== undefined) {
       return false;
     }
+
     if (savedPosition) {
       return savedPosition;
     }
