@@ -4,6 +4,9 @@
   >
     <v-container class="inner">
       앱 정보 영역
+      <ul class="mscroll-area">
+        <li>1</li>
+      </ul>
     </v-container>
   </v-sheet>
   <v-container class="inner">

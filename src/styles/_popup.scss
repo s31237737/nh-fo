@@ -163,8 +163,7 @@ $popup-base-margin: 20px;
         right: -162px;
       }
       &.v-btn--disabled {
-        filter: opacity(0.25);
-        opacity: 1 !important;
+        display:none;
       }
     }
   }
@@ -253,7 +252,7 @@ $popup-base-margin: 20px;
     }
   }
 }
-@media (orientation: landscape) {
+@media (orientation: landscape) and (hover: none) and (pointer: coarse) {
 	.v-dialog[class*="popup"] {
     &.carousel {
       .v-overlay__content {

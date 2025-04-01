@@ -33,7 +33,13 @@
     </v-sheet>
     <!-- 상세내용 -->
     <v-sheet class="w-box">
-      비디오
+      <v-card 
+        :class="{ 'player': sliders[0].player }"
+        :ripple="false"
+        @click="openPopupHandler(0)"
+      >
+        <v-img :src="getImageUrl(sliders[0].image)" />
+      </v-card>
     </v-sheet>
     <!-- 하단 버튼 -->
     <div class="page-actions">
@@ -61,10 +67,17 @@
       </v-btn>
     </div>
   </v-container>
+  
+  <PopupAppsImages
+    v-model="openPopup"
+    :sliders="sliders"
+    :selected-index="selectedIndex"
+  />
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import PopupAppsImages from "@/pages/popup/PopupAppsImages.vue";
 
 const fileList = ref([
   { name: "File_t_title_1.pdf", size: "10.3MB"},
@@ -74,5 +87,27 @@ const fileList = ref([
 
 const downloadFile = (files) => {
   console.log(files.name)
+};
+
+//동영상 팝업
+const getImageUrl = (imageName) => {
+  return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+};
+
+const openPopup = ref(false);
+const sliders = ref([
+  {
+    image: '@temp_img_02.png',
+    link: "https://www.youtube.com/embed/FepuXV72_hQ",
+    player: true,
+    isPlaying: false,
+  },
+]);
+const selectedIndex = ref(null);
+const openPopupHandler = (index = 0) => {
+  selectedIndex.value = sliders.value[index];
+  openPopup.value = true;
+
+  //console.log("선택된 index (value):", selectedIndex.value);
 };
 </script>
