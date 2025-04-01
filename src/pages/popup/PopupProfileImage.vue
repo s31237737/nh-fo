@@ -107,27 +107,6 @@
                 preview=".preview"
               />
             </div>
-            <div class="actions">
-              <a
-                href="#"
-                role="button"
-                @click.prevent="cropImage"
-              >Crop</a>
-            </div>
-          </section>
-          <section class="preview-area">
-            <p>Cropped Image</p>
-            <div class="cropped-image">
-              <img
-                v-if="cropImg"
-                :src="cropImg"
-                alt="Cropped Image"
-              >
-              <div
-                v-else
-                class="crop-placeholder"
-              />
-            </div>
           </section>
         </div>
       </v-card-text>
@@ -151,6 +130,7 @@
         <v-btn
           color="primary"
           size="large"
+          @click="cropImage"
         >
           저장하기
         </v-btn>
