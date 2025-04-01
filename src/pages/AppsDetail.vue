@@ -71,9 +71,9 @@
         </v-card-item>
       </v-card>
       <ul class="recomm-list">
-        <li 
-          v-for="(item, index) in listData" 
-          :key="index" 
+        <li
+          v-for="(item, index) in listData"
+          :key="index"
           :class="item.type"
         >
           <span>{{ item.title }}</span>
@@ -96,7 +96,7 @@
             :key="index"
           >
             <!-- 첫 번째 이미지 -->
-            <v-card 
+            <v-card
               :class="{ 'player': slide[0].player }"
               :ripple="false"
               @click="openPopupHandler(index, 0)"
@@ -447,7 +447,7 @@ const openPopup = ref(false);
 const sliders = ref([
   {
     image: '@temp_img_02.png',
-    link: "https://www.youtube.com/embed/FepuXV72_hQ",
+    link: "https://www.youtube-nocookie.com/embed/FepuXV72_hQ",
     player: true,
     isPlaying: false,
   },
