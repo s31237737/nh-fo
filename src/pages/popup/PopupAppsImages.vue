@@ -13,6 +13,18 @@
     />
     
     <div class="video-slide-wrap">
+      <v-btn
+        icon="custom:slide-prev"
+        variant="text"
+        class="video-slide-control prev"
+        @click="popupSlide = Math.max(popupSlide - 1, 0)"
+      />
+      <v-btn
+        icon="custom:slide-next"
+        class="video-slide-control next"
+        variant="text"
+        @click="popupSlide = Math.min(popupSlide + 1, 2)"
+      />
       <v-carousel
         v-model="popupSlide"
         class="video-slide"
@@ -56,20 +68,6 @@
           </v-card>
         </v-carousel-item>
       </v-carousel>
-      <div class="video-slide-control">
-        <v-btn
-          icon="custom:slide-prev"
-          variant="text"
-          class="video-slide-prev"
-          @click="popupSlide = Math.max(popupSlide - 1, 0)"
-        />
-        <v-btn
-          icon="custom:slide-next"
-          class="video-slide-next"
-          variant="text"
-          @click="popupSlide = Math.min(popupSlide + 1, 2)"
-        />
-      </div>
     </div>
   </v-dialog>
 </template>
@@ -104,6 +102,5 @@
   };
   const toggleVideoPlayback = (slide) => {
     slide.isPlaying = !slide.isPlaying;
-    console.log(slide.isPlaying )
   };
 </script>
