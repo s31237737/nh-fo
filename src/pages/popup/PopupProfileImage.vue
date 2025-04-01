@@ -137,10 +137,3 @@ const selectItem = (index) => {
   selectedIndex.value = index;
 };
 </script>
-<style scoped>
-.selected {
-  border: 3px solid #4caf50;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-</style>

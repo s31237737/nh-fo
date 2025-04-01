@@ -480,6 +480,19 @@ section + section {
     }
   }
   .v-avatar {
+    cursor: pointer;
     border-radius: $base-radius;
+    &.selected {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(30, 30, 30, 0.6) url('@/assets/images/icon_selected_profile.png') no-repeat center/ 32px;
+      }
+    }
   }
 }
