@@ -18,12 +18,11 @@
           <v-carousel-item
             v-for="(slide, index) in groupedSliders"
             :key="index"
-            tabindex="0"
           >
             <!-- 첫 번째 이미지 -->
             <v-card 
               :class="{ 'player': slide[0].player }"
-              @click="openPopup = true"
+              @click="openPopupHandler(index, 0)"
             >
               <v-img :src="getImageUrl(slide[0].image)" />
             </v-card>
@@ -32,7 +31,7 @@
             <v-card
               v-if="slide[1]"
               :class="{ 'player': slide[1].player }"
-              @click="openPopup = true"
+              @click="openPopupHandler(index, 1)"
             >
               <v-img :src="getImageUrl(slide[1].image)" />
             </v-card>
@@ -51,7 +50,7 @@
           >
             <v-card
               :class="{ 'player': slide.player }"
-              @click="openPopup = true"
+              @click="openPopupHandler(index)"
             >
               <v-img :src="getImageUrl(slide.image)" />
             </v-card>
@@ -327,6 +326,7 @@
   <PopupAppsImages
     v-model="openPopup"
     :sliders="sliders"
+    :selected-index="selectedIndex"
   />
 </template>
 
@@ -367,7 +367,7 @@ const sliders = ref([
   {
     image: '@temp_img_01.png',
   },
-]);
+].map((item, index) => ({ ...item, value: index })));
 
 const groupedSliders = computed(() => {
   let grouped = [];
@@ -385,6 +385,24 @@ const updateCurrentSlide = (newSlide) => {
     mediaSlide.value = newSlide;
   }
 };
+
+const selectedIndex = ref(null);
+
+const openPopupHandler = (index, subIndex = 0) => {
+  let selectedSlide;
+
+  if (isMobile.value) {
+    selectedSlide = sliders.value[index];
+  } else {
+    selectedSlide = groupedSliders.value[index]?.[subIndex];
+  }
+
+  selectedIndex.value = selectedSlide ? selectedSlide.value : null;
+  openPopup.value = true;
+
+  //console.log("선택된 index (value):", selectedIndex.value);
+};
+
 
 /* 탭 */
 const select = ref("선택");
