@@ -34,6 +34,22 @@
     </v-container>
   </v-sheet>
   <v-container class="inner">
+    <div class="tit-wrap">
+      <div class="btns">
+        <v-btn
+          color="info"
+          size="large"
+        >
+          업데이트순
+        </v-btn>
+        <v-btn
+          color="info"
+          size="large"
+        >
+          인기순
+        </v-btn>
+      </div>
+    </div>
     <p>미작업</p>
   </v-container>
 </template>
