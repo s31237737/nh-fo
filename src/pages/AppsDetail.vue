@@ -1,16 +1,19 @@
 <template>
   <v-sheet
-    class="top-banner"
+    class="top-banner apps-detail"
   >
     <v-container class="inner">
-      <v-card class="top-banner-info">
+      <v-card
+        class="top-banner-info"
+        rounded="0"
+      > 
         <v-card-item>
           <template
             v-if="isMobile"
             #prepend
           >
             <v-img
-              :width="64"
+              :width="54"
               :src="getImageUrl(topbanner.appIcon)"
             />
           </template>
@@ -47,6 +50,7 @@
               size="x-large"
               color="info"
               variant="flat"
+              prepend-icon="custom:share"
             >
               공유
             </v-btn>
@@ -54,7 +58,7 @@
               size="x-large"
               color="info"
               variant="flat"
-              active
+              prepend-icon="custom:thumbsup"
             >
               좋아요
             </v-btn>
@@ -64,20 +68,28 @@
             #append
           >
             <v-img
-              :width="280"
+              v-if="!isMobile"
+              :width="isDesktop ? '200' : '120'"
               :src="getImageUrl(topbanner.appIcon)"
             />
           </template>
         </v-card-item>
       </v-card>
-      <ul class="recomm-list">
+      <ul class="recomm-list mscroll-area">
         <li 
           v-for="(item, index) in listData" 
           :key="index" 
-          :class="item.type"
         >
-          <span>{{ item.title }}</span>
-          <p>{{ item.content }}</p>
+          <div class="item">
+            <span>{{ item.title }}</span>
+            <p class="line-clamp2">
+              {{ item.content }}
+            </p>
+          </div>
+          <v-icon
+            :icon="item.type"
+            size="x-large"
+          />
         </li>
       </ul>
     </v-container>
@@ -436,10 +448,11 @@ const topbanner =ref({
   }
 );
 const listData = ref([
-  { type: 'apptype', title: '제목', content: '내용' },
-  { type: 'count', title: '제목', content: '내용' },
-  { type: 'user', title: '제목', content: '내용' },
-  { type: 'ctg', title: '제목', content: '내용' }
+  { type: 'custom:apptype', title: '앱 타입', content: '내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용' },
+  { type: 'custom:thumbsup', title: '좋아요 수', content: '100+' },
+  { type: 'custom:user', title: '사용자 수', content: '1000+' },
+  { type: 'custom:category', title: '카테고리 1', content: '태그명' },
+  { type: 'custom:category', title: '카테고리 2', content: '태그명' }
 ]);
 
 /* 슬라이드 */
