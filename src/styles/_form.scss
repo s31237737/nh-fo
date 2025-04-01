@@ -40,7 +40,6 @@
   }
 }
 .v-select {
-  min-width: 120px;
   &__content {
     .v-list {
       padding: 0 8px 8px;
@@ -55,9 +54,13 @@
       }
     }
   }
-  .v-field.rounded-pill {
-    .v-field__outline__start {
-      flex-basis: 50% !important;
+  .v-field {
+    min-width: 80px;
+    &.rounded-pill {
+      min-width: 100px;
+      .v-field__outline__start {
+        flex-basis: 50% !important;
+      }
     }
   }
 }

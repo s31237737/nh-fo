@@ -364,10 +364,12 @@
     }
     &.btn-selectJob {
       --v-btn-height: 44px;
+      min-width: 100px;
       padding-inline: 16px 12px;
       border: thin solid $gray-500;
       background: transparent;
       font-weight: 400;
+      justify-content: flex-start;
       .v-btn__append {
         margin-inline: 6px 0;
         height: 44px;
