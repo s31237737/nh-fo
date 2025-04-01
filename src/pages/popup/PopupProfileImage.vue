@@ -45,23 +45,29 @@
           <v-window-item
             :transition="false"
           >
-            <div class="profile-list">
-              <v-avatar
+            <v-row class="profile-list">
+              <v-col
                 v-for="(item, index) in profileItems"
                 :key="index"
-                :size="!isMobile ? '124' : '88'"
-                :class="{ 'selected': selectedIndex === index }"
-                @click="selectItem(index)"
+                cols="12"
+                sm="4"
+                md="2"
               >
-                <v-img :src="getImageUrl(item.src)" />
-              </v-avatar>
-            </div>
+                <v-avatar
+                  :size="!isMobile ? '100%' : '100%'"
+                  :class="{ 'selected': selectedIndex === index }"
+                  @click="selectItem(index)"
+                >
+                  <v-img :src="getImageUrl(item.src)" />
+                </v-avatar>
+              </v-col>
+            </v-row>
           </v-window-item>
           <v-window-item
 
             :transition="false"
           >
-            프로필
+            test
           </v-window-item>
         </v-window>
         <!--// dialog contents -->
