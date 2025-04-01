@@ -13,18 +13,23 @@
     />
     
     <div class="video-slide-wrap">
+      <!-- control -->
       <v-btn
+        v-if="sliders.length > 1"
         icon="custom:slide-prev"
         variant="text"
         class="video-slide-control prev"
         @click="popupSlide = Math.max(popupSlide - 1, 0)"
       />
       <v-btn
+        v-if="sliders.length > 1"
         icon="custom:slide-next"
         class="video-slide-control next"
         variant="text"
         @click="popupSlide = Math.min(popupSlide + 1, 2)"
       />
+
+      <!-- carousel -->
       <v-carousel
         v-model="popupSlide"
         class="video-slide"
@@ -57,6 +62,7 @@
               allowfullscreen
             />
           </v-card>
+
           <v-card 
             v-else
           >
@@ -73,22 +79,34 @@
 </template>
 
 <script setup>
-  import { ref, inject } from 'vue';
+  import { ref, inject, watch } from 'vue';
 
   const isMobile = inject('isMobile');
-  const { modelValue, sliders } = defineProps({
+
+  const { modelValue, sliders, selectedIndex } = defineProps({
     modelValue: {
       type: Boolean,
       default: false,
     },
     sliders: Array,
+    selectedIndex: Number,
   });
+
+  watch(() => modelValue, (newVal) => {
+  if (newVal) {
+    //console.log("팝업이 열릴 때 선택된 index:", selectedIndex);
+    popupSlide.value = selectedIndex;
+  }
+});
+
   const getImageUrl = (imageName) => {
     return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
   };
+
   const popupSlide = ref(0);
 
   const emit = defineEmits(['update:modelValue']);
+
   const handleDialogToggle = (isOpen) => {
     emit('update:modelValue', isOpen); // 상태 변경
     if (!isOpen) {
