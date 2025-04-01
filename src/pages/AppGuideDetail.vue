@@ -33,7 +33,7 @@
     </v-sheet>
     <!-- 상세내용 -->
     <v-sheet class="w-box">
-      <v-card 
+      <v-card
         :class="{ 'player': sliders[0].player }"
         :ripple="false"
         @click="openPopupHandler(0)"
@@ -67,7 +67,7 @@
       </v-btn>
     </div>
   </v-container>
-  
+
   <PopupAppsImages
     v-model="openPopup"
     :sliders="sliders"
@@ -98,14 +98,18 @@ const openPopup = ref(false);
 const sliders = ref([
   {
     image: '@temp_img_02.png',
-    link: "https://www.youtube.com/embed/FepuXV72_hQ",
+    link: "https://www.youtube-nocookie.com/embed/FepuXV72_hQ",
     player: true,
     isPlaying: false,
   },
 ]);
 const selectedIndex = ref(null);
 const openPopupHandler = (index = 0) => {
-  selectedIndex.value = sliders.value[index];
+  if (index < 0 || index >= sliders.value.length) {
+    return;
+  }
+
+  selectedIndex.value = index;
   openPopup.value = true;
 };
 </script>

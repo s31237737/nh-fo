@@ -116,8 +116,10 @@
             <div class="img-cropper">
               <vue-cropper
                 ref="cropper"
-                :aspect-ratio="16 / 9"
+                :aspect-ratio="1"
                 :src="imgSrc"
+                :min-width="60"
+                :min-height="60"
                 preview=".preview"
               />
             </div>
