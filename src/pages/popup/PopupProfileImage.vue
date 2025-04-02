@@ -123,7 +123,7 @@
           v-if="isImageSelected"
           color="primary"
           size="large"
-          @click="cropAndClose"
+          @click="crop"
         >
           저장하기
         </v-btn>
@@ -192,30 +192,6 @@ const isImageSelected = ref(false); // 이미지 선택 여부
 const croppedImage = ref(null);// to 개발: 자른 이미지값
 const uploadedImage = ref(null);
 
-const cropperRef = ref(null);
-
-const crop = async () => {
-  if (cropperRef.value) {
-    const { canvas } = cropperRef.value.getResult();
-
-    if (canvas) {
-      const width = canvas.width;
-      const height = canvas.height;
-
-      // 최소 크기 확인
-      if (width < 60 || height < 60) {
-        alert("이미지 크기는 최소 60x60이어야 합니다.");
-        return;
-      }
-
-      // 크롭된 이미지 저장
-      croppedImage.value = canvas.toDataURL();
-    }
-  } else {
-    console.error("cropperRef is not initialized.");
-  }
-};
-
 const onFileChange = (event) => {
   const input = event.target;
   if (input.files && input.files[0]) {
@@ -236,11 +212,31 @@ const onFileChange = (event) => {
   }
 };
 
-const cropAndClose = async () => {
-  await crop(); // 크롭 실행
-  isImageSelected.value = false;
-  emit('update:modelValue', false); // 팝업 닫기
+const cropperRef = ref(null);
+const crop = async () => {
+  if (cropperRef.value) {
+    const { canvas } = cropperRef.value.getResult();
+
+    if (canvas) {
+      const width = canvas.width;
+      const height = canvas.height;
+
+      // 최소 크기 확인
+      if (width < 60 || height < 60) {
+        alert("이미지 크기는 최소 60x60이어야 합니다.");
+        return;
+      }
+       isImageSelected.value = false;
+
+      // 크롭된 이미지 저장
+      croppedImage.value = canvas.toDataURL();
+      emit('update:modelValue', false); // 팝업 닫기
+    }
+  } else {
+    console.error("cropperRef is not initialized.");
+  }
 };
+
 
 
 </script>
