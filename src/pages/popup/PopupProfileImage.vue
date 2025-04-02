@@ -14,7 +14,7 @@
         />
       </v-card-title>
       <div
-        v-show="!isImageSelected"
+        v-if="!isImageSelected || isImageCropped"
         class="tit-wrap pa-5 ma-0"
       >
         <v-slide-group
@@ -42,7 +42,7 @@
       <v-card-text class="pt-0">
         <!-- dialog contents -->
         <v-window
-          v-show="!isImageSelected"
+          v-if="!isImageSelected || isImageCropped"
           v-model="tab"
           class="tab-container"
         >
@@ -67,7 +67,7 @@
           </v-window-item>
           <v-window-item>
             <v-empty-state
-              v-show="!isImageSelected"
+              v-if="!isImageSelected && !isImageCropped"
               :image="getImageUrl('icon_folder_profile.png')"
               :size="!isMobile ? '92' : '74'"
               :icon="null"
@@ -75,26 +75,25 @@
               class="mt-0"
             >
               <template #actions>
-                <input
-                  ref="fileInput"
-                  type="file"
-                  name="image"
-                  accept="image/*"
-                  class="d-none"
-                  @change="setImage"
-                >
                 <v-btn
                   prepend-icon="custom:plus"
                   color="info"
                   :size="!isMobile ? 'large' : 'small'"
-                  @click="triggerFileUpload"
+                  @click="$refs.fileInput.click()"
                 >
+                  <input
+                    ref="fileInput"
+                    type="file"
+                    accept="image/*"
+                    class="d-none"
+                    @change="onFileChange"
+                  >
                   파일 탐색하기
                 </v-btn>
               </template>
             </v-empty-state>
             <v-row
-              v-show="isImageSelected"
+              v-if="isImageCropped"
               class="profile-list"
             >
               <v-col
@@ -103,33 +102,41 @@
                 md="2"
               >
                 <v-avatar
-                  v-if="cropImg"
+                  v-if="croppedImage"
                   :size="'100%'"
                 >
-                  <v-img :src="cropImg" />
+                  <v-img :src="croppedImage" />
                 </v-avatar>
               </v-col>
             </v-row>
           </v-window-item>
         </v-window>
-        <div
-          v-show="isImageSelected"
+        <v-sheet
+          v-if="!isImageCropped && isImageSelected"
           class="cropper-wrap"
+          height="444"
+          style="overflow:hidden"
         >
-          <vue-cropper
-            ref="cropper"
-            :aspect-ratio="1"
-            :src="imgSrc"
-            :min-width="60"
-            :min-height="60"
-            preview=".preview"
-            :guides="false"
+          <cropper
+            ref="cropperRef"
+            class="cropper"
+            :src="uploadedImage"
+            :stencil-props="{
+              handlers: {},
+              movable: false,
+              resizable: false,
+              aspectRatio: 1,
+            }"
+            :resize-image="{
+              adjustStencil: false
+            }"
+            image-restriction="stencil"
           />
-        </div>
+        </v-sheet>
       </v-card-text>
       <v-card-actions>
         <v-btn
-          v-show="!isImageSelected"
+          v-if="!isImageSelected || isImageCropped"
           color="info"
           size="large"
           @click="emit('update:modelValue', false)"
@@ -137,7 +144,7 @@
           취소
         </v-btn>
         <v-btn
-          v-show="isImageSelected"
+          v-else
           color="info"
           size="large"
           @click="isImageSelected = false"
@@ -145,9 +152,18 @@
           이전
         </v-btn>
         <v-btn
+          v-if="isImageSelected && !isImageCropped"
           color="primary"
           size="large"
-          @click="cropImage"
+          @click="crop"
+        >
+          저장하기
+        </v-btn>
+        <v-btn
+          v-else
+          color="primary"
+          size="large"
+          @click="emit('update:modelValue', false)"
         >
           저장하기
         </v-btn>
@@ -158,8 +174,9 @@
 
 <script setup>
 import { ref, inject, nextTick } from 'vue';
-import VueCropper from "vue-cropperjs";
-import "cropperjs/dist/cropper.css";
+// https://advanced-cropper.github.io/vue-advanced-cropper/
+import { Cropper } from 'vue-advanced-cropper';
+import 'vue-advanced-cropper/dist/style.css';
 
 const isMobile = inject('isMobile');
 
@@ -201,45 +218,66 @@ const selectItem = (index) => {
   selectedIndex.value = index;
 };
 
-// VueCropper
-const fileInput = ref(null);
-const cropper = ref(null);
-const imgSrc = ref("");
-const cropImg = ref("");
-const isImageSelected = ref(false);
+// Cropper
+const isImageSelected = ref(false); // 이미지 선택 여부
+const isImageCropped = ref(false); // 크롭 완료 여부
 
-const triggerFileUpload = () => {
-  fileInput.value.click();
-};
+const croppedImage = ref(null);
+const compressedImage = ref(null);
+const uploadedImage = ref(null);
+const coordinates = ref(null);
 
-const cropImage = () => {
-  cropImg.value = cropper.value.getCroppedCanvas().toDataURL();
-};
+const cropperRef = ref(null);
+const crop = async () => {
+  if (cropperRef.value) {
+    const { coordinates: cropCoordinates, canvas } = cropperRef.value.getResult();
+    coordinates.value = cropCoordinates;
 
-const setImage = (e) => {
-  const file = e.target.files[0];
-
-  if (file.type.indexOf("image/") === -1) {
-    alert("Please select an image file");
-    return;
-  }
-
-  if (typeof FileReader === "function") {
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      imgSrc.value = event.target.result;
-
-      nextTick(() => {
-        cropper.value.replace(event.target.result);
+    if (canvas) {
+      croppedImage.value = canvas.toDataURL();
+      compressedImage.value = await resizeDataUrlImage({
+        dataUrl: canvas.toDataURL(),
+        width: 100,
+        height: 100,
       });
+      isImageCropped.value = true;
+    }
+  } else {
+    console.error("cropperRef is not initialized.");
+  }
+};
 
+const resizeDataUrlImage = ({ dataUrl, width, height }) => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, width, height);
+      resolve(canvas.toDataURL());
+    };
+    img.src = dataUrl;
+  });
+};
+
+const onFileChange = (event) => {
+  const input = event.target;
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      uploadedImage.value = e.target.result;
       isImageSelected.value = true;
     };
-
-    reader.readAsDataURL(file);
-  } else {
-    alert("Sorry, FileReader API not supported");
+    reader.readAsDataURL(input.files[0]);
   }
 };
+
+// Reset images
+// const resetImages = () => {
+//   croppedImage.value = null;
+//   compressedImage.value = null;
+// };
+
 </script>
