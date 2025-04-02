@@ -57,13 +57,13 @@
       >
         공유하기 링크 복사
       </v-btn>
-      <v-btn
+      <!-- <v-btn
         size="small"
         color="primary"
         @click="alert06 = true"
       >
         모바일로 앱 열기
-      </v-btn>
+      </v-btn> -->
     </div>
 
     <!-- dialog -->
@@ -350,7 +350,7 @@
   </v-dialog>
 
   <!-- QR 링크 -->
-  <v-dialog
+  <!-- <v-dialog
     v-model="alert06"
     class="popup-sm"
   >
@@ -364,7 +364,6 @@
       </v-card-title>
 
       <v-card-text>
-        <!-- dialog contents -->
         <strong class="title-5-bd">휴대전화로 $앱 이름 앱 이름앱 이름앱 이름앱 이름$ 열기</strong>
         <p class="text-4">
           휴대전화로 아래 QR코드를 비추어<br>표시되는 링크를 눌러보세요.<br>$앱 이름 앱 이름앱 이름앱 이름앱 이름$을<br>바로 사용할 수 있어요.
@@ -373,7 +372,6 @@
           class="qrImg"
           :src="getImageUrl(alertQr.img)"
         />
-        <!-- // dialog contents -->
       </v-card-text>
       <v-card-actions>
         <v-btn
@@ -385,7 +383,7 @@
         </v-btn>
       </v-card-actions>
     </v-card>
-  </v-dialog>
+  </v-dialog> -->
 
   <!-- popup -->
   <component
@@ -409,20 +407,20 @@ import { ref,shallowRef  } from 'vue';
   const alert03 = ref(false);
   const alert04 = ref(false);
   const alert05 = ref(false);
-  const alert06 = ref(false);
-  const alertQr = ref({ img: '@temp_img_QR.png'});
+  // const alert06 = ref(false);
+  // const alertQr = ref({ img: '@temp_img_QR.png'});
 
   import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
   import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
   import PopupAppsImages from '@/pages/popup/PopupAppsImages.vue';
   import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
 
+  // qr팝업
+  // const getImageUrl = (imageName) => {
+  //   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+  // };
 
   //동영상 팝업(AppsGuideDetail, AppsDetail 참고)
-  const getImageUrl = (imageName) => {
-    return new URL(`../assets/images/${imageName}`, import.meta.url).href;
-  };
-
   //const openPopup = ref(false);
   const sliders = ref([
     {

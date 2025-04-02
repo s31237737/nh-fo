@@ -465,7 +465,7 @@
       align-items: flex-start;
     }
     .v-card-item__content {
-      max-width: 600px;
+      overflow: visible;
       align-self: start;
     }
     .v-card-item__append {
@@ -481,6 +481,7 @@
       @include line-clamp(2);
     }
     .v-card-text {
+      max-width: 600px;
       margin-top: 20px;
       @extend .text-2;
       color: $gray-700;
@@ -491,7 +492,7 @@
       .v-btn__overlay, .v-btn__underlay {
         display: none;
       }
-      .bg-primary {
+      .btn-appSet {
         width: 190px;
         margin-right:24px;
       }
@@ -504,6 +505,9 @@
         }
       }
     }
+  }
+  .top-banner-title {
+    max-width: 600px;
   }
   .flag-wrap {
     text-align: left;
@@ -529,7 +533,7 @@
         left: -10px;
         width:1px;
         height: 12px;
-        background: $gray-700;;
+        border-left: thin solid $black;
         opacity: .5;
       }
     }
@@ -566,48 +570,21 @@
     .top-banner-info {
       margin-bottom: 40px;
       .v-card-title, .v-card-text {
-        padding-right: 20px;
+        padding-right: 40px;
       }
     }
   } 
   @at-root .mobile .apps-detail.top-banner {
     padding-block: 49px 40px;
     .top-banner-info {
-      // .v-card-item__prepend {
-      //   position: absolute;
-      //   top:0;
-      //   padding: 5px;
-      //   border: 1px solid $gray-300;
-      //   border-radius: 8px;
-      // }
-      .top-banner-title {
-        position: relative;
-        padding-left: 80px;
-        .v-img {
-          position: absolute;
-          top:50%;
-          left: 0;
-          transform: translateY(-50%);
-          width: 64px;
-          height: 64px;
-          max-height: fit-content;
-          padding: 5px;
-          border: 1px solid $gray-300;
-          border-radius: 8px;
-        }
-      }
-      .v-card-item__content {
-        overflow: visible;
-        max-width: 100%;
-      }
       .v-card-title {
-        //padding-left: 80px;
         padding-right: 0;
         margin-top: 6px;
         font-size: 1.25rem !important;
         line-height: 1.625rem !important;
       }
       .v-card-text {
+        max-width: 100%;
         padding-right: 0;
       }
       .v-card-actions {
@@ -617,7 +594,7 @@
           flex: 1;
           min-width:auto;
         }
-        .bg-primary {
+        .btn-appSet {
           width: auto;
           margin-right: 0;
           padding:10px;
@@ -625,6 +602,23 @@
         .bg-info {
           padding:0px;
         }
+      }
+    }
+    .top-banner-title {
+      position: relative;
+      padding-left: 80px;
+      max-width: 100%;
+      .v-img {
+        position: absolute;
+        top:50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 64px;
+        height: 64px;
+        max-height: fit-content;
+        padding: 5px;
+        border: 1px solid $gray-300;
+        border-radius: 8px;
       }
     }
     .recomm-list {

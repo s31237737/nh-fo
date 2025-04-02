@@ -37,14 +37,24 @@
             </p>
           </v-card-text>
           <v-card-actions>
-            <v-btn
+            <!-- <v-btn
+              class="btn-appSet"
               size="x-large"
               color="primary"
               variant="flat"
               :ripple="false"
-              @click="alert06 = true"
             >
-              모바일로 앱 열기
+              앱 열기
+            </v-btn> -->
+            <!-- 신청 대기중 -->
+            <v-btn
+              class="btn-appSet"
+              size="x-large"
+              color="secondary"
+              variant="flat"
+              :ripple="false"
+            >
+              신청 대기중
             </v-btn>
             <v-btn
               size="x-large"
@@ -460,44 +470,6 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-
-  <!-- QR 링크 -->
-  <v-dialog
-    v-model="alert06"
-    class="popup-sm"
-  >
-    <v-card>
-      <v-card-title>
-        <v-btn
-          icon="custom:close"
-          density="comfortable"
-          @click="alert06 = false"
-        />
-      </v-card-title>
-
-      <v-card-text>
-        <!-- dialog contents -->
-        <strong class="title-5-bd">휴대전화로 $앱 이름 앱 이름앱 이름앱 이름앱 이름$ 열기</strong>
-        <p class="text-4">
-          휴대전화로 아래 QR코드를 비추어<br>표시되는 링크를 눌러보세요.<br>$앱 이름 앱 이름앱 이름앱 이름앱 이름$을<br>바로 사용할 수 있어요.
-        </p>
-        <v-img
-          class="qrImg"
-          :src="getImageUrl(alertQr.img)"
-        />
-        <!-- // dialog contents -->
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          color="primary"
-          size="large"
-          @click="alert06 = false"
-        >
-          확인
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
 </template>
 
 <script setup>
@@ -513,8 +485,6 @@ const getImageUrl = (imageName) => {
 };
 
 /* alert */
-const alert06 = ref(false);
-const alertQr = ref({ img: '@temp_img_QR.png'});
 const alert05 = ref(false);
 
 /* top banner */
