@@ -63,6 +63,20 @@
                   <v-img :src="getImageUrl(item.src)" />
                 </v-avatar>
               </v-col>
+              <!-- crop 이미지 확인용 개발에서는 삭제바람-->
+              <v-col
+                cols="12"
+                sm="4"
+                md="2"
+              >
+                <v-avatar
+                  v-if="croppedImage"
+                  :size="'100%'"
+                >
+                  <v-img :src="croppedImage" />
+                </v-avatar>
+              </v-col>
+              <!-- crop 이미지 확인용 개발에서는 삭제바람-->
             </v-row>
           </v-window-item>
           <v-window-item>
@@ -226,10 +240,10 @@ const crop = async () => {
         alert("이미지 크기는 최소 60x60이어야 합니다.");
         return;
       }
-       isImageSelected.value = false;
 
       // 크롭된 이미지 저장
       croppedImage.value = canvas.toDataURL();
+      isImageSelected.value = false;
       emit('update:modelValue', false); // 팝업 닫기
     }
   } else {
