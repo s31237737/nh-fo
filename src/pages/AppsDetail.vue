@@ -8,29 +8,27 @@
         rounded="0"
       > 
         <v-card-item>
-          <template
-            v-if="isMobile"
-            #prepend
-          >
+          <div class="top-banner-title">
             <v-img
-              :width="54"
+              v-if="isMobile"
               :src="getImageUrl(topbanner.appIcon)"
             />
-          </template>
-          <div class="flag-wrap">
-            <v-chip
-              v-for="(badge, idx) in topbanner.badges.slice(0, 3)"
-              :key="idx"
-              :color="badge.color"
-              variant="tonal"
-              class="flag"
-            >
-              {{ badge.text }}
-            </v-chip>
+            <div class="flag-wrap">
+              <v-chip
+                v-for="(badge, idx) in topbanner.badges.slice(0, 3)"
+                :key="idx"
+                :color="badge.color"
+                variant="tonal"
+                class="flag"
+              >
+                {{ badge.text }}
+              </v-chip>
+            </div>
+            <v-card-title>
+              {{ topbanner.title }}
+            </v-card-title>
           </div>
-          <v-card-title>
-            {{ topbanner.title }}
-          </v-card-title>
+          
           <v-card-text>
             {{ topbanner.description }}
             <p class="version">
@@ -534,7 +532,7 @@ const topbanner =ref({
   }
 );
 const listData = ref([
-  { type: 'custom:apptype', title: '앱 타입', content: '내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용' },
+  { type: 'custom:apptype', title: '앱 타입', content: '앱 타입명' },
   { type: 'custom:thumbsup-active', title: '좋아요 수', content: '100+' },
   { type: 'custom:user', title: '사용자 수', content: '1000+' },
   { type: 'custom:category', title: '카테고리 1', content: '태그명' },

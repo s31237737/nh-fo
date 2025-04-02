@@ -503,9 +503,6 @@
           font-size: 32px;
         }
       }
-      .v-btn.active {
-        
-      }
     }
   }
   .flag-wrap {
@@ -576,15 +573,35 @@
   @at-root .mobile .apps-detail.top-banner {
     padding-block: 49px 40px;
     .top-banner-info {
-      .v-card-item__prepend {
-        position: absolute;
-        top:0;
-        padding: 5px;
-        border: 1px solid $gray-300;
-        border-radius: $base-radius-lg;
+      // .v-card-item__prepend {
+      //   position: absolute;
+      //   top:0;
+      //   padding: 5px;
+      //   border: 1px solid $gray-300;
+      //   border-radius: 8px;
+      // }
+      .top-banner-title {
+        position: relative;
+        padding-left: 80px;
+        .v-img {
+          position: absolute;
+          top:50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: 64px;
+          height: 64px;
+          max-height: fit-content;
+          padding: 5px;
+          border: 1px solid $gray-300;
+          border-radius: 8px;
+        }
+      }
+      .v-card-item__content {
+        overflow: visible;
+        max-width: 100%;
       }
       .v-card-title {
-        padding-left: 80px;
+        //padding-left: 80px;
         padding-right: 0;
         margin-top: 6px;
         font-size: 1.25rem !important;
@@ -598,15 +615,17 @@
         margin-top: 30px;
         .v-btn {
           flex: 1;
+          min-width:auto;
         }
         .bg-primary {
           width: auto;
           margin-right: 0;
+          padding:10px;
+        }
+        .bg-info {
+          padding:0px;
         }
       }
-    }
-    .flag-wrap {
-      padding-left: 80px;
     }
     .recomm-list {
       gap: 8px;
