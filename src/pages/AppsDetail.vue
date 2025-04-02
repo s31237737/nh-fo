@@ -221,6 +221,7 @@
 
               <v-select
                 v-model="select"
+                density="comfortable"
                 rounded="pill"
                 class="round"
                 :items="['선택', '1.1.1 ver', '1.1.0 ver']"
