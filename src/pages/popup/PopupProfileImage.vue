@@ -147,6 +147,14 @@
         >
           저장하기
         </v-btn>
+        <v-btn
+          v-else
+          color="primary"
+          size="large"
+          @click="emit('update:modelValue', false)"
+        >
+          저장하기
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
