@@ -50,6 +50,20 @@
       >
         로그인 연장
       </v-btn>
+      <v-btn
+        size="small"
+        color="primary"
+        @click="alert05 = true"
+      >
+        공유하기 링크 복사
+      </v-btn>
+      <v-btn
+        size="small"
+        color="primary"
+        @click="alert06 = true"
+      >
+        모바일로 앱 열기
+      </v-btn>
     </div>
 
     <!-- dialog -->
@@ -59,7 +73,7 @@
         v-for="popup in popups"
         :key="popup.name"
         color="primary"
-        @click="popOpen(popup.name)"
+        @click="popup.name === 'PopupAppsImages' ? openPopupHandler(0) : popOpen(popup.name)"
       >
         {{ popup.label }}
       </v-btn>
@@ -301,6 +315,77 @@
     </v-card>
   </v-dialog>
 
+  <!-- 공유하기 링크 복사 완료 -->
+  <v-dialog
+    v-model="alert05"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert05 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">링크 복사 완료</strong>
+        <p class="text-4">
+          링크가 클립보드에 복사되었습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="alert05 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
+  <!-- QR 링크 -->
+  <v-dialog
+    v-model="alert06"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert06 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">휴대전화로 $앱 이름 앱 이름앱 이름앱 이름앱 이름$ 열기</strong>
+        <p class="text-4">
+          휴대전화로 아래 QR코드를 비추어<br>표시되는 링크를 눌러보세요.<br>$앱 이름 앱 이름앱 이름앱 이름앱 이름$을<br>바로 사용할 수 있어요.
+        </p>
+        <v-img
+          class="qrImg"
+          :src="getImageUrl(alertQr.img)"
+        />
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="alert06 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 
   <!-- popup -->
   <component
@@ -308,30 +393,65 @@
     v-for="popup in popups"
     :key="popup.name"
     v-model="popupVisible[popup.name]"
+    v-bind="popup.props || {}"
   />
 </template>
 
 <script setup>
 import { ref,shallowRef  } from 'vue';
 
-//sample
-const alertDefault = ref(false);
-const dialogDefault = ref(false);
+  //sample
+  const alertDefault = ref(false);
+  const dialogDefault = ref(false);
 
-const alert01 = ref(false);
-const alert02 = ref(false);
-const alert03 = ref(false);
-const alert04 = ref(false);
+  const alert01 = ref(false);
+  const alert02 = ref(false);
+  const alert03 = ref(false);
+  const alert04 = ref(false);
+  const alert05 = ref(false);
+  const alert06 = ref(false);
+  const alertQr = ref({ img: '@temp_img_QR.png'});
 
-import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
-import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
-import PopupAppsImages from '@/pages/popup/PopupAppsImages.vue';
-import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
+  import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
+  import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
+  import PopupAppsImages from '@/pages/popup/PopupAppsImages.vue';
+  import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
 
+
+  //동영상 팝업(AppsGuideDetail, AppsDetail 참고)
+  const getImageUrl = (imageName) => {
+    return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+  };
+
+  //const openPopup = ref(false);
+  const sliders = ref([
+    {
+      image: '@temp_img_02.png',
+      link: "https://www.youtube-nocookie.com/embed/FepuXV72_hQ",
+      player: true,
+      isPlaying: false,
+    },
+  ]);
+  const selectedIndex = ref(null);
+  const openPopupHandler = (index = 0) => {
+    if (index < 0 || index >= sliders.value.length) {
+      return;
+    }
+
+    selectedIndex.value = index;
+    popupVisible.value.PopupAppsImages = true;
+  };
+
+  //팝업
   const popups = ref([
     { name: 'PopupReportIssue', label: '불편사항 신고하기', component: shallowRef(PopupReportIssue) },
     { name: 'PopupJobSelect', label: '직무 선택', component: shallowRef(PopupJobSelect) },
-    { name: 'PopupAppsImages', label: '동영상 튜토리얼 모달', component: shallowRef(PopupAppsImages) },
+    {
+      name: 'PopupAppsImages', 
+      label: '동영상 튜토리얼 모달', 
+      component: shallowRef(PopupAppsImages), 
+      props: { sliders, selectedIndex }
+    },
     { name: 'PopupProfileImage', label: '프로필 이미지 변경', component: shallowRef(PopupProfileImage) },
   ]);
 

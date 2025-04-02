@@ -44,7 +44,7 @@
               color="primary"
               variant="flat"
               :ripple="false"
-              @click="alert01 = true"
+              @click="alert06 = true"
             >
               모바일로 앱 열기
             </v-btn>
@@ -54,7 +54,7 @@
               variant="flat"
               :ripple="false"
               prepend-icon="custom:share"
-              @click="alert02 = true"
+              @click="alert05 = true"
             >
               공유
             </v-btn>
@@ -429,8 +429,9 @@
   />
 
   <!-- alert -->
+  <!-- 공유하기 링크 복사 완료 -->
   <v-dialog
-    v-model="alert01"
+    v-model="alert05"
     class="popup-sm"
   >
     <v-card>
@@ -438,7 +439,41 @@
         <v-btn
           icon="custom:close"
           density="comfortable"
-          @click="alert01 = false"
+          @click="alert05 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">링크 복사 완료</strong>
+        <p class="text-4">
+          링크가 클립보드에 복사되었습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="alert05 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
+  <!-- QR 링크 -->
+  <v-dialog
+    v-model="alert06"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert06 = false"
         />
       </v-card-title>
 
@@ -458,40 +493,7 @@
         <v-btn
           color="primary"
           size="large"
-          @click="alert01 = false"
-        >
-          확인
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
-
-  <v-dialog
-    v-model="alert02"
-    class="popup-sm"
-  >
-    <v-card>
-      <v-card-title>
-        <v-btn
-          icon="custom:close"
-          density="comfortable"
-          @click="alert02 = false"
-        />
-      </v-card-title>
-
-      <v-card-text>
-        <!-- dialog contents -->
-        <strong class="title-5-bd">링크 복사 완료</strong>
-        <p class="text-4">
-          링크가 클립보드에 복사되었습니다.
-        </p>
-        <!-- // dialog contents -->
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          color="primary"
-          size="large"
-          @click="alert02 = false"
+          @click="alert06 = false"
         >
           확인
         </v-btn>
@@ -513,9 +515,9 @@ const getImageUrl = (imageName) => {
 };
 
 /* alert */
-const alert01 = ref(false);
+const alert06 = ref(false);
 const alertQr = ref({ img: '@temp_img_QR.png'});
-const alert02 = ref(false);
+const alert05 = ref(false);
 
 /* top banner */
 const topbanner =ref({
