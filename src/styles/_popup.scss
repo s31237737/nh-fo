@@ -61,14 +61,21 @@ $popup-base-margin: 20px;
       text-align: center;
       .title-5-bd {
         display: block;
+        word-break: keep-all;
       }
       p {
         display: block;
         margin-top: 4px;
         color: $gray-700;
+        word-break: keep-all;
         &.text-4-bd {
           color: $gray-900;
         }
+      }
+      .v-img.qrImg {
+        width: 60px;
+        height: 60px;
+        margin-top: 8px;
       }
       .v-icon {
         width: 40px;
