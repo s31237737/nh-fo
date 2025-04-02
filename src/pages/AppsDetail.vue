@@ -44,8 +44,9 @@
               color="primary"
               variant="flat"
               :ripple="false"
+              @click="alert01 = true"
             >
-              앱 열기
+              모바일로 앱 열기
             </v-btn>
             <v-btn
               size="x-large"
@@ -53,6 +54,7 @@
               variant="flat"
               :ripple="false"
               prepend-icon="custom:share"
+              @click="alert02 = true"
             >
               공유
             </v-btn>
@@ -62,7 +64,7 @@
               variant="flat"
               :ripple="false"
               :class="{ active: isActive }"
-              prepend-icon="custom:thumbsup"
+              :prepend-icon="isActive ? 'custom:thumbsup-active' : 'custom:thumbsup'"
               @click="toggleActive"
             >
               좋아요
@@ -425,6 +427,74 @@
     :sliders="sliders"
     :selected-index="selectedIndex"
   />
+
+  <!-- alert -->
+  <v-dialog
+    v-model="alert01"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert01 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">휴대전화로 $앱 이름$ 열기 앱이름이 두줄일경우</strong>
+        <p class="text-4">
+          휴대전화로 아래 QR코드를 비추어 표시되는 링크를 눌러보세요.<br>$앱 이름$을 바로 사용할 수 있어요.
+        </p>
+        <v-img :src="getImageUrl(alertQr.qr)" />
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="alert01 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
+  <v-dialog
+    v-model="alert02"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert02 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">링크 복사 완료</strong>
+        <p class="text-4">
+          링크가 클립보드에 복사되었습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="alert02 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup>
@@ -438,6 +508,11 @@ const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
+
+/* alert */
+const alert01 = ref(false);
+const alertQr = ref({ img: '@temp_img_QR.png'});
+const alert02 = ref(false);
 
 /* top banner */
 const topbanner =ref({
@@ -455,7 +530,7 @@ const topbanner =ref({
 );
 const listData = ref([
   { type: 'custom:apptype', title: '앱 타입', content: '내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용' },
-  { type: 'custom:thumbsup', title: '좋아요 수', content: '100+' },
+  { type: 'custom:thumbsup-active', title: '좋아요 수', content: '100+' },
   { type: 'custom:user', title: '사용자 수', content: '1000+' },
   { type: 'custom:category', title: '카테고리 1', content: '태그명' },
   { type: 'custom:category', title: '카테고리 2', content: '태그명' }

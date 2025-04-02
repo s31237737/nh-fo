@@ -51,9 +51,13 @@ $popup-base-margin: 20px;
       min-height: 224px;
     }
     .v-card-text {
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       min-height: 48px;
       margin-top: -30px;
-      padding: 16px 16px 0 !important;
+      padding: 16px !important;
       text-align: center;
       .title-5-bd {
         display: block;

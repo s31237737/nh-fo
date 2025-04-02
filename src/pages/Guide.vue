@@ -215,6 +215,10 @@
         <span>thumbsup</span>
       </div>
       <div class="icon-item">
+        <v-icon icon="custom:thumbsup-active" />
+        <span>thumbsup-active</span>
+      </div>
+      <div class="icon-item">
         <v-icon icon="custom:apptype" />
         <span>apptype</span>
       </div>
