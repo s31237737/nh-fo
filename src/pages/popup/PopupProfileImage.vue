@@ -123,7 +123,7 @@
             :min-width="60"
             :min-height="60"
             preview=".preview"
-            :auto-crop-width="200"
+            :guides="false"
           />
         </div>
       </v-card-text>
