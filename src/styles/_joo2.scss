@@ -621,6 +621,7 @@
         border: 1px solid $gray-300;
         border-radius: 8px;
         box-sizing: content-box;
+        img { position: static; }
       }
     }
     .recomm-list {
