@@ -545,9 +545,10 @@ const onAppendClick = () => {
 
 const appsCategory = ref([
   { label: '마케팅', options: ['텍스트', '세부직군1-2'], selected: '텍스트' },
-  { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2'], selected: '세부직군2-1' },
+  { label: '선택직무2', options: ['세부직군2-1', '세부직군2-2','세부직군2-3', '세부직군2-4','세부직군2-5', '세부직군2-6','세부직군2-7', '세부직군2-8'], selected: '세부직군2-1' },
   { label: '선택직무3', options: ['세부직군3-1', '세부직군3-2'], selected: '세부직군3-1' },
   { label: '선택직무4', options: ['세부직군4-1', '세부직군4-2'], selected: '세부직군4-1' },
+  { label: '선택직무5', options: ['세부직군5-1', '세부직군5-2'], selected: '세부직군5-1' },
 ]);
 
 //apps-list
