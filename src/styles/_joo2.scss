@@ -438,7 +438,7 @@
       white-space: pre-wrap;
     }
   }
-  &.clickable {
+  @at-root .apps-banner-wrap.clickable {
     cursor: pointer;
   }
   @at-root .mobile {
@@ -477,6 +477,7 @@
     .v-card-title {
       margin-top: 12px;
       font-size: 2rem !important;
+      line-height: 2.5rem !important;
       @include line-clamp(2);
     }
     .v-card-text {
@@ -506,33 +507,33 @@
         
       }
     }
-    .flag-wrap {
-      text-align: left;
-      .v-chip {
-        margin-inline: 0 4px;
-      }
+  }
+  .flag-wrap {
+    text-align: left;
+    .v-chip {
+      margin-inline: 0 4px;
     }
-    .version {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-top: 12px;
-      span {
-        display: inline-block;
-        position: relative;
-        @extend .text-4;
-        & + span::before {
-          content:"";
-          display: block;
-          position: absolute;
-          top:50%;
-          transform: translateY(-50%);
-          left: -10px;
-          width:1px;
-          height: 12px;
-          background: $gray-700;;
-          opacity: .5;
-        }
+  }
+  .version {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 12px;
+    span {
+      display: inline-block;
+      position: relative;
+      @extend .text-4;
+      & + span::before {
+        content:"";
+        display: block;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left: -10px;
+        width:1px;
+        height: 12px;
+        background: $gray-700;;
+        opacity: .5;
       }
     }
   }
@@ -577,8 +578,7 @@
     .top-banner-info {
       .v-card-item__prepend {
         position: absolute;
-        top:50%;
-        margin-top: -142px;
+        top:0;
         padding: 5px;
         border: 1px solid $gray-300;
         border-radius: $base-radius-lg;
@@ -588,7 +588,7 @@
         padding-right: 0;
         margin-top: 6px;
         font-size: 1.25rem !important;
-        line-height: 26px;
+        line-height: 1.625rem !important;
       }
       .v-card-text {
         padding-right: 0;
@@ -604,9 +604,9 @@
           margin-right: 0;
         }
       }
-      .flag-wrap {
-        padding-left: 80px;
-      }
+    }
+    .flag-wrap {
+      padding-left: 80px;
     }
     .recomm-list {
       gap: 8px;
