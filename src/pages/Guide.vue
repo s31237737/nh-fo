@@ -98,11 +98,11 @@
       </div>
       <div class="icon-item">
         <v-icon icon="custom:checkbox-off" />
-        <span>radio-off</span>
+        <span>checkbox-off</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:checkbox-on" />
-        <span>radio-off</span>
+        <span>checkbox-off</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:clear" />

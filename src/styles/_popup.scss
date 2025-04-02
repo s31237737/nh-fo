@@ -38,6 +38,10 @@ $popup-base-margin: 20px;
       .pagination {
         margin-bottom: 0;
       }
+      &.fit-content {
+        display:flex;
+        flex-direction: column;
+      }
     }
     .v-card-actions {
       justify-content: center !important;
@@ -184,6 +188,37 @@ $popup-base-margin: 20px;
       }
     }
   }
+  .checklist.v-list {
+    flex: 1;
+    max-height: 268px;
+    padding: 20px 10px 32px;
+    border: 1px solid $gray-400;
+    .v-list-item {
+      grid-template-columns: max-content 1fr 59px;
+      padding: 0 10px;
+      & + .v-list-item {
+        margin-top: 4px;
+      }
+    }
+    .v-list-item__content {
+      @extend .text-4;
+    }
+    .v-list-item__append {
+      justify-self: right;
+    }
+    .v-list-item-action--start {
+      margin: 0;
+    }
+    .v-selection-control {
+      --v-selection-control-size: 20px;
+      .v-icon {
+        font-size: 20px;
+      }
+      .v-selection-control__input::before {
+        display:none;
+      }
+    }
+  }
 
   //form sheet
   .form-sheet {
@@ -225,7 +260,7 @@ $popup-base-margin: 20px;
     .v-overlay__content {
       width: 100% !important;
       max-width: calc(100% - 40px) !important;
-      min-height: calc(100% - 40px);
+      //min-height: calc(100% - 40px);
       max-height: calc(100% - 40px);
     }
   }
@@ -255,6 +290,11 @@ $popup-base-margin: 20px;
         &.prev { left:0px; }
         &.next { right:0px; }
       }
+    }
+
+    .checklist.v-list {
+      max-height: 100%;
+      min-height: 268px;
     }
 
     //form sheet

@@ -248,5 +248,13 @@ export default createVuetify({
         elevation: 0,
       },
     },
+    VList: {
+      VCheckboxBtn: {
+        baseColor: "#c2c2c2",
+        hideDetails: true,
+        falseIcon: "custom:checkbox-off",
+        trueIcon: "custom:checkbox-on",
+      },
+    }
   }
 })
