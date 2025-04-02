@@ -14,6 +14,7 @@
             variant="outlined"
             append-icon="custom:select"
             :ripple="false"
+            @click="openPopup = true"
           >
             전체
           </v-btn>
@@ -67,10 +68,15 @@
       />
     </template>
   </div>
+
+  
+  <!-- 직무선택 팝업 -->
+  <PopupJobSelect v-model="openPopup" />
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
 
 defineProps({
   appsCategory: { type: Array, required: true },
@@ -81,6 +87,7 @@ const selectRefs = ref([]);
 const resizeMobile = ref(window.innerWidth <= 768);
 const buttonWidth = 60; // 버튼 크기 60px
 
+const openPopup = ref(false);
 
 // 슬라이드
 const isAtLeftEnd = ref(false);
