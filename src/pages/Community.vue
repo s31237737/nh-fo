@@ -45,6 +45,7 @@
         <v-btn
           color="info"
           size="large"
+          to="CommunityWrite"
         >
           아이디어 작성하기
         </v-btn>
