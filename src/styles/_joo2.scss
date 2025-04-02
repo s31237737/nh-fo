@@ -613,12 +613,13 @@
         top:50%;
         left: 0;
         transform: translateY(-50%);
-        width: 64px;
-        height: 64px;
+        width: 54px;
+        height: 54px;
         max-height: fit-content;
         padding: 5px;
         border: 1px solid $gray-300;
         border-radius: 8px;
+        box-sizing: content-box;
       }
     }
     .recomm-list {
