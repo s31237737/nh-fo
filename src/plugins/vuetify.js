@@ -173,7 +173,6 @@ export default createVuetify({
           falseIcon: "custom:checkbox-off",
           trueIcon: "custom:checkbox-on",
           ripple: false,
-          size: "20"
         },
       },
     },
