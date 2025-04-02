@@ -14,7 +14,7 @@
         />
       </v-card-title>
       <div
-        v-if="!isImageSelected || isImageCropped"
+        v-if="!isImageSelected"
         class="tit-wrap pa-5 ma-0"
       >
         <v-slide-group
@@ -42,7 +42,7 @@
       <v-card-text class="pt-0">
         <!-- dialog contents -->
         <v-window
-          v-if="!isImageSelected || isImageCropped"
+          v-if="!isImageSelected"
           v-model="tab"
           class="tab-container"
         >
@@ -66,12 +66,6 @@
             </v-row>
           </v-window-item>
           <v-window-item>
-            <v-avatar
-              v-if="croppedImage"
-              size="100"
-            >
-              <v-img :src="croppedImage" />
-            </v-avatar>
             <v-empty-state
               :image="getImageUrl('icon_folder_profile.png')"
               :size="!isMobile ? '92' : '74'"
@@ -99,32 +93,20 @@
             </v-empty-state>
           </v-window-item>
         </v-window>
-        <v-sheet
-          v-if="!isImageCropped && isImageSelected"
-          class="cropper-wrap"
-          height="444"
-          style="overflow:hidden"
-        >
-          <cropper
-            ref="cropperRef"
-            class="cropper"
-            :src="uploadedImage"
-            :stencil-props="{
-              handlers: {},
-              movable: false,
-              resizable: false,
-              aspectRatio: 1,
-            }"
-            :resize-image="{
-              adjustStencil: false
-            }"
-            image-restriction="stencil"
-          />
-        </v-sheet>
+
+        <cropper
+          v-else
+          ref="cropperRef"
+          class="cropper"
+          :src="uploadedImage"
+          :stencil-component="CircleStencil"
+          image-restriction="stencil"
+          default-boundaries="fill"
+        />
       </v-card-text>
       <v-card-actions>
         <v-btn
-          v-if="!isImageSelected || isImageCropped"
+          v-if="!isImageSelected"
           color="info"
           size="large"
           @click="emit('update:modelValue', false)"
@@ -140,10 +122,10 @@
           이전
         </v-btn>
         <v-btn
-          v-if="isImageSelected && !isImageCropped"
+          v-if="isImageSelected"
           color="primary"
           size="large"
-          @click="crop"
+          @click="cropAndClose"
         >
           저장하기
         </v-btn>
@@ -161,9 +143,9 @@
 </template>
 
 <script setup>
-import { ref, inject, nextTick } from 'vue';
+import { ref, inject } from 'vue';
 // https://advanced-cropper.github.io/vue-advanced-cropper/
-import { Cropper } from 'vue-advanced-cropper';
+import { Cropper, CircleStencil } from 'vue-advanced-cropper';
 import 'vue-advanced-cropper/dist/style.css';
 
 const isMobile = inject('isMobile');
@@ -208,9 +190,8 @@ const selectItem = (index) => {
 
 // Cropper
 const isImageSelected = ref(false); // 이미지 선택 여부
-const isImageCropped = ref(false); // 크롭 완료 여부
 
-const croppedImage = ref(null);
+const croppedImage = ref(null);// to 개발: 자른 이미지값
 const uploadedImage = ref(null);
 
 const cropperRef = ref(null);
@@ -231,7 +212,6 @@ const crop = async () => {
 
       // 크롭된 이미지 저장
       croppedImage.value = canvas.toDataURL();
-      isImageCropped.value = true;
     }
   } else {
     console.error("cropperRef is not initialized.");
@@ -253,9 +233,16 @@ const onFileChange = (event) => {
     reader.onload = (e) => {
       uploadedImage.value = e.target.result;
       isImageSelected.value = true;
-      isImageCropped.value = false; // 크롭 상태 초기화
     };
     reader.readAsDataURL(file);
   }
 };
+
+const cropAndClose = async () => {
+  await crop(); // 크롭 실행
+  isImageSelected.value = false;
+  emit('update:modelValue', false); // 팝업 닫기
+};
+
+
 </script>
