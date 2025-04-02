@@ -458,6 +458,7 @@
 .apps-detail.top-banner {
   padding-block: 60px;
   .top-banner-info {
+    overflow:visible;
     padding: 0;
     margin-bottom: 48px;
     .v-card-item {
@@ -546,7 +547,7 @@
       min-width: 240px;
       height: auto;
       min-height: 100px;
-      padding: 0 20px;
+      padding: 20px;
       background-color: $gray-200;
       border-radius: $base-radius;
       .item {
@@ -576,6 +577,8 @@
     .top-banner-info {
       .v-card-item__prepend {
         position: absolute;
+        top:50%;
+        margin-top: -142px;
         padding: 5px;
         border: 1px solid $gray-300;
         border-radius: $base-radius-lg;
@@ -583,6 +586,7 @@
       .v-card-title {
         padding-left: 80px;
         padding-right: 0;
+        margin-top: 6px;
         font-size: 1.25rem !important;
         line-height: 26px;
       }

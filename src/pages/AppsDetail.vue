@@ -453,7 +453,7 @@ const topbanner =ref({
   }
 );
 const listData = ref([
-  { type: 'custom:apptype', title: '앱 타입', content: '내용' },
+  { type: 'custom:apptype', title: '앱 타입', content: '내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용' },
   { type: 'custom:thumbsup', title: '좋아요 수', content: '100+' },
   { type: 'custom:user', title: '사용자 수', content: '1000+' },
   { type: 'custom:category', title: '카테고리 1', content: '태그명' },
