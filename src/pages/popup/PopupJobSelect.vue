@@ -68,11 +68,11 @@
   });
   const emit = defineEmits(['update:modelValue']);
 
-  const settingsSelection = ref(['job3']);
+  const settingsSelection = ref(['job2']);
   const settingsItems = [
     { value: 'job1', title: '직군명 1', disabled: true },
     { value: 'job2', title: '직군명 2', disabled: true },
-    { value: 'job3', title: '직군명 3', disabled: true },
+    { value: 'job3', title: '직군명 3',},
     { value: 'job4', title: '직군명 4' },
     { value: 'job5', title: '직군명 5' },
     { value: 'job6', title: '직군명 6' },

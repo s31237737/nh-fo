@@ -350,6 +350,7 @@
             v-for="(card, index) in appsRecommend"
             :id="`section${index + 1}`"
             :key="index"
+            :to="card.link"
             :ripple="false"
             class="apps"
           >
@@ -747,6 +748,7 @@ const checkScrollPosition = () => {
 
 const appsRecommend = ref([
   {
+    link: "AppsDetail",
     title: "1공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -759,6 +761,7 @@ const appsRecommend = ref([
     likeCount: 999,
   },
   {
+    link: "AppsDetail",
     title: "2공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -771,6 +774,7 @@ const appsRecommend = ref([
     likeCount: 0,
   },
   {
+    link: "AppsDetail",
     title: "3공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -782,6 +786,7 @@ const appsRecommend = ref([
     likeCount: 555,
   },
   {
+    link: "AppsDetail",
     title: "4공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -794,6 +799,7 @@ const appsRecommend = ref([
     likeCount: 999,
   },
   {
+    link: "AppsDetail",
     title: "5공통총무알리미",
     subtitle: "총무형",
     badges: [
