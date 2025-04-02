@@ -21,6 +21,15 @@
 
     <!-- dialog: alert -->
     alert
+
+    <v-checkbox
+      :model-value="true"
+      disabled
+    />
+    <v-checkbox
+      :model-value="false"
+      disabled
+    />
     <div class="d-flex flex-wrap  align-center ga-2 mt-1 mb-7">
       <v-btn
         size="small"
