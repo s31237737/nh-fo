@@ -18,9 +18,7 @@
         
         <v-list
           v-model:selected="settingsSelection"
-          select-strategy="multiple"
           class="checklist"
-          rounded="lg"
         >
           <v-list-item
             v-for="item in settingsItems"
@@ -28,12 +26,12 @@
             :title="item.title"
             :value="item.value"
             :disabled="item.disabled"
+            rounded
           >
             <template #append="{ isSelected }">
-              <v-list-item-action start>
+              <v-list-item-action end>
                 <v-checkbox-btn
                   :model-value="isSelected"
-                  :ripple="false"
                 />
               </v-list-item-action>
             </template>
@@ -70,11 +68,11 @@
   });
   const emit = defineEmits(['update:modelValue']);
 
-  const settingsSelection = ref([]);
+  const settingsSelection = ref(['job3']);
   const settingsItems = [
     { value: 'job1', title: '직군명 1', disabled: true },
-    { value: 'job2', title: '직군명 2' },
-    { value: 'job3', title: '직군명 3' },
+    { value: 'job2', title: '직군명 2', disabled: true },
+    { value: 'job3', title: '직군명 3', disabled: true },
     { value: 'job4', title: '직군명 4' },
     { value: 'job5', title: '직군명 5' },
     { value: 'job6', title: '직군명 6' },

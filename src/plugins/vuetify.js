@@ -161,6 +161,21 @@ export default createVuetify({
       VCardActions: {
         VBtn: { variant: "flat" },
       },
+      VList: {
+        selectStrategy: "ultiple",
+        rounded: "lg"
+      },
+      VListItem: {
+        minHeight: "40",
+        ripple: false,
+        VCheckboxBtn: {
+          baseColor: "#c2c2c2",
+          falseIcon: "custom:checkbox-off",
+          trueIcon: "custom:checkbox-on",
+          ripple: false,
+          size: "20"
+        },
+      },
     },
     VSelect: {
       variant: "outlined",
@@ -248,13 +263,5 @@ export default createVuetify({
         elevation: 0,
       },
     },
-    VList: {
-      VCheckboxBtn: {
-        baseColor: "#c2c2c2",
-        hideDetails: true,
-        falseIcon: "custom:checkbox-off",
-        trueIcon: "custom:checkbox-on",
-      },
-    }
   }
 })
