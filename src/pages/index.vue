@@ -110,6 +110,7 @@
             v-if="isDesktop"
             v-model="recomm"
             height="440"
+            interval="6000"
             :cycle="isRecommPlay"
             @mouseenter="isRecommPlay = false"
             @mouseleave="isRecommPlay = true"
