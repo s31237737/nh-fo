@@ -503,7 +503,7 @@
 </template>
 
 <script setup>
-import { inject, ref, shallowRef } from "vue";
+import { inject, ref, shallowRef, onMounted } from "vue";
 
 const isMobile = inject("isMobile");
 const isDesktop = inject("isDesktop");
@@ -574,7 +574,13 @@ const notice = ref([
 
 // 추천 앱
 const recomm = ref(0);
-const isRecommPlay = ref(true);
+const isRecommPlay = ref(false);
+onMounted(() => {
+  setTimeout(() => {
+    isRecommPlay.value = true;
+  }, 1000); // 1초 딜레이 (요청사항)
+});
+
 const recommBtn = ref([
   { btn: "직무 추천" },
   { btn: "인기 앱 추천" },
