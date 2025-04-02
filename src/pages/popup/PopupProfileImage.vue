@@ -67,6 +67,7 @@
           </v-window-item>
           <v-window-item>
             <v-empty-state
+              v-show="!isImageSelected"
               :image="getImageUrl('icon_folder_profile.png')"
               :size="!isMobile ? '92' : '74'"
               :icon="null"
@@ -92,7 +93,10 @@
                 </v-btn>
               </template>
             </v-empty-state>
-            <v-row class="profile-list">
+            <v-row
+              v-show="isImageSelected"
+              class="profile-list"
+            >
               <v-col
                 cols="12"
                 sm="4"
@@ -110,20 +114,17 @@
         </v-window>
         <div
           v-show="isImageSelected"
-          class="content"
+          class="cropper-wrap"
         >
-          <section class="cropper-area">
-            <div class="img-cropper">
-              <vue-cropper
-                ref="cropper"
-                :aspect-ratio="1"
-                :src="imgSrc"
-                :min-width="60"
-                :min-height="60"
-                preview=".preview"
-              />
-            </div>
-          </section>
+          <vue-cropper
+            ref="cropper"
+            :aspect-ratio="1"
+            :src="imgSrc"
+            :min-width="60"
+            :min-height="60"
+            preview=".preview"
+            :auto-crop-width="200"
+          />
         </div>
       </v-card-text>
       <v-card-actions>
