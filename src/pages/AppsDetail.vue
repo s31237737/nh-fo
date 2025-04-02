@@ -37,7 +37,8 @@
             </p>
           </v-card-text>
           <v-card-actions>
-            <!-- <v-btn
+            <!-- case: 앱 사용 신청 승인상태
+            <v-btn
               class="btn-appSet"
               size="x-large"
               color="primary"
@@ -46,7 +47,8 @@
             >
               앱 열기
             </v-btn> -->
-            <!-- 신청 대기중 -->
+
+            <!-- case: 신청 대기중 -->
             <v-btn
               class="btn-appSet"
               size="x-large"
@@ -56,6 +58,7 @@
             >
               신청 대기중
             </v-btn>
+            
             <v-btn
               size="x-large"
               color="info"
@@ -143,7 +146,7 @@
           </v-carousel-item>
         </v-carousel>
 
-        <!-- mobile -->
+        <!-- isMobile -->
         <v-carousel
           v-else
           v-model="mediaSlide"
@@ -317,7 +320,7 @@
           관련된 앱을 만나보세요!
         </strong>
       </div>
-      <!-- 테스트 -->
+
       <div class="apps-recomm-wrap">
         <div
           v-if="!isMobile & appsRecommend.length > 3"
@@ -384,7 +387,6 @@
             </div>
             <div class="apps-bottom">
               <div class="context">
-                <!-- 제목 -->
                 <v-card-subtitle class="line-clamp">
                   {{ card.subtitle }}
                 </v-card-subtitle>
@@ -571,8 +573,6 @@ const openPopupHandler = (index, subIndex = 0) => {
 
   selectedIndex.value = selectedSlide ? selectedSlide.value : null;
   openPopup.value = true;
-
-  //console.log("선택된 index (value):", selectedIndex.value);
 };
 
 
@@ -729,7 +729,7 @@ const scrollNext = () => {
   const container = scrollContainer.value;
   if (container) {
     container.scrollBy({
-      left: cardWidth, // 오른쪽으로 한 칸 이동
+      left: cardWidth,
       behavior: 'smooth',
     });
   }
