@@ -380,6 +380,9 @@
 // 아코디언
 .v-expansion-panels {
   margin-top: 20px;
+  .v-expansion-panel:not(:first-child)::after {
+    border-color: #E5E5E5;
+  }
   .v-expansion-panel-title {
     gap: 12px;
     @extend .text-3;
@@ -394,7 +397,7 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        border-bottom: thin solid $gray-300;
+        border-bottom: thin solid #E5E5E5;
       }
     }
   }

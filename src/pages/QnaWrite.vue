@@ -132,7 +132,7 @@
             <div class="upload-file-form">
               <v-file-input
                 v-model="files"
-                label="버튼을 클릭하여 파일을 첨부하거나 원하는 파일을 마우스로 끌어오세요."
+                label="파일을 첨부하거나 끌어오세요."
                 rounded="lg"
                 multiple
                 class="append-button"
