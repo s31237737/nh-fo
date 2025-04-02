@@ -66,8 +66,13 @@
             </v-row>
           </v-window-item>
           <v-window-item>
+            <v-avatar
+              v-if="croppedImage"
+              size="100"
+            >
+              <v-img :src="croppedImage" />
+            </v-avatar>
             <v-empty-state
-              v-if="!isImageSelected && !isImageCropped"
               :image="getImageUrl('icon_folder_profile.png')"
               :size="!isMobile ? '92' : '74'"
               :icon="null"
@@ -92,23 +97,6 @@
                 </v-btn>
               </template>
             </v-empty-state>
-            <v-row
-              v-if="isImageCropped"
-              class="profile-list"
-            >
-              <v-col
-                cols="12"
-                sm="4"
-                md="2"
-              >
-                <v-avatar
-                  v-if="croppedImage"
-                  :size="'100%'"
-                >
-                  <v-img :src="croppedImage" />
-                </v-avatar>
-              </v-col>
-            </v-row>
           </v-window-item>
         </v-window>
         <v-sheet
@@ -156,14 +144,6 @@
           color="primary"
           size="large"
           @click="crop"
-        >
-          저장하기
-        </v-btn>
-        <v-btn
-          v-else
-          color="primary"
-          size="large"
-          @click="emit('update:modelValue', false)"
         >
           저장하기
         </v-btn>
@@ -223,23 +203,26 @@ const isImageSelected = ref(false); // 이미지 선택 여부
 const isImageCropped = ref(false); // 크롭 완료 여부
 
 const croppedImage = ref(null);
-const compressedImage = ref(null);
 const uploadedImage = ref(null);
-const coordinates = ref(null);
 
 const cropperRef = ref(null);
+
 const crop = async () => {
   if (cropperRef.value) {
-    const { coordinates: cropCoordinates, canvas } = cropperRef.value.getResult();
-    coordinates.value = cropCoordinates;
+    const { canvas } = cropperRef.value.getResult();
 
     if (canvas) {
+      const width = canvas.width;
+      const height = canvas.height;
+
+      // 최소 크기 확인
+      if (width < 60 || height < 60) {
+        alert("이미지 크기는 최소 60x60이어야 합니다.");
+        return;
+      }
+
+      // 크롭된 이미지 저장
       croppedImage.value = canvas.toDataURL();
-      compressedImage.value = await resizeDataUrlImage({
-        dataUrl: canvas.toDataURL(),
-        width: 100,
-        height: 100,
-      });
       isImageCropped.value = true;
     }
   } else {
@@ -247,37 +230,24 @@ const crop = async () => {
   }
 };
 
-const resizeDataUrlImage = ({ dataUrl, width, height }) => {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, width, height);
-      resolve(canvas.toDataURL());
-    };
-    img.src = dataUrl;
-  });
-};
-
 const onFileChange = (event) => {
   const input = event.target;
   if (input.files && input.files[0]) {
+    const file = input.files[0];
+
+    // 파일 크기 확인 (10MB 제한)
+    if (file.size > 10 * 1024 * 1024) {
+      alert("파일 크기는 10MB를 초과할 수 없습니다.");
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (e) => {
       uploadedImage.value = e.target.result;
       isImageSelected.value = true;
+      isImageCropped.value = false; // 크롭 상태 초기화
     };
-    reader.readAsDataURL(input.files[0]);
+    reader.readAsDataURL(file);
   }
 };
-
-// Reset images
-// const resetImages = () => {
-//   croppedImage.value = null;
-//   compressedImage.value = null;
-// };
-
 </script>
