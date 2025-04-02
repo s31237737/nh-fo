@@ -27,6 +27,7 @@
             :key="item.value"
             :title="item.title"
             :value="item.value"
+            :disabled="item.disabled"
           >
             <template #append="{ isSelected }">
               <v-list-item-action start>
@@ -71,7 +72,7 @@
 
   const settingsSelection = ref([]);
   const settingsItems = [
-    { value: 'job1', title: '직군명 1' },
+    { value: 'job1', title: '직군명 1', disabled: true },
     { value: 'job2', title: '직군명 2' },
     { value: 'job3', title: '직군명 3' },
     { value: 'job4', title: '직군명 4' },
