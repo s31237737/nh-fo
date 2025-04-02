@@ -444,11 +444,14 @@
 
       <v-card-text>
         <!-- dialog contents -->
-        <strong class="title-5-bd">휴대전화로 $앱 이름$ 열기 앱이름이 두줄일경우</strong>
+        <strong class="title-5-bd">휴대전화로 $앱 이름 앱 이름앱 이름앱 이름앱 이름$ 열기</strong>
         <p class="text-4">
-          휴대전화로 아래 QR코드를 비추어 표시되는 링크를 눌러보세요.<br>$앱 이름$을 바로 사용할 수 있어요.
+          휴대전화로 아래 QR코드를 비추어<br>표시되는 링크를 눌러보세요.<br>$앱 이름 앱 이름앱 이름앱 이름앱 이름$을<br>바로 사용할 수 있어요.
         </p>
-        <v-img :src="getImageUrl(alertQr.qr)" />
+        <v-img
+          class="qrImg"
+          :src="getImageUrl(alertQr.img)"
+        />
         <!-- // dialog contents -->
       </v-card-text>
       <v-card-actions>
