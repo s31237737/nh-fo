@@ -421,3 +421,33 @@
     }
   }
 }
+
+
+//editor
+.v-sheet.editor {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .ql-toolbar.ql-snow {
+    border-radius: 8px 8px 0 0;
+    border-color: $gray-400;
+  }
+  .ql-container.ql-snow {
+    flex-grow: 1;
+    border-radius:0 0 8px 8px;
+    border-color: $gray-400;
+  }
+  @at-root .mobile, .tablet {
+    .v-sheet.editor {
+      .ql-toolbar.ql-snow {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+}
