@@ -456,3 +456,35 @@
   height: 444px;
   background: black;
 }
+.cropper-wrap {
+  .tit-wrap {
+    margin: 0;
+    padding: 20px;
+  }
+  .v-card-text {
+    padding-top: 0 !important;
+  }
+  .v-empty-state {
+    margin: 0 !important;
+    height: 360px;
+    &__media {
+      margin-bottom: 24px;
+    }
+    &__actions {
+      padding: 0;
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .cropper-wrap {
+    .v-card-text { 
+      height: 400px;
+    }
+    .v-empty-state {
+      height: 380px;
+      &__media {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

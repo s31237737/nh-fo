@@ -4,7 +4,7 @@
     class="popup"
     @update:model-value="emit('update:modelValue', $event)"
   >
-    <v-card>
+    <v-card class="cropper-wrap">
       <v-card-title>
         <p>프로필 이미지 변경</p>
         <v-btn
@@ -15,7 +15,7 @@
       </v-card-title>
       <div
         v-if="!isImageSelected"
-        class="tit-wrap pa-5 ma-0"
+        class="tit-wrap"
       >
         <v-slide-group
           v-model="tab"
@@ -39,7 +39,7 @@
           </v-slide-group-item>
         </v-slide-group>
       </div>
-      <v-card-text class="pt-0">
+      <v-card-text>
         <!-- dialog contents -->
         <v-window
           v-if="!isImageSelected"
@@ -70,8 +70,6 @@
               :image="getImageUrl('icon_folder_profile.png')"
               :size="!isMobile ? '92' : '74'"
               :icon="null"
-              height="360"
-              class="mt-0"
             >
               <template #actions>
                 <v-btn
