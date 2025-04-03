@@ -48,7 +48,7 @@
       .apptype {
         display: block;
         margin-bottom: 16px;
-        @extend .title-5-bd;
+        @extend .caption-1;
         color: $green-700;
       }
     }
@@ -370,12 +370,16 @@
       background: transparent;
       font-weight: 400;
       justify-content: flex-start;
+      grid-template-columns: max-content 1fr auto;
+      .v-btn__content {
+        justify-content: left;
+      }
       .v-btn__append {
-        margin-inline: 6px 0;
+        margin-inline: 0;
         height: 44px;
         .v-icon {
           font-size: 21px;
-          margin-left: 4px;
+          margin-left: 0;
         }
       }
       &:hover {
