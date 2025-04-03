@@ -225,7 +225,7 @@
     .info {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
       text-align: right;
       color: $white;
       a {
@@ -243,15 +243,12 @@
       .inner {
         align-items: unset;
         flex-direction: column;
-        gap: 25px;
+        gap: 8px;
         .info {
           gap: 4px;
-          a {
-            font-size: 0.8125rem !important;
-          }
         }
         .copy {
-          font-size: 0.6875rem !important;
+          font-size: 0.75rem !important;
         }
       }
     }
