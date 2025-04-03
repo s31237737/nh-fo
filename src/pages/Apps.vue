@@ -338,7 +338,7 @@
     <section>
       <div class="tit-wrap">
         <strong class="title-2">
-          총무업무 담당자들이 자주 사용해요!
+          총무업무 담당자들이 <br v-if="isMobile">자주 사용해요!
         </strong>
       </div>
       <!-- 앱 목록(type2) -->
