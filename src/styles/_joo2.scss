@@ -814,7 +814,15 @@
 
 //community
 .community.v-card {
-  
+  .v-card-item {
+
+  }
+  .v-card-text {
+    margin-top: 20px;
+  }
+  .v-card-actions {
+    margin-top: 50px;
+  }
 }
 .community-label.v-chip {
   background: $blue-100;

@@ -88,36 +88,44 @@
           메뉴 구조를 재정비하여 원하는 기능에 더 쉽게 접근할 수 있도록 하였습.게 접근할 수 있도록 하였습.게 접근할 수 있도록 하였습니다.
         </v-card-text>
         <v-card-actions>
-          <v-btn
-            variant="text"
-            density="compact"
-            prepend-icon="custom:heart"
-            color="primary"
-            class="like-btn"
+          <v-row
+            align="end"
           >
-            999
-          </v-btn>
-          <v-btn
-            variant="text"
-            density="compact"
-            prepend-icon="custom:bubble"
-            color="primary"
-            class="comment-btn"
-          >
-            999
-          </v-btn>
-          <v-btn
-            color="info"
-            variant="flat"
-          >
-            수정
-          </v-btn>
-          <v-btn
-            color="warning"
-            variant="outlined"
-          >
-            삭제
-          </v-btn>
+            <v-col>
+              <v-btn
+                variant="text"
+                density="compact"
+                prepend-icon="custom:heart"
+                color="primary"
+                class="like-btn"
+              >
+                999
+              </v-btn>
+              <v-btn
+                variant="text"
+                density="compact"
+                prepend-icon="custom:bubble"
+                color="primary"
+                class="comment-btn"
+              >
+                999
+              </v-btn>
+            </v-col>
+            <v-col class="text-right">
+              <v-btn
+                color="info"
+                variant="flat"
+              >
+                수정
+              </v-btn>
+              <v-btn
+                color="warning"
+                variant="outlined"
+              >
+                삭제
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card-actions>
 
         <!-- 확장 -->
