@@ -58,26 +58,35 @@
         class="community"
       >
         <v-card-item>
-          <template #prepend>
-            <v-avatar
-              size="50"
+          <v-row>
+            <v-col cols="auto">
+              <template #prepend>
+                <v-avatar
+                  size="50"
+                >
+                  <v-img
+                    alt="Avatar"
+                    :src="getImageUrl('img_avatar12.jpg')"
+                  />
+                </v-avatar>
+              </template>
+              <v-card-title>사용자 이름(아이디)</v-card-title>
+              <v-card-subtitle>직무 | 작성일자</v-card-subtitle>
+            </v-col>
+            <v-spacer v-if="!isMobile" />
+            <v-col
+              md="auto"
+              sm="12"
             >
-              <v-img
-                alt="Avatar"
-                :src="getImageUrl('img_avatar12.jpg')"
-              />
-            </v-avatar>
-          </template>
-          <v-card-title>사용자 이름(아이디)</v-card-title>
-          <v-card-subtitle>직무 | 작성일자</v-card-subtitle>
-          
-          <v-chip
-            pill
-            :prepend-avatar="getImageUrl('@temp_img_app_icon03.png')"
-            class="community-label"
-          >
-            사용자가 아이디어 제안한 앱
-          </v-chip>
+              <v-chip
+                pill
+                :prepend-avatar="getImageUrl('@temp_img_app_icon03.png')"
+                class="community-label"
+              >
+                사용자가 아이디어 제안한 앱
+              </v-chip>
+            </v-col>
+          </v-row>
         </v-card-item>
         <v-card-text>
           안녕하세요, 총무알리미 사용자 여러분.
@@ -91,40 +100,37 @@
           <v-row
             align="end"
           >
-            <v-col>
-              <v-btn
-                variant="text"
-                density="compact"
-                prepend-icon="custom:heart"
-                color="primary"
-                class="like-btn"
-              >
-                999
-              </v-btn>
-              <v-btn
-                variant="text"
-                density="compact"
-                prepend-icon="custom:bubble"
-                color="primary"
-                class="comment-btn"
-              >
-                999
-              </v-btn>
-            </v-col>
-            <v-col class="text-right">
-              <v-btn
-                color="info"
-                variant="flat"
-              >
-                수정
-              </v-btn>
-              <v-btn
-                color="warning"
-                variant="outlined"
-              >
-                삭제
-              </v-btn>
-            </v-col>
+            <v-btn
+              variant="text"
+              density="compact"
+              prepend-icon="custom:heart"
+              color="primary"
+              class="like-btn"
+            >
+              999
+            </v-btn>
+            <v-btn
+              variant="text"
+              density="compact"
+              prepend-icon="custom:bubble"
+              color="primary"
+              class="comment-btn"
+            >
+              999
+            </v-btn>
+            <v-spacer />
+            <v-btn
+              color="info"
+              variant="flat"
+            >
+              수정
+            </v-btn>
+            <v-btn
+              color="warning"
+              variant="outlined"
+            >
+              삭제
+            </v-btn>
           </v-row>
         </v-card-actions>
 
@@ -144,75 +150,7 @@
         rounded="0"
         class="community"
       >
-        <v-card-item>
-          <template #prepend>
-            <v-avatar
-              size="36px"
-            >
-              <v-img
-                alt="Avatar"
-                src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-              />
-            </v-avatar>
-          </template>
-          <v-card-title>이름</v-card-title>
-          <v-card-subtitle>날짜</v-card-subtitle>
-          <v-btn
-            color="primary"
-            variant="flat"
-            rounded="pill"
-            class="app"
-          > 
-            <template #prepend>
-              <v-img
-                :src="getImageUrl('@temp_img_app_icon03.png')"
-                style="width:24px; height: 24px;"
-              />
-            </template>
-            사용자가 아이디어 제안한 앱 정보 영역
-          </v-btn>
-        </v-card-item>
-        <v-card-text>
-          <img
-            :src="getImageUrl('@temp_img_01.png')"
-            alt=""
-          >
-
-          안녕하세요, 총무알리미 사용자 여러분.
-          항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.
-
-          1. 사용자 인터페이스(UI) 개선
-          앱의 전반적인 디자인을 현대적이고 직관적으로 개선하였습니다.
-          메뉴 구조를 재정비하여 원하는 기능에 더 쉽게 접근할 수 있도록 하였습.게 접근할 수 있도록 하였습.게 접근할 수 있도록 하였습니다.
-        </v-card-text>
-        <v-card-actions>
-          <v-btn
-            variant="text"
-            prepend-icon="custom:heart"
-            color="primary"
-          >
-            좋아요
-          </v-btn>
-          <v-btn
-            variant="text"
-            prepend-icon="custom:bubble"
-            color="primary"
-          >
-            댓글
-          </v-btn>
-          <v-btn
-            color="info"
-            variant="flat"
-          >
-            수정
-          </v-btn>
-          <v-btn
-            color="warning"
-            variant="outlined"
-          >
-            삭제
-          </v-btn>
-        </v-card-actions>
+        테스트
       </v-card>
     </v-sheet>
   </v-container>
@@ -221,7 +159,7 @@
 <script setup>
 import { ref, inject } from "vue";
 
-//const isMobile = inject("isMobile");
+const isMobile = inject("isMobile");
 //const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
