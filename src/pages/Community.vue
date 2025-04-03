@@ -67,14 +67,19 @@
           </template>
           <v-card-title>이름</v-card-title>
           <v-card-subtitle>날짜</v-card-subtitle>
-          <v-col cols="auto">
-            <v-btn
-              color="primary"
-              variant="flat"
-            >
-              36px/default/Primary
-            </v-btn>
-          </v-col>
+          <v-btn
+            color="primary"
+            variant="flat"
+            rounded="pill"
+          > 
+            <template #prepend>
+              <v-img
+                :src="getImageUrl('@temp_img_app_icon03.png')"
+                style="width:24px; height: 24px;"
+              />
+            </template>
+            36px/default/Primary
+          </v-btn>
         </v-card-item>
         <v-card-text>
           안녕하세요, 총무알리미 사용자 여러분.
@@ -86,11 +91,30 @@
         </v-card-text>
         <v-card-actions>
           <v-btn
+            variant="text"
+            prepend-icon="custom:heart"
             color="primary"
-            size="small"
+          >
+            좋아요
+          </v-btn>
+          <v-btn
+            variant="text"
+            prepend-icon="custom:bubble"
+            color="primary"
+          >
+            댓글
+          </v-btn>
+          <v-btn
+            color="info"
             variant="flat"
           >
-            small
+            수정
+          </v-btn>
+          <v-btn
+            color="warning"
+            variant="outlined"
+          >
+            삭제
           </v-btn>
         </v-card-actions>
 
@@ -99,6 +123,7 @@
         </div>
       </v-card>
       <v-divider color="secondary" />
+      
       <v-card rounded="0">
         <v-card-item>
           <template #prepend>
