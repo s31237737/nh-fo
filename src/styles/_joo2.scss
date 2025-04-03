@@ -821,39 +821,54 @@
     margin-bottom:50px;
     background: $gray-300;
   }
+  .feed {
+    position: relative;
+    padding: 50px 40px;
+  }
   @at-root .mobile, .tablet {
     .feedList.w-box {
       .v-divider {
         margin:0 20px 10px;
       }
+      .feed {
+        padding: 20px;
+      }
     }
   }
 }
-.feed.v-card {
-  position: relative;
-  padding: 50px 40px;
+.feed-item.v-card {
+  overflow: visible;
   .v-card-text {
     margin-top: 20px;
-    color: $gray-700;
+    .editor-content {
+      color: $gray-700;
+    }
+    .link-btn {
+      margin-top: 20px;
+    }
   }
   .v-card-actions {
     margin-top: 50px;
+    padding: 0;
+    .v-row {
+      margin: 0;
+    }
     .v-btn:not(.v-btn--variant-text) {
       margin-left: 12px;
     }
     .v-btn--variant-text {
+      min-width: auto;
       padding: 0;
       @extend .caption-3;
-    }
-  }
-  @at-root .mobile, .tablet {
-    .feed.v-card {
-      padding: 20px;
+      & + .v-btn--variant-text {
+        margin-left: 12px;
+      }
     }
   }
 }
-.feed-tit-wrap {
-  .v-row > .v-col {
+.feed-item-tit {
+  margin: 0 !important;
+  & > [class*="v-col"] {
     padding: 0;
   }
   .v-col:first-child {
@@ -912,4 +927,10 @@
   border-radius: $base-radius;
   margin-top: 50px;
   padding: 50px 40px;
+  @at-root .mobile, .tablet {
+    .feed-fileList {
+      margin-top: 20px;
+      padding: 20px;
+    }
+  }
 }

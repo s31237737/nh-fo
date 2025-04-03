@@ -233,6 +233,14 @@
       }
     }
   }
+  &.v-btn--variant-text {
+    padding: 0 !important;
+    min-width: auto;
+    .v-btn__content {
+      @extend .text-4;
+      text-decoration: underline;
+    }
+  }
 }
 
 

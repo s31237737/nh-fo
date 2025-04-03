@@ -61,86 +61,101 @@
           v-if="index > 0"
           color="secondary"
         />
-        <v-card
-          rounded="0"
-          class="feed"
-        >
-          <v-row class="feed-tit-wrap">
-            <v-col cols="auto">
-              <v-avatar
-                size="50"
+        <div class="feed">
+          <v-card
+            rounded="0"
+            class="feed-item"
+          >
+            <v-row class="feed-item-tit">
+              <v-col cols="auto">
+                <v-avatar
+                  size="50"
+                >
+                  <v-img
+                    alt="Avatar"
+                    :src="getImageUrl(item.avatar)"
+                  />
+                </v-avatar>
+                <div class="user-info">
+                  <v-card-title>{{ item.userName }}</v-card-title>
+                  <v-card-subtitle><span>{{ item.userPart }}</span><span>{{ item.date }}</span></v-card-subtitle>
+                </div>
+              </v-col>
+              <v-spacer v-if="!isMobile" />
+              <v-col
+                cols="auto"
+                md="auto"
+                sm="12"
               >
-                <v-img
-                  alt="Avatar"
-                  :src="getImageUrl(item.avatar)"
-                />
-              </v-avatar>
-              <div class="user-info">
-                <v-card-title>{{ item.userName }}</v-card-title>
-                <v-card-subtitle><span>{{ item.userPart }}</span><span>{{ item.date }}</span></v-card-subtitle>
-              </div>
-            </v-col>
-            <v-spacer v-if="!isMobile" />
-            <v-col
-              cols="auto"
-              md="auto"
-              sm="12"
-            >
-              <v-chip
-                pill
-                :prepend-avatar="getImageUrl(item.labelImg)"
-                class="feed-label"
-              >
-                {{ item.label }}
-              </v-chip>
-            </v-col>
-          </v-row>
-          <v-card-text>
-            <div
-              class="editor-content"
-              v-html="item.content"
-            />
-          </v-card-text>
-          <v-card-actions>
-            <v-row
-              align="end"
-            >
-              <v-btn
-                variant="text"
-                density="compact"
-                prepend-icon="custom:heart"
-                color="quaternary"
-                class="like-btn"
-              >
-                999
-              </v-btn>
-              <v-btn
-                variant="text"
-                density="compact"
-                prepend-icon="custom:bubble"
-                color="quaternary"
-                class="comment-btn"
-              >
-                999
-              </v-btn>
-              <v-spacer />
-              <v-btn
-                color="info"
-                variant="flat"
-              >
-                수정
-              </v-btn>
-              <v-btn
-                color="warning"
-                variant="outlined"
-              >
-                삭제
-              </v-btn>
+                <v-chip
+                  pill
+                  :prepend-avatar="getImageUrl(item.labelImg)"
+                  class="feed-label"
+                >
+                  {{ item.label }}
+                </v-chip>
+              </v-col>
             </v-row>
-          </v-card-actions>
+            <v-card-text>
+              <div
+                class="editor-content"
+                v-html="item.content"
+              />
+              <v-btn 
+                variant="text"
+                density="compact"
+                class="link-btn"
+                color="gray"
+              >
+                더보기
+              </v-btn>
+            </v-card-text>
+            <v-card-actions>
+              <v-row
+                align="end"
+              >
+                <v-btn
+                  variant="text"
+                  density="compact"
+                  :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                  color="quaternary"
+                  class="like-btn"
+                  :ripple="false"
+                  @click="toggleLike"
+                >
+                  999
+                </v-btn>
+                <v-btn
+                  variant="text"
+                  density="compact"
+                  prepend-icon="custom:bubble"
+                  color="quaternary"
+                  class="comment-btn"
+                  :ripple="false"
+                >
+                  999
+                </v-btn>
+                <v-spacer />
+                <v-btn
+                  color="info"
+                  variant="flat"
+                  :ripple="false"
+                >
+                  수정
+                </v-btn>
+                <v-btn
+                  color="warning"
+                  variant="outlined"
+                  :ripple="false"
+                >
+                  삭제
+                </v-btn>
+              </v-row>
+            </v-card-actions>
+          </v-card>
 
           <!-- 확장 -->
-          <div class="feed-expended">
+          <div class="feed-comment">
             댓글, 댓글작성
           </div>
 
@@ -167,7 +182,7 @@
               </li>
             </ul>
           </div>
-        </v-card>
+        </div>
       </template>
     </v-sheet>
   </v-container>
@@ -189,6 +204,12 @@ const onAppendClick = () => {
 }
 
 /* 작성글 */
+const isLiked = ref(false);
+
+const toggleLike = () => {
+  isLiked.value = !isLiked.value;
+};
+
 const commData = ref([
   {
     avatar: "img_avatar12.jpg",
