@@ -230,6 +230,18 @@
         <v-icon icon="custom:category" />
         <span>category</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:heart" />
+        <span>heart</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:heart-active" />
+        <span>heart-active</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:bubble" />
+        <span>bubble</span>
+      </div>
     </div>
 
     <div class="d-flex flex-wrap ga-2 mt-5">
