@@ -819,9 +819,57 @@
   }
   .v-card-text {
     margin-top: 20px;
+    color: $gray-700;
   }
   .v-card-actions {
     margin-top: 50px;
+    .v-btn:not(.v-btn--variant-text) {
+      margin-left: 12px;
+    }
+    .v-btn--variant-text {
+      padding: 0;
+      @extend .caption-3;
+    }
+  }
+}
+.community-tit-wrap {
+  .v-row > .v-col {
+    padding: 0;
+  }
+  .v-col:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .v-card-title, .v-card-subtitle {
+    padding: 0;
+  }
+  .v-card-title {
+    @extend .text-3-md;
+  }
+  .v-card-subtitle {
+    margin-top: 8px;
+    color: $gray-700;
+    @extend .caption-3;
+    span {
+      display: inline-block;
+      position: relative;
+      @extend .caption-3;
+      & + span {
+        margin-left: 16px;
+      }
+      & + span::before {
+        content:"";
+        display: block;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left: -10px;
+        width:1px;
+        height: 10px;
+        border-left: thin solid $gray-700;
+      }
+    }
   }
 }
 .community-label.v-chip {

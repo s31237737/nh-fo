@@ -53,102 +53,100 @@
     </div>
 
     <v-sheet class="w-box-flat">
-      <v-card
-        rounded="0"
-        class="community"
+      <template
+        v-for="(item, index) in commData"
+        :key="index"
       >
-        <v-row class="community-tit-wrap">
-          <v-col cols="auto">
-            <v-avatar
-              size="50"
+        <v-divider
+          v-if="index > 0"
+          color="secondary"
+        />
+        <v-card
+          rounded="0"
+          class="community"
+        >
+          <v-row class="community-tit-wrap">
+            <v-col cols="auto">
+              <v-avatar
+                size="50"
+              >
+                <v-img
+                  alt="Avatar"
+                  :src="getImageUrl(item.avatar)"
+                />
+              </v-avatar>
+              <div class="user-info">
+                <v-card-title>{{ item.userName }}</v-card-title>
+                <v-card-subtitle><span>{{ item.userPart }}</span><span>{{ item.date }}</span></v-card-subtitle>
+              </div>
+            </v-col>
+            <v-spacer v-if="!isMobile" />
+            <v-col
+              cols="auto"
+              md="auto"
+              sm="12"
             >
-              <v-img
-                alt="Avatar"
-                :src="getImageUrl('img_avatar12.jpg')"
-              />
-            </v-avatar>
-            <v-card-title>사용자 이름(아이디)</v-card-title>
-            <v-card-subtitle>직무 | 작성일자</v-card-subtitle>
-          </v-col>
-          <v-spacer v-if="!isMobile" />
-          <v-col
-            cols="auto"
-            md="auto"
-            sm="12"
-          >
-            <v-chip
-              pill
-              :prepend-avatar="getImageUrl('@temp_img_app_icon03.png')"
-              class="community-label"
-            >
-              사용자가 아이디어 제안한 앱
-            </v-chip>
-          </v-col>
-        </v-row>
-        <v-card-text>
-          안녕하세요, 총무알리미 사용자 여러분.
-          항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.
-
-          1. 사용자 인터페이스(UI) 개선
-          앱의 전반적인 디자인을 현대적이고 직관적으로 개선하였습니다.
-          메뉴 구조를 재정비하여 원하는 기능에 더 쉽게 접근할 수 있도록 하였습.게 접근할 수 있도록 하였습.게 접근할 수 있도록 하였습니다.
-        </v-card-text>
-        <v-card-actions>
-          <v-row
-            align="end"
-          >
-            <v-btn
-              variant="text"
-              density="compact"
-              prepend-icon="custom:heart"
-              color="primary"
-              class="like-btn"
-            >
-              999
-            </v-btn>
-            <v-btn
-              variant="text"
-              density="compact"
-              prepend-icon="custom:bubble"
-              color="primary"
-              class="comment-btn"
-            >
-              999
-            </v-btn>
-            <v-spacer />
-            <v-btn
-              color="info"
-              variant="flat"
-            >
-              수정
-            </v-btn>
-            <v-btn
-              color="warning"
-              variant="outlined"
-            >
-              삭제
-            </v-btn>
+              <v-chip
+                pill
+                :prepend-avatar="getImageUrl(item.labelImg)"
+                class="community-label"
+              >
+                {{ item.label }}
+              </v-chip>
+            </v-col>
           </v-row>
-        </v-card-actions>
+          <v-card-text>
+            <div v-html="item.content" />
+          </v-card-text>
+          <v-card-actions>
+            <v-row
+              align="end"
+            >
+              <v-btn
+                variant="text"
+                density="compact"
+                prepend-icon="custom:heart"
+                color="quaternary"
+                class="like-btn"
+              >
+                999
+              </v-btn>
+              <v-btn
+                variant="text"
+                density="compact"
+                prepend-icon="custom:bubble"
+                color="quaternary"
+                class="comment-btn"
+              >
+                999
+              </v-btn>
+              <v-spacer />
+              <v-btn
+                color="info"
+                variant="flat"
+              >
+                수정
+              </v-btn>
+              <v-btn
+                color="warning"
+                variant="outlined"
+              >
+                삭제
+              </v-btn>
+            </v-row>
+          </v-card-actions>
 
-        <!-- 확장 -->
-        <div class="card-expended">
-          댓글, 댓글작성
-        </div>
+          <!-- 확장 -->
+          <div class="community-expended">
+            댓글, 댓글작성
+          </div>
 
-        <!-- 파일첨부 -->
-        <div class="card-expended">
-          파일첨부
-        </div>
-      </v-card>
-      <v-divider color="secondary" />
-      
-      <v-card
-        rounded="0"
-        class="community"
-      >
-        테스트
-      </v-card>
+          <!-- 파일첨부 -->
+          <div class="community-file-list">
+            파일첨부
+          </div>
+        </v-card>
+      </template>
     </v-sheet>
   </v-container>
 </template>
@@ -167,4 +165,79 @@ const search = ref("");
 const onAppendClick = () => {
   alert('Append icon clicked!');
 }
+
+/* 작성글 */
+const commData = ref([
+  {
+    avatar: "img_avatar12.jpg",
+    userName: "사용자 이름(아이디)",
+    userPart: "직무",
+    date: "2025.04.03",
+    labelImg: "@temp_img_app_icon03.png",
+    label: "사용자가 아이디어 제안한 앱",
+    content: 
+    `<p>안녕하세요, 총무알리미 사용자 여러분.</p>
+    <br>
+    <p>항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.</p>
+    <br>
+    <p>
+      1. 사용자 인터페이스(UI) 개선
+      앱의 전반적인 디자인을 현대적이고 직관적으로 개선하였습니다.
+      메뉴 구조를 재정비하여 원하는 기능에 더 쉽게 접근할 수 있도록 하였습니다.
+    </p>
+    <br>
+    <p>
+      2. 알림 기능 강화
+      알림 설정을 세분화하여, 사용자 맞춤형 알림을 받을 수 있도록 개선하였습니다.
+      중요한 공지사항에 대한 우선 알림 기능을 추가하였습니다.
+    </p>
+    <br>
+    <p>
+      3. 사용자 의견 반영
+      사용자 여러분의 피드백을 바탕으로 자주 요청된 기능을 추가하였습니다.
+      개선 사항에 대한 의견을 언제든지 주시면, 지속적으로 반영하도록 하겠습니다.
+      이번 업데이트를 통해 더욱 편리하고 유용한 총무알리미 앱이 되기를 바랍니다. 앞으로도 많은 관심과 사랑 부탁드립니다.
+    </p>
+    <br>
+    <p>감사합니다.</p>
+    <p>총무알리미 팀 드림</p>
+    `,
+  },
+  {
+    avatar: "img_avatar02.jpg",
+    userName: "사용자 이름(아이디)",
+    userPart: "직무",
+    date: "2025.04.03",
+    labelImg: "@temp_img_app_icon03.png",
+    label: "사용자가 아이디어 제안한 앱",
+    content: 
+    `
+    <p>안녕하세요, 총무알리미 사용자 여러분.</p>
+    <br>
+    <p>항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.</p>
+    <br>
+    <p>
+      1. 사용자 인터페이스(UI) 개선
+      앱의 전반적인 디자인을 현대적이고 직관적으로 개선하였습니다.
+      메뉴 구조를 재정비하여 원하는 기능에 더 쉽게 접근할 수 있도록 하였습니다.
+    </p>
+    <br>
+    <p>
+      2. 알림 기능 강화
+      알림 설정을 세분화하여, 사용자 맞춤형 알림을 받을 수 있도록 개선하였습니다.
+      중요한 공지사항에 대한 우선 알림 기능을 추가하였습니다.
+    </p>
+    <br>
+    <p>
+      3. 사용자 의견 반영
+      사용자 여러분의 피드백을 바탕으로 자주 요청된 기능을 추가하였습니다.
+      개선 사항에 대한 의견을 언제든지 주시면, 지속적으로 반영하도록 하겠습니다.
+      이번 업데이트를 통해 더욱 편리하고 유용한 총무알리미 앱이 되기를 바랍니다. 앞으로도 많은 관심과 사랑 부탁드립니다.
+    </p>
+    <br>
+    <p>감사합니다.</p>
+    <p>총무알리미 팀 드림</p>
+    `,
+  }
+]);
 </script>
