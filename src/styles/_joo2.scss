@@ -540,7 +540,7 @@
     span {
       display: inline-block;
       position: relative;
-      @extend .text-4;
+      @extend .text-4-md;
       & + span::before {
         content:"";
         display: block;
@@ -571,9 +571,12 @@
       border-radius: $base-radius;
       .item {
         flex: 1;
+        color: $gray-800;
       }
       span {
+        display: block;
         @extend .text-4;
+        margin-bottom: 4px;
       }
       p {
         @extend .text-1;
@@ -594,6 +597,7 @@
   @at-root .mobile .apps-detail.top-banner {
     padding-block: 49px 40px;
     .top-banner-info {
+      margin-bottom: 40px;
       .v-card-title {
         padding-right: 0;
         margin-top: 6px;
@@ -647,6 +651,7 @@
         min-height: 70px;
         span {
           font-size: 12px !important;
+          margin-bottom: 3px;
         }
       }
     }
@@ -720,16 +725,25 @@
   .v-expansion-panels {
     width: auto;
     margin-inline: -40px;
+    border-bottom: thin solid #E5E5E5;
   }
   .v-expansion-panel-title {
     padding: 18px 40px;
   }
   @at-root .mobile, .tablet {
     .apps-information {
-      .v-expansion-panels {
-        margin-inline: -20px;
+      .v-sheet.w-box {
+        overflow: hidden;
+        padding-bottom: 0;
       }
-      .apps-information-title { font-size: 1rem; margin-bottom: 12px; }
+      .apps-information-title { 
+        font-size: 1rem; 
+        margin-bottom: 0; 
+      }
+      .v-expansion-panels {
+        margin: 0 -20px 0;
+        border-bottom: 0;
+      }
     }
   }
 }
