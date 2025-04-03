@@ -57,37 +57,34 @@
         rounded="0"
         class="community"
       >
-        <v-card-item>
-          <v-row>
-            <v-col cols="auto">
-              <template #prepend>
-                <v-avatar
-                  size="50"
-                >
-                  <v-img
-                    alt="Avatar"
-                    :src="getImageUrl('img_avatar12.jpg')"
-                  />
-                </v-avatar>
-              </template>
-              <v-card-title>사용자 이름(아이디)</v-card-title>
-              <v-card-subtitle>직무 | 작성일자</v-card-subtitle>
-            </v-col>
-            <v-spacer v-if="!isMobile" />
-            <v-col
-              md="auto"
-              sm="12"
+        <v-row class="community-tit-wrap">
+          <v-col cols="auto">
+            <v-avatar
+              size="50"
             >
-              <v-chip
-                pill
-                :prepend-avatar="getImageUrl('@temp_img_app_icon03.png')"
-                class="community-label"
-              >
-                사용자가 아이디어 제안한 앱
-              </v-chip>
-            </v-col>
-          </v-row>
-        </v-card-item>
+              <v-img
+                alt="Avatar"
+                :src="getImageUrl('img_avatar12.jpg')"
+              />
+            </v-avatar>
+            <v-card-title>사용자 이름(아이디)</v-card-title>
+            <v-card-subtitle>직무 | 작성일자</v-card-subtitle>
+          </v-col>
+          <v-spacer v-if="!isMobile" />
+          <v-col
+            cols="auto"
+            md="auto"
+            sm="12"
+          >
+            <v-chip
+              pill
+              :prepend-avatar="getImageUrl('@temp_img_app_icon03.png')"
+              class="community-label"
+            >
+              사용자가 아이디어 제안한 앱
+            </v-chip>
+          </v-col>
+        </v-row>
         <v-card-text>
           안녕하세요, 총무알리미 사용자 여러분.
           항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.
