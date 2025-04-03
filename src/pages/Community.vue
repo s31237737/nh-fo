@@ -150,13 +150,13 @@
             class="feed-fileList"
           >
             <p class="file-total">
-              첨부파일 <span class="text-success">{{ fileList.length }}</span>
+              첨부파일 <span class="text-success">{{ item.fileList.length }}</span>
             </p>
             <ul
               class="file-list"
             >
               <li
-                v-for="(file, index) in fileList"
+                v-for="(file, index) in item.fileList"
                 :key="index"
               >
                 <span
@@ -261,12 +261,11 @@ const commData = ref([
     <p>총무알리미 팀 드림</p>
     `,
     showFilelist: true,
+    fileList: [
+      { name: "File_t_title_1.pdf", size: "10.3MB"},
+      { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
+      { name: "File_title_3565.pdf", size: "10.3MB"},
+    ]
   }
-]);
-
-const fileList = ref([
-  { name: "File_t_title_1.pdf", size: "10.3MB"},
-  { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
-  { name: "File_title_3565.pdf", size: "10.3MB"},
 ]);
 </script>
