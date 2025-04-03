@@ -332,25 +332,7 @@ section + section {
     }
   }
 }
-.v-sheet.w-box-flat {
-  overflow: hidden;
-  padding: 0;
-  border-radius: $base-radius;
-  > .v-card{
-    position: relative;
-    padding: 50px 40px;
-  }
-  .v-card + .v-card { margin: 0; }
-  .v-divider {background: $gray-300;}
-  @at-root .mobile, .tablet {
-    .v-sheet.w-box-flat {
-      > .v-card{
-        padding: 20px;
-      }
-    }
-    .v-divider { margin: 0 20px; }
-  }
-}
+
 .v-sheet.g-box {
   @extend .w-box;
   background: $gray-200;

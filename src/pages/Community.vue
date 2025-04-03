@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <v-sheet class="w-box-flat">
+    <v-sheet class="w-box feedList">
       <template
         v-for="(item, index) in commData"
         :key="index"
@@ -63,9 +63,9 @@
         />
         <v-card
           rounded="0"
-          class="community"
+          class="feed"
         >
-          <v-row class="community-tit-wrap">
+          <v-row class="feed-tit-wrap">
             <v-col cols="auto">
               <v-avatar
                 size="50"
@@ -89,14 +89,17 @@
               <v-chip
                 pill
                 :prepend-avatar="getImageUrl(item.labelImg)"
-                class="community-label"
+                class="feed-label"
               >
                 {{ item.label }}
               </v-chip>
             </v-col>
           </v-row>
           <v-card-text>
-            <div v-html="item.content" />
+            <div
+              class="editor-content"
+              v-html="item.content"
+            />
           </v-card-text>
           <v-card-actions>
             <v-row
@@ -137,13 +140,32 @@
           </v-card-actions>
 
           <!-- 확장 -->
-          <div class="community-expended">
+          <div class="feed-expended">
             댓글, 댓글작성
           </div>
 
           <!-- 파일첨부 -->
-          <div class="community-file-list">
-            파일첨부
+          <div
+            v-if="item.showFilelist"
+            class="feed-fileList"
+          >
+            <p class="file-total">
+              첨부파일 <span class="text-success">{{ fileList.length }}</span>
+            </p>
+            <ul
+              class="file-list"
+            >
+              <li
+                v-for="(file, index) in fileList"
+                :key="index"
+              >
+                <span
+                  class="file-download"
+                  @click="downloadFile(file)"
+                >{{ file.name }}</span>
+                <em>{{ file.size }}</em>
+              </li>
+            </ul>
           </div>
         </v-card>
       </template>
@@ -238,6 +260,13 @@ const commData = ref([
     <p>감사합니다.</p>
     <p>총무알리미 팀 드림</p>
     `,
+    showFilelist: true,
   }
+]);
+
+const fileList = ref([
+  { name: "File_t_title_1.pdf", size: "10.3MB"},
+  { name: "File_title_title_title_title_2.pdf", size: "10.3MB"},
+  { name: "File_title_3565.pdf", size: "10.3MB"},
 ]);
 </script>
