@@ -811,21 +811,22 @@
   }
 }
 
-//video
-.player {
-  position: relative;
-  &::after {
-    content:"";
-    display: block;
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background: url('@/assets/images/player_button.png') no-repeat center / 55px;
+
+//community
+.community.v-card {
+  
+}
+.community-label.v-chip {
+  background: $blue-100;
+  &.v-chip--density-default {
+    --v-chip-height: 38px !important;
+    padding: 0 17px 0 16px;
   }
-  @at-root .w-box .player {
-    max-width: 960px;
-    margin: 0 auto;
+  .v-chip__content {
+    font-weight: 500;
+  }
+  .v-avatar {
+    --v-avatar-height: 24px !important;
+    margin-inline: 0 4px !important;
   }
 }

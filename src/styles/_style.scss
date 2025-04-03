@@ -342,6 +342,14 @@ section + section {
   }
   .v-card + .v-card { margin: 0; }
   .v-divider {background: $gray-300;}
+  @at-root .mobile, .tablet {
+    .v-sheet.w-box-flat {
+      > .v-card{
+        padding: 20px;
+      }
+    }
+    .v-divider { margin: 0 20px; }
+  }
 }
 .v-sheet.g-box {
   @extend .w-box;
@@ -482,5 +490,25 @@ section + section {
         background: rgba(30, 30, 30, 0.6) url('@/assets/images/icon_selected_profile.png') no-repeat center/ 32px;
       }
     }
+  }
+}
+
+
+//video
+.player {
+  position: relative;
+  &::after {
+    content:"";
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: url('@/assets/images/player_button.png') no-repeat center / 55px;
+  }
+  @at-root .w-box .player {
+    max-width: 960px;
+    margin: 0 auto;
   }
 }
