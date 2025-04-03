@@ -154,9 +154,51 @@
             </v-card-actions>
           </v-card>
 
-          <!-- 확장 -->
+          <!-- 댓글 -->
           <div class="feed-comment">
-            댓글, 댓글작성
+            <v-row
+              class="feed-comment-tit"
+              align="end"
+            >
+              <span>댓글 6</span>
+              <v-spacer />
+              <v-btn
+                color="info"
+                variant="flat"
+                :ripple="false"
+                disabled
+              >
+                댓글작성
+              </v-btn>
+            </v-row>
+
+            <div class="feed-textarea">
+              <div class="commentId">
+                김농협
+              </div>
+              <v-textarea
+                id="inp-content"
+                no-resize
+                maxlength="1000"
+                placeholder="댓글을 남겨보세요."
+              />
+              <div class="feed-textarea-btns">
+                <v-btn
+                  variant="text"
+                  density="compact"
+                  :ripple="false"
+                >
+                  취소
+                </v-btn>
+                <v-btn
+                  variant="text"
+                  density="compact"
+                  :ripple="false"
+                >
+                  등록
+                </v-btn>
+              </div>
+            </div>
           </div>
 
           <!-- 파일첨부 -->

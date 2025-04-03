@@ -300,6 +300,10 @@ $popup-base-margin: 20px;
       max-height: 100%;
       min-height: 268px;
       padding-block-end: 20px;
+      .v-list-item-title {
+        font-size: 0.875rem !important;
+        line-height: 1.25rem !important;
+      }
     }
 
     //form sheet

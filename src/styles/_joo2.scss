@@ -817,6 +817,12 @@
   overflow: hidden;
   padding: 0 !important;
   border-radius: $base-radius;
+  .v-row {
+    margin: 0;
+    & > [class*="v-col"] {
+      padding: 0;
+    }
+  }
   .v-divider {
     margin-bottom:50px;
     background: $gray-300;
@@ -824,6 +830,10 @@
   .feed {
     position: relative;
     padding: 50px 40px;
+  }
+  .v-btn.v-btn--variant-text {
+    min-width: auto;
+    padding: 0;
   }
   @at-root .mobile, .tablet {
     .feedList.w-box {
@@ -850,27 +860,18 @@
   .v-card-actions {
     margin-top: 50px;
     padding: 0;
-    .v-row {
-      margin: 0;
-    }
     .v-btn:not(.v-btn--variant-text) {
       margin-left: 12px;
     }
     .v-btn--variant-text {
-      min-width: auto;
-      padding: 0;
       @extend .caption-3;
-      & + .v-btn--variant-text {
-        margin-left: 12px;
-      }
+    }
+    .v-btn--variant-text  + .v-btn--variant-text {
+      margin-left: 12px;
     }
   }
 }
 .feed-item-tit {
-  margin: 0 !important;
-  & > [class*="v-col"] {
-    padding: 0;
-  }
   .v-col:first-child {
     display: flex;
     align-items: center;
@@ -932,5 +933,26 @@
       margin-top: 20px;
       padding: 20px;
     }
+  }
+}
+
+.feed-comment {
+  margin-top: 50px;
+  border-top: thin solid $gray-300;
+  .feed-comment-tit {
+    padding: 30px 0;
+    span { @extend .text-3; }
+  }
+  @at-root .mobile, .tablet {
+    .feed-comment {
+      margin-top: 30px;
+    }
+  }
+}
+.feed-textarea {
+}
+.feed-textarea-btns {
+  .v-btn.v-btn--variant-text {
+    @extend .text-4;
   }
 }
