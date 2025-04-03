@@ -144,12 +144,12 @@
   padding: 30px;
   border-radius: $base-radius-lg;
   .v-card__overlay {display:none;}
-  .v-card-title, .v-card-subtitle {
-    padding:0 10px 0 0;
-  }
   .v-card-title {
     display: -webkit-box;
     white-space: normal;
+  }
+  .v-card-title, .v-card-subtitle {
+    padding:0;
   }
   .v-card-subtitle + .v-card-title {padding-top:6px;}
   .v-card-text {
@@ -186,12 +186,21 @@
         flex: 0 0 54px;
       }
       .apps-bottom {margin-top: 24px;}
+      .v-card-text {
+        padding-top:10px;
+      }
     }
   }
 }
 .apps-list{
   &.recomm {
     .apps {
+      .v-card-title, .v-card-subtitle {
+        padding-inline-end: 10px;
+      }
+      .v-card-subtitle { 
+        color: $gray-700;
+      }
       .apps-top {
         align-items: center;
       }
@@ -218,6 +227,9 @@
   @at-root .mobile {
     .apps-list-more {
       margin-top: 20px;
+      .v-btn {
+        font-size: 0.875rem !important;
+      }
     }
   }
 }
