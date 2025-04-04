@@ -1,31 +1,30 @@
 <template>
   <v-container class="inner d-flex flex-row">
-    <v-tabs
-      v-model="tab"
-      color="primary"
-      direction="vertical"
-    >
-      <v-tab
-        v-for="(item, index) in tabItem"
-        :key="index"
+    <v-list v-model="tab">
+      <v-list-item
+        v-for="(item, i) in tabItem"
+        :key="i"
+        :value="i"
+        color="primary"
         :prepend-icon="item.icon"
-        :text="item.text"
-        :value="item.value"
+        :title="item.text"
+        @click="tab = i"
       />
-    </v-tabs>
-    <v-tabs-window
+    </v-list>
+
+    <v-window
       v-model="tab"
       class="tab-container"
     >
-      <v-tabs-window-item
+      <v-window-item
         v-for="(item, i) in tabItem"
         :key="i"
         :value="i"
         :transition="false"
       >
         <component :is="item.component" />
-      </v-tabs-window-item>
-    </v-tabs-window>
+      </v-window-item>
+    </v-window>
   </v-container>
 </template>
 <script setup>
