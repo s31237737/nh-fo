@@ -29,7 +29,7 @@
   </v-container>
 </template>
 <script setup>
-import { ref, watch, shallowRef, inject } from "vue";
+import { ref, watch, shallowRef } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import MyPageTab01 from "@/pages/MyPageTab01.vue";
