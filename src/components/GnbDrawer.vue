@@ -114,9 +114,9 @@ const menuItems = ref([
   {
     title: "마이페이지",
     submenu: [
-      { title: "프로필", to: "" },
-      { title: "내 앱", to: "" },
-      { title: "작성한 게시물", to: "" }
+      { title: "프로필", to: { path: "mypage", query: { tab: 0 } } },
+      { title: "내 앱", to: { path: "mypage", query: { tab: 1 } }},
+      { title: "작성한 게시물", to: { path: "mypage", query: { tab: 2 } } }
     ],
   },
   {

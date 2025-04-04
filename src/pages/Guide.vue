@@ -94,7 +94,7 @@
       </div>
       <div class="icon-item">
         <v-icon icon="custom:radio-on" />
-        <span>radio-off</span>
+        <span>radio-on</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:checkbox-off" />
@@ -102,7 +102,7 @@
       </div>
       <div class="icon-item">
         <v-icon icon="custom:checkbox-on" />
-        <span>checkbox-off</span>
+        <span>checkbox-on</span>
       </div>
       <div class="icon-item">
         <v-icon icon="custom:clear" />
@@ -242,39 +242,25 @@
         <v-icon icon="custom:bubble" />
         <span>bubble</span>
       </div>
+      <div class="icon-item">
+        <v-icon icon="custom:profile" />
+        <span>profile</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:app" />
+        <span>app</span>
+      </div>
+      <div class="icon-item">
+        <v-icon icon="custom:post" />
+        <span>post</span>
+      </div>
     </div>
-
+    <!-- 미사용 -->
     <div class="d-flex flex-wrap ga-2 mt-5">
-      <div class="icon-item">
-        <v-icon icon="custom:info" />
-        <span>info</span>
-      </div>
-
-      <div class="icon-item">
-        <v-icon icon="custom:move" />
-        <span>move</span>
-      </div>
-
-      <div class="icon-item">
-        <v-icon icon="custom:zoom" />
-        <span>zoom</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:sort-desc" />
-        <span>sort-desc</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:sort-asc" />
-        <span>sort-asc</span>
-      </div>
-
-
       <div class="icon-item">
         <v-icon icon="custom:minus" />
         <span>minus</span>
       </div>
-
-
       <div class="icon-item">
         <v-icon icon="custom:comment" />
         <span>comment</span>

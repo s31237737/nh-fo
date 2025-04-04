@@ -59,9 +59,9 @@ watch(() => route.query.tab, (newTab) => {
 });
 
 const tabItem = shallowRef([
-  { icon: "mdi-account", text: "Option 1", component: MyPageTab01 },
-  { icon: "mdi-lock", text: "Option 2", component: MyPageTab02 },
-  { icon: "mdi-access-point", text: "Option 3",  component: MyPageTab03 },
+  { icon: "custom:profile", text: "프로필", component: MyPageTab01 },
+  { icon: "custom:app", text: "내 앱", component: MyPageTab02 },
+  { icon: "custom:post", text: "작성한 게시물",  component: MyPageTab03 },
 ]);
 
 </script>
