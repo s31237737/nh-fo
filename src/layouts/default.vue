@@ -3,14 +3,22 @@
   <v-main>
     <router-view />
     <!-- 불편신고 버튼 -->
-    <ReportIssueButton :near-footer="nearFooter" />
+    <ReportIssueButton
+      v-if="showReportButton"
+      :near-footer="nearFooter"
+    />
     <Footer ref="footerRef" />
   </v-main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue';
+import { useRoute } from "vue-router";
 
+const route = useRoute();
+// 특정 경로에서만 노출
+const showPaths = ["/Apps", "/AppsDetail", "/news", "/Community"];
+const showReportButton = computed(() => showPaths.includes(route.path));
 
 //불편신고 버튼 위치잡기
 const footerRef = ref(null); //Footer
