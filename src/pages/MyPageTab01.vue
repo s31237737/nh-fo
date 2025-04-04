@@ -1,5 +1,7 @@
 <template>
-  tab1
+  <div>
+<p>y</p>
+  </div>
 </template>
 
 <script setup>

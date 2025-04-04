@@ -609,3 +609,21 @@
     }
   }
 }
+
+.my-page {
+  display: flex;
+  gap: 56px;
+  .my-page-lnb {
+    padding: 0;
+    width: 254px;
+    background: transparent;
+    .v-list-item {
+      height: 60px;
+      border-radius: 6px !important;
+    }
+  }
+  .tab-container {
+    width: 100%;
+    flex: 1;
+  }
+}

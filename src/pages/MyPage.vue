@@ -1,8 +1,9 @@
 <template>
-  <v-container class="inner d-flex flex-row">
+  <v-container class="inner my-page">
     <v-list
       v-model="tab"
       mandatory
+      class="my-page-lnb"
     >
       <v-list-item
         v-for="(item, i) in tabItem"
