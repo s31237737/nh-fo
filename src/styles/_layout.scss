@@ -614,12 +614,23 @@
   display: flex;
   gap: 56px;
   .my-page-lnb {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     padding: 0;
     width: 254px;
     background: transparent;
+    color: $black;
     .v-list-item {
+      padding-left: 10px !important;
       height: 60px;
       border-radius: 6px !important;
+      &-title {
+        @extend .title-5;
+      }
+      &__prepend {
+        width: 46px;
+      }
     }
   }
   .tab-container {
