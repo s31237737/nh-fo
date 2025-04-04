@@ -31,7 +31,6 @@
         v-for="(item, i) in tabItem"
         :key="i"
         :value="i"
-        :transition="false"
       >
         <component :is="item.component" />
       </v-window-item>
