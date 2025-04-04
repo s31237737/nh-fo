@@ -10,10 +10,17 @@
         :key="i"
         :value="i"
         :class="{ 'bg-success text-white': tab === i }"
-        :prepend-icon="item.icon"
+
         :title="item.text"
         @click="tab = i"
-      />
+      >
+        <template #prepend>
+          <v-icon
+            :icon="item.icon"
+            size="32"
+          />
+        </template>
+      </v-list-item>
     </v-list>
 
     <v-window
