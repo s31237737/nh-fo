@@ -83,7 +83,7 @@ const paginatedItems = computed(() => {
 const boardItem = ref([
   {
     id: 1,
-    status: "답변완료",
+    status: "미답변",
     title: "앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?",
     author: "김농협",
     release: "공개",
