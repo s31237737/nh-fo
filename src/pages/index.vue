@@ -132,7 +132,7 @@
                   </template>
                   <template #actions>
                     <v-btn
-                      to="MyPage"
+                      :to="{ path: 'mypage', query: { tab: 0 } }"
                       color="info"
                       size="large"
                     >
@@ -191,7 +191,7 @@
                 </template>
                 <template #actions>
                   <v-btn
-                    to="MyPage"
+                    :to="{ path: 'mypage', query: { tab: 0 } }"
                     color="info"
                     size="large"
                   >
