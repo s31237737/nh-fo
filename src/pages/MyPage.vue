@@ -1,11 +1,14 @@
 <template>
   <v-container class="inner d-flex flex-row">
-    <v-list v-model="tab">
+    <v-list
+      v-model="tab"
+      mandatory
+    >
       <v-list-item
         v-for="(item, i) in tabItem"
         :key="i"
         :value="i"
-        color="primary"
+        :class="{ 'bg-success text-white': tab === i }"
         :prepend-icon="item.icon"
         :title="item.text"
         @click="tab = i"
@@ -42,6 +45,7 @@ const router = useRouter();
 const tab = ref(route.query.tab ? Number(route.query.tab) : 0);
 
 watch(tab, (newTab) => {
+
   if (newTab !== Number(route.query.tab)) {
     router.replace({ query: { tab: newTab } });
   }

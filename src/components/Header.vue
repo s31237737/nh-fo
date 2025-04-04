@@ -198,28 +198,28 @@ const gnbItems = ref([
     title: '새소식',
     value: 0,
     props: {
-      to: { path: "News", query: { tab: 0 } }
+      to: { path: "news", query: { tab: 0 } }
     },
   },
    {
     title: '자주 묻는 질문',
     value: 1,
     props: {
-      to: { path: "News", query: { tab: 1 } }
+      to: { path: "news", query: { tab: 1 } }
     },
   },
   {
     title: 'Q&A',
     value: 2,
     props: {
-     to: { path: "News", query: { tab: 2 } }
+     to: { path: "news", query: { tab: 2 } }
     },
   },
   {
     title: '앱 가이드',
     value: 3,
     props: {
-      to: { path: "News", query: { tab: 3 } }
+      to: { path: "news", query: { tab: 3 } }
     },
   },
 ]);
@@ -248,7 +248,7 @@ const profileItems = ref([
     title: '마이페이지',
     value: 1,
      props: {
-      to: "mypage",
+      to: { path: "mypage", query: { tab: 0 } }
     },
   },
   {

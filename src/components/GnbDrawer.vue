@@ -104,10 +104,10 @@ const menuItems = ref([
   {
     title: "새소식 및 도움말",
     submenu: [
-      { title: "새소식",  to: { path: "News", query: { tab: 0 } }},
-      { title: "자주 묻는 질문",  to: { path: "News", query: { tab: 1 } }, },
-      { title: "Q&A", to: { path: "News", query: { tab: 2 } } },
-      { title: "앱 가이드", to: { path: "News", query: { tab: 3 } } }
+      { title: "새소식",  to: { path: "news", query: { tab: 0 } }},
+      { title: "자주 묻는 질문",  to: { path: "news", query: { tab: 1 } }, },
+      { title: "Q&A", to: { path: "news", query: { tab: 2 } } },
+      { title: "앱 가이드", to: { path: "news", query: { tab: 3 } } }
     ],
   },
   { title: "커뮤니티",  to: "Community" },
