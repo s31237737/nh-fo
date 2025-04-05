@@ -1,6 +1,7 @@
 <template>
   <v-container class="inner my-page">
     <v-list
+      v-if="isDesktop"
       v-model="tab"
       mandatory
       class="my-page-lnb"
@@ -10,7 +11,6 @@
         :key="i"
         :value="i"
         :class="{ 'bg-success text-white': tab === i }"
-
         :title="item.text"
         :to="item.link"
         @click="onTabChange(i)"
@@ -23,7 +23,19 @@
         </template>
       </v-list-item>
     </v-list>
-
+    <v-tabs
+      v-else
+      v-model="tab"
+      @click="onTabChange(i)"
+    >
+      <v-tab
+        v-for="(item, i) in tabItem"
+        :key="i"
+        :value="i"
+        :to="item.link"
+        :text="item.text"
+      />
+    </v-tabs>
     <v-window
       v-model="tab"
       class="tab-container"
@@ -39,8 +51,10 @@
   </v-container>
 </template>
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
+
+const isDesktop = inject('isDesktop');
 
 // 탭 처리
 const route = useRoute();
