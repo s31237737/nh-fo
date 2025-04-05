@@ -29,7 +29,6 @@
         color="info"
         size="large"
         class="ml-auto"
-        to="QnaWrite"
       >
         불편신고 작성하기
       </v-btn>

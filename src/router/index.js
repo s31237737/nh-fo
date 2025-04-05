@@ -11,7 +11,7 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import pages from 'virtual:generated-pages';
 
 const router = createRouter({
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, savedPosition) {
     if (to.path.startsWith('/news') && to.query.tab !== undefined) {
       return false;
     }
