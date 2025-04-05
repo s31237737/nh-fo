@@ -506,7 +506,7 @@ const sliders = ref([
     title: "농협식품R&D연구소",
     description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스",
     image: "@temp_img_apps_visual_02.png", //앱 관련 이미지
-    link: "AppsDetail", //랜딩 설정
+    link: "/AppsDetail", //랜딩 설정
   },
   {
     type: "img-type1",
@@ -556,7 +556,7 @@ const sort = ref(0);
 const alert = ref(false); //"앱 열기" 팝업
 const appsData = ref([
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "1공통총무알리미",
     description: "1농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -569,7 +569,7 @@ const appsData = ref([
     alt: "앱 이미지"
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "2공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     description: "2농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -579,7 +579,7 @@ const appsData = ref([
     inUse: false,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "3공통총무알리미",
     description: "3농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -589,7 +589,7 @@ const appsData = ref([
     inUse: true,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "4공통총무알리미",
     description: "4농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -601,7 +601,7 @@ const appsData = ref([
     inUse: true,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "5공통총무알리미",
     description: "5농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -613,7 +613,7 @@ const appsData = ref([
     inUse: true,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "6공통총무알리미",
     description: "6농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -625,7 +625,7 @@ const appsData = ref([
     inUse: true,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "7공통총무알리미",
     description: "7농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -637,7 +637,7 @@ const appsData = ref([
     inUse: true,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "8공통총무알리미",
     description: "8농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -649,7 +649,7 @@ const appsData = ref([
     inUse: true,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     imageSrc: "@temp_img_app_icon03.png",
     title: "9공통총무알리미",
     description: "9농협 및 축협 이용 시 필수 예약 과정으로 편리한 예약 신청 및 관리를 도와주는 편리한 농협 앱",
@@ -665,7 +665,7 @@ const appsData = ref([
 //앱 좋아요 목록
 const appsData_recomm = ref([
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -678,7 +678,7 @@ const appsData_recomm = ref([
     likeCount: 999,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -691,7 +691,7 @@ const appsData_recomm = ref([
     likeCount: 0,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -703,7 +703,7 @@ const appsData_recomm = ref([
     likeCount: 555,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -719,7 +719,7 @@ const appsData_recomm = ref([
 //앱 추천 목록
 const appsData_recomm2 = ref([
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -732,7 +732,7 @@ const appsData_recomm2 = ref([
     likeCount: 999,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -745,7 +745,7 @@ const appsData_recomm2 = ref([
     likeCount: 0,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "공통총무알리미",
     subtitle: "총무형",
     badges: [

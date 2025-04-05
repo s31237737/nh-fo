@@ -10,7 +10,7 @@
       </router-link>
 
       <div class="info">
-        <router-link to="Privacy">
+        <router-link to="/Privacy">
           개인정보 처리 방침
         </router-link>
         <p class="copy">

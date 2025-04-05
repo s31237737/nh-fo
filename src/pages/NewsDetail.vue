@@ -82,7 +82,7 @@
       <v-spacer />
 
       <v-btn
-        :to="{path: 'News', query: { tab: 0 }}"
+        to="/News/Notice"
         color="info"
         size="x-large"
       >

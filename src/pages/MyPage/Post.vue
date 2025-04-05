@@ -16,7 +16,8 @@
             height="44"
             rounded="pill"
             :color="isSelected ? 'primary' : 'info'"
-            @click="mySubTab = i"
+            :to="item.link"
+            @click="onTabChange(i)"
           >
             {{ item.btn }}
             <!-- 검색어 강조 예제 -->
@@ -43,7 +44,7 @@
         :value="i"
         :transition="false"
       >
-        <component :is="item.component" />
+        <router-view />
       </v-window-item>
     </v-window>
   </v-container>
@@ -51,13 +52,11 @@
 </template>
 
 <script setup>
-import { ref, watch, shallowRef, inject } from "vue";
+import { ref, watch, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 
-import MySubTab01 from "@/pages/MySubTab01.vue";
-import MySubTab02 from "@/pages/MySubTab02.vue";
-import MySubTab03 from "@/pages/MySubTab03.vue";
+
 
 const isDesktop = inject("isDesktop");
 
@@ -71,24 +70,34 @@ const onAppendClick = () => {
 const route = useRoute();
 const router = useRouter();
 
-const mySubTab = ref(route.query.mySubTab ? Number(route.query.mySubTab) : 0);
+const mySubTab = ref(0);
 
-watch(mySubTab, (newTab) => {
-  if (newTab !== Number(route.query.mySubTab)) {
-    router.replace({ query: { mySubTab: newTab } });
-  }
-});
-
-watch(() => route.query.mySubTab, (newTab) => {
-  if (newTab !== undefined && Number(newTab) !== mySubTab.value) {
-    mySubTab.value = Number(newTab);
-  }
-});
-
-const tabItem = shallowRef([
-  { btn: "Q&A", component: MySubTab01 },
-  { btn: "아이디어 제안", component: MySubTab02 },
-  { btn: "불편신고", component: MySubTab03 },
+const tabItem = ref([
+  { btn: "Q&A", link: "/MyPage/Post/Qna" },
+  { btn: "아이디어 제안", link: "/MyPage/Post/Community" },
+  { btn: "불편신고", link: "/MyPage/Post/ReportIssue" },
 ]);
+
+watch(
+  () => route.path,
+  (newPath) => {
+    const idx = tabItem.value.findIndex((item) => newPath.startsWith(item.link));
+    if (idx !== -1 && mySubTab.value !== idx) {
+      mySubTab.value = idx;
+    }
+  },
+  { immediate: true }
+);
+
+function onTabChange(newTab) {
+  if (tabItem.value[newTab]) {
+    router.push(tabItem.value[newTab].link).catch((err) => {
+      console.error("Router push error:", err);
+    });
+  } else {
+    console.error("Invalid tab index:", newTab);
+  }
+}
+
 </script>
 

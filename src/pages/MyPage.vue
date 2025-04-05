@@ -12,7 +12,8 @@
         :class="{ 'bg-success text-white': tab === i }"
 
         :title="item.text"
-        @click="tab = i"
+        :to="item.link"
+        @click="onTabChange(i)"
       >
         <template #prepend>
           <v-icon
@@ -32,42 +33,44 @@
         :key="i"
         :value="i"
       >
-        <component :is="item.component" />
+        <router-view />
       </v-window-item>
     </v-window>
   </v-container>
 </template>
 <script setup>
-import { ref, watch, shallowRef } from "vue";
+import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-
-import MyPageTab01 from "@/pages/MyPageTab01.vue";
-import MyPageTab02 from "@/pages/MyPageTab02.vue";
-import MyPageTab03 from "@/pages/MyPageTab03.vue";
 
 // 탭 처리
 const route = useRoute();
 const router = useRouter();
+const tab = ref(0);
 
-const tab = ref(route.query.tab ? Number(route.query.tab) : 0);
-
-watch(tab, (newTab) => {
-
-  if (newTab !== Number(route.query.tab)) {
-    router.replace({ query: { tab: newTab } });
-  }
-});
-
-watch(() => route.query.tab, (newTab) => {
-  if (newTab !== undefined && Number(newTab) !== tab.value) {
-    tab.value = Number(newTab);
-  }
-});
-
-const tabItem = shallowRef([
-  { icon: "custom:profile", text: "프로필", component: MyPageTab01 },
-  { icon: "custom:app", text: "내 앱", component: MyPageTab02 },
-  { icon: "custom:post", text: "작성한 게시물",  component: MyPageTab03 },
+const tabItem = ref([
+  { icon: "custom:profile", text: "프로필", link: "/MyPage/Profile" },
+  { icon: "custom:app", text: "내 앱", link: "/MyPage/App"  },
+  { icon: "custom:post", text: "작성한 게시물",  link: "/MyPage/Post/Qna"  },
 ]);
 
+watch(
+  () => route.path,
+  (newPath) => {
+    const idx = tabItem.value.findIndex((item) => newPath.startsWith(item.link));
+    if (idx !== -1 && tab.value !== idx) {
+      tab.value = idx;
+    }
+  },
+  { immediate: true }
+);
+
+function onTabChange(newTab) {
+  if (tabItem.value[newTab]) {
+    router.push(tabItem.value[newTab].link).catch((err) => {
+      console.error("Router push error:", err);
+    });
+  } else {
+    console.error("Invalid tab index:", newTab);
+  }
+}
 </script>

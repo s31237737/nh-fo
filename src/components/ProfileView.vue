@@ -6,7 +6,7 @@
       <!-- 프로필 섹션 -->
       <div class="profile">
         <v-btn
-          :to="{ path: 'mypage', query: { tab: 0 } }"
+          to="/MyPage/Profile"
           size="60"
           icon="custom:edit-blue"
           class="edit-profile"
@@ -51,7 +51,7 @@
       <!-- 내가 쓰는 앱 -->
       <div class="my-app">
         <router-link
-          :to="{ path: 'mypage', query: { tab: 1 } }"
+          to="/MyPage/App"
           class="link-btn-arrow"
         >
           <span>내가 쓰는 앱</span>
@@ -101,7 +101,7 @@
             <v-btn
               color="primary"
               size="large"
-              to="Apps"
+              to="/Apps"
             >
               APPs 보러가기
             </v-btn>

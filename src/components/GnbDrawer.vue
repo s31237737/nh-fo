@@ -99,31 +99,31 @@ defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const menuItems = ref([
-  { title: "About",  to: "About" },
-  { title: "Apps",  to: "Apps" },
+  { title: "About",  to: "/About" },
+  { title: "Apps",  to: "/Apps" },
   {
     title: "새소식 및 도움말",
     submenu: [
-      { title: "새소식",  to: { path: "news", query: { tab: 0 } }},
-      { title: "자주 묻는 질문",  to: { path: "news", query: { tab: 1 } }, },
-      { title: "Q&A", to: { path: "news", query: { tab: 2 } } },
-      { title: "앱 가이드", to: { path: "news", query: { tab: 3 } } }
+      { title: "새소식",  to: "/News/Notice" },
+      { title: "자주 묻는 질문",  to: "/News/Faq" },
+      { title: "Q&A",  to: "/News/Qna" },
+      { title: "앱 가이드", to: "/News/Guide" }
     ],
   },
-  { title: "커뮤니티",  to: "Community" },
+  { title: "커뮤니티",  to: "/Community" },
   {
     title: "마이페이지",
     submenu: [
-      { title: "프로필", to: { path: "mypage", query: { tab: 0 } } },
-      { title: "내 앱", to: { path: "mypage", query: { tab: 1 } }},
-      { title: "작성한 게시물", to: { path: "mypage", query: { tab: 2 } } }
+      { title: "프로필", to: "/MyPage/Profile" },
+      { title: "내 앱", to: "/MyPage/App" },
+      { title: "작성한 게시물", to: "/MyPage/Post" }
     ],
   },
   {
     title: "pub",
     submenu: [
-      { title: "popup", to: "PopList" },
-      { title: "guide", to: "Guide" },
+      { title: "popup", to: "/PopList" },
+      { title: "guide", to: "/Guide" },
     ],
   },
 ]);

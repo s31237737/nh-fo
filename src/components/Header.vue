@@ -20,12 +20,12 @@
         density="comfortable"
       >
         <v-btn
-          to="About"
+          to="/About"
         >
           About
         </v-btn>
         <v-btn
-          to="Apps"
+          to="/Apps"
         >
           APPS
         </v-btn>
@@ -41,7 +41,6 @@
                   v-for="item in gnbItems"
                   :key="item.value"
                   :to="item.props.to"
-                  :active="activeTab === item.value"
                 >
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item>
@@ -50,7 +49,7 @@
           </v-menu>
         </v-btn>
         <v-btn
-          to="Community"
+          to="/Community"
         >
           커뮤니티
         </v-btn>
@@ -190,36 +189,33 @@ const onExtendClick = () => {
 };
 
 // gnb
-const activeTab = computed(() => {
-  return route.query.tab !== undefined ? Number(route.query.tab) : null;
-});
 const gnbItems = ref([
   {
     title: '새소식',
     value: 0,
     props: {
-      to: { path: "news", query: { tab: 0 } }
+      to: "/News/Notice"
     },
   },
    {
     title: '자주 묻는 질문',
     value: 1,
     props: {
-      to: { path: "news", query: { tab: 1 } }
+      to: "/News/Faq"
     },
   },
   {
     title: 'Q&A',
     value: 2,
     props: {
-     to: { path: "news", query: { tab: 2 } }
+     to: "/News/Qna"
     },
   },
   {
     title: '앱 가이드',
     value: 3,
     props: {
-      to: { path: "news", query: { tab: 3 } }
+      to: "/News/Guide"
     },
   },
 ]);
@@ -230,14 +226,14 @@ const pubItems = ref([
     title: 'popup',
     value: 1,
     props: {
-      to: "PopList",
+      to: "/PopList",
     },
   },
    {
     title: 'guide',
     value: 2,
     props: {
-      to: "Guide",
+      to: "/Guide",
     },
   },
 ]);
@@ -248,7 +244,7 @@ const profileItems = ref([
     title: '마이페이지',
     value: 1,
      props: {
-      to: { path: "mypage", query: { tab: 0 } }
+      to: "/MyPage/Profile"
     },
   },
   {

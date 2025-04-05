@@ -45,7 +45,7 @@
         <v-btn
           color="info"
           size="large"
-          to="CommunityWrite"
+          to="/CommunityWrite"
         >
           아이디어 작성하기
         </v-btn>
@@ -101,7 +101,7 @@
                 class="editor-content"
                 v-html="item.content"
               />
-              <v-btn 
+              <v-btn
                 variant="text"
                 density="compact"
                 class="link-btn"
@@ -260,7 +260,7 @@ const commData = ref([
     date: "2025.04.03",
     labelImg: "@temp_img_app_icon03.png",
     label: "사용자가 아이디어 제안한 앱",
-    content: 
+    content:
     `<p>안녕하세요, 총무알리미 사용자 여러분.</p>
     <br>
     <p>항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.</p>
@@ -295,7 +295,7 @@ const commData = ref([
     date: "2025.04.03",
     labelImg: "@temp_img_app_icon03.png",
     label: "사용자가 아이디어 제안한 앱",
-    content: 
+    content:
     `
     <p>안녕하세요, 총무알리미 사용자 여러분.</p>
     <br>

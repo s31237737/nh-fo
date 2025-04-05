@@ -132,7 +132,7 @@
                   </template>
                   <template #actions>
                     <v-btn
-                      :to="{ path: 'mypage', query: { tab: 0 } }"
+                      to="/MyPage/Profile"
                       color="info"
                       size="large"
                     >
@@ -191,7 +191,7 @@
                 </template>
                 <template #actions>
                   <v-btn
-                    :to="{ path: 'mypage', query: { tab: 0 } }"
+                    to="/MyPage/Profile"
                     color="info"
                     size="large"
                   >
@@ -229,7 +229,7 @@
 
           <router-link
             v-if="recomm !== 0 || recommApps[0].length > 0"
-            to="Apps"
+            to="/Apps"
             class="link-btn-arrow"
           >
             <span>더보러가기</span>
@@ -244,7 +244,7 @@
               더 좋은 서비스를 위한<br>커뮤니티를 만들어주세요.
             </strong>
             <v-btn
-              to="Community"
+              to="/Community"
               color="info"
               size="large"
             >
@@ -258,7 +258,7 @@
               lg="4"
             >
               <v-card
-                to="Community"
+                to="/Community"
                 color="#D1E2FF"
                 :height="isDesktop ? '390': '280'"
               >
@@ -292,7 +292,7 @@
               lg="4"
             >
               <v-card
-                to="Community"
+                to="/Community"
                 color="#3B424E"
                 :height="isDesktop ? '390': '280'"
                 class="white"
@@ -333,7 +333,7 @@
                   lg="12"
                 >
                   <v-card
-                    to="Community"
+                    to="/Community"
                     color="coolgray"
                     :height="isDesktop ? '187': '140'"
                   >
@@ -359,7 +359,7 @@
                   lg="12"
                 >
                   <v-card
-                    to="Community"
+                    to="/Community"
                     color="coolgray"
                     :height="isDesktop ? '187': '140'"
                   >
@@ -387,7 +387,7 @@
               md="6"
             >
               <v-card
-                to="Community"
+                to="/Community"
                 color="coolgray"
                 :height="isDesktop ? '136': '140'"
               >
@@ -519,7 +519,7 @@ const appBanner = ref([
     title: "로그인 화면 확인용 링크",
     description: "관리자에 등록된 간단설명 문구 (최대 30자 노출)",
     image: "@temp_img_app_icon01.png",
-    link: "Login",
+    link: "/Login",
     type: "app"
   },
   {
@@ -527,7 +527,7 @@ const appBanner = ref([
     title: "에러 화면 확인용 링크",
     description: "도시와 농촌이 상생하는 미래식품 연구개발 및 농산물 안전 관리 서비스",
     image: "@temp_img_app_icon02.png",
-    link: "Error",
+    link: "/Error",
     type: "app"
   },
   {
@@ -561,14 +561,14 @@ const isNoticePlay= ref(true);
 const notice = ref([
   {
     news: "관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공 관리자에서 메인 노출 선택한 최대 5개의 새소식 롤링되며 제공",
-    link: "NewsDetail",
+    link: "/NewsDetail",
   },
-  { news: "최대글자수 초과 시 ...처리", link: "NewsDetail" },
-  { news: "선택 시 해당 새소식 상세페이지로 이동", link: "NewsDetail" },
-  { news: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "NewsDetail" },
+  { news: "최대글자수 초과 시 ...처리", link: "/NewsDetail" },
+  { news: "선택 시 해당 새소식 상세페이지로 이동", link: "/NewsDetail" },
+  { news: "제일 마지막 글 노출 후 다시 첫번째글로 루핑", link: "/NewsDetail" },
   {
     news: "새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식새소식",
-    link: "NewsDetail",
+    link: "/NewsDetail",
   },
 ]);
 
@@ -691,14 +691,14 @@ const quickLinks = ref([
     subtitle: "자주 묻는 질문을 찾아보세요.",
     title: "자주 묻는 질문",
     color: "success",
-    link: { path: "News", query: { tab: 1 } }
+    link: "/News/Qna"
   },
   {
     appendIcon: "custom:app-guide",
     subtitle: "앱 사용방법이 궁금하신가요?",
     title: "앱 가이드",
     color: "sky",
-    link: { path: "News", query: { tab: 3 } }
+    link: "/News/Guide"
   },
 ]);
 

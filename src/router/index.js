@@ -11,14 +11,29 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import pages from 'virtual:generated-pages';
 
 const router = createRouter({
-  scrollBehavior(to, savedPosition) {
-    if (to.path.startsWith('/news') && to.query.tab !== undefined) {
-      return false;
-    }
+  scrollBehavior(to, from, savedPosition) {
+    const tabs = [
+      '/News/Notice',
+      '/News/Faq',
+      '/News/Qna',
+      '/News/Guide',
+    ];
 
-    if (savedPosition) {
+     if (savedPosition) {
       return savedPosition;
     }
+
+    const fromIsTab = tabs.includes(from.path);
+    const toIsTab = tabs.includes(to.path);
+
+    if (fromIsTab && toIsTab) {
+    return false;
+  }
+
+    if (toIsTab) {
+      return { top: 0 };
+    }
+
     return { top: 0 };
   },
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -148,7 +148,7 @@
       <v-btn
         color="info"
         size="x-large"
-        to="Community"
+        to="/Community"
       >
         취소
       </v-btn>

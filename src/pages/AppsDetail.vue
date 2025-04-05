@@ -6,7 +6,7 @@
       <v-card
         class="top-banner-info"
         rounded="0"
-      > 
+      >
         <v-card-item>
           <div class="top-banner-title">
             <v-img
@@ -28,7 +28,7 @@
               {{ topbanner.title }}
             </v-card-title>
           </div>
-          
+
           <v-card-text>
             {{ topbanner.description }}
             <p class="version">
@@ -58,7 +58,7 @@
             >
               신청 대기중
             </v-btn>
-            
+
             <v-btn
               size="x-large"
               color="info"
@@ -748,7 +748,7 @@ const checkScrollPosition = () => {
 
 const appsRecommend = ref([
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "1공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -761,7 +761,7 @@ const appsRecommend = ref([
     likeCount: 999,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "2공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -774,7 +774,7 @@ const appsRecommend = ref([
     likeCount: 0,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "3공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -786,7 +786,7 @@ const appsRecommend = ref([
     likeCount: 555,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "4공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
     subtitle: "총무형",
     badges: [
@@ -799,7 +799,7 @@ const appsRecommend = ref([
     likeCount: 999,
   },
   {
-    link: "AppsDetail",
+    link: "/AppsDetail",
     title: "5공통총무알리미",
     subtitle: "총무형",
     badges: [
