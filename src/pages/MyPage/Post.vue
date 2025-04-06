@@ -37,6 +37,7 @@
     <v-window
       v-model="mySubTab"
       class="tab-container"
+      :touch="false"
     >
       <v-window-item
         v-for="(item, i) in tabItem"

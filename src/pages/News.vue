@@ -124,7 +124,16 @@ watch(
   },
   { immediate: true }
 );
-
+watch(
+  () => tab.value,
+  (newTab) => {
+    if (tabItem.value[newTab]) {
+      router.push(tabItem.value[newTab].link).catch((err) => {
+        console.error("Router push error:", err);
+      });
+    }
+  }
+);
 function onTabChange(newTab) {
   if (tabItem.value[newTab]) {
     router.push(tabItem.value[newTab].link).catch((err) => {
