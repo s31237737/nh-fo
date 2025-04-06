@@ -37,7 +37,7 @@
         @click="onTabChange(i)"
       />
     </v-tabs>
-    <!-- 마이페이지 라우터 -->
+    <!-- 마이페이지 컨텐츠 -->
     <v-window
       v-model="tab"
       class="tab-container"
