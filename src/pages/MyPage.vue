@@ -1,5 +1,6 @@
 <template>
   <v-container class="inner my-page">
+    <!-- 마이페이지 탭 -->
     <v-list
       v-if="isDesktop"
       v-model="tab"
@@ -36,6 +37,7 @@
         @click="onTabChange(i)"
       />
     </v-tabs>
+    <!-- 마이페이지 라우터 -->
     <v-window
       v-model="tab"
       class="tab-container"
