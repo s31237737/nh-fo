@@ -124,6 +124,7 @@ watch(
   },
   { immediate: true }
 );
+
 watch(
   () => tab.value,
   (newTab) => {
@@ -134,6 +135,7 @@ watch(
     }
   }
 );
+
 function onTabChange(newTab) {
   if (tabItem.value[newTab]) {
     router.push(tabItem.value[newTab].link).catch((err) => {
