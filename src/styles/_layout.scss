@@ -641,17 +641,27 @@
     .my-page {
       margin-top: 0 !important;
       flex-direction: column;
-       gap: 22px;
+      gap: 22px;
       .v-tabs {
+        z-index: 1;
         position: sticky;
-        top: 0;
-        --v-tabs-height: 44px;
+        top: 56px;
         margin: 0 -20px;
-        .v-slide-group__container {
-          flex: none;
-        }
+        background: $white;
+        --v-tabs-height: 44px;
+        border-top: thin solid $gray-400;
         .v-slide-group__content {
           padding: 0;
+          .v-tab {
+            flex: 1;
+            color: $gray-700;
+            font-size: 0.75rem;
+            font-weight: 400;
+            &-item--selected {
+              color: $black;
+              font-weight: 600;
+            }
+          }
         }
       }
     }
