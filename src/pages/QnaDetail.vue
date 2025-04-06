@@ -2,7 +2,7 @@
   <v-container class="inner">
     <!-- 타이틀 -->
     <div class="tit-wrap column">
-      <strong class="title-4-bd">[공지] NH총무알리비 서비스 앱 개선 공지 (24.6.20(목) 18:00~24:00)</strong>
+      <strong class="title-4-bd">앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?</strong>
       <div class="info">
         <span>김농협</span>
         <div class="details-bar">
