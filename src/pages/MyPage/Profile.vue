@@ -1,11 +1,12 @@
 <template>
   <div class="my-profile">
+    <!-- 프로필 -->
     <v-sheet>
       <v-btn
         size="100"
         icon="custom:edit-blue"
         class="edit-profile"
-        @click="openPopup = true"
+        @click="openPopup01 = true"
       >
         <v-avatar size="100">
           <v-img
@@ -15,7 +16,7 @@
         </v-avatar>
       </v-btn>
     </v-sheet>
-
+    <!-- 정보 -->
     <v-sheet>
       <dl class="profile-info">
         <dt>이름</dt>
@@ -35,12 +36,13 @@
             append-icon="custom:select"
             :ripple="false"
             :width="isDesktop? '387' : '100%'"
+            @click="openPopup02 = true"
           >
-            전체
+            직무명
           </v-btn>
         </dd>
         <v-divider />
-        <dt>내 직무</dt>
+        <dt>관심 직무</dt>
         <dd>
           <p class="details-bar">
             <span>직무명 1 세부직무명 1</span>
@@ -55,8 +57,9 @@
             append-icon="custom:select"
             :ripple="false"
             :width="isDesktop? '387' : '100%'"
+            @click="openPopup03 = true"
           >
-            전체
+            직무명
           </v-btn>
         </dd>
         <v-divider />
@@ -79,7 +82,15 @@
   </div>
 
   <!-- 프로필 수정 팝업 -->
-  <PopupProfileImage v-model="openPopup" />
+  <PopupProfileImage v-model="openPopup01" />
+  <PopupJobSelect
+    v-model="openPopup02"
+    title="내 직무선택"
+  />
+  <PopupJobSelect
+    v-model="openPopup03"
+    title="관심 직무선택"
+  />
   <!-- 변경사항 저장 -->
   <v-dialog
     v-model="alert"
@@ -145,10 +156,13 @@
 <script setup>
 import { ref, computed, inject } from "vue";
 import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
+import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
 
 const isDesktop = inject("isDesktop");
 
-const openPopup = ref(false);
+const openPopup01 = ref(false);
+const openPopup02 = ref(false);
+const openPopup03 = ref(false);
 const alert = ref(false);
 const isSave = ref(false);
 

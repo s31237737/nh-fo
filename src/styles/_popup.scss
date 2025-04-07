@@ -190,8 +190,8 @@ $popup-base-margin: 20px;
   }
   .checklist.v-list {
     flex: 1;
-    max-height: 268px;
-    padding: 20px 10px 32px;
+    max-height: 390px;
+    padding: 20px 10px;
     border: 1px solid $gray-400;
     .v-list-item {
       grid-template-columns: max-content 1fr 59px;
