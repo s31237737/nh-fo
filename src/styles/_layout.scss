@@ -680,6 +680,9 @@
         margin: 6px 0 12px;
       }
     }
+    .page-actions {
+      margin-top: 104px;
+    }
   }
   @at-root .mobile, .tablet {
     .my-page {
@@ -722,8 +725,11 @@
             background: none;
           }
         }
-        .page-actions > .v-btn {
-          flex: none;
+        .page-actions {
+          margin-top: 40px;
+          > .v-btn {
+            flex: none;
+          }
         }
       }
     }
