@@ -640,12 +640,23 @@
   }
   .my-profile {
     overflow: hidden;
+    display: flex;
     border-radius: $base-radius;
     background: $white;
     .edit-profile {
       &::before {
         width: 32px;
         height: 32px;
+      }
+    }
+    .v-sheet {
+      flex: 1;
+      padding: 50px 40px;
+      &:first-child {
+        flex: none;
+        width: 208px;
+        background: $gray-100;
+        text-align: center;
       }
     }
   }
@@ -678,6 +689,21 @@
       }
       .inner {
         padding: 0;
+      }
+      .my-profile {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+         .v-sheet {
+          padding: 0;
+          &:first-child {
+            width: auto;
+            background: none;
+          }
+        }
+        .page-actions > .v-btn {
+          flex: none;
+        }
       }
     }
   }

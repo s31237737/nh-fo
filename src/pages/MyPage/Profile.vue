@@ -17,7 +17,14 @@
     </v-sheet>
 
     <v-sheet>
-      두 번째 카드
+      <div class="page-actions">
+        <v-btn
+          color="primary"
+          size="x-large"
+        >
+          변경사항 저장
+        </v-btn>
+      </div>
     </v-sheet>
   </div>
 </template>
