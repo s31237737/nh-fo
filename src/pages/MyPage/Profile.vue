@@ -1,24 +1,25 @@
 <template>
-  <v-row no-gutters>
-    <v-col
-      cols="12"
-      lg="3"
-      class="flex-none"
-    >
-      <v-sheet class="pa-4">
-        첫 번째 카드
-      </v-sheet>
-    </v-col>
+  <div class="my-profile">
+    <v-sheet>
+      <v-btn
+        to="/MyPage/Profile"
+        size="100"
+        icon="custom:edit-blue"
+        class="edit-profile"
+      >
+        <v-avatar size="100">
+          <v-img
+            src="@/assets/images/img_avatar01.jpg"
+            alt="profile"
+          />
+        </v-avatar>
+      </v-btn>
+    </v-sheet>
 
-    <v-col
-      cols="12"
-      lg="9"
-    >
-      <v-sheet class="pa-4">
-        두 번째 카드
-      </v-sheet>
-    </v-col>
-  </v-row>
+    <v-sheet>
+      두 번째 카드
+    </v-sheet>
+  </div>
 </template>
 
 <script setup>

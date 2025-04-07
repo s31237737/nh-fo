@@ -637,8 +637,16 @@
   .tab-container {
     width: 100%;
     flex: 1;
-    .flex-none {
-      width: 208px;
+  }
+  .my-profile {
+    overflow: hidden;
+    border-radius: $base-radius;
+    background: $white;
+    .edit-profile {
+      &::before {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
   @at-root .mobile, .tablet {
