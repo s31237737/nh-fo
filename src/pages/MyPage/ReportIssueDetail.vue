@@ -5,8 +5,8 @@
       <strong class="title-4-bd">앱 업데이트 후 어떤 후속 조치가 있을 예정인가요? 결과는 어떻게 공유되나요?</strong>
       <div class="info">
         <div class="details-bar">
-          <span>조회수 : 6</span>
-          <span> 앱 이름 : 육묘대장</span>
+          <span>앱 사용시 불편사항</span>
+          <span>앱 이름 : 육묘대장</span>
         </div>
         <span>2024.06.13</span>
       </div>
