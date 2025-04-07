@@ -682,7 +682,7 @@
       }
       .details-bar {
         flex-wrap: wrap;
-        row-gap: 12px;
+        row-gap: 6px;
         margin-bottom: 16px;
       }
     }
@@ -731,6 +731,9 @@
             width: auto;
             background: none;
           }
+        }
+         .v-divider {
+          margin: 12px 0;
         }
         .page-actions {
           margin-top: 40px;
