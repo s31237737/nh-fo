@@ -92,17 +92,17 @@ $green-1000: #004714;
 }
 .details-bar {
   display: flex;
-  gap: 21px;
   align-items: center;
   span {
     position: relative;
     display: inline-flex;
-    &:not(:first-child) {
+    padding-right: 21px;
+    &:not(:only-child):not(:last-child)  {
       &::after {
         content: '';
         position: absolute;
         top: 50%;
-        left: -10px;
+        right: 10px;
         width: 1px;
         height: 12px;
         transform: translateY(-50%);

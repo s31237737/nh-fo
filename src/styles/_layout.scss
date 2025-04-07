@@ -678,6 +678,12 @@
       }
       .v-divider {
         margin: 6px 0 12px;
+        color: $gray-300;
+      }
+      .details-bar {
+        flex-wrap: wrap;
+        row-gap: 12px;
+        margin-bottom: 16px;
       }
     }
     .page-actions {
@@ -696,7 +702,8 @@
         margin: 0 -20px;
         background: $white;
         --v-tabs-height: 44px;
-        border-top: thin solid $gray-400;
+        border-top: thin solid #f5f5f5;
+        border-bottom: thin solid $gray-400;
         .v-slide-group__content {
           padding: 0;
           .v-tab {

@@ -373,11 +373,11 @@ section + section {
     .info {
       flex-wrap: wrap;
       @extend .details-bar;
-      gap: 9px;
+      padding-right: 9px;
       span {
         &:not(:first-child) {
           &::after {
-            left: -4px;
+            right: 4px;
             height: 10px;
             background-color: $black;
           }

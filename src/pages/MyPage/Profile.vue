@@ -20,10 +20,10 @@
       <dl class="profile-info">
         <dt>이름</dt>
         <dd>김농협</dd>
-        <v-divider color="secondary" />
+        <v-divider />
         <dt>소속 사무소</dt>
         <dd>사무소명</dd>
-        <v-divider color="secondary" />
+        <v-divider />
         <dt>내 직무</dt>
         <dd>
           <p class="details-bar">
@@ -39,10 +39,12 @@
             전체
           </v-btn>
         </dd>
-        <v-divider color="secondary" />
+        <v-divider />
         <dt>내 직무</dt>
         <dd>
           <p class="details-bar">
+            <span>직무명 1 세부직무명 1</span>
+            <span>직무명 1 세부직무명 1</span>
             <span>직무명 1 세부직무명 1</span>
             <span>직무명 1 세부직무명 1</span>
             <span>직무명 1 세부직무명 1</span>
@@ -57,10 +59,10 @@
             전체
           </v-btn>
         </dd>
-        <v-divider color="secondary" />
+        <v-divider />
         <dt>이메일</dt>
         <dd>nonghyup@gmail.com</dd>
-        <v-divider color="secondary" />
+        <v-divider />
         <dt>휴대전화</dt>
         <dd>010-1234-5678</dd>
       </dl>
