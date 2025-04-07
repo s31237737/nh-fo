@@ -26,7 +26,16 @@
         <v-divider color="secondary" />
         <dt>내 직무</dt>
         <dd>
-          
+          <v-btn
+            class="btn-selectJob"
+            variant="outlined"
+            append-icon="custom:select"
+            :ripple="false"
+            :width="isDesktop? '387' : '100%'"
+            height="48"
+          >
+            전체
+          </v-btn>
         </dd>
         <v-divider color="secondary" />
         <dt>이메일</dt>
@@ -114,6 +123,8 @@
 <script setup>
 import { ref, computed, inject } from "vue";
 import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
+
+const isDesktop = inject("isDesktop");
 
 const openPopup = ref(false);
 const alert = ref(false);
