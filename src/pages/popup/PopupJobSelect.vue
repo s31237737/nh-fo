@@ -44,12 +44,14 @@
         <v-btn
           color="info"
           size="large"
+          @click="resetSelection"
         >
           초기화
         </v-btn>
         <v-btn
           color="primary"
           size="large"
+          @click="emit('update:modelValue', false)"
         >
           적용
         </v-btn>
@@ -72,7 +74,7 @@
   });
   const emit = defineEmits(['update:modelValue']);
 
-  const settingsSelection = ref(['job2']);
+  const settingsSelection = ref(['job1','job2']);
   const settingsItems = [
     { value: 'job1', title: '총무', disabled: true },
     { value: 'job2', title: '기획', disabled: true },
@@ -83,4 +85,10 @@
     { value: 'job7', title: '마트' },
     { value: 'job8', title: '기타' },
   ]
+
+  function resetSelection() {
+    settingsSelection.value = settingsItems
+      .filter(item => item.disabled)
+      .map(item => item.value);
+  }
 </script>
