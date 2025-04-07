@@ -2,10 +2,10 @@
   <div class="my-profile">
     <v-sheet>
       <v-btn
-        to="/MyPage/Profile"
         size="100"
         icon="custom:edit-blue"
         class="edit-profile"
+        @click="openPopup = true"
       >
         <v-avatar size="100">
           <v-img
@@ -28,6 +28,9 @@
       </div>
     </v-sheet>
   </div>
+
+  <!-- 프로필 수정 팝업 -->
+  <PopupProfileImage v-model="openPopup" />
   <!-- 변경사항 저장 -->
   <v-dialog
     v-model="alert"
@@ -92,6 +95,10 @@
 
 <script setup>
 import { ref, computed, inject } from "vue";
+import PopupProfileImage from '@/pages/popup/PopupProfileImage.vue';
+
+const openPopup = ref(false);
 const alert = ref(false);
 const isSave = ref(false);
+
 </script>
