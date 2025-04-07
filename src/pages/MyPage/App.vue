@@ -1,6 +1,6 @@
 <template>
   <div class="my-app">
-    <v-sheet>
+    <v-sheet class="w-box">
       <div class="tit-wrap">
         <strong class="title-5-bd">
           사용중인 앱
@@ -19,7 +19,7 @@
         </div>
       </div>
     </v-sheet>
-    <v-sheet>
+    <v-sheet class="w-box">
       <div class="tit-wrap">
         <strong class="title-5-bd">
           신청대기 앱

@@ -699,6 +699,12 @@
       margin-top: 50px;
     }
   }
+  .my-app {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .w-box {margin-top: 0;}
+  }
   @at-root .mobile, .tablet {
     .my-page {
       margin-top: 0 !important;
