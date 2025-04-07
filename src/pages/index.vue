@@ -411,7 +411,7 @@
               md="6"
             >
               <v-card
-                to="/"
+                to="/Community"
                 color="coolgray"
                 :height="isDesktop ? '136': '140'"
               >
