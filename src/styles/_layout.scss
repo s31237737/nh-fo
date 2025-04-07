@@ -613,6 +613,7 @@
 .my-page {
   display: flex;
   gap: 56px;
+  margin-top: 40px !important;
   .my-page-lnb {
     display: flex;
     flex-direction: column;
@@ -636,6 +637,9 @@
   .tab-container {
     width: 100%;
     flex: 1;
+    .flex-none {
+      width: 208px;
+    }
   }
   @at-root .mobile, .tablet {
     .my-page {
