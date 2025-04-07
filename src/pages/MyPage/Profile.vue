@@ -17,6 +17,24 @@
     </v-sheet>
 
     <v-sheet>
+      <dl>
+        <dt>이름</dt>
+        <dd>김농협</dd>
+        <v-divider color="secondary" />
+        <dt>소속 사무소</dt>
+        <dd>사무소명</dd>
+        <v-divider color="secondary" />
+        <dt>내 직무</dt>
+        <dd>
+          
+        </dd>
+        <v-divider color="secondary" />
+        <dt>이메일</dt>
+        <dd>nonghyup@gmail.com</dd>
+        <v-divider color="secondary" />
+        <dt>휴대전화</dt>
+        <dd>010-1234-5678</dd>
+      </dl>
       <div class="page-actions">
         <v-btn
           color="primary"

@@ -374,30 +374,6 @@
         }
       }
     }
-    &.btn-selectJob {
-      --v-btn-height: 44px;
-      min-width: 100px;
-      padding-inline: 16px 12px;
-      border: thin solid $gray-500;
-      background: transparent;
-      font-weight: 400;
-      justify-content: flex-start;
-      grid-template-columns: max-content 1fr auto;
-      .v-btn__content {
-        justify-content: left;
-      }
-      .v-btn__append {
-        margin-inline: 0;
-        height: 44px;
-        .v-icon {
-          font-size: 21px;
-          margin-left: 0;
-        }
-      }
-      &:hover {
-        border-color: $gray-700 !important;
-      }
-    }
   }
   @at-root .mobile, .tablet {
     .apps-search-wrap {
