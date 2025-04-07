@@ -368,7 +368,7 @@
     <!-- select -->
     <v-divider class="mt-5 pt-5" />
     <div>
-      <v-form class="d-flex gutter">
+      <v-form class="gutter">
         <v-select
           v-model="select"
           density="default"
