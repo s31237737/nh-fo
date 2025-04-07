@@ -26,7 +26,7 @@
         <v-divider color="secondary" />
         <dt>내 직무</dt>
         <dd>
-          <p>
+          <p class="details-bar">
             <span>직무명 1 세부직무명 1</span>
           </p>
           <v-btn
@@ -42,7 +42,7 @@
         <v-divider color="secondary" />
         <dt>내 직무</dt>
         <dd>
-          <p>
+          <p class="details-bar">
             <span>직무명 1 세부직무명 1</span>
             <span>직무명 1 세부직무명 1</span>
             <span>직무명 1 세부직무명 1</span>
