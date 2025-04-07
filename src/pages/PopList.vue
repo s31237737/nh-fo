@@ -64,6 +64,13 @@
       >
         모바일로 앱 열기
       </v-btn> -->
+      <v-btn
+        size="small"
+        color="primary"
+        @click="alert07 = true"
+      >
+        변경사항 저장
+      </v-btn>
     </div>
 
     <!-- dialog -->
@@ -385,6 +392,67 @@
     </v-card>
   </v-dialog> -->
 
+  <!-- 변경사항 저장 -->
+  <v-dialog
+    v-model="alert07"
+    class="popup-sm"
+    @after-leave="isSave = false"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert07 = false"
+        />
+      </v-card-title>
+      <v-card-text>
+        <!-- dialog contents -->
+        <template v-if="!isSave">
+          <v-icon icon="custom:warning" />
+          <strong class="title-5-bd">변경사항 저장</strong>
+          <p class="text-4">
+            변경사항을 저장하시겠습니까?
+          </p>
+        </template>
+        <template v-else>
+          <v-icon icon="custom:complete" />
+          <strong class="title-5-bd">저장 완료</strong>
+          <p class="text-4">
+            변경사항 저장이 완료되었습니다.
+          </p>
+        </template>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <template v-if="!isSave">
+          <v-btn
+            color="info"
+            size="large"
+            @click="alert07 = false"
+          >
+            취소
+          </v-btn>
+          <v-btn
+            color="primary"
+            size="large"
+            @click="isSave = true"
+          >
+            확인
+          </v-btn>
+        </template>
+        <v-btn
+          v-else
+          color="primary"
+          size="large"
+          @click="alert07 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
   <!-- popup -->
   <component
     :is="popup.component"
@@ -409,6 +477,10 @@ import { ref,shallowRef  } from 'vue';
   const alert05 = ref(false);
   // const alert06 = ref(false);
   // const alertQr = ref({ img: '@temp_img_QR.png'});
+  const alert07 = ref(false);
+  const isSave = ref(false);
+
+
 
   import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
   import PopupJobSelect from '@/pages/popup/PopupJobSelect.vue';
@@ -445,9 +517,9 @@ import { ref,shallowRef  } from 'vue';
     { name: 'PopupReportIssue', label: '불편사항 신고하기', component: shallowRef(PopupReportIssue) },
     { name: 'PopupJobSelect', label: '직무 선택', component: shallowRef(PopupJobSelect) },
     {
-      name: 'PopupAppsImages', 
-      label: '동영상 튜토리얼 모달', 
-      component: shallowRef(PopupAppsImages), 
+      name: 'PopupAppsImages',
+      label: '동영상 튜토리얼 모달',
+      component: shallowRef(PopupAppsImages),
       props: { sliders, selectedIndex }
     },
     { name: 'PopupProfileImage', label: '프로필 이미지 변경', component: shallowRef(PopupProfileImage) },

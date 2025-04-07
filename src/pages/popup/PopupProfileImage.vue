@@ -3,6 +3,7 @@
     :model-value="modelValue"
     class="popup"
     @update:model-value="emit('update:modelValue', $event)"
+    @after-leave="tab = 0; isImageSelected = false"
   >
     <v-card class="cropper-wrap">
       <v-card-title>
@@ -117,38 +118,38 @@
         />
       </v-card-text>
       <v-card-actions>
-        <v-btn
-          v-if="!isImageSelected"
-          color="info"
-          size="large"
-          @click="emit('update:modelValue', false)"
-        >
-          취소
-        </v-btn>
-        <v-btn
-          v-else
-          color="info"
-          size="large"
-          @click="isImageSelected = false"
-        >
-          이전
-        </v-btn>
-        <v-btn
-          v-if="isImageSelected"
-          color="primary"
-          size="large"
-          @click="crop"
-        >
-          저장하기
-        </v-btn>
-        <v-btn
-          v-else
-          color="primary"
-          size="large"
-          @click="emit('update:modelValue', false)"
-        >
-          저장하기
-        </v-btn>
+        <template v-if="!isImageSelected">
+          <v-btn
+            color="info"
+            size="large"
+            @click="emit('update:modelValue', false)"
+          >
+            취소
+          </v-btn>
+          <v-btn
+            color="primary"
+            size="large"
+            @click="emit('update:modelValue', false)"
+          >
+            저장하기
+          </v-btn>
+        </template>
+        <template v-else>
+          <v-btn
+            color="info"
+            size="large"
+            @click="isImageSelected = false"
+          >
+            이전
+          </v-btn>
+          <v-btn
+            color="primary"
+            size="large"
+            @click="crop"
+          >
+            저장하기
+          </v-btn>
+        </template>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -250,7 +251,4 @@ const crop = async () => {
     console.error("cropperRef is not initialized.");
   }
 };
-
-
-
 </script>
