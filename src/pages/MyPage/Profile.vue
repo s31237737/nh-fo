@@ -17,7 +17,7 @@
     </v-sheet>
 
     <v-sheet>
-      <dl>
+      <dl class="profile-info">
         <dt>이름</dt>
         <dd>김농협</dd>
         <v-divider color="secondary" />
@@ -26,13 +26,33 @@
         <v-divider color="secondary" />
         <dt>내 직무</dt>
         <dd>
+          <p>
+            <span>직무명 1 세부직무명 1</span>
+          </p>
           <v-btn
             class="btn-selectJob"
             variant="outlined"
             append-icon="custom:select"
             :ripple="false"
             :width="isDesktop? '387' : '100%'"
-            height="48"
+          >
+            전체
+          </v-btn>
+        </dd>
+        <v-divider color="secondary" />
+        <dt>내 직무</dt>
+        <dd>
+          <p>
+            <span>직무명 1 세부직무명 1</span>
+            <span>직무명 1 세부직무명 1</span>
+            <span>직무명 1 세부직무명 1</span>
+          </p>
+          <v-btn
+            class="btn-selectJob"
+            variant="outlined"
+            append-icon="custom:select"
+            :ripple="false"
+            :width="isDesktop? '387' : '100%'"
           >
             전체
           </v-btn>

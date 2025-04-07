@@ -659,6 +659,27 @@
         text-align: center;
       }
     }
+    .btn-selectJob {
+      --v-btn-height: 48px;
+      .v-btn__overlay {
+        opacity: 0;
+      }
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      dt {
+        @extend .caption-2;
+        color: #545454;
+      }
+      dd {
+        @extend .text-3;
+      }
+      .v-divider {
+        margin: 6px 0 12px;
+      }
+    }
   }
   @at-root .mobile, .tablet {
     .my-page {
