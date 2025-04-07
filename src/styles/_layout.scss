@@ -690,6 +690,15 @@
       margin-top: 104px;
     }
   }
+  .v-empty-state {
+    &__media {
+     display: none;
+    }
+    &__actions {
+      padding: 0;
+      margin-top: 50px;
+    }
+  }
   @at-root .mobile, .tablet {
     .my-page {
       margin-top: 0 !important;

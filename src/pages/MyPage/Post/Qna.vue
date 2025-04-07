@@ -58,14 +58,27 @@
     :items-per-page="itemsPerPage"
   />
 
-  <!-- 검색어 없을 경우 -->
+  <!-- 게시글 없을 경우 -->
   <v-empty-state
     v-else
-    :height="isDesktop ? '526': '440'"
-    text="‘농협' 검색결과가 없습니다."
-    icon="custom:warning"
-    size="60"
-  />
+    :height="isDesktop ? '490': '360'"
+    icon="null"
+  >
+    <template #text>
+      <div class="text-2-md text-quaternary">
+        작성된 게시물이 없습니다.
+      </div>
+    </template>
+    <template #actions>
+      <v-btn
+        color="primary"
+        size="x-large"
+        to="/News/Qna"
+      >
+        Q&amp;A 보러가기
+      </v-btn>
+    </template>
+  </v-empty-state>
 </template>
 
 <script setup>

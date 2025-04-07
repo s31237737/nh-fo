@@ -26,10 +26,11 @@
         </v-slide-group-item>
       </v-slide-group>
       <v-btn
-        v-if="mySubTab === 2"
+        v-if="mySubTab === 2 && boardLength > 0"
         color="info"
         size="large"
         class="ml-auto"
+        @click="openPopup = true"
       >
         불편신고 작성하기
       </v-btn>
@@ -45,33 +46,29 @@
         :value="i"
         :transition="false"
       >
-        <router-view />
+        <router-view @update:board-length="boardLength = $event" />
       </v-window-item>
     </v-window>
   </v-container>
   <!-- // 탭 영역 -->
+  <!-- 불편신고 팝업 -->
+  <PopupReportIssue v-model="openPopup" />
 </template>
 
 <script setup>
-import { ref, watch, inject } from "vue";
+import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import PopupReportIssue from "@/pages/popup/PopupReportIssue.vue";
 
 
-
-
-const isDesktop = inject("isDesktop");
-
-const search = ref("");
-const onAppendClick = () => {
-  alert("Append icon clicked!");
-};
-
+const openPopup = ref(false);
 
 // 탭 처리
 const route = useRoute();
 const router = useRouter();
 
 const mySubTab = ref(0);
+const boardLength = ref(0);//퍼블용
 
 const tabItem = ref([
   { btn: "Q&A", link: "/MyPage/Post/Qna" },
