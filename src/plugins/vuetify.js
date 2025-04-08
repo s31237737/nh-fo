@@ -162,7 +162,7 @@ export default createVuetify({
         VBtn: { variant: "flat" },
       },
       VList: {
-        selectStrategy: "ultiple",
+        selectStrategy: "multiple",
         rounded: "lg"
       },
       VListItem: {

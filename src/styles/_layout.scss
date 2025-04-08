@@ -705,6 +705,14 @@
     gap: 20px;
     .w-box {
       margin-top: 0;
+      .tit-wrap {
+        align-items: center;
+        .action {
+          display: flex;
+          gap: 12px;
+          margin-left: 12px;
+        }
+      }
     }
     .app-list {
       display: flex;
@@ -715,21 +723,30 @@
       .v-list-item {
         padding: 0;
         width: 270px;
-        &-title {
-          @extend .text-3-md;
-          color: $gray-800;
+        &:has(.v-checkbox-btn){
+          padding-right: 20px;
         }
         &__prepend {
+          margin-right: 18px;
           .img {
             padding: 14px;
             border: thin solid $gray-300;
-            border-radius: 6px;
+            border-radius: $base-radius;
+            .v-img {
+              width: 50px;
+            }
+          }
+          .v-list-item-action {
+            position: absolute;
+            top: 0;
+            right: 0;
           }
         }
-        &-action {
-          position: absolute;
-          top: 0;
-          right: 0;
+        &__content {
+          .v-list-item-title {
+            margin-bottom: 10px;
+            @extend .text-4-md;
+          }
         }
       }
     }
@@ -787,13 +804,64 @@
         }
       }
       .my-app {
+        .tit-wrap {
+          gap: 8px;
+          .btns {
+            gap: 8px;
+          }
+          .action {
+            margin-left: 0;
+            gap: 8px;
+          }
+          .v-select {
+            flex: none;
+          }
+        }
         .app-list {
           flex-direction: column;
           gap: 12px;
           .v-list-item {
             width: 100%;
-            &-action {
-              position: static;
+            &:has(.v-checkbox-btn){
+              padding-right: 0;
+            }
+            &__prepend {
+              margin-right: 14px;
+              .img {
+                padding: 4px;
+                .v-img {
+                  width: 54px;
+                }
+              }
+              .v-list-item-action {
+                position: static;
+                margin-right: 10px;
+              }
+            }
+            &__content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 6px;
+              .v-list-item-title {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @at-root .mobile {
+    .my-page {
+      .my-app {
+        .w-box {
+          .tit-wrap {
+            flex-wrap: wrap !important;
+            gap: 12px;
+            .action {
+              justify-content: flex-end;
+              width: 100%;
             }
           }
         }
