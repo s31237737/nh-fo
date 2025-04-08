@@ -416,21 +416,6 @@
           </v-card>
         </div>
       </div>
-      <div
-        v-if="isMobile"
-        class="apps-list-more"
-      >
-        <v-btn
-          v-if="appsRecommend.length"
-          variant="text"
-          density="compact"
-          append-icon="custom:arrow-down"
-          color="quaternary"
-          :ripple="false"
-        >
-          더보기
-        </v-btn>
-      </div>
     </section>
   </v-container>
 
