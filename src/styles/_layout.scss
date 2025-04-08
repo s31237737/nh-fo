@@ -723,16 +723,18 @@
       .v-list-item {
         padding: 0;
         width: 270px;
-        &-title {
-          @extend .text-3-md;
-          color: $gray-800;
+        &:has(.v-checkbox-btn){
+          padding-right: 20px;
         }
         &__prepend {
           margin-right: 18px;
           .img {
             padding: 14px;
             border: thin solid $gray-300;
-            border-radius: 6px;
+            border-radius: $base-radius;
+            .v-img {
+              width: 50px;
+            }
           }
           .v-list-item-action {
             position: absolute;
@@ -741,7 +743,10 @@
           }
         }
         &__content {
-
+          .v-list-item-title {
+            margin-bottom: 10px;
+            @extend .text-4-md;
+          }
         }
       }
     }
@@ -817,11 +822,31 @@
           gap: 12px;
           .v-list-item {
             width: 100%;
-             &__prepend {
-               .v-list-item-action {
-                 position: static;
-               }
-             }
+            &:has(.v-checkbox-btn){
+              padding-right: 0;
+            }
+            &__prepend {
+              margin-right: 14px;
+              .img {
+                padding: 4px;
+                .v-img {
+                  width: 54px;
+                }
+              }
+              .v-list-item-action {
+                position: static;
+                margin-right: 10px;
+              }
+            }
+            &__content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 6px;
+              .v-list-item-title {
+                margin-bottom: 0;
+              }
+            }
           }
         }
       }

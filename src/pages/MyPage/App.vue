@@ -57,7 +57,6 @@
             </v-list-item-action>
             <div class="img">
               <v-img
-                :width="50"
                 :src="getImageUrl(item.image)"
               />
             </div>
