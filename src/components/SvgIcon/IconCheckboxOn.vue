@@ -1,21 +1,19 @@
 <template>
   <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect
-      x="2"
-      y="1.5"
       width="20"
-      height="21"
+      height="20"
       rx="4"
-      fill="#1C1C1C"
+      fill="#1E1E1E"
     />
     <path
-      d="M16.3333 9.5L9.91667 15.9167L7 13"
+      d="M14.3333 7L7.91667 13.4167L5 10.5"
       stroke="#FEFEFE"
       stroke-width="2"
       stroke-linecap="round"

@@ -1,27 +1,26 @@
 <template>
   <svg
-    width="24"
-    height="24"
-    style=""
-    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect
-      x="2.5"
-      y="2.5"
+      x="0.5"
+      y="0.5"
       width="19"
       height="19"
       rx="3.5"
-      fill="#FAFAFA"
+      fill="#F3F4F9"
     />
     <rect
-      x="2.5"
-      y="2.5"
+      x="0.5"
+      y="0.5"
       width="19"
       height="19"
       rx="3.5"
-      stroke="#C2C2C2"
+      stroke="#D5D7DE"
     />
   </svg>
 </template>
