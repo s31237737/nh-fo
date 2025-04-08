@@ -857,22 +857,10 @@
       margin-top: 40px;
       padding: 0;
       min-height: auto;
-      .v-btn:not(.v-btn--variant-text) {
-        margin-left: 12px;
-      }
+      .v-col { display: flex; gap: 12px; }
+      .v-col:last-child { justify-content: end; }
       .v-btn--variant-text {
         @extend .caption-3;
-      }
-      .v-btn--variant-text  + .v-btn--variant-text {
-        margin-left: 12px;
-      }
-    }
-    @at-root .mobile, .tablet {
-      .feed-item.v-card {
-        padding-bottom: 20px;
-        .editor-wrap {
-          max-height: 240px;
-        }
       }
     }
   }
@@ -927,32 +915,72 @@
       margin-inline: 0 4px !important;
     }
   }
-}
-
-.feed-fileList {
-  overflow: hidden;
-  background: $gray-200;
-  border-radius: $base-radius;
-  margin-bottom: 50px;
-  padding: 50px 40px;
   @at-root .mobile, .tablet {
-    .feed-fileList {
-      margin-bottom: 20px;
-      padding: 20px;
+    .feed-item.v-card {
+      padding-bottom: 20px;
+      .editor-wrap {
+        max-height: 240px;
+      }
     }
   }
 }
 
 .feed-comment {
-  padding-inline: 10px;
   border-top: thin solid $gray-300;
-  .title {
-    padding-block: 30px;
+  & > div:not(.comment-list) {
+    padding-inline: 10px;
+  }
+  .comment-title {
+    margin-block: 30px !important;
+    min-height: 38px;
     .count { @extend .text-4; }
+  }
+  .comment-write {
+    padding-block: 20px;
+    .textarea-wrap{
+      padding: 20px;
+      border: thin solid $gray-400;
+      border-radius: 8px;
+      background: $white;
+      textarea { 
+        padding: 12px 0 0; 
+        color: $gray-900;
+      }
+      .edit-btns { margin-top: 28px; }
+    }
+  }
+
+  .userid { @extend .text-4-md; color: $gray-800; }
+  .context { 
+    padding-top: 12px;
+    @extend .text-4;
+  }
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 8px;
+    .v-btn--variant-text { 
+      font-size: 0.75rem !important;
+      font-weight: 400 !important;
+    }
+    .time > span {
+      display: inline-block;
+      color: $gray-700;
+      font-size: 0.75rem !important;
+      line-height: 1.5rem !important;
+      & + span { margin-left: 8px;}
+    }
+  }
+  .edit-btns {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    margin-top: 4px;
   }
 
   .comment-list {
-    margin: 0 0px;
     li {
       position: relative; 
       &:after {
@@ -968,93 +996,74 @@
       &:last-child:after {
         display:none;
       }
-    }
-    &:not(.depth2) > li {
-      &:after {
-        left: -50px;
-        right: -50px;
+      .comment {
+        padding-block: 30px;
+        padding-inline: 30px;
       }
-      & > .comment {
-        margin-inline: -50px;
-        padding: 30px 50px;
+      .comment-write {
+        padding-block: 20px;
+        padding-inline: 30px;
       }
     }
-    .my > .comment, .my > .comment-write {
+    &:not(.depth2){
+      margin-inline: -40px;
+      & > li {
+        & > .comment, & > .comment-write {
+          padding-inline: 50px;
+        }
+      }
+    }
+    &.depth2 {
+      position: relative;
+      margin-inline: 50px;
+      & > li:last-child .comment-write { padding-bottom: 30px; }
+    }
+    .my > .comment, 
+    .my > .comment-write {
       background: $gray-100;
     }
   }
 
-  .depth2  {
-    position: relative;
-    &:after {
-      content:"";
-      display: block;
-      position: absolute;
-      top:0;
-      left:-50px;
-      right:-50px;
-      height: 0;
-      border-top: thin solid $gray-300;
-    }
-    & > li .comment { padding: 30px; }
-  }
-  
-  .comment-write {
-    margin-inline: -50px;
-    padding: 20px 50px;
-  }
-  .depth2 .comment-write {
-    margin-inline: 0;
-    padding-inline: 30px;
-  }
-
-  
-  .userid { @extend .text-4-md; }
-
-  .comment-txt { 
-      padding-top: 12px;
-      @extend .text-4;
-    }
-
-  .write{
-    padding: 20px;
-    border: thin solid $gray-400;
-    border-radius: 8px;
-    background: $white;
-    textarea { 
-      padding: 12px 0 0; 
-      color: $gray-900;
-    }
-    .comment-btns { margin-top: 28px; }
-  }
-
-  .comment-edit {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 8px;
-    .v-btn--variant-text { 
-      font-size: 0.75rem !important;
-      font-weight: 400 !important;
-    }
-    .info > span {
-      display: inline-block;
-      color: $gray-700;
-      font-size: 0.75rem !important;
-      line-height: 1.5rem !important;
-      & + span { margin-left: 8px;}
+  @at-root .mobile, .tablet {
+    .feed-comment { 
+      & > div:not(.comment-list) {
+        padding-inline: 0;
+      }
+      .comment-list {
+        & > li {
+          .comment { padding-inline: 20px; }
+          .comment-write {
+            margin-inline: 0;
+            padding-inline: 20px;
+          }
+        }
+        &:not(.depth2){
+          margin-inline: -20px;
+          & > li {
+            & > .comment, & > .comment-write {
+              padding-inline: 20px;
+            }
+          }
+        }
+        &.depth2 {
+          margin-inline: 20px;
+        }
+      }
     }
   }
-
-  .comment-btns {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 20px;
-  }
-  .comment {
-    .comment-btns { margin-top: 4px; }
-  }
-
-  
 }
+
+.feed-fileList {
+  overflow: hidden;
+  background: $gray-200;
+  border-radius: $base-radius;
+  margin-bottom: 50px;
+  padding: 50px 40px;
+  @at-root .mobile, .tablet {
+    .feed-fileList {
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+  }
+}
+.feed-comment + .feed-fileList {margin-top: 20px;}
