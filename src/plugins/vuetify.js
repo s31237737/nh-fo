@@ -168,12 +168,6 @@ export default createVuetify({
       VListItem: {
         minHeight: "40",
         ripple: false,
-        VCheckboxBtn: {
-          baseColor: "#c2c2c2",
-          falseIcon: "custom:checkbox-off",
-          trueIcon: "custom:checkbox-on",
-          ripple: false,
-        },
       },
     },
     VSelect: {
@@ -219,6 +213,12 @@ export default createVuetify({
       hideDetails: true,
       falseIcon: "custom:checkbox-off",
       trueIcon: "custom:checkbox-on",
+    },
+    VCheckboxBtn: {
+      baseColor: "#c2c2c2",
+      falseIcon: "custom:checkbox-off",
+      trueIcon: "custom:checkbox-on",
+      ripple: false,
     },
     VRadio: {
       baseColor: "#c2c2c2",

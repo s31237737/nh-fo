@@ -20,6 +20,7 @@
         </div>
       </div>
       <v-list
+        v-model:selected="selection"
         class="app-list"
       >
         <v-list-item
@@ -45,13 +46,10 @@
               앱 열기
             </v-btn>
           </v-list-item-subtitle>
-
-          <template #append>
-            <v-checkbox
-              v-model="item.checked"
-              hide-details
-              density="compact"
-            />
+          <template #append="{ isSelected }">
+            <v-list-item-action>
+              <v-checkbox-btn :model-value="isSelected" />
+            </v-list-item-action>
           </template>
         </v-list-item>
       </v-list>
@@ -86,15 +84,17 @@ const select01 = ref("최근접속순");
 const select02 = ref("최근신청순");
 
 // useApps
+const selection = ref([])
 const useApps = ref([
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png', checked: false },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon02.png', checked: true },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon03.png', checked: true },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon04.png', checked: false },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon05.png', checked: false },
-  { title: '하나로마트 식품 안전', image: '@temp_img_app_icon06.png', checked: true },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png', checked: false },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon08.png', checked: true },
-  { title: 'NH 푸즈', image: '@temp_img_app_icon09.png', checked: false },
+  { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon02.png' },
+  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon03.png' },
+  { title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon05.png'},
+  { title: '하나로마트 식품 안전', image: '@temp_img_app_icon06.png' },
+  { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon08.png' },
+  { title: 'NH 푸즈', image: '@temp_img_app_icon09.png' },
 ])
+
 </script>
