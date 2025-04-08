@@ -55,8 +55,7 @@
   }
   &.bg-secondary {
     &.v-btn--disabled {
-      opacity: 0.7 !important;
-     
+      opacity: 0.6 !important;
       .v-btn__overlay {
         opacity: 0 !important;
       }
