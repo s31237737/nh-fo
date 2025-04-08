@@ -720,12 +720,16 @@
           color: $gray-800;
         }
         &__prepend {
-          padding: 14px;
-          border: thin solid $gray-300;
-          border-radius: 6px;
+          .img {
+            padding: 14px;
+            border: thin solid $gray-300;
+            border-radius: 6px;
+          }
         }
-        &__append {
-          align-self: flex-start;
+        &-action {
+          position: absolute;
+          top: 0;
+          right: 0;
         }
       }
     }
@@ -779,6 +783,18 @@
           margin-top: 40px;
           > .v-btn {
             flex: none;
+          }
+        }
+      }
+      .my-app {
+        .app-list {
+          flex-direction: column;
+          gap: 12px;
+          .v-list-item {
+            width: 100%;
+            &-action {
+              position: static;
+            }
           }
         }
       }
