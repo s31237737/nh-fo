@@ -710,6 +710,7 @@
         .action {
           display: flex;
           gap: 12px;
+          margin-left: 12px;
         }
       }
     }
@@ -727,16 +728,20 @@
           color: $gray-800;
         }
         &__prepend {
+          margin-right: 18px;
           .img {
             padding: 14px;
             border: thin solid $gray-300;
             border-radius: 6px;
           }
+          .v-list-item-action {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
         }
-        &-action {
-          position: absolute;
-          top: 0;
-          right: 0;
+        &__content {
+
         }
       }
     }
@@ -795,6 +800,14 @@
       }
       .my-app {
         .tit-wrap {
+          gap: 8px;
+          .btns {
+            gap: 8px;
+          }
+          .action {
+            margin-left: 0;
+            gap: 8px;
+          }
           .v-select {
             flex: none;
           }
@@ -804,9 +817,11 @@
           gap: 12px;
           .v-list-item {
             width: 100%;
-            &-action {
-              position: static;
-            }
+             &__prepend {
+               .v-list-item-action {
+                 position: static;
+               }
+             }
           }
         }
       }
@@ -817,18 +832,11 @@
       .my-app {
         .w-box {
           .tit-wrap {
-            align-items: start;
-            strong {
-              line-height: 2.25rem !important;
-            }
-            .btns {
-              gap: 12px;
-              flex-wrap: wrap;
-              max-width: 185px;
+            flex-wrap: wrap !important;
+            gap: 12px;
+            .action {
               justify-content: flex-end;
-              .action {
-                gap: 9px;
-              }
+              width: 100%;
             }
           }
         }

@@ -20,24 +20,24 @@
           >
             편집
           </v-btn>
-          <div
-            v-else
-            class="action"
+        </div>
+        <div
+          v-if="isEditMode"
+          class="action"
+        >
+          <v-btn
+            color="info"
+            @click="isEditMode=false"
           >
-            <v-btn
-              color="info"
-              @click="isEditMode=false"
-            >
-              편집완료
-            </v-btn>
-            <v-btn
-              color="warning"
-              variant="outlined"
-              @click="alert=true"
-            >
-              삭제
-            </v-btn>
-          </div>
+            편집완료
+          </v-btn>
+          <v-btn
+            color="warning"
+            variant="outlined"
+            @click="alert=true"
+          >
+            삭제
+          </v-btn>
         </div>
       </div>
       <v-list
@@ -67,14 +67,14 @@
             {{ item.title }}
           </v-list-item-title>
 
-          <v-list-item-subtitle>
+          <v-list-item-action>
             <v-btn
               color="info"
               size="small"
             >
               앱 열기
             </v-btn>
-          </v-list-item-subtitle>
+          </v-list-item-action>
         </v-list-item>
       </v-list>
     </v-sheet>
@@ -112,7 +112,7 @@
             {{ item.title }}
           </v-list-item-title>
 
-          <v-list-item-subtitle>
+          <v-list-item-action>
             <v-btn
               color="secondary"
               size="small"
@@ -120,7 +120,7 @@
             >
               신청 대기중
             </v-btn>
-          </v-list-item-subtitle>
+          </v-list-item-action>
         </v-list-item>
       </v-list>
     </v-sheet>
