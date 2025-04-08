@@ -572,7 +572,7 @@ const sliders = ref([
     image: '@temp_img_03.png',
   },
   {
-    image: '@temp_img_01.png',
+    image: '@temp_img_01_lg.png',
   },
   {
     image: '@temp_img_02.png',
@@ -581,7 +581,7 @@ const sliders = ref([
     image: '@temp_img_03.png',
   },
   {
-    image: '@temp_img_01.png',
+    image: '@temp_img_01_lg.png',
   },
 ].map((item, index) => ({ ...item, value: index })));
 

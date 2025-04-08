@@ -861,6 +861,13 @@
       margin-left: 12px;
     }
   }
+  @at-root .mobile, .tablet {
+    .feed-item.v-card {
+      .editor-wrap {
+        max-height: 240px;
+      }
+    }
+  }
 }
 .feed-item-tit {
   .v-col:first-child {
