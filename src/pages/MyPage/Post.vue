@@ -20,7 +20,7 @@
             @click="onTabChange(i)"
           >
             {{ item.btn }}
-            <!-- 검색어 강조 예제 -->
+            <!-- 게시글 수 -->
             <span class="text-success">8</span>
           </v-btn>
         </v-slide-group-item>
@@ -98,4 +98,6 @@ function onTabChange(newTab) {
 }
 
 </script>
-
+<route>
+{ redirect: '/MyPage/Post/Qna'}
+</route>

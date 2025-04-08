@@ -65,7 +65,7 @@ const tab = ref(0);
 const tabItem = ref([
   { icon: "custom:profile", text: "프로필", link: "/MyPage/Profile" },
   { icon: "custom:app", text: "내 앱", link: "/MyPage/App"  },
-  { icon: "custom:post", text: "작성한 게시물",  link: "/MyPage/Post/Qna"  },
+  { icon: "custom:post", text: "작성한 게시물",  link: "/MyPage/Post"  },
 ]);
 
 watch(

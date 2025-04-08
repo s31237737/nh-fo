@@ -244,7 +244,7 @@
               더 좋은 서비스를 위한<br>커뮤니티를 만들어주세요.
             </strong>
             <v-btn
-              to="/Community"
+              to="/CommunityWrite"
               color="info"
               size="large"
             >
