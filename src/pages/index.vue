@@ -591,27 +591,27 @@ const recommBtn = ref([
 
 const recommApps = ref([
   [
-    // {
-    //   image: "@temp_main_app card_01.jpg",
-    //   category: "금융",
-    //   title: "NH QR",
-    //   description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스.",
-    //   btn: "앱 열기",
-    // },
-    // {
-    //   image: "@temp_main_app card_02.jpg",
-    //   category: "예약",
-    //   title: "우리 농축협\n예약관리",
-    //   description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스.",
-    //   btn: "앱 열기",
-    // },
-    // {
-    //   image: "@temp_main_app card_03.jpg",
-    //   category: "관리",
-    //   title: "관리자 및 책임자\n현황 관리",
-    //   description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회...",
-    //   btn: "앱 열기",
-    // }
+    {
+      image: "@temp_main_app card_05.jpg",
+      category: "금융",
+      title: "NH QR",
+      description: "도시와 농촌이 상생하는 사회를 위한 미래성장 가능한 식품 연구개발 및 농산물 안전 관리 서비스.",
+      btn: "앱 열기",
+    },
+    {
+      image: "@temp_main_app card_04.jpg",
+      category: "예약",
+      title: "우리 농축협\n예약관리",
+      description: "농축협의 예약을 간편하게 관리하고 이용할 수 있는 서비스.",
+      btn: "앱 열기",
+    },
+    {
+      image: "@temp_main_app card_06.jpg",
+      category: "관리",
+      title: "관리자 및 책임자\n현황 관리",
+      description: "도시와 농촌이 상생하는 사회에 이바지하기 위해, 미래성장 가능한 식품 등의 연구개발 역량 강화와 농식품안전관리시스템(NFS) 농산물의 안전과 품질을 관리 서비스 도시와 농촌이 상생하는 사회...",
+      btn: "앱 열기",
+    }
   ],
   [
     {
