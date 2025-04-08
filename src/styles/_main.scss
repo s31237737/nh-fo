@@ -210,7 +210,8 @@
         margin-top: 10px;
         pointer-events: none;
         &--disabled {
-          opacity: 1 !important;
+          background-color: #c5c5c5 !important;
+          opacity: .5 !important;
         }
       }
       .v-img {
