@@ -98,4 +98,8 @@ function onTabChange(newTab) {
 }
 
 </script>
-
+<route>
+{
+  redirect: '/MyPage/Post/Qna'
+}
+</route>

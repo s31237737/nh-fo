@@ -116,7 +116,7 @@ const menuItems = ref([
     submenu: [
       { title: "프로필", to: "/MyPage/Profile" },
       { title: "내 앱", to: "/MyPage/App" },
-      { title: "작성한 게시물", to: "/MyPage/Post/Qna" }
+      { title: "작성한 게시물", to: "/MyPage/Post" }
     ],
   },
   {
