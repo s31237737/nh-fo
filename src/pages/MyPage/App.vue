@@ -32,6 +32,7 @@
             편집완료
           </v-btn>
           <v-btn
+            :disabled="selection.length === 0"
             color="warning"
             variant="outlined"
             @click="alert=true"
@@ -42,17 +43,18 @@
       </div>
       <v-list
         v-model:selected="selection"
+        select-strategy="multiple"
         class="app-list"
       >
         <v-list-item
           v-for="(item, index) in useApps"
           :key="index"
+          :value="item.value"
         >
           <template #prepend="{ isSelected }">
             <v-list-item-action v-if="isEditMode">
               <v-checkbox-btn
                 :model-value="isSelected"
-                density="compact"
               />
             </v-list-item-action>
             <div class="img">
@@ -188,7 +190,7 @@
 </template>
 
 <script setup>
-import { ref, computed, inject } from "vue";
+import { ref, inject } from "vue";
 
 const isMobile = inject("isMobile");
 
@@ -207,17 +209,17 @@ const select02 = ref("최근신청순");
 const isEditMode = ref(false);
 
 // useApps
-const selection = ref([])
+const selection = ref([]);
 const useApps = ref([
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon02.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon03.png' },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon05.png' },
-  { title: '하나로마트 식품 안전', image: '@temp_img_app_icon06.png' },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon08.png' },
-  { title: 'NH 푸즈', image: '@temp_img_app_icon09.png' },
+  { value: 'useApps01' ,title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  { value: 'useApps02' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon02.png' },
+  { value: 'useApps03' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon03.png' },
+  { value: 'useApps04' ,title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  { value: 'useApps05' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon05.png' },
+  { value: 'useApps06' ,title: '하나로마트 식품 안전', image: '@temp_img_app_icon06.png' },
+  { value: 'useApps07' ,title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  { value: 'useApps08' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon08.png' },
+  { value: 'useApps09' ,title: 'NH 푸즈', image: '@temp_img_app_icon09.png' },
 ]);
 // waitingApps
 const waitingApps = ref([
