@@ -398,7 +398,7 @@
                 <v-btn
                   v-if="card.showOpenApp"
                   color="info"
-                  @click.stop.prevent="alert = true"
+                  @click.stop.prevent="alert00 = true"
                 >
                   앱 열기
                 </v-btn>
@@ -406,6 +406,7 @@
                   v-else
                   color="secondary"
                   :ripple="false"
+                  @click.stop.prevent
                 >
                   신청 대기중
                 </v-btn>
@@ -439,6 +440,46 @@
   />
 
   <!-- alert -->
+  <!-- 앱 열기 -->
+  <v-dialog
+    v-model="alert00"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert00 = false"
+        />
+      </v-card-title>
+      <v-card-text>
+        <!-- dialog contents -->
+        <v-icon icon="custom:warning" />
+        <strong class="title-5-bd">앱 열기</strong>
+        <p class="text-4">
+          [앱이름]을 여시겠습니까?
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="info"
+          size="large"
+          @click="alert00 = false"
+        >
+          취소
+        </v-btn>
+        <v-btn
+          color="primary"
+          size="large"
+        >
+          열기
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
   <!-- 공유하기 링크 복사 완료 -->
   <v-dialog
     v-model="alert05"
@@ -487,6 +528,7 @@ const getImageUrl = (imageName) => {
 };
 
 /* alert */
+const alert00 = ref(false);
 const alert05 = ref(false);
 
 /* top banner */
