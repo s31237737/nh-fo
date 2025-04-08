@@ -306,7 +306,7 @@
       height: 44px;
       background: $gray-200;
       border-radius: 0 !important;
-      .v-icon--size-default { font-size: 32px; }
+      .v-icon--size-default { font-size: 2rem; }
       &::before {
         content: "";
         position: absolute;
@@ -365,7 +365,7 @@
     }
     &.btn-refresh {
       .v-icon--size-default {
-        font-size: 19px !important;
+        font-size: 1.1875rem !important;
       }
       &.v-btn--disabled {
         opacity: 1 !important;
@@ -494,7 +494,7 @@
           margin: 0 !important;
         }
         .v-icon {
-          font-size: 32px;
+          font-size: 2rem;
         }
       }
     }
@@ -626,7 +626,7 @@
         gap: 3px;
         min-height: 70px;
         span {
-          font-size: 12px !important;
+          font-size: 0.75rem !important;
           margin-bottom: 3px;
         }
       }
@@ -757,7 +757,7 @@
         display: none;
       }
       .v-icon--size-default {
-        font-size: 32px;
+        font-size: 2rem;
       }
       &.v-btn--disabled {
         background: transparent;
@@ -939,7 +939,7 @@
   border-top: thin solid $gray-300;
   .feed-comment-tit {
     padding: 30px 0;
-    span { @extend .text-3; }
+    span.count { @extend .text-3; }
   }
   @at-root .mobile, .tablet {
     .feed-comment {
@@ -947,7 +947,13 @@
     }
   }
 }
-.feed-textarea {
+.v-textarea {
+  .v-field--variant-solo {
+    textarea {
+      padding: 0;
+      margin: 12px 0 28px;
+    }
+  }
 }
 .feed-textarea-btns {
   .v-btn.v-btn--variant-text {
