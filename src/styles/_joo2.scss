@@ -836,13 +836,21 @@
     .editor-content {
       color: $gray-700;
     }
+    .editor-wrap {
+      max-height: 200px;
+      overflow: hidden;
+    }
+    .editor-wrap.expanded {
+      max-height: 100%;
+    }
     .link-btn {
       margin-top: 20px;
     }
   }
   .v-card-actions {
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 0;
+    min-height: auto;
     .v-btn:not(.v-btn--variant-text) {
       margin-left: 12px;
     }
@@ -851,6 +859,13 @@
     }
     .v-btn--variant-text  + .v-btn--variant-text {
       margin-left: 12px;
+    }
+  }
+  @at-root .mobile, .tablet {
+    .feed-item.v-card {
+      .editor-wrap {
+        max-height: 240px;
+      }
     }
   }
 }
