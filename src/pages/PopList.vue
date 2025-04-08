@@ -71,6 +71,13 @@
       >
         변경사항 저장
       </v-btn>
+      <v-btn
+        size="small"
+        color="primary"
+        @click="alert08 = true"
+      >
+        삭제 얼럿
+      </v-btn>
     </div>
 
     <!-- dialog -->
@@ -453,6 +460,67 @@
     </v-card>
   </v-dialog>
 
+  <!-- 삭제 얼럿 -->
+  <v-dialog
+    v-model="alert08"
+    class="popup-sm"
+    @after-leave="isDelete = false"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert08 = false"
+        />
+      </v-card-title>
+      <v-card-text>
+        <!-- dialog contents -->
+        <template v-if="!isDelete">
+          <v-icon icon="custom:warning" />
+          <strong class="title-5-bd">삭제</strong>
+          <p class="text-4">
+            삭제하시겠습니까?
+          </p>
+        </template>
+        <template v-else>
+          <v-icon icon="custom:complete" />
+          <strong class="title-5-bd">삭제 완료</strong>
+          <p class="text-4">
+            삭제가 완료되었습니다.
+          </p>
+        </template>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <template v-if="!isDelete">
+          <v-btn
+            color="info"
+            size="large"
+            @click="alert08 = false"
+          >
+            취소
+          </v-btn>
+          <v-btn
+            color="primary"
+            size="large"
+            @click="isDelete = true"
+          >
+            삭제
+          </v-btn>
+        </template>
+        <v-btn
+          v-else
+          color="primary"
+          size="large"
+          @click="alert08 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
   <!-- popup -->
   <component
     :is="popup.component"
@@ -477,8 +545,10 @@ import { ref,shallowRef  } from 'vue';
   const alert05 = ref(false);
   // const alert06 = ref(false);
   // const alertQr = ref({ img: '@temp_img_QR.png'});
-  const alert07 = ref(false);
   const isSave = ref(false);
+  const alert07 = ref(false);
+  const isDelete = ref(false);
+  const alert08 = ref(false);
 
 
 

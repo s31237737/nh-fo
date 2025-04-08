@@ -705,6 +705,13 @@
     gap: 20px;
     .w-box {
       margin-top: 0;
+      .tit-wrap {
+        align-items: center;
+        .action {
+          display: flex;
+          gap: 12px;
+        }
+      }
     }
     .app-list {
       display: flex;
@@ -787,6 +794,11 @@
         }
       }
       .my-app {
+        .tit-wrap {
+          .v-select {
+            flex: none;
+          }
+        }
         .app-list {
           flex-direction: column;
           gap: 12px;
@@ -794,6 +806,29 @@
             width: 100%;
             &-action {
               position: static;
+            }
+          }
+        }
+      }
+    }
+  }
+  @at-root .mobile {
+    .my-page {
+      .my-app {
+        .w-box {
+          .tit-wrap {
+            align-items: start;
+            strong {
+              line-height: 2.25rem !important;
+            }
+            .btns {
+              gap: 12px;
+              flex-wrap: wrap;
+              max-width: 185px;
+              justify-content: flex-end;
+              .action {
+                gap: 9px;
+              }
             }
           }
         }
