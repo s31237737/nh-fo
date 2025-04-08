@@ -27,11 +27,19 @@
           v-for="(item, index) in useApps"
           :key="index"
         >
-          <template #prepend>
-            <v-img
-              :width="50"
-              :src="getImageUrl(item.image)"
-            />
+          <template #prepend="{ isSelected }">
+            <v-list-item-action>
+              <v-checkbox-btn
+                :model-value="isSelected"
+                density="compact"
+              />
+            </v-list-item-action>
+            <div class="img">
+              <v-img
+                :width="50"
+                :src="getImageUrl(item.image)"
+              />
+            </div>
           </template>
 
           <v-list-item-title class="text-body-1 font-weight-medium">
@@ -46,14 +54,6 @@
               앱 열기
             </v-btn>
           </v-list-item-subtitle>
-          <template #append="{ isSelected }">
-            <v-list-item-action>
-              <v-checkbox-btn
-                :model-value="isSelected"
-                density="compact"
-              />
-            </v-list-item-action>
-          </template>
         </v-list-item>
       </v-list>
     </v-sheet>
