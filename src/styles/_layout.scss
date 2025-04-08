@@ -723,8 +723,10 @@
       .v-list-item {
         padding: 0;
         width: 270px;
+        cursor: default;
         &:has(.v-checkbox-btn){
           padding-right: 20px;
+          cursor: pointer;
         }
         &__prepend {
           margin-right: 18px;
@@ -747,6 +749,9 @@
             margin-bottom: 10px;
             @extend .text-4-md;
           }
+        }
+        &__overlay {
+          opacity: 0;
         }
       }
     }

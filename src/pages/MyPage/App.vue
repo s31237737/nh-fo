@@ -50,6 +50,7 @@
           v-for="(item, index) in useApps"
           :key="index"
           :value="item.value"
+          :ripple="false"
         >
           <template #prepend="{ isSelected }">
             <v-list-item-action v-if="isEditMode">
@@ -72,6 +73,7 @@
             <v-btn
               color="info"
               size="small"
+              :disabled="isEditMode"
             >
               앱 열기
             </v-btn>
