@@ -55,6 +55,7 @@
               color="secondary"
               variant="flat"
               :ripple="false"
+              disabled
             >
               신청 대기중
             </v-btn>
@@ -406,7 +407,7 @@
                   v-else
                   color="secondary"
                   :ripple="false"
-                  @click.stop.prevent
+                  disabled
                 >
                   신청 대기중
                 </v-btn>
@@ -813,7 +814,7 @@ const appsRecommend = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
-    showOpenApp: false,
+    showOpenApp: true,
     likeCount: 0,
   },
   {
@@ -825,7 +826,7 @@ const appsRecommend = ref([
       { text: "추천", color: "purple" },
     ],
     inUse: false,
-    showOpenApp: false,
+    showOpenApp: true,
     likeCount: 555,
   },
   {
@@ -851,7 +852,7 @@ const appsRecommend = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
-    showOpenApp: false,
+    showOpenApp: true,
     likeCount: 0,
   },
 
