@@ -700,7 +700,8 @@ const subTabItemTab1 = ref([
 /* 컨텐츠 배너 */
 const banner = ref({
   imageUrl: "img_apps_banner_03.png",
-  description: "앱 사용 가이드 바로가기",
+  description: "앱 사용 가이드 앱 열기",
+  link: "/AppGuideDetail",
 });
 const bannerClick = (banner) => {
   if (!banner.link) {

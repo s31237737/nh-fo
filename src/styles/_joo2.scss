@@ -821,6 +821,13 @@
       }
     }
   }
+  @at-root .mobile {
+    .feedList.w-box {
+      .v-row {
+        gap: 20px;
+      }
+    }
+  }
 }
 .feed-item.v-card {
   overflow: visible;
