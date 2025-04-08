@@ -350,6 +350,7 @@
     color: $gray-300;
   }
 }
+
 @media only screen and (max-width: 1279px) {
   .form-sheet {
     padding: 40px 20px;
@@ -450,7 +451,7 @@
     }
   }
 }
-
+// cropper
 .cropper {
   height: 444px;
   background: black;
@@ -485,5 +486,12 @@
         margin-bottom: 20px;
       }
     }
+  }
+}
+// v-checkbox-btn
+.v-checkbox-btn.v-selection-control {
+  --v-selection-control-size: 20px;
+  .v-icon {
+    font-size: 1.25rem;
   }
 }

@@ -48,7 +48,10 @@
           </v-list-item-subtitle>
           <template #append="{ isSelected }">
             <v-list-item-action>
-              <v-checkbox-btn :model-value="isSelected" />
+              <v-checkbox-btn
+                :model-value="isSelected"
+                density="compact"
+              />
             </v-list-item-action>
           </template>
         </v-list-item>

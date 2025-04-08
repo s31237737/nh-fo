@@ -211,12 +211,6 @@ $popup-base-margin: 20px;
       }
       &__append {
         justify-self: right;
-        .v-selection-control {
-          --v-selection-control-size: 20px;
-        }
-        .v-icon {
-          font-size: 20px;
-        }
       }
     }
     .v-list-item-title {
