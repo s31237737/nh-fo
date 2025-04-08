@@ -103,6 +103,14 @@
     }
   }
 }
+.v-textarea {
+  .v-field--variant-solo {
+    .v-field__input {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+}
 .search-wrap {
   margin-bottom: 50px;
   &:has(.v-form) {

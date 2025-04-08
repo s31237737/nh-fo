@@ -164,51 +164,60 @@
 
           <!-- 댓글 -->
           <div class="feed-comment">
-            <v-row
-              class="feed-comment-tit"
-              align="end"
-            >
-              <span class="count">댓글 6</span>
-              <v-spacer />
-              <v-btn
-                color="info"
-                variant="flat"
-                :ripple="false"
-                disabled
+            <!-- 댓글 등록 -->
+            <div class="comment-regist">
+              <v-row
+                class="feed-comment-tit"
+                align="end"
               >
-                댓글작성
-              </v-btn>
-            </v-row>
-
-            <div class="feed-textarea">
-              <div class="commentId">
-                김농협
-              </div>
-              <v-textarea
-                id="inp-content"
-                variant="solo"
-                flat
-                no-resize
-                maxlength="1000"
-                placeholder="댓글을 남겨보세요."
-              />
-              <div class="feed-textarea-btns">
+                <span class="count">댓글 6</span>
+                <v-spacer />
                 <v-btn
-                  variant="text"
-                  density="compact"
+                  color="info"
+                  variant="flat"
                   :ripple="false"
+                  disabled
                 >
-                  취소
+                  댓글작성
                 </v-btn>
-                <v-btn
-                  variant="text"
+              </v-row>
+              <div class="feed-textarea">
+                <div class="commentId text-tertiary">
+                  김농협
+                </div>
+                <v-textarea
+                  variant="solo"
                   density="compact"
-                  :ripple="false"
-                >
-                  등록
-                </v-btn>
+                  placeholder="댓글을 남겨보세요."
+                  rows="1"
+                  max-rows="5"
+                  flat
+                  auto-grow
+                />
+                <div class="feed-comment-btns">
+                  <v-btn
+                    variant="text"
+                    density="compact"
+                    color="quaternary"
+                    :ripple="false"
+                  >
+                    취소
+                  </v-btn>
+                  <v-btn
+                    variant="text"
+                    density="compact"
+                    color="quaternary"
+                    disabled
+                    :ripple="false"
+                  >
+                    등록
+                  </v-btn>
+                </div>
               </div>
             </div>
+
+            <!-- 댓글 목록 -->
+            <div />
           </div>
 
           <!-- 파일첨부 -->
