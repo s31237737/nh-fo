@@ -803,24 +803,24 @@
     }
   }
   .v-divider {
-    margin-bottom:50px;
+    margin:0;
     background: $gray-300;
   }
   .feed {
     position: relative;
-    padding: 50px 40px;
-  }
-  .v-btn.v-btn--variant-text {
-    min-width: auto;
-    padding: 0;
+    padding: 50px 40px 0;
+    .v-btn.v-btn--variant-text {
+      min-width: auto;
+      padding: 0;
+    }
   }
   @at-root .mobile, .tablet {
     .feedList.w-box {
       .v-divider {
-        margin:0 20px 10px;
+        margin:0 20px;
       }
       .feed {
-        padding: 20px;
+        padding: 20px 20px 0;
       }
     }
   }
@@ -832,147 +832,195 @@
     }
   }
 }
-.feed-item.v-card {
-  overflow: visible;
-  .v-card-text {
-    margin-top: 20px;
-    .editor-content {
-      color: $gray-700;
-    }
-    .editor-wrap {
-      max-height: 200px;
-      overflow: hidden;
-    }
-    .editor-wrap.expanded {
-      max-height: 100%;
-    }
-    .link-btn {
+
+.feed-item {
+  &.v-card {
+    overflow: visible;
+    padding-bottom: 50px;
+    .v-card-text {
       margin-top: 20px;
-    }
-  }
-  .v-card-actions {
-    margin-top: 40px;
-    padding: 0;
-    min-height: auto;
-    .v-btn:not(.v-btn--variant-text) {
-      margin-left: 12px;
-    }
-    .v-btn--variant-text {
-      @extend .caption-3;
-    }
-    .v-btn--variant-text  + .v-btn--variant-text {
-      margin-left: 12px;
-    }
-  }
-  @at-root .mobile, .tablet {
-    .feed-item.v-card {
+      .editor-content {
+        color: $gray-700;
+      }
       .editor-wrap {
-        max-height: 240px;
+        max-height: 200px;
+        overflow: hidden;
+      }
+      .editor-wrap.expanded {
+        max-height: 100%;
+      }
+      .link-btn {
+        margin-top: 20px;
+      }
+    }
+    .v-card-actions {
+      margin-top: 40px;
+      padding: 0;
+      min-height: auto;
+      .v-btn:not(.v-btn--variant-text) {
+        margin-left: 12px;
+      }
+      .v-btn--variant-text {
+        @extend .caption-3;
+      }
+      .v-btn--variant-text  + .v-btn--variant-text {
+        margin-left: 12px;
+      }
+    }
+    @at-root .mobile, .tablet {
+      .feed-item.v-card {
+        padding-bottom: 20px;
+        .editor-wrap {
+          max-height: 240px;
+        }
       }
     }
   }
-}
-.feed-item-tit {
-  .v-col:first-child {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .v-card-title, .v-card-subtitle {
-    padding: 0;
-  }
-  .v-card-title {
-    @extend .text-3-md;
-  }
-  .v-card-subtitle {
-    margin-top: 8px;
-    color: $gray-700;
-    @extend .caption-3;
-    span {
-      display: inline-block;
-      position: relative;
+  .feed-item-tit {
+    .v-col:first-child {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .v-card-title, .v-card-subtitle {
+      padding: 0;
+    }
+    .v-card-title {
+      @extend .text-3-md;
+    }
+    .v-card-subtitle {
+      margin-top: 8px;
+      color: $gray-700;
       @extend .caption-3;
-      & + span {
-        margin-left: 16px;
-      }
-      & + span::before {
-        content:"";
-        display: block;
-        position: absolute;
-        top:50%;
-        transform: translateY(-50%);
-        left: -10px;
-        width:1px;
-        height: 10px;
-        border-left: thin solid $gray-700;
+      span {
+        display: inline-block;
+        position: relative;
+        @extend .caption-3;
+        & + span {
+          margin-left: 16px;
+        }
+        & + span::before {
+          content:"";
+          display: block;
+          position: absolute;
+          top:50%;
+          transform: translateY(-50%);
+          left: -10px;
+          width:1px;
+          height: 10px;
+          border-left: thin solid $gray-700;
+        }
       }
     }
   }
+  .feed-label {
+    background: $blue-100;
+    &.v-chip--density-default {
+      --v-chip-height: 38px !important;
+      padding: 0 17px 0 16px;
+    }
+    .v-chip__content {
+      font-weight: 500;
+    }
+    .v-avatar {
+      --v-avatar-height: 24px !important;
+      margin-inline: 0 4px !important;
+    }
+  }
 }
-.feed-label.v-chip {
-  background: $blue-100;
-  &.v-chip--density-default {
-    --v-chip-height: 38px !important;
-    padding: 0 17px 0 16px;
-  }
-  .v-chip__content {
-    font-weight: 500;
-  }
-  .v-avatar {
-    --v-avatar-height: 24px !important;
-    margin-inline: 0 4px !important;
-  }
-}
+
 .feed-fileList {
   overflow: hidden;
   background: $gray-200;
   border-radius: $base-radius;
-  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 50px 40px;
   @at-root .mobile, .tablet {
     .feed-fileList {
-      margin-top: 20px;
+      margin-bottom: 20px;
       padding: 20px;
     }
   }
 }
 
 .feed-comment {
-  margin-top: 50px;
+  padding-inline: 10px;
   border-top: thin solid $gray-300;
-  .comment-title {
+  .title {
     padding-block: 30px;
     .count { @extend .text-4; }
   }
-  .comment-item {
-    padding-block: 30px;
-    &.depth2 {
-      padding-inline: 30px;
+
+  .comment-list {
+    margin: 0 0px;
+    li {
+      position: relative; 
+      &:after {
+        content:"";
+        display: block;
+        position: absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        height: 0;
+        border-top: thin solid $gray-300;
+      }
+      &:last-child:after {
+        display:none;
+      }
+    }
+    &:not(.depth2) > li {
+      &:after {
+        left: -50px;
+        right: -50px;
+      }
+      & > .comment {
+        margin-inline: -50px;
+        padding: 30px 50px;
+      }
+    }
+    .my > .comment, .my > .comment-write {
+      background: $gray-100;
     }
   }
 
+  .depth2  {
+    position: relative;
+    &:after {
+      content:"";
+      display: block;
+      position: absolute;
+      top:0;
+      left:-50px;
+      right:-50px;
+      height: 0;
+      border-top: thin solid $gray-300;
+    }
+    & > li .comment { padding: 30px; }
+  }
+  
+  .comment-write {
+    margin-inline: -50px;
+    padding: 20px 50px;
+  }
+  .depth2 .comment-write {
+    margin-inline: 0;
+    padding-inline: 30px;
+  }
+
+  
   .userid { @extend .text-4-md; }
-  .content-txt { 
-    padding-top: 12px;
-    @extend .text-4;
-  }
-  .comment-btns {
-    display: flex;
-    gap: 20px;
-    margin-top: 8px;
-    .info > span {
-      display: inline-block;
-      line-height: 1.5rem;
-      color: $gray-700;
-      @extend .caption-3;
-      & + span { margin-left: 8px;}
-    }
-  }
 
-  .regist{
+  .comment-txt { 
+      padding-top: 12px;
+      @extend .text-4;
+    }
+
+  .write{
     padding: 20px;
     border: thin solid $gray-400;
     border-radius: 8px;
+    background: $white;
     textarea { 
       padding: 12px 0 0; 
       color: $gray-900;
@@ -980,9 +1028,33 @@
     .comment-btns { margin-top: 28px; }
   }
 
-  @at-root .mobile, .tablet {
-    .feed-comment {
-      margin-top: 30px;
+  .comment-edit {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 8px;
+    .v-btn--variant-text { 
+      font-size: 0.75rem !important;
+      font-weight: 400 !important;
+    }
+    .info > span {
+      display: inline-block;
+      color: $gray-700;
+      font-size: 0.75rem !important;
+      line-height: 1.5rem !important;
+      & + span { margin-left: 8px;}
     }
   }
+
+  .comment-btns {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+  }
+  .comment {
+    .comment-btns { margin-top: 4px; }
+  }
+
+  
 }

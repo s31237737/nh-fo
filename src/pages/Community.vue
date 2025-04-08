@@ -165,7 +165,7 @@
           <!-- 댓글 -->
           <div class="feed-comment">
             <v-row
-              class="comment-title top"
+              class="title"
               align="end"
             >
               <span class="count">댓글 6</span>
@@ -181,8 +181,8 @@
             </v-row>
 
             <!-- 댓글 등록 -->
-            <div class="comment-item expend">
-              <div class="regist">
+            <div class="comment-write">
+              <div class="write">
                 <div class="userid text-tertiary">
                   김농협
                 </div>
@@ -218,54 +218,461 @@
             </div>
 
             <!-- 댓글 목록 -->
-            <div class="comment-item">
-              <div class="contents">
-                <v-row
-                  align="center"
-                >
-                  <div class="userid text-tertiary">
-                    김농협1
-                  </div>
-                  <v-spacer />
-                  <v-btn
-                    variant="text"
-                    density="compact"
-                    color="quaternary"
-                    :ripple="false"
+            <ul class="comment-list">
+              <li class="comment-item my">
+                <div class="comment">
+                  <v-row
+                    align="center"
+                    class="context-tit"
                   >
-                    신고하기
-                  </v-btn>
-                </v-row>
-                <p class="content-txt text-gray">
-                  댓글입니다. 댓글이라구요. 댓글이라니까요?
-                </p>
-                <div class="comment-btns">
-                  <p class="info">
-                    <span>2025.04.08</span>
-                    <span>11:40</span>
+                    <div class="userid text-tertiary">
+                      김농협1
+                    </div>
+                    <v-spacer />
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      신고하기
+                    </v-btn>
+                  </v-row>
+                  <p class="comment-txt text-gray">
+                    댓글입니다. 댓글이라구요. 댓글이라니까요?
                   </p>
-                  <v-btn
-                    variant="text"
-                    density="compact"
-                    color="quaternary"
-                    :ripple="false"
-                  >
-                    등록하기
-                  </v-btn>
-                  <v-btn
-                    variant="text"
-                    density="compact"
-                    :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
-                    color="quaternary"
-                    class="like-btn"
-                    :ripple="false"
-                    @click="toggleLike"
-                  >
-                    999
-                  </v-btn>
+                  <div class="comment-edit">
+                    <p class="info">
+                      <span>2025.04.08</span>
+                      <span>11:40</span>
+                    </p>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      등록하기
+                    </v-btn>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                      color="quaternary"
+                      class="like-btn"
+                      :ripple="false"
+                      @click="toggleLike"
+                    >
+                      999
+                    </v-btn>
+                  </div>
+
+                  <!-- 내가 작성한 댓글,답글일 경우 노출 -->
+                  <div class="comment-btns">
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      수정
+                    </v-btn>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      삭제
+                    </v-btn>
+                  </div>
                 </div>
-              </div>
-            </div>
+              
+                <!-- 답글 등록하기 -->
+                <div class="comment-write">
+                  <div class="write">
+                    <div class="userid text-tertiary">
+                      김농협
+                    </div>
+                    <v-textarea
+                      variant="solo"
+                      density="compact"
+                      placeholder="댓글을 남겨보세요."
+                      rows="1"
+                      max-rows="5"
+                      flat
+                      auto-grow
+                    />
+                    <div class="comment-btns">
+                      <v-btn
+                        variant="text"
+                        density="compact"
+                        color="quaternary"
+                        :ripple="false"
+                      >
+                        취소
+                      </v-btn>
+                      <v-btn
+                        variant="text"
+                        density="compact"
+                        color="quaternary"
+                        disabled
+                        :ripple="false"
+                      >
+                        등록
+                      </v-btn>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 답글 목록 -->
+                <ul class="depth2 comment-list">
+                  <li class="comment-item my">
+                    <div class="comment">
+                      <v-row
+                        align="center"
+                        class="context-tit"
+                      >
+                        <div class="userid text-tertiary">
+                          depth2 안농협
+                        </div>
+                        <v-spacer />
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          신고하기
+                        </v-btn>
+                      </v-row>
+                      <p class="comment-txt text-gray">
+                        depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?
+                      </p>
+                      <div class="comment-edit">
+                        <p class="info">
+                          <span>2025.04.08</span>
+                          <span>11:40</span>
+                        </p>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                          color="quaternary"
+                          class="like-btn"
+                          :ripple="false"
+                          @click="toggleLike"
+                        >
+                          999
+                        </v-btn>
+                      </div>
+
+                      <!-- 내가 작성한 댓글,답글일 경우 노출 -->
+                      <div class="comment-btns">
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          수정
+                        </v-btn>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          삭제
+                        </v-btn>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="comment-item">
+                    <div class="comment">
+                      <v-row
+                        align="center"
+                        class="context-tit"
+                      >
+                        <div class="userid text-tertiary">
+                          depth2 안농협
+                        </div>
+                        <v-spacer />
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          신고하기
+                        </v-btn>
+                      </v-row>
+                      <p class="comment-txt text-gray">
+                        depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?
+                      </p>
+                      <div class="comment-edit">
+                        <p class="info">
+                          <span>2025.04.08</span>
+                          <span>11:40</span>
+                        </p>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                          color="quaternary"
+                          class="like-btn"
+                          :ripple="false"
+                          @click="toggleLike"
+                        >
+                          999
+                        </v-btn>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="comment-item">
+                <div class="comment">
+                  <v-row
+                    align="center"
+                    class="context-tit"
+                  >
+                    <div class="userid text-tertiary">
+                      김농협2
+                    </div>
+                    <v-spacer />
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      신고하기
+                    </v-btn>
+                  </v-row>
+                  <p class="comment-txt text-gray">
+                    2 댓글입니다. 댓글이라구요. 댓글이라니까요?
+                  </p>
+                  <div class="comment-edit">
+                    <p class="info">
+                      <span>2025.04.08</span>
+                      <span>11:40</span>
+                    </p>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      등록하기
+                    </v-btn>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                      color="quaternary"
+                      class="like-btn"
+                      :ripple="false"
+                      @click="toggleLike"
+                    >
+                      999
+                    </v-btn>
+                  </div>
+                </div>
+              </li>
+              <li class="comment-item">
+                <div class="comment">
+                  <v-row
+                    align="center"
+                    class="context-tit"
+                  >
+                    <div class="userid text-tertiary">
+                      김농협3
+                    </div>
+                    <v-spacer />
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      신고하기
+                    </v-btn>
+                  </v-row>
+                  <p class="comment-txt text-gray">
+                    3 댓글입니다. 댓글이라구요. 댓글이라니까요?
+                  </p>
+                  <div class="comment-edit">
+                    <p class="info">
+                      <span>2025.04.08</span>
+                      <span>11:40</span>
+                    </p>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      color="quaternary"
+                      :ripple="false"
+                    >
+                      등록하기
+                    </v-btn>
+                    <v-btn
+                      variant="text"
+                      density="compact"
+                      :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                      color="quaternary"
+                      class="like-btn"
+                      :ripple="false"
+                      @click="toggleLike"
+                    >
+                      999
+                    </v-btn>
+                  </div>
+                </div>
+
+                
+                <!-- 답글 목록 -->
+                <ul class="depth2 comment-list">
+                  <li class="comment-item">
+                    <div class="comment">
+                      <v-row
+                        align="center"
+                        class="context-tit"
+                      >
+                        <div class="userid text-tertiary">
+                          depth2 안농협
+                        </div>
+                        <v-spacer />
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          신고하기
+                        </v-btn>
+                      </v-row>
+                      <p class="comment-txt text-gray">
+                        depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?
+                      </p>
+                      <div class="comment-edit">
+                        <p class="info">
+                          <span>2025.04.08</span>
+                          <span>11:40</span>
+                        </p>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                          color="quaternary"
+                          class="like-btn"
+                          :ripple="false"
+                          @click="toggleLike"
+                        >
+                          999
+                        </v-btn>
+                      </div>
+
+                      <!-- 내가 작성한 댓글,답글일 경우 노출 -->
+                      <div class="comment-btns">
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          수정
+                        </v-btn>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          삭제
+                        </v-btn>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="comment-item my">
+                    <div class="comment">
+                      <v-row
+                        align="center"
+                        class="context-tit"
+                      >
+                        <div class="userid text-tertiary">
+                          depth2 안농협
+                        </div>
+                        <v-spacer />
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                        >
+                          신고하기
+                        </v-btn>
+                      </v-row>
+                      <p class="comment-txt text-gray">
+                        depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?
+                      </p>
+                      <div class="comment-edit">
+                        <p class="info">
+                          <span>2025.04.08</span>
+                          <span>11:40</span>
+                        </p>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          :prepend-icon="isLiked ? 'custom:heart-active' : 'custom:heart'"
+                          color="quaternary"
+                          class="like-btn"
+                          :ripple="false"
+                          @click="toggleLike"
+                        >
+                          999
+                        </v-btn>
+                      </div>
+                    </div>
+
+                    <div class="comment-write">
+                      <div class="write">
+                        <div class="userid text-tertiary">
+                          김농협
+                        </div>
+                        <v-textarea
+                          variant="solo"
+                          density="compact"
+                          placeholder="댓글을 남겨보세요."
+                          rows="1"
+                          max-rows="5"
+                          flat
+                          auto-grow
+                        />
+                        <div class="comment-btns">
+                          <v-btn
+                            variant="text"
+                            density="compact"
+                            color="quaternary"
+                            :ripple="false"
+                          >
+                            취소
+                          </v-btn>
+                          <v-btn
+                            variant="text"
+                            density="compact"
+                            color="quaternary"
+                            disabled
+                            :ripple="false"
+                          >
+                            등록
+                          </v-btn>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
 
           <!-- 파일첨부 -->
