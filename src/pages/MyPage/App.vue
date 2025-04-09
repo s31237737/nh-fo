@@ -106,6 +106,7 @@
         </template>
       </v-empty-state>
     </v-sheet>
+
     <!-- 추천앱 영역 -->
     <v-sheet
       v-if="useApps.length === 0"
@@ -214,6 +215,202 @@
         </div>
       </div>
     </v-sheet>
+
+    <!-- 퍼블확인용 -->
+    <v-sheet class="w-box">
+      <div class="tit-wrap">
+        <strong class="title-5-bd">
+          사용중인 앱
+        </strong>
+        <div
+          v-if="useAppsNone.length > 0"
+          class="btns"
+        >
+          <v-select
+            v-model="select01"
+            :width="isDesktop ? 'auto' : '105'"
+            density="compact"
+            :items="['최근접속순', '가장많은 접속순', '업데이트순', '가나다순']"
+          />
+          <v-btn
+            v-if="!isEditMode && useAppsNone.length > 0"
+            color="info"
+            @click="isEditMode=true"
+          >
+            편집
+          </v-btn>
+        </div>
+      </div>
+      <v-list
+        v-if="useAppsNone.length > 0"
+        v-model:selected="selection"
+        select-strategy="multiple"
+        class="app-list"
+      >
+        <v-list-item
+          v-for="(item, index) in useAppsNone"
+          :key="index"
+          :value="item.value"
+          :ripple="false"
+        >
+          <template #prepend="{ isSelected }">
+            <v-list-item-action v-if="isEditMode">
+              <v-checkbox-btn
+                :model-value="isSelected"
+              />
+            </v-list-item-action>
+            <div class="img">
+              <v-img
+                :src="getImageUrl(item.image)"
+              />
+            </div>
+          </template>
+
+          <v-list-item-title>
+            {{ item.title }}
+          </v-list-item-title>
+
+          <v-list-item-action>
+            <v-btn
+              color="info"
+              size="small"
+              :disabled="isEditMode"
+            >
+              앱 열기
+            </v-btn>
+          </v-list-item-action>
+        </v-list-item>
+      </v-list>
+      <!-- 게시글 없을 경우 -->
+      <v-empty-state
+        v-else
+        :height="isDesktop ? '235': '260'"
+        icon="null"
+      >
+        <template #text>
+          <div class="text-2-md text-quaternary">
+            신청대기중인 앱이 없습니다.
+          </div>
+        </template>
+        <template #actions>
+          <v-btn
+            color="primary"
+            size="x-large"
+            to="/Apps"
+          >
+            Apps 보러가기
+          </v-btn>
+        </template>
+      </v-empty-state>
+    </v-sheet>
+    <v-sheet
+      v-if="useAppsNone.length === 0"
+      class="r-box"
+    >
+      <div class="tit-wrap row">
+        <strong class="title-5-bd">
+          직무를 위한 앱을 추천드려요
+        </strong>
+        <div
+          v-if="!isMobile & appsRecommend.length > 3"
+          class="scroll-control"
+        >
+          <v-btn
+            icon="custom:arrow-left"
+            class="btn-scroll"
+            variant="plain"
+            :disabled="isAtStart"
+            @click="scrollPrev"
+          />
+          <v-btn
+            variant="plain"
+            icon="custom:arrow-right"
+            class="btn-scroll"
+            :disabled="isAtEnd"
+            @click="scrollNext"
+          />
+        </div>
+      </div>
+
+      <div class="apps-recomm-wrap">
+        <div
+          ref="scrollContainer"
+          class="apps-list recomm scroll"
+          @scroll="checkScrollPosition"
+          @touchstart.stop
+          @touchmove.stop
+        >
+          <v-card
+            v-for="(card, index) in appsRecommend"
+            :id="`section${index + 1}`"
+            :key="index"
+            :to="card.link"
+            :ripple="false"
+            class="apps"
+          >
+            <div class="apps-top">
+              <div class="icon-text">
+                <v-icon
+                  class="like"
+                  size="x-large"
+                  icon="custom:full-heart"
+                />
+                <span>{{ card.likeCount }}</span>
+              </div>
+              <!-- 플래그(최대 3개) -->
+              <div class="flag-wrap">
+                <v-chip
+                  v-for="(badge, idx) in card.badges.slice(0, 3)"
+                  :key="idx"
+                  :color="badge.color"
+                  variant="tonal"
+                  class="flag"
+                >
+                  {{ badge.text }}
+                </v-chip>
+
+                <!-- 필요할 때만 표시 -->
+                <v-chip
+                  v-if="card.inUse"
+                  class="flag"
+                  color="primary"
+                >
+                  사용중
+                </v-chip>
+              </div>
+            </div>
+            <div class="apps-bottom">
+              <div class="context">
+                <v-card-subtitle class="line-clamp">
+                  {{ card.subtitle }}
+                </v-card-subtitle>
+                <v-card-title class="title-4 line-clamp">
+                  {{ card.title }}
+                </v-card-title>
+              </div>
+              <div class="apps-bottom-btns">
+                <v-btn
+                  v-if="card.showOpenApp"
+                  color="info"
+                  @click.stop.prevent="alert00 = true"
+                >
+                  앱 열기
+                </v-btn>
+                <v-btn
+                  v-else
+                  color="secondary"
+                  :ripple="false"
+                  disabled
+                >
+                  신청 대기중
+                </v-btn>
+              </div>
+            </div>
+          </v-card>
+        </div>
+      </div>
+    </v-sheet>
+    <!-- // 퍼블확인용 -->
 
     <!-- 신청대기 앱 -->
     <v-sheet class="w-box">
@@ -373,16 +570,20 @@ const isEditMode = ref(false);
 // useApps
 const selection = ref([]);
 const useApps = ref([
-  // { value: 'useApps01', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  // { value: 'useApps02', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
-  // { value: 'useApps03', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
-  // { value: 'useApps04', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  // { value: 'useApps05', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
-  // { value: 'useApps06', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
-  // { value: 'useApps07', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  // { value: 'useApps08', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
-  // { value: 'useApps09', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
+  { value: 'useApps01', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  { value: 'useApps02', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
+  { value: 'useApps03', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
+  { value: 'useApps04', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  { value: 'useApps05', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
+  { value: 'useApps06', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
+  { value: 'useApps07', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  { value: 'useApps08', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
+  { value: 'useApps09', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
 ]);
+
+//퍼블확인용
+const useAppsNone = ref([]);
+
 // waitingApps
 const waitingApps = ref([
   { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
