@@ -249,7 +249,7 @@ const feedData = ref([
     date: "2025.04.08",
     label: "앱 이름",
     content: 
-    `<img src="../src/assets/images/@temp_img_01.png" />
+    `<img src="../../../src/assets/images/@temp_img_01.png" />
     <p>안녕하세요, 총무알리미 사용자 여러분.<br>항상 총무알리미를 이용해 주셔서 감사합니다. 사용자 여러분의 소중한 의견을 반영하여, 앱의 기능을 개선하고자 다음과 같은 업데이트를 진행하였습니다.</p>
     <br>
     <p>
