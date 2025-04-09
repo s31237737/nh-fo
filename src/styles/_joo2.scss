@@ -803,7 +803,7 @@
   }
   @at-root .mobile, .tablet {
     .feedList.w-box {
-      .v-divider {
+      & > .v-divider {
         margin:0 20px;
       }
       .feed {
@@ -968,7 +968,7 @@
   }
 
   .comment-list {
-    li {
+    .comment-item {
       position: relative;
     }
     .comment-area {
@@ -993,7 +993,6 @@
       }
       .comment-write { padding: 20px 30px; }
     }
-
     .mine > .comment, 
     .mine > .comment-write {
       background: $gray-100;
@@ -1011,9 +1010,7 @@
             margin-inline: -20px;
             padding: 0 20px;
           }
-
           .reply-area {
-            .v-divider {margin: 0 -20px;}
             .comment { padding: 20px; }
             .comment-write { padding: 20px; }
             & > .comment-write { padding-top: 0; }

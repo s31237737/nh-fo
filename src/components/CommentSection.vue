@@ -64,10 +64,12 @@
       v-for="(comment, index) in comments"
       :key="comment.id"
       class="comment-item"
-      :class="{ mine: comment.isMine }"
     >
       <!-- 댓글 또는 수정 -->
-      <div class="comment-area">
+      <div
+        class="comment-area"
+        :class="{ mine: comment.isMine }"
+      >
         <div
           v-if="!comment.editMode"
           class="comment"
