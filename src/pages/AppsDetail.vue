@@ -800,7 +800,7 @@ const appsRecommend = ref([
     ],
     inUse: true,
     showOpenApp: true,
-    likeCount: 0,
+    likeCount: 100,
   },
   {
     link: "/AppsDetail",
@@ -838,7 +838,7 @@ const appsRecommend = ref([
     ],
     inUse: true,
     showOpenApp: true,
-    likeCount: 0,
+    likeCount: 100,
   },
 
 ]);

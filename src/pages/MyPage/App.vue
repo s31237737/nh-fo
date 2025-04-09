@@ -104,6 +104,109 @@
       </v-empty-state>
     </v-sheet>
     <!-- 추천앱 영역 -->
+    <section>
+      <div class="tit-wrap">
+        <strong class="title-2">
+          관련된 앱을 만나보세요!
+        </strong>
+      </div>
+
+      <div class="apps-recomm-wrap">
+        <div
+          v-if="isDesktop & appsRecommend.length > 3"
+          class="scroll-control"
+        >
+          <v-btn
+            icon="custom:arrow-left"
+            class="btn-scroll"
+            :disabled="isAtStart"
+            @click="scrollPrev"
+          />
+          <v-btn
+            icon="custom:arrow-right"
+            class="btn-scroll"
+            :disabled="isAtEnd"
+            @click="scrollNext"
+          />
+        </div>
+
+        <div
+          ref="scrollContainer"
+          class="apps-list recomm"
+          :class="{ scroll: !isMobile }"
+          @scroll="checkScrollPosition"
+        >
+          <v-card
+            v-for="(card, index) in appsRecommend"
+            :id="`section${index + 1}`"
+            :key="index"
+            :to="card.link"
+            :ripple="false"
+            class="apps"
+          >
+            <div class="apps-top">
+              <div class="icon-text">
+                <v-icon
+                  class="like"
+                  size="x-large"
+                  icon="custom:full-heart"
+                />
+                <span>{{ card.likeCount }}</span>
+              </div>
+              <!-- 플래그(최대 3개) -->
+              <div class="flag-wrap">
+                <v-chip
+                  v-for="(badge, idx) in card.badges.slice(0, 3)"
+                  :key="idx"
+                  :color="badge.color"
+                  variant="tonal"
+                  class="flag"
+                >
+                  {{ badge.text }}
+                </v-chip>
+
+                <!-- 필요할 때만 표시 -->
+                <v-chip
+                  v-if="card.inUse"
+                  class="flag"
+                  color="primary"
+                >
+                  사용중
+                </v-chip>
+              </div>
+            </div>
+            <div class="apps-bottom">
+              <div class="context">
+                <v-card-subtitle class="line-clamp">
+                  {{ card.subtitle }}
+                </v-card-subtitle>
+                <v-card-title class="title-4 line-clamp">
+                  {{ card.title }}
+                </v-card-title>
+              </div>
+              <div class="apps-bottom-btns">
+                <v-btn
+                  v-if="card.showOpenApp"
+                  color="info"
+                  @click.stop.prevent="alert00 = true"
+                >
+                  앱 열기
+                </v-btn>
+                <v-btn
+                  v-else
+                  color="secondary"
+                  :ripple="false"
+                  disabled
+                >
+                  신청 대기중
+                </v-btn>
+              </div>
+            </div>
+          </v-card>
+        </div>
+      </div>
+    </section>
+
     <!-- 신청대기 앱 -->
     <v-sheet class="w-box">
       <div class="tit-wrap">
@@ -279,6 +382,109 @@ const waitingApps = ref([
   // { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
   // { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
   // { title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
+]);
+
+
+/* apps recommand */
+const scrollContainer = ref(null);
+const cardWidth = 400 + 20;
+
+const scrollPrev = () => {
+  const container = scrollContainer.value;
+  if (container) {
+    container.scrollBy({
+      left: -cardWidth,
+      behavior: 'smooth',
+    });
+  }
+};
+
+const scrollNext = () => {
+  const container = scrollContainer.value;
+  if (container) {
+    container.scrollBy({
+      left: cardWidth,
+      behavior: 'smooth',
+    });
+  }
+};
+
+const isAtStart = ref(true);
+const isAtEnd = ref(false);
+const checkScrollPosition = () => {
+  const container = scrollContainer.value;
+  if (container) {
+    isAtStart.value = container.scrollLeft === 0;
+    isAtEnd.value =
+      container.scrollLeft + container.clientWidth >= container.scrollWidth;
+  }
+};
+
+const appsRecommend = ref([
+  {
+    link: "/AppsDetail",
+    title: "1공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 999,
+  },
+  {
+    link: "/AppsDetail",
+    title: "2공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 100,
+  },
+  {
+    link: "/AppsDetail",
+    title: "3공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+    ],
+    inUse: false,
+    showOpenApp: true,
+    likeCount: 555,
+  },
+  {
+    link: "/AppsDetail",
+    title: "4공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 999,
+  },
+  {
+    link: "/AppsDetail",
+    title: "5공통총무알리미",
+    subtitle: "총무형",
+    badges: [
+      { text: "NEW", color: "success" },
+      { text: "추천", color: "purple" },
+      { text: "HOT", color: "pink" }
+    ],
+    inUse: true,
+    showOpenApp: true,
+    likeCount: 100,
+  },
 ]);
 
 </script>

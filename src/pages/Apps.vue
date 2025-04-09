@@ -690,7 +690,7 @@ const appsData_recomm = ref([
     ],
     inUse: true,
     showOpenApp: false,
-    likeCount: 0,
+    likeCount: 100,
   },
   {
     link: "/AppsDetail",
@@ -744,7 +744,7 @@ const appsData_recomm2 = ref([
     ],
     inUse: true,
     showOpenApp: false,
-    likeCount: 0,
+    likeCount: 100,
   },
   {
     link: "/AppsDetail",
