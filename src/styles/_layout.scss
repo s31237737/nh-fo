@@ -788,6 +788,9 @@
           }
         }
       }
+      .tab-container {
+        overflow: unset;
+      }
       .inner {
         padding: 0;
       }
@@ -859,6 +862,15 @@
           }
         }
       }
+      .apps-recomm-wrap {
+        margin-right: -20px;
+        .apps-list {
+          .apps {
+            &:last-child {margin-right: 20px;}
+          }
+          .apps + .apps {margin-top: 0;}
+        }
+      }
     }
   }
   @at-root .mobile {
@@ -874,6 +886,9 @@
             }
           }
         }
+      }
+      .apps-recomm-wrap {
+        .scroll.apps-list .v-card { min-width: 320px;}
       }
     }
   }

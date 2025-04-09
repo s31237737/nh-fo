@@ -132,9 +132,10 @@
 
         <div
           ref="scrollContainer"
-          class="apps-list recomm"
-          :class="{ scroll: !isMobile }"
+          class="apps-list recomm scroll"
           @scroll="checkScrollPosition"
+          @touchstart.stop
+          @touchmove.stop
         >
           <v-card
             v-for="(card, index) in appsRecommend"
