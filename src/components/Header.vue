@@ -141,8 +141,6 @@
 
 <script setup>
 import { inject, ref, onMounted, onUnmounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
-const route = useRoute();
 
 const isDesktop = inject('isDesktop');
 const searchDrawer = ref(false);
