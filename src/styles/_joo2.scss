@@ -970,19 +970,6 @@
   .comment-list {
     li {
       position: relative;
-      &:after {
-        content:"";
-        display: block;
-        position: absolute;
-        bottom:0;
-        left:-40px;
-        right:-40px;
-        height: 0;
-        border-top: thin solid $gray-300;
-      }
-      &:last-child:after {
-        display:none;
-      }
     }
     .comment-area {
       margin-inline: -40px;
@@ -998,7 +985,6 @@
       }
     }
     .reply-area {
-      .v-divider {margin: 0 -40px;}
       .comment { 
         padding: 30px; 
         .edit-btns {
@@ -1006,11 +992,10 @@
         }
       }
       .comment-write { padding: 20px 30px; }
-      .comment-list > li:after { left:0; right: 0;}
     }
 
-    .my > .comment, 
-    .my > .comment-write {
+    .mine > .comment, 
+    .mine > .comment-write {
       background: $gray-100;
     }
   }

@@ -61,10 +61,10 @@
   <!-- 댓글 목록 -->
   <ul class="comment-list">
     <li
-      v-for="comment in comments"
+      v-for="(comment, index) in comments"
       :key="comment.id"
       class="comment-item"
-      :class="{ my: comment.isMine }"
+      :class="{ mine: comment.isMine }"
     >
       <!-- 댓글 또는 수정 -->
       <div class="comment-area">
@@ -175,11 +175,10 @@
       </div>
 
       <!-- 대댓글 또는 수정 -->
-      <div class="reply-area">
-        <v-divider
-          v-if="!comment.replyMode && comment.replies.length"
-          color="secondary"
-        />
+      <div
+        v-if="comment.replyMode || comment.replies.length > 0"
+        class="reply-area"
+      >
         <div
           v-if="comment.replyMode"
           class="comment-write"
@@ -227,7 +226,7 @@
             v-for="reply in comment.replies"
             :key="reply.id"
             class="comment-item"
-            :class="{ my: reply.isMine }"
+            :class="{ mine: reply.isMine }"
           >
             <div
               v-if="!reply.editMode"
@@ -326,6 +325,10 @@
           </li>
         </ul>
       </div>
+      <v-divider
+        v-if="index < comments.length - 1"
+        color="secondary"
+      />
     </li>
   </ul>
 </template>

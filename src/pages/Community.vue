@@ -365,6 +365,16 @@ const comments = reactive([
         likes: 0,
         isMine: true,
         editMode: false,
+      },
+      {
+        id: 13,
+        userId: 'depth2 안농협',
+        content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
+        date: '2025.04.08',
+        time: '11:40',
+        likes: 0,
+        isMine: false,
+        editMode: false,
       }
     ]
   },
