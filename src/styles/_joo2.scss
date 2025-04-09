@@ -999,7 +999,6 @@
     }
     .reply-area {
       .v-divider {margin: 0 -40px;}
-      .comment-list > li:after { left:0; right: 0;}
       .comment { 
         padding: 30px; 
         .edit-btns {
@@ -1007,6 +1006,7 @@
         }
       }
       .comment-write { padding: 20px 30px; }
+      .comment-list > li:after { left:0; right: 0;}
     }
 
     .my > .comment, 
@@ -1031,6 +1031,7 @@
             .v-divider {margin: 0 -20px;}
             .comment { padding: 20px; }
             .comment-write { padding: 20px; }
+            & > .comment-write { padding-top: 0; }
           }
         }
       }

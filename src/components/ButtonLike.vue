@@ -8,7 +8,7 @@
     :ripple="false"
     @click="toggleLike"
   >
-    {{ likes }}
+    <span v-if="likes > 0">{{ likes }}</span>
   </v-btn>
 </template>
 
