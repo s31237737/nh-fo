@@ -67,11 +67,11 @@
     </template>
     <template #append>
       <!-- 캘린더 -->
-      <v-btn
+      <!-- <v-btn
         v-if="isDesktop"
         icon="custom:calendar"
         density="comfortable"
-      />
+      /> -->
       <!-- 로그인연장 -->
       <div
         v-if="isDesktop"
