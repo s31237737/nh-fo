@@ -237,7 +237,7 @@ const feedData = ref([
     userName: "사용자 이름(아이디)",
     userPart: "직무",
     date: "2025.04.08",
-    label: "앱 이름",
+    label: "농협식품 R&D연구소농협식품 R&D연구소",
     content: 
     `<p>안녕하세요, 총무알리미 사용자 여러분.</p>
     <br>

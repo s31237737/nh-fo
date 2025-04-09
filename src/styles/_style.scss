@@ -13,7 +13,6 @@ hr.v-divider {
 
 //v-chip
 .flag.v-chip {//flag
-  margin-bottom: 4px;
   font-weight: 600;
   &.v-chip--variant-tonal .v-chip__underlay {display:none;}
   &.v-chip--size {
@@ -36,11 +35,9 @@ hr.v-divider {
   &.text-pink {background: $pink-100;}
   &.text-tertiary {background: $gray-200;}
   @at-root .flag-wrap {
-    text-align: right;
-    margin-bottom: -4px;
-    .v-chip.flag {//in .apps
-      margin-left: 4px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
   }
 }
 

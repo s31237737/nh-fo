@@ -147,11 +147,17 @@
   .v-card-title {
     display: -webkit-box;
     white-space: normal;
+    line-height: 24px !important;
   }
   .v-card-title, .v-card-subtitle {
     padding:0;
   }
   .v-card-subtitle + .v-card-title {padding-top:6px;}
+  .v-card-subtitle { 
+    padding-top: 1px;
+    @extend .caption-3;
+    color: $gray-700;
+  }
   .v-card-text {
     padding:12px 0 0;
   }
@@ -169,7 +175,7 @@
     margin-top: 30px;
   }
   .apps-bottom-btns {
-    margin-bottom:-14px;
+    margin-bottom:-4px;
     .v-btn {
       width: 96px !important;
       &:not(.bg-info) {
@@ -178,6 +184,9 @@
         }
       }
     }
+  }
+  .flag-wrap {
+    justify-content: flex-end;
   }
   @at-root .mobile {
     .apps.v-card {
@@ -198,9 +207,7 @@
       .v-card-title, .v-card-subtitle {
         padding-inline-end: 10px;
       }
-      .v-card-subtitle { 
-        color: $gray-700;
-      }
+      .v-card-title { line-height: 1.375rem !important; }
       .apps-top {
         align-items: center;
       }
@@ -504,12 +511,6 @@
   }
   .top-banner-title {
     max-width: 600px;
-  }
-  .flag-wrap {
-    text-align: left;
-    .v-chip {
-      margin-inline: 0 4px;
-    }
   }
   .version {
     display: flex;
@@ -899,6 +900,7 @@
     }
     .v-chip__content {
       font-weight: 500;
+      @include line-clamp(1);
     }
     .v-avatar {
       --v-avatar-height: 24px !important;
