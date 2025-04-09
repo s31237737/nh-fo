@@ -760,6 +760,16 @@
       }
     }
   }
+  .v-sheet.r-box {
+    margin-top: -40px;
+    border-radius: 0 0 10px 10px;
+    .tit-wrap {
+      margin-bottom: 20px;
+    }
+    .apps-recomm-wrap {
+      margin-inline-end: -40px;
+    }
+  }
   @at-root .mobile, .tablet {
     .my-page {
       margin-top: 0 !important;
@@ -862,13 +872,15 @@
           }
         }
       }
-      .apps-recomm-wrap {
-        margin-right: -20px;
-        .apps-list {
-          .apps {
-            &:last-child {margin-right: 20px;}
+      .v-sheet.r-box {
+        .apps-recomm-wrap {
+          margin-inline-end: -20px;
+          .apps-list {
+            .apps {
+              &:last-child {margin-right: 20px;}
+            }
+            .apps + .apps {margin-top: 0;}
           }
-          .apps + .apps {margin-top: 0;}
         }
       }
     }
@@ -889,6 +901,16 @@
       }
       .apps-recomm-wrap {
         .scroll.apps-list .v-card { min-width: 320px;}
+      }
+      .v-sheet.r-box {
+        margin: 20px 0;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        
+        .apps-recomm-wrap {
+          margin-inline-end: -40px;
+        }
       }
     }
   }
