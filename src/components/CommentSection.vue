@@ -59,8 +59,11 @@
   </div>
 
   <!-- 댓글 목록 -->
-  <ul class="comment-list">
-    <li
+  <div
+    v-if="comments.length"
+    class="comment-list"
+  >
+    <div
       v-for="(comment, index) in comments"
       :key="comment.id"
       class="comment-item"
@@ -337,12 +340,19 @@
         v-if="index < comments.length - 1"
         color="secondary"
       />
-    </li>
-  </ul>
+    </div>
+  </div>
+  <v-empty-state
+    v-else
+    text="'검색어' 검색결과가 없습니다."
+    icon="false"
+    bg-color="#FEFEFE"
+    :height="isDesktop ? '81': '59'"
+  />
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 const props = defineProps({
   comments: { 
     type: Array, 
@@ -363,12 +373,14 @@ const props = defineProps({
 })
 
 const emit = defineEmits([
-  'update:message', 
+  'update:message',
   'update:replyMessage', 
   'toggle-reply', 
   'cancel-edit', 
   'write-toggle'
 ])
+
+const isDesktop = inject("isDesktop");
 
 const localMessage = computed({
   get: () => props.message || '',
