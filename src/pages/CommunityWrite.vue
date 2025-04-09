@@ -10,7 +10,7 @@
       <!-- 작성자 -->
       <v-row>
         <v-col>
-          <span class="v-label require">작성자</span>
+          <span class="v-label">작성자</span>
           <div class="label-form">
             <p class="text-value">
               김농협
@@ -57,24 +57,6 @@
           </div>
         </v-col>
       </v-row>
-      <!-- 제목 -->
-      <v-row>
-        <v-col>
-          <v-label
-            for="inp-tit"
-            class="require"
-          >
-            제목
-          </v-label>
-          <div class="label-form">
-            <v-text-field
-              id="inp-tit"
-              placeholder="제목을 입력해 주세요."
-            />
-          </div>
-        </v-col>
-      </v-row>
-
       <!-- 내용 -->
       <v-row>
         <v-col>
@@ -155,11 +137,47 @@
       <v-btn
         color="primary"
         size="x-large"
+        @click="registComplete = true"
       >
         등록하기
       </v-btn>
     </div>
   </v-container>
+
+  <!-- alert(sample) -->
+  <!-- 등록 완료 -->
+  <v-dialog
+    v-model="registComplete"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="registComplete = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">등록 완료</strong>
+        <p class="text-4">
+          커뮤니티 등록이 완료되었습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="registComplete = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup>
@@ -173,6 +191,9 @@ const getImageUrl = (imageName) => {
 
 // form
 const searchApps = ref(null);
+
+//alert
+const registComplete = ref(false);
 
 // 파일
 const files = ref([]);
