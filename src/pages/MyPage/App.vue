@@ -6,7 +6,10 @@
         <strong class="title-5-bd">
           사용중인 앱
         </strong>
-        <div class="btns">
+        <div
+          v-if="useApps.length > 0"
+          class="btns"
+        >
           <v-select
             v-model="select01"
             :width="isDesktop ? 'auto' : '105'"
@@ -104,7 +107,10 @@
       </v-empty-state>
     </v-sheet>
     <!-- 추천앱 영역 -->
-    <v-sheet class="r-box">
+    <v-sheet
+      v-if="useApps.length === 0"
+      class="r-box"
+    >
       <div class="tit-wrap row">
         <strong class="title-5-bd">
           직무를 위한 앱을 추천드려요
@@ -215,7 +221,10 @@
         <strong class="title-5-bd">
           신청대기 앱
         </strong>
-        <div class="btns">
+        <div
+          v-if="waitingApps.length > 0"
+          class="btns"
+        >
           <v-select
             v-model="select02"
             density="compact"

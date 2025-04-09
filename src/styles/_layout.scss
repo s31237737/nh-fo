@@ -902,6 +902,16 @@
       .apps-recomm-wrap {
         .scroll.apps-list .v-card { min-width: 320px;}
       }
+      .v-sheet.r-box {
+        margin: 20px 0;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        
+        .apps-recomm-wrap {
+          margin-inline-end: -40px;
+        }
+      }
     }
   }
 }
