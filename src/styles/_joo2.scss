@@ -990,7 +990,7 @@
       .comment-btns { margin-bottom: -10px; }
     }
   }
-  .commentList {
+  div > .comment-area:not(.depth2):last-of-type {
     padding-bottom: 30px;
   }
   .depth2 {
@@ -1014,12 +1014,12 @@
           padding-block: 20px;
         }
       }
+      div > .comment-area:not(.depth2):last-of-type {
+        padding-bottom: 10px;
+      }
       .depth2 {
         margin-inline: 0px;
         padding-inline: 10px;
-      }
-      .commentList {
-        padding-bottom: 0px;
       }
     }
   }
