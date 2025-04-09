@@ -345,6 +345,10 @@ section + section {
   @extend .w-box;
   background: $gray-200;
 }
+.v-sheet.r-box {
+  @extend .w-box;
+  background: $gray-100;
+}
 
 //게시판 목록
 .v-list.board-list {
