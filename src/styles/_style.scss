@@ -1,29 +1,6 @@
 @use "variables" as *;
 @use "typography" as *;
 
-.v-switch {
-  &.switch-flip {
-    .v-selection-control {
-      .v-switch__track {
-        height: 20px;
-        min-width: 32px;
-      }
-      .v-label {
-        padding-inline-start: 0;
-        @extend .text-4;
-      }
-    }
-    .v-selection-control--dirty {
-      .v-selection-control__input {
-        transform: translateX(6px) !important;
-      }
-    }
-    .v-selection-control__input {
-      transform: translateX(-6px) !important;
-    }
-  }
-}
-
 .v-card {
   .v-card-item {padding: 0;}
   .v-card-text {padding: 0;}

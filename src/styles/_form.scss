@@ -63,6 +63,19 @@
       }
     }
   }
+  &.v-input--density-compact {
+    .v-field {
+      --v-field-padding-start: 12px;
+      &--appended {
+        padding-inline-end: 8px;
+      }
+    }
+    .v-select__menu-icon {
+      margin-inline-start: 0;
+      min-width: 1rem;
+      width: 1rem;
+    }
+  }
 }
 .v-autocomplete {
   &__content {
@@ -430,6 +443,29 @@
   }
 }
 
+//v-switch
+.v-switch {
+  &.switch-flip {
+    .v-selection-control {
+      .v-switch__track {
+        height: 20px;
+        min-width: 32px;
+      }
+      .v-label {
+        padding-inline-start: 0;
+        @extend .text-4;
+      }
+    }
+    .v-selection-control--dirty {
+      .v-selection-control__input {
+        transform: translateX(6px) !important;
+      }
+    }
+    .v-selection-control__input {
+      transform: translateX(-6px) !important;
+    }
+  }
+}
 
 //editor
 .v-sheet.editor {
