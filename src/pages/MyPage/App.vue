@@ -9,7 +9,7 @@
         <div class="btns">
           <v-select
             v-model="select01"
-            :width="isMobile ? '105': 'auto'"
+            :width="isDesktop ? 'auto' : '105'"
             density="compact"
             :items="['최근접속순', '가장많은 접속순', '업데이트순', '가나다순']"
           />
@@ -42,6 +42,7 @@
         </div>
       </div>
       <v-list
+        v-if="useApps.length > 0"
         v-model:selected="selection"
         select-strategy="multiple"
         class="app-list"
@@ -80,7 +81,29 @@
           </v-list-item-action>
         </v-list-item>
       </v-list>
+      <!-- 게시글 없을 경우 -->
+      <v-empty-state
+        v-else
+        :height="isDesktop ? '235': '260'"
+        icon="null"
+      >
+        <template #text>
+          <div class="text-2-md text-quaternary">
+            신청대기중인 앱이 없습니다.
+          </div>
+        </template>
+        <template #actions>
+          <v-btn
+            color="primary"
+            size="x-large"
+            to="/Apps"
+          >
+            Apps 보러가기
+          </v-btn>
+        </template>
+      </v-empty-state>
     </v-sheet>
+    <!-- 추천앱 영역 -->
     <!-- 신청대기 앱 -->
     <v-sheet class="w-box">
       <div class="tit-wrap">
@@ -96,6 +119,7 @@
         </div>
       </div>
       <v-list
+        v-if="waitingApps.length > 0"
         class="app-list"
       >
         <v-list-item
@@ -126,6 +150,27 @@
           </v-list-item-action>
         </v-list-item>
       </v-list>
+      <!-- 게시글 없을 경우 -->
+      <v-empty-state
+        v-else
+        :height="isDesktop ? '314': '260'"
+        icon="null"
+      >
+        <template #text>
+          <div class="text-2-md text-quaternary">
+            신청대기중인 앱이 없습니다.
+          </div>
+        </template>
+        <template #actions>
+          <v-btn
+            color="primary"
+            size="x-large"
+            to="/Apps"
+          >
+            Apps 보러가기
+          </v-btn>
+        </template>
+      </v-empty-state>
     </v-sheet>
   </div>
 
@@ -194,7 +239,7 @@
 <script setup>
 import { ref, inject } from "vue";
 
-const isMobile = inject("isMobile");
+const isDesktop = inject("isDesktop");
 
 const getImageUrl = (imageName) => {
   return new URL(`../../assets/images/${imageName}`, import.meta.url).href;
@@ -213,27 +258,27 @@ const isEditMode = ref(false);
 // useApps
 const selection = ref([]);
 const useApps = ref([
-  { value: 'useApps01' ,title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  { value: 'useApps02' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon02.png' },
-  { value: 'useApps03' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon03.png' },
-  { value: 'useApps04' ,title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  { value: 'useApps05' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon05.png' },
-  { value: 'useApps06' ,title: '하나로마트 식품 안전', image: '@temp_img_app_icon06.png' },
-  { value: 'useApps07' ,title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  { value: 'useApps08' ,title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon08.png' },
-  { value: 'useApps09' ,title: 'NH 푸즈', image: '@temp_img_app_icon09.png' },
+  // { value: 'useApps01', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  // { value: 'useApps02', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
+  // { value: 'useApps03', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
+  // { value: 'useApps04', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  // { value: 'useApps05', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
+  // { value: 'useApps06', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
+  // { value: 'useApps07', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  // { value: 'useApps08', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
+  // { value: 'useApps09', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
 ]);
 // waitingApps
 const waitingApps = ref([
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon02.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon03.png' },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon05.png' },
-  { title: '하나로마트 식품 안전', image: '@temp_img_app_icon06.png' },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  { title: '퇴비비료 생산 및 출고', image: '@temp_img_app_icon08.png' },
-  { title: 'NH 푸즈', image: '@temp_img_app_icon09.png' },
+  // { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  // { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
+  // { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
+  // { title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  // { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
+  // { title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
+  // { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  // { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
+  // { title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
 ]);
 
 </script>
