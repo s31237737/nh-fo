@@ -982,42 +982,46 @@
 
   .comment-list {
     li {
-      position: relative; 
+      position: relative;
       &:after {
         content:"";
         display: block;
         position: absolute;
         bottom:0;
-        left:0;
-        right:0;
+        left:-40px;
+        right:-40px;
         height: 0;
         border-top: thin solid $gray-300;
       }
       &:last-child:after {
         display:none;
       }
-      .comment {
-        padding-block: 30px;
-        padding-inline: 30px;
-      }
-      .comment-write {
-        padding-block: 20px;
-        padding-inline: 30px;
-      }
     }
-    &:not(.depth2){
+    .comment-area {
       margin-inline: -40px;
-      & > li {
-        & > .comment, & > .comment-write {
-          padding-inline: 50px;
+      padding: 0 50px;
+      .comment {
+        padding: 30px 0;
+        .edit-btns {
+          margin-bottom: -10px;
         }
       }
+      .comment-write {
+        padding: 20px 0;
+      }
     }
-    &.depth2 {
-      position: relative;
-      margin-inline: 50px;
-      & > li:last-child .comment-write { padding-bottom: 30px; }
+    .reply-area {
+      .v-divider {margin: 0 -40px;}
+      .comment-list > li:after { left:0; right: 0;}
+      .comment { 
+        padding: 30px; 
+        .edit-btns {
+          margin-bottom: -10px;
+        }
+      }
+      .comment-write { padding: 20px 30px; }
     }
+
     .my > .comment, 
     .my > .comment-write {
       background: $gray-100;
@@ -1031,22 +1035,16 @@
       }
       .comment-list {
         & > li {
-          .comment { padding-inline: 20px; }
-          .comment-write {
-            margin-inline: 0;
-            padding-inline: 20px;
+          .comment-area {
+            margin-inline: -20px;
+            padding: 0 20px;
           }
-        }
-        &:not(.depth2){
-          margin-inline: -20px;
-          & > li {
-            & > .comment, & > .comment-write {
-              padding-inline: 20px;
-            }
+
+          .reply-area {
+            .v-divider {margin: 0 -20px;}
+            .comment { padding: 20px; }
+            .comment-write { padding: 20px; }
           }
-        }
-        &.depth2 {
-          margin-inline: 20px;
         }
       }
     }

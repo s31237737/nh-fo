@@ -236,271 +236,285 @@
                 class="comment-item"
                 :class="{ my : comment.isMine }"
               >
-                <div
-                  v-if="!comment.editMode"
-                  class="comment"
-                >
-                  <v-row
-                    align="center"
-                    class="comment-top"
-                  >
-                    <div class="userid text-tertiary">
-                      {{ comment.userId }}
-                    </div>
-                    <v-spacer />
-                    <v-btn
-                      variant="text"
-                      density="compact"
-                      color="quaternary"
-                      :ripple="false"
-                    >
-                      신고하기
-                    </v-btn>
-                  </v-row>
-                  <p class="context text-gray">
-                    {{ comment.content }}
-                  </p>
-                  <div class="tools">
-                    <p class="time">
-                      <span>{{ comment.date }}</span>
-                      <span>{{ comment.time }}</span>
-                    </p>
-                    <v-btn
-                      variant="text"
-                      density="compact"
-                      color="quaternary"
-                      :ripple="false"
-                      @click="toggleReply(comment)"
-                    >
-                      답글쓰기
-                    </v-btn>
-                    <ButtonLike
-                      :initial-liked="false"
-                      :initial-likes="comment.likes"
-                    />
-                  </div>
-
-                  <!-- 내가 작성한 댓글,답글일 경우 노출 -->
+                <!-- 댓글 영역 -->
+                <div class="comment-area">
+                  <!-- 댓글 작성 -->
                   <div
-                    v-if="!comment.editMode && comment.isMine"
-                    class="edit-btns"
+                    v-if="!comment.editMode"
+                    class="comment"
                   >
-                    <v-btn
-                      variant="text"
-                      density="compact"
-                      color="quaternary"
-                      :ripple="false"
-                      @click="comment.editMode = true"
+                    <v-row
+                      align="center"
+                      class="comment-top"
                     >
-                      수정
-                    </v-btn>
-                    <v-btn
-                      variant="text"
-                      density="compact"
-                      color="quaternary"
-                      :ripple="false"
-                    >
-                      삭제
-                    </v-btn>
-                  </div>
-                </div>
-
-                <!-- 수정하기 -->
-                <div
-                  v-if="comment.editMode && comment.isMine"
-                  class="comment-write"
-                >
-                  <div class="textarea-wrap">
-                    <div class="userid">
-                      김농협
-                    </div>
-                    <v-textarea
-                      v-model="message"
-                      variant="solo"
-                      density="compact"
-                      placeholder="댓글을 남겨보세요."
-                      maxlength="500"
-                      rows="1"
-                      auto-grow
-                      flat
-                    />
-                    <div class="edit-btns justify-end">
+                      <div class="userid text-tertiary">
+                        {{ comment.userId }}
+                      </div>
+                      <v-spacer />
                       <v-btn
                         variant="text"
                         density="compact"
                         color="quaternary"
                         :ripple="false"
-                        @click="cancelEdit(comment)"
                       >
-                        취소
+                        신고하기
                       </v-btn>
-                      <v-btn
-                        variant="text"
-                        density="compact"
-                        color="quaternary"
-                        :ripple="false"
-                        :disabled="!message.trim()"
-                      >
-                        등록
-                      </v-btn>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 대댓글 -->
-                <div
-                  v-if="comment.replyMode"
-                  class="comment-write"
-                >
-                  <!-- 🔧 수정됨 -->
-                  <div class="textarea-wrap">
-                    <div class="userid">
-                      김농협
-                    </div>
-                    <v-textarea
-                      v-model="replyMessage"
-                      variant="solo"
-                      density="compact"
-                      placeholder="답글을 남겨보세요."
-                      maxlength="500"
-                      rows="1"
-                      auto-grow
-                      flat
-                    />
-                    <div class="edit-btns justify-end">
-                      <v-btn
-                        variant="text"
-                        density="compact"
-                        color="quaternary"
-                        @click="comment.replyMode = false"
-                      >
-                        취소
-                      </v-btn>
-                      <v-btn
-                        variant="text"
-                        density="compact"
-                        color="quaternary"
-                        :disabled="!replyMessage.trim()"
-                      >
-                        등록
-                      </v-btn>
-                    </div>
-                  </div>
-                </div>
-                <ul
-                  v-if="comment.replies && comment.replies.length"
-                  class="depth2 comment-list"
-                >
-                  <li
-                    v-for="reply in comment.replies"
-                    :key="reply.id"
-                    class="comment-item"
-                    :class="{ my: reply.isMine }"
-                  >
-                    <div
-                      v-if="!reply.editMode"
-                      class="comment"
-                    >
-                      <v-row
-                        align="center"
-                        class="comment-top"
-                      >
-                        <div class="userid text-tertiary">
-                          {{ reply.userId }}
-                        </div>
-                        <v-spacer />
-                        <v-btn
-                          variant="text"
-                          density="compact"
-                          color="quaternary"
-                          :ripple="false"
-                        >
-                          신고하기
-                        </v-btn>
-                      </v-row>
-                      <p class="context text-gray">
-                        {{ reply.content }}
+                    </v-row>
+                    <p class="context text-gray">
+                      {{ comment.content }}
+                    </p>
+                    <div class="tools">
+                      <p class="time">
+                        <span>{{ comment.date }}</span>
+                        <span>{{ comment.time }}</span>
                       </p>
-
-                      <div class="tools">
-                        <p class="time">
-                          <span>{{ reply.date }}</span>
-                          <span>{{ reply.time }}</span>
-                        </p>
-                        <ButtonLike
-                          :initial-liked="false"
-                          :initial-likes="0"
-                        />
-                      </div>
-
-                      <!-- 내가 작성한 댓글,답글일 경우 노출 -->
-                      <div
-                        v-if="reply.isMine"
-                        class="edit-btns"
+                      <v-btn
+                        variant="text"
+                        density="compact"
+                        color="quaternary"
+                        :ripple="false"
+                        @click="toggleReply(comment)"
                       >
-                        <v-btn
-                          variant="text"
-                          density="compact"
-                          color="quaternary"
-                          :ripple="false"
-                          @click="reply.editMode = true"
-                        >
-                          수정
-                        </v-btn>
-                        <v-btn
-                          variant="text"
-                          density="compact"
-                          color="quaternary"
-                          :ripple="false"
-                        >
-                          삭제
-                        </v-btn>
-                      </div>
+                        답글쓰기
+                      </v-btn>
+                      <ButtonLike
+                        :initial-liked="false"
+                        :initial-likes="comment.likes"
+                      />
                     </div>
-                    
-                    <!-- 수정하기 -->
+
+                    <!-- 내가 작성한 댓글,답글일 경우 노출 -->
                     <div
-                      v-if="reply.editMode && reply.isMine"
-                      class="comment-write"
+                      v-if="!comment.editMode && comment.isMine"
+                      class="edit-btns"
                     >
-                      <div class="textarea-wrap">
-                        <div class="userid">
-                          김농협
-                        </div>
-                        <v-textarea
-                          v-model="message"
-                          variant="solo"
+                      <v-btn
+                        variant="text"
+                        density="compact"
+                        color="quaternary"
+                        :ripple="false"
+                        @click="comment.editMode = true"
+                      >
+                        수정
+                      </v-btn>
+                      <v-btn
+                        variant="text"
+                        density="compact"
+                        color="quaternary"
+                        :ripple="false"
+                      >
+                        삭제
+                      </v-btn>
+                    </div>
+                  </div>
+
+                  <!-- 댓글 수정하기 -->
+                  <div
+                    v-if="comment.editMode && comment.isMine"
+                    class="comment-write"
+                  >
+                    <div class="textarea-wrap">
+                      <div class="userid">
+                        김농협
+                      </div>
+                      <v-textarea
+                        v-model="message"
+                        variant="solo"
+                        density="compact"
+                        placeholder="댓글을 남겨보세요."
+                        maxlength="500"
+                        rows="1"
+                        auto-grow
+                        flat
+                      />
+                      <div class="edit-btns justify-end">
+                        <v-btn
+                          variant="text"
                           density="compact"
-                          placeholder="댓글을 남겨보세요."
-                          maxlength="500"
-                          rows="1"
-                          auto-grow
-                          flat
-                        />
-                        <div class="edit-btns justify-end">
+                          color="quaternary"
+                          :ripple="false"
+                          @click="cancelEdit(comment)"
+                        >
+                          취소
+                        </v-btn>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :ripple="false"
+                          :disabled="!message.trim()"
+                        >
+                          등록
+                        </v-btn>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 대댓글 영역 -->
+                <div 
+                  class="reply-area"
+                >
+                  <v-divider
+                    v-if="!comment.replyMode && comment.replies.length"
+                    color="secondary"
+                  />
+                  <!-- 대댓글 작성 -->
+                  <div
+                    v-if="comment.replyMode"
+                    class="comment-write"
+                  >
+                    <div class="textarea-wrap">
+                      <div class="userid">
+                        김농협
+                      </div>
+                      <v-textarea
+                        v-model="replyMessage"
+                        variant="solo"
+                        density="compact"
+                        placeholder="답글을 남겨보세요."
+                        maxlength="500"
+                        rows="1"
+                        auto-grow
+                        flat
+                      />
+                      <div class="edit-btns justify-end">
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          @click="comment.replyMode = false"
+                        >
+                          취소
+                        </v-btn>
+                        <v-btn
+                          variant="text"
+                          density="compact"
+                          color="quaternary"
+                          :disabled="!replyMessage.trim()"
+                        >
+                          등록
+                        </v-btn>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 대댓글 목록 -->
+                  <ul
+                    v-if="comment.replies && comment.replies.length"
+                    class="comment-list"
+                  >
+                    <li
+                      v-for="reply in comment.replies"
+                      :key="reply.id"
+                      class="comment-item"
+                      :class="{ my: reply.isMine }"
+                    >
+                      <div
+                        v-if="!reply.editMode"
+                        class="comment"
+                      >
+                        <v-row
+                          align="center"
+                          class="comment-top"
+                        >
+                          <div class="userid text-tertiary">
+                            {{ reply.userId }}
+                          </div>
+                          <v-spacer />
                           <v-btn
                             variant="text"
                             density="compact"
                             color="quaternary"
                             :ripple="false"
-                            @click="cancelEdit(reply)"
                           >
-                            취소
+                            신고하기
+                          </v-btn>
+                        </v-row>
+                        <p class="context text-gray">
+                          {{ reply.content }}
+                        </p>
+
+                        <div class="tools">
+                          <p class="time">
+                            <span>{{ reply.date }}</span>
+                            <span>{{ reply.time }}</span>
+                          </p>
+                          <ButtonLike
+                            :initial-liked="false"
+                            :initial-likes="0"
+                          />
+                        </div>
+
+                        <!-- 내가 작성한 댓글,답글일 경우 노출 -->
+                        <div
+                          v-if="reply.isMine"
+                          class="edit-btns"
+                        >
+                          <v-btn
+                            variant="text"
+                            density="compact"
+                            color="quaternary"
+                            :ripple="false"
+                            @click="reply.editMode = true"
+                          >
+                            수정
                           </v-btn>
                           <v-btn
                             variant="text"
                             density="compact"
                             color="quaternary"
                             :ripple="false"
-                            :disabled="!message.trim()"
                           >
-                            등록
+                            삭제
                           </v-btn>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
+                      
+                      <!-- 수정하기 -->
+                      <div
+                        v-if="reply.editMode && reply.isMine"
+                        class="comment-write"
+                      >
+                        <div class="textarea-wrap">
+                          <div class="userid">
+                            김농협
+                          </div>
+                          <v-textarea
+                            v-model="message"
+                            variant="solo"
+                            density="compact"
+                            placeholder="댓글을 남겨보세요."
+                            maxlength="500"
+                            rows="1"
+                            auto-grow
+                            flat
+                          />
+                          <div class="edit-btns justify-end">
+                            <v-btn
+                              variant="text"
+                              density="compact"
+                              color="quaternary"
+                              :ripple="false"
+                              @click="cancelEdit(reply)"
+                            >
+                              취소
+                            </v-btn>
+                            <v-btn
+                              variant="text"
+                              density="compact"
+                              color="quaternary"
+                              :ripple="false"
+                              :disabled="!message.trim()"
+                            >
+                              등록
+                            </v-btn>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul><!--// comment-list -->
           </div><!--// feed-comment -->
