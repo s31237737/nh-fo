@@ -768,6 +768,9 @@
     }
     .apps-recomm-wrap {
       margin-inline-end: -40px;
+      .apps-list {
+        padding-inline-end: 40px;
+      }
     }
   }
   @at-root .mobile, .tablet {
