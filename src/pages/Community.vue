@@ -399,9 +399,6 @@ const cancelEdit = (item) => {
 }
 
 const toggleReply = (comment) => {
-  comments.forEach(c => {
-    if (c !== comment) c.replyMode = false
-  })
   comment.replyMode = !comment.replyMode
 }
 </script>
