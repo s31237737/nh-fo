@@ -97,6 +97,7 @@
                 variant="text"
                 density="compact"
                 color="quaternary"
+                :ripple="false"
                 @click="$emit('cancel-edit', comment)"
               >
                 취소
@@ -106,6 +107,7 @@
                 density="compact"
                 color="quaternary"
                 :disabled="!localMessage.trim()"
+                :ripple="false"
               >
                 등록
               </v-btn>
@@ -127,10 +129,12 @@
             </div>
             <v-spacer />
             <v-btn
+              v-if="!comment.isMine"
               variant="text"
               density="compact"
               color="quaternary"
               :ripple="false"
+              @click="ReportComplete = true"
             >
               신고하기
             </v-btn>
@@ -165,6 +169,7 @@
               variant="text"
               density="compact"
               color="quaternary"
+              :ripple="false"
               @click="comment.editMode = true"
             >
               수정
@@ -173,6 +178,7 @@
               variant="text"
               density="compact"
               color="quaternary"
+              :ripple="false"
             >
               삭제
             </v-btn>
@@ -205,6 +211,7 @@
               variant="text"
               density="compact"
               color="quaternary"
+              :ripple="false"
               @click="comment.replyMode = false"
             >
               취소
@@ -214,6 +221,7 @@
               density="compact"
               color="quaternary"
               :disabled="!localReplyMessage.trim()"
+              :ripple="false"
             >
               등록
             </v-btn>
@@ -254,6 +262,7 @@
                   variant="text"
                   density="compact"
                   color="quaternary"
+                  :ripple="false"
                   @click="$emit('cancel-edit', reply)"
                 >
                   취소
@@ -263,6 +272,7 @@
                   density="compact"
                   color="quaternary"
                   :disabled="!localMessage.trim()"
+                  :ripple="false"
                 >
                   등록
                 </v-btn>
@@ -284,10 +294,12 @@
               </div>
               <v-spacer />
               <v-btn
+                v-if="!reply.isMine"
                 variant="text"
                 density="compact"
                 color="quaternary"
                 :ripple="false"
+                @click="ReportComplete2 = true"
               >
                 신고하기
               </v-btn>
@@ -313,6 +325,7 @@
                 variant="text"
                 density="compact"
                 color="quaternary"
+                :ripple="false"
                 @click="reply.editMode = true"
               >
                 수정
@@ -321,6 +334,7 @@
                 variant="text"
                 density="compact"
                 color="quaternary"
+                :ripple="false"
               >
                 삭제
               </v-btn>
@@ -342,10 +356,82 @@
     bg-color="#FEFEFE"
     :height="isDesktop ? '81': '59'"
   />
+
+
+  <!-- alert(sample) -->
+  <!-- 신고완료 -->
+  <v-dialog
+    v-model="ReportComplete"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="ReportComplete = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">신고완료</strong>
+        <p class="text-4">
+          댓글 신고완료 되었습니다.<br>
+          관리자가 검토 후<br>빠른 시간안에 처리하겠습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="ReportComplete = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+  
+  <!-- 신고완료 -->
+  <v-dialog
+    v-model="ReportComplete2"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="ReportComplete2 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">신고완료</strong>
+        <p class="text-4">
+          이미 신고하신 댓글입니다.<br>
+          관리자가 검토 후<br>빠른 시간안에 처리하겠습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="ReportComplete2 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup>
-import { computed, inject } from 'vue'
+import { ref, computed, inject } from 'vue'
 const props = defineProps({
   comments: { 
     type: Array, 
@@ -374,6 +460,10 @@ const emit = defineEmits([
 ])
 
 const isDesktop = inject("isDesktop");
+
+//alert
+const ReportComplete = ref(false);
+const ReportComplete2 = ref(false);
 
 const localMessage = computed({
   get: () => props.message || '',

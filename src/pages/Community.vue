@@ -208,7 +208,7 @@
     <v-empty-state
       v-else
       text="'검색어' 검색결과가 없습니다."
-      icon="custom:warning"
+      icon="null"
       bg-color="#FEFEFE"
       :height="isDesktop ? '526': '440'"
     />
@@ -219,7 +219,6 @@
 import { ref, inject, reactive } from "vue";
 
 const isMobile = inject("isMobile");
-//const isTablet = inject("isTablet");
 const isDesktop = inject("isDesktop");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
@@ -231,11 +230,7 @@ const onAppendClick = () => {
 }
 
 /* 작성글 */
-const moreExpand = ref(false); //더보기
-const writeShow = ref(false); //댓글쓰기
-const message = ref('');//v-textarea
-const replyMessage = ref('');
-
+const moreExpand = ref(false);
 const feedData = ref([
   {
     avartar: "img_avatar12.jpg",
@@ -331,12 +326,14 @@ const feedData = ref([
     showFilelist: false,
   }
 ]);
-
 const downloadFile = (files) => {
   console.log(files.name)
 };
 
 /* 댓글 */
+const writeShow = ref(false); //댓글쓰기
+const message = ref('');//v-textarea
+const replyMessage = ref('');//대댓글
 const comments = reactive([
   {
     id: 1,

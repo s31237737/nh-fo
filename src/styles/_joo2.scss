@@ -798,9 +798,6 @@
       & > .v-divider {
         margin:0 20px;
       }
-      .feed {
-        padding: 20px 20px 0;
-      }
     }
   }
   @at-root .mobile {
@@ -821,7 +818,7 @@
   }
   @at-root .mobile, .tablet {
     .feed {
-      padding: 20px 20px 0;
+      padding: 30px 20px 0;
     }
   }
 }
@@ -991,6 +988,9 @@
       .comment-btns { margin-bottom: -10px; }
     }
   }
+  .commentList {
+    padding-bottom: 30px;
+  }
   .depth2 {
     margin-inline: -40px;
     padding-inline: 80px;
@@ -1016,6 +1016,9 @@
         margin-inline: 0px;
         padding-inline: 10px;
       }
+      .commentList {
+        padding-bottom: 0px;
+      }
     }
   }
 }
@@ -1028,7 +1031,7 @@
   padding: 50px 40px;
   @at-root .mobile, .tablet {
     .feed-fileList {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       padding: 20px;
     }
   }
