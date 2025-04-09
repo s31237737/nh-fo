@@ -75,7 +75,7 @@
             <v-row class="feed-item-tit">
               <v-col cols="auto">
                 <v-avatar
-                  size="50"
+                  size="60"
                 >
                   <v-img
                     alt="Avatar"
@@ -163,6 +163,7 @@
             </v-card-actions>
           </v-card>
 
+          <!-- 댓글 -->
           <div
             v-if="feed.showComment"
             class="feed-comment"
@@ -335,6 +336,7 @@ const downloadFile = (files) => {
   console.log(files.name)
 };
 
+/* 댓글 */
 const comments = reactive([
   {
     id: 1,
@@ -343,7 +345,7 @@ const comments = reactive([
     date: '2025.04.08',
     time: '11:40',
     likes: 12,
-    isMine: true,
+    isMine: false,//내가 작성한 글 표시
     editMode: false,
     replyMode: false,
     replies: [
@@ -354,7 +356,7 @@ const comments = reactive([
         date: '2025.04.08',
         time: '11:40',
         likes: 0,
-        isMine: false,
+        isMine: false,//내가 작성한 글 표시
       },
       {
         id: 12,
@@ -385,7 +387,7 @@ const comments = reactive([
     date: '2025.04.08',
     time: '11:40',
     likes: 0,
-    isMine: false,
+    isMine: true,
     editMode: false,
     replyMode: false,
     replies: []
