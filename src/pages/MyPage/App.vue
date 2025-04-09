@@ -105,12 +105,12 @@
     </v-sheet>
     <!-- 추천앱 영역 -->
     <section>
-      <div class="tit-wrap">
+      <div class="tit-wrap row">
         <strong class="title-5-bd">
           직무를 위한 앱을 추천드려요
         </strong>
         <div
-          v-if="isDesktop & appsRecommend.length > 3"
+          v-if="!isMobile & appsRecommend.length > 3"
           class="scroll-control"
         >
           <v-btn
@@ -345,6 +345,7 @@
 import { ref, inject } from "vue";
 
 const isDesktop = inject("isDesktop");
+const isMobile = inject("isMobile");
 
 const getImageUrl = (imageName) => {
   return new URL(`../../assets/images/${imageName}`, import.meta.url).href;

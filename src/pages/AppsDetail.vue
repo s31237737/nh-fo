@@ -316,13 +316,10 @@
 
     <!-- 관련된 앱 추천 -->
     <section>
-      <div class="tit-wrap">
+      <div class="tit-wrap row">
         <strong class="title-2">
           관련된 앱을 만나보세요!
         </strong>
-      </div>
-
-      <div class="apps-recomm-wrap">
         <div
           v-if="!isMobile & appsRecommend.length > 3"
           class="scroll-control"
@@ -330,17 +327,21 @@
           <v-btn
             icon="custom:arrow-left"
             class="btn-scroll"
+            variant="plain"
             :disabled="isAtStart"
             @click="scrollPrev"
           />
           <v-btn
             icon="custom:arrow-right"
             class="btn-scroll"
+            variant="plain"
             :disabled="isAtEnd"
             @click="scrollNext"
           />
         </div>
+      </div>
 
+      <div class="apps-recomm-wrap">
         <div
           ref="scrollContainer"
           class="apps-list recomm"

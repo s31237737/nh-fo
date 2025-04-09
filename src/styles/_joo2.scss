@@ -726,6 +726,17 @@
     }
   }
 }
+.scroll-control {
+  display: inline-flex;
+  gap: 15px;
+  .v-btn.v-btn--icon {
+    width:32px;
+    height:32px;
+    .v-icon--size-default {
+      font-size: 2rem;
+    }
+  }
+}
 
 .apps-recomm-wrap {
   position: relative;
@@ -746,36 +757,12 @@
       scroll-snap-align: start;
     }
   } 
-  .scroll-control {
-    position: absolute;
-    right:0;
-    top: -80px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    .v-btn.v-btn--icon {
-      width:32px;
-      height:32px;
-      .v-btn__overlay, .v-btn__underlay {
-        display: none;
-      }
-      .v-icon--size-default {
-        font-size: 2rem;
-      }
-      &.v-btn--disabled {
-        background: transparent;
-      }
-    }
-  }
+
   @at-root .tablet {
     .apps-recomm-wrap {
       margin-inline-end: -20px;
       .scroll.apps-list {
         padding-inline-end: 20px;
-      }
-      .scroll-control {
-        top: -51px;
-        right: 20px;
       }
     }
   }

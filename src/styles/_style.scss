@@ -114,6 +114,13 @@ hr.v-divider {
       &.column {
         gap: 8px ;
       }
+      &.row {
+        flex-wrap: nowrap;
+        strong {
+          width: auto;
+        }
+        
+      }
     }
   }
   @at-root .mobile {
