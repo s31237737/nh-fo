@@ -116,13 +116,11 @@
           <v-btn
             icon="custom:arrow-left"
             class="btn-scroll"
-            :ripple="false"
             variant="plain"
             :disabled="isAtStart"
             @click="scrollPrev"
           />
           <v-btn
-            :ripple="false"
             variant="plain"
             icon="custom:arrow-right"
             class="btn-scroll"
