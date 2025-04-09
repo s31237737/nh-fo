@@ -793,14 +793,6 @@
     margin:0;
     background: $gray-300;
   }
-  .feed {
-    position: relative;
-    padding: 50px 40px 0;
-    .v-btn.v-btn--variant-text {
-      min-width: auto;
-      padding: 0;
-    }
-  }
   @at-root .mobile, .tablet {
     .feedList.w-box {
       & > .v-divider {
@@ -816,12 +808,20 @@
       .v-row {
         gap: 30px;
       }
-      .v-card-text {
-        margin-top: 30px;
-      }
-      .v-card-actions {
-        margin-top: 20px;
-      }
+    }
+  }
+}
+
+.feed {
+  position: relative;
+  padding: 50px 40px 0;
+  .v-btn.v-btn--variant-text {
+    min-width: auto;
+    padding: 0;
+  }
+  @at-root .mobile, .tablet {
+    .feed {
+      padding: 20px 20px 0;
     }
   }
 }
@@ -911,6 +911,12 @@
   @at-root .mobile, .tablet {
     .feed-item.v-card {
       padding-bottom: 20px;
+      .v-card-text {
+        margin-top: 30px;
+      }
+      .v-card-actions {
+        margin-top: 20px;
+      }
       .editor-wrap {
         max-height: 240px;
       }
@@ -920,14 +926,13 @@
 
 .feed-comment {
   border-top: thin solid $gray-300;
-  & > div:not(.comment-list) {
-    padding-inline: 10px;
-  }
   .comment-title {
     margin-block: 30px !important;
+    padding-inline: 10px;
     min-height: 38px;
     .count { @extend .text-4; }
   }
+
   .comment-write {
     padding-block: 20px;
     .textarea-wrap{
@@ -939,11 +944,14 @@
         padding: 12px 0 0; 
         color: $gray-900;
       }
-      .edit-btns { margin-top: 28px; }
+      .comment-btns { margin-top: 28px; }
     }
   }
 
-  .userid { @extend .text-4-md; color: $gray-800; }
+  .comment-id { 
+    @extend .text-4-md; 
+    color: $gray-800; 
+  }
   .context { 
     padding-top: 12px;
     @extend .text-4;
@@ -965,7 +973,7 @@
       & + span { margin-left: 8px;}
     }
   }
-  .edit-btns {
+  .comment-btns {
     display: flex;
     align-items: center;
     justify-content: end;
@@ -977,12 +985,12 @@
     .comment-item {
       position: relative;
     }
-    .comment-area {
+    .comment-area {//댓글 영역
       margin-inline: -40px;
       padding: 0 50px;
       .comment {
         padding: 30px 0;
-        .edit-btns {
+        .comment-btns {
           margin-bottom: -10px;
         }
       }
@@ -990,10 +998,10 @@
         padding: 20px 0;
       }
     }
-    .reply-area {
+    .reply-area {//대댓글 영역
       .comment { 
         padding: 30px; 
-        .edit-btns {
+        .comment-btns {
           margin-bottom: -10px;
         }
       }
@@ -1007,9 +1015,6 @@
 
   @at-root .mobile, .tablet {
     .feed-comment { 
-      & > div:not(.comment-list) {
-        padding-inline: 0;
-      }
       .comment-list {
         & > li {
           .comment-area {
@@ -1019,7 +1024,6 @@
           .reply-area {
             .comment { padding: 20px; }
             .comment-write { padding: 20px; }
-            & > .comment-write { padding-top: 0; }
           }
         }
       }

@@ -3,7 +3,7 @@
     class="comment-title"
     align="end"
   >
-    <span class="count">댓글 {{ comments.length }}</span>
+    <span class="count">댓글 {{ totalCommentCount }}</span>
     <v-spacer />
     <v-btn
       v-if="!writeShow"
@@ -22,7 +22,7 @@
     class="comment-write"
   >
     <div class="textarea-wrap">
-      <div class="userid">
+      <div class="comment-id">
         김농협
       </div>
       <v-textarea
@@ -35,7 +35,7 @@
         auto-grow
         flat
       />
-      <div class="edit-btns justify-end">
+      <div class="comment-btns">
         <v-btn
           variant="text"
           density="compact"
@@ -65,11 +65,12 @@
       :key="comment.id"
       class="comment-item"
     >
-      <!-- 댓글 또는 수정 -->
+      <!-- 댓글 영역 -->
       <div
         class="comment-area"
         :class="{ mine: comment.isMine }"
       >
+        <!-- 내용 -->
         <div
           v-if="!comment.editMode"
           class="comment"
@@ -78,7 +79,7 @@
             align="center"
             class="comment-top"
           >
-            <div class="userid text-tertiary">
+            <div class="comment-id text-tertiary">
               {{ comment.userId }}
             </div>
             <v-spacer />
@@ -115,7 +116,7 @@
           </div>
           <div
             v-if="comment.isMine"
-            class="edit-btns"
+            class="comment-btns"
           >
             <v-btn
               variant="text"
@@ -135,13 +136,13 @@
           </div>
         </div>
 
-        <!-- 수정모드 -->
+        <!-- 수정 -->
         <div
           v-if="comment.editMode"
           class="comment-write"
         >
           <div class="textarea-wrap">
-            <div class="userid">
+            <div class="comment-id">
               김농협
             </div>
             <v-textarea
@@ -154,7 +155,7 @@
               auto-grow
               flat
             />
-            <div class="edit-btns justify-end">
+            <div class="comment-btns">
               <v-btn
                 variant="text"
                 density="compact"
@@ -176,17 +177,18 @@
         </div>
       </div>
 
-      <!-- 대댓글 또는 수정 -->
+      <!-- 대댓글 영역 -->
       <div
         v-if="comment.replyMode || comment.replies.length > 0"
         class="reply-area"
-      >
+      > 
+        <!-- 대댓글 작성 -->
         <div
           v-if="comment.replyMode"
           class="comment-write"
         >
           <div class="textarea-wrap">
-            <div class="userid">
+            <div class="comment-id">
               김농협
             </div>
             <v-textarea
@@ -199,7 +201,7 @@
               auto-grow
               flat
             />
-            <div class="edit-btns justify-end">
+            <div class="comment-btns">
               <v-btn
                 variant="text"
                 density="compact"
@@ -220,6 +222,7 @@
           </div>
         </div>
 
+        <!-- 대댓글 목록 -->
         <ul
           v-if="comment.replies.length"
           class="comment-list"
@@ -230,6 +233,7 @@
             class="comment-item"
             :class="{ mine: reply.isMine }"
           >
+            <!-- 내용 -->
             <div
               v-if="!reply.editMode"
               class="comment"
@@ -238,7 +242,7 @@
                 align="center"
                 class="comment-top"
               >
-                <div class="userid text-tertiary">
+                <div class="comment-id text-tertiary">
                   {{ reply.userId }}
                 </div>
                 <v-spacer />
@@ -266,7 +270,7 @@
               </div>
               <div
                 v-if="reply.isMine"
-                class="edit-btns"
+                class="comment-btns"
               >
                 <v-btn
                   variant="text"
@@ -286,12 +290,13 @@
               </div>
             </div>
 
+            <!-- 수정 -->
             <div
               v-if="reply.editMode"
               class="comment-write"
             >
               <div class="textarea-wrap">
-                <div class="userid">
+                <div class="comment-id">
                   김농협
                 </div>
                 <v-textarea
@@ -304,7 +309,7 @@
                   auto-grow
                   flat
                 />
-                <div class="edit-btns justify-end">
+                <div class="comment-btns">
                   <v-btn
                     variant="text"
                     density="compact"
@@ -327,6 +332,7 @@
           </li>
         </ul>
       </div>
+
       <v-divider
         v-if="index < comments.length - 1"
         color="secondary"
@@ -375,4 +381,12 @@ const localReplyMessage = computed({
 })
 
 const emitWriteToggle = () => emit('write-toggle')
+
+const getTotalCommentCount = (comments) => {
+  return comments.reduce((total, comment) => {
+    return total + 1 + comment.replies.length
+  }, 0)
+}
+
+const totalCommentCount = computed(() => getTotalCommentCount(props.comments))
 </script>
