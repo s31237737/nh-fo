@@ -106,12 +106,9 @@
     <!-- 추천앱 영역 -->
     <section>
       <div class="tit-wrap">
-        <strong class="title-2">
-          관련된 앱을 만나보세요!
+        <strong class="title-5-bd">
+          직무를 위한 앱을 추천드려요
         </strong>
-      </div>
-
-      <div class="apps-recomm-wrap">
         <div
           v-if="isDesktop & appsRecommend.length > 3"
           class="scroll-control"
@@ -119,17 +116,23 @@
           <v-btn
             icon="custom:arrow-left"
             class="btn-scroll"
+            :ripple="false"
+            variant="plain"
             :disabled="isAtStart"
             @click="scrollPrev"
           />
           <v-btn
+            :ripple="false"
+            variant="plain"
             icon="custom:arrow-right"
             class="btn-scroll"
             :disabled="isAtEnd"
             @click="scrollNext"
           />
         </div>
+      </div>
 
+      <div class="apps-recomm-wrap">
         <div
           ref="scrollContainer"
           class="apps-list recomm scroll"
