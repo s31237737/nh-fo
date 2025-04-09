@@ -987,8 +987,8 @@
     margin-top: 4px;
   }
 
-  .comment-list {
-    .comment-item {
+  .commentList {
+    .commentList-item {
       position: relative;
     }
     .comment-area {//댓글 영역
@@ -1021,7 +1021,7 @@
 
   @at-root .mobile, .tablet {
     .feed-comment { 
-      .comment-list {
+      .commentList {
         & > li {
           .comment-area {
             margin-inline: -20px;

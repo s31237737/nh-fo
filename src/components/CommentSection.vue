@@ -61,14 +61,16 @@
   <!-- 댓글 목록 -->
   <div
     v-if="comments.length"
-    class="comment-list"
+    class="commentList"
   >
     <div
       v-for="(comment, index) in comments"
       :key="comment.id"
-      class="comment-item"
+      class="commentList-item"
     >
-      <!-- 댓글 영역 -->
+      <!-- 댓글 영역
+          *'내가 작성한 글'일 경우 클래스 추가 
+      -->
       <div
         class="comment-area"
         :class="{ mine: comment.isMine }"
@@ -228,12 +230,13 @@
         <!-- 대댓글 목록 -->
         <ul
           v-if="comment.replies.length"
-          class="comment-list"
+          class="commentList"
         >
+          <!-- *'내가 작성한 글'일 경우 클래스 추가 -->
           <li
             v-for="reply in comment.replies"
             :key="reply.id"
-            class="comment-item"
+            class="commentList-item"
             :class="{ mine: reply.isMine }"
           >
             <!-- 내용 -->

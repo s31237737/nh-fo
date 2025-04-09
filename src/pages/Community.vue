@@ -343,7 +343,7 @@ const comments = reactive([
     date: '2025.04.08',
     time: '11:40',
     likes: 12,
-    isMine: true,
+    isMine: true,//내가 작성한 글 표시
     editMode: false,
     replyMode: false,
     replies: [
@@ -354,7 +354,7 @@ const comments = reactive([
         date: '2025.04.08',
         time: '11:40',
         likes: 0,
-        isMine: false,
+        isMine: false,//내가 작성한 글 표시
       },
       {
         id: 12,
