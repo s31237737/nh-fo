@@ -10,7 +10,7 @@
       <!-- 작성자 -->
       <v-row>
         <v-col>
-          <span class="v-label">작성자</span>
+          <span class="v-label require">작성자</span>
           <div class="label-form">
             <p class="text-value">
               김농협
