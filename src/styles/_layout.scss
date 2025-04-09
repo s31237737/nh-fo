@@ -768,6 +768,9 @@
     }
     .apps-recomm-wrap {
       margin-inline-end: -40px;
+      .apps-list {
+        padding-inline-end: 40px;
+      }
     }
   }
   @at-root .mobile, .tablet {
@@ -876,9 +879,7 @@
         .apps-recomm-wrap {
           margin-inline-end: -20px;
           .apps-list {
-            .apps {
-              &:last-child {margin-right: 20px;}
-            }
+            padding-inline-end: 20px;
             .apps + .apps {margin-top: 0;}
           }
         }
@@ -907,10 +908,6 @@
         padding: 0;
         background: transparent;
         border-radius: 0;
-        
-        .apps-recomm-wrap {
-          margin-inline-end: -40px;
-        }
       }
     }
   }
