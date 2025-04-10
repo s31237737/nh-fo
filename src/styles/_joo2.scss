@@ -23,23 +23,24 @@
   .apps-slide-content {
     position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width:100%;
     max-width: 1280px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px 58px;
     .context {
       position: relative;   
       top: -38px; 
-      max-width: 540px;           
+      max-width: 550px;           
       z-index: 1;
       .title {
         display: block;
         @extend .title-1;
       }
       .description {
-        margin-top: 12px;
+        margin-top: 8px;
         @extend .text-2;
         color: $gray-700;
         word-break: keep-all;
@@ -47,16 +48,12 @@
       }
       .apptype {
         display: block;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         @extend .caption-1;
         color: $green-700;
       }
     }
     .context-img {
-      position: absolute;
-      top: 80px;
-      right: 20px;
-      z-index: 0;
       width: 530px;
       height: 330px;
     }
