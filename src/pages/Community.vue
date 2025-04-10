@@ -235,8 +235,7 @@
     <v-empty-state
       v-else
       text="'검색어' 검색결과가 없습니다."
-      icon="null"
-      bg-color="#FEFEFE"
+      icon="custom:warning"
       :height="isDesktop ? '526': '440'"
     />
   </v-container>

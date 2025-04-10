@@ -7,18 +7,6 @@
     </div>
     <!-- form 영역 -->
     <div class="form-sheet">
-      <!-- 작성자 -->
-      <v-row>
-        <v-col>
-          <span class="v-label">작성자</span>
-          <div class="label-form">
-            <p class="text-value">
-              김농협
-            </p>
-          </div>
-        </v-col>
-      </v-row>
-      <v-divider v-if="!isDesktop" />
       <!-- 앱 -->
       <v-row>
         <v-col>
@@ -54,6 +42,17 @@
                 </v-btn>
               </template>
             </v-autocomplete>
+          </div>
+        </v-col>
+      </v-row>
+      <!-- 작성자 -->
+      <v-row>
+        <v-col>
+          <span class="v-label">작성자</span>
+          <div class="label-form">
+            <p class="text-value">
+              김농협
+            </p>
           </div>
         </v-col>
       </v-row>
