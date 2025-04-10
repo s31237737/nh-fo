@@ -55,6 +55,7 @@
           :key="index"
           :value="item.value"
           :ripple="false"
+          :to="isEditMode ? null : item.link"
         >
           <template #prepend="{ isSelected }">
             <v-list-item-action v-if="isEditMode">
@@ -78,6 +79,7 @@
               color="info"
               size="small"
               :disabled="isEditMode"
+              @click.stop.prevent
             >
               앱 열기
             </v-btn>
@@ -436,6 +438,9 @@
         <v-list-item
           v-for="(item, index) in waitingApps"
           :key="index"
+          :value="item.value"
+          :ripple="false"
+          :to="item.link"
         >
           <template #prepend>
             <div class="img">
@@ -570,15 +575,15 @@ const isEditMode = ref(false);
 // useApps
 const selection = ref([]);
 const useApps = ref([
-  { value: 'useApps01', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  { value: 'useApps02', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
-  { value: 'useApps03', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
-  { value: 'useApps04', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  { value: 'useApps05', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
-  { value: 'useApps06', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
-  { value: 'useApps07', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  { value: 'useApps08', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
-  { value: 'useApps09', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
+  { value: 'useApps01', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  { value: 'useApps02', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
+  { value: 'useApps03', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
+  { value: 'useApps04', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  { value: 'useApps05', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
+  { value: 'useApps06', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
+  { value: 'useApps07', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  { value: 'useApps08', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
+  { value: 'useApps09', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
 ]);
 
 //퍼블확인용
@@ -586,15 +591,15 @@ const useAppsNone = ref([]);
 
 // waitingApps
 const waitingApps = ref([
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
-  { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
-  { title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
-  { title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  { title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
-  { title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
+  { value: 'waitingApps01', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  { value: 'waitingApps02', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
+  { value: 'waitingApps03', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
+  { value: 'waitingApps04', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  { value: 'waitingApps05', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
+  { value: 'waitingApps06', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
+  { value: 'waitingApps07', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  { value: 'waitingApps08', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
+  { value: 'waitingApps09', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
 ]);
 
 
