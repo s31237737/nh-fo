@@ -219,9 +219,6 @@ hr.v-divider {
       &.active {
         color: $blue-500;
       }
-      .v-btn__overlay {
-        opacity: 0;
-      }
     }
   }
 }
@@ -348,7 +345,7 @@ section + section {
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 2px;
       @extend .text-3;
     }
     &__prepend {
