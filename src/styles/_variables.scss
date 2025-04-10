@@ -96,17 +96,29 @@ $green-1000: #004714;
   span {
     position: relative;
     display: inline-flex;
-    padding-right: 21px;
+    padding-right: 15px;
     &:not(:only-child):not(:last-child)  {
       &::after {
         content: '';
         position: absolute;
         top: 50%;
-        right: 10px;
+        right: 7px;
         width: 1px;
-        height: 12px;
+        height: 10px;
         transform: translateY(-50%);
         background-color: $gray-700;
+      }
+    }
+  }
+  @at-root .mobile, .tablet {
+    .details-bar {
+      span {
+        padding-right: 9px;
+        &:not(:only-child):not(:last-child) {
+          &::after {
+            right: 4px;
+          }
+        }
       }
     }
   }
