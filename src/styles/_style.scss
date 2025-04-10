@@ -362,7 +362,6 @@ section + section {
     .info {
       flex-wrap: wrap;
       @extend .details-bar;
-      padding-right: 9px;
       span {
         &:not(:first-child) {
           &::after {
