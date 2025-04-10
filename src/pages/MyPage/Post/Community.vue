@@ -51,7 +51,7 @@
             </v-col>
           </v-row>
           <v-card-text>
-            <div :class="['editor-wrap', { expanded: moreExpand }]">
+            <div :class="['editor-wrap', { expanded: moreItems[index] }]">
               <div class="editor-content">
                 <img :src="getImageUrl('@temp_img_01.png')">
                 <br>
@@ -89,9 +89,9 @@
               density="compact"
               class="link-btn"
               color="gray"
-              @click="moreExpand = !moreExpand"
+              @click="toggleExpand(index)"
             >
-              {{ moreExpand ? '접기' : '더보기' }}
+              {{ moreItems[index] ? '접기' : '더보기' }}
             </v-btn>
           </v-card-text>
           <v-card-actions>
@@ -211,7 +211,11 @@ const getImageUrl = (imageName) => {
   return new URL(`../../../assets/images/${imageName}`, import.meta.url).href;
 };
 
-const moreExpand = ref(false);
+const moreItems = ref({});
+const toggleExpand = (index) => {
+  moreItems.value[index] = !moreItems.value[index]
+}
+
 const feedData = ref([
   {
     avartar: "img_avatar12.jpg",
