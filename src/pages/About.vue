@@ -140,9 +140,8 @@
         <div class="inner">
           <h2>Brand Logo</h2>
           <p class="text-3">
-            UP STORE 로고의 유연하고 부드럽게 이어지는 곡선은 NH의 변화와 적응을 상징하며, 
-            마지막 글자 E는 전문성과 성장을 의미하는 삼각형으로 형상화되어 있습니다. 이는 고객에게 
-            더 나은 솔루션을 제공하겠다는 비전을 담아 표현했습니다.
+            UP STORE 로고의 유연하고 부드럽게 이어지는 곡선은 NH의 변화와 적응을 상징하며, <br v-if="!isTablet">
+            마지막 글자 E는 전문성과 성장을 의미하는 삼각형으로 형상화되어 있습니다. <br v-if="isDesktop">이는 고객에게 더 나은 솔루션을 제공하겠다는 비전을 담아 표현했습니다.
           </p>
           <div class="img-wrap">
             <div>
@@ -301,85 +300,102 @@
           <li>컬러 활용 시, 그라데이션을 사용하지 않습니다.</li>
           <li>복잡한 배경 위에 사용하지 않습니다.</li>
         </ul>
-        <v-row class="type-block">
+        <v-row class="type-block gellary">
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_01.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_01.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_02.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_02.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_03.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_03.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_04.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_04.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
         </v-row>
       
-        <v-row class="type-block">
+        <v-row class="type-block gellary">
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_05.png')"
-              alt=""
-            >
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_05.png')"
+                alt=""
+              >
+            </v-card>
+          </v-col>
+          <v-col
+            md="6"
+            sm="12"
+          > 
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_06.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_06.png')"
-              alt=""
-            >
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_07.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
-          >
-            <img
-              :src="getImageUrl('img_about_07.png')"
-              alt=""
-            >
-          </v-col>
-          <v-col
-            md="6"
-            sm="12"
-          >
-            <img
-              :src="getImageUrl('img_about_08.png')"
-              alt=""
-            >
+          > 
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_08.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
         </v-row> 
       </section>
     </v-container>
+    <Footer />
   </v-main>
 </template>
 
@@ -388,6 +404,7 @@ import { inject } from "vue";
 
 //const isMobile = inject("isMobile");
 const isDesktop = inject("isDesktop");
+const isTablet = inject("isTablet");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
