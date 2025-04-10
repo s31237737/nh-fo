@@ -1278,7 +1278,6 @@
       }
       .type-block {
         margin-top:  20px;
-        & + .type-block {margin-top: 80px;}
         .v-card {
           min-height: 200px;
           padding: 32px 24px;
@@ -1314,6 +1313,7 @@
             }
           }
         }
+        & + .type-block {margin-top: 80px;}
       }
     }
   }
