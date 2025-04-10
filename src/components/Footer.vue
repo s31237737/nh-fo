@@ -3,7 +3,7 @@
     <div class="inner">
       <router-link to="/">
         <v-img
-          :width="!isMobile ? 180 : 144"
+          width="144"
           alt="NH UP STORE"
           src="@/assets/images/footer_logo.png"
         />

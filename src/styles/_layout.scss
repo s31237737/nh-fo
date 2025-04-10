@@ -204,7 +204,7 @@
     .header {
       > .v-toolbar__content {
         overflow: unset;
-        padding: 0 12px 0 24px !important;
+        padding: 0 20px !important;
       }
       .v-toolbar__append {
         gap: 10px;
@@ -228,11 +228,11 @@
       gap: 6px;
       align-items: flex-end;
       color: $white;
-      a {
-        @extend .text-3-md;
-        display: inline-block;
-          width: max-content;
-      }
+    }
+    a {
+      @extend .text-3-md;
+      display: inline-block;
+      width: max-content;
     }
     .copy {
       @extend .text-4;

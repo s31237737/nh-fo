@@ -8,7 +8,7 @@
     <template #prepend>
       <router-link to="/">
         <v-img
-          :width="isDesktop ? 180 : 144"
+          width="144"
           alt="NH UP STORE"
           src="@/assets/images/logo.png"
         />
@@ -124,6 +124,7 @@
       <v-btn
         v-if="!isDesktop"
         icon="custom:hamburger"
+        density="comfortable"
         @click.stop="toggleGnbDrawer"
       />
     </template>
