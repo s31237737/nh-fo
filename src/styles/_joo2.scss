@@ -31,8 +31,7 @@
     margin: 0 auto;
     padding: 0 20px 58px;
     .context {
-      position: relative;   
-      top: -38px; 
+      position: relative;
       max-width: 550px;           
       z-index: 1;
       .title {
@@ -108,7 +107,7 @@
         max-width: 100%;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
+        padding-bottom: 100px;
         .context {
           top: 40px;
           max-width: 100%;
@@ -116,17 +115,15 @@
             margin-bottom: 12px;
           }
           .description {
+            @include line-clamp(3);
             margin-top: 8px;
           }
         }
         .context-img {
-          position: relative;
-          top:auto;
-          right:auto; 
+          margin: 0 auto;
           width: 100%;
           max-width: 320px;
           height: auto;
-          margin: 0 auto 100px;
         }
       }
       .slider-controls {
