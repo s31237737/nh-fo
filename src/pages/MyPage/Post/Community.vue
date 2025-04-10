@@ -121,6 +121,7 @@
                   color="info"
                   variant="flat"
                   :ripple="false"
+                  to="/CommunityWrite"
                 >
                   수정
                 </v-btn>
