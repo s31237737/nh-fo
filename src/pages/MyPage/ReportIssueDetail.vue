@@ -123,6 +123,7 @@
       <v-btn
         color="info"
         size="x-large"
+        @click="openPopup = true"
       >
         수정
       </v-btn>
@@ -135,10 +136,15 @@
       </v-btn>
     </div>
   </v-container>
+  <!-- 불편신고 팝업 -->
+  <PopupReportIssue v-model="openPopup" />
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import PopupReportIssue from "@/pages/popup/PopupReportIssue.vue";
+
+const openPopup = ref(false);
 
 const fileList = ref([
   { name: "File_t_title_1.pdf", size: "10.3MB"},

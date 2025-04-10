@@ -102,7 +102,7 @@ const boardItem = ref([
     release: "공개",
     date: "2025.03.24",
     views: 1000,
-    link: "/MyPage/QnaDetail"
+    link: "/QnaDetail"
   },
   {
     id: 2,
