@@ -226,10 +226,12 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      text-align: right;
+      align-items: flex-end;
       color: $white;
       a {
         @extend .text-3-md;
+        display: inline-block;
+          width: max-content;
       }
     }
     .copy {
@@ -240,12 +242,15 @@
   @at-root .mobile {
     .v-footer {
       margin-top: 60px;
+      align-items: unset;
+      padding: 20px 0 0;
       .inner {
         align-items: unset;
+        justify-content: flex-start;
         flex-direction: column;
-        gap: 8px;
+        gap: 5px;
         .info {
-          gap: 4px;
+          gap: 0;
         }
         .copy {
           font-size: 0.75rem !important;
