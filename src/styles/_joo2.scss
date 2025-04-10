@@ -114,6 +114,7 @@
           .description {
             @include line-clamp(3);
             margin-top: 8px;
+            word-break: normal;
           }
         }
         .context-img {
