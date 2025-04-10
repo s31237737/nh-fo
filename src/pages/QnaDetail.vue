@@ -151,6 +151,7 @@
       <v-btn
         color="info"
         size="x-large"
+        to="/QnaWrite"
       >
         수정
       </v-btn>
