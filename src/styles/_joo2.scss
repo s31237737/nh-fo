@@ -1058,9 +1058,224 @@
 
 
 //about
-.about-top-bnr {
+.about-top-bnr.v-sheet {
   overflow: hidden;
   width:100%;
   height: 548px;
-  background: url("@/assets/images/img_about_banner.png") no-repeat center / 1920px 548px;
+  background: url("@/assets/images/img_about_banner.png"), linear-gradient(90deg, #74B9CC 0%, #78BBCF 92.79%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1920px 548px;
+  h1 {visibility: hidden;}
+  @at-root .tablet {
+    .about-top-bnr.v-sheet {
+      height: 219px;
+      background-size: auto 219px;
+    }
+  }
+  @at-root .mobile {
+    .about-top-bnr.v-sheet {
+      height: 180px;
+      background-size: auto 180px;
+    }
+  }
+}
+.about.v-main {
+  background: $white;
+  h1 {
+    margin-bottom: 40px;
+    img {
+     width: 240px;
+     height: auto;
+   }
+  }
+  h2 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    line-height: 100% !important;
+    margin-bottom: 16px;
+  }
+  p {
+    color: $gray-700;
+  }
+
+  ul {
+    color: $gray-700;
+    li {}
+  }
+
+  .type-block {
+    margin-top:  40px;
+    & + .type-block {margin-top: 140px;}
+    &.line .v-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      height: 100%;
+      border: thin solid $gray-300;
+      padding: 40px 30px;
+      & > * { flex: 0 0 auto; }
+      .v-card-title {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        padding: 0;
+        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+        line-height: 100% !important;
+        color: $gray-900;
+        .v-img { flex: 0 0 60px; }
+      }
+      .v-card-text {
+        margin-top: auto;
+        @extend .text-3;
+        color: $gray-700;
+      }
+    }
+
+    &:not(.line) .v-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 310px;
+      background: $gray-200;
+
+      &.b-white {
+        background: #fff;
+        border: thin solid $gray-300;
+      }
+      &.b-black {
+        background: #000;
+        color: $white;
+      }
+      &.b-blue {
+        background: #2872F2;
+        color: $white;
+      }
+      &.b-green {
+        background: #78CB00;
+      }
+    }
+
+    &.text {
+      .v-card {
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 40px;
+        color: $black;
+        em {
+          @extend .text-2;
+        }
+        span {
+          @extend .text-4;
+        }
+      }
+    }
+  }
+  section {
+    margin: 140px 0;
+    & section { margin-top: 0; }
+    
+  }
+  section.full {
+    position: relative;
+    padding: 160px 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw; /* 전체 뷰포트 너비 */
+    background-color: #0C0C0C;
+    color: $white;
+    p {
+      color: $gray-500;
+    }
+    
+    .img-wrap {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      margin-top: 60px;
+      img {display: block;}
+      p { @extend .text-4; color: $gray-700;}
+    }
+    .btns {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 60px; 
+    }
+  }
+
+  @at-root .mobile, .tablet {
+    .about.v-main {
+      h1 { margin-bottom: 24px; }
+      h2 {
+        font-size: 1.25rem !important;
+        margin-bottom: 12px;
+      }
+      section {
+        margin: 80px 0;
+      }
+      section.full {
+        left: 0;
+        right: 0;
+        margin-left: -20px;
+        margin-right: -20px;
+        width: auto; /* 전체 뷰포트 너비 */
+        padding: 60px 0;
+      }
+      .type-block {
+        margin-top:  20px;
+        & + .type-block {margin-top: 80px;}
+        .v-card {
+          min-height: 200px;
+          padding: 32px 24px;
+          .v-card-title {
+            font-size: 1.25rem !important;
+            color: $gray-900;
+          }
+          .v-card-text {
+            margin-top: auto;
+          }
+        }
+        &.text {
+          .v-card {
+            gap: 6px;
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+  @at-root .tablet {
+    .about.v-main {
+      section.full {
+        .img-wrap {
+          margin-top: 40px;
+          gap: 54px;
+          img { width: auto; max-height: 122px; }
+        }
+      }
+    }
+  }
+  @at-root .mobile {
+    .about.v-main {
+      section.full {
+        .img-wrap {
+          margin-top: 60px;
+          flex-direction: column;
+          gap: 24px;
+          align-items: start;
+          img { width: auto; max-height: 74px; }
+        }
+        .btns {
+          margin-top: 40px;
+          .v-btn { flex: 1; }
+        }
+      }
+    }
+  }
 }
