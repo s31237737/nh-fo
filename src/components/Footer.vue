@@ -4,7 +4,7 @@
       <router-link to="/">
         <v-img
           :width="!isMobile ? 180 : 144"
-          alt="NH Nonghyup"
+          alt="NH UP STORE"
           src="@/assets/images/footer_logo.png"
         />
       </router-link>
@@ -14,7 +14,7 @@
           개인정보 처리 방침
         </router-link>
         <p class="copy">
-          © 2025 NH. All right reserved.
+          ©CopyRight 2025. NONGHYUP ALL Rights Reserved.
         </p>
       </div>
     </div>

@@ -9,7 +9,7 @@
       <router-link to="/">
         <v-img
           :width="isDesktop ? 180 : 144"
-          alt="NH Nonghyup"
+          alt="NH UP STORE"
           src="@/assets/images/logo.png"
         />
       </router-link>
