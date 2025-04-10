@@ -23,12 +23,12 @@
         </li>
       </ul>
     </v-sheet>
-    <div 
+    <div
       class="privacy-wrap"
     >
       <v-sheet
         v-for="(item, index) in list"
-        :id="`section${index + 1}`" 
+        :id="`section${index + 1}`"
         :key="index"
         class="privacy"
       >
@@ -59,7 +59,6 @@ if (document.querySelector(".desktop")) {
 }
 
 const scrollToSection = (index) => {
-  console.log(index);
   goTo(`#section${index + 1}`, {
     offset: offsetValue,
   });
@@ -108,4 +107,3 @@ const list = [
     },
   ]
 </script>
-   
