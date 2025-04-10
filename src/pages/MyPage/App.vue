@@ -7,7 +7,6 @@
           사용중인 앱
         </strong>
         <div
-          v-if="useApps.length > 0"
           class="btns"
         >
           <v-select
@@ -19,6 +18,7 @@
           <v-btn
             v-if="!isEditMode"
             color="info"
+            :disabled="useApps.length === 0"
             @click="isEditMode=true"
           >
             편집
@@ -225,7 +225,6 @@
           사용중인 앱
         </strong>
         <div
-          v-if="useAppsNone.length > 0"
           class="btns"
         >
           <v-select
@@ -235,8 +234,8 @@
             :items="['최근접속순', '가장많은 접속순', '업데이트순', '가나다순']"
           />
           <v-btn
-            v-if="!isEditMode && useAppsNone.length > 0"
             color="info"
+            :disabled="useAppsNone.length === 0"
             @click="isEditMode=true"
           >
             편집
@@ -421,7 +420,6 @@
           신청대기 앱
         </strong>
         <div
-          v-if="waitingApps.length > 0"
           class="btns"
         >
           <v-select
