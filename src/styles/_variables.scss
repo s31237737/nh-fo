@@ -97,7 +97,7 @@ $green-1000: #004714;
     position: relative;
     display: inline-flex;
     padding-right: 21px;
-    &:not(:only-child):not(:last-child)  {
+    &:not(:only-child):not(:last-child) {
       &::after {
         content: '';
         position: absolute;
@@ -109,5 +109,6 @@ $green-1000: #004714;
         background-color: $gray-700;
       }
     }
+    &:only-child, &:last-child {padding-right: 0;}
   }
 }

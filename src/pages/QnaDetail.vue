@@ -72,7 +72,7 @@
     </v-sheet>
     <!-- 답글 영역 -->
     <v-sheet class="w-box">
-      <div class="tit-wrap">
+      <div class="tit-wrap mb-0">
         <strong class="text-2-md">관리자</strong>
         <span class="date">2024.06.13 11:05</span>
       </div>
