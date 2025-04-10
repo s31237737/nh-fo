@@ -137,13 +137,13 @@
   .v-card-title {
     display: -webkit-box;
     white-space: normal;
-    line-height: 1.875rem !important;
+    //line-height: 1.875rem !important;
   }
   .v-card-title {
     padding:0;
   }
   .v-card-text {
-    padding:12px 0 0;
+    padding:10px 0 0;
     color: $gray-800;
   }
   .apps-top {
@@ -178,13 +178,7 @@
       .apps-top .v-img {
         flex: 0 0 54px;
       }
-      .apps-bottom {margin-top: 24px;}
-      .v-card-title {
-        line-height: 24px !important;
-      }
-      .v-card-text {
-        padding-top:10px;
-      }
+      .apps-bottom {margin-top: 22px;}
     }
   }
 }
@@ -193,22 +187,18 @@
     .apps {
       .v-card-title {
         padding-inline-end: 10px;
-        line-height: 1.8125rem !important;
+        margin-top:2px;
       }
       .v-card-subtitle {
         padding-inline: 0 10px;
         color: $gray-700;
-        font-size: 1rem !important;
-        line-height: 1.1875rem !important;
-      }
-      .v-card-subtitle + .v-card-title {
-        margin-top:6px;
+        @extend .text-3;
       }
       .apps-top {
         align-items: center;
       }
       .apps-bottom {
-        margin-top: 38px;
+        margin-top: 34px;
         flex-direction:inherit;
         justify-content: space-between;
         align-items: flex-end;
@@ -226,15 +216,10 @@
   }
   @at-root .mobile {
     .apps-list.recomm .apps {
-      .v-card-title {
-        line-height: 1.3125rem !important;
-      }
       .v-card-subtitle {
-        padding-top: 1px;
-        font-size: 0.75rem !important;
-        line-height: 1.0625rem !important;
+        @extend .caption-3;
       }
-      .apps-bottom { margin-top: 26px; }
+      .apps-bottom { margin-top: 25px; }
     }
   }
 }
