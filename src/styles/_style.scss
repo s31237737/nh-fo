@@ -395,12 +395,12 @@ section + section {
   .v-window-item {
     transition: none !important;
   }
-  .board-list, .v-empty-state {
+  .board-list, .v-empty-state, .feedList {
     margin-top: 40px;
   }
   @at-root .mobile, .tablet {
     .tab-container {
-      .board-list, .v-empty-state {
+      .board-list, .v-empty-state, .feedList {
         margin-top: 24px;
       }
     }

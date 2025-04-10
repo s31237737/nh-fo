@@ -135,7 +135,7 @@
             </v-row>
           </v-card-actions>
         </v-card>
-        
+
         <!-- 댓글 -->
         <div
           v-if="feed.showComment"
@@ -217,29 +217,29 @@ const toggleExpand = (index) => {
 }
 
 const feedData = ref([
-  // {
-  //   avartar: "img_avatar12.jpg",
-  //   userName: "사용자 이름(아이디)",
-  //   userPart: "직무",
-  //   date: "2025.04.08",
-  //   label: "앱 이름",
-  //   showComment: false,
-  //   showFilelist: true,
-  //   fileList: [
-  //     { name: "File_t_title_1.pdf", size: "10.3MB" },
-  //     { name: "File_title_title_title_title_2.pdf", size: "10.3MB" },
-  //     { name: "File_title_3565.pdf", size: "10.3MB" }
-  //   ]
-  // },
-  // {
-  //   avartar: "img_avatar02.jpg",
-  //   userName: "김농협",
-  //   userPart: "직무",
-  //   date: "2025.04.08",
-  //   label: "앱 이름",
-  //   showComment: false,
-  //   showFilelist: false,
-  // }
+  {
+    avartar: "img_avatar12.jpg",
+    userName: "사용자 이름(아이디)",
+    userPart: "직무",
+    date: "2025.04.08",
+    label: "앱 이름",
+    showComment: false,
+    showFilelist: true,
+    fileList: [
+      { name: "File_t_title_1.pdf", size: "10.3MB" },
+      { name: "File_title_title_title_title_2.pdf", size: "10.3MB" },
+      { name: "File_title_3565.pdf", size: "10.3MB" }
+    ]
+  },
+  {
+    avartar: "img_avatar02.jpg",
+    userName: "김농협",
+    userPart: "직무",
+    date: "2025.04.08",
+    label: "앱 이름",
+    showComment: false,
+    showFilelist: false,
+  }
 ]);
 
 const downloadFile = (files) => {
