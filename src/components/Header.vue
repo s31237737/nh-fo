@@ -53,15 +53,9 @@
         >
           커뮤니티
         </v-btn>
-        <v-btn>
-          Pub
-          <v-menu
-            activator="parent"
-          >
-            <v-card>
-              <v-list :items="pubItems" />
-            </v-card>
-          </v-menu>
+        <!-- 퍼블확인용 -->
+        <v-btn to="/PopList">
+          Popup
         </v-btn>
       </v-btn-toggle>
     </template>
@@ -218,23 +212,6 @@ const gnbItems = ref([
   },
 ]);
 
-// pub
-const pubItems = ref([
-   {
-    title: 'popup',
-    value: 1,
-    props: {
-      to: "/PopList",
-    },
-  },
-   {
-    title: 'guide',
-    value: 2,
-    props: {
-      to: "/Guide",
-    },
-  },
-]);
 
 // 프로필
 const profileItems = ref([

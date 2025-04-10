@@ -85,9 +85,7 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue';
-
-const isDesktop = inject('isDesktop');
+import { ref } from 'vue';
 
 defineProps({
   modelValue: {
@@ -117,13 +115,6 @@ const menuItems = ref([
       { title: "프로필", to: "/MyPage/Profile" },
       { title: "내 앱", to: "/MyPage/App" },
       { title: "작성한 게시물", to: "/MyPage/Post" }
-    ],
-  },
-  {
-    title: "pub",
-    submenu: [
-      { title: "popup", to: "/PopList" },
-      { title: "guide", to: "/Guide" },
     ],
   },
 ]);
