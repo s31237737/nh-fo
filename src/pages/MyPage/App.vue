@@ -197,19 +197,10 @@
               </div>
               <div class="apps-bottom-btns">
                 <v-btn
-                  v-if="card.showOpenApp"
-                  color="info"
-                  @click.stop.prevent="alert00 = true"
+                  color="primary"
+                  @click.stop.prevent
                 >
-                  앱 열기
-                </v-btn>
-                <v-btn
-                  v-else
-                  color="secondary"
-                  :ripple="false"
-                  disabled
-                >
-                  신청 대기중
+                  사용신청
                 </v-btn>
               </div>
             </div>
@@ -391,19 +382,10 @@
               </div>
               <div class="apps-bottom-btns">
                 <v-btn
-                  v-if="card.showOpenApp"
-                  color="info"
-                  @click.stop.prevent="alert00 = true"
+                  color="primary"
+                  @click.stop.prevent
                 >
-                  앱 열기
-                </v-btn>
-                <v-btn
-                  v-else
-                  color="secondary"
-                  :ripple="false"
-                  disabled
-                >
-                  신청 대기중
+                  사용신청
                 </v-btn>
               </div>
             </div>
@@ -647,7 +629,6 @@ const appsRecommend = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
-    showOpenApp: true,
     likeCount: 999,
   },
   {
@@ -660,7 +641,6 @@ const appsRecommend = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
-    showOpenApp: true,
     likeCount: 100,
   },
   {
@@ -672,7 +652,6 @@ const appsRecommend = ref([
       { text: "추천", color: "purple" },
     ],
     inUse: false,
-    showOpenApp: true,
     likeCount: 555,
   },
   {
@@ -685,7 +664,6 @@ const appsRecommend = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
-    showOpenApp: true,
     likeCount: 999,
   },
   {
@@ -698,7 +676,6 @@ const appsRecommend = ref([
       { text: "HOT", color: "pink" }
     ],
     inUse: true,
-    showOpenApp: true,
     likeCount: 100,
   },
 ]);
