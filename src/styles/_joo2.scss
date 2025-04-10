@@ -147,26 +147,21 @@
   .v-card-title {
     display: -webkit-box;
     white-space: normal;
-    line-height: 24px !important;
+    line-height: 30px !important;
   }
-  .v-card-title, .v-card-subtitle {
+  .v-card-title {
     padding:0;
-  }
-  .v-card-subtitle + .v-card-title {padding-top:6px;}
-  .v-card-subtitle { 
-    padding-top: 1px;
-    @extend .caption-3;
-    color: $gray-700;
   }
   .v-card-text {
     padding:12px 0 0;
+    color: $gray-800;
   }
   .apps-top {
     display: flex;
     justify-content: space-between;
     .v-img{
       object-fit: contain;
-      flex: 0 0 60px;
+      flex: 0 0 54px;
     }
   }
   .apps-bottom {
@@ -175,7 +170,6 @@
     margin-top: 30px;
   }
   .apps-bottom-btns {
-    margin-bottom:-4px;
     .v-btn {
       width: 96px !important;
       &:not(.bg-info) {
@@ -195,6 +189,9 @@
         flex: 0 0 54px;
       }
       .apps-bottom {margin-top: 24px;}
+      .v-card-title {
+        line-height: 24px !important;
+      }
       .v-card-text {
         padding-top:10px;
       }
@@ -204,17 +201,27 @@
 .apps-list{
   &.recomm {
     .apps {
-      .v-card-title, .v-card-subtitle {
+      .v-card-title {
         padding-inline-end: 10px;
+        line-height: 29px !important;
       }
-      .v-card-title { line-height: 1.375rem !important; }
+      .v-card-subtitle {
+        padding-inline: 0 10px;
+        color: $gray-700;
+        font-size: 16px !important;
+        line-height: 19px !important;
+      }
+      .v-card-subtitle + .v-card-title {
+        margin-top:6px;
+      }
       .apps-top {
         align-items: center;
       }
       .apps-bottom {
+        margin-top: 38px;
         flex-direction:inherit;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
       }
     }
   }
@@ -225,6 +232,19 @@
     }
     &__actions {
       padding:0;
+    }
+  }
+  @at-root .mobile {
+    .apps-list.recomm .apps {
+      .v-card-title {
+        line-height: 21px !important;
+      }
+      .v-card-subtitle {
+        padding-top: 1px;
+        font-size: 12px !important;
+        line-height: 17px !important;
+      }
+      .apps-bottom { margin-top: 26px; }
     }
   }
 }
@@ -870,7 +890,6 @@
     .v-card-subtitle {
       margin-top: 8px;
       color: $gray-700;
-      @extend .caption-3;
       span {
         display: inline-block;
         position: relative;
