@@ -78,6 +78,14 @@
       >
         삭제 얼럿
       </v-btn>
+
+      <v-btn
+        size="small"
+        color="primary"
+        @click="alert09 = true"
+      >
+        직무설정 안내 얼럿
+      </v-btn>
     </div>
 
     <!-- dialog -->
@@ -521,6 +529,58 @@
     </v-card>
   </v-dialog>
 
+  <!-- 직무설정 안내 -->
+  <v-dialog
+    v-model="alert09"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert09 = false"
+        />
+      </v-card-title>
+      <v-card-text>
+        <!-- dialog contents -->
+        <strong class="title-5-bd">직무설정 안내</strong>
+        <p class="text-4">
+          직무를 설정하시면<br>
+          업무에 꼭 필요한 앱을 추천해드려요
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="info"
+          size="large"
+          @click="alert09 = false"
+        >
+          취소
+        </v-btn>
+        <v-btn
+          color="primary"
+          size="large"
+          to="/MyPage/Profile"
+        >
+          설정하러 가기
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- popup -->
   <component
     :is="popup.component"
@@ -549,6 +609,7 @@ import { ref,shallowRef  } from 'vue';
   const alert07 = ref(false);
   const isDelete = ref(false);
   const alert08 = ref(false);
+  const alert09 = ref(false);
 
 
 
