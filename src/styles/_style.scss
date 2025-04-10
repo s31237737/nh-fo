@@ -219,6 +219,9 @@ hr.v-divider {
       &.active {
         color: $blue-500;
       }
+      .v-btn__overlay {
+        opacity: 0;
+      }
     }
   }
 }
