@@ -1055,3 +1055,12 @@
   }
 }
 .feed-comment + .feed-fileList {margin-top: 20px;}
+
+
+//about
+.about-top-bnr {
+  overflow: hidden;
+  width:100%;
+  height: 548px;
+  background: url("@/assets/images/img_about_banner.png") no-repeat center / 1920px 548px;
+}
