@@ -589,7 +589,10 @@
   border-top-right-radius: $base-radius !important;  
   & + & {margin-top: 12px;}
   &-title {
-    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    min-height: 55px;
     border-bottom: 1px solid $gray-300;
     @extend .text-3;
   }
@@ -606,9 +609,6 @@
       }
     }
     .privacy {
-      &-title {
-        padding-bottom: 20px;
-      }
       &-context {
         padding: 20px; 
       }
