@@ -727,10 +727,8 @@
       .v-list-item {
         padding: 0;
         width: 270px;
-        cursor: default;
         &:has(.v-checkbox-btn){
-          padding-right: 25px;
-          cursor: pointer;
+          padding-right: 28px;
         }
         &__prepend {
           margin-right: 18px;
