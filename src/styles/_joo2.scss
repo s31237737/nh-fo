@@ -147,7 +147,7 @@
   .v-card-title {
     display: -webkit-box;
     white-space: normal;
-    line-height: 30px !important;
+    line-height: 1.875rem !important;
   }
   .v-card-title {
     padding:0;
@@ -203,13 +203,13 @@
     .apps {
       .v-card-title {
         padding-inline-end: 10px;
-        line-height: 29px !important;
+        line-height: 1.8125rem !important;
       }
       .v-card-subtitle {
         padding-inline: 0 10px;
         color: $gray-700;
-        font-size: 16px !important;
-        line-height: 19px !important;
+        font-size: 1rem !important;
+        line-height: 1.1875rem !important;
       }
       .v-card-subtitle + .v-card-title {
         margin-top:6px;
@@ -237,12 +237,12 @@
   @at-root .mobile {
     .apps-list.recomm .apps {
       .v-card-title {
-        line-height: 21px !important;
+        line-height: 1.3125rem !important;
       }
       .v-card-subtitle {
         padding-top: 1px;
-        font-size: 12px !important;
-        line-height: 17px !important;
+        font-size: 0.75rem !important;
+        line-height: 1.0625rem !important;
       }
       .apps-bottom { margin-top: 26px; }
     }
