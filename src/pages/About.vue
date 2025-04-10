@@ -301,85 +301,102 @@
           <li>컬러 활용 시, 그라데이션을 사용하지 않습니다.</li>
           <li>복잡한 배경 위에 사용하지 않습니다.</li>
         </ul>
-        <v-row class="type-block">
+        <v-row class="type-block gellary">
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_01.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_01.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_02.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_02.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_03.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_03.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_04.png')"
-              alt=""
-            >
+            <v-card class="icon">
+              <img
+                :src="getImageUrl('img_about_04.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
         </v-row>
       
-        <v-row class="type-block">
+        <v-row class="type-block gellary">
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_05.png')"
-              alt=""
-            >
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_05.png')"
+                alt=""
+              >
+            </v-card>
+          </v-col>
+          <v-col
+            md="6"
+            sm="12"
+          > 
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_06.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
           >
-            <img
-              :src="getImageUrl('img_about_06.png')"
-              alt=""
-            >
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_07.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
           <v-col
             md="6"
             sm="12"
-          >
-            <img
-              :src="getImageUrl('img_about_07.png')"
-              alt=""
-            >
-          </v-col>
-          <v-col
-            md="6"
-            sm="12"
-          >
-            <img
-              :src="getImageUrl('img_about_08.png')"
-              alt=""
-            >
+          > 
+            <v-card>
+              <img
+                :src="getImageUrl('img_about_08.png')"
+                alt=""
+              >
+            </v-card>
           </v-col>
         </v-row> 
       </section>
     </v-container>
+    <Footer />
   </v-main>
 </template>
 
