@@ -94,7 +94,7 @@
       >
         <template #text>
           <div class="text-2-md text-quaternary">
-            신청대기중인 앱이 없습니다.
+            신청 대기 중인 앱이 없습니다.
           </div>
         </template>
         <template #actions>
@@ -281,7 +281,7 @@
       >
         <template #text>
           <div class="text-2-md text-quaternary">
-            신청대기중인 앱이 없습니다.
+            신청 대기 중인 앱이 없습니다.
           </div>
         </template>
         <template #actions>
@@ -441,7 +441,7 @@
               size="small"
               disabled
             >
-              신청 대기중
+              신청 대기 중
             </v-btn>
           </v-list-item-action>
         </v-list-item>
@@ -454,7 +454,7 @@
       >
         <template #text>
           <div class="text-2-md text-quaternary">
-            신청대기중인 앱이 없습니다.
+            신청 대기 중인 앱이 없습니다.
           </div>
         </template>
         <template #actions>
