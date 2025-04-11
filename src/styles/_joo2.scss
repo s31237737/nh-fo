@@ -707,14 +707,12 @@
     .apps-information {
       .v-sheet.w-box {
         overflow: hidden;
-        padding-bottom: 0;
       }
       .apps-information-title { 
         font-size: 1rem; 
-        margin-bottom: 0; 
       }
       .v-expansion-panels {
-        margin: 0 -20px 0;
+        margin: -12px -20px -20px;
         border-bottom: 0;
       }
     }
