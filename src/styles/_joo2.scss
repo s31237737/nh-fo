@@ -1039,11 +1039,7 @@
   overflow: hidden;
   width:100%;
   height: 548px;
-  background: url("@/assets/images/img_about_banner.png"), linear-gradient(90deg, #74B9CC 0%, #78BBCF 92.79%);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1920px 548px;
-  h1 {visibility: hidden;}
+  background: linear-gradient(90deg, #74B9CC 0%, #78BBCF 92.79%);
   @at-root .tablet {
     .about-top-bnr.v-sheet {
       height: 219px;

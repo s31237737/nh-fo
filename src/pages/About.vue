@@ -3,8 +3,13 @@
     <v-sheet
       class="about-top-bnr"
     >
-      <h1>About</h1>
-    </v-sheet> 
+      <v-img
+        cover
+        :height="imageHeight"
+        :src="getImageUrl('img_about_banner.png')"
+        alt="NHUPSTORE"
+      />
+    </v-sheet>
     <v-container class="inner">
       <!-- NHUPSTORE -->
       <section>
@@ -155,7 +160,7 @@
             <div>
               <img
                 width="210"
-                :src="getImageUrl('img_about_logo_02.png')" 
+                :src="getImageUrl('img_about_logo_02.png')"
                 alt=""
               >
               <p>Symbol</p>
@@ -220,7 +225,7 @@
           <v-col
             md="6"
             sm="12"
-          > 
+          >
             <v-card class="b-blue">
               <em>UP Blue</em>
               <span>#2872F2</span>
@@ -236,7 +241,7 @@
             </v-card>
           </v-col>
           <v-col
-            md="6"             
+            md="6"
             sm="12"
           >
             <v-card class="b-black">
@@ -267,7 +272,7 @@
           <v-col
             md="6"
             sm="12"
-          > 
+          >
             <v-card>
               <img
                 :width="isDesktop ? 134 : 80"
@@ -346,7 +351,7 @@
             </v-card>
           </v-col>
         </v-row>
-      
+
         <v-row class="type-block gellary">
           <v-col
             md="6"
@@ -362,7 +367,7 @@
           <v-col
             md="6"
             sm="12"
-          > 
+          >
             <v-card>
               <img
                 :src="getImageUrl('img_about_06.png')"
@@ -384,7 +389,7 @@
           <v-col
             md="6"
             sm="12"
-          > 
+          >
             <v-card>
               <img
                 :src="getImageUrl('img_about_08.png')"
@@ -392,7 +397,7 @@
               >
             </v-card>
           </v-col>
-        </v-row> 
+        </v-row>
       </section>
     </v-container>
     <Footer />
@@ -400,7 +405,7 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, computed } from "vue";
 
 //const isMobile = inject("isMobile");
 const isDesktop = inject("isDesktop");
@@ -408,8 +413,19 @@ const isTablet = inject("isTablet");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
+
+const imageHeight = computed(() => {
+  if (isDesktop) {
+    return "548";
+  } else if (isTablet) {
+    return "219";
+  } else {
+    return "180";
+  }
+});
+
 </script>
 <route lang="yaml">
   meta:
-    layout: MainLayout
-  </route>
+  layout: MainLayout
+</route>
