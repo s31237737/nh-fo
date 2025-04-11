@@ -13,7 +13,7 @@
       >
         <v-card
           :ripple="false"
-          :to="isEditMode ? null : slide.link"
+          :to="slide.link ? slide.link : null"
           :style="{ backgroundImage: slide.type === 'bg' ? 'url(' + getImageUrl(slide.background) + ')' : '' }"
           :class="{ 'bottom' : slide.position, 'noneclick': !slide.link }"
           rounded="0"
