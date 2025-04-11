@@ -48,7 +48,7 @@
               앱 열기
             </v-btn> -->
 
-            <!-- case: 신청 대기중 -->
+            <!-- case: 신청 대기 중 -->
             <v-btn
               class="btn-appSet"
               size="x-large"
@@ -57,7 +57,7 @@
               :ripple="false"
               disabled
             >
-              신청 대기중
+              신청 대기 중
             </v-btn>
 
             <v-btn
@@ -410,7 +410,7 @@
                   :ripple="false"
                   disabled
                 >
-                  신청 대기중
+                  신청 대기 중
                 </v-btn>
               </div>
             </div>

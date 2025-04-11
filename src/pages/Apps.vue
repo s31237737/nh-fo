@@ -315,7 +315,7 @@
                       :ripple="false"
                       disabled
                     >
-                      신청 대기중
+                      신청 대기 중
                     </v-btn>
                   </div>
                 </div>
@@ -414,7 +414,7 @@
                     :ripple="false"
                     disabled
                   >
-                    신청 대기중
+                    신청 대기 중
                   </v-btn>
                 </div>
               </div>
