@@ -7,80 +7,67 @@
   .v-carousel {
     height: 100% !important;
     background: $white;
-    &-item {
-      [role="link"] {
-        cursor: pointer;
-      }
-    }
   }
-  .apps-slide-bg {
-    position: absolute;
-    width: 1920px;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    img {display:block; width: 100%;}
-  }
-  .apps-slide-content {
-    position: relative;
+
+  .v-card {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width:100%;
-    max-width: 1280px;
     height: 100%;
-    margin: 0 auto;
-    padding: 0 20px 58px;
-    .context {
-      position: relative;
-      max-width: 550px;           
-      z-index: 1;
-      .title {
+    background-size: 1920px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    &.noneclick {
+      pointer-events: none;
+      cursor: default;
+    }
+    &__overlay {
+      display:none;
+    }
+    .v-card-item {
+      gap: 20px;
+      width:100%;
+      max-width: 1280px;
+      height: 330px;
+      margin: 80px auto 0;
+      &__content {
+        max-width: 600px;
+      }
+      &__append {
+        width: 530px;
+        height: 330px;
+        padding: 0;
+      }
+      .v-card-title {
         display: block;
         @extend .title-1;
       }
-      .description {
+      .v-card-subtitle {
+        display: block;
+        margin-bottom: 8px;
+        @extend .caption-1;
+        color: $green-700;
+      }
+      .v-card-text {
         margin-top: 8px;
         @extend .text-2;
         color: $gray-700;
         word-break: keep-all;
         white-space: pre-wrap;
       }
-      .apptype {
-        display: block;
-        margin-bottom: 8px;
-        @extend .caption-1;
-        color: $green-700;
-      }
     }
-    .context-img {
-      width: 530px;
-      height: 330px;
-    }
-  }
-  .apps-slide-content.hidden {
-    visibility: hidden;
-    display:block;
-    position: absolute;
-    top:0;
-    width:1px;
-    height:1px;
-    font-size:1px;
-    color: transparent;
   }
   .slider-controls {
     bottom: 58px;
   }
   @at-root .tablet {
     .apps-slide-banner.slider {
-      .apps-slide-content {
-        .context {
-          max-width: 52%;
-        }
-        .context-img {
-          width: 42%;
-          max-width: 530px;
-          height: auto; 
+      .v-card {
+        .v-card-item {
+          margin-top: 100px;
+          &__append {
+            width: 400px;
+            height: auto;
+            padding-inline-end: 20px;
+          }
         }
       }
     }
@@ -88,41 +75,35 @@
   @at-root .mobile {
     .apps-slide-banner.slider {
       height: 526px;
-      .apps-slide-bg {
-        position: absolute;
-        width: 768px;
-        top: auto;
-        bottom: 100px;
-        left: 50%;
-        transform: translateX(-50%);
-        &.center {
-          top: 50%;
-          bottom: auto;
-          transform: translate(-50%, -50%);
-        }
-      }
-      .apps-slide-content {
-        max-width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 100px;
-        .context {
-          top: 40px;
-          max-width: 100%;
-          .apptype {
+      .v-card {
+        background-size: 768px auto;
+        .v-card-item {
+          gap: 58px;
+          margin-top: 40px;
+          padding: 0 20px;
+          height: calc(100% - 140px);
+          grid-template-areas:"content""append";
+          grid-template-columns: 100%;
+          &__content {
+            align-self: start;
+          }
+          &__append {
+            max-width: 320px;
+            height: auto;
+            margin: 0 auto;
+            padding:0;
+          }
+          .v-card-subtitle  {
             margin-bottom: 12px;
           }
-          .description {
+          .v-card-text {
             @include line-clamp(3);
             margin-top: 8px;
             word-break: normal;
           }
         }
-        .context-img {
-          margin: 0 auto;
-          width: 100%;
-          max-width: 320px;
-          height: auto;
+        &.bottom {
+          background-position: center bottom 78px;
         }
       }
       .slider-controls {

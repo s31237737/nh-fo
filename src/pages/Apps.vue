@@ -10,79 +10,36 @@
       <v-carousel-item
         v-for="(slide, index) in sliders"
         :key="index"
-        :role="slide.link ? 'link' : undefined"
-        tabindex="0"
-        @click="handleClick(slide)"
       >
-        <template v-if="slide.type === 'recommand'">
-          <!-- type 1: 앱 타입 -->
-          <div class="apps-slide-content">
-            <div class="context">
-              <span class="apptype">{{ slide.apptype }}</span>
-              <strong class="title">{{ slide.title }}</strong>
-              <p
-                class="description"
-              >
-                {{ slide.description }}
-              </p>
-            </div>
-            <div
-              class="context-img"
+        <v-card
+          :ripple="false"
+          :to="slide.link || 'none'"
+          :style="{ backgroundImage: slide.type === 'bg' ? 'url(' + getImageUrl(slide.background) + ')' : '' }"
+          :class="{ 'bottom' : slide.position, 'noneclick': !slide.link }"
+          rounded="0"
+          @click="handleClick(slide)"
+        >
+          <v-card-item>
+            <v-card-subtitle v-if="slide.apptype">
+              {{ slide.apptype }}
+            </v-card-subtitle>
+            <v-card-title v-if="slide.title">
+              {{ slide.title }}
+            </v-card-title>
+            <v-card-text v-if="slide.description">
+              {{ slide.description }}
+            </v-card-text>
+            <template
+              v-if="slide.type === 'recommand'"
+              #append
             >
               <v-img
                 :src="getImageUrl(slide.image)"
                 :alt="slide.alt"
               />
-            </div>
-          </div>
-        </template>
-
-        <template v-else-if="slide.type === 'img-type1'">
-          <!-- 타입2-1: 배경이미지 + 타이틀 + 텍스트 -->
-          <div class="apps-slide-bg">
-            <img
-              :src="getImageUrl(slide.background)"
-              alt="배경이미지"
-            >
-          </div>
-          <div class="apps-slide-content">
-            <div class="context">
-              <strong class="title">{{ slide.title }}</strong>
-              <p
-                class="description"
-              >
-                {{ slide.description }}
-              </p>
-            </div>
-          </div>
-        </template>
-
-        <template v-else-if="slide.type === 'img-type2'">
-          <!-- 타입2-2: 배경이미지 + 타이틀/ 타입2-3: 배경이미지 -->
-          <div
-            class="apps-slide-bg"
-            :class="slide.addClass"
-          >
-            <img
-              :src="getImageUrl(slide.background)"
-              alt="배경이미지"
-            >
-          </div>
-          <div
-            class="apps-slide-content"
-            :class="{ hidden: slide.hiddenContent }"
-          >
-            <div
-              v-if="!slide.hiddenContent"
-              class="context"
-            >
-              <strong class="title">{{ slide.title }}</strong>
-            </div>
-            <div v-else>
-              {{ slide.alt }}
-            </div>
-          </div>
-        </template>
+            </template>
+          </v-card-item>
+        </v-card>
       </v-carousel-item>
     </v-carousel>
     <SliderControls
@@ -494,6 +451,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const isDesktop = inject("isDesktop");
+const isTablet = inject("isTablet");
 const isMobile = inject("isMobile");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
@@ -511,22 +469,20 @@ const sliders = ref([
     link: "/AppsDetail", //랜딩 설정
   },
   {
-    type: "img-type1",
+    type: "bg",
     title: "등록된 제목 (최대 15자 노출)",
     description: "관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출) 관리자에 등록된 서브 문구 (최대 100자 노출)",
     background: "@temp_img_apps_visual_01.png", //배경이미지
+    position: "bottom"
   },
   {
-    type: "img-type2",
+    type: "bg",
     title: "등록된 제목 (최대 15자 노출)",
     background: "@temp_img_apps_visual_01.png", //배경이미지
-    addClass: "center"
   },
   {
-    type: "img-type2",
+    type: "bg",
     background: "@temp_img_apps_visual_01.png", //배경이미지
-    addClass: "center",
-    hiddenContent: "hidden",
   },
 ]);
 const currentSlide = ref(0);
