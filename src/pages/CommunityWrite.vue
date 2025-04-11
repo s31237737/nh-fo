@@ -160,6 +160,7 @@
 
       <v-card-text>
         <!-- dialog contents -->
+        <v-icon icon="custom:complete" />
         <strong class="title-5-bd">등록 완료</strong>
         <p class="text-4">
           커뮤니티 등록이 완료되었습니다.
@@ -180,9 +181,7 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue';
-const isDesktop = inject("isDesktop");
-
+import { ref } from 'vue';
 
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
