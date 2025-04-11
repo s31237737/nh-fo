@@ -917,6 +917,12 @@
 
 .feed-comment {//피드 댓글 영역
   border-top: thin solid $gray-300;
+  .v-empty-state {
+    margin-bottom: 60px;
+    &__media {
+      display: none;
+    }
+  }
   .comment-title {
     margin-block: 30px !important;
     padding-inline: 10px;

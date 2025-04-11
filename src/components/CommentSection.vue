@@ -190,7 +190,6 @@
       <div
         v-if="comment.replyMode"
         class="comment-write depth2"
-        :class="{ mine: comment.isMine }"
       >
         <div class="textarea-wrap">
           <div class="comment-id">
@@ -395,7 +394,7 @@
     </v-card>
   </v-dialog>
   
-  <!-- 신고완료 -->
+  <!-- 신고버튼 다시 누르면 -->
   <v-dialog
     v-model="ReportComplete2"
     class="popup-sm"
