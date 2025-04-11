@@ -13,9 +13,9 @@
       >
         <v-card
           :ripple="false"
-          :to="isLink ? null : slide.link"
+          :to="slide.link ? slide.link : null"
           :style="{ backgroundImage: slide.type === 'bg' ? 'url(' + getImageUrl(slide.background) + ')' : '' }"
-          :class="{ 'bottom' : slide.position, 'noneclick': !slide.link }"
+          :class="{ 'bottom' : slide.position }"
           rounded="0"
         >
           <v-card-item>
