@@ -426,6 +426,6 @@ const imageHeight = computed(() => {
 
 </script>
 <route lang="yaml">
-  meta:
+meta:
   layout: MainLayout
 </route>
