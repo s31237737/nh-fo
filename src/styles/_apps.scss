@@ -38,6 +38,7 @@
       }
       .v-card-title {
         display: block;
+        white-space: normal;
         @extend .title-1;
       }
       .v-card-subtitle {
