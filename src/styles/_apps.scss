@@ -61,8 +61,10 @@
   @at-root .tablet {
     .apps-slide-banner.slider {
       .v-card {
+        align-items: center;
         .v-card-item {
-          margin-top: 100px;
+          margin-top: -64px;
+          height: auto;
           &__append {
             width: 400px;
             height: auto;
