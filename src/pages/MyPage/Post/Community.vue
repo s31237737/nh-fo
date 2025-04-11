@@ -138,22 +138,6 @@
           </v-card-actions>
         </v-card>
 
-        <!-- 댓글 -->
-        <div
-          v-if="feed.showComment"
-          class="feed-comment"
-        >
-          <CommentSection
-            v-model:message="message"
-            v-model:reply-message="replyMessage"
-            :comments="comments"
-            :write-show="writeShow"
-            @toggle-reply="toggleReply"
-            @cancel-edit="cancelEdit"
-            @write-toggle="() => (writeShow = !writeShow)"
-          />
-        </div>
-
         <!-- 파일첨부 -->
         <div
           v-if="feed.showFilelist"
@@ -176,6 +160,22 @@
               <em>{{ file.size }}</em>
             </li>
           </ul>
+        </div>
+
+        <!-- 댓글 -->
+        <div
+          v-if="feed.showComment"
+          class="feed-comment"
+        >
+          <CommentSection
+            v-model:message="message"
+            v-model:reply-message="replyMessage"
+            :comments="comments"
+            :write-show="writeShow"
+            @toggle-reply="toggleReply"
+            @cancel-edit="cancelEdit"
+            @write-toggle="() => (writeShow = !writeShow)"
+          />
         </div>
       </div><!--// feed -->
     </template>
