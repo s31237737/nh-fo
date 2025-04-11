@@ -375,6 +375,7 @@
 
       <v-card-text>
         <!-- dialog contents -->
+        <v-icon icon="custom:complete" />
         <strong class="title-5-bd">신고완료</strong>
         <p class="text-4">
           댓글 신고완료 되었습니다.<br>
@@ -410,6 +411,7 @@
 
       <v-card-text>
         <!-- dialog contents -->
+        <v-icon icon="custom:complete" />
         <strong class="title-5-bd">신고완료</strong>
         <p class="text-4">
           이미 신고하신 댓글입니다.<br>
