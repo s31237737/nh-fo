@@ -13,11 +13,10 @@
       >
         <v-card
           :ripple="false"
-          :to="slide.link || 'none'"
+          :to="isEditMode ? null : slide.link"
           :style="{ backgroundImage: slide.type === 'bg' ? 'url(' + getImageUrl(slide.background) + ')' : '' }"
           :class="{ 'bottom' : slide.position, 'noneclick': !slide.link }"
           rounded="0"
-          @click="handleClick(slide)"
         >
           <v-card-item>
             <v-card-subtitle v-if="slide.apptype">
@@ -451,7 +450,6 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const isDesktop = inject("isDesktop");
-const isTablet = inject("isTablet");
 const isMobile = inject("isMobile");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
@@ -459,6 +457,7 @@ const getImageUrl = (imageName) => {
 
 
 /* apps-slide-banner */
+const isEditMode = ref(false);
 const sliders = ref([
   {
     type: "recommand",
@@ -487,13 +486,13 @@ const sliders = ref([
 ]);
 const currentSlide = ref(0);
 const autoplay = ref(true);
-const handleClick = (slide) => {
-  if (!slide.link) {
-    return; // link 없으면 아무 동작 X
-  } else {
-    router.push(slide.link);
-  }
-};
+// const handleClick = (slide) => {
+//   if (!slide.link) {
+//     return; // link 없으면 아무 동작 X
+//   } else {
+//     router.push(slide.link);
+//   }
+// };
 
 /* apps-search-wrap */
 const searchApps = ref("");

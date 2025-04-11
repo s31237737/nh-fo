@@ -93,16 +93,21 @@
             align-self: start;
           }
           &__append {
+            width: 100%;
             max-width: 320px;
             height: auto;
             margin: 0 auto;
             padding:0;
+          }
+          .v-card-title {
+            @include line-clamp(2);
           }
           .v-card-subtitle  {
             margin-bottom: 12px;
           }
           .v-card-text {
             @include line-clamp(3);
+            @extend .text-4;
             margin-top: 8px;
             word-break: normal;
           }
