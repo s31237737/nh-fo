@@ -369,7 +369,7 @@ const comments = reactive([
     date: '2025.04.08',
     time: '11:40',
     likes: 0,
-    isMine: false,
+    isMine: true,
     editMode: false,
     replyMode: false,
     replies: []

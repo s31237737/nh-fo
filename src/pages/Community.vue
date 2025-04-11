@@ -362,60 +362,60 @@ const writeShow = ref(false); //댓글쓰기
 const message = ref('');//v-textarea
 const replyMessage = ref('');//대댓글
 const comments = reactive([
-  // {
-  //   id: 1,
-  //   userId: '김농협1',
-  //   content: '댓글입니다. 댓글이라구요. 댓글이라니까요?',
-  //   date: '2025.04.08',
-  //   time: '11:40',
-  //   likes: 12,
-  //   isMine: false,//내가 작성한 글 표시
-  //   editMode: false,
-  //   replyMode: false,
-  //   replies: [
-  //     {
-  //       id: 11,
-  //       userId: 'depth2 안농협',
-  //       content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
-  //       date: '2025.04.08',
-  //       time: '11:40',
-  //       likes: 0,
-  //       isMine: false,//내가 작성한 글 표시
-  //     },
-  //     {
-  //       id: 12,
-  //       userId: 'depth2 안농협',
-  //       content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
-  //       date: '2025.04.08',
-  //       time: '11:40',
-  //       likes: 0,
-  //       isMine: true,
-  //       editMode: false,
-  //     },
-  //     {
-  //       id: 13,
-  //       userId: 'depth2 안농협',
-  //       content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
-  //       date: '2025.04.08',
-  //       time: '11:40',
-  //       likes: 0,
-  //       isMine: false,
-  //       editMode: false,
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 2,
-  //   userId: '김농협2',
-  //   content: '2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
-  //   date: '2025.04.08',
-  //   time: '11:40',
-  //   likes: 0,
-  //   isMine: true,
-  //   editMode: false,
-  //   replyMode: false,
-  //   replies: []
-  // }
+  {
+    id: 1,
+    userId: '김농협1',
+    content: '댓글입니다. 댓글이라구요. 댓글이라니까요?',
+    date: '2025.04.08',
+    time: '11:40',
+    likes: 12,
+    isMine: false,//내가 작성한 글 표시
+    editMode: false,
+    replyMode: false,
+    replies: [
+      {
+        id: 11,
+        userId: 'depth2 안농협',
+        content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
+        date: '2025.04.08',
+        time: '11:40',
+        likes: 0,
+        isMine: false,//내가 작성한 글 표시
+      },
+      {
+        id: 12,
+        userId: 'depth2 안농협',
+        content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
+        date: '2025.04.08',
+        time: '11:40',
+        likes: 0,
+        isMine: true,
+        editMode: false,
+      },
+      {
+        id: 13,
+        userId: 'depth2 안농협',
+        content: 'depth2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
+        date: '2025.04.08',
+        time: '11:40',
+        likes: 0,
+        isMine: false,
+        editMode: false,
+      }
+    ]
+  },
+  {
+    id: 2,
+    userId: '김농협2',
+    content: '2 댓글입니다. 댓글이라구요. 댓글이라니까요?',
+    date: '2025.04.08',
+    time: '11:40',
+    likes: 0,
+    isMine: true,
+    editMode: false,
+    replyMode: false,
+    replies: []
+  }
 ]);
 
 const cancelEdit = (item) => {
