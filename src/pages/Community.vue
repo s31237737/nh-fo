@@ -183,6 +183,7 @@
                     color="warning"
                     variant="outlined"
                     :ripple="false"
+                    @click="alert = true"
                   >
                     삭제
                   </v-btn>
@@ -240,6 +241,68 @@
       :height="isDesktop ? '526': '440'"
     />
   </v-container>
+
+  <!-- alert(sample) -->
+  <!-- 삭제 얼럿 -->
+  <v-dialog
+    v-model="alert"
+    class="popup-sm"
+    @after-leave="isDelete = false"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="alert = false"
+        />
+      </v-card-title>
+      <v-card-text>
+        <!-- dialog contents -->
+        <template v-if="!isDelete">
+          <v-icon icon="custom:warning" />
+          <strong class="title-5-bd">삭제</strong>
+          <p class="text-4">
+            삭제하시겠습니까?
+          </p>
+        </template>
+        <template v-else>
+          <v-icon icon="custom:complete" />
+          <strong class="title-5-bd">삭제 완료</strong>
+          <p class="text-4">
+            삭제가 완료되었습니다.
+          </p>
+        </template>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <template v-if="!isDelete">
+          <v-btn
+            color="info"
+            size="large"
+            @click="alert = false"
+          >
+            취소
+          </v-btn>
+          <v-btn
+            color="primary"
+            size="large"
+            @click="isDelete = true"
+          >
+            삭제
+          </v-btn>
+        </template>
+        <v-btn
+          v-else
+          color="primary"
+          size="large"
+          @click="alert = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup>
@@ -255,6 +318,9 @@ const search = ref("");
 const onAppendClick = () => {
   alert('Append icon clicked!');
 }
+
+const isDelete = ref(false);
+const alert = ref(false);
 
 /* 작성글 */
 const moreItems = ref({});
