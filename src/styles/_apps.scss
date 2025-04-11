@@ -15,10 +15,6 @@
     background-size: 1920px auto;
     background-position: center;
     background-repeat: no-repeat;
-    &.noneclick {
-      pointer-events: none;
-      cursor: default;
-    }
     &__overlay {
       display:none;
     }
