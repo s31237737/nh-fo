@@ -86,6 +86,22 @@
       >
         직무설정 안내 얼럿
       </v-btn>
+
+      <!-- ReportComplete -->
+      <v-btn
+        size="small"
+        color="primary"
+        @click="ReportComplete = true"
+      >
+        신고완료
+      </v-btn>
+      <v-btn
+        size="small"
+        color="primary"
+        @click="ReportComplete2 = true"
+      >
+        신고완료 후 또 클릭한 경우
+      </v-btn>
     </div>
 
     <!-- dialog -->
@@ -570,7 +586,77 @@
     </v-card>
   </v-dialog>
 
+  <!-- 신고완료 -->
+  <v-dialog
+    v-model="ReportComplete"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="ReportComplete = false"
+        />
+      </v-card-title>
 
+      <v-card-text>
+        <!-- dialog contents -->
+        <v-icon icon="custom:complete" />
+        <strong class="title-5-bd">신고완료</strong>
+        <p class="text-4">
+          댓글 신고완료 되었습니다.<br>
+          관리자가 검토 후<br>빠른 시간안에 처리하겠습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="ReportComplete = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+  
+  <!-- 신고버튼 다시 누르면 -->
+  <v-dialog
+    v-model="ReportComplete2"
+    class="popup-sm"
+  >
+    <v-card>
+      <v-card-title>
+        <v-btn
+          icon="custom:close"
+          density="comfortable"
+          @click="ReportComplete2 = false"
+        />
+      </v-card-title>
+
+      <v-card-text>
+        <!-- dialog contents -->
+        <v-icon icon="custom:complete" />
+        <strong class="title-5-bd">신고완료</strong>
+        <p class="text-4">
+          이미 신고하신 댓글입니다.<br>
+          관리자가 검토 후<br>빠른 시간안에 처리하겠습니다.
+        </p>
+        <!-- // dialog contents -->
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          size="large"
+          @click="ReportComplete2 = false"
+        >
+          확인
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 
 
 
@@ -610,7 +696,8 @@ import { ref,shallowRef  } from 'vue';
   const isDelete = ref(false);
   const alert08 = ref(false);
   const alert09 = ref(false);
-
+  const ReportComplete = ref(false);
+  const ReportComplete2 = ref(false);
 
 
   import PopupReportIssue from '@/pages/popup/PopupReportIssue.vue';
