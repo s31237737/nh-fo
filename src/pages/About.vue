@@ -310,7 +310,7 @@
             md="6"
             sm="12"
           >
-            <v-card class="icon">
+            <v-card class="icon_del">
               <img
                 :src="getImageUrl('img_about_01.png')"
                 alt=""
@@ -321,7 +321,7 @@
             md="6"
             sm="12"
           >
-            <v-card class="icon">
+            <v-card class="icon_del">
               <img
                 :src="getImageUrl('img_about_02.png')"
                 alt=""
@@ -332,7 +332,7 @@
             md="6"
             sm="12"
           >
-            <v-card class="icon">
+            <v-card class="icon_del">
               <img
                 :src="getImageUrl('img_about_03.png')"
                 alt=""
@@ -343,7 +343,7 @@
             md="6"
             sm="12"
           >
-            <v-card class="icon">
+            <v-card class="icon_del">
               <img
                 :src="getImageUrl('img_about_04.png')"
                 alt=""
