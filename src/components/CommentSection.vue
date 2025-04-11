@@ -227,7 +227,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- 대댓글 영역 -->
       <template
         v-for="reply in comment.replies"
@@ -350,9 +350,8 @@
   </div>
   <v-empty-state
     v-else
-    text="'등록된 댓글이 없습니다."
-    icon="false"
-    bg-color="#FEFEFE"
+    text="등록된 댓글이 없습니다."
+    :icon="null"
     :height="isDesktop ? '81': '59'"
   />
 
@@ -393,7 +392,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-  
+
   <!-- 신고버튼 다시 누르면 -->
   <v-dialog
     v-model="ReportComplete2"
@@ -434,9 +433,9 @@
 <script setup>
 import { ref, computed, inject } from 'vue'
 const props = defineProps({
-  comments: { 
-    type: Array, 
-    required: true 
+  comments: {
+    type: Array,
+    required: true
   },
   writeShow: {
     type: Boolean,
@@ -454,9 +453,9 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:message',
-  'update:replyMessage', 
-  'toggle-reply', 
-  'cancel-edit', 
+  'update:replyMessage',
+  'toggle-reply',
+  'cancel-edit',
   'write-toggle'
 ])
 
