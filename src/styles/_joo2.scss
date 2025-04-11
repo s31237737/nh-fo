@@ -1,7 +1,9 @@
 @use "variables" as *;
 @use "typography" as *;
 
-.apps-slide-banner.slider {
+
+//APPS
+.apps-slide-banner.slider {//상단 슬라이더
   height: 548px;
   .v-carousel {
     height: 100% !important;
@@ -131,7 +133,7 @@
   }
 }
 
-.apps.v-card {
+.apps.v-card {//앱 모듈
   height: 100%;
   padding: 30px;
   border-radius: $base-radius-lg;
@@ -139,9 +141,6 @@
   .v-card-title {
     display: -webkit-box;
     white-space: normal;
-    //line-height: 1.875rem !important;
-  }
-  .v-card-title {
     padding:0;
   }
   .v-card-text {
@@ -185,7 +184,16 @@
   }
 }
 .apps-list{
-  &.recomm {
+  .v-empty-state {
+    border-radius: $base-radius-lg;
+    &__title {
+      margin-bottom: 16px;
+    }
+    &__actions {
+      padding:0;
+    }
+  }
+  &.recomm {//추천 앱 목록
     .apps {
       .v-card-title {
         padding-inline-end: 10px;
@@ -207,17 +215,8 @@
       }
     }
   }
-  .v-empty-state {
-    border-radius: $base-radius-lg;
-    &__title {
-      margin-bottom: 16px;
-    }
-    &__actions {
-      padding:0;
-    }
-  }
   @at-root .mobile {
-    .apps-list.recomm .apps {
+    .recomm .apps {
       .v-card-subtitle {
         @extend .caption-3;
       }
@@ -225,40 +224,7 @@
     }
   }
 }
-.apps-list-more {
-  margin-top: 40px;
-  text-align:center;
-  .v-btn {
-    font-size: 1rem !important;
-  }
-  @at-root .mobile {
-    .apps-list-more {
-      margin-top: 20px;
-      .v-btn {
-        font-size: 0.875rem !important;
-      }
-    }
-  }
-}
-.apps-list-grid {
-  display:grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-  .apps-side-img {
-    display:flex;
-    margin-left: 20px;
-    img {display:block; width:100%; height: auto; object-fit: contain;}
-  }
-  [class*="v-col-"] {
-    align-self: flex-start;
-  }
-  @at-root .mobile, .tablet {
-    .apps-list-grid {
-      display: block;
-    }
-  }
-}
-.relative {
+.relative {//앱 전체
   position: relative; 
   height: auto;
   .apps-list { 
@@ -289,6 +255,40 @@
       .v-btn-toggle {
         top: 0;
       }
+    }
+  }
+}
+
+.apps-list-more {
+  margin-top: 40px;
+  text-align:center;
+  .v-btn {
+    font-size: 1rem !important;
+  }
+  @at-root .mobile {
+    .apps-list-more {
+      margin-top: 20px;
+      .v-btn {
+        font-size: 0.875rem !important;
+      }
+    }
+  }
+}
+.apps-list-grid {//LIKE 배너 있는 목록
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  .apps-side-img {
+    display:flex;
+    margin-left: 20px;
+    img {display:block; width:100%; height: auto; object-fit: contain;}
+  }
+  [class*="v-col-"] {
+    align-self: flex-start;
+  }
+  @at-root .mobile, .tablet {
+    .apps-list-grid {
+      display: block;
     }
   }
 }
@@ -343,8 +343,6 @@
   }
   .category-wrap {
     overflow: hidden;
-    //overflow-x: hidden;
-    //scroll-behavior: smooth;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -352,7 +350,6 @@
       display: flex;
       gap: 24px;
     }
-    
   }
   .category {
     display: inline-flex;
@@ -454,7 +451,7 @@
 }
 
 //AppDetail
-.apps-detail.top-banner {
+.apps-detail.top-banner {//앱 상세 상단 배너
   padding-block: 60px;
   .top-banner-info {
     overflow:visible;
@@ -462,16 +459,16 @@
     margin-bottom: 48px;
     .v-card-item {
       align-items: flex-start;
-    }
-    .v-card-item__content {
-      overflow: visible;
-      align-self: start;
-    }
-    .v-card-item__append {
-      padding: 40px;
-      border: 1px solid $gray-300;
-      border-radius: $base-radius-lg;
-      align-self: start;
+      .v-card-item__content {
+        overflow: visible;
+        align-self: start;
+      }
+      .v-card-item__append {
+        padding: 40px;
+        border: 1px solid $gray-300;
+        border-radius: $base-radius-lg;
+        align-self: start;
+      }
     }
     .v-card-title {
       margin-top: 12px;
@@ -635,8 +632,7 @@
   }
 }
 
-
-.slider.apps-media-slide {
+.slider.apps-media-slide {//비디오 슬라이드
   .v-carousel-item .v-responsive__content {
     display: flex;
     gap: 20px;
@@ -675,7 +671,7 @@
   }
 }
 
-.apps-information {
+.apps-information {//상세정보 탭
   .v-sheet.w-box {
     margin-top: 0;
   }
@@ -724,7 +720,8 @@
     }
   }
 }
-.scroll-control {
+
+.scroll-control {//관련된 앱 버튼
   display: inline-flex;
   gap: 15px;
   .v-btn.v-btn--icon {
@@ -736,7 +733,7 @@
   }
 }
 
-.apps-recomm-wrap {
+.apps-recomm-wrap {//관련된 앱 슬라이드
   position: relative;
   .scroll.apps-list {
     position: relative;
@@ -775,9 +772,8 @@
   }
 }
 
-
 //community
-.feedList.w-box {
+.feedList.w-box {//피드 목록
   overflow: hidden;
   padding: 0 !important;
   border-radius: $base-radius;
@@ -807,7 +803,7 @@
   }
 }
 
-.feed {
+.feed {//피드
   position: relative;
   padding: 50px 40px 0;
   .v-btn.v-btn--variant-text {
@@ -821,7 +817,7 @@
   }
 }
 
-.feed-item {
+.feed-item {//피드 작성글 영역
   &.v-card {
     overflow: visible;
     padding-bottom: 50px;
@@ -919,7 +915,7 @@
   }
 }
 
-.feed-comment {
+.feed-comment {//피드 댓글 영역
   border-top: thin solid $gray-300;
   .comment-title {
     margin-block: 30px !important;
@@ -1018,7 +1014,7 @@
   }
 }
 
-.feed-fileList {
+.feed-fileList {//피드 첨부파일 영역
   overflow: hidden;
   background: $gray-200;
   border-radius: $base-radius;
@@ -1136,22 +1132,6 @@
         justify-content: center;
         min-height: 310px;
         background: $gray-200;
-  
-        &.b-white {
-          background: #fff;
-          border: thin solid $gray-300;
-        }
-        &.b-black {
-          background: #000;
-          color: $white;
-        }
-        &.b-blue {
-          background: #2872F2;
-          color: $white;
-        }
-        &.b-green {
-          background: #78CB00;
-        }
       }
     }
 
@@ -1162,6 +1142,22 @@
       gap: 10px;
       padding: 40px;
       color: $black;
+  
+      &.b-white {
+        background: #fff;
+        border: thin solid $gray-300;
+      }
+      &.b-black {
+        background: #000;
+        color: $white;
+      }
+      &.b-blue {
+        background: #2872F2;
+        color: $white;
+      }
+      &.b-green {
+        background: #78CB00;
+      }
       em {
         @extend .text-2;
       }
@@ -1176,7 +1172,7 @@
         padding:0;
         img { object-fit: contain; }
       }
-      .icon {
+      .icon_del {
         &:after {
           content: "";
           display: block;
