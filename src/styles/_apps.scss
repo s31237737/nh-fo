@@ -65,6 +65,9 @@
         .v-card-item {
           margin-top: -64px;
           height: auto;
+          &__content {
+            max-width: 500px;
+          }
           &__append {
             width: 400px;
             height: auto;
