@@ -4,8 +4,7 @@
       class="about-top-bnr"
     >
       <v-img
-        cover
-        :height="imageHeight"
+        :cover="isTablet ? false : true"
         :src="getImageUrl('img_about_banner.png')"
         alt="NHUPSTORE"
       />
@@ -127,10 +126,10 @@
             <v-card>
               <v-card-title>
                 <strong>NH Maps</strong>
-                <v-img
+                <img
                   width="60"
                   :src="getImageUrl('img_about_icon_06.png')"
-                />
+                >
               </v-card-title>
               <v-card-text>
                 영농 지원을 위한 맞춤형 지도 서비스
@@ -405,7 +404,7 @@
 </template>
 
 <script setup>
-import { inject, computed } from "vue";
+import { inject } from "vue";
 
 //const isMobile = inject("isMobile");
 const isDesktop = inject("isDesktop");
@@ -413,16 +412,6 @@ const isTablet = inject("isTablet");
 const getImageUrl = (imageName) => {
   return new URL(`../assets/images/${imageName}`, import.meta.url).href;
 };
-
-const imageHeight = computed(() => {
-  if (isDesktop) {
-    return "548";
-  } else if (isTablet) {
-    return "219";
-  } else {
-    return "180";
-  }
-});
 
 </script>
 <route lang="yaml">
