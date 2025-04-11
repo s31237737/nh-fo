@@ -197,10 +197,10 @@
               </div>
               <div class="apps-bottom-btns">
                 <v-btn
-                  color="primary"
+                  color="info"
                   @click.stop.prevent
                 >
-                  사용신청
+                  앱 열기
                 </v-btn>
               </div>
             </div>
@@ -382,10 +382,10 @@
               </div>
               <div class="apps-bottom-btns">
                 <v-btn
-                  color="primary"
+                  color="info"
                   @click.stop.prevent
                 >
-                  사용신청
+                  앱 열기
                 </v-btn>
               </div>
             </div>
