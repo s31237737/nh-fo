@@ -13,7 +13,7 @@
       >
         <v-card
           :ripple="false"
-          :to="isEditMode ? null : slide.link"
+          :to="isLink ? null : slide.link"
           :style="{ backgroundImage: slide.type === 'bg' ? 'url(' + getImageUrl(slide.background) + ')' : '' }"
           :class="{ 'bottom' : slide.position, 'noneclick': !slide.link }"
           rounded="0"
@@ -457,7 +457,7 @@ const getImageUrl = (imageName) => {
 
 
 /* apps-slide-banner */
-const isEditMode = ref(false);
+const isLink = ref(false);
 const sliders = ref([
   {
     type: "recommand",
