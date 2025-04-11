@@ -98,7 +98,8 @@
                 <v-chip
                   pill
                   :prepend-avatar="getImageUrl('@temp_img_app_icon03.png')"
-                  class="feed-label"
+                  class="flag"
+                  size="large"
                 >
                   {{ feed.label }}
                 </v-chip>

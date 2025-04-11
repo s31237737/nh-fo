@@ -19,7 +19,7 @@
   <!-- 댓글작성 등록 -->
   <div
     v-if="writeShow"
-    class="comment-write"
+    class="comment-regist"
   >
     <div class="textarea-wrap">
       <div class="comment-id">
@@ -76,7 +76,7 @@
         <!-- 수정 -->
         <div
           v-if="comment.editMode"
-          class="comment-write"
+          class="comment-regist"
         >
           <div class="textarea-wrap">
             <div class="comment-id">
@@ -189,7 +189,7 @@
       <!-- 대댓글 작성 -->
       <div
         v-if="comment.replyMode"
-        class="comment-write depth2"
+        class="comment-regist depth2"
       >
         <div class="textarea-wrap">
           <div class="comment-id">
@@ -240,7 +240,7 @@
           <!-- 수정 -->
           <div
             v-if="reply.editMode"
-            class="comment-write"
+            class="comment-regist"
           >
             <div class="textarea-wrap">
               <div class="comment-id">
@@ -309,7 +309,7 @@
             <div class="tools">
               <p class="stamp">
                 <span>{{ reply.date }}</span>
-                <span>{{ reply.stamp }}</span>
+                <span>{{ reply.time }}</span>
               </p>
               <ButtonLike
                 :initial-liked="false"

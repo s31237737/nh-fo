@@ -25,8 +25,10 @@ hr.v-divider {
       padding: 0 8px;
     }
     &-large {
-      --v-chip-height: 40px;
+      --v-chip-height: 38px;
       padding: 0 16px;
+      @extend .text-4-md;
+      color: $black;
     }
     
   }

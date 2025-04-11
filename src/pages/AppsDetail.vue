@@ -31,11 +31,11 @@
 
           <v-card-text>
             {{ topbanner.description }}
-            <p class="version">
-              <span>최근 업데이트: {{ topbanner.date }}</span>
-              <span>버전: {{ topbanner.ver }}</span>
-            </p>
           </v-card-text>
+          <p class="version">
+            <span>최근 업데이트: {{ topbanner.date }}</span>
+            <span>버전: {{ topbanner.ver }}</span>
+          </p>
           <v-card-actions>
             <!-- case: 앱 사용 신청 승인상태
             <v-btn
