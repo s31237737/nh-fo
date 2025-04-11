@@ -457,7 +457,6 @@ const getImageUrl = (imageName) => {
 
 
 /* apps-slide-banner */
-const isLink = ref(false);
 const sliders = ref([
   {
     type: "recommand",
