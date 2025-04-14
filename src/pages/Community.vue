@@ -41,6 +41,7 @@
           size="large"
           to="/MyPage/Post/Community"
           :ripple="false"
+          :disabled="!feedData.length"
         >
           내가 작성한 아이디어
         </v-btn>
@@ -48,6 +49,7 @@
           color="info"
           size="large"
           to="/CommunityWrite"
+          :disabled="!feedData.length"
         >
           아이디어 작성하기
         </v-btn>
