@@ -255,17 +255,7 @@
         <span>post</span>
       </div>
     </div>
-    <!-- 미사용 -->
-    <div class="d-flex flex-wrap ga-2 mt-5">
-      <div class="icon-item">
-        <v-icon icon="custom:minus" />
-        <span>minus</span>
-      </div>
-      <div class="icon-item">
-        <v-icon icon="custom:comment" />
-        <span>comment</span>
-      </div>
-    </div>
+    
     <div class="d-flex flex-wrap ga-2 mt-5">
       <v-label>아이콘 사이즈</v-label>
       <v-icon
