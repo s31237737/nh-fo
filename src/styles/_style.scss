@@ -571,14 +571,16 @@ section + section {
     }
     .v-card-title {
       @extend .text-3-md;
+      line-height: 19px !important;
     }
     .v-card-subtitle {
       margin-top: 8px;
+      @extend .caption-3;
+      line-height: 14px !important;
       color: $gray-700;
       span {
         display: inline-block;
         position: relative;
-        @extend .caption-3;
         & + span {
           margin-left: 16px;
         }
@@ -588,8 +590,8 @@ section + section {
           position: absolute;
           top:50%;
           transform: translateY(-50%);
-          left: -10px;
-          width:1px;
+          left: -8px;
+          width: 1px;
           height: 10px;
           border-left: thin solid $gray-700;
         }
@@ -611,6 +613,12 @@ section + section {
       padding-bottom: 30px;
       .v-card-text {
         margin-top: 20px;
+      }
+      .v-card-title {
+        line-height: 17px !important;
+      }
+      .v-card-subtitle {
+        margin-top: 6px;
       }
       .v-card-actions {
         margin-top: 20px;
