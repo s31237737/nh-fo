@@ -274,9 +274,9 @@
     gap: 12px;
   }
   .bg-info {
-    font-weight: 500;
     color: $gray-800 !important;
     background-color: transparent !important;
+    .v-btn__content {font-weight: 500;line-height: 1rem;}
   }
   .text-success {
     margin-left: 2px;

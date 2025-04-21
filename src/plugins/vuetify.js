@@ -150,7 +150,7 @@ export default createVuetify({
     VDialog: {
       scrollable: true,
       VCard: {
-        maxHeight: "872",
+        maxHeight: "600",
       },
       VCardTitle: {
         VBtn: {

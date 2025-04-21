@@ -497,7 +497,7 @@
 }
 // cropper
 .cropper {
-  height: 444px;
+  height: 442px;
   background: black;
 }
 .cropper-wrap {
@@ -510,7 +510,7 @@
   }
   .v-empty-state {
     margin: 0 !important;
-    height: 360px;
+    height: 358px;
     &__media {
       margin-bottom: 24px;
     }
@@ -522,10 +522,9 @@
 @media only screen and (max-width: 767px) {
   .cropper-wrap {
     .v-card-text { 
-      height: 400px;
+      height: 462px;
     }
     .v-empty-state {
-      height: 380px;
       &__media {
         margin-bottom: 20px;
       }
