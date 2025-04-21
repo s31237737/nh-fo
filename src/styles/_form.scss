@@ -496,8 +496,11 @@
   }
 }
 // cropper
-.cropper {
-  height: 442px;
+div.cropper {
+  margin: 0 -20px -20px;
+  max-width: 874px;
+  max-height: 462px;
+  height: 462px;
   background: black;
 }
 .cropper-wrap {
