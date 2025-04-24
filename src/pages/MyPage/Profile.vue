@@ -63,7 +63,7 @@
           </v-btn>
         </dd>
         <v-divider />
-        <dt>이메일</dt>
+        <dt>개인우편</dt>
         <dd>nonghyup@gmail.com</dd>
         <v-divider />
         <dt>휴대전화</dt>
