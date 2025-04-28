@@ -60,7 +60,7 @@
       </v-btn-toggle>
     </template>
     <template #append>
-      <!-- 캘린더 -->
+      <!-- 일정관리 -->
       <!-- <v-btn
         v-if="isDesktop"
         icon="custom:calendar"

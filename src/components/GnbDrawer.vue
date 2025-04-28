@@ -6,7 +6,7 @@
   >
     <v-card class="gnb-drawer">
       <v-card-title>
-        <!-- 캘린더 -->
+        <!-- 일정관리 -->
         <!-- <v-btn
           v-if="!isDesktop"
           icon="custom:calendar"
