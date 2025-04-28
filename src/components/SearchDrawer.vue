@@ -12,7 +12,7 @@
         v-model="search"
         :width="!isMobile? '300' : '100%'"
         class="search-inp"
-        placeholder="앱과 앱가이드를 검색해보세요"
+        placeholder="앱 또는 앱 가이드를 검색해보세요."
         append-inner-icon="custom:search"
         rounded="pill"
         @click:append-inner="onAppendClick"

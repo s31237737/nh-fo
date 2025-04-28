@@ -118,7 +118,8 @@
               </v-card-text>
             </v-card>
           </v-col>
-          <v-col
+          <!-- 추후 오픈시 사용 -->
+          <!-- <v-col
             lg="4"
             md="6"
             sm="12"
@@ -135,7 +136,7 @@
                 영농 지원을 위한 맞춤형 지도 서비스
               </v-card-text>
             </v-card>
-          </v-col>
+          </v-col> -->
         </v-row>
       </section>
 

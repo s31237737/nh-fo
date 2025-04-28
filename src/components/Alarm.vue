@@ -50,10 +50,10 @@
         <v-divider />
         <template v-if="isSetting">
           <v-card-text class="alarm-setting">
-            <p>알림 송신 채널 설정</p>
+            <p>알림 받기 채널 설정</p>
             <v-switch
               v-model="emailSwitch"
-              label="개인우편 송신"
+              label="개인우편으로 받기"
               class="switch-flip"
             />
           </v-card-text>
