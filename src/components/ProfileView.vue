@@ -113,14 +113,19 @@
       <v-btn-group
         variant="outlined"
       >
+        <!-- 일정관리 오픈시  readonly 삭제 div class="curtain" 삭제-->
         <v-btn
           :ripple="false"
+          readonly
         >
           <v-icon
             size="x-large"
             icon="custom:schedule"
           />
           <span>일정관리</span>
+          <div class="curtain">
+            준비중
+          </div>
         </v-btn>
 
         <v-btn
