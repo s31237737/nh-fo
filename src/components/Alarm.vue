@@ -33,7 +33,7 @@
               @click="toggleSetting"
             />
             <v-toolbar-title
-              text="알림설정"
+              text="알림 설정"
             />
           </template>
           <template v-else>
