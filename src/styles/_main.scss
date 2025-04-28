@@ -208,7 +208,6 @@
        }
       .v-btn {
         margin-top: 10px;
-        pointer-events: none;
         &--disabled {
           background-color: #c5c5c5 !important;
           opacity: .5 !important;
@@ -241,11 +240,15 @@
                 width: 100%;
                 height: 100%;
               }
+              .v-btn { 
+                margin: 10px auto 0;
+              }
             }
             &-text {
               display: block;
               margin-top: auto;
               flex: none;
+              order: 1;
               padding: 0;
               text-align: left;
               color: $gray-900;
@@ -255,9 +258,6 @@
           }
           .v-img__img--cover {
             border-radius: 25px;
-          }
-          .v-btn {
-            display: none;
           }
         }
       }

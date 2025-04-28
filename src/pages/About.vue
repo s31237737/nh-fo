@@ -305,7 +305,7 @@
           <li>컬러 활용 시, 그라데이션을 사용하지 않습니다.</li>
           <li>복잡한 배경 위에 사용하지 않습니다.</li>
         </ul>
-        <v-row class="type-block gellary">
+        <v-row class="type-block gallery">
           <v-col
             md="6"
             sm="12"
@@ -352,7 +352,7 @@
           </v-col>
         </v-row>
 
-        <v-row class="type-block gellary">
+        <v-row class="type-block gallery">
           <v-col
             md="6"
             sm="12"
