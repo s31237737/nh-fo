@@ -181,6 +181,9 @@
       name: '10육묘대장 육묘대장 육묘대장',
       avatar: '@temp_img_app_icon03.png'
     },
+    {
+    name: '기타'
+  },
   ]
   const searchApps = ref(null);
 
