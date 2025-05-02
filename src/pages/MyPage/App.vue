@@ -116,7 +116,7 @@
     >
       <div class="tit-wrap row">
         <strong class="title-5-bd">
-          직무를 위한 앱을 추천드려요
+          직무를 위한 앱을 추천드려요.
         </strong>
         <div
           v-if="!isMobile & appsRecommend.length > 3"
@@ -302,7 +302,7 @@
     >
       <div class="tit-wrap row">
         <strong class="title-5-bd">
-          직무를 위한 앱을 추천드려요
+          직무를 위한 앱을 추천드려요.
         </strong>
         <div
           v-if="!isMobile & appsRecommend.length > 3"

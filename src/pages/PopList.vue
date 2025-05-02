@@ -325,7 +325,7 @@
         <!-- dialog contents -->
         <strong class="title-5-bd">로그인 연장</strong>
         <p class="text-4">
-          로그인 상태를 유지하려면<br>로그인 연장버튼을 눌러주세요<br>
+          로그인 상태를 유지하려면<br>로그인 연장버튼을 눌러주세요.<br>
           자동으로 로그아웃됩니다.
         </p>
         <p
@@ -563,7 +563,7 @@
         <strong class="title-5-bd">직무설정 안내</strong>
         <p class="text-4">
           직무를 설정하시면<br>
-          업무에 꼭 필요한 앱을 추천해드려요
+          업무에 꼭 필요한 앱을 추천해드려요.
         </p>
         <!-- // dialog contents -->
       </v-card-text>
