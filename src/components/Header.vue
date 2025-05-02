@@ -67,7 +67,7 @@
         density="comfortable"
       /> -->
       <!-- 로그인연장 -->
-      <div
+      <!-- <div
         v-if="isDesktop"
         class="login-session"
       >
@@ -88,7 +88,7 @@
         >
           연장
         </v-btn>
-      </div>
+      </div> -->
       <!-- 검색 -->
       <v-btn
         icon="custom:search"
