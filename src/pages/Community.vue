@@ -17,7 +17,7 @@
               v-model="search"
               :width="isDesktop ? '498' : '100%'"
               class="search-inp"
-              placeholder="작성자, 앱이름, 글 내용을 검색할 수 있어요 "
+              placeholder="작성자, 앱 이름, 글 내용을 검색할 수 있어요 "
               append-inner-icon="custom:search"
               rounded="pill"
               @click:append-inner="onAppendClick"

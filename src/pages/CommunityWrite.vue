@@ -3,7 +3,7 @@
     <!-- 타이틀 -->
     <div class="tit-wrap column">
       <strong class="title-4-bd">아이디어 제안</strong>
-      <p>여러분의 아이디어가 농협에 큰 도움이 됩니다.</p>
+      <p>여러분의 아이디어가 큰 도움이 됩니다.</p>
     </div>
     <!-- form 영역 -->
     <div class="form-sheet">
