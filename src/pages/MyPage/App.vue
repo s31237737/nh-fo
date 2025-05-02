@@ -220,6 +220,7 @@
         >
           <v-select
             v-model="select01"
+            :disabled="useAppsNone.length === 0"
             :width="isDesktop ? 'auto' : '105'"
             density="compact"
             :items="['최근접속순', '가장많은 접속순', '업데이트순', '가나다순']"
