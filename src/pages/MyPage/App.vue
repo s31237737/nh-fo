@@ -573,15 +573,15 @@ const useAppsNone = ref([]);
 
 // waitingApps
 const waitingApps = ref([
-  // { value: 'waitingApps01', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
-  // { value: 'waitingApps02', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
-  // { value: 'waitingApps03', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
-  // { value: 'waitingApps04', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
-  // { value: 'waitingApps05', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
-  // { value: 'waitingApps06', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
-  // { value: 'waitingApps07', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
-  // { value: 'waitingApps08', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
-  // { value: 'waitingApps09', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
+  { value: 'waitingApps01', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon01.png' },
+  { value: 'waitingApps02', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon02.png' },
+  { value: 'waitingApps03', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon03.png' },
+  { value: 'waitingApps04', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon04.png' },
+  { value: 'waitingApps05', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon05.png' },
+  { value: 'waitingApps06', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon06.png' },
+  { value: 'waitingApps07', link:'/AppsDetail', title: 'IT 일일 점검', image: '@temp_img_app_icon07.png' },
+  { value: 'waitingApps08', link:'/AppsDetail', title: '퇴비비료 생산 및 출고관리', image: '@temp_img_app_icon08.png' },
+  { value: 'waitingApps09', link:'/AppsDetail', title: '하나로마트 식품 안전 일일 점검', image: '@temp_img_app_icon09.png' },
 ]);
 
 
