@@ -691,7 +691,7 @@ const quickLinks = ref([
     subtitle: "자주 묻는 질문을 찾아보세요.",
     title: "자주 묻는 질문",
     color: "success",
-    link: "/News/Qna"
+    link: "/News/Faq"
   },
   {
     appendIcon: "custom:app-guide",

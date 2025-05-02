@@ -67,7 +67,7 @@
         <v-text-field
           v-model="searchApps"
           class="search-inp round"
-          placeholder="앱코드, 앱 이름을 검색해주세요."
+          placeholder="앱 코드, 앱 이름을 검색해주세요."
           append-inner-icon="custom:search"
           rounded="pill"
           bg-color="white"

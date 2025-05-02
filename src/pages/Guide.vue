@@ -255,7 +255,7 @@
         <span>post</span>
       </div>
     </div>
-    
+
     <div class="d-flex flex-wrap ga-2 mt-5">
       <v-label>아이콘 사이즈</v-label>
       <v-icon
@@ -341,7 +341,7 @@
         <v-text-field
           v-model="form"
           class="search-inp round"
-          placeholder="앱코드, 앱 이름을 검색해주세요."
+          placeholder="앱 코드, 앱 이름을 검색해주세요."
           append-inner-icon="custom:search"
           rounded="pill"
           bg-color="white"

@@ -41,7 +41,7 @@
         color="primary"
         @click="alert03 = true"
       >
-        앱 사용 신청 완료
+        사용 신청 완료
       </v-btn>
       <v-btn
         size="small"
@@ -274,7 +274,7 @@
     </v-card>
   </v-dialog>
 
-  <!-- 앱 사용 신청 완료 -->
+  <!-- 사용 신청 완료 -->
   <v-dialog
     v-model="alert03"
     class="popup-sm"
@@ -290,7 +290,7 @@
       <v-card-text>
         <!-- dialog contents -->
         <v-icon icon="custom:complete" />
-        <strong class="title-5-bd">앱 사용 신청 완료</strong>
+        <strong class="title-5-bd">사용 신청 완료</strong>
         <p class="text-4">
           [앱이름] 사용 신청이 완료되었습니다.
         </p>
@@ -325,7 +325,7 @@
         <!-- dialog contents -->
         <strong class="title-5-bd">로그인 연장</strong>
         <p class="text-4">
-          로그인 연장을 원하지 않으실 경우<br>
+          로그인 상태를 유지하려면<br>로그인 연장버튼을 눌러주세요<br>
           자동으로 로그아웃됩니다.
         </p>
         <p
@@ -441,7 +441,7 @@
         <!-- dialog contents -->
         <template v-if="!isSave">
           <v-icon icon="custom:warning" />
-          <strong class="title-5-bd">변경사항 저장</strong>
+          <strong class="title-5-bd">저장</strong>
           <p class="text-4">
             변경사항을 저장하시겠습니까?
           </p>
@@ -621,7 +621,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-  
+
   <!-- 신고버튼 다시 누르면 -->
   <v-dialog
     v-model="ReportComplete2"

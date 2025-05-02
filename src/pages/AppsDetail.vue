@@ -299,18 +299,23 @@
         class="apps-banner-wrap"
         :class="{ 'clickable': banner.link }"
       >
-        <v-img
-          role="banner"
-          class="apps-banner"
-          :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
-          @click="bannerClick(banner)"
+        <router-link
+          to="/News/Guide"
+          target="_blank"
         >
-          <div class="description">
-            <p>
-              {{ banner.description }}
-            </p>
-          </div>
-        </v-img>
+          <v-img
+            role="banner"
+            class="apps-banner"
+            :style="{ backgroundImage: 'url('+getImageUrl(banner.imageUrl)+')' }"
+            :to="banner.link"
+          >
+            <div class="description">
+              <p>
+                {{ banner.description }}
+              </p>
+            </div>
+          </v-img>
+        </router-link>
       </div>
     </section>
 
@@ -729,17 +734,9 @@ const subTabItemTab1 = ref([
 /* 컨텐츠 배너 */
 const banner = ref({
   imageUrl: "img_apps_banner_03.png",
-  description: "앱 사용 가이드 앱 열기",
+  description: "앱 사용 가이드 열기",
   link: "/AppGuideDetail",
 });
-const bannerClick = (banner) => {
-  if (!banner.link) {
-    return; // link 없으면 아무 동작 X
-  } else {
-    router.push(banner.link);
-  }
-};
-
 
 /* apps recommand */
 const scrollContainer = ref(null);

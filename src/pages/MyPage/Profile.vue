@@ -109,7 +109,7 @@
         <!-- dialog contents -->
         <template v-if="!isSave">
           <v-icon icon="custom:warning" />
-          <strong class="title-5-bd">변경사항 저장</strong>
+          <strong class="title-5-bd">저장</strong>
           <p class="text-4">
             변경사항을 저장하시겠습니까?
           </p>
